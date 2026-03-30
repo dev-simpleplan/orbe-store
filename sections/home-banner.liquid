@@ -1,8 +1,4 @@
 <style>
-  :root { --cream: #f5f0e8; --gold: #c9a96e; --dark: #0a0a08; }
-
-  body { background: var(--dark); overflow-x: hidden; }
-
   #orbe-scroll-driver {
     height: 500vh;
     position: relative;
@@ -36,7 +32,7 @@
   #orbe-o-wrap {
     position: absolute;
     width: 70vw;
-    max-width: 800px;
+    /* max-width: 800px; */
     aspect-ratio: 520 / 527;
     z-index: 2;
     will-change: transform;
@@ -171,7 +167,7 @@
 
     <!-- Phase 3: fullscreen video behind everything -->
     <video id="orbe-fullvideo" autoplay muted loop playsinline>
-      <source src="{{ 'sample-video.mp4' | asset_url }}" type="video/mp4">
+      <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/51deb0e0d9964c4ba1505d2174f44e82.mp4'}}" type="video/mp4">
     </video>
 
     <!-- O shape wrapper — GSAP animates scale + y on this -->
@@ -179,7 +175,7 @@
 
       <!-- Real video clipped to O shape via CSS clip-path -->
       <video id="orbe-masked-video" autoplay muted loop playsinline>
-        <source src="{{ 'sample-video.mp4' | asset_url }}" type="video/mp4">
+        <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/51deb0e0d9964c4ba1505d2174f44e82.mp4'}}" type="video/mp4">
       </video>
 
       <!-- SVG outline on top of video for crispness -->
@@ -238,7 +234,7 @@
     /* ── 4. Set initial state — half O visible at bottom, slightly scaled up ── */
     gsap.set(oWrap, {
       y: '55%',       /* pushed down — bottom half peeks up */
-      scale: 1.2,
+      scale: 1.5,
       transformOrigin: 'center center',
     });
 
