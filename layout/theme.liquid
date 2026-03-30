@@ -31,7 +31,9 @@
 
     {% comment %} CSS CDN  {% endcomment %}
      <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
-
+     <!-- GSAP core + ScrollTrigger (CDN — replace with your pro build if needed) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     {{ content_for_header }}
   </head>
 
@@ -43,6 +45,7 @@
     {% sections 'footer-group' %}
 
     {% comment %} Script CDN  {% endcomment %}
-     <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js" defer></script> 
+     <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script> 
+
   </body>
 </html>

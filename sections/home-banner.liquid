@@ -1,7 +1,303 @@
-<section class="home-banner">
-    <div class="container">
-        <div class="home-banner-in">
-            
-        </div>
+<style>
+  :root { --cream: #f5f0e8; --gold: #c9a96e; --dark: #0a0a08; }
+
+  body { background: var(--dark); overflow-x: hidden; }
+
+  #orbe-scroll-driver {
+    height: 500vh;
+    position: relative;
+  }
+
+  #orbe-stage {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Fullscreen video — shown at end */
+  #orbe-fullvideo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* O wrapper — GSAP animates this */
+  #orbe-o-wrap {
+    position: absolute;
+    width: 70vw;
+    max-width: 800px;
+    aspect-ratio: 520 / 527;
+    z-index: 2;
+    will-change: transform;
+  }
+
+  /* 
+    THE VIDEO MASKING TRICK:
+    - Real <video> sits inside #orbe-o-wrap, fills it completely
+    - CSS clip-path using inline SVG path reference masks it to the O shape
+    - This works in all modern browsers, no canvas needed
+  */
+  #orbe-masked-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* clip-path references the inline SVG clipPath defined below */
+    clip-path: url(#orbe-clip-path);
+    -webkit-clip-path: url(#orbe-clip-path);
+  }
+
+  /* SVG overlay — just for the stroke outline on top of video */
+  #orbe-o-outline {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  /* Hero copy */
+  #orbe-copy {
+    position: absolute;
+    bottom: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 6;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  #orbe-copy h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(24px, 3.2vw, 50px);
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  #orbe-copy p {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.55);
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  #orbe-copy .orbe-btn {
+    display: inline-block;
+    padding: 11px 28px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    pointer-events: all;
+  }
+
+  /* Scroll hint */
+  #orbe-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  #orbe-hint span {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    font-family: 'Georgia', serif;
+  }
+
+  #orbe-hint .hint-line {
+    width: 1px;
+    height: 32px;
+    background: rgba(245,240,232,0.2);
+    animation: hintAnim 1.8s ease-in-out infinite;
+  }
+
+  @keyframes hintAnim {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    49%  { transform: scaleY(1); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+</style>
+
+<!-- 
+  INLINE SVG CLIP PATH
+  Must be in the document body (not inside another SVG's defs)
+  so clip-path: url(#orbe-clip-path) can reference it from CSS
+-->
+<svg width="0" height="0" style="position:absolute;overflow:hidden;">
+  <defs>
+    <clipPath id="orbe-clip-path" clipPathUnits="objectBoundingBox"
+      transform="scale(0.001923077 0.001898)">
+      <path d="M519.818 262.138C519.818 262.138 446.087 262.138 428.189 262.138C430.912 222.273 429.94 184.547 419.434 151.099C419.434 150.321 419.045 149.738 418.851 148.96C399.202 87.1201 358.932 41.2265 306.601 28.9752C305.433 28.5863 304.266 28.3918 302.904 28.1973C301.348 27.8084 299.597 27.4195 297.846 27.225C295.901 27.0306 294.15 26.6416 292.204 26.6416C290.454 26.2527 288.703 26.0582 287.146 26.0582C227.422 21.78 169.06 61.4508 130.735 126.013C129.957 127.569 128.984 128.93 128.206 130.486C110.503 161.6 97.2742 198.354 90.8543 238.608C89.4925 246.775 87.158 254.165 86.5744 262.138L0.976269 262.721C-0.969143 226.357 2.5326 195.826 14.0105 163.156C25.683 130.291 42.4136 102.094 64.0076 78.1747C85.7962 54.2556 112.448 35.1981 144.159 21.1966C175.869 7.00072 210.108 0 246.682 0C283.256 0 320.024 6.22287 353.096 20.4188C386.168 34.4202 412.431 54.2556 436.554 77.9802C460.677 101.705 480.131 129.124 495.111 161.794C510.091 194.659 518.067 225.968 519.818 262.138Z"/>
+      <path d="M519.814 285.445C518.258 310.726 513.783 335.228 505.613 358.758C494.135 392.595 477.404 421.765 455.81 446.267C434.216 470.77 407.564 490.411 375.854 504.801C344.143 519.386 309.904 526.581 273.136 526.581C236.368 526.581 201.934 519.386 168.862 504.801C135.79 490.411 107.192 470.77 83.0691 446.267C58.946 421.765 39.4919 392.595 24.5122 358.953C14.007 335.423 4.08537 310.92 0 285.445H86.5708C86.5708 294.78 86.9599 303.919 87.7381 312.865V314.421C96.4925 409.903 148.046 485.549 221.193 497.217C281.89 507.135 342.393 469.992 383.246 406.597C383.441 406.208 383.83 405.819 384.024 405.43C384.024 405.235 384.024 404.846 384.414 404.652C405.424 371.399 420.793 330.756 427.991 285.834V285.445H519.814Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- MAIN SECTION -->
+<div id="orbe-scroll-driver">
+  <div id="orbe-stage">
+
+    <!-- Phase 3: fullscreen video behind everything -->
+    <video id="orbe-fullvideo" autoplay muted loop playsinline>
+      <source src="{{ 'sample-video.mp4' | asset_url }}" type="video/mp4">
+    </video>
+
+    <!-- O shape wrapper — GSAP animates scale + y on this -->
+    <div id="orbe-o-wrap">
+
+      <!-- Real video clipped to O shape via CSS clip-path -->
+      <video id="orbe-masked-video" autoplay muted loop playsinline>
+        <source src="{{ 'sample-video.mp4' | asset_url }}" type="video/mp4">
+      </video>
+
+      <!-- SVG outline on top of video for crispness -->
+      <svg id="orbe-o-outline" viewBox="0 0 520 527" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"
+          d="M519.818 262.138C519.818 262.138 446.087 262.138 428.189 262.138C430.912 222.273 429.94 184.547 419.434 151.099C419.434 150.321 419.045 149.738 418.851 148.96C399.202 87.1201 358.932 41.2265 306.601 28.9752C305.433 28.5863 304.266 28.3918 302.904 28.1973C301.348 27.8084 299.597 27.4195 297.846 27.225C295.901 27.0306 294.15 26.6416 292.204 26.6416C290.454 26.2527 288.703 26.0582 287.146 26.0582C227.422 21.78 169.06 61.4508 130.735 126.013C129.957 127.569 128.984 128.93 128.206 130.486C110.503 161.6 97.2742 198.354 90.8543 238.608C89.4925 246.775 87.158 254.165 86.5744 262.138L0.976269 262.721C-0.969143 226.357 2.5326 195.826 14.0105 163.156C25.683 130.291 42.4136 102.094 64.0076 78.1747C85.7962 54.2556 112.448 35.1981 144.159 21.1966C175.869 7.00072 210.108 0 246.682 0C283.256 0 320.024 6.22287 353.096 20.4188C386.168 34.4202 412.431 54.2556 436.554 77.9802C460.677 101.705 480.131 129.124 495.111 161.794C510.091 194.659 518.067 225.968 519.818 262.138Z"/>
+        <path fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"
+          d="M519.814 285.445C518.258 310.726 513.783 335.228 505.613 358.758C494.135 392.595 477.404 421.765 455.81 446.267C434.216 470.77 407.564 490.411 375.854 504.801C344.143 519.386 309.904 526.581 273.136 526.581C236.368 526.581 201.934 519.386 168.862 504.801C135.79 490.411 107.192 470.77 83.0691 446.267C58.946 421.765 39.4919 392.595 24.5122 358.953C14.007 335.423 4.08537 310.92 0 285.445H86.5708C86.5708 294.78 86.9599 303.919 87.7381 312.865V314.421C96.4925 409.903 148.046 485.549 221.193 497.217C281.89 507.135 342.393 469.992 383.246 406.597C383.441 406.208 383.83 405.819 384.024 405.43C384.024 405.235 384.024 404.846 384.414 404.652C405.424 371.399 420.793 330.756 427.991 285.834V285.445H519.814Z"/>
+      </svg>
+
     </div>
-</section>
+
+    <!-- Hero copy -->
+    <div id="orbe-copy">
+      <h1>The Beauty That<br>Simplicity Creates</h1>
+      <p>Guiding you toward choices that honour your strength,<br>your rhythm, your becoming.</p>
+      <a href="#" class="orbe-btn">Start Your Journey</a>
+    </div>
+
+    <!-- Scroll hint -->
+    <div id="orbe-hint">
+      <span>Scroll</span>
+      <div class="hint-line"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  function init() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof Lenis === 'undefined') {
+      setTimeout(init, 100);
+      return;
+    }
+
+    /* ── 1. Register plugin FIRST ── */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ── 2. Lenis ── */
+    const lenis = new Lenis({
+      duration: 1.6,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    /* ── 3. Refs ── */
+    const oWrap     = document.getElementById('orbe-o-wrap');
+    const fullVideo = document.getElementById('orbe-fullvideo');
+    const copy      = document.getElementById('orbe-copy');
+    const hint      = document.getElementById('orbe-hint');
+
+    /* ── 4. Set initial state — half O visible at bottom, slightly scaled up ── */
+    gsap.set(oWrap, {
+      y: '55%',       /* pushed down — bottom half peeks up */
+      scale: 1.2,
+      transformOrigin: 'center center',
+    });
+
+    /* ── 5. Main scroll timeline ── */
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#orbe-scroll-driver',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 2,
+      }
+    });
+
+    /* Phase 1 (0%→40%): O rises to center + zooms out to normal size */
+    tl.to(oWrap, {
+      y: '0%',
+      scale: 1,
+      ease: 'power2.inOut',
+      duration: 0.40,
+    }, 0);
+
+    /* Phase 2 (30%→50%): hero copy fades in */
+    tl.fromTo(copy,
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, ease: 'power2.out', duration: 0.18 },
+      0.30
+    );
+
+    /* Phase 2b (52%→60%): hero copy fades out before expansion */
+    tl.to(copy, {
+      opacity: 0,
+      y: -10,
+      ease: 'power2.in',
+      duration: 0.08,
+    }, 0.52);
+
+    /* Phase 3 (55%→100%): O expands with scroll — ease:none = 1:1 with scroll */
+    tl.to(oWrap, {
+      scale: 12,
+      ease: 'none',
+      duration: 0.45,
+    }, 0.55);
+
+    /* Phase 3b (72%→94%): fullscreen video fades in as O fills screen */
+    tl.to(fullVideo, {
+      opacity: 1,
+      ease: 'power1.inOut',
+      duration: 0.22,
+    }, 0.72);
+
+    /* Scroll hint disappears on first scroll */
+    ScrollTrigger.create({
+      trigger: '#orbe-scroll-driver',
+      start: 'top+=50 top',
+      onEnter:     () => gsap.to(hint, { opacity: 0, duration: 0.4 }),
+      onLeaveBack: () => gsap.to(hint, { opacity: 1, duration: 0.4 }),
+    });
+  }
+
+  init();
+})();
+</script>
