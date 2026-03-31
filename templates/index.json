@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "home-banner",
+      "type": "home-banner-test",
       "settings": {}
     }
   },
