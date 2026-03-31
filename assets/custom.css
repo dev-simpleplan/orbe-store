@@ -261,3 +261,85 @@
   #play-btn:hover { border-color: var(--cream); }
   #play-btn svg { width: 16px; height: 16px; fill: var(--cream); margin-left: 2px; }
  
+
+
+
+
+
+
+/* --------------------------------------------------------- HEADER --------------------------------------------------------- */
+.header-desktop-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* key line */
+}
+
+/* Left & right menus */
+.header-desktop-inner .left ul,
+.header-desktop-inner .right ul {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* control spacing between items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dropdown */
+.header-desktop-inner .right ul li {
+    position: relative;
+}
+
+.header-desktop-inner .right ul li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    min-width: 120px;
+}
+
+.header-desktop-inner .right ul li:hover ul {
+    display: flex;
+}
+  /* Hide hamburger on desktop */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile nav hidden */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    height: 100vh;
+    background: #fff;
+    transition: 0.3s ease;
+    padding: 20px;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .left,
+    .right {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+
+
+
+
