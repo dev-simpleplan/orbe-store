@@ -12,9 +12,14 @@
     "main": {
       "type": "home-banner",
       "settings": {}
+    },
+    "at-orbe": {
+      "type": "at-orbe",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "at-orbe"
   ]
 }
