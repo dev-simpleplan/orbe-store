@@ -1,51 +1,53 @@
 <!doctype html>
 <html lang="{{ request.locale.iso_code }}">
-  <head>
-    {% # Inlined CSS Variables %}
-    {% render 'css-variables' %}
 
-    {% comment %} Fav icon  {% endcomment %}
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+<head>
+  {% # Inlined CSS Variables %}
+  {% render 'css-variables' %}
 
-    {% comment %}
-      Font preloading:
-      1. Preconnect to font CDN for faster connection
-      2. Preload only the critical font variant (base weight)
-      3. Additional variants load on-demand via @font-face
-    {% endcomment %}
-    {% unless settings.type_primary_font.system? %}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  {% comment %} Fav icon {% endcomment %}
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon_io/site.webmanifest">
 
-      {% comment %} Preload the base font variant for initial page render {% endcomment %}
-      {{ settings.type_primary_font | font_url | preload_tag: as: 'font', crossorigin: 'anonymous' }}
-    {% endunless %}
+  {% comment %}
+  Font preloading:
+  1. Preconnect to font CDN for faster connection
+  2. Preload only the critical font variant (base weight)
+  3. Additional variants load on-demand via @font-face
+  {% endcomment %}
+  {% unless settings.type_primary_font.system? %}
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 
-    {% # Load and preload the critical CSS %}
-    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+  {% comment %} Preload the base font variant for initial page render {% endcomment %}
+  {{ settings.type_primary_font | font_url | preload_tag: as: 'font', crossorigin: 'anonymous' }}
+  {% endunless %}
 
-    {% # Social, title, etc. %}
-    {% render 'meta-tags' %}
+  {% # Load and preload the critical CSS %}
+  {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
 
-    {% comment %} CSS CDN  {% endcomment %}
-     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
-     <!-- GSAP core + ScrollTrigger (CDN — replace with your pro build if needed) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    {{ content_for_header }}
-  </head>
+  {% # Social, title, etc. %}
+  {% render 'meta-tags' %}
 
-  <body>
-    {% sections 'header-group' %}
+  {% comment %} CSS CDN {% endcomment %}
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
 
-    {{ content_for_layout }}
+  {{ content_for_header }}
+</head>
 
-    {% sections 'footer-group' %}
+<body>
+  {% section 'header' %}
 
-    {% comment %} Script CDN  {% endcomment %}
-     <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script> 
+  {{ content_for_layout }}
 
-  </body>
+  {% section 'footer' %}
+
+  {% comment %} Script CDN {% endcomment %}
+  <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+</body>
+
 </html>
