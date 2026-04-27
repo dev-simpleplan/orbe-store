@@ -1,0 +1,43 @@
+{% assign spacer_height = section.settings.spacer_height %}
+{% assign spacer_height_tab = spacer_height | times: 0.6666 | round %}
+{% assign spacer_height_mobile = spacer_height | times: 0.4444 | round %}
+
+<div class="spacer-{{ section.id }}"></div>
+
+{%- style -%}
+  .spacer-{{ section.id }} {
+    padding: {{ spacer_height }}px 0;
+  }
+  @media(max-width: 991px) {
+    .spacer-{{ section.id }} {
+      padding: {{ spacer_height_tab }}px 0;
+    }
+  }
+  @media(max-width: 767px) {
+    .spacer-{{ section.id }} {
+      padding: {{ spacer_height_mobile }}px 0;
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Spacer",
+  "settings": [
+    {
+      "type": "range",
+      "id": "spacer_height",
+      "label": "Spacer Height (Desktop)",
+      "default": 180,
+      "min": 50,
+      "max": 180,
+      "step": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Spacer"
+    }
+  ]
+}
+{% endschema %}

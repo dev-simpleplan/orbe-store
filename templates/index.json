@@ -13,13 +13,63 @@
       "type": "home-banner",
       "settings": {}
     },
+    "spacer1": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
     "at-orbe": {
       "type": "at-orbe",
       "settings": {}
-    }
+    },
+    "spacer2": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
+    "at-single": {
+      "type": "at-single",
+      "settings": {}
+    },
+    "spacer3": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
+    "ready-formula": {
+      "type": "ready-formula",
+      "settings": {}
+    },
+    "spacer4": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
+    "join-community": {
+      "type": "join-community",
+      "settings": {}
+    },
+    "spacer5": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
   },
   "order": [
     "main",
-    "at-orbe"
+    "spacer1",
+    "at-orbe",
+    "spacer2",
+    "at-single",
+    "spacer3",
+    "ready-formula",
+    "spacer4",
+    "join-community",
+    "spacer5",
   ]
 }

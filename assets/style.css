@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-Thin.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-Thin.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-Thin.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -11,8 +11,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-ThinItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-ThinItalic.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-ThinItalic.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-ThinItalic.woff") format("woff");
   font-weight: 100;
   font-style: italic;
   font-display: swap;
@@ -21,8 +21,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-Light.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-Light.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-Light.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -31,8 +31,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-LightItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-LightItalic.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-LightItalic.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-LightItalic.woff") format("woff");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -40,8 +40,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-Regular.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-Regular.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-Regular.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -50,8 +50,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-RegularItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-RegularItalic.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-RegularItalic.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-RegularItalic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -59,8 +59,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-Medium.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-Medium.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-Medium.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -69,8 +69,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-MediumItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-MediumItalic.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-MediumItalic.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-MediumItalic.woff") format("woff");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -79,8 +79,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-SemiBold.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-SemiBold.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-SemiBold.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -89,8 +89,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-SemiBoldItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-SemiBoldItalic.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-SemiBoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-SemiBoldItalic.woff") format("woff");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -98,8 +98,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-Bold.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-Bold.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-Bold.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -108,8 +108,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-BoldItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-BoldItalic.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-BoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-BoldItalic.woff") format("woff");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -118,8 +118,8 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-ExtraBold.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-ExtraBold.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-ExtraBold.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -128,52 +128,165 @@
 @font-face {
   font-family: "Tobias TRIAL";
   src:
-    url("assets/fonts/TobiasTRIAL-ExtraBoldItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-ExtraBoldItalic.woff") format("woff");
+    url("../assets/fonts/TobiasTRIAL-ExtraBoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/TobiasTRIAL-ExtraBoldItalic.woff") format("woff");
   font-weight: 800;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Tobias TRIAL";
-  src:
-    url("assets/fonts/TobiasTRIAL-Heavy.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-Heavy.woff") format("woff");
-  font-weight: 900;
+  font-family: 'Aspekta';
   font-style: normal;
+  font-weight: 50;
   font-display: swap;
+  src: url('../assets/fonts/Aspekta-50.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "Tobias TRIAL";
-  src:
-    url("assets/fonts/TobiasTRIAL-HeavyItalic.woff2") format("woff2"),
-    url("assets/fonts/TobiasTRIAL-HeavyItalic.woff") format("woff");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Aspekta Variable";
-  font-weight: 100 900;
-  font-display: swap;
+  font-family: 'Aspekta';
   font-style: normal;
-  src:
-    url("assets/fonts/AspektaVF.woff2") format("woff2"),
-    url("assets/fonts/AspektaVF.woff1") format("woff1");
+  font-weight: 100;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-100.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 150;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-150.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-200.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 250;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-250.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 350;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-350.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 450;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-450.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 550;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-550.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 650;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-650.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 750;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-750.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-800.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 850;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-850.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aspekta';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../assets/fonts/Aspekta-900.woff2') format('woff2');
+}
+
 :root {
   --black: #1a1a1a;
   --gray: #5d5d5d;
   --white: #ffffff;
   --golden: linear-gradient(180deg, #b98846 -10.88%, #fffab6 100%);
-
-  --light-gray: #f5f5f5;
-  --purple: #a863fe;
-  --yellow: #f8da00;
-  --beige: #c3c3c3;
-  --aspekta: "Aspekta Variable";
+  --light-gray: #f2f3f5;
+  --aspekta: "Aspekta";
+  --tobias: "Tobias TRIAL";
 }
 
 /* General CSS */
@@ -184,12 +297,12 @@
   box-sizing: border-box;
   font-synthesis: none !important;
 }
-
-body {
+body,
+html {
   font-family: var(--instrument);
   font-weight: 400;
   color: var(--gray);
-  background-color: #fafaf5;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
   -webkit-text-size-adjust: none;
@@ -199,65 +312,43 @@ body {
   touch-action: manipulation;
 }
 
-.word {
-  display: inline-block;
-}
-
-.parallax-section {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
-.parallax {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  min-height: 120%;
-  object-fit: cover;
-  z-index: -1;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--object);
+  font-family: var(--tobias);
   color: var(--black);
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 99%;
+  letter-spacing: -0.05em;
 }
 
 h1 {
-  font-size: clamp(32px, 6vw, 64px);
-  font-weight: 400;
-  line-height: 102%;
-  letter-spacing: -0.02em;
+  font-size: clamp(32px, 6vw, 62px);
 }
 
 h2 {
   font-size: clamp(28px, 6vw, 52px);
-  font-weight: 500;
-  line-height: 102%;
-  letter-spacing: -0.02em;
+}
+h3 {
+  font-size: clamp(24px, 6vw, 42px);
 }
 
 p {
   color: var(--gray);
-  line-height: 127%;
+  line-height: 112%;
   letter-spacing: 0em;
-  font-family: var(--instrument);
-  font-size: 16px;
-  font-weight: 400;
+  font-family: var(--aspekta);
+  font-size: 14px;
+  font-weight: 450;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  font-weight: 400;
+  cursor: pointer;
 }
 
 .img {
@@ -274,27 +365,15 @@ a {
 }
 
 .container {
-  padding: 0px 65px;
+  padding: 0px 60px;
 }
 
 .container-right {
-  padding-right: 65px;
+  padding-right: 60px;
 }
 
 .container-left {
-  padding-left: 65px;
-}
-
-.eyebrow-header {
-  font-size: 14px;
-  letter-spacing: 2px;
-  font-family: var(--instrument);
-  line-height: 150%;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--purple);
-  text-align: center;
-  margin-bottom: 20px;
+  padding-left: 60px;
 }
 
 .text-left {
@@ -309,7 +388,6 @@ a {
   display: block;
 }
 .primary-btn {
-  position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #e3b26f -10.88%, #fffab6 100%);
   border-radius: 50px;
@@ -319,17 +397,35 @@ a {
   line-height: 100%;
   text-align: center;
   font-weight: 300;
-  padding: 10px 14px;
+  padding: 15px 30px;
   cursor: pointer;
   color: #6a5635;
   display: inline-block;
   width: fit-content;
-  z-index: 1;
+  transition: .4s ease all;
+}
+.primary-btn:hover{
+  background: linear-gradient(180deg, #fffab6 -10.88%, #e3b26f 100%);
+} 
+.spacer {
+  height: 360px;
+}
+
+.bx-wrapper {
+    max-width: 100% !important;
+    margin-bottom: 0px !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: none !important;
+}
+
+.bx-viewport {
+    height: auto !important;
 }
 
 @media screen and (max-width: 1200px) {
   .spacer {
-    height: 100px;
+    height: 240px;
   }
   .container {
     padding: 0px 40px;
@@ -341,10 +437,7 @@ a {
 
 @media screen and (max-width: 991px) {
   .spacer {
-    height: 50px;
-  }
-  .heading {
-    margin-bottom: 40px;
+    height: 140px;
   }
   .container {
     padding: 0px 30px;
@@ -353,24 +446,18 @@ a {
 
 @media screen and (max-width: 767px) {
   .container {
-    padding: 0px 15px;
+    padding: 0px 20px;
+  }
+  .spacer {
+    height: 100px;
   }
   .container-left {
-    padding: 15px;
-  }
-  .heading {
-    margin-bottom: 30px;
-  }
-  .heading p {
-    font-size: 14px;
+    padding: 20px;
   }
   .d-sm {
     display: block;
   }
   .d-lg {
     display: none;
-  }
-  .eyebrow-header {
-    font-size: 12px;
   }
 }
