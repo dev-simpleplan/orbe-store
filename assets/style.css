@@ -282,9 +282,16 @@
 @font-face {
   font-family: "Favorit";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-display: swap;
   src: url("../assets/fonts/FavoritBookC.woff") format("woff2");
+}
+@font-face {
+  font-family: "Favorit";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../assets/fonts/favorit-light.woff2") format("woff2");
 }
 :root {
   --black: #1a1a1a;
@@ -429,6 +436,15 @@ a {
 
 .bx-viewport {
   height: auto !important;
+}
+.owl-nav.disabled{
+  display: none !important;
+}
+.next-btn.disabled{
+  opacity: .5;
+}
+.prev-btn.disabled{
+  opacity: .5;
 }
 
 @media screen and (max-width: 1200px) {
