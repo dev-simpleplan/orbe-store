@@ -59,6 +59,16 @@
         "spacer_height": 180
       }
     },
+    "blogs-feature": {
+      "type": "blogs-feature",
+      "settings": {}
+    },
+    "spacer6": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
   },
   "order": [
     "main",
@@ -71,5 +81,7 @@
     "spacer4",
     "join-community",
     "spacer5",
+    "blogs-feature",
+     "spacer6"
   ]
 }
