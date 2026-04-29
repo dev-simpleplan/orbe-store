@@ -69,6 +69,62 @@
         "spacer_height": 180
       }
     },
+    "faqs-home": {
+      "type": "faqs-home",
+      "blocks": {
+        "faq_item_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why isn't food alone always enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm.",
+            "button_text": "Show More",
+            "button_link": "#"
+          }
+        },
+        "faq_item_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why isn't food alone always enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm.",
+            "button_text": "Show More",
+            "button_link": "#"
+          }
+        },
+        "faq_item_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why isn't food alone always enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm.",
+            "button_text": "Show More",
+            "button_link": "#"
+          }
+        },
+        "faq_item_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why isn't food alone always enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm.",
+            "button_text": "Show More",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_1",
+        "faq_item_2",
+        "faq_item_3",
+        "faq_item_4"
+      ],
+      "settings": {
+        "heading": "FAQs"
+      }
+    },
+    "spacer7": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
   },
   "order": [
     "main",
@@ -79,9 +135,11 @@
     "spacer3",
     "ready-formula",
     "spacer4",
-    "join-community",
+    "faqs-home",
     "spacer5",
+    "join-community",
+    "spacer6",
     "blogs-feature",
-     "spacer6"
+    "spacer7"
   ]
 }
