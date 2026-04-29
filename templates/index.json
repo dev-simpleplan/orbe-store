@@ -49,12 +49,16 @@
         "spacer_height": 180
       }
     },
-    "sliding-image-text":{
+    "sliding-image-text": {
       "type": "sliding-image-text",
       "settings": {}
     },
-    "why-orbe":{
-      "type":"why-orbe",
+    "see-through": {
+      "type": "see-through",
+      "settings": {}
+    },
+    "why-orbe": {
+      "type": "why-orbe",
       "settings": {
         "spacer_height": 180
       }
@@ -150,6 +154,7 @@
     "ready-formula",
     "spacer4",
     "sliding-image-text",
+    "see-through",
     "why-orbe",
     "faqs-home",
     "spacer5",

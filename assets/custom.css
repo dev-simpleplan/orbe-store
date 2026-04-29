@@ -695,7 +695,7 @@ justify-content: end;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.see-through-in .st-stuct-3{
+.st-stuct-3{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
