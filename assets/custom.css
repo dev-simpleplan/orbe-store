@@ -687,15 +687,15 @@ justify-content: end;
   height: 100%;
 }
 /* Sliding Image Text */
-.see-through-in .st-stuct-1{
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 2fr;
-}
-.see-through-in .st-stuct-2{
+.see-through-in .st-struct-1{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.st-stuct-3{
+.see-through-in .st-struct-2{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+}
+.st-struct-3{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
