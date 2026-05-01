@@ -107,6 +107,13 @@
       ],
       "settings": {}
     },
+    "spacer_wkCUQz": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
     "ready-formula": {
       "type": "ready-formula",
       "settings": {}
@@ -249,6 +256,7 @@
     "at-single",
     "spacer3",
     "sliding-image",
+    "spacer_wkCUQz",
     "ready-formula",
     "spacer_LNTQEE",
     "rotating-circle",
