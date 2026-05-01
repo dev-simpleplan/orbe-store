@@ -1,56 +1,74 @@
 <footer>
-  <div class="footer__copyright">
-    &copy;
-    {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
-  </div>
+  <div class="footer">
+    <div class="container-left">
+      <div class="footer-in">
+        <div class="left">
+          <div class="footer-logo">
+            {% if section.settings.footer_logo != blank %}
+              <img src="{{ section.settings.footer_logo | img_url: 'master' }}" alt="{{ section.settings.footer_logo.alt | default: shop.name }}" class="icon">
+            {% else %}
+              <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_1707486900.svg?v=1777620507" alt="Footer Logo" class="icon">
+            {% endif %}
+          </div>
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+          <div class="footer-nav">
+            <div class="footer-nav-top">
+              {% assign footer_menu = linklists['footer'] %}
+              {% for link in footer_menu.links %}
+                  <div>
+                    <p>{{ link.title }}</p>
+                    {% if link.links.size > 0 %}
+                      <ul>
+                        {% for child_link in link.links %}
+                          <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </div>
+              {% endfor %}
+               <div class="subscribe-news">
+                <p>Subscribe to Newsletter</p>
+                <p>You'll get an email once a month. We'll never share it.</p>
+                <div class="subscribe-news-form">
+                  <form method="post" action="/contact#footer-newsletter">
+                    <input type="hidden" name="form_type" value="customer">
+                    <input type="hidden" name="utf8" value="✓">
+                    <input type="email" name="contact[email]" placeholder="Enter your email">
+                    <input type="submit" value="Subscribe">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <div class="footer__payment">
-    {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
-      {% endfor %}
-    {% endif %}
+        <div class="right">
+          <div class="footer-image">
+            {% if section.settings.footer_image != blank %}
+              <img src="{{ section.settings.footer_image | img_url: 'master' }}" alt="{{ section.settings.footer_image.alt | default: 'Footer Image' }}" class="icon">
+            {% else %}
+              <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Frame_2072749374.svg?v=1777621017" alt="Image" class="icon">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 
-{% stylesheet %}
-  footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  footer a {
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  footer .footer__links,
-  footer .footer__payment {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
-  "name": "t:general.footer",
+  "name": "Footer",
   "settings": [
     {
-      "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer Logo"
     },
     {
-      "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
-      "default": true
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Footer Image"
     }
   ]
 }

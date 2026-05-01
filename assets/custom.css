@@ -121,6 +121,181 @@ header li {
 }
 /* Header */
 
+/* Footer */
+.footer {
+  background-color: #1a1a1a;
+}
+.footer-in {
+  display: flex;
+}
+.footer-in .left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.footer-in .right {
+  width: 50%;
+  overflow: hidden;
+}
+.footer-logo {
+  max-width: 496px;
+  width: 100%;
+}
+.footer-nav ul li {
+  list-style: none;
+}
+.footer-nav p:not(.subscribe-news p) {
+  font-family: var(--favorit);
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+.footer-nav a {
+  font-family: var(--favorit);
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0em;
+}
+.footer-nav-top {
+display: flex;
+gap: 80px;
+flex-wrap: wrap;
+}
+.footer .subscribe-news {
+  margin-top: auto;
+}
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.footer-nav > div > div:not(.subscribe-news) {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-nav > div > div ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.subscribe-news p {
+  font-family: var(--aspekta);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  line-height: 150%;
+  color: #fff;
+}
+.subscribe-news-form {
+  margin-top: 20px;
+}
+.subscribe-news-form form {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 100px;
+  padding: 6px 6px 6px 20px;
+  background-color: color-mix(in srgb, #bbbbbc 12%, transparent);
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 3%, transparent),
+    inset 1.8px 3px 0px -2px color-mix(in srgb, #fff 27%, transparent),
+    inset -2px -2px 0px -2px color-mix(in srgb, #fff 24%, transparent),
+    inset -3px -8px 1px -6px color-mix(in srgb, #fff 18%, transparent),
+    inset -0.3px -1px 4px 0px color-mix(in srgb, #000 24%, transparent),
+    inset -1.5px 2.5px 0px -2px color-mix(in srgb, #000 40%, transparent),
+    inset 0px 3px 4px -2px color-mix(in srgb, #000 40%, transparent),
+    inset 2px -6.5px 1px -4px color-mix(in srgb, #000 20%, transparent),
+    0px 1px 5px 0px color-mix(in srgb, #000 20%, transparent),
+    0px 6px 16px 0px color-mix(in srgb, #000 16%, transparent);
+}
+
+.subscribe-news-form form input[type="email"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.subscribe-news-form form input[type="email"]::placeholder {
+  color: #fff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.subscribe-news-form form input[type="submit"] {
+  position: relative;
+  z-index: 1;
+  border-radius: 100px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: .4s ease all;
+}
+.subscribe-news-form form input[type="submit"]:hover {
+background: #5d5d5d;
+}
+
+/* .subscribe-news-form form input[type="submit"] {
+  position: relative;
+  z-index: 1;
+  border-radius: 100px;
+  background-color: color-mix(in srgb, #bbbbbc 36%, transparent);
+  border: none;
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 3%, transparent),
+    inset 2px 1px 0px -1px color-mix(in srgb, #fff 27%, transparent),
+    inset -1.5px -1px 0px -1px color-mix(in srgb, #fff 24%, transparent),
+    inset -2px -6px 1px -5px color-mix(in srgb, #fff 18%, transparent),
+    inset -1px 2px 3px -1px color-mix(in srgb, #000 40%, transparent),
+    inset 0px -4px 1px -2px color-mix(in srgb, #000 20%, transparent),
+    0px 3px 6px 0px color-mix(in srgb, #000 16%, transparent);
+  transition: box-shadow 200ms ease, background-color 200ms ease;
+} */
+
+/* .subscribe-news-form form input[type="submit"]:hover {
+  background-color: color-mix(in srgb, #bbbbbc 50%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 8%, transparent),
+    inset 2px 1px 0px -1px color-mix(in srgb, #fff 40%, transparent),
+    inset -1.5px -1px 0px -1px color-mix(in srgb, #fff 30%, transparent),
+    inset -2px -6px 1px -5px color-mix(in srgb, #fff 25%, transparent),
+    inset -1px 2px 3px -1px color-mix(in srgb, #000 40%, transparent),
+    inset 0px -4px 1px -2px color-mix(in srgb, #000 20%, transparent),
+    0px 3px 6px 0px color-mix(in srgb, #000 16%, transparent);
+} */
+/* Footer */
+
 /* Home Banner */
 #orbe-scroll-driver {
   height: 500vh;
@@ -536,6 +711,7 @@ header li {
   position: relative;
   padding: 28px 30px;
   height: 100%;
+  gap: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -650,7 +826,7 @@ header li {
 }
 /* Why Orbe */
 /* Sliding Image Text */
-.sliding-image-text{
+.sliding-image-text {
   height: 100vh;
 }
 .sit-fold {
@@ -681,21 +857,22 @@ header li {
   padding-right: 80px;
   padding-bottom: 50px;
   height: 100%;
-justify-content: end;
+  justify-content: end;
 }
-.sit-fold .container-left, .sit-fold .container-right{
+.sit-fold .container-left,
+.sit-fold .container-right {
   height: 100%;
 }
 /* Sliding Image Text */
-.see-through-in .st-struct-1{
+.see-through-in .st-struct-1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.see-through-in .st-struct-2{
+.see-through-in .st-struct-2 {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
 }
-.st-struct-3{
+.st-struct-3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
