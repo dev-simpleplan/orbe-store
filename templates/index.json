@@ -57,8 +57,20 @@
       "type": "see-through",
       "settings": {}
     },
+    "spacer_mtgfHD": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
     "why-orbe": {
       "type": "why-orbe",
+      "settings": {}
+    },
+    "spacer_6YyPKx": {
+      "type": "spacer",
+      "name": "Spacer",
       "settings": {
         "spacer_height": 180
       }
@@ -123,8 +135,8 @@
         "spacer_height": 180
       }
     },
-    "join-community": {
-      "type": "join-community",
+    "blogs-feature": {
+      "type": "blogs-feature",
       "settings": {}
     },
     "spacer6": {
@@ -133,8 +145,8 @@
         "spacer_height": 180
       }
     },
-    "blogs-feature": {
-      "type": "blogs-feature",
+    "join-community": {
+      "type": "join-community",
       "settings": {}
     },
     "spacer7": {
@@ -155,7 +167,9 @@
     "spacer4",
     "sliding-image-text",
     "see-through",
+    "spacer_mtgfHD",
     "why-orbe",
+    "spacer_6YyPKx",
     "faqs-home",
     "spacer5",
     "blogs-feature",
