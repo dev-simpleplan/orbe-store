@@ -8,5 +8,20 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {}
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_logo": "shopify://shop_images/Group_1707486900.svg",
+          "footer_image": "shopify://shop_images/Frame_2072749374.svg"
+        }
+      }
+    },
+    "content_for_index": []
+  }
 }
