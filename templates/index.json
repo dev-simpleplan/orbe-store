@@ -239,7 +239,59 @@
     },
     "join-community": {
       "type": "join-community",
-      "settings": {}
+      "blocks": {
+        "image_jMfm34": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468500_1.png",
+            "link": ""
+          }
+        },
+        "image_qVEKqX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468502_1.png",
+            "link": ""
+          }
+        },
+        "image_HB9Bir": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468501_1.png",
+            "link": ""
+          }
+        },
+        "image_HEUgRU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468556.png",
+            "link": ""
+          }
+        },
+        "image_Kjg7tC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468557.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_jMfm34",
+        "image_qVEKqX",
+        "image_HB9Bir",
+        "image_HEUgRU",
+        "image_Kjg7tC"
+      ],
+      "settings": {
+        "heading": "Join our community",
+        "subheading": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity.",
+        "social_label": "Follow Us On Social Media",
+        "facebook_url": "",
+        "instagram_url": "",
+        "twitter_url": "",
+        "linkedin_url": ""
+      }
     },
     "spacer7": {
       "type": "spacer",
