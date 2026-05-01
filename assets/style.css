@@ -1,298 +1,257 @@
+
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-Thin.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-Thin.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-Thin.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-Thin.woff' | asset_url }}") format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-ThinItalic.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-ThinItalic.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-ThinItalic.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-ThinItalic.woff' | asset_url }}") format("woff");
   font-weight: 100;
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-Light.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-Light.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-Light.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-Light.woff' | asset_url }}") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-LightItalic.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-LightItalic.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-LightItalic.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-LightItalic.woff' | asset_url }}") format("woff");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-Regular.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-Regular.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-Regular.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-Regular.woff' | asset_url }}") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-RegularItalic.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-RegularItalic.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-RegularItalic.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-RegularItalic.woff' | asset_url }}") format("woff");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-Medium.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-Medium.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-Medium.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-Medium.woff' | asset_url }}") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-MediumItalic.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-MediumItalic.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-MediumItalic.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-MediumItalic.woff' | asset_url }}") format("woff");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-SemiBold.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-SemiBold.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-SemiBold.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-SemiBold.woff' | asset_url }}") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-SemiBoldItalic.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-SemiBoldItalic.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-SemiBoldItalic.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-SemiBoldItalic.woff' | asset_url }}") format("woff");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-Bold.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-Bold.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-Bold.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-Bold.woff' | asset_url }}") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-BoldItalic.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-BoldItalic.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-BoldItalic.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-BoldItalic.woff' | asset_url }}") format("woff");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-ExtraBold.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-ExtraBold.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-ExtraBold.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-ExtraBold.woff' | asset_url }}") format("woff");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Tobias TRIAL";
-  src:
-    url("../assets/fonts/TobiasTRIAL-ExtraBoldItalic.woff2") format("woff2"),
-    url("../assets/fonts/TobiasTRIAL-ExtraBoldItalic.woff") format("woff");
+  src: url("{{ 'TobiasTRIAL-ExtraBoldItalic.woff2' | asset_url }}") format("woff2"),
+       url("{{ 'TobiasTRIAL-ExtraBoldItalic.woff' | asset_url }}") format("woff");
   font-weight: 800;
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 50;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-50.woff2") format("woff2");
+  src: url("{{ 'Aspekta-50.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 100;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-100.woff2") format("woff2");
+  src: url("{{ 'Aspekta-100.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 150;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-150.woff2") format("woff2");
+  src: url("{{ 'Aspekta-150.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 200;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-200.woff2") format("woff2");
+  src: url("{{ 'Aspekta-200.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 250;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-250.woff2") format("woff2");
+  src: url("{{ 'Aspekta-250.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 300;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-300.woff2") format("woff2");
+  src: url("{{ 'Aspekta-300.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 350;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-350.woff2") format("woff2");
+  src: url("{{ 'Aspekta-350.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-400.woff2") format("woff2");
+  src: url("{{ 'Aspekta-400.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 450;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-450.woff2") format("woff2");
+  src: url("{{ 'Aspekta-450.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 500;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-500.woff2") format("woff2");
+  src: url("{{ 'Aspekta-500.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 550;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-550.woff2") format("woff2");
+  src: url("{{ 'Aspekta-550.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 600;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-600.woff2") format("woff2");
+  src: url("{{ 'Aspekta-600.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 650;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-650.woff2") format("woff2");
+  src: url("{{ 'Aspekta-650.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 700;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-700.woff2") format("woff2");
+  src: url("{{ 'Aspekta-700.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 750;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-750.woff2") format("woff2");
+  src: url("{{ 'Aspekta-750.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 800;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-800.woff2") format("woff2");
+  src: url("{{ 'Aspekta-800.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 850;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-850.woff2") format("woff2");
+  src: url("{{ 'Aspekta-850.woff2' | asset_url }}") format("woff2");
 }
-
 @font-face {
   font-family: "Aspekta";
-  font-style: normal;
   font-weight: 900;
+  font-style: normal;
   font-display: swap;
-  src: url("../assets/fonts/Aspekta-900.woff2") format("woff2");
+  src: url("{{ 'Aspekta-900.woff2' | asset_url }}") format("woff2");
+}
+@font-face {
+  font-family: "Favorit";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("{{ 'FavoritBookC.woff' | asset_url }}") format("woff");
+}
+@font-face {
+  font-family: "Favorit";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("{{ 'favorit-light.woff2' | asset_url }}") format("woff2");
 }
 
-@font-face {
-  font-family: "Favorit";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../assets/fonts/FavoritBookC.woff") format("woff2");
-}
-@font-face {
-  font-family: "Favorit";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("../assets/fonts/favorit-light.woff2") format("woff2");
-}
 :root {
   --black: #1a1a1a;
   --gray: #5d5d5d;
