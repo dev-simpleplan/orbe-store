@@ -1,0 +1,300 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Georgia', serif;
+        color: #1a1a1a;
+        overflow-x: hidden;
+    }
+
+    .intro-section {
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .intro-section h1 {
+        font-size: clamp(1.8rem, 4vw, 3.5rem);
+        font-weight: 300;
+        letter-spacing: 0.08em;
+        color: #1a1a1a;
+    }
+
+    .sticky-wrapper {
+        height: 300vh;
+        position: relative;
+    }
+
+    .sticky-inner {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .scene {
+        position: relative;
+        width: min(560px, 82vw);
+        height: min(560px, 82vw);
+    }
+
+    /* Orbit ring */
+    .orbit-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 1px solid #CDCDCD;
+    }
+
+    .accent-ring {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid #CDCDCD;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .accent-ring.left {
+        left: -40px;
+    }
+
+    .accent-ring.right {
+        right: -40px;
+    }
+
+    /* Gold dots — positioned absolutely by JS each frame */
+    .orbit-dot {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #B98846 -10.88%, #FFFAB6 100%);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+
+    /* Labels — positioned absolutely by JS each frame, NEVER rotated */
+    .orbit-label {
+        position: absolute;
+        width: 240px;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        background-color: #F2F3F5;
+        border-radius: 16px;
+        padding: 20px 25px;
+    }
+
+    .orbit-label .label-title {
+        font-size: 18px;
+        font-weight: 350;
+        letter-spacing: -0.05em;
+        line-height: 99%;
+        color: #1a1a1a;
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    .orbit-label .label-sub {
+        font-size: 10.5px;
+        font-family: var(--aspekta);
+        line-height: 112%;
+        font-weight: 300;
+        color: #1A1A1A;
+        display: block;
+    }
+
+    .slide {
+        position: absolute;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        left: 88px;
+        top: 50px;
+    }
+
+    .slide.active {
+        opacity: 1;
+    }
+</style>
+
+<div class="sticky-wrapper" id="stickyWrapper">
+    <div class="sticky-inner">
+        <div class="scene" id="scene">
+
+            <div class="orbit-ring" id="orbitRing">
+                <div class="accent-ring left"></div>
+                <div class="accent-ring right"></div>
+            </div>
+
+            <!-- 4 gold dots -->
+            <div class="orbit-dot" id="dot0"></div>
+            <div class="orbit-dot" id="dot1"></div>
+            <div class="orbit-dot" id="dot2"></div>
+            <div class="orbit-dot" id="dot3"></div>
+
+            <!-- 4 text labels -->
+            <div class="orbit-label" id="lbl0"><span class="label-title" id="lt0"></span><span class="label-sub"
+                    id="ls0"></span></div>
+            <div class="orbit-label" id="lbl1"><span class="label-title" id="lt1"></span><span class="label-sub"
+                    id="ls1"></span></div>
+            <div class="orbit-label" id="lbl2"><span class="label-title" id="lt2"></span><span class="label-sub"
+                    id="ls2"></span></div>
+            <div class="orbit-label" id="lbl3"><span class="label-title" id="lt3"></span><span class="label-sub"
+                    id="ls3"></span></div>
+
+            <!-- Central blobs -->
+            <div class="center-blob">
+                <div class="slide active" id="slide1">
+                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/image_480.png?v=1777636144"
+                        alt="Image" class="icon">
+                </div>
+                <div class="slide" id="slide2">
+                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/image_485_1.png?v=1777636144"
+                        alt="Image" class="icon">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-dot active" id="pd1"></div>
+            <div class="progress-dot" id="pd2"></div>
+        </div>
+    </div>
+</div>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const slideData = [
+        [
+            { title: "System-Level Formulation", sub: "Designed for synergy, not isolation." },
+            { title: "Steady Energy Pathways", sub: "Helps reduce peaks and dips in the system." },
+            { title: "Dose Aware Design", sub: "Respects the body's natural balance." },
+            { title: "Optimised Bioavailability", sub: "Ensures efficient absorption and use." },
+        ],
+        [
+            { title: "Clean Input", sub: "No fillers. No competing compounds." },
+            { title: "Cellular Support", sub: "Built for consistent, repeatable intake." },
+            { title: "Evidence Informed", sub: "Guided by nutritional science." },
+            { title: "Long Term Use", sub: "Formulated beyond short-term demands." },
+        ]
+    ];
+
+    const scene = document.getElementById('scene');
+    const orbitRing = document.getElementById('orbitRing');
+    const dots = [0, 1, 2, 3].map(i => document.getElementById('dot' + i));
+    const lbls = [0, 1, 2, 3].map(i => document.getElementById('lbl' + i));
+    const ltEls = [0, 1, 2, 3].map(i => document.getElementById('lt' + i));
+    const lsEls = [0, 1, 2, 3].map(i => document.getElementById('ls' + i));
+
+    let currentSlide = 0;
+    let transitioning = false;
+
+    function setLabelText(idx) {
+        slideData[idx].forEach((d, i) => {
+            ltEls[i].textContent = d.title;
+            lsEls[i].textContent = d.sub;
+        });
+    }
+    setLabelText(0);
+
+    /*
+     * Key fix: instead of rotating a container and counter-rotating children,
+     * we calculate each dot/label x,y position directly using cos/sin
+     * and set left/top every frame. Labels get NO rotation — they stay upright always.
+     */
+    function positionOrbit(deg) {
+        const size = scene.offsetWidth;
+        const cx = size / 2;
+        const cy = size / 2;
+        const dotR = (size / 2) - 1;      /* sit on the ring */
+        const labelR = (size / 2) + 70;     /* outside the ring */
+
+        for (let i = 0; i < 4; i++) {
+            /* start at top (-90°), step 90° per item, add current rotation */
+            const a = ((deg - 90) + i * 90) * (Math.PI / 180);
+
+            /* dot */
+            dots[i].style.left = (cx + Math.cos(a) * dotR) + 'px';
+            dots[i].style.top = (cy + Math.sin(a) * dotR) + 'px';
+
+            /* label — same angle, bigger radius, NO rotation property touched */
+            lbls[i].style.left = (cx + Math.cos(a) * labelR) + 'px';
+            lbls[i].style.top = (cy + Math.sin(a) * labelR) + 'px';
+        }
+    }
+
+    positionOrbit(0);
+
+    function switchSlide(nextIdx) {
+        if (transitioning || nextIdx === currentSlide) return;
+        transitioning = true;
+
+        const outEl = document.getElementById('slide' + (currentSlide + 1));
+        const inEl = document.getElementById('slide' + (nextIdx + 1));
+
+        document.getElementById('pd' + (currentSlide + 1)).classList.remove('active');
+        document.getElementById('pd' + (nextIdx + 1)).classList.add('active');
+
+        gsap.to(outEl, {
+            opacity: 0, scale: 0.9, duration: 0.45, ease: 'power2.in',
+            onComplete() {
+                outEl.classList.remove('active');
+                setLabelText(nextIdx);
+                gsap.fromTo(inEl,
+                    { opacity: 0, scale: 0.9 },
+                    {
+                        opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out',
+                        onComplete() {
+                            inEl.classList.add('active');
+                            currentSlide = nextIdx;
+                            transitioning = false;
+                        }
+                    }
+                );
+            }
+        });
+    }
+
+    ScrollTrigger.create({
+        trigger: '#stickyWrapper',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1.2,
+        onUpdate(self) {
+            const p = self.progress;
+            const deg = p * 720; /* two full clockwise rotations */
+
+            /* Ring itself drifts slowly */
+            gsap.set(orbitRing, { rotation: deg * 0.2 });
+
+            /* Dots & labels orbit — labels stay upright (no rotation set on them) */
+            positionOrbit(deg);
+
+            /* Slide transition at midpoint */
+            switchSlide(p < 0.5 ? 0 : 1);
+        }
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => positionOrbit(0), 120);
+    });
+</script>

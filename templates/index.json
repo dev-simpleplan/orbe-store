@@ -43,12 +43,9 @@
       "type": "ready-formula",
       "settings": {}
     },
-    "spacer_Q9AxRf": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 180
-      }
+    "rotating-circle":{
+      "type": "rotating-circle",
+      "settings": {}
     },
     "see-through": {
       "type": "see-through",
@@ -170,7 +167,7 @@
     "at-single",
     "spacer3",
     "ready-formula",
-    "spacer_Q9AxRf",
+    "rotating-circle",
     "see-through",
     "spacer_mtgfHD",
     "why-orbe",
