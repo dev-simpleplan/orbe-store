@@ -165,9 +165,9 @@ header li {
   letter-spacing: 0em;
 }
 .footer-nav-top {
-display: flex;
-gap: 80px;
-flex-wrap: wrap;
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap;
 }
 .footer .subscribe-news {
   margin-top: auto;
@@ -253,10 +253,10 @@ flex-wrap: wrap;
   padding: 12px 24px;
   cursor: pointer;
   white-space: nowrap;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
 }
 .subscribe-news-form form input[type="submit"]:hover {
-background: #5d5d5d;
+  background: #5d5d5d;
 }
 
 /* .subscribe-news-form form input[type="submit"] {
@@ -864,15 +864,54 @@ background: #5d5d5d;
   height: 100%;
 }
 /* Sliding Image Text */
+.see-through-in {
+  display: flex;
+  flex-direction: column;
+  gap: 22.6px;
+  position: relative;
+}
 .see-through-in .st-struct-1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  height: 672px;
+  overflow: hidden;
+  gap: 23.29px;
 }
 .see-through-in .st-struct-2 {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 23.29px;
+  height: 335px;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 .st-struct-3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 22.6px;
+  height: 682px;
+  overflow: hidden;
+}
+.st-orbe-logo {
+  position: absolute;
+  bottom: 113px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.st-struct-3 img {
+  width: 488px;
+}
+.st-struct-1 h2 {
+  padding-top: 200px;
+  text-transform: capitalize;
+  max-width: 10ch;
+}
+.st-struct-1 p {
+  font-size: 18px;
+  padding-top: 20px;
+  max-width: 28ch;
+}
+.st-struct-2 div:first-child {
+  width: 233px;
+  margin-left: auto;
 }
