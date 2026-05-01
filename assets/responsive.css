@@ -13,6 +13,9 @@
   .footer-nav-top {
     gap: 40px;
   }
+  .header-in .left > ul, .header-in .right > ul{
+    gap: 30px;
+  }
 }
 @media screen and (max-width: 991px) {
   .footer-in {
@@ -50,6 +53,25 @@
   }
   .footer-in .left {
     gap: 50px;
+  }
+  .faqs-in{
+    grid-template-columns: 1fr;
+  }
+  .at-orbe-block-wrap{
+     grid-template-columns: 1fr;
+  }
+  .at-single-content-block{
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .see-through-in .st-struct-1{
+    grid-template-columns: 1fr;
+  }
+  .why-orbe-in .bottom .counter-grid{
+    grid-template-columns: 1fr;
+  }
+  .why-orbe-in .bottom .counter-grid > div{
+    border: none;
   }
 }
 @media screen and (max-width: 400px) {
