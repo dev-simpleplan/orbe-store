@@ -1,60 +1,397 @@
-<section class="sliding-image-text">
-    <div class="sliding-image-text-in">
-        <div class="sit-fold">
-            <div class="sit-image-block">
-                <div class="sit-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1bca592ec0946007ad5b67f77fd24096b3a4122b.png?v=1777466553"
-                        alt="Image" class="img">
-                </div>
+{% comment %} Sliding Image Text Section {% endcomment %}
+
+<style>
+  .sliding-image-text {
+    height: 1200vh;
+    position: relative;
+  }
+
+  .sliding-image-text-in {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 19px;
+  }
+
+  .sit-col {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .sit-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600%;
+    will-change: transform;
+  }
+
+  .sit-panel {
+    width: 100%;
+    height: 16.6666%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sit-panel-img {
+    width: 100%;
+    height: 130%;
+    position: absolute;
+    top: -15%;
+    will-change: transform;
+  }
+
+  .sit-panel-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .sit-text-panel {
+    width: 100%;
+    height: 16.6666%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 60px 60px 30px;
+  }
+
+  .sit-text-panel.txt-right {
+    padding: 60px 60px 60px 30px;
+  }
+
+  .sit-text-panel.txt-left {
+    padding: 60px 30px 60px 60px;
+  }
+
+  .sit-text-panel p {
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    line-height: 1.75;
+    color: #1a1a1a;
+    max-width: 280px;
+  }
+
+  .sit-text-panel h2 {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 8px;
+  }
+
+  .sit-text-panel .block-2 {
+    align-self: flex-end;
+  }
+
+  /* Tablet: disable animation, show stacked folds */
+  @media (max-width: 991px) {
+    .sliding-image-text {
+      height: auto;
+    }
+
+    .sliding-image-text-in {
+      position: relative;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .sit-col {
+      display: none;
+    }
+
+    .sit-fold-mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 19px;
+      min-height: 100vw;
+    }
+
+    .sit-fold-mobile .mob-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sit-fold-mobile .mob-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sit-fold-mobile .mob-txt {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 30px;
+    }
+
+    .sit-fold-mobile .mob-txt p {
+      font-size: clamp(0.85rem, 1.1vw, 1rem);
+      line-height: 1.75;
+      color: #1a1a1a;
+    }
+
+    .sit-fold-mobile .mob-txt h2 {
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
+      font-weight: 400;
+      color: #1a1a1a;
+      margin: 0 0 8px;
+    }
+
+    .sit-fold-mobile .mob-txt .block-2 {
+      align-self: flex-end;
+    }
+  }
+
+  /* Mobile: single column */
+  @media (max-width: 767px) {
+    .sit-fold-mobile {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .sit-fold-mobile .mob-img {
+      height: 80vw;
+    }
+
+    .sit-fold-mobile .mob-txt {
+      padding: 30px 20px;
+    }
+  }
+
+  /* Desktop only */
+  @media (min-width: 992px) {
+    .sit-fold-mobile {
+      display: none;
+    }
+  }
+</style>
+
+<section class="sliding-image-text" id="sit-section-{{ section.id }}">
+
+  <!-- DESKTOP: two track columns -->
+  <div class="sliding-image-text-in">
+
+    <!-- LEFT TRACK: img, txt, img, txt, img, txt -->
+    <div class="sit-col">
+      <div class="sit-track" id="sit-left-track-{{ section.id }}">
+
+        {% for block in section.blocks %}
+          {% assign fold_index = forloop.index0 %}
+          {% assign is_odd = fold_index | modulo: 2 %}
+
+          {% if is_odd == 0 %}
+            <!-- Odd fold (1,3,5): LEFT = image -->
+            <div class="sit-panel">
+              <div class="sit-panel-img" id="sit-pimg-{{ section.id }}-{{ forloop.index }}">
+                <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
+              </div>
             </div>
-            <div class="sit-text-block">
-                <div class="container-right">
-                    <div class="sit-text">
-                        <div class="block-1">
-                            <p>Guiding you toward choices that honour your strength, respect your natural rhythm,
-                                and
-                                support the person you are continually becoming—without pressure, without noise,
-                                just
-                                clarity and intention.</p>
-                        </div>
-                        <div class="block-2">
-                            <p>Guiding you toward choices that honour your strength, respect your natural rhythm,
-                                and
-                                support the person you are continually becoming—without pressure, without noise,
-                                just
-                                clarity and intention.</p>
-                        </div>
-                    </div>
+          {% else %}
+            <!-- Even fold (2,4,6): LEFT = text -->
+            <div class="sit-text-panel txt-left">
+              <div class="block-1">
+                <p>{{ block.settings.text_top }}</p>
+              </div>
+              {% if block.settings.text_bottom != blank %}
+                <div class="block-2">
+                  <p>{{ block.settings.text_bottom }}</p>
                 </div>
+              {% endif %}
             </div>
-        </div>
-        <div class="sit-fold">
-            <div class="left">
-                <div class="container-left">
-                    <div class="sit-text">
-                        <div class="block-1">
-                            <p>Guiding you toward choices that honour your strength, respect your natural rhythm,
-                                and
-                                support the person you are continually becoming—without pressure, without noise,
-                                just
-                                clarity and intention.</p>
-                        </div>
-                        <div class="block-2">
-                            <p>Guiding you toward choices that honour your strength, respect your natural rhythm,
-                                and
-                                support the person you are continually becoming—without pressure, without noise,
-                                just
-                                clarity and intention.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="right">
-                <div class="sit-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/0259b1a9921ad6b1086ad6228a5d8b93e787b428.png?v=1777466553"
-                        alt="Image" class="img">
-                </div>
-            </div>
-        </div>
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
     </div>
+
+    <!-- RIGHT TRACK: txt, img, txt, img, txt, img -->
+    <div class="sit-col">
+      <div class="sit-track" id="sit-right-track-{{ section.id }}">
+
+        {% for block in section.blocks %}
+          {% assign fold_index = forloop.index0 %}
+          {% assign is_odd = fold_index | modulo: 2 %}
+
+          {% if is_odd == 0 %}
+            <!-- Odd fold (1,3,5): RIGHT = text -->
+            <div class="sit-text-panel txt-right">
+              {% if block.settings.heading != blank %}
+                <h2>{{ block.settings.heading }}</h2>
+              {% endif %}
+              <div class="block-1">
+                <p>{{ block.settings.text_top }}</p>
+              </div>
+              {% if block.settings.text_bottom != blank %}
+                <div class="block-2">
+                  <p>{{ block.settings.text_bottom }}</p>
+                </div>
+              {% endif %}
+            </div>
+          {% else %}
+            <!-- Even fold (2,4,6): RIGHT = image -->
+            <div class="sit-panel">
+              <div class="sit-panel-img" id="sit-pimg-{{ section.id }}-{{ forloop.index }}">
+                <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
+              </div>
+            </div>
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MOBILE/TABLET: each fold rendered as standalone block -->
+  {% for block in section.blocks %}
+    {% assign fold_index = forloop.index0 %}
+    {% assign is_odd = fold_index | modulo: 2 %}
+
+    {% if is_odd == 0 %}
+      <!-- Odd fold: image left, text right -->
+      <div class="sit-fold-mobile">
+        <div class="mob-img">
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
+        </div>
+        <div class="mob-txt">
+          {% if block.settings.heading != blank %}
+            <h2>{{ block.settings.heading }}</h2>
+          {% endif %}
+          <p>{{ block.settings.text_top }}</p>
+          {% if block.settings.text_bottom != blank %}
+            <p class="block-2">{{ block.settings.text_bottom }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      <!-- Even fold: text left, image right -->
+      <div class="sit-fold-mobile">
+        <div class="mob-txt">
+          {% if block.settings.heading != blank %}
+            <h2>{{ block.settings.heading }}</h2>
+          {% endif %}
+          <p>{{ block.settings.text_top }}</p>
+          {% if block.settings.text_bottom != blank %}
+            <p class="block-2">{{ block.settings.text_bottom }}</p>
+          {% endif %}
+        </div>
+        <div class="mob-img">
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
 </section>
+
+<script>
+(function () {
+  if (window.innerWidth < 992) return;
+
+  const section    = document.getElementById('sit-section-{{ section.id }}');
+  const leftTrack  = document.getElementById('sit-left-track-{{ section.id }}');
+  const rightTrack = document.getElementById('sit-right-track-{{ section.id }}');
+  const TOTAL      = {{ section.blocks.size }};
+
+  const pImgs = Array.from(
+    { length: TOTAL },
+    (_, i) => document.getElementById('sit-pimg-{{ section.id }}-' + (i + 1))
+  ).filter(Boolean);
+
+  function onScroll() {
+    const rect       = section.getBoundingClientRect();
+    const sectionH   = section.offsetHeight;
+    const viewH      = window.innerHeight;
+    const scrollable = sectionH - viewH;
+    const scrolled   = Math.max(-rect.top, 0);
+    const progress   = Math.min(scrolled / scrollable, 1);
+
+    // Move both tracks: 0% → -(100% * (TOTAL-1)/TOTAL * 100)
+    const trackY = progress * (-(TOTAL - 1) / TOTAL * 100);
+    leftTrack.style.transform  = `translateY(${trackY}%)`;
+    rightTrack.style.transform = `translateY(${trackY}%)`;
+
+    // Parallax per image
+    pImgs.forEach((img, i) => {
+      if (!img) return;
+      const panelStart = i / TOTAL;
+      const local = Math.min(Math.max((progress - panelStart) / (1 / TOTAL), 0), 1);
+      const imgY = -15 + local * 30;
+      img.style.transform = `translateY(${imgY}%)`;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Re-check on resize
+  window.addEventListener('resize', function () {
+    if (window.innerWidth < 992) {
+      leftTrack.style.transform  = '';
+      rightTrack.style.transform = '';
+    } else {
+      onScroll();
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sliding Image Text",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "fold",
+      "name": "Fold",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Optional — shows above text on odd folds"
+        },
+        {
+          "type": "textarea",
+          "id": "text_top",
+          "label": "Text (top)",
+          "default": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming."
+        },
+        {
+          "type": "textarea",
+          "id": "text_bottom",
+          "label": "Text (bottom)",
+          "info": "Optional — appears bottom-right aligned"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sliding Image Text",
+      "blocks": [
+        { "type": "fold" },
+        { "type": "fold" },
+        { "type": "fold" },
+        { "type": "fold" },
+        { "type": "fold" },
+        { "type": "fold" }
+      ]
+    }
+  ]
+}
+{% endschema %}

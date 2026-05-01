@@ -1,25 +1,48 @@
 <section class="why-orbe" style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ae3880116c7ba112f0e3d7bc428bf614b3703da1.jpg?v=1777463763');">
-    <div class="container">
-        <div class="why-orbe-in">
-            <div class="top">
-                <h2>Why Orbe?</h2>
-            </div>
-            <div class="bottom">
-                <div class="counter-grid">
-                    <div class="left">
-                        <h3>89%</h3>
-                        <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
-                    </div>
-                    <div class="center">
-                        <h3>93%</h3>
-                        <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
-                    </div>
-                    <div class="right">
-                        <h3>60%</h3>
-                        <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
-                    </div>
-                </div>
-            </div>
+  <div class="blur-overlay"></div>
+  <div class="container">
+    <div class="why-orbe-in">
+      <div class="top">
+        <h2>Why Orbe?</h2>
+      </div>
+      <div class="bottom">
+        <div class="counter-grid">
+          <div class="left">
+            <h3>89%</h3>
+            <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
+          </div>
+          <div class="center">
+            <h3>93%</h3>
+            <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
+          </div>
+          <div class="right">
+            <h3>60%</h3>
+            <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
+<script>
+// Why Orbe - blur slides up on scroll
+gsap.registerPlugin(ScrollTrigger);
+
+const whyOrbe = document.querySelector('.why-orbe');
+const blurOverlay = document.querySelector('.why-orbe::before'); // we'll use a div instead
+
+gsap.fromTo('.why-orbe .blur-overlay', 
+  { yPercent: 0 },
+  {
+    yPercent: -100,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.why-orbe',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1,
+      pin: true,
+    }
+  }
+);
+</script>

@@ -1,4 +1,3 @@
-// Lenis 
 // Initialize Lenis
 const lenis = new Lenis();
 
@@ -9,12 +8,21 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
-const header = document.querySelector('[data-header]');
 
-lenis.on('scroll', ({ scroll, velocity }) => {
-  if (velocity > 0 && scroll > 80) {
-    header.classList.add('header-hide');
-  } else if (velocity < 0) {
-    header.classList.remove('header-hide');
-  }
-});
+// Header hide/show using Lenis scroll event
+(function () {
+  const header = document.querySelector('header');
+  let lastScrollY = 0;
+
+  lenis.on('scroll', ({ scroll }) => {
+    if (scroll > lastScrollY && scroll > 80) {
+      // Scrolling down → hide
+      header.classList.add('header--hidden');
+    } else {
+      // Scrolling up → show
+      header.classList.remove('header--hidden');
+    }
+
+    lastScrollY = scroll;
+  });
+})();

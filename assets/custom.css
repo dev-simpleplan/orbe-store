@@ -1,5 +1,5 @@
 /* Header */
-.header {
+header {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,8 +7,12 @@
   z-index: 999;
   background: #fff;
   transition: background 0.4s ease;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+header.header--hidden {
+  transform: translateY(-100%);
+}
 .header-in {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
@@ -119,19 +123,6 @@ header li {
 }
 .header svg {
   max-width: 203px;
-}
-header[data-header] {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  transform: translateY(0);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-header[data-header].header-hide {
-  transform: translateY(-100%);
 }
 /* Header */
 
@@ -792,7 +783,6 @@ header[data-header].header-hide {
 }
 /* Faqs Home */
 /* Why Orbe */
-
 .why-orbe {
   background-repeat: no-repeat;
   filter: grayscale(1);
@@ -801,8 +791,23 @@ header[data-header].header-hide {
   min-height: 700px;
   height: 100vh;
   padding: 85px 0px;
+  position: relative;
+  overflow: hidden;
 }
+
+.blur-overlay {
+  position: absolute;
+  inset: 0;
+ backdrop-filter: blur(6.4px);
+-webkit-backdrop-filter: blur(6.4px);
+border: 1px solid rgba(255, 255, 255, 0.01);
+  z-index: 5;
+  pointer-events: none;
+}
+
 .why-orbe .container {
+  position: relative;
+  z-index: 2;
   height: 100%;
 }
 .why-orbe-in {
@@ -840,44 +845,9 @@ header[data-header].header-hide {
 }
 /* Why Orbe */
 /* Sliding Image Text */
-.sliding-image-text {
-  height: 100vh;
-}
-.sit-fold {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 19px;
-}
-/* .sit-img {
-  max-height: 856px;
-  overflow: hidden;
-} */
-.sit-text {
-  display: flex;
-  flex-direction: column;
-  gap: 200px;
-}
-.sit-text > div {
-  width: 50%;
-}
-.sit-text .block-2 {
-  margin-left: auto;
-}
-.sit-fold:nth-child(odd) .sit-text {
-  padding-left: 80px;
-  padding-top: 50px;
-}
-.sit-fold:nth-child(even) .sit-text {
-  padding-right: 80px;
-  padding-bottom: 50px;
-  height: 100%;
-  justify-content: end;
-}
-.sit-fold .container-left,
-.sit-fold .container-right {
-  height: 100%;
-}
+
 /* Sliding Image Text */
+/* See Through  */
 .see-through-in {
   display: flex;
   flex-direction: column;
@@ -929,3 +899,5 @@ header[data-header].header-hide {
   width: 233px;
   margin-left: auto;
 }
+
+/* See Through  */
