@@ -1,41 +1,38 @@
 {% assign menu = linklists['header-menu'] %}
 
-<header>
+<header data-header>
   <div class="header desktop">
     <div class="container">
       <div class="header-in">
-
-        <!-- LEFT: All top-level links WITHOUT children -->
         <div class="left">
           <ul>
             {% for link in menu.links %}
-              {% unless link.links.size > 0 %}
-                <li>
-                  <a href="{{ link.url }}">{{ link.title }}</a>
-                </li>
-              {% endunless %}
+            {% unless link.links.size > 0 %}
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+            {% endunless %}
             {% endfor %}
           </ul>
         </div>
-            <div class="center">
-              {% render 'orbe-home-logo' %}
-            </div>
-        <!-- RIGHT: Links WITH children (dropdown) + Cart -->
+        <div class="center">
+          {% render 'orbe-home-logo' %}
+        </div>
         <div class="right">
           <ul>
             {% for link in menu.links %}
-              {% if link.links.size > 0 %}
-                <li class="has-dropdown">
-                  <span>{{ link.title }} {% render 'chivron-down' %}</span>
-                  <ul class="dropdown">
-                    {% for child_link in link.links %}
-                      <li>
-                        <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                      </li>
-                    {% endfor %}
-                  </ul>
+            {% if link.links.size > 0 %}
+            <li class="has-dropdown">
+              <span>{{ link.title }} {% render 'chivron-down' %}</span>
+              <ul class="dropdown">
+                {% for child_link in link.links %}
+                <li>
+                  <a href="{{ child_link.url }}">{{ child_link.title }}</a>
                 </li>
-              {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+            {% endif %}
             {% endfor %}
 
             <!-- Cart -->
@@ -43,7 +40,7 @@
               <a href="{{ routes.cart_url }}" aria-label="Cart">
                 {% render 'cart-icon' %}
                 {% if cart.item_count > 0 %}
-                  <span class="cart-count">{{ cart.item_count }}</span>
+                <span class="cart-count">{{ cart.item_count }}</span>
                 {% endif %}
               </a>
             </li>
