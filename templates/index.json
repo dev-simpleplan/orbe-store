@@ -30,6 +30,10 @@
         "spacer_height": 180
       }
     },
+    "sliding-image":{
+      "type": "sliding-image-text",
+      "settings": {}
+    },
     "ready-formula": {
       "type": "ready-formula",
       "settings": {}
@@ -171,6 +175,7 @@
     "spacer2",
     "at-single",
     "spacer3",
+    "sliding-image",
     "ready-formula",
     "spacer_LNTQEE",
     "rotating-circle",
