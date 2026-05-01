@@ -2,27 +2,59 @@
     <div class="container">
         <div class="at-orbe-in">
             <div class="at-orbe-block-wrap">
-                 <div class="at-orbe-block">
+                <div class="at-orbe-block">
                     <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/96873404de0285ae500a22cfcf3004a934780162.png?v=1777040965"
                         alt="Image" class="img">
                 </div>
                 <div class="at-orbe-block">
-                    <h3>At Orbé, we believe simplicity is not the absence of complexity but the presence of clarity.
-                    </h3>
+                    <h3>At Orbé, we believe simplicity is not the absence of complexity but the presence of clarity.</h3>
                 </div>
-                <div class="at-orbe-block">
-                    <h3>In a world full of excess and contradiction, we choose to move with transparency, honesty, and
-                        intention.</h3>
-                        <div class="small-img-parallex">
-                            <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/pralax-small.png?v=1777294152" alt="image" class="img">
-                        </div>
+                <div class="at-orbe-block" style="position: relative; overflow: hidden;">
+                    <h3>In a world full of excess and contradiction, we choose to move with transparency, honesty, and intention.</h3>
+                    <div class="small-img-parallex" id="small-img-parallex">
+                        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/pralax-small.png?v=1777294152" alt="image" class="img">
+                    </div>
                 </div>
                 <div class="at-orbe-block">
                     <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/23c2757c4397598a78bab84594d66430b53a2f39_1.png?v=1777040965"
                         alt="Image" class="img">
                 </div>
-               
             </div>
         </div>
     </div>
 </section>
+
+<style>
+  .small-img-parallex {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    will-change: transform;
+    transform: translateY(30%);
+  }
+</style>
+
+<script>
+(function () {
+  const el      = document.getElementById('small-img-parallex');
+  const section = el.closest('.at-orbe-block');
+
+  function onScroll() {
+    const rect      = section.getBoundingClientRect();
+    const viewH     = window.innerHeight;
+
+    // progress: 0 when block bottom enters viewport, 1 when block top exits
+    const total    = viewH + rect.height;
+    const traveled = viewH - rect.top;
+    const progress = Math.min(Math.max(traveled / total, 0), 1);
+
+    // starts at +30% (below), moves to -30% (above) as you scroll
+    const y = 30 - progress * 80;
+    el.style.transform = `translateY(${y}%)`;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
