@@ -67,12 +67,15 @@ header li {
   list-style: none;
   padding: 8px 0;
   min-width: 140px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+border: 1px solid #f0f0f0;
+border-radius: 5px;
   z-index: 2;
+align-items: center;
+flex-direction: column;
 }
 
 .has-dropdown:hover .dropdown {
-  display: block;
+  display: flex;
 }
 .has-dropdown span svg {
   transition: 0.4s ease all;
@@ -84,6 +87,7 @@ header li {
   display: block;
   padding: 8px 16px;
   white-space: nowrap;
+  font-size: 14px;
 }
 .has-dropdown span {
   display: flex;
