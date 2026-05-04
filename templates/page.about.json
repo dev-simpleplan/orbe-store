@@ -1,12 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "about-banner": {
       "type": "about-banner",
-      "settings": {}
+      "settings": {
+        "left_img_1": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
+        "left_img_2": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
+        "top_right_img": "shopify://shop_images/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png",
+        "bottom_right_img": "shopify://shop_images/9535738d3cadb555d7a157419abec5eaee44b597_1.png",
+        "heading": "Wellbeing, Simplified With Intention.",
+        "description": "Orbe exists to make feeling good less complicated through clean science, intentional design, and rituals that support the woman you’re becoming."
+      }
+    },
+    "spacer_cFiQff": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
+      }
     }
-    
   },
   "order": [
-    "about-banner"
+    "about-banner",
+    "spacer_cFiQff"
   ]
 }
