@@ -4,6 +4,7 @@
       "type": "about-banner",
       "settings": {}
     }
+    
   },
   "order": [
     "about-banner"
