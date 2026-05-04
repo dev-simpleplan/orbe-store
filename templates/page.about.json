@@ -26,10 +26,14 @@
       "settings": {
         "spacer_height": 140
       }
-    }
+    },
+    "slide-in-img": {
+      "type": "slide-in-image",
+    },
   },
   "order": [
     "about-banner",
-    "spacer_cFiQff"
+    "spacer_cFiQff",
+    "slide-in-img"
   ]
 }

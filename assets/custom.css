@@ -953,7 +953,7 @@ header li {
   padding-top: 120px;
 }
 .right-top .abrt-text h1 {
-  font-size: 42px;
+  font-size: clamp(28px, 4.5vw, 42px);
   line-height: 104%;
   letter-spacing: -0.05em;
   font-weight: 400;
@@ -971,3 +971,23 @@ header li {
 }
 
 /* About Banner */
+
+.slide-in-img .sii-img {
+  max-width: 481px;
+  width: 100%;
+  filter: grayscale(1);
+  margin: 0 auto;
+  max-height: 700px;
+  height: 100%;
+  position: relative;
+}
+
+.slide-in-img  h2{
+  text-align: center;
+  font-size: clamp(28px, 4.5vw, 42px);
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  max-width: 30ch;
+  margin: 0 auto;
+}
