@@ -1100,7 +1100,7 @@ header li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 100px;
+  padding-top: 150px;
 }
 .blowing-pills-in .left .orbe-img {
   max-width: 427px;
