@@ -972,7 +972,7 @@ header li {
 
 /* About Banner */
 
- .sii-img {
+.sii-img {
   max-width: 481px;
   width: 100%;
   filter: grayscale(1);
@@ -982,7 +982,7 @@ header li {
   position: relative;
 }
 
-.slide-in-img h2{
+.slide-in-img h2 {
   text-align: center;
   font-size: clamp(28px, 4.5vw, 42px);
   font-style: italic;
@@ -996,7 +996,7 @@ header li {
 }
 
 .slide-in-img .text-target span {
-  color: #9D9D9D;
+  color: #9d9d9d;
   display: inline-block;
   margin-right: 4px;
 }
@@ -1009,11 +1009,85 @@ header li {
 }
 
 /* Heart Behind */
-.heart-behind-in{
+.heart-behind-in {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 158px;
 }
-.heart-behind img{
+.heart-behind img {
   filter: grayscale(1);
 }
+.heart-behind-in .hb-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.heart-behind-in .hb-top > div {
+  width: 204px;
+  height: 242px;
+  overflow: hidden;
+}
+.heart-behind-in .hb-top img {
+  object-position: top;
+}
+.heart-behind-in .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hb-bottom > h2 {
+  padding-bottom: 80px;
+}
+.hb-bottom .text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.hb-bottom .text-content p {
+  font-size: 18px;
+}
 /* Heart Behind */
+/* Letter from founder  */
+.letter-from-founder{
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 100px 0px;
+}
+
+.letter-from-founder-in .letter-card{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  max-width: 533px;
+  margin: 0 auto;
+  padding: 50px 30px;
+  position: relative;
+}
+.letter-from-founder-in .letter-img {
+width: 176px;
+height: 176px;
+aspect-ratio: 1/1;
+}
+.letter-card h2{
+  font-size: clamp(28px, 4.5vw, 42px);
+  font-style: italic;
+  text-transform: capitalize;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+.letter-card .signature{
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+.letter-card > p{
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0em;
+  font-weight: 400;
+}
+/* Letter from founder  */

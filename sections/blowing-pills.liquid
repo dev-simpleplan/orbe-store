@@ -1,0 +1,60 @@
+<section class="blowing-pills">
+  <div class="container">
+    <div class="blowing-pills-in">
+      
+      <div class="left">
+        <div class="orbe-img">
+          {% if section.settings.icon != blank %}
+            <img 
+              src="{{ section.settings.icon | image_url }}" 
+              alt="{{ section.settings.heading | escape }}" 
+              class="icon">
+          {% endif %}
+        </div>
+
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
+
+      <div class="right">
+        {% if section.settings.image != blank %}
+          <img 
+            src="{{ section.settings.image | image_url }}" 
+            alt="{{ section.settings.heading | escape }}" 
+            class="img">
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blowing Pills",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Left Icon"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Clarity, by design.\nScience you can trust.\nRituals you can return to."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blowing Pills"
+    }
+  ]
+}
+{% endschema %}

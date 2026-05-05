@@ -44,13 +44,20 @@
         "text_1": "Orbe began with a simple but powerful frustration: why does taking care of ourselves feel so complicated?",
         "text_2": "Women feel overwhelmed by noise, conflicting advice, and wellness trends that offer more confusion than clarity. So we set out to create something different; a brand built on intention, rooted in evidence, and guided by simplicity.",
         "text_3": "Orbe is the answer to a question women have been asking for years: What if feeling well could feel simple?"
+      },
+    },
+      "letter-from-founder":{
+        "type":"letter-from-founder",
+        "settings":{
+
+        }
       }
-    }
   },
   "order": [
     "about-banner",
     "spacer_cFiQff",
     "slide-in-img",
-    "heart-behind"
+    "heart-behind",
+    "letter-from-founder"
   ]
 }

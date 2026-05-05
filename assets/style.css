@@ -86,14 +86,23 @@ a {
 
 .container {
   padding: 0px 60px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container-right {
   padding-right: 60px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container-left {
   padding-left: 60px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .text-left {
@@ -142,14 +151,14 @@ a {
 .bx-viewport {
   height: auto !important;
 }
-.owl-nav.disabled{
+.owl-nav.disabled {
   display: none !important;
 }
-.next-btn.disabled{
-  opacity: .5;
+.next-btn.disabled {
+  opacity: 0.5;
 }
-.prev-btn.disabled{
-  opacity: .5;
+.prev-btn.disabled {
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 1200px) {
@@ -189,7 +198,7 @@ a {
   .d-lg {
     display: none;
   }
-  .primary-btn{
+  .primary-btn {
     padding: 12px 24px;
     font-size: 12px;
   }
