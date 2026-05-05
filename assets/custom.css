@@ -1048,13 +1048,13 @@ header li {
 }
 /* Heart Behind */
 /* Letter from founder  */
-.letter-from-founder{
+.letter-from-founder {
   background-size: cover;
   background-repeat: no-repeat;
   padding: 100px 0px;
 }
 
-.letter-from-founder-in .letter-card{
+.letter-from-founder-in .letter-card {
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -1068,26 +1068,51 @@ header li {
   position: relative;
 }
 .letter-from-founder-in .letter-img {
-width: 176px;
-height: 176px;
-aspect-ratio: 1/1;
+  width: 176px;
+  height: 176px;
+  aspect-ratio: 1/1;
 }
-.letter-card h2{
+.letter-card h2 {
   font-size: clamp(28px, 4.5vw, 42px);
   font-style: italic;
   text-transform: capitalize;
   letter-spacing: -0.05em;
   font-weight: 400;
 }
-.letter-card .signature{
-display: flex;
-flex-direction: column;
-gap: 20px;
+.letter-card .signature {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.letter-card > p{
+.letter-card > p {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0em;
   font-weight: 400;
 }
 /* Letter from founder  */
+/* Blowing Pill */
+.blowing-pills-in {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.blowing-pills-in .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+.blowing-pills-in .left .orbe-img {
+  max-width: 427px;
+}
+.blowing-pills-in .left h2 {
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0.03em;
+  color: #000;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Blo..blowing-pills-inwing Pill */
