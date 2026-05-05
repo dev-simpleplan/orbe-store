@@ -1,75 +1,71 @@
 <section class="blowing-pills">
-  <div class="container">
-    <div class="blowing-pills-in">
-      
-      <div class="left">
-        <div class="orbe-img">
-          {% if section.settings.icon != blank %}
-            <img 
-              src="{{ section.settings.icon | image_url }}" 
-              alt="{{ section.settings.heading | escape }}" 
-              class="icon">
-          {% endif %}
+    <div class="container">
+        <div class="blowing-pills-in">
+
+            <div class="left">
+                <div class="orbe-img">
+                    {% if section.settings.icon != blank %}
+                    <img src="{{ section.settings.icon | image_url }}" alt="{{ section.settings.heading | escape }}"
+                        class="icon">
+                    {% endif %}
+                </div>
+                <div>
+                    {% if section.settings.heading1 != blank %}
+                    <h2>{{ section.settings.heading1 }}</h2>
+                    {% endif %}
+                    {% if section.settings.heading2 != blank %}
+                    <h2>{{ section.settings.heading2 }}</h2>
+                    {% endif %}
+                    {% if section.settings.heading3 != blank %}
+                    <h2>{{ section.settings.heading3 }}</h2>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="right">
+                {% if section.settings.image != blank %}
+                <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.heading | escape }}"
+                    class="img">
+                {% endif %}
+            </div>
+
         </div>
-
-        {% if section.settings.heading1 != blank %}
-          <h2>{{ section.settings.heading1 }}</h2>
-        {% endif %}
-        {% if section.settings.heading2 != blank %}
-          <h2>{{ section.settings.heading2 }}</h2>
-        {% endif %}
-        {% if section.settings.heading3 != blank %}
-          <h2>{{ section.settings.heading3 }}</h2>
-        {% endif %}
-      </div>
-
-      <div class="right">
-        {% if section.settings.image != blank %}
-          <img 
-            src="{{ section.settings.image | image_url }}" 
-            alt="{{ section.settings.heading | escape }}" 
-            class="img">
-        {% endif %}
-      </div>
-
     </div>
-  </div>
 </section>
 
 {% schema %}
 {
-  "name": "Blowing Pills",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "icon",
-      "label": "Left Icon"
-    },
-    {
-      "type": "textarea",
-      "id": "heading1",
-      "label": "Heading1",
-    },
-    {
-      "type": "textarea",
-      "id": "heading2",
-      "label": "Heading2",
-    },
-    {
-      "type": "textarea",
-      "id": "heading3",
-      "label": "Heading3",
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Right Image"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Blowing Pills"
-    }
-  ]
+"name": "Blowing Pills",
+"settings": [
+{
+"type": "image_picker",
+"id": "icon",
+"label": "Left Icon"
+},
+{
+"type": "textarea",
+"id": "heading1",
+"label": "Heading1",
+},
+{
+"type": "textarea",
+"id": "heading2",
+"label": "Heading2",
+},
+{
+"type": "textarea",
+"id": "heading3",
+"label": "Heading3",
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Right Image"
+}
+],
+"presets": [
+{
+"name": "Blowing Pills"
+}
+]
 }
 {% endschema %}
