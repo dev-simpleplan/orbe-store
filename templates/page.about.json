@@ -29,7 +29,11 @@
     },
     "slide-in-img": {
       "type": "slide-in-image",
-    },
+      "settings": {
+        "heading": "Women are navigating more expectations, more information, and more noise than ever. Orbe was created to offer a different kind of space, one rooted in calm, honesty, and clarity. Our purpose is simple: to support women with knowledge, nourishment, and rituals that feel intuitive, not overwhelming.",
+        "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png"
+      }
+    }
   },
   "order": [
     "about-banner",
