@@ -76,7 +76,9 @@
       "name": "Blowing Pills",
       "settings": {
         "icon": "shopify://shop_images/Group_2085663247_1.svg",
-        "heading": "Clarity, by design.\nScience you can trust.\nRituals you can return to.",
+        "heading1": "Clarity, by design.",
+        "heading2": " Science you can trust.",
+        "heading3": "Rituals you can return to.",
         "image": "shopify://shop_images/Rectangle_3468586.png"
       }
     }
