@@ -12,8 +12,14 @@
           {% endif %}
         </div>
 
-        {% if section.settings.heading != blank %}
-          <h2>{{ section.settings.heading }}</h2>
+        {% if section.settings.heading1 != blank %}
+          <h2>{{ section.settings.heading1 }}</h2>
+        {% endif %}
+        {% if section.settings.heading2 != blank %}
+          <h2>{{ section.settings.heading2 }}</h2>
+        {% endif %}
+        {% if section.settings.heading3 != blank %}
+          <h2>{{ section.settings.heading3 }}</h2>
         {% endif %}
       </div>
 
@@ -41,9 +47,18 @@
     },
     {
       "type": "textarea",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Clarity, by design.\nScience you can trust.\nRituals you can return to."
+      "id": "heading1",
+      "label": "Heading1",
+    },
+    {
+      "type": "textarea",
+      "id": "heading2",
+      "label": "Heading2",
+    },
+    {
+      "type": "textarea",
+      "id": "heading3",
+      "label": "Heading3",
     },
     {
       "type": "image_picker",
