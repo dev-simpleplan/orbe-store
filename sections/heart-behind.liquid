@@ -1,9 +1,7 @@
 <section class="heart-behind">
   <div class="container">
     <div class="heart-behind-in">
-
       <div class="left">
-
         <div class="hb-top">
           <div>
             {% if section.settings.top_image_1 != blank %}
@@ -16,7 +14,6 @@
             {% endif %}
           </div>
         </div>
-
         <div class="hb-bottom">
           <h2>{{ section.settings.heading }}</h2>
 
@@ -32,15 +29,12 @@
             <p>{{ section.settings.text_3 }}</p>
           {% endif %}
         </div>
-
       </div>
-
       <div class="right">
         {% if section.settings.right_image != blank %}
           <img src="{{ section.settings.right_image | image_url }}" alt="Image" class="img">
         {% endif %}
       </div>
-
     </div>
   </div>
 </section>
