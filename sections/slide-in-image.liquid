@@ -1,83 +1,90 @@
 <section class="slide-in-img">
   <div class="container">
     <div class="slide-in-img-in">
-      
+
       <div class="sii-text">
         <h2 class="text-target">
-          Women are navigating more expectations, more information, and more noise than ever. Orbe was created to offer a different kind of space, one rooted in calm, honesty, and clarity. Our purpose is simple: to support women with knowledge, nourishment, and rituals that feel intuitive, not overwhelming.
+          {{ section.settings.heading }}
         </h2>
       </div>
 
       <div class="sii-img">
-        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png?v=1777903918" class="parallax-img">
+        {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.heading | escape }}"
+          class="parallax-img">
+        {% endif %}
       </div>
 
     </div>
   </div>
 </section>
 
-<style>
-.slide-in-img {
-  position: relative;
-}
-
-.text-target span {
-  color: #b5b5b5;
-  display: inline-block;
-  margin-right: 4px;
-}
-
-.parallax-img {
-  width: 100%;
-  will-change: transform;
-  clip-path: inset(0% 0% 0% 0%);
-  transform: translateZ(0);
-}
-</style>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger);
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
 
-  function splitWords(selector) {
-    document.querySelectorAll(selector).forEach(el => {
-      let words = el.innerText.trim().split(" ");
-      el.innerHTML = words.map(word => `<span>${word}</span>`).join(" ");
+    function splitWords(selector) {
+      document.querySelectorAll(selector).forEach(el => {
+        let words = el.innerText.trim().split(" ");
+        el.innerHTML = words.map(word => `<span>${word}</span>`).join(" ");
+      });
+    }
+
+    splitWords(".text-target");
+
+    const words = document.querySelectorAll(".text-target span");
+    const image = document.querySelector(".parallax-img");
+
+    let tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".slide-in-img",
+        start: "top 40%",
+        end: "top 20%",
+        scrub: true
+      }
     });
-  }
 
-  splitWords(".text-target");
+    tl1.to(words, {
+      color: "#1A1A1A",
+      stagger: {
+        each: 0.1,
+        ease: "power1.inOut"
+      },
+      ease: "none"
+    });
 
-  const words = document.querySelectorAll(".text-target span");
-  const image = document.querySelector(".parallax-img");
-
-  let tl1 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".slide-in-img",
-      start: "top 80%",
-      end: "top 20%",
-      scrub: true
-    }
+    gsap.to(".parallax-img", {
+      y: -50,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".slide-in-img",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
   });
-
-  tl1.to(words, {
-    color: "#000",
-    stagger: {
-      each: 0.06,
-      ease: "power1.inOut"
-    },
-    ease: "none"
-  });
-
-  gsap.to(".parallax-img", {
-    y: -50,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".slide-in-img",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true
-    }
-  });
-});
 </script>
+
+{% schema %}
+{
+"name": "Slide In Image (GSAP)",
+"settings": [
+{
+"type": "textarea",
+"id": "heading",
+"label": "Heading Text",
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image"
+}
+],
+"presets": [
+{
+"name": "Slide In Image"
+}
+]
+}
+{% endschema %}

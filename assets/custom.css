@@ -972,7 +972,7 @@ header li {
 
 /* About Banner */
 
-.slide-in-img .sii-img {
+ .sii-img {
   max-width: 481px;
   width: 100%;
   filter: grayscale(1);
@@ -990,4 +990,20 @@ header li {
   line-height: 110%;
   max-width: 36ch;
   margin: 0 auto;
+}
+.slide-in-img {
+  position: relative;
+}
+
+.slide-in-img .text-target span {
+  color: #9D9D9D;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.slide-in-img .parallax-img {
+  width: 100%;
+  will-change: transform;
+  clip-path: inset(0% 0% 0% 0%);
+  transform: translateZ(0);
 }
