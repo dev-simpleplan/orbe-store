@@ -70,6 +70,15 @@
       "settings": {
         "spacer_height": 180
       }
+    },
+    "blowing_pills_Ghy3zU": {
+      "type": "blowing-pills",
+      "name": "Blowing Pills",
+      "settings": {
+        "icon": "shopify://shop_images/Group_2085663247_1.svg",
+        "heading": "Clarity, by design.\nScience you can trust.\nRituals you can return to.",
+        "image": "shopify://shop_images/Rectangle_3468586.png"
+      }
     }
   },
   "order": [
@@ -80,6 +89,7 @@
     "heart-behind",
     "spacer_Pd74VB",
     "letter-from-founder",
-    "spacer_FGEC3P"
+    "spacer_FGEC3P",
+    "blowing_pills_Ghy3zU"
   ]
 }
