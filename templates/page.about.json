@@ -34,9 +34,16 @@
         "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png"
       }
     },
-    "heart-behind":{
+    "heart-behind": {
       "type": "heart-behind",
       "settings": {
+        "top_image_1": "shopify://shop_images/37ac90a8325a2eb5fb7dcc774ce97dcf06f2caae.png",
+        "top_image_2": "shopify://shop_images/9c14938d24fac2e401e48d5fd699111e852d73d0.png",
+        "right_image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png",
+        "heading": "The Heart Behind Orbé",
+        "text_1": "Orbe began with a simple but powerful frustration: why does taking care of ourselves feel so complicated?",
+        "text_2": "Women feel overwhelmed by noise, conflicting advice, and wellness trends that offer more confusion than clarity. So we set out to create something different; a brand built on intention, rooted in evidence, and guided by simplicity.",
+        "text_3": "Orbe is the answer to a question women have been asking for years: What if feeling well could feel simple?"
       }
     }
   },
