@@ -63,6 +63,13 @@
     "letter-from-founder": {
       "type": "letter-from-founder",
       "settings": {}
+    },
+    "spacer_FGEC3P": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
+      }
     }
   },
   "order": [
@@ -72,6 +79,7 @@
     "spacer_FjFe6V",
     "heart-behind",
     "spacer_Pd74VB",
-    "letter-from-founder"
+    "letter-from-founder",
+    "spacer_FGEC3P"
   ]
 }
