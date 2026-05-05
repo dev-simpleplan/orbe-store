@@ -1007,3 +1007,13 @@ header li {
   clip-path: inset(0% 0% 0% 0%);
   transform: translateZ(0);
 }
+
+/* Heart Behind */
+.heart-behind-in{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.heart-behind img{
+  filter: grayscale(1);
+}
+/* Heart Behind */
