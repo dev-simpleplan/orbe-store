@@ -1114,5 +1114,9 @@ header li {
   font-weight: 400;
   font-style: italic;
 }
-
-/* Blo..blowing-pills-inwing Pill */
+.heading-block{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* Blowing Pill */
