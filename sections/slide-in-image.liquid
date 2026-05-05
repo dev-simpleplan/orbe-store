@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   gsap.to(".parallax-img", {
-    y: -150,
+    y: -50,
     ease: "none",
     scrollTrigger: {
       trigger: ".slide-in-img",
@@ -79,22 +79,5 @@ document.addEventListener("DOMContentLoaded", () => {
       scrub: true
     }
   });
-
-  let tl2 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".slide-in-img",
-      start: "top top",
-      end: "+=120%",
-      scrub: true,
-      pin: true,
-      anticipatePin: 1
-    }
-  });
-
-  tl2.to(image, {
-    clipPath: "inset(0% 0% 100% 0%)",
-    ease: "power2.out"
-  });
-
 });
 </script>

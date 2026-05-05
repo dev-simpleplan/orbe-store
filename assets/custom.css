@@ -982,12 +982,12 @@ header li {
   position: relative;
 }
 
-.slide-in-img  h2{
+.slide-in-img h2{
   text-align: center;
   font-size: clamp(28px, 4.5vw, 42px);
   font-style: italic;
   letter-spacing: -0.02em;
   line-height: 110%;
-  max-width: 30ch;
+  max-width: 36ch;
   margin: 0 auto;
 }
