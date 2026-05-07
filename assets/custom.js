@@ -77,4 +77,55 @@ $(window).on('load', function () {
             owl.trigger('prev.owl.carousel');
         }
     });
+
+    // Guided By Slider Carousel
+    var guidedByOwl = $('.guided-by-slider');
+
+    guidedByOwl.owlCarousel({
+        loop: false,
+        items: 3,
+        dots: false,
+        nav: false,
+        responsive: {
+            0: { items: 1 },
+            600: { items: 2 },
+            1000: { items: 2 }
+        }
+    });
+
+    var $guidedNextBtn = $('.next-btn-guided');
+    var $guidedPrevBtn = $('.prev-btn-guided');
+
+    function updateGuidedNav(event) {
+        var itemCount = event.item.count;
+        var itemIndex = event.item.index;
+        var itemsPerView = event.page.size;
+
+        if (itemIndex === 0) {
+            $guidedPrevBtn.addClass('disabled');
+        } else {
+            $guidedPrevBtn.removeClass('disabled');
+        }
+
+        if (itemIndex + itemsPerView >= itemCount) {
+            $guidedNextBtn.addClass('disabled');
+        } else {
+            $guidedNextBtn.removeClass('disabled');
+        }
+    }
+
+    guidedByOwl.on('initialized.owl.carousel changed.owl.carousel', updateGuidedNav);
+
+    $guidedNextBtn.click(function () {
+        if (!$(this).hasClass('disabled')) {
+            guidedByOwl.trigger('next.owl.carousel');
+        }
+    });
+
+    $guidedPrevBtn.click(function () {
+        if (!$(this).hasClass('disabled')) {
+            guidedByOwl.trigger('prev.owl.carousel');
+        }
+    });
 });
+

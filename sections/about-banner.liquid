@@ -8,10 +8,20 @@
       </div>
       <div class="about-banner-split" aria-hidden="true">
         <div class="about-banner-split-panel about-banner-split-top">
-          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img">
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img about-banner-split-from">
+          {% if section.settings.left_img_1 != blank %}
+            <img src="{{ section.settings.left_img_1 | image_url }}" alt="" class="img about-banner-split-to">
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img about-banner-split-to">
+          {% endif %}
         </div>
         <div class="about-banner-split-panel about-banner-split-bottom">
-          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img">
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img about-banner-split-from">
+          {% if section.settings.left_img_2 != blank %}
+            <img src="{{ section.settings.left_img_2 | image_url }}" alt="" class="img about-banner-split-to">
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img about-banner-split-to">
+          {% endif %}
         </div>
       </div>
       <div class="about-banner-in">
@@ -89,8 +99,14 @@
       const strip = section.querySelector('.about-banner-strip');
       const split = section.querySelector('.about-banner-split');
       const splitPanels = section.querySelectorAll('.about-banner-split-panel');
+      const splitFromImages = section.querySelectorAll('.about-banner-split-from');
+      const splitToImages = section.querySelectorAll('.about-banner-split-to');
       const grid = section.querySelector('.about-banner-in');
+      const leftCol = section.querySelector('.about-banner-in .left');
       const blocks = section.querySelectorAll('.ab-reveal-block');
+      const leftBlocks = section.querySelectorAll('.about-banner-in .left .ab-reveal-block');
+      const rightBlocks = section.querySelectorAll('.about-banner-in .right .ab-reveal-block');
+      const splitGap = 40;
 
       const mm = gsap.matchMedia();
 
@@ -103,11 +119,24 @@
           clipPath: 'inset(0% 0% 0% 0%)',
         });
         gsap.set(logo, { autoAlpha: 0, scale: 0.92 });
-        gsap.set(strip, { scaleX: 0, transformOrigin: 'left center' });
-        gsap.set(split, { autoAlpha: 0, width: '100%', height: '800px', yPercent: -50 });
+        gsap.set(strip, { autoAlpha: 1, scaleX: 0, transformOrigin: 'left center' });
+        gsap.set(split, { autoAlpha: 0, width: '100%', height: '800px', gap: splitGap, yPercent: -50 });
         gsap.set(splitPanels, { clipPath: 'inset(0% 0% 0% 0%)' });
+        gsap.set(splitFromImages, { autoAlpha: 1, scale: 1 });
+        gsap.set(splitToImages, { autoAlpha: 0, scale: 1.04 });
         gsap.set(grid, { autoAlpha: 1 });
         gsap.set(blocks, { autoAlpha: 0, y: 70, clipPath: 'inset(18% 0% 18% 0%)' });
+        gsap.set(leftBlocks, { y: 0, clipPath: 'inset(0% 0% 0% 0%)' });
+
+        const getLeftColumnSize = () => {
+          const bounds = leftCol.getBoundingClientRect();
+          return {
+            width: bounds.width,
+            height: bounds.height,
+          };
+        };
+
+        const getLeftColumnGap = () => parseFloat(getComputedStyle(leftCol).rowGap) || splitGap;
 
         const tl = gsap.timeline({
           paused: true,
@@ -115,26 +144,40 @@
         });
 
         tl.to(logo, { autoAlpha: 1, scale: 1, ease: 'power2.out', duration: 0.45 }, 0.15);
-        tl.to(strip, { scaleX: 1, duration: 0.65 }, 0.65);
-        tl.to(hero, { autoAlpha: 0, duration: 0.22 }, 1.18);
-        tl.to(split, { autoAlpha: 1, duration: 0.22 }, 1.18);
-        tl.to(split, { width: '49%', height: '78vh', yPercent: -50, duration: 0.9 }, 1.35);
-        tl.to(splitPanels, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.9, stagger: 0.08 }, 1.35);
-        tl.to(blocks, {
+        tl.to(strip, { scaleX: 1, ease: 'power3.inOut', duration: 0.95 }, 0.72);
+        tl.to(logo, { autoAlpha: 0, scale: 0.98, ease: 'power2.inOut', duration: 0.5 }, 1.12);
+        tl.to(split, { autoAlpha: 1, ease: 'power2.out', duration: 0.5 }, 1.6);
+        tl.to(hero, { autoAlpha: 0, ease: 'power2.inOut', duration: 0.65 }, 1.68);
+        tl.to(split, {
+          width: () => getLeftColumnSize().width,
+          height: () => getLeftColumnSize().height,
+          gap: () => getLeftColumnGap(),
+          yPercent: -50,
+          ease: 'expo.inOut',
+          duration: 2.05,
+        }, 1.92);
+        tl.to(splitFromImages, {
+          autoAlpha: 0,
+          scale: 1.01,
+          ease: 'sine.inOut',
+          duration: 1.9,
+        }, 2.08);
+        tl.to(splitToImages, {
+          autoAlpha: 1,
+          scale: 1,
+          ease: 'sine.inOut',
+          duration: 1.9,
+        }, 2.08);
+        tl.to(rightBlocks, {
           autoAlpha: 1,
           y: 0,
           clipPath: 'inset(0% 0% 0% 0%)',
-          ease: 'power2.out',
-          duration: 0.75,
-          stagger: 0.16,
-        }, 2.05);
-        tl.to(split, { autoAlpha: 0, duration: 0.35 }, 2.45);
-        tl.to(blocks, {
-          autoAlpha: 1,
-          y: 0,
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 0.35,
-        }, 2.55);
+          ease: 'power3.out',
+          duration: 1.25,
+          stagger: 0.18,
+        }, 3.82);
+        tl.set(leftBlocks, { autoAlpha: 1 }, 4.35);
+        tl.to(split, { autoAlpha: 0, ease: 'power2.inOut', duration: 0.8 }, 4.45);
 
         const trigger = ScrollTrigger.create({
           trigger: section,

@@ -64,6 +64,10 @@
       "type": "letter-from-founder",
       "settings": {}
     },
+    "guided-by":{
+      "type": "guided-by",
+      "settings": {}
+    },
     "spacer_FGEC3P": {
       "type": "spacer",
       "name": "Spacer",
@@ -109,6 +113,7 @@
     "heart-behind",
     "spacer_Pd74VB",
     "letter-from-founder",
+    "guided-by",
     "spacer_FGEC3P",
     "blowing_pills_Ghy3zU",
     "spacer_12",
