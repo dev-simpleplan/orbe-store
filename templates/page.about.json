@@ -94,7 +94,7 @@
       "name": "Blogs Feature",
       "settings": {
         "heading": "Thoughts Worth Returning To",
-        "blog": "",
+        "blog": "articles",
         "articles_to_show": 4,
         "show_category": true,
         "show_navigation": true
