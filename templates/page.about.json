@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "about-banner": {
@@ -38,7 +29,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 140
       }
     },
     "heart-behind": {
@@ -77,11 +68,19 @@
       "settings": {
         "icon": "shopify://shop_images/Group_2085663247_1.svg",
         "heading1": "Clarity, by design.",
-        "heading2": " Science you can trust.",
+        "heading2": "Science you can trust.",
         "heading3": "Rituals you can return to.",
         "image": "shopify://shop_images/Rectangle_3468586.png"
       }
-    }
+    },
+     "spacer_12": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
+      }
+    },
+    
   },
   "order": [
     "about-banner",
@@ -92,6 +91,7 @@
     "spacer_Pd74VB",
     "letter-from-founder",
     "spacer_FGEC3P",
-    "blowing_pills_Ghy3zU"
+    "blowing_pills_Ghy3zU",
+    "spacer_12"
   ]
 }
