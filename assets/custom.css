@@ -128,6 +128,74 @@ header li {
 .header svg {
   max-width: 203px;
 }
+.header-mobile {
+  display: none;
+}
+.header-mobile-head {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+.mobile-header-logo {
+  width: 110px;
+  margin: 0 auto;
+}
+.hamburger,
+.close-menu {
+  cursor: pointer;
+}
+.mobile-menu-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mobile-menu-in .mobile-menu-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-menu-bottom .orbe-o {
+  width: 50px;
+}
+.header-mobile {
+  position: relative;
+}
+.mobile-menu {
+  height: 100vh;
+  position: fixed;
+  background-color: #fff;
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0);
+  transition: .4s ease all;
+  z-index: 999;
+  inset: 0;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+.mobile-menu.active {
+  clip-path: inset(0 0 0 0);
+  pointer-events: auto;
+}
+body.mobile-menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+.mobile-menu-in {
+  height: 100%;
+  padding: 50px 20px;
+  position: relative;
+}
+.mobile-menu-in > ul > li a {
+  font-size: 26px;
+  color: #1a1a1a;
+  line-height: 150%;
+}
+.close-menu{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
 /* Header */
 
 /* Footer */

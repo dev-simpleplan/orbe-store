@@ -1,5 +1,6 @@
 // Initialize Lenis
 const lenis = new Lenis();
+window.lenis = lenis;
 
 // Use requestAnimationFrame to continuously update the scroll
 function raf(time) {

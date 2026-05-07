@@ -40,11 +40,14 @@
     gap: 100px;
     row-gap: 50px;
   }
-}
-@media screen and (max-width: 767px) {
   .header.desktop {
     display: none;
   }
+  .header-mobile{
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
   .footer-logo {
     max-width: 200px;
   }

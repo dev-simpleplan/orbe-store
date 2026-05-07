@@ -1,9 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector(".hamburger");
-    const mobileNav = document.querySelector(".mobile-nav");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const closeMenu = document.querySelector(".close-menu");
+
+    if (!hamburger || !mobileMenu || !closeMenu) return;
 
     hamburger.addEventListener("click", () => {
-        mobileNav.classList.toggle("active");
+        mobileMenu.classList.add("active");
+        document.body.classList.add("mobile-menu-open");
+
+        if (window.lenis) {
+            window.lenis.stop();
+        }
+    });
+
+    closeMenu.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        document.body.classList.remove("mobile-menu-open");
+
+        if (window.lenis) {
+            window.lenis.start();
+        }
     });
 });
 

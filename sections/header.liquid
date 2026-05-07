@@ -51,4 +51,69 @@
       </div>
     </div>
   </div>
+  <div class="header-mobile">
+    <div class="header-mobile-head">
+      <div class="hamburger">
+        <svg width="30px" height="40px" viewBox="0 0 12 12" enable-background="new 0 0 12 12" id="Слой_1" version="1.1"
+          xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g>
+            <rect fill="#1D1D1B" height=".6" width="9" x="0.5" y="5.5" />
+            <rect fill="#1D1D1B" height=".6" width="9" x="0.5" y="2.5" />
+            <rect fill="#1D1D1B" height=".6" width="9" x="0.5" y="8.5" />
+          </g>
+        </svg>
+      </div>
+      <div class="mobile-header-logo">
+        <a href="/">
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663247_1.svg?v=1777988237"
+            class="icon" alt="Logo">
+        </a>
+      </div>
+      <div class="cart-btn">
+        <a href="{{ routes.cart_url }}" aria-label="Cart">
+          {% render 'cart-icon' %}
+          {% if cart.item_count > 0 %}
+          <span class="cart-count">{{ cart.item_count }}</span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+    <div class="mobile-menu">
+      <div class="mobile-menu-in">
+          <div class="close-menu">
+        <svg width="20px" height="30px" viewBox="0 0 12 12" enable-background="new 0 0 12 12" id="Слой_1" version="1.1"
+          xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <polygon fill="#1D1D1B"
+            points="12,0.7070313 11.2929688,0 6,5.2929688 0.7070313,0 0,0.7070313 5.2929688,6 0,11.2929688   0.7070313,12 6,6.7070313 11.2929688,12 12,11.2929688 6.7070313,6 " />
+        </svg>
+      </div>
+        <ul>
+          <li><a href="#!">Meet Orbé</a></li>
+          <li><a href="#!">Science</a></li>
+          <li>
+            <p>Learn More</p>
+            <ul>
+              <li><a href="#!">Blogs</a></li>
+              <li><a href="#!">Simple Steps</a></li>
+            </ul>
+            <ul>
+
+            </ul>
+          </li>
+        </ul>
+        <div class="mobile-menu-bottom">
+          <div class="left">
+            <a href="#!">Shop N°1</a>
+          </div>
+          <div class="right">
+            <div class="orbe-o">
+              <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663252_1.svg?v=1778140575"
+                alt="O" class="icon">
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
 </header>
