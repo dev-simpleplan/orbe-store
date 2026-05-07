@@ -1,63 +1,158 @@
-<section class="about-banner">
+<section class="about-banner" id="about-banner-{{ section.id }}">
   <div class="container">
-    <div class="about-banner-img">
-      <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663252_3.svg?v=1778156301" alt="Image" class="icon">
-      <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="Image" class="img">
-    </div>
-    <div class="about-banner-in">
-      <!-- LEFT IMAGES -->
-      <div class="left">
-        <div class="ab-img-1">
-          {% if section.settings.left_img_1 != blank %}
-            <img src="{{ section.settings.left_img_1 | image_url }}" alt="Image" class="img">
-          {% endif %}
+    <div class="about-banner-stage">
+      <div class="about-banner-img">
+        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663252_3.svg?v=1778156301" alt="Image" class="icon">
+        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="Image" class="img">
+        <span class="about-banner-strip"></span>
+      </div>
+      <div class="about-banner-split" aria-hidden="true">
+        <div class="about-banner-split-panel about-banner-split-top">
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img">
         </div>
-
-        <div class="ab-img-2">
-          {% if section.settings.left_img_2 != blank %}
-            <img src="{{ section.settings.left_img_2 | image_url }}" alt="Image" class="img">
-          {% endif %}
+        <div class="about-banner-split-panel about-banner-split-bottom">
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="" class="img">
         </div>
       </div>
-      <!-- RIGHT CONTENT -->
-      <div class="right">
+      <div class="about-banner-in">
+        <!-- LEFT IMAGES -->
+        <div class="left">
+          <div class="ab-img-1 ab-reveal-block">
+            {% if section.settings.left_img_1 != blank %}
+              <img src="{{ section.settings.left_img_1 | image_url }}" alt="Image" class="img">
+            {% endif %}
+          </div>
 
-        <div class="right-top">
-          <div class="abrt-left">
-            
-            <div class="abrt-img">
-              {% if section.settings.top_right_img != blank %}
-                <img src="{{ section.settings.top_right_img | image_url }}" alt="Image" class="img">
-              {% endif %}
-            </div>
-
-            <div class="abrt-text">
-              <h1>{{ section.settings.heading }}</h1>
-            </div>
-
+          <div class="ab-img-2 ab-reveal-block">
+            {% if section.settings.left_img_2 != blank %}
+              <img src="{{ section.settings.left_img_2 | image_url }}" alt="Image" class="img">
+            {% endif %}
           </div>
         </div>
+        <!-- RIGHT CONTENT -->
+        <div class="right">
 
-        <div class="right-bottom">
-          <div class="abrt-right">
+          <div class="right-top">
+            <div class="abrt-left">
 
-            <div class="abrt-text">
-              <p>{{ section.settings.description }}</p>
+              <div class="abrt-img ab-reveal-block">
+                {% if section.settings.top_right_img != blank %}
+                  <img src="{{ section.settings.top_right_img | image_url }}" alt="Image" class="img">
+                {% endif %}
+              </div>
+
+              <div class="abrt-text ab-reveal-block">
+                <h1>{{ section.settings.heading }}</h1>
+              </div>
+
             </div>
-
-            <div class="abrt-img">
-              {% if section.settings.bottom_right_img != blank %}
-                <img src="{{ section.settings.bottom_right_img | image_url }}" alt="Image" class="img">
-              {% endif %}
-            </div>
-
           </div>
+
+          <div class="right-bottom">
+            <div class="abrt-right">
+
+              <div class="abrt-text ab-reveal-block">
+                <p>{{ section.settings.description }}</p>
+              </div>
+
+              <div class="abrt-img ab-reveal-block">
+                {% if section.settings.bottom_right_img != blank %}
+                  <img src="{{ section.settings.bottom_right_img | image_url }}" alt="Image" class="img">
+                {% endif %}
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    function init() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(init, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = document.getElementById('about-banner-{{ section.id }}');
+      if (!section) return;
+
+      const hero = section.querySelector('.about-banner-img');
+      const logo = hero.querySelector('img:nth-child(1)');
+      const strip = section.querySelector('.about-banner-strip');
+      const split = section.querySelector('.about-banner-split');
+      const splitPanels = section.querySelectorAll('.about-banner-split-panel');
+      const grid = section.querySelector('.about-banner-in');
+      const blocks = section.querySelectorAll('.ab-reveal-block');
+
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 992px)', () => {
+        gsap.set(hero, {
+          width: '100%',
+          height: '72vh',
+          yPercent: -50,
+          autoAlpha: 1,
+          clipPath: 'inset(0% 0% 0% 0%)',
+        });
+        gsap.set(logo, { autoAlpha: 0, scale: 0.92 });
+        gsap.set(strip, { scaleX: 0, transformOrigin: 'left center' });
+        gsap.set(split, { autoAlpha: 0, width: '100%', height: '72vh', yPercent: -50 });
+        gsap.set(splitPanels, { clipPath: 'inset(0% 0% 0% 0%)' });
+        gsap.set(grid, { autoAlpha: 1 });
+        gsap.set(blocks, { autoAlpha: 0, y: 70, clipPath: 'inset(18% 0% 18% 0%)' });
+
+        const tl = gsap.timeline({
+          paused: true,
+          defaults: { ease: 'power2.inOut' },
+        });
+
+        tl.to(logo, { autoAlpha: 1, scale: 1, ease: 'power2.out', duration: 0.45 }, 0.15);
+        tl.to(strip, { scaleX: 1, duration: 0.65 }, 0.65);
+        tl.to(hero, { autoAlpha: 0, duration: 0.22 }, 1.18);
+        tl.to(split, { autoAlpha: 1, duration: 0.22 }, 1.18);
+        tl.to(split, { width: '49%', height: '78vh', yPercent: -50, duration: 0.9 }, 1.35);
+        tl.to(splitPanels, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.9, stagger: 0.08 }, 1.35);
+        tl.to(blocks, {
+          autoAlpha: 1,
+          y: 0,
+          clipPath: 'inset(0% 0% 0% 0%)',
+          ease: 'power2.out',
+          duration: 0.75,
+          stagger: 0.16,
+        }, 2.05);
+        tl.to(split, { autoAlpha: 0, duration: 0.35 }, 2.45);
+        tl.to(blocks, {
+          autoAlpha: 1,
+          y: 0,
+          clipPath: 'inset(0% 0% 0% 0%)',
+          duration: 0.35,
+        }, 2.55);
+
+        const trigger = ScrollTrigger.create({
+          trigger: section,
+          start: 'top 65%',
+          once: true,
+          onEnter: () => tl.play(),
+        });
+
+        return () => {
+          trigger.kill();
+          tl.kill();
+        };
+      });
+    }
+
+    init();
+  })();
+</script>
 
 {% schema %}
 {
