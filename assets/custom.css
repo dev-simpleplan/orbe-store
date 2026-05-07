@@ -1145,13 +1145,13 @@ width: 100%;
 }
 .about-banner-img img:nth-child(1){
   position: absolute;
-  top: 48%;
+  top: 50%;
   left: 50%;
   width: min(100%, 700px);
   height: auto;
   max-width: 700px;
   margin: 0;
-  transform: translate(-48%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 3;
   object-fit: contain;
 }
@@ -1175,47 +1175,91 @@ width: 100%;
   z-index: 2;
   pointer-events: none;
 }
+.about-banner-mobile-copy {
+  display: none;
+}
 .ab-reveal-block {
   will-change: transform, opacity, clip-path;
 }
 @media screen and (max-width: 991px) {
   .about-banner {
+    min-height: 100svh;
     height: auto;
-    padding-top: 120px;
+    padding-top: 72px;
   }
   .about-banner .container {
-    height: auto;
+    height: 100%;
   }
   .about-banner-stage {
     position: relative;
-    height: auto;
-    min-height: 0;
-    overflow: visible;
-    display: block;
+    min-height: calc(100svh - 72px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
   .about-banner-split {
-    display: none;
+    display: grid;
+    width: 100%;
+    height: min(70svh, 620px);
+    gap: 16px;
+    z-index: 2;
   }
   .about-banner-img {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    height: 60vh;
-    margin-bottom: 40px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: min(70svh, 620px);
+    margin-bottom: 0;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .about-banner-img img:nth-child(1) {
+    width: min(48vw, 142px);
+  }
+  .about-banner-strip {
+    height: 16px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .about-banner-mobile-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: min(100%, 360px);
+    padding: 18px 24px;
+    text-align: center;
+    color: #1a1a1a;
+  }
+  .about-banner-mobile-heading {
+    display: block;
+    max-width: 12ch;
+    font-size: clamp(26px, 8vw, 38px);
+    line-height: 92%;
+    letter-spacing: -0.05em;
+    font-family: var(--ivypresto);
+    font-weight: 400;
+  }
+  .about-banner-mobile-text {
+    display: block;
+    max-width: 38ch;
+    font-size: 12px;
+    line-height: 120%;
+    font-family: var(--aspekta);
+  }
+  .about-banner-split-panel .about-banner-split-from {
+    height: calc(200% + 16px);
   }
   .about-banner-in {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    transform: none;
-    opacity: 1;
+    display: none;
   }
   .ab-reveal-block {
-    opacity: 1;
-    transform: none;
-    clip-path: none;
+    will-change: transform, opacity, clip-path;
   }
 }
 /* About Banner */

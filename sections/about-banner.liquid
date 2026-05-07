@@ -4,7 +4,12 @@
       <div class="about-banner-img">
         <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663252_3.svg?v=1778156301" alt="Image" class="icon">
         <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="Image" class="img">
-        <span class="about-banner-strip"></span>
+        <span class="about-banner-strip">
+          <span class="about-banner-mobile-copy">
+            <span class="about-banner-mobile-heading">{{ section.settings.heading }}</span>
+            <span class="about-banner-mobile-text">{{ section.settings.description }}</span>
+          </span>
+        </span>
       </div>
       <div class="about-banner-split" aria-hidden="true">
         <div class="about-banner-split-panel about-banner-split-top">
@@ -97,6 +102,7 @@
       const hero = section.querySelector('.about-banner-img');
       const logo = hero.querySelector('img:nth-child(1)');
       const strip = section.querySelector('.about-banner-strip');
+      const mobileCopy = section.querySelector('.about-banner-mobile-copy');
       const split = section.querySelector('.about-banner-split');
       const splitPanels = section.querySelectorAll('.about-banner-split-panel');
       const splitFromImages = section.querySelectorAll('.about-banner-split-from');
@@ -182,6 +188,71 @@
         const trigger = ScrollTrigger.create({
           trigger: section,
           start: 'top 65%',
+          once: true,
+          onEnter: () => tl.play(),
+        });
+
+        return () => {
+          trigger.kill();
+          tl.kill();
+        };
+      });
+
+      mm.add('(max-width: 991px)', () => {
+        const mobileGap = 16;
+
+        gsap.set(hero, {
+          width: '100%',
+          height: 'min(70svh, 620px)',
+          yPercent: -50,
+          autoAlpha: 1,
+          clipPath: 'inset(0% 0% 0% 0%)',
+        });
+        gsap.set(logo, { autoAlpha: 0, scale: 0.86 });
+        gsap.set(strip, { autoAlpha: 1, height: mobileGap, scaleX: 0, transformOrigin: 'left center' });
+        gsap.set(mobileCopy, { autoAlpha: 0, y: 16 });
+        gsap.set(split, {
+          autoAlpha: 0,
+          width: '100%',
+          height: 'min(70svh, 620px)',
+          gap: mobileGap,
+          yPercent: -50,
+        });
+        gsap.set(splitPanels, { clipPath: 'inset(0% 0% 0% 0%)' });
+        gsap.set(splitFromImages, { autoAlpha: 1, scale: 1 });
+        gsap.set(splitToImages, { autoAlpha: 0, scale: 1 });
+        gsap.set(grid, { autoAlpha: 1 });
+        gsap.set(leftBlocks, { autoAlpha: 0 });
+        gsap.set(rightBlocks, { autoAlpha: 0 });
+
+        const tl = gsap.timeline({
+          paused: true,
+          defaults: { ease: 'power2.inOut' },
+        });
+
+        tl.to(logo, { autoAlpha: 1, scale: 1, ease: 'power2.out', duration: 0.55 }, 0.25);
+        tl.to(strip, { scaleX: 1, ease: 'power3.inOut', duration: 0.9 }, 1.05);
+        tl.to(logo, { scale: 1.03, ease: 'power2.inOut', duration: 0.55 }, 1.18);
+        tl.to(split, { autoAlpha: 1, ease: 'power2.out', duration: 0.45 }, 1.82);
+        tl.to(hero.querySelector('img:nth-child(2)'), { autoAlpha: 0, ease: 'power2.inOut', duration: 0.55 }, 1.9);
+        tl.to(split, {
+          height: 'min(82svh, 720px)',
+          ease: 'expo.inOut',
+          duration: 1.25,
+        }, 2.2);
+        tl.to(strip, {
+          height: 'clamp(150px, 28svh, 220px)',
+          ease: 'expo.inOut',
+          duration: 1.25,
+        }, 2.2);
+        tl.to(logo, { autoAlpha: 0, scale: 0.98, ease: 'power2.inOut', duration: 0.45 }, 2.45);
+        tl.to(mobileCopy, { autoAlpha: 1, y: 0, ease: 'power3.out', duration: 0.75 }, 2.75);
+        tl.to(splitToImages, { autoAlpha: 1, ease: 'power2.inOut', duration: 0.6 }, 2.75);
+        tl.to(splitFromImages, { autoAlpha: 0, ease: 'power2.inOut', duration: 0.6 }, 2.75);
+
+        const trigger = ScrollTrigger.create({
+          trigger: section,
+          start: 'top 72%',
           once: true,
           onEnter: () => tl.play(),
         });
