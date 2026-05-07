@@ -229,7 +229,13 @@
     },
     "blogs-feature": {
       "type": "blogs-feature",
-      "settings": {}
+      "settings": {
+        "heading": "Thoughts Worth Returning To",
+        "blog": "articles",
+        "articles_to_show": 4,
+        "show_category": true,
+        "show_navigation": true
+      }
     },
     "spacer6": {
       "type": "spacer",
