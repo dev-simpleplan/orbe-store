@@ -68,42 +68,12 @@
             "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
             "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
           }
-        },
-        "fold_yMVGbk": {
-          "type": "fold",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468538_2.png",
-            "heading": "",
-            "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
-            "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
-          }
-        },
-        "fold_CqKN8k": {
-          "type": "fold",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468536.png",
-            "heading": "",
-            "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
-            "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
-          }
-        },
-        "fold_7yWMYg": {
-          "type": "fold",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468537.png",
-            "heading": "",
-            "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
-            "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
-          }
         }
       },
       "block_order": [
         "fold_nUmdXx",
         "fold_7KmNqB",
-        "fold_MVV873",
-        "fold_yMVGbk",
-        "fold_CqKN8k",
-        "fold_7yWMYg"
+        "fold_MVV873"
       ],
       "settings": {}
     },

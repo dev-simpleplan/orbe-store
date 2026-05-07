@@ -29,7 +29,7 @@
     }
 
     .sticky-wrapper {
-        height: 300vh;
+        height: 420vh;
         position: relative;
     }
 
@@ -134,7 +134,7 @@
     }
 </style>
 
-<div class="sticky-wrapper" id="stickyWrapper">
+<section class="sticky-wrapper" id="stickyWrapper">
     <div class="sticky-inner">
         <div class="scene" id="scene">
 
@@ -165,20 +165,11 @@
                     <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/image_480.png?v=1777636144"
                         alt="Image" class="icon">
                 </div>
-                <div class="slide" id="slide2">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/image_485_1.png?v=1777636144"
-                        alt="Image" class="icon">
-                </div>
             </div>
 
         </div>
-
-        <div class="progress-bar">
-            <div class="progress-dot active" id="pd1"></div>
-            <div class="progress-dot" id="pd2"></div>
-        </div>
     </div>
-</div>
+</section>
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
@@ -188,12 +179,6 @@
             { title: "Steady Energy Pathways", sub: "Helps reduce peaks and dips in the system." },
             { title: "Dose Aware Design", sub: "Respects the body's natural balance." },
             { title: "Optimised Bioavailability", sub: "Ensures efficient absorption and use." },
-        ],
-        [
-            { title: "Clean Input", sub: "No fillers. No competing compounds." },
-            { title: "Cellular Support", sub: "Built for consistent, repeatable intake." },
-            { title: "Evidence Informed", sub: "Guided by nutritional science." },
-            { title: "Long Term Use", sub: "Formulated beyond short-term demands." },
         ]
     ];
 
@@ -203,9 +188,6 @@
     const lbls = [0, 1, 2, 3].map(i => document.getElementById('lbl' + i));
     const ltEls = [0, 1, 2, 3].map(i => document.getElementById('lt' + i));
     const lsEls = [0, 1, 2, 3].map(i => document.getElementById('ls' + i));
-
-    let currentSlide = 0;
-    let transitioning = false;
 
     function setLabelText(idx) {
         slideData[idx].forEach((d, i) => {
@@ -243,53 +225,20 @@
 
     positionOrbit(0);
 
-    function switchSlide(nextIdx) {
-        if (transitioning || nextIdx === currentSlide) return;
-        transitioning = true;
-
-        const outEl = document.getElementById('slide' + (currentSlide + 1));
-        const inEl = document.getElementById('slide' + (nextIdx + 1));
-
-        document.getElementById('pd' + (currentSlide + 1)).classList.remove('active');
-        document.getElementById('pd' + (nextIdx + 1)).classList.add('active');
-
-        gsap.to(outEl, {
-            opacity: 0, scale: 0.9, duration: 0.45, ease: 'power2.in',
-            onComplete() {
-                outEl.classList.remove('active');
-                setLabelText(nextIdx);
-                gsap.fromTo(inEl,
-                    { opacity: 0, scale: 0.9 },
-                    {
-                        opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out',
-                        onComplete() {
-                            inEl.classList.add('active');
-                            currentSlide = nextIdx;
-                            transitioning = false;
-                        }
-                    }
-                );
-            }
-        });
-    }
-
     ScrollTrigger.create({
         trigger: '#stickyWrapper',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 1.2,
+        scrub: 2.4,
         onUpdate(self) {
             const p = self.progress;
-            const deg = p * 720; /* two full clockwise rotations */
+            const deg = p * 240; /* reduced orbit for calmer label movement */
 
             /* Ring itself drifts slowly */
             gsap.set(orbitRing, { rotation: deg * 0.2 });
 
             /* Dots & labels orbit — labels stay upright (no rotation set on them) */
             positionOrbit(deg);
-
-            /* Slide transition at midpoint */
-            switchSlide(p < 0.5 ? 0 : 1);
         }
     });
 

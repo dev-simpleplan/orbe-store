@@ -1,354 +1,318 @@
 {% comment %} Sliding Image Text Section {% endcomment %}
 
 <style>
-  .sliding-image-text {
-    height: 1200vh;
+  #sit-section-{{ section.id }} {
+    height: 320vh;
     position: relative;
   }
 
-  .sliding-image-text-in {
+  #sit-section-{{ section.id }} .sliding-image-text-in {
     position: sticky;
     top: 0;
     height: 100vh;
     overflow: hidden;
+    background: #fff;
+  }
+
+  #sit-section-{{ section.id }} .sit-fold {
+    position: absolute;
+    inset: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 19px;
+    pointer-events: none;
   }
 
-  .sit-col {
+  #sit-section-{{ section.id }} .sit-side {
     position: relative;
     overflow: hidden;
     height: 100%;
   }
 
-  .sit-track {
+  #sit-section-{{ section.id }} .sit-media,
+  #sit-section-{{ section.id }} .sit-copy {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 600%;
+    inset: 0;
+  }
+
+  #sit-section-{{ section.id }} .sit-media {
     will-change: transform;
   }
 
-  .sit-panel {
-    width: 100%;
-    height: 16.6666%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .sit-panel-img {
-    width: 100%;
-    height: 130%;
-    position: absolute;
-    top: -15%;
-    will-change: transform;
-  }
-
-  .sit-panel-img img {
+  #sit-section-{{ section.id }} .sit-media img,
+  #sit-section-{{ section.id }} .sit-mobile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .sit-text-panel {
-    width: 100%;
-    height: 16.6666%;
+  #sit-section-{{ section.id }} .sit-copy {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 60px 60px 60px 30px;
+    padding: 60px;
+    opacity: 0;
+    will-change: opacity, transform;
   }
 
-  .sit-text-panel.txt-right {
-    padding: 60px 60px 60px 30px;
+  #sit-section-{{ section.id }} .sit-fold.is-active .sit-copy {
+    opacity: 1;
   }
 
-  .sit-text-panel.txt-left {
-    padding: 60px 30px 60px 60px;
-  }
-
-  .sit-text-panel p {
+  #sit-section-{{ section.id }} .sit-copy p {
     font-size: clamp(0.85rem, 1.1vw, 1rem);
     line-height: 1.75;
     color: #1a1a1a;
     max-width: 280px;
   }
 
-  .sit-text-panel h2 {
+  #sit-section-{{ section.id }} .sit-copy h2 {
     font-size: clamp(1.2rem, 2vw, 1.8rem);
     font-weight: 400;
     color: #1a1a1a;
     margin: 0 0 8px;
   }
 
-  .sit-text-panel .block-2 {
+  #sit-section-{{ section.id }} .sit-copy .block-2 {
     align-self: flex-end;
   }
 
-  /* Tablet: disable animation, show stacked folds */
+  #sit-section-{{ section.id }} .sit-mobile-fold {
+    display: none;
+  }
+
   @media (max-width: 991px) {
-    .sliding-image-text {
+    #sit-section-{{ section.id }} {
       height: auto;
     }
 
-    .sliding-image-text-in {
-      position: relative;
-      height: auto;
-      display: block;
-      overflow: visible;
-    }
-
-    .sit-col {
+    #sit-section-{{ section.id }} .sliding-image-text-in {
       display: none;
     }
 
-    .sit-fold-mobile {
+    #sit-section-{{ section.id }} .sit-mobile-fold {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 19px;
       min-height: 100vw;
     }
 
-    .sit-fold-mobile .mob-img {
+    #sit-section-{{ section.id }} .sit-mobile-image {
       position: relative;
       overflow: hidden;
     }
 
-    .sit-fold-mobile .mob-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .sit-fold-mobile .mob-txt {
+    #sit-section-{{ section.id }} .sit-mobile-copy {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 40px 30px;
     }
 
-    .sit-fold-mobile .mob-txt p {
+    #sit-section-{{ section.id }} .sit-mobile-copy p {
       font-size: clamp(0.85rem, 1.1vw, 1rem);
       line-height: 1.75;
       color: #1a1a1a;
     }
 
-    .sit-fold-mobile .mob-txt h2 {
+    #sit-section-{{ section.id }} .sit-mobile-copy h2 {
       font-size: clamp(1.2rem, 2vw, 1.8rem);
       font-weight: 400;
       color: #1a1a1a;
       margin: 0 0 8px;
     }
-
-    .sit-fold-mobile .mob-txt .block-2 {
-      align-self: flex-end;
-    }
   }
 
-  /* Mobile: single column */
   @media (max-width: 767px) {
-    .sit-fold-mobile {
+    #sit-section-{{ section.id }} .sit-mobile-fold {
       grid-template-columns: 1fr;
       min-height: auto;
     }
 
-    .sit-fold-mobile .mob-img {
+    #sit-section-{{ section.id }} .sit-mobile-image {
       height: 80vw;
     }
 
-    .sit-fold-mobile .mob-txt {
+    #sit-section-{{ section.id }} .sit-mobile-copy {
+      min-height: 70vw;
       padding: 30px 20px;
-    }
-  }
-
-  /* Desktop only */
-  @media (min-width: 992px) {
-    .sit-fold-mobile {
-      display: none;
     }
   }
 </style>
 
 <section class="sliding-image-text" id="sit-section-{{ section.id }}">
-
-  <!-- DESKTOP: two track columns -->
   <div class="sliding-image-text-in">
+    {% for block in section.blocks limit: 3 %}
+      {% assign fold_index = forloop.index0 %}
+      {% assign is_even = fold_index | modulo: 2 %}
 
-    <!-- LEFT TRACK: img, txt, img, txt, img, txt -->
-    <div class="sit-col">
-      <div class="sit-track" id="sit-left-track-{{ section.id }}">
-
-        {% for block in section.blocks %}
-          {% assign fold_index = forloop.index0 %}
-          {% assign is_odd = fold_index | modulo: 2 %}
-
-          {% if is_odd == 0 %}
-            <!-- Odd fold (1,3,5): LEFT = image -->
-            <div class="sit-panel">
-              <div class="sit-panel-img" id="sit-pimg-{{ section.id }}-{{ forloop.index }}">
-                <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
-              </div>
-            </div>
-          {% else %}
-            <!-- Even fold (2,4,6): LEFT = text -->
-            <div class="sit-text-panel txt-left">
-              <div class="block-1">
-                <p>{{ block.settings.text_top }}</p>
-              </div>
-              {% if block.settings.text_bottom != blank %}
-                <div class="block-2">
-                  <p>{{ block.settings.text_bottom }}</p>
-                </div>
+      <div class="sit-fold{% if forloop.first %} is-active{% endif %}" data-sit-fold="{{ forloop.index }}" {{ block.shopify_attributes }}>
+        <div class="sit-side">
+          {% if is_even == 0 %}
+            <div class="sit-media sit-image" data-sit-image>
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               {% endif %}
             </div>
-          {% endif %}
-
-        {% endfor %}
-
-      </div>
-    </div>
-
-    <!-- RIGHT TRACK: txt, img, txt, img, txt, img -->
-    <div class="sit-col">
-      <div class="sit-track" id="sit-right-track-{{ section.id }}">
-
-        {% for block in section.blocks %}
-          {% assign fold_index = forloop.index0 %}
-          {% assign is_odd = fold_index | modulo: 2 %}
-
-          {% if is_odd == 0 %}
-            <!-- Odd fold (1,3,5): RIGHT = text -->
-            <div class="sit-text-panel txt-right">
+          {% else %}
+            <div class="sit-copy" data-sit-copy>
               {% if block.settings.heading != blank %}
                 <h2>{{ block.settings.heading }}</h2>
               {% endif %}
-              <div class="block-1">
-                <p>{{ block.settings.text_top }}</p>
-              </div>
+              <p>{{ block.settings.text_top }}</p>
               {% if block.settings.text_bottom != blank %}
-                <div class="block-2">
-                  <p>{{ block.settings.text_bottom }}</p>
-                </div>
+                <p class="block-2">{{ block.settings.text_bottom }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="sit-side">
+          {% if is_even == 0 %}
+            <div class="sit-copy" data-sit-copy>
+              {% if block.settings.heading != blank %}
+                <h2>{{ block.settings.heading }}</h2>
+              {% endif %}
+              <p>{{ block.settings.text_top }}</p>
+              {% if block.settings.text_bottom != blank %}
+                <p class="block-2">{{ block.settings.text_bottom }}</p>
               {% endif %}
             </div>
           {% else %}
-            <!-- Even fold (2,4,6): RIGHT = image -->
-            <div class="sit-panel">
-              <div class="sit-panel-img" id="sit-pimg-{{ section.id }}-{{ forloop.index }}">
-                <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
-              </div>
+            <div class="sit-media sit-image" data-sit-image>
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
             </div>
           {% endif %}
-
-        {% endfor %}
-
+        </div>
       </div>
-    </div>
-
+    {% endfor %}
   </div>
 
-  <!-- MOBILE/TABLET: each fold rendered as standalone block -->
-  {% for block in section.blocks %}
+  {% for block in section.blocks limit: 3 %}
     {% assign fold_index = forloop.index0 %}
-    {% assign is_odd = fold_index | modulo: 2 %}
+    {% assign is_even = fold_index | modulo: 2 %}
 
-    {% if is_odd == 0 %}
-      <!-- Odd fold: image left, text right -->
-      <div class="sit-fold-mobile">
-        <div class="mob-img">
-          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
-        </div>
-        <div class="mob-txt">
-          {% if block.settings.heading != blank %}
-            <h2>{{ block.settings.heading }}</h2>
-          {% endif %}
-          <p>{{ block.settings.text_top }}</p>
-          {% if block.settings.text_bottom != blank %}
-            <p class="block-2">{{ block.settings.text_bottom }}</p>
+    <div class="sit-mobile-fold">
+      {% if is_even == 0 %}
+        <div class="sit-mobile-image">
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         </div>
+      {% endif %}
+
+      <div class="sit-mobile-copy">
+        {% if block.settings.heading != blank %}
+          <h2>{{ block.settings.heading }}</h2>
+        {% endif %}
+        <p>{{ block.settings.text_top }}</p>
+        {% if block.settings.text_bottom != blank %}
+          <p class="block-2">{{ block.settings.text_bottom }}</p>
+        {% endif %}
       </div>
-    {% else %}
-      <!-- Even fold: text left, image right -->
-      <div class="sit-fold-mobile">
-        <div class="mob-txt">
-          {% if block.settings.heading != blank %}
-            <h2>{{ block.settings.heading }}</h2>
-          {% endif %}
-          <p>{{ block.settings.text_top }}</p>
-          {% if block.settings.text_bottom != blank %}
-            <p class="block-2">{{ block.settings.text_bottom }}</p>
+
+      {% if is_even != 0 %}
+        <div class="sit-mobile-image">
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         </div>
-        <div class="mob-img">
-          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" loading="lazy" />
-        </div>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
   {% endfor %}
-
 </section>
 
 <script>
-(function () {
-  if (window.innerWidth < 992) return;
+  (function () {
+    function init() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(init, 100);
+        return;
+      }
 
-  const section    = document.getElementById('sit-section-{{ section.id }}');
-  const leftTrack  = document.getElementById('sit-left-track-{{ section.id }}');
-  const rightTrack = document.getElementById('sit-right-track-{{ section.id }}');
-  const TOTAL      = {{ section.blocks.size }};
+      gsap.registerPlugin(ScrollTrigger);
 
-  const pImgs = Array.from(
-    { length: TOTAL },
-    (_, i) => document.getElementById('sit-pimg-{{ section.id }}-' + (i + 1))
-  ).filter(Boolean);
+      const section = document.getElementById('sit-section-{{ section.id }}');
+      const folds = gsap.utils.toArray('#sit-section-{{ section.id }} .sit-fold');
 
-  function onScroll() {
-    const rect       = section.getBoundingClientRect();
-    const sectionH   = section.offsetHeight;
-    const viewH      = window.innerHeight;
-    const scrollable = sectionH - viewH;
-    const scrolled   = Math.max(-rect.top, 0);
-    const progress   = Math.min(scrolled / scrollable, 1);
+      if (!section || folds.length < 2) return;
 
-    // Move both tracks: 0% → -(100% * (TOTAL-1)/TOTAL * 100)
-    const trackY = progress * (-(TOTAL - 1) / TOTAL * 100);
-    leftTrack.style.transform  = `translateY(${trackY}%)`;
-    rightTrack.style.transform = `translateY(${trackY}%)`;
+      const mm = gsap.matchMedia();
 
-    // Parallax per image
-    pImgs.forEach((img, i) => {
-      if (!img) return;
-      const panelStart = i / TOTAL;
-      const local = Math.min(Math.max((progress - panelStart) / (1 / TOTAL), 0), 1);
-      const imgY = -15 + local * 30;
-      img.style.transform = `translateY(${imgY}%)`;
-    });
-  }
+      mm.add('(min-width: 992px)', () => {
+        folds.forEach((fold, index) => {
+          const image = fold.querySelector('[data-sit-image]');
+          const copy = fold.querySelector('[data-sit-copy]');
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+          gsap.set(fold, { zIndex: folds.length - index });
+          gsap.set(copy, {
+            autoAlpha: index === 0 ? 1 : 0,
+            yPercent: index === 0 ? 0 : 10,
+          });
 
-  // Re-check on resize
-  window.addEventListener('resize', function () {
-    if (window.innerWidth < 992) {
-      leftTrack.style.transform  = '';
-      rightTrack.style.transform = '';
-    } else {
-      onScroll();
+          if (index === 0) {
+            gsap.set(image, { yPercent: 0 });
+          } else {
+            gsap.set(image, { yPercent: 100 });
+          }
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.2,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        function transitionFold(fromIndex, toIndex, at) {
+          const fromFold = folds[fromIndex];
+          const toFold = folds[toIndex];
+          const fromImage = fromFold.querySelector('[data-sit-image]');
+          const fromCopy = fromFold.querySelector('[data-sit-copy]');
+          const toImage = toFold.querySelector('[data-sit-image]');
+          const toCopy = toFold.querySelector('[data-sit-copy]');
+
+          tl.set(toFold, { zIndex: folds.length + toIndex }, at);
+          tl.fromTo(toImage, { yPercent: 100 }, { yPercent: 0, ease: 'none', duration: 1 }, at);
+          tl.to(fromImage, { yPercent: 100, ease: 'none', duration: 1 }, at);
+          tl.to(fromCopy, { autoAlpha: 0, yPercent: -8, ease: 'power1.out', duration: 0.28 }, at);
+          tl.fromTo(toCopy, { autoAlpha: 0, yPercent: 10 }, { autoAlpha: 1, yPercent: 0, ease: 'power1.out', duration: 0.35 }, at + 0.42);
+          tl.to(toCopy, { autoAlpha: 1, duration: 0.22 }, at + 1);
+        }
+
+        transitionFold(0, 1, 0);
+        transitionFold(1, 2, 1.3);
+
+        return () => {
+          ScrollTrigger.getAll().forEach((trigger) => {
+            if (trigger.trigger === section) trigger.kill();
+          });
+        };
+      });
     }
-  });
-})();
+
+    init();
+  })();
 </script>
 
 {% schema %}
 {
   "name": "Sliding Image Text",
-  "max_blocks": 6,
+  "max_blocks": 3,
   "blocks": [
     {
       "type": "fold",
@@ -362,8 +326,7 @@
         {
           "type": "text",
           "id": "heading",
-          "label": "Heading",
-          "info": "Optional — shows above text on odd folds"
+          "label": "Heading"
         },
         {
           "type": "textarea",
@@ -375,7 +338,7 @@
           "type": "textarea",
           "id": "text_bottom",
           "label": "Text (bottom)",
-          "info": "Optional — appears bottom-right aligned"
+          "info": "Optional - appears bottom-right aligned"
         }
       ]
     }
@@ -384,9 +347,6 @@
     {
       "name": "Sliding Image Text",
       "blocks": [
-        { "type": "fold" },
-        { "type": "fold" },
-        { "type": "fold" },
         { "type": "fold" },
         { "type": "fold" },
         { "type": "fold" }

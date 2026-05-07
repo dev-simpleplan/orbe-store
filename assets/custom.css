@@ -215,6 +215,8 @@ body.mobile-menu-open {
 /* Footer */
 .footer {
   background-color: #1a1a1a;
+  padding: 0px 60px;
+  padding-right: 0px;
 }
 .footer-in {
   display: flex;
@@ -230,6 +232,14 @@ body.mobile-menu-open {
 .footer-in .right {
   width: 50%;
   overflow: hidden;
+  position: relative;
+}
+.footer-image{
+position: absolute;
+right: 0;
+top: 0;
+max-width: 700px;
+width: 100%;
 }
 .footer-logo {
   max-width: 496px;
@@ -524,6 +534,9 @@ body.mobile-menu-open {
   padding-top: 30px;
   transition: 0.4s ease all;
 }
+.header.desktop {
+  padding: 0px 60px;
+}
 /* Home Banner */
 /* At Orbe */
 .at-orbe-block-wrap {
@@ -563,6 +576,8 @@ body.mobile-menu-open {
   overflow: hidden;
   top: 10px;
   right: 10px;
+  will-change: transform;
+  transform: translateY(30%);
 }
 .at-orbe-block:nth-child(4) {
   filter: grayscale(1);
