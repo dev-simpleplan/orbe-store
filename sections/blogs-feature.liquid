@@ -1,10 +1,13 @@
 <section class="blogs-feature">
     <div class="container">
-        <div class="heading">
-            <h2>Thoughts Worth Returning To</h2>
-        </div>
+        {% if section.settings.heading != blank %}
+            <div class="heading">
+                <h2>{{ section.settings.heading }}</h2>
+            </div>
+        {% endif %}
         <div class="blogs-feature-in">
             <div class="left">
+                {% if section.settings.show_navigation %}
                 <div class="blogs-feature-nav">
                     <div class="prev-btn">
                         <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,23 +28,95 @@
 
                     </div>
                 </div>
+                {% endif %}
             </div>
             <div class="right">
                 <div class="blogs-feature-card-wrap">
-                    <div class="item">
-                        {% render 'blogs-feature-card' %}
-                    </div>
-                    <div class="item">
-                        {% render 'blogs-feature-card' %}
-                    </div>
-                    <div class="item">
-                        {% render 'blogs-feature-card' %}
-                    </div>
-                    <div class="item">
-                        {% render 'blogs-feature-card' %}
-                    </div>
+                    {% assign selected_blog = section.settings.blog %}
+                    {% if selected_blog != blank and selected_blog.articles_count > 0 %}
+                        {% for article in selected_blog.articles limit: section.settings.articles_to_show %}
+                            <div class="item">
+                                {% render 'blogs-feature-card',
+                                    article: article,
+                                    blog_title: selected_blog.title,
+                                    show_category: section.settings.show_category
+                                %}
+                            </div>
+                        {% endfor %}
+                    {% elsif section.blocks.size > 0 %}
+                        {% for block in section.blocks %}
+                            {% if block.settings.article != blank %}
+                                <div class="item" {{ block.shopify_attributes }}>
+                                    {% render 'blogs-feature-card',
+                                        article: block.settings.article,
+                                        show_category: section.settings.show_category
+                                    %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{% schema %}
+{
+  "name": "Blogs Feature",
+  "tag": "section",
+  "class": "blogs-feature-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Thoughts Worth Returning To"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "articles_to_show",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "label": "Articles to show",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show category",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blogs Feature"
+    }
+  ]
+}
+{% endschema %}
