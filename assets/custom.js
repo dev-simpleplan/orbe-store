@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 $(window).on('load', function () {
-    var owl = $('.blogs-feature-card-wrap');
+    var blogsOwl = $('.blogs-feature-card-wrap');
 
-    owl.owlCarousel({
+    blogsOwl.owlCarousel({
         loop: false,
         items: 3,
         dots: false,
@@ -43,18 +43,16 @@ $(window).on('load', function () {
     var $prev = $('.prev-btn');
 
     function updateNav(event) {
-        var itemCount = event.item.count;   // total items
-        var itemIndex = event.item.index;   // current position
-        var itemsPerView = event.page.size; // visible items
+        var itemCount = event.item.count;
+        var itemIndex = event.item.index;
+        var itemsPerView = event.page.size;
 
-        // Disable prev at start
         if (itemIndex === 0) {
             $prev.addClass('disabled');
         } else {
             $prev.removeClass('disabled');
         }
 
-        // Disable next at end
         if (itemIndex + itemsPerView >= itemCount) {
             $next.addClass('disabled');
         } else {
@@ -62,34 +60,32 @@ $(window).on('load', function () {
         }
     }
 
-    // Run on init + change
-    owl.on('initialized.owl.carousel changed.owl.carousel', updateNav);
+    blogsOwl.on('initialized.owl.carousel changed.owl.carousel', updateNav);
 
-    // Custom navigation
     $next.click(function () {
         if (!$(this).hasClass('disabled')) {
-            owl.trigger('next.owl.carousel');
+            blogsOwl.trigger('next.owl.carousel');
         }
     });
 
     $prev.click(function () {
         if (!$(this).hasClass('disabled')) {
-            owl.trigger('prev.owl.carousel');
+            blogsOwl.trigger('prev.owl.carousel');
         }
     });
 
-    // Guided By Slider Carousel
     var guidedByOwl = $('.guided-by-slider');
 
     guidedByOwl.owlCarousel({
         loop: false,
-        items: 3,
+        items: 2,
+        margin: 130,
         dots: false,
         nav: false,
         responsive: {
-            0: { items: 1 },
-            600: { items: 2 },
-            1000: { items: 2 }
+            0: { items: 1, margin: 16 },
+            600: { items: 2, margin: 24 },
+            1000: { items: 2, margin: 130 }
         }
     });
 
@@ -128,4 +124,3 @@ $(window).on('load', function () {
         }
     });
 });
-
