@@ -34,15 +34,22 @@
         "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png"
       }
     },
-    "what-we-choose":{
-      "type": "what-we-choose",
-      "settings": {}
-    },
     "spacer_FjFe6V": {
       "type": "spacer",
       "name": "Spacer",
       "settings": {
         "spacer_height": 140
+      }
+    },
+    "what-we-choose": {
+      "type": "what-we-choose",
+      "settings": {}
+    },
+    "spacer_rcFn7G": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
       }
     },
     "heart-behind": {
@@ -156,6 +163,7 @@
     "slide-in-img",
     "spacer_FjFe6V",
     "what-we-choose",
+    "spacer_rcFn7G",
     "heart-behind",
     "spacer_Pd74VB",
     "letter-from-founder",
