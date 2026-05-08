@@ -83,9 +83,9 @@ $(window).on('load', function () {
         dots: false,
         nav: false,
         responsive: {
-            0: { items: 1, margin: 16 },
-            600: { items: 2, margin: 24 },
-            1000: { items: 2, margin: 130 }
+            0: {margin: 10 },
+            600: { margin: 80 },
+            1000: {  margin: 130 }
         }
     });
 
@@ -121,6 +121,57 @@ $(window).on('load', function () {
     $guidedPrevBtn.click(function () {
         if (!$(this).hasClass('disabled')) {
             guidedByOwl.trigger('prev.owl.carousel');
+        }
+    });
+
+    var peopleOwl = $('.people-of-orbe-slider');
+
+    peopleOwl.owlCarousel({
+        loop: false,
+        items: 5,
+        margin: 8,
+        dots: false,
+        nav: false,
+        responsive: {
+            0: { items: 1, margin: 12 },
+            600: { items: 2, margin: 12 },
+            900: { items: 3, margin: 8 },
+            1200: { items: 5, margin: 8 }
+        }
+    });
+
+    var $peopleNextBtn = $('.next-btn-people');
+    var $peoplePrevBtn = $('.prev-btn-people');
+
+    function updatePeopleNav(event) {
+        var itemCount = event.item.count;
+        var itemIndex = event.item.index;
+        var itemsPerView = event.page.size;
+
+        if (itemIndex === 0) {
+            $peoplePrevBtn.addClass('disabled');
+        } else {
+            $peoplePrevBtn.removeClass('disabled');
+        }
+
+        if (itemIndex + itemsPerView >= itemCount) {
+            $peopleNextBtn.addClass('disabled');
+        } else {
+            $peopleNextBtn.removeClass('disabled');
+        }
+    }
+
+    peopleOwl.on('initialized.owl.carousel changed.owl.carousel', updatePeopleNav);
+
+    $peopleNextBtn.click(function () {
+        if (!$(this).hasClass('disabled')) {
+            peopleOwl.trigger('next.owl.carousel');
+        }
+    });
+
+    $peoplePrevBtn.click(function () {
+        if (!$(this).hasClass('disabled')) {
+            peopleOwl.trigger('prev.owl.carousel');
         }
     });
 });

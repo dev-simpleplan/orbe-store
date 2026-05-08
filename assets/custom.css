@@ -1523,3 +1523,247 @@ body.mobile-menu-open {
   font-size: 15px;
 }
 /* Guided By */
+/* Standard That Speaks */
+.standard-that-speaks {
+  overflow: hidden;
+}
+.standard-that-speaks .heading {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.standard-that-speaks .heading h2 {
+  max-width: 12ch;
+  margin: 0 auto;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 94%;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+.standard-that-speaks .heading p {
+  max-width: 44ch;
+  margin: 16px auto 0;
+  font-size: 15px;
+  line-height: 150%;
+}
+.standard-that-speaks-in {
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-ring {
+  --ring-size: min(620px, 86vw);
+  --circle-size: clamp(104px, 14vw, 150px);
+  --ring-radius: calc((var(--ring-size) - var(--circle-size)) / 2);
+  position: relative;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  animation: standardsRingRotate 34s linear infinite;
+  transform-origin: center;
+}
+.standard-ring-item {
+  --angle: 0deg;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--ring-radius)) rotate(calc(-1 * var(--angle)));
+  transform-origin: center;
+}
+.standard-ring-item-1 {
+  --angle: -90deg;
+}
+.standard-ring-item-2 {
+  --angle: -30deg;
+}
+.standard-ring-item-3 {
+  --angle: 30deg;
+}
+.standard-ring-item-4 {
+  --angle: 90deg;
+}
+.standard-ring-item-5 {
+  --angle: 150deg;
+}
+.standard-ring-item-6 {
+  --angle: 210deg;
+}
+.standard-ring-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: standardsTextCounterRotate 34s linear infinite;
+}
+.standard-ring-item-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  z-index: 1;
+}
+.standard-ring-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+.standard-ring-item span {
+  position: relative;
+  z-index: 2;
+  max-width: 12ch;
+  color: #fff;
+  font-family: var(--aspekta);
+  font-size: 13px;
+  line-height: 120%;
+  font-weight: 400;
+}
+@keyframes standardsRingRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes standardsTextCounterRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@media screen and (max-width: 767px) {
+  .standard-that-speaks .heading {
+    margin-bottom: 36px;
+  }
+  .standard-that-speaks-in {
+    min-height: 460px;
+  }
+  .center-ring {
+    --ring-size: min(430px, 92vw);
+    --circle-size: clamp(78px, 24vw, 108px);
+  }
+  .standard-ring-item span {
+    font-size: 10px;
+  }
+}
+/* Standard That Speaks */
+/* People Of Orbe */
+.people-of-orbe {
+  overflow: hidden;
+}
+.people-of-orbe .heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.people-of-orbe .heading h2 {
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 94%;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+.people-of-orbe-slider {
+  overflow: hidden;
+}
+.people-of-orbe-slider .owl-stage {
+  display: flex;
+  align-items: stretch;
+}
+.people-of-orbe-slider .owl-item,
+.people-of-orbe-slider .item,
+.poo-card {
+  height: 100%;
+}
+.poo-card {
+  position: relative;
+  aspect-ratio: 0.48;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.poo-img {
+  width: 100%;
+  height: 100%;
+}
+.poo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 0.45s ease, transform 0.45s ease;
+}
+.poo-content {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+.poo-content h3 {
+  margin: 0;
+  font-family: var(--ivypresto);
+  font-size: clamp(24px, 2vw, 32px);
+  line-height: 92%;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  font-style: italic;
+}
+.poo-content p {
+  margin: 6px 0 0;
+  font-family: var(--aspekta);
+  font-size: 10px;
+  line-height: 120%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.poo-card:hover .poo-img img {
+  filter: grayscale(1) blur(7px);
+  transform: scale(1.04);
+}
+.poo-card:hover .poo-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.people-of-orbe-nav {
+  display: flex;
+  gap: 5px;
+  margin-top: 28px;
+}
+.prev-btn-people,
+.next-btn-people {
+  cursor: pointer;
+}
+.prev-btn-people.disabled,
+.next-btn-people.disabled {
+  cursor: default;
+  opacity: 0.35;
+  pointer-events: none;
+}
+@media screen and (max-width: 1199px) {
+  .poo-card {
+    aspect-ratio: 0.62;
+  }
+}
+@media screen and (max-width: 767px) {
+  .people-of-orbe .heading {
+    margin-bottom: 32px;
+  }
+  .poo-card {
+    aspect-ratio: 0.75;
+  }
+}
+/* People Of Orbe */

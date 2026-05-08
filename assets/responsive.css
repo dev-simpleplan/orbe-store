@@ -46,6 +46,27 @@
   .header-mobile{
     display: block;
   }
+  .guided-by-in .bottom{
+    flex-direction: column-reverse;
+  }
+  .guided-by-in .bottom > div{
+    width: 100% !important;
+  }
+  .guided-by-in .owl-stage-outer{
+    height: 100%;
+  }
+  .guided-by-card{
+    aspect-ratio: unset;
+  }
+  .guided-by-slider .owl-item.active + .owl-item.active{
+    transform: unset;
+  }
+  .guided-by-slider{
+    padding-bottom: 0px;
+  }
+  .guided-by-nav{
+    margin: 0 auto;
+  }
 }
 @media screen and (max-width: 767px) {
   .footer-logo {

@@ -64,6 +64,10 @@
       "type": "letter-from-founder",
       "settings": {}
     },
+    "people-of-orbe":{
+      "type": "people-of-orbe",
+      "settings": {}
+    },
     "guided-by":{
       "type": "guided-by",
       "settings": {}
@@ -74,6 +78,10 @@
       "settings": {
         "spacer_height": 180
       }
+    },
+    "standard-that-speaks":{
+      "type": "standard-that-speaks",
+      "settings": {}
     },
     "blowing_pills_Ghy3zU": {
       "type": "blowing-pills",
@@ -102,7 +110,8 @@
         "articles_to_show": 4,
         "show_category": true,
         "show_navigation": true
-      }
+      },
+      
     }
   },
   "order": [
@@ -113,8 +122,10 @@
     "heart-behind",
     "spacer_Pd74VB",
     "letter-from-founder",
+    "people-of-orbe",
     "guided-by",
     "spacer_FGEC3P",
+    "standard-that-speaks",
     "blowing_pills_Ghy3zU",
     "spacer_12",
     "blogs_feature_dxjadX"
