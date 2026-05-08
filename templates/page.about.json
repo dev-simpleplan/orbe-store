@@ -92,7 +92,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 160
       }
     },
     "standard-that-speaks": {
@@ -100,6 +100,13 @@
       "settings": {
         "heading": "Standards that speaks for themselves",
         "description": "Because informed choices are powerful ones and you deserve both clarity and calm."
+      }
+    },
+    "spacer_XANpVD": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
       }
     },
     "blowing_pills_Ghy3zU": {
@@ -120,13 +127,6 @@
         "spacer_height": 180
       }
     },
-    "spacer_8WaY8k": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 180
-      }
-    },
     "blogs_feature_dxjadX": {
       "type": "blogs-feature",
       "name": "Blogs Feature",
@@ -136,6 +136,13 @@
         "articles_to_show": 4,
         "show_category": true,
         "show_navigation": true
+      }
+    },
+    "spacer_7GJQYM": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180
       }
     }
   },
@@ -153,9 +160,10 @@
     "guided-by",
     "spacer_FGEC3P",
     "standard-that-speaks",
+    "spacer_XANpVD",
     "blowing_pills_Ghy3zU",
     "spacer_12",
-    "spacer_8WaY8k",
-    "blogs_feature_dxjadX"
+    "blogs_feature_dxjadX",
+    "spacer_7GJQYM"
   ]
 }
