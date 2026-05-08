@@ -15,7 +15,11 @@
           </ul>
         </div>
         <div class="center">
-          {% render 'orbe-home-logo' %}
+          {% if template.name == 'index' %}
+            {% render 'orbe-home-logo' %}
+          {% else %}
+            {% render 'orbe-home-logo-black' %}
+          {% endif %}
         </div>
         <div class="right">
           <ul>
