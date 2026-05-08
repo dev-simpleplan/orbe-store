@@ -1767,3 +1767,91 @@ body.mobile-menu-open {
   }
 }
 /* People Of Orbe */
+/* What we choose */
+.what-we-choose{
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1);
+  min-height: 800px;
+  padding: 80px 0px;
+  overflow: hidden;
+  position: relative;
+}
+.what-we-choose .container{
+  height: 100%;
+  position: relative;
+}
+.what-we-choose-in{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.what-we-choose .what-we-block{
+  aspect-ratio: 1/1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  width: min(46vw, 635px);
+  max-width: 635px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  will-change: transform, opacity;
+}
+.what-we-choose .what-we-block h3{
+  color: #fff;
+  font-size: clamp(30px, 4vw, 56px);
+  line-height: 94%;
+  letter-spacing: -0.05em;
+  max-width: 9ch;
+}
+.what-we-choose .what-we-block p{
+  color: #fff;
+  max-width: 42ch;
+}
+.what-we-choose .heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 3;
+}
+.what-we-choose .heading p{
+  max-width: 64ch;
+  margin: 0 auto;
+  color: #fff;
+}
+.what-we-choose .heading h2{
+  text-transform: capitalize;
+  color: #fff;
+}
+@media screen and (max-width: 991px) {
+  .what-we-choose {
+    min-height: 700px;
+    padding: 70px 0;
+  }
+  .what-we-choose .what-we-block {
+    width: min(72vw, 520px);
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .what-we-choose {
+    min-height: 640px;
+  }
+  .what-we-choose .what-we-block {
+    width: 82vw;
+  }
+}
+/* What we choose */

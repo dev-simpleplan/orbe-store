@@ -1,7 +1,121 @@
-<section class="what-we-choose" style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/d496c14e81bf59867e96506ff4c11c022eabb483.png?v=1778245605');">
+<section class="what-we-choose" id="what-we-choose-{{ section.id }}"
+    style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/d496c14e81bf59867e96506ff4c11c022eabb483.png?v=1778245605');">
     <div class="container">
+        <div class="heading">
+            <h2>What we choose to stand for</h2>
+            <p>At Orbé, simplicity is an act of respect. Respect for your time, your mind, and your body. We refine
+                everything: our formulas, our design, even the way we communicate.</p>
+        </div>
         <div class="what-we-choose-in">
-
+            <div class="what-we-block"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468570_1.png?v=1778247164');">
+                <h3>Science we Trust</h3>
+                <div class="text-white-block">
+                    <p>Our formulas are built on real research, proven nutrient forms, and careful testing. Everything
+                        we create is grounded in evidence and not assumptions or trends.</p>
+                </div>
+            </div>
+            <div class="what-we-block"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png?v=1777901848');">
+                <h3>Clarity over Noise</h3>
+                <div class="text-white-block">
+                    <p>We choose plain language, transparent choices, and rituals that feel easy to understand and return
+                        to every day.</p>
+                </div>
+            </div>
+            <div class="what-we-block"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png?v=1777901552');">
+                <h3>Design with Intention</h3>
+                <div class="text-white-block">
+                    <p>Every detail is refined with care, from what goes into the formula to how it fits into your life.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+  (function () {
+    function init() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(init, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = document.getElementById('what-we-choose-{{ section.id }}');
+      if (!section) return;
+
+      const cards = gsap.utils.toArray(section.querySelectorAll('.what-we-block'));
+      if (!cards.length) return;
+
+      const getCardPath = (card, index) => {
+        const sectionRect = section.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+
+        return {
+          startX: sectionRect.width / 2 + cardRect.width * 0.75,
+          startY: sectionRect.height / 2 + cardRect.height * 0.85,
+          endX: -sectionRect.width / 2 - cardRect.width * 0.85,
+          endY: -sectionRect.height / 2 - cardRect.height * 0.85,
+        };
+      };
+
+      gsap.set(cards, {
+        autoAlpha: 0,
+        xPercent: -50,
+        yPercent: -50,
+        x: 0,
+        y: 0,
+        rotate: 0,
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: () => `+=${window.innerHeight * cards.length}`,
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1.5,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      cards.forEach((card, index) => {
+        const path = () => getCardPath(card, index);
+        const position = index;
+
+        tl.set(card, {
+          autoAlpha: 1,
+          x: () => path().startX,
+          y: () => path().startY,
+          rotate: 4,
+        }, position);
+
+        tl.to(card, {
+          x: 0,
+          y: 0,
+          rotate: 0,
+          ease: 'none',
+          duration: 0.45,
+        }, position);
+
+        tl.to(card, {
+          x: () => path().endX,
+          y: () => path().endY,
+          rotate: -5,
+          ease: 'none',
+          duration: 0.55,
+        }, position + 0.45);
+
+        tl.set(card, { autoAlpha: 0 }, position + 1);
+      });
+
+      window.addEventListener('load', () => ScrollTrigger.refresh());
+    }
+
+    init();
+  })();
+</script>
