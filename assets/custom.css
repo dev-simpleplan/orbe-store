@@ -1710,16 +1710,23 @@ body.mobile-menu-open {
   z-index: 2;
   will-change: transform, opacity;
 }
+.what-we-choose .text-white-block{
+  background-color: #fff;
+  padding: 40px;
+}
+.what-we-choose .text-white-block p{
+  color: #5D5D5D;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 112%;
+}
 .what-we-choose .what-we-block h3{
   color: #fff;
-  font-size: clamp(30px, 4vw, 56px);
-  line-height: 94%;
+  font-size: clamp(38px, 4vw, 37.5px);
+  line-height: 99%;
   letter-spacing: -0.05em;
-  max-width: 9ch;
-}
-.what-we-choose .what-we-block p{
-  color: #fff;
-  max-width: 42ch;
+  font-weight: 400;
 }
 .what-we-choose .heading{
   display: flex;
@@ -1740,6 +1747,7 @@ body.mobile-menu-open {
   text-transform: capitalize;
   color: #fff;
 }
+
 @media screen and (max-width: 991px) {
   .what-we-choose {
     min-height: 700px;
