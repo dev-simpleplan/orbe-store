@@ -101,10 +101,46 @@
             "name": "Neil Paul",
             "designation": "Marketing"
           }
+        },
+        "person_qNTn3y": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/1909e2900846ce31e6884d3e303ade59a9adf719.png",
+            "name": "Neil Paul",
+            "designation": "Marketing"
+          }
+        },
+        "person_aGXVpD": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/35690d93e13e607a882cec480cb76417a1454184.png",
+            "name": "Neil Paul",
+            "designation": "Marketing"
+          }
+        },
+        "person_k4r9jA": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/069af891b967fbee64166e5576984bfd7c8d451d.png",
+            "name": "Neil Paul",
+            "designation": "Marketing"
+          }
+        },
+        "person_iP9UnT": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/e0bd84865e894fe7f04bb330bd57b6b20fba3a24.png",
+            "name": "Neil Paul",
+            "designation": "Marketing"
+          }
         }
       },
       "block_order": [
-        "person_KkNfA4"
+        "person_KkNfA4",
+        "person_qNTn3y",
+        "person_aGXVpD",
+        "person_k4r9jA",
+        "person_iP9UnT"
       ],
       "settings": {
         "heading": "The People of Orbé"
