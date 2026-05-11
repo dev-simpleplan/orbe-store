@@ -73,7 +73,14 @@
     },
     "letter-from-founder": {
       "type": "letter-from-founder",
-      "settings": {}
+      "settings": {
+        "background_image": "shopify://shop_images/Rectangle_3468571.png",
+        "heading": "A Letter From Our Founder",
+        "founder_image": "shopify://shop_images/e05aee5203b43522ad12954497c7ca7e98fb69f1.png",
+        "letter_text": "There was a moment, quiet but unmistakable, when I realised just how complicated caring for ourselves had become. Everywhere I looked, there were louder promises, conflicting advice, and an overwhelming amount of information that left most of us feeling more confused than supported.\nOrbe began as an answer to that feeling.",
+        "signature_image": "shopify://shop_images/Kevin_Hart.svg",
+        "signature_text": "CEO, Orbe"
+      }
     },
     "spacer_gwXedj": {
       "type": "spacer",
