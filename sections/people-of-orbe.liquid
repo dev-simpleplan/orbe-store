@@ -12,18 +12,6 @@
             <div class="people-of-orbe-slider owl-carousel">
                 {% if section.blocks.size > 0 %}
                     {% for block in section.blocks %}
-                        {% case forloop.index %}
-                            {% when 1 %}
-                                {% assign default_image = 'https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ae00c29e45116a5117e73e113b446abbf9b7f72c.png?v=1777991165' %}
-                            {% when 2 %}
-                                {% assign default_image = 'https://cdn.shopify.com/s/files/1/0739/8014/9916/files/734e97d18c35254fe654c967b1f6d274ef1ad4fa.png?v=1777991165' %}
-                            {% when 3 %}
-                                {% assign default_image = 'https://cdn.shopify.com/s/files/1/0739/8014/9916/files/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png?v=1777901552' %}
-                            {% when 4 %}
-                                {% assign default_image = 'https://cdn.shopify.com/s/files/1/0739/8014/9916/files/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png?v=1777901552' %}
-                            {% else %}
-                                {% assign default_image = 'https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552' %}
-                        {% endcase %}
                         <div class="item" {{ block.shopify_attributes }}>
                             <div class="poo-card">
                                 <div class="poo-img">
@@ -40,63 +28,7 @@
                             </div>
                         </div>
                     {% endfor %}
-                {% else %}
-                    <div class="item">
-                        <div class="poo-card">
-                            <div class="poo-img">
-                                <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ae00c29e45116a5117e73e113b446abbf9b7f72c.png?v=1777991165" alt="Neil Paul" class="img">
-                            </div>
-                            <div class="poo-content">
-                                <h3>Neil Paul</h3>
-                                <p>Marketing</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="poo-card">
-                            <div class="poo-img">
-                                <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/734e97d18c35254fe654c967b1f6d274ef1ad4fa.png?v=1777991165" alt="Mira Shah" class="img">
-                            </div>
-                            <div class="poo-content">
-                                <h3>Mira Shah</h3>
-                                <p>Product</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="poo-card">
-                            <div class="poo-img">
-                                <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png?v=1777901552" alt="Arjun Mehta" class="img">
-                            </div>
-                            <div class="poo-content">
-                                <h3>Arjun Mehta</h3>
-                                <p>Research</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="poo-card">
-                            <div class="poo-img">
-                                <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png?v=1777901552" alt="Katherine" class="img">
-                            </div>
-                            <div class="poo-content">
-                                <h3>Katherine</h3>
-                                <p>Sales Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="poo-card">
-                            <div class="poo-img">
-                                <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png?v=1777901552" alt="Daniel Brooks" class="img">
-                            </div>
-                            <div class="poo-content">
-                                <h3>Daniel Brooks</h3>
-                                <p>Operations</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
+               {% endif %}
             </div>
 
             {% if people_count > 5 %}

@@ -248,6 +248,9 @@
   .heart-behind-in .hb-bottom {
     width: 100%;
   }
+  .letter-card > p{
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 400px) {
 }
