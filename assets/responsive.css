@@ -461,6 +461,9 @@
     .why-orbe-in .bottom .counter-grid p {
       font-size: 14px;
     }
+    .social-media-block p{
+      font-size: 14px;
+    }
 }
 @media screen and (max-width: 400px) {
 }

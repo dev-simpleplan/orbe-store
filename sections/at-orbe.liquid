@@ -1,23 +1,31 @@
-<section class="at-orbe">
+<section class="at-orbe" id="at-orbe-{{ section.id }}">
     <div class="container">
         <div class="at-orbe-in">
             <div class="at-orbe-block-wrap">
                 <div class="at-orbe-block">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/96873404de0285ae500a22cfcf3004a934780162.png?v=1777040965"
-                        alt="Image" class="img">
+                    {% if section.settings.image_1 != blank %}
+                        <img src="{{ section.settings.image_1 | image_url }}" alt="" class="img">
+                    {% endif %}
+                </div>
+                <div class="at-orbe-block text-animation">
+                    {% if section.settings.text_1 != blank %}
+                        <h3>{{ section.settings.text_1 }}</h3>
+                    {% endif %}
+                </div>
+                <div class="at-orbe-block text-animation">
+                    {% if section.settings.text_2 != blank %}
+                        <h3>{{ section.settings.text_2 }}</h3>
+                    {% endif %}
+                    {% if section.settings.small_image != blank %}
+                        <div class="small-img-parallex">
+                            <img src="{{ section.settings.small_image | image_url }}" alt="" class="img">
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="at-orbe-block">
-                    <h3>At Orbé, we believe simplicity is not the absence of complexity but the presence of clarity.</h3>
-                </div>
-                <div class="at-orbe-block">
-                    <h3>In a world full of excess and contradiction, we choose to move with transparency, honesty, and intention.</h3>
-                    <div class="small-img-parallex" id="small-img-parallex">
-                        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/pralax-small.png?v=1777294152" alt="image" class="img">
-                    </div>
-                </div>
-                <div class="at-orbe-block">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/23c2757c4397598a78bab84594d66430b53a2f39_1.png?v=1777040965"
-                        alt="Image" class="img">
+                    {% if section.settings.image_2 != blank %}
+                        <img src="{{ section.settings.image_2 | image_url }}" alt="" class="img">
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -26,8 +34,14 @@
 
 <script>
 (function () {
-  const el      = document.getElementById('small-img-parallex');
+  const root = document.getElementById('at-orbe-{{ section.id }}');
+  if (!root) return;
+
+  const el = root.querySelector('.small-img-parallex');
+  if (!el) return;
+
   const section = el.closest('.at-orbe-block');
+  if (!section) return;
 
   function onScroll() {
     const rect      = section.getBoundingClientRect();
@@ -47,3 +61,41 @@
   onScroll();
 })();
 </script>
+
+{% schema %}
+{
+  "name": "At Orbe",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "textarea",
+      "id": "text_1",
+      "label": "Text 1"
+    },
+    {
+      "type": "textarea",
+      "id": "text_2",
+      "label": "Text 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_image",
+      "label": "Small Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "At Orbe"
+    }
+  ]
+}
+{% endschema %}
