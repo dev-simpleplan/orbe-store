@@ -37,6 +37,9 @@
   .guided-by-in .owl-stage-outer {
     height: 650px;
   }
+  .blowing-pills-in .left .orbe-img{
+    max-width: 400px;
+  }
 }
 @media screen and (max-width: 1100px) {
   .footer-nav-top {
@@ -45,6 +48,12 @@
   .header-in .left > ul,
   .header-in .right > ul {
     gap: 30px;
+  }
+    .blowing-pills-in .left .orbe-img{
+    max-width: 350px;
+  }
+  .blowing-pills-in .left{
+    padding-top: 0px;
   }
 }
 @media screen and (max-width: 991px) {
@@ -230,6 +239,12 @@
   .standard-ring-item span {
     font-size: 14px;
   }
+  .blowing-pills-in .left .orbe-img{
+    max-width: 250px;
+  }
+.blowing-pills-in .left h2{
+  font-size: 28px;
+}
 }
 @media screen and (max-width: 767px) {
   .footer-logo {
@@ -330,6 +345,38 @@
     font-size: 14px;
     max-width: 38ch;
   }
+.blowing-pills-in .heading-block{
+  display: none;
+}
+.blowing-pills-in .left{
+  padding-top: 0px;
+}
+.blowing-pills-in .left .orbe-img{
+  max-width: 130px;
+}
+.blowing-pills .heading-block.for-mobile h2{
+font-size: 22px;
+}
+.blowing-pills .heading-block.for-mobile{
+  margin-top: 20px;
+}
+.blowing-pills-in{
+  display: flex;
+  gap: 20px;
+}
+.blowing-pills-in .left{
+  width: 30%;
+}
+.blowing-pills-in .right{
+  width: 70%;
+  aspect-ratio: 2.5/2.6;
+}
+.blowing-pills .container-left{
+  padding-right: 0px;
+}
+.blowing-pills .heading-block.for-mobile{
+  display: block;
+}
 }
 @media screen and (max-width: 400px) {
 }

@@ -1563,6 +1563,9 @@ body.mobile-menu-open {
     transform: rotate(-360deg);
   }
 }
+.blowing-pills .heading-block.for-mobile{
+  display: none;
+}
 /* Standard That Speaks */
 /* People Of Orbe */
 .people-of-orbe {

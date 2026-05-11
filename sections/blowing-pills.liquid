@@ -28,6 +28,17 @@
             </div>
 
         </div>
+        <div class="heading-block for-mobile">
+            {% if section.settings.heading1 != blank %}
+            <h2>{{ section.settings.heading1 }}</h2>
+            {% endif %}
+            {% if section.settings.heading2 != blank %}
+            <h2>{{ section.settings.heading2 }}</h2>
+            {% endif %}
+            {% if section.settings.heading3 != blank %}
+            <h2>{{ section.settings.heading3 }}</h2>
+            {% endif %}
+        </div>
     </div>
 </section>
 
