@@ -46,35 +46,44 @@
     "what-we-choose": {
       "type": "what-we-choose",
       "blocks": {
-        "card_science_we_trust": {
+        "card_YQ79UM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570_1.png",
-            "title": "Science we Trust",
-            "text": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
-          }
-        },
-        "card_clarity_over_noise": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png",
-            "title": "Clarity over Noise",
-            "text": "We choose plain language, transparent choices, and rituals that feel easy to understand and return to every day."
+            "image": "shopify://shop_images/Frame_2072749402.png",
+            "title": "Ingredients with Intention",
+            "text": "Each ingredient is chosen for a purpose: how well it works, how well it absorbs, and how gently it supports your body. We source clean, high-quality nutrients and keep out anything unnecessary."
           }
         },
         "card_design_with_intention": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
+            "image": "shopify://shop_images/2718a218c952e17afd237f4a8ffa339456c6e72b.png",
             "title": "Design with Intention",
-            "text": "Every detail is refined with care, from what goes into the formula to how it fits into your life."
+            "text": "Our pill-in-pill capsule keeps nutrients protected and releases them in the right order, exactly when your body needs them. A simple ritual, supported by thoughtful design."
+          }
+        },
+        "card_science_we_trust": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468570_1.png",
+            "title": "Made for women",
+            "text": "We design for women who want clarity, not confusion. For women who want to feel supported, steady, and more like themselves again without the overwhelm."
+          }
+        },
+        "card_clarity_over_noise": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/deddc5d6816f40dc041a9a9b35cc723848308528.jpg",
+            "title": "Science we Trust",
+            "text": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
           }
         }
       },
       "block_order": [
+        "card_YQ79UM",
+        "card_design_with_intention",
         "card_science_we_trust",
-        "card_clarity_over_noise",
-        "card_design_with_intention"
+        "card_clarity_over_noise"
       ],
       "settings": {
         "background_image": "shopify://shop_images/d496c14e81bf59867e96506ff4c11c022eabb483.png",
