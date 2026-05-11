@@ -71,21 +71,37 @@
         rotate: 0,
       });
 
+      const cardOverlap = 0.9;
+      const cardEnterDuration = 0.75;
+      const cardCenterHold = 0.25;
+      const cardExitDuration = 0.65;
+      const cardTotalDuration = cardEnterDuration + cardCenterHold + cardExitDuration;
+      const timelineLength = (cards.length - 1) * cardOverlap + cardTotalDuration;
+      const getPinDistance = () => window.innerHeight * timelineLength * 1.12;
+      const getEarlyDistance = () => window.innerHeight * 0.8;
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: () => `+=${getPinDistance()}`,
+        pin: true,
+        anticipatePin: 1.5,
+        invalidateOnRefresh: true,
+      });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
-          end: () => `+=${window.innerHeight * cards.length}`,
+          start: 'top 80%',
+          end: () => `+=${getPinDistance() + getEarlyDistance()}`,
           scrub: 1,
-          pin: true,
-          anticipatePin: 1.5,
           invalidateOnRefresh: true,
         },
       });
 
       cards.forEach((card, index) => {
         const path = () => getCardPath(card, index);
-        const position = index;
+        const position = index * cardOverlap;
 
         tl.set(card, {
           autoAlpha: 1,
@@ -98,19 +114,27 @@
           x: 0,
           y: 0,
           rotate: 0,
-          ease: 'none',
-          duration: 0.45,
+          ease: 'sine.inOut',
+          duration: cardEnterDuration,
         }, position);
+
+        tl.to(card, {
+          x: 0,
+          y: 0,
+          rotate: 0,
+          ease: 'none',
+          duration: cardCenterHold,
+        }, position + cardEnterDuration);
 
         tl.to(card, {
           x: () => path().endX,
           y: () => path().endY,
           rotate: -5,
-          ease: 'none',
-          duration: 0.55,
-        }, position + 0.45);
+          ease: 'sine.inOut',
+          duration: cardExitDuration,
+        }, position + cardEnterDuration + cardCenterHold);
 
-        tl.set(card, { autoAlpha: 0 }, position + 1);
+        tl.set(card, { autoAlpha: 0 }, position + cardTotalDuration);
       });
 
       window.addEventListener('load', () => ScrollTrigger.refresh());
