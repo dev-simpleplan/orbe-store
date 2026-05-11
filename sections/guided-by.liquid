@@ -2,9 +2,12 @@
     <div class="container-left">
         <div class="guided-by-in">
             <div class="top">
-                <h2>Guided By Expertise</h2>
-                <p>Orbe exists to make feeling good less complicated through clean science, intentional design, and
-                    rituals that support the woman you’re becoming.</p>
+                {% if section.settings.heading != blank %}
+                    <h2>{{ section.settings.heading }}</h2>
+                {% endif %}
+                {% if section.settings.description != blank %}
+                    <p>{{ section.settings.description }}</p>
+                {% endif %}
             </div>
             <div class="bottom">
                 <div class="left">
@@ -30,45 +33,74 @@
                 </div>
                 <div class="right">
                     <div class="guided-by-slider owl-carousel">
-                        <div class="item">
-                            <div class="guided-by-card">
-                                <div class="guided-by-img">
-                                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ae00c29e45116a5117e73e113b446abbf9b7f72c.png?v=1777991165"
-                                        alt="Image" class="img">
-                                </div>
-                                <div class="text-content">
-                                    <h3>Neil Paul</h3>
-                                    <p>Marketing</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="guided-by-card">
-                                <div class="guided-by-img">
-                                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/734e97d18c35254fe654c967b1f6d274ef1ad4fa.png?v=1777991165"
-                                        alt="Image" class="img">
-                                </div>
-                                <div class="text-content">
-                                    <h3>Neil Paul</h3>
-                                    <p>Marketing</p>
+                        {% for block in section.blocks %}
+                            <div class="item" {{ block.shopify_attributes }}>
+                                <div class="guided-by-card">
+                                    {% if block.settings.image != blank %}
+                                        <div class="guided-by-img">
+                                            <img src="{{ block.settings.image | image_url }}" alt="" class="img">
+                                        </div>
+                                    {% endif %}
+                                    <div class="text-content">
+                                        {% if block.settings.name != blank %}
+                                            <h3>{{ block.settings.name }}</h3>
+                                        {% endif %}
+                                        {% if block.settings.designation != blank %}
+                                            <p>{{ block.settings.designation }}</p>
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="guided-by-card">
-                                <div class="guided-by-img">
-                                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/734e97d18c35254fe654c967b1f6d274ef1ad4fa.png?v=1777991165"
-                                        alt="Image" class="img">
-                                </div>
-                                <div class="text-content">
-                                    <h3>Neil Paul</h3>
-                                    <p>Marketing</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{% schema %}
+{
+  "name": "Guided By",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "expert",
+      "name": "Expert",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "designation",
+          "label": "Designation"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Guided By"
+    }
+  ]
+}
+{% endschema %}
