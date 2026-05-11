@@ -1,18 +1,114 @@
-<section class="letter-from-founder" style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468571.png?v=1777980845')">
+<section class="letter-from-founder" id="letter-from-founder-{{ section.id }}"{% if section.settings.background_image != blank %} style="background-image: url('{{ section.settings.background_image | image_url }}')"{% endif %}>
     <div class="container">
         <div class="letter-from-founder-in">
             <div class="letter-card">
-                <h2>A Letter From Our Founder</h2>
-                <div class="letter-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/e05aee5203b43522ad12954497c7ca7e98fb69f1.png?v=1777980670" alt="Image" class="img">
-                </div>
-                <p>There was a moment, quiet but unmistakable, when I realised just how complicated caring for ourselves had become. Everywhere I looked, there were louder promises, conflicting advice, and an overwhelming amount of information that left most of us feeling more confused than supported.
-                Orbe began as an answer to that feeling.</p>
-                <div class="signature">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Kevin_Hart.svg?v=1777980667" alt="Signature" class="icon">
-                    <p>CEO, ORBE</p>
-                </div>
+                {% if section.settings.heading != blank %}
+                    <h2>{{ section.settings.heading }}</h2>
+                {% endif %}
+
+                {% if section.settings.founder_image != blank %}
+                    <div class="letter-img">
+                        <img src="{{ section.settings.founder_image | image_url }}" alt="Founder" class="img">
+                    </div>
+                {% endif %}
+
+                {% if section.settings.letter_text != blank %}
+                    <p>{{ section.settings.letter_text }}</p>
+                {% endif %}
+
+                {% if section.settings.signature_image != blank or section.settings.signature_text != blank %}
+                    <div class="signature">
+                        {% if section.settings.signature_image != blank %}
+                            <img src="{{ section.settings.signature_image | image_url }}" alt="Signature" class="icon">
+                        {% endif %}
+                        {% if section.settings.signature_text != blank %}
+                            <p>{{ section.settings.signature_text }}</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
+
+<script>
+  (function () {
+    function init() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(init, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = document.getElementById('letter-from-founder-{{ section.id }}');
+      if (!section) return;
+
+      const card = section.querySelector('.letter-card');
+      if (!card) return;
+
+      gsap.fromTo(card,
+        {
+          y: 90,
+          autoAlpha: 0.92,
+        },
+        {
+          y: -70,
+          autoAlpha: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        }
+      );
+    }
+
+    init();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Letter From Founder",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "founder_image",
+      "label": "Founder image"
+    },
+    {
+      "type": "textarea",
+      "id": "letter_text",
+      "label": "Letter text"
+    },
+    {
+      "type": "image_picker",
+      "id": "signature_image",
+      "label": "Signature image"
+    },
+    {
+      "type": "text",
+      "id": "signature_text",
+      "label": "Signature text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Letter From Founder"
+    }
+  ]
+}
+{% endschema %}

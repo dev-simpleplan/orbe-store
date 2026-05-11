@@ -1198,16 +1198,16 @@ body.mobile-menu-open {
 }
 @media screen and (max-width: 991px) {
   .about-banner {
-    min-height: 100svh;
+height: 100vh;
     height: auto;
-    padding-top: 72px;
+    padding-top: 0px;
   }
   .about-banner .container {
     height: 100%;
   }
   .about-banner-stage {
     position: relative;
-    min-height: calc(100svh - 72px);
+    min-height: 100vh;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -1373,6 +1373,7 @@ body.mobile-menu-open {
   margin: 0 auto;
   padding: 50px 30px;
   position: relative;
+  will-change: transform, opacity;
 }
 .letter-from-founder-in .letter-img {
   width: 176px;
