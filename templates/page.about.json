@@ -171,11 +171,20 @@
             "name": "Katherine",
             "designation": "Sales Manager"
           }
+        },
+        "expert_VzxDQk": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/1909e2900846ce31e6884d3e303ade59a9adf719.png",
+            "name": "Test Name",
+            "designation": "Test Designation"
+          }
         }
       },
       "block_order": [
         "expert_mpab4n",
-        "expert_NhJW3B"
+        "expert_NhJW3B",
+        "expert_VzxDQk"
       ],
       "settings": {}
     },
