@@ -84,8 +84,8 @@ $(window).on('load', function () {
         nav: false,
         responsive: {
             0: {margin: 10 },
-            600: { margin: 80 },
-            1000: {  margin: 130 }
+            600: { margin: 20 },
+             991: {  margin: 130 }
         }
     });
 

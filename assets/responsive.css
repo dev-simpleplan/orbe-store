@@ -5,7 +5,7 @@
   .footer-image {
     padding-top: 40px;
   }
-    .heart-behind-in {
+  .heart-behind-in {
     gap: 40px;
   }
   .heart-behind-in .hb-top {
@@ -17,15 +17,15 @@
     height: 100%;
     aspect-ratio: 1/1.2;
   }
-  .hb-bottom > h2{
+  .hb-bottom > h2 {
     padding-bottom: 40px;
   }
 }
 
 @media screen and (max-width: 1200px) {
-.people-of-orbe .container{
-  padding: 0;
-}
+  .people-of-orbe .container {
+    padding: 0;
+  }
   .people-of-orbe-nav {
     display: flex;
     justify-content: center;
@@ -33,6 +33,9 @@
   }
   .poo-card {
     aspect-ratio: 0.62;
+  }
+  .guided-by-in .owl-stage-outer {
+    height: 650px;
   }
 }
 @media screen and (max-width: 1100px) {
@@ -43,7 +46,6 @@
   .header-in .right > ul {
     gap: 30px;
   }
-  
 }
 @media screen and (max-width: 991px) {
   .footer-in {
@@ -83,14 +85,15 @@
   .guided-by-in .owl-stage-outer {
     height: 100%;
   }
-  .guided-by-card {
-    aspect-ratio: unset;
-  }
+
   .guided-by-slider .owl-item.active + .owl-item.active {
     transform: unset;
   }
   .guided-by-slider {
     padding-bottom: 0px;
+  }
+  .guided-by .container-left {
+    padding-right: 40px;
   }
   .guided-by-nav {
     margin: 0 auto;
@@ -206,6 +209,27 @@
   .ab-reveal-block {
     will-change: transform, opacity, clip-path;
   }
+  .guided-by-nav {
+    margin-top: 30px;
+  }
+  .guided-by-card .text-content {
+    top: unset;
+    bottom: 30px;
+    left: 30px;
+  }
+  .guided-by-card .text-content h3 {
+    font-size: 28px;
+  }
+   .standard-that-speaks-in {
+    min-height: 620px;
+  }
+  .center-ring {
+    --ring-size: min(600px, 92vw);
+    --circle-size: clamp(118px, 24vw, 170px);
+  }
+  .standard-ring-item span {
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 767px) {
   .footer-logo {
@@ -258,7 +282,7 @@
   .heart-behind-in .hb-bottom {
     width: 100%;
   }
-  .letter-card > p{
+  .letter-card > p {
     font-size: 14px;
   }
   .people-of-orbe .heading {
@@ -267,9 +291,40 @@
   .poo-card {
     aspect-ratio: 0.75;
   }
-  .people-of-orbe-nav svg{
+  .people-of-orbe-nav svg {
     width: 40px;
     height: 40px;
+  }
+  .guided-by .container-left {
+    padding-right: 20px;
+  }
+  .guided-by-nav svg {
+    width: 40px;
+    height: 40px;
+  }
+  .guided-by-card .text-content {
+    top: unset;
+    bottom: 20px;
+    left: 20px;
+  }
+  .guided-by-card .text-content h3 {
+    font-size: 18px;
+  }
+  .guided-by-card .text-content p {
+    font-size: 10px;
+  }
+    .standard-that-speaks .heading {
+    margin-bottom: 36px;
+  }
+  .standard-that-speaks-in {
+    min-height: 460px;
+  }
+  .center-ring {
+    --ring-size: min(360px, 92vw);
+    --circle-size: clamp(78px, 24vw, 108px);
+  }
+  .standard-ring-item span {
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 400px) {
