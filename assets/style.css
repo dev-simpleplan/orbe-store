@@ -46,14 +46,14 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(32px, 6vw, 62px);
+  font-size: clamp(32px, 4.5vw, 62px);
 }
 
 h2 {
-  font-size: clamp(28px, 6vw, 52px);
+  font-size: clamp(28px, 4.5vw, 52px);
 }
 h3 {
-  font-size: clamp(24px, 6vw, 42px);
+  font-size: clamp(24px, 4.5vw, 42px);
 }
 
 p {

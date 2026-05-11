@@ -1021,7 +1021,7 @@ body.mobile-menu-open {
 /* About Banner */
 .about-banner {
   min-height: 100vh;
-  padding-top: 120px;
+  padding-top: 90px;
   position: relative;
 }
 .about-banner img {
@@ -1158,9 +1158,9 @@ body.mobile-menu-open {
 .about-banner-split-bottom .about-banner-split-from {
   object-position: center bottom;
 }
-.about-banner-img img:nth-child(1) {
+.about-banner-logo {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   width: min(100%, 700px);
   height: auto;
@@ -1170,7 +1170,7 @@ body.mobile-menu-open {
   z-index: 3;
   object-fit: contain;
 }
-.about-banner-img img:nth-child(2) {
+.about-banner-hero-image {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1196,87 +1196,7 @@ body.mobile-menu-open {
 .ab-reveal-block {
   will-change: transform, opacity, clip-path;
 }
-@media screen and (max-width: 991px) {
-  .about-banner {
-height: 100vh;
-    height: auto;
-    padding-top: 0px;
-  }
-  .about-banner .container {
-    height: 100%;
-  }
-  .about-banner-stage {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .about-banner-split {
-    display: grid;
-    width: 100%;
-    height: min(70svh, 620px);
-    gap: 16px;
-    z-index: 2;
-  }
-  .about-banner-img {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: min(70svh, 620px);
-    margin-bottom: 0;
-    z-index: 4;
-    pointer-events: none;
-  }
-  .about-banner-img img:nth-child(1) {
-    width: min(48vw, 142px);
-  }
-  .about-banner-strip {
-    height: 16px;
-    z-index: 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .about-banner-mobile-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: min(100%, 360px);
-    padding: 18px 24px;
-    text-align: center;
-    color: #1a1a1a;
-  }
-  .about-banner-mobile-heading {
-    display: block;
-    max-width: 12ch;
-    font-size: clamp(26px, 8vw, 38px);
-    line-height: 92%;
-    letter-spacing: -0.05em;
-    font-family: var(--ivypresto);
-    font-weight: 400;
-  }
-  .about-banner-mobile-text {
-    display: block;
-    max-width: 38ch;
-    font-size: 12px;
-    line-height: 120%;
-    font-family: var(--aspekta);
-  }
-  .about-banner-split-panel .about-banner-split-from {
-    height: calc(200% + 16px);
-  }
-  .about-banner-in {
-    display: none;
-  }
-  .ab-reveal-block {
-    will-change: transform, opacity, clip-path;
-  }
-}
+
 /* About Banner */
 
 .sii-img {
