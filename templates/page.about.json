@@ -26,7 +26,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 140
+        "spacer_height": 100
       }
     },
     "slide-in-img": {
