@@ -186,7 +186,10 @@
         "expert_NhJW3B",
         "expert_VzxDQk"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Guided By Expertise",
+        "description": "Orbe exists to make feeling good less complicated through clean science, intentional design, and rituals that support the woman you’re becoming."
+      }
     },
     "spacer_FGEC3P": {
       "type": "spacer",
