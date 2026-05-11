@@ -1396,7 +1396,7 @@ body.mobile-menu-open {
   pointer-events: none;
 }
 .guided-by-card .text-content h3 {
-  font-family: var(--ivypresto);
+  font-family: var(--tobias);
   font-size: clamp(24px, 2vw, 34px);
   line-height: 92%;
   letter-spacing: -0.04em;
@@ -1635,25 +1635,27 @@ body.mobile-menu-open {
   pointer-events: none;
 }
 .poo-content h3 {
-  margin: 0;
-  font-family: var(--ivypresto);
+  font-family: var(--tobias);
   font-size: clamp(24px, 2vw, 32px);
-  line-height: 92%;
-  letter-spacing: -0.04em;
+  line-height: 110%;
+  letter-spacing: -0.05em;
   font-weight: 400;
   font-style: italic;
+  color: #fff;
 }
 .poo-content p {
   margin: 6px 0 0;
   font-family: var(--aspekta);
-  font-size: 10px;
-  line-height: 120%;
-  letter-spacing: 0.18em;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 2.88px;
   text-transform: uppercase;
+    color: #fff;
 }
 .poo-card:hover .poo-img img {
   filter: grayscale(1) blur(7px);
   transform: scale(1.04);
+    mix-blend-mode: multiply;
 }
 .poo-card:hover .poo-content {
   opacity: 1;
