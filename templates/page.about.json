@@ -155,6 +155,28 @@
     },
     "guided-by": {
       "type": "guided-by",
+      "blocks": {
+        "expert_mpab4n": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c.png",
+            "name": "Neil Paul",
+            "designation": "Marketing"
+          }
+        },
+        "expert_NhJW3B": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/734e97d18c35254fe654c967b1f6d274ef1ad4fa.png",
+            "name": "Katherine",
+            "designation": "Sales Manager"
+          }
+        }
+      },
+      "block_order": [
+        "expert_mpab4n",
+        "expert_NhJW3B"
+      ],
       "settings": {}
     },
     "spacer_FGEC3P": {
