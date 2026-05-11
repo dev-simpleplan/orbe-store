@@ -1,40 +1,42 @@
 {% liquid
-    assign card_url = '#'
-    assign card_title = 'Blog title'
-    assign card_excerpt = ''
-    assign card_category = blog_title | default: 'Blog Category'
+assign card_url = '#'
+assign card_title = 'Blog title'
+assign card_excerpt = ''
+assign card_category = blog_title | default: 'Blog Category'
 
-    if article != blank
-        assign card_url = article.url
-        assign card_title = article.title
-        assign card_excerpt = article.excerpt_or_content | strip_html | truncate: 110
+if article != blank
+assign card_url = article.url
+assign card_title = article.title
+assign card_excerpt = article.excerpt_or_content | strip_html | truncate: 110
 
-        if article.tags.first != blank
-            assign card_category = article.tags.first
-        elsif article.blog.title != blank
-            assign card_category = article.blog.title
-        endif
-    endif
+if article.tags.first != blank
+assign card_category = article.tags.first
+elsif article.blog.title != blank
+assign card_category = article.blog.title
+endif
+endif
 %}
 
 <a href="{{ card_url }}">
     <div class="blogs-feature-card">
-        {% if show_category %}
-        <p class="eye-head">
-            {{ card_category }}
-        </p>
-        {% endif %}
-        <div class="blogs-feature-img">
-            {% if article.image != blank %}
-                {{ article.image | image_url: width: 700 | image_tag: class: 'img', loading: 'lazy', alt: card_title }}
-            {% else %}
-                {{ 'image' | placeholder_svg_tag: 'img placeholder-svg' }}
+        <div>
+            {% if show_category %}
+            <p class="eye-head">
+                {{ card_category }}
+            </p>
             {% endif %}
+            <div class="blogs-feature-img">
+                {% if article.image != blank %}
+                {{ article.image | image_url: width: 700 | image_tag: class: 'img', loading: 'lazy', alt: card_title }}
+                {% else %}
+                {{ 'image' | placeholder_svg_tag: 'img placeholder-svg' }}
+                {% endif %}
+            </div>
         </div>
         <div class="blogs-feature-content">
             <h4>{{ card_title }}</h4>
             {% if card_excerpt != blank %}
-                <p>{{ card_excerpt }}</p>
+            <p>{{ card_excerpt }}</p>
             {% endif %}
         </div>
     </div>
