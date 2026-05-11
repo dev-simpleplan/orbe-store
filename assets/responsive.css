@@ -397,6 +397,9 @@
   .blogs-feature .heading {
   margin-bottom: 70px;
 }
+.letter-from-founder-in .letter-card{
+  padding: 30px 15px;
+}
 }
 @media screen and (max-width: 400px) {
 }
