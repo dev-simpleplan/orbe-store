@@ -326,6 +326,10 @@
   .standard-ring-item span {
     font-size: 10px;
   }
+  .standard-that-speaks .heading p{
+    font-size: 14px;
+    max-width: 38ch;
+  }
 }
 @media screen and (max-width: 400px) {
 }
