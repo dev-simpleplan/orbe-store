@@ -1754,8 +1754,21 @@ body.mobile-menu-open {
     padding: 70px 0;
   }
   .what-we-choose .what-we-block {
+    justify-content: end;
+    gap: 20px;
+  }
+  .what-we-choose .what-we-block {
     width: min(72vw, 520px);
     padding: 24px;
+  }
+   .what-we-choose .text-white-block p{
+    font-size: 16px;
+  }
+    .what-we-choose .what-we-block h3{
+    font-size: 32px;
+  }
+  .what-we-choose .text-white-block{
+    padding: 30px;
   }
 }
 @media screen and (max-width: 575px) {
@@ -1763,7 +1776,18 @@ body.mobile-menu-open {
     min-height: 640px;
   }
   .what-we-choose .what-we-block {
-    width: 82vw;
+    width: 90vw;
+    justify-content: end;
+    gap: 10px;
+  }
+  .what-we-choose .what-we-block h3{
+    font-size: 26px;
+  }
+  .what-we-choose .text-white-block{
+    padding: 20px;
+  }
+  .what-we-choose .text-white-block p{
+    font-size: 14px;
   }
 }
 /* What we choose */
