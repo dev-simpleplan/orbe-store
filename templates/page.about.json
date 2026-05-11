@@ -93,6 +93,19 @@
     },
     "people-of-orbe": {
       "type": "people-of-orbe",
+      "blocks": {
+        "person_KkNfA4": {
+          "type": "person",
+          "settings": {
+            "image": "shopify://shop_images/18a742267661f744f7d96daeb32e38cd96e22faa.png",
+            "name": "Neil Paul",
+            "designation": "Marketing"
+          }
+        }
+      },
+      "block_order": [
+        "person_KkNfA4"
+      ],
       "settings": {
         "heading": "The People of Orbé"
       }
