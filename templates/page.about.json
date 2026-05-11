@@ -12,6 +12,8 @@
     "about-banner": {
       "type": "about-banner",
       "settings": {
+        "hero_logo": "shopify://shop_images/Group_2085663252_4.svg",
+        "hero_image": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
         "left_img_1": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
         "left_img_2": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
         "top_right_img": "shopify://shop_images/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png",
