@@ -45,7 +45,42 @@
     },
     "what-we-choose": {
       "type": "what-we-choose",
-      "settings": {}
+      "blocks": {
+        "card_science_we_trust": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468570_1.png",
+            "title": "Science we Trust",
+            "text": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        },
+        "card_clarity_over_noise": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png",
+            "title": "Clarity over Noise",
+            "text": "We choose plain language, transparent choices, and rituals that feel easy to understand and return to every day."
+          }
+        },
+        "card_design_with_intention": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
+            "title": "Design with Intention",
+            "text": "Every detail is refined with care, from what goes into the formula to how it fits into your life."
+          }
+        }
+      },
+      "block_order": [
+        "card_science_we_trust",
+        "card_clarity_over_noise",
+        "card_design_with_intention"
+      ],
+      "settings": {
+        "background_image": "shopify://shop_images/d496c14e81bf59867e96506ff4c11c022eabb483.png",
+        "heading": "What we choose to stand for",
+        "description": "At Orbé, simplicity is an act of respect. Respect for your time, your mind, and your body. We refine everything: our formulas, our design, even the way we communicate."
+      }
     },
     "spacer_rcFn7G": {
       "type": "spacer",

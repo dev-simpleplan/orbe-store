@@ -1,35 +1,33 @@
 <section class="what-we-choose" id="what-we-choose-{{ section.id }}"
-    style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/d496c14e81bf59867e96506ff4c11c022eabb483.png?v=1778245605');">
+    {% if section.settings.background_image != blank %}
+      style="background-image: url('{{ section.settings.background_image | image_url }}');"
+    {% endif %}>
     <div class="container">
         <div class="heading">
-            <h2>What we choose to stand for</h2>
-            <p>At Orbé, simplicity is an act of respect. Respect for your time, your mind, and your body. We refine
-                everything: our formulas, our design, even the way we communicate.</p>
+            {% if section.settings.heading != blank %}
+              <h2>{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.description != blank %}
+              <p>{{ section.settings.description }}</p>
+            {% endif %}
         </div>
         <div class="what-we-choose-in">
-            <div class="what-we-block"
-                style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468570_1.png?v=1778247164');">
-                <h3>Science we Trust</h3>
-                <div class="text-white-block">
-                    <p>Our formulas are built on real research, proven nutrient forms, and careful testing. Everything
-                        we create is grounded in evidence and not assumptions or trends.</p>
-                </div>
-            </div>
-            <div class="what-we-block"
-                style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png?v=1777901848');">
-                <h3>Clarity over Noise</h3>
-                <div class="text-white-block">
-                    <p>We choose plain language, transparent choices, and rituals that feel easy to understand and return
-                        to every day.</p>
-                </div>
-            </div>
-            <div class="what-we-block"
-                style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png?v=1777901552');">
-                <h3>Design with Intention</h3>
-                <div class="text-white-block">
-                    <p>Every detail is refined with care, from what goes into the formula to how it fits into your life.</p>
-                </div>
-            </div>
+            {% for block in section.blocks %}
+              <div class="what-we-block"
+                {% if block.settings.image != blank %}
+                  style="background-image: url('{{ block.settings.image | image_url }}');"
+                {% endif %}
+                {{ block.shopify_attributes }}>
+                  {% if block.settings.title != blank %}
+                    <h3>{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <div class="text-white-block">
+                        <p>{{ block.settings.text }}</p>
+                    </div>
+                  {% endif %}
+              </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -143,3 +141,54 @@
     init();
   })();
 </script>
+
+{% schema %}
+{
+  "name": "What We Choose",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What We Choose"
+    }
+  ]
+}
+{% endschema %}
