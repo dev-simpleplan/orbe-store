@@ -703,6 +703,8 @@ body.mobile-menu-open {
 }
 .community-ticker > div {
   position: relative;
+  overflow:  hidden !important;
+  height: 100% !important;
 }
 .community-ticker .insta-icon {
   width: 18px;
