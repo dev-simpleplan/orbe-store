@@ -1727,6 +1727,10 @@ body.mobile-menu-open {
   line-height: 99%;
   letter-spacing: -0.05em;
   font-weight: 400;
+  max-width: 10ch;
+}
+.what-we-choose .what-we-block:first-child h3{
+color: #000;
 }
 .what-we-choose .heading{
   display: flex;
