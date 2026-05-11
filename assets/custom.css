@@ -605,7 +605,7 @@ body.mobile-menu-open {
   display: flex;
   justify-content: center;
 }
-.at-single-in h2 {
+.at-single h2 {
   max-width: 22ch;
   margin-left: 110px;
   margin-bottom: 38px;
@@ -950,7 +950,7 @@ body.mobile-menu-open {
   gap: 100px;
 }
 .why-orbe-in .bottom .counter-grid h3 {
-  font-size: clamp(72px, 11vw, 148px);
+  font-size: clamp(80px, 11vw, 148px);
   color: #fff;
 }
 .why-orbe-in .bottom .counter-grid p {

@@ -128,7 +128,16 @@
     },
     "why-orbe": {
       "type": "why-orbe",
-      "settings": {}
+      "settings": {
+        "background_image": "shopify://shop_images/ae3880116c7ba112f0e3d7bc428bf614b3703da1.jpg",
+        "heading": "Why Orbe?",
+        "stat_1": "89%",
+        "text_1": "Because informed choices are powerful ones and you deserve both clarity and calm.",
+        "stat_2": "93%",
+        "text_2": "Because informed choices are powerful ones and you deserve both clarity and calm.",
+        "stat_3": "60%",
+        "text_3": "Because informed choices are powerful ones and you deserve both clarity and calm."
+      }
     },
     "spacer_6YyPKx": {
       "type": "spacer",

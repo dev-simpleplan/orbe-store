@@ -1,23 +1,40 @@
-<section class="why-orbe" style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ae3880116c7ba112f0e3d7bc428bf614b3703da1.jpg?v=1777463763');">
+<section class="why-orbe" id="why-orbe-{{ section.id }}"
+  {% if section.settings.background_image != blank %}
+    style="background-image: url('{{ section.settings.background_image | image_url }}');"
+  {% endif %}>
   <div class="blur-overlay"></div>
   <div class="container">
     <div class="why-orbe-in">
       <div class="top">
-        <h2>Why Orbe?</h2>
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
       </div>
       <div class="bottom">
         <div class="counter-grid">
           <div class="left">
-            <h3>89%</h3>
-            <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
+            {% if section.settings.stat_1 != blank %}
+              <h3>{{ section.settings.stat_1 }}</h3>
+            {% endif %}
+            {% if section.settings.text_1 != blank %}
+              <p>{{ section.settings.text_1 }}</p>
+            {% endif %}
           </div>
           <div class="center">
-            <h3>93%</h3>
-            <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
+            {% if section.settings.stat_2 != blank %}
+              <h3>{{ section.settings.stat_2 }}</h3>
+            {% endif %}
+            {% if section.settings.text_2 != blank %}
+              <p>{{ section.settings.text_2 }}</p>
+            {% endif %}
           </div>
           <div class="right">
-            <h3>60%</h3>
-            <p>Because informed choices are powerful ones and you deserve both clarity and calm.</p>
+            {% if section.settings.stat_3 != blank %}
+              <h3>{{ section.settings.stat_3 }}</h3>
+            {% endif %}
+            {% if section.settings.text_3 != blank %}
+              <p>{{ section.settings.text_3 }}</p>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -25,24 +42,99 @@
   </div>
 </section>
 <script>
-// Why Orbe - blur slides up on scroll
-gsap.registerPlugin(ScrollTrigger);
+  (function () {
+    function init() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(init, 100);
+        return;
+      }
 
-const whyOrbe = document.querySelector('.why-orbe');
-const blurOverlay = document.querySelector('.why-orbe::before'); // we'll use a div instead
+      gsap.registerPlugin(ScrollTrigger);
 
-gsap.fromTo('.why-orbe .blur-overlay', 
-  { yPercent: 0 },
-  {
-    yPercent: -100,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.why-orbe',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1,
-      pin: true,
+      const section = document.getElementById('why-orbe-{{ section.id }}');
+      if (!section) return;
+
+      gsap.fromTo(section.querySelector('.blur-overlay'),
+        { yPercent: 0 },
+        {
+          yPercent: -100,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1,
+            pin: true,
+          }
+        }
+      );
     }
-  }
-);
+
+    init();
+  })();
 </script>
+
+{% schema %}
+{
+  "name": "Why Orbe",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Stat 1"
+    },
+    {
+      "type": "text",
+      "id": "stat_1",
+      "label": "Stat"
+    },
+    {
+      "type": "textarea",
+      "id": "text_1",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Stat 2"
+    },
+    {
+      "type": "text",
+      "id": "stat_2",
+      "label": "Stat"
+    },
+    {
+      "type": "textarea",
+      "id": "text_2",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Stat 3"
+    },
+    {
+      "type": "text",
+      "id": "stat_3",
+      "label": "Stat"
+    },
+    {
+      "type": "textarea",
+      "id": "text_3",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Orbe"
+    }
+  ]
+}
+{% endschema %}
