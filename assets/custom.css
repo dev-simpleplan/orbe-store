@@ -1662,7 +1662,7 @@ body.mobile-menu-open {
   transform: translateY(0);
 }
 .people-of-orbe-nav {
-  display: flex;
+  display: none;
   gap: 5px;
   margin-top: 28px;
 }
@@ -1675,19 +1675,6 @@ body.mobile-menu-open {
   cursor: default;
   opacity: 0.35;
   pointer-events: none;
-}
-@media screen and (max-width: 1199px) {
-  .poo-card {
-    aspect-ratio: 0.62;
-  }
-}
-@media screen and (max-width: 767px) {
-  .people-of-orbe .heading {
-    margin-bottom: 32px;
-  }
-  .poo-card {
-    aspect-ratio: 0.75;
-  }
 }
 /* People Of Orbe */
 /* What we choose */

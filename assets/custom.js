@@ -125,18 +125,19 @@ $(window).on('load', function () {
     });
 
     var peopleOwl = $('.people-of-orbe-slider');
+    var peopleLoop = true;
 
     peopleOwl.owlCarousel({
-        loop: false,
+        loop: peopleLoop,
         items: 5,
-        margin: 8,
+        margin: 10,
         dots: false,
         nav: false,
         responsive: {
-            0: { items: 1, margin: 12 },
-            600: { items: 2, margin: 12 },
-            900: { items: 3, margin: 8 },
-            1200: { items: 5, margin: 8 }
+            0: { items: 1, stagePadding: 68 },
+            600: { items: 2, stagePadding: 86 },
+            900: { items: 3, stagePadding: 96 },
+            1200: { items: 5}
         }
     });
 
@@ -144,6 +145,12 @@ $(window).on('load', function () {
     var $peoplePrevBtn = $('.prev-btn-people');
 
     function updatePeopleNav(event) {
+        if (peopleLoop) {
+            $peoplePrevBtn.removeClass('disabled');
+            $peopleNextBtn.removeClass('disabled');
+            return;
+        }
+
         var itemCount = event.item.count;
         var itemIndex = event.item.index;
         var itemsPerView = event.page.size;
