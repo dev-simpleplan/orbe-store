@@ -1909,7 +1909,6 @@ body.mobile-menu-open {
         flex-direction: column;
     }
 
-    /* — Timeline — */
     .gu-timeline {
         display: flex;
         flex-direction: column;
@@ -1962,7 +1961,6 @@ body.mobile-menu-open {
         border-color: var(--black);
     }
 
-    /* — Card Stack — */
     .gu-stack-wrap {
         position: relative;
         width: 100%;
@@ -1992,7 +1990,6 @@ body.mobile-menu-open {
         filter: grayscale(100%);
     }
 
-    /* — Caption — */
     .gu-caption {
         margin-top: 30px;
         display: flex;
@@ -2003,7 +2000,7 @@ body.mobile-menu-open {
 
     .gu-caption-week {
         font-family: var(--tobias);
-        font-size: 2rem;
+        font-size: 32px;
         line-height: 150%;
         letter-spacing: 0em;
         font-weight: 400;
@@ -2016,7 +2013,7 @@ body.mobile-menu-open {
     }
 
     .gu-caption-sub {
-        font-size: 1.1rem;
+        font-size: 18px;
         font-weight: 400;
         color: #5d5d5d;
         font-family: var(--aspekta);
