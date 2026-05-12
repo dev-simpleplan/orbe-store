@@ -58,6 +58,18 @@
   .blowing-pills-in .left {
     padding-top: 0px;
   }
+  .care-behind-c-in {
+    padding: 50px;
+  }
+  .care-behind-c {
+    padding-top: 50px;
+  }
+  .care-behind-c .text-block p {
+    font-size: 14px;
+  }
+  .care-behind-c-in .pill-img {
+    width: 100px;
+  }
 }
 @media screen and (max-width: 991px) {
   .footer {
@@ -538,6 +550,21 @@
     margin-left: 0px;
     font-size: 12px;
   }
+  .care-behind-c-in {
+    grid-template-columns: 1fr;
+    gap: 0px;
+  }
+  .care-behind-c-in .center {
+    order: -1;
+    margin-bottom: 40px;
+  }
+  .care-behind-c-in .left,
+  .care-behind-c-in .right {
+    gap: 0px;
+  }
+    .care-behind-c-in .text-block{
+      margin-bottom: 20px;
+    }
 }
 @media screen and (max-width: 400px) {
 }
