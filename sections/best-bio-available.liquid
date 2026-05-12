@@ -1,7 +1,7 @@
 <section class="best-bio-available" id="best-bio-available-{{ section.id }}">
     <div class="container">
         <div class="best-bio-top">
-            <div class="heading">
+            <div class="heading text-animation">
                 {% if section.settings.heading != blank %}
                 <h2>{{ section.settings.heading }}</h2>
                 {% endif %}
@@ -13,14 +13,14 @@
             <div class="item" {{ block.shopify_attributes }}>
                 <div class="best-bio-available-in">
                     <div class="left">
-                        <div>
+                        <div class="text-animation">
                             {% if block.settings.text != blank %}
                             <p>{{ block.settings.text }}</p>
                             {% endif %}
                             <div class="author-wrap">
                                 {% if block.settings.author_image != blank %}
                                 <div class="author-img">
-                                    {{ block.settings.author_image | image_url | image_tag: alt: 'author image', class: 'img' }}
+                                    {{ block.settings.author_image | image_url: width: 50 | image_tag: alt: 'author image', class: 'img' }}
                                 </div>
                                 {% endif %}
                                 {% if block.settings.author_name != blank %}
@@ -55,7 +55,7 @@
                     <div class="right">
                         <div class="best-bio-img">
                             {% if block.settings.image != blank %}
-                                {{ block.settings.image | image_url | image_tag: alt: 'image', class: 'img' }}
+                                {{ block.settings.image | image_url: width: 635 | image_tag: alt: 'image', class: 'img' }}
                             {% endif %}
                         </div>
                     </div>

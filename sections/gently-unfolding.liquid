@@ -1,0 +1,512 @@
+<style>
+    .gently-unfolding {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gu-title {
+        margin-bottom: 50px;
+    }
+
+    .gently-unfolding-in {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 50px 0 46px;
+    }
+
+    .gu-layout {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: 0 54px;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .gu-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* — Timeline — */
+    .gu-timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: stretch;
+        height: 512px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .gu-step {
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+        line-height: 150%;
+        letter-spacing: 2.88px;
+        font-family: var(--aspekta);
+        color: var(--black);
+    }
+
+    .gu-line-segment {
+        width: 1px;
+        flex: 1;
+        min-height: 96px;
+        background: #ccc;
+        position: relative;
+    }
+
+    .gu-line-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #1a1a18;
+        height: 0%;
+    }
+
+    .gu-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1.5px solid #ccc;
+        flex-shrink: 0;
+        transition: background 0.4s, border-color 0.4s;
+    }
+
+    .gu-dot.active {
+        background: var(--black);
+        border-color: var(--black);
+    }
+
+    /* — Card Stack — */
+    .gu-stack-wrap {
+        position: relative;
+        width: 100%;
+        height: 512px;
+        perspective: 1440px;
+        overflow: hidden;
+    }
+
+    .gu-card {
+        position: absolute;
+        inset: 0;
+        border-radius: 2px;
+        overflow: hidden;
+        will-change: transform, opacity;
+        background: #222;
+        transform: rotateX(90deg);
+        opacity: 0;
+        transform-origin: top center;
+        backface-visibility: hidden;
+    }
+
+    .gu-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(100%);
+    }
+
+    /* — Caption — */
+    .gu-caption {
+        margin-top: 14px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .gu-caption-week {
+        font-family: var(--tobias);
+        font-size: 2rem;
+        line-height: 150%;
+        letter-spacing: 0em;
+        font-weight: 400;
+        overflow: hidden;
+        height: 2rem;
+        position: relative;
+        color: var(--black);
+    }
+
+    .gu-week-inner {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.55s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .gu-week-inner span {
+        display: block;
+        line-height: 2rem;
+
+        white-space: nowrap;
+    }
+
+    .gu-caption-sub {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #5d5d5d;
+        font-family: var(--aspekta);
+        margin-top: 0.35rem;
+        line-height: 150%;
+        overflow: hidden;
+        height: 2.4rem;
+        position: relative;
+        max-width: 48ch;
+    }
+
+    .gu-sub-inner {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.55s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .gu-sub-inner span {
+        display: block;
+        height: 2.4rem;
+        line-height: 1.2rem;
+    }
+
+    .gu-caption-cta {
+        font-size: 0.65rem;
+        font-weight: 400;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: #1a1a18;
+        white-space: nowrap;
+        margin-left: 1rem;
+        padding-bottom: 0.1rem;
+    }
+
+    @media screen and (max-width: 767px) {
+        .gently-unfolding .container {
+            padding: 0 18px;
+        }
+
+        .gently-unfolding-in {
+            padding: 40px 0;
+        }
+
+        .gu-layout {
+            grid-template-columns: 34px minmax(0, 1fr);
+            gap: 0 18px;
+            max-width: 100%;
+        }
+
+        .gu-timeline,
+        .gu-stack-wrap {
+            height: 100vw;
+            min-height: 210px;
+            max-height: 800px;
+        }
+
+        .gu-line-segment {
+            min-height: 54px;
+        }
+
+        .gu-caption {
+            max-width: 100%;
+            gap: 18px;
+        }
+
+        .gu-caption-cta {
+            font-size: 9px;
+            letter-spacing: 0.12em;
+        }
+    }
+</style>
+
+
+<!-- ============================================================
+     HTML
+============================================================ -->
+<section class="gently-unfolding" id="gently-unfolding-{{ section.id }}">
+    <div class="container">
+        <div class="gently-unfolding-in">
+
+            {% if section.settings.heading != blank %}
+            <h2 class="gu-title">{{ section.settings.heading }}</h2>
+            {% endif %}
+
+            <div class="gu-layout">
+                <div class="gu-timeline"></div>
+
+                <div class="gu-main">
+                    <div class="gu-stack-wrap"></div>
+                    <div class="gu-caption">
+                        <div class="gu-caption-left">
+                            <div class="gu-caption-week">
+                                <div class="gu-week-inner"></div>
+                            </div>
+                            <div class="gu-caption-sub">
+                                <div class="gu-sub-inner"></div>
+                            </div>
+                        </div>
+                        {% if section.settings.cta_text != blank %}
+                        <a href="{{ section.settings.cta_link }}" class="gu-caption-cta">{{ section.settings.cta_text
+                            }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     JS
+============================================================ -->
+<script>
+    (function () {
+        function init() {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                setTimeout(init, 100);
+                return;
+            }
+
+            const CARDS = [
+                {% for block in section.blocks %}
+        {
+            img: {% if block.settings.image != blank %} { { block.settings.image | image_url: width: 1440 | json } } {% elsif block.settings.image_url != blank %} { { block.settings.image_url | json } } {% else %} ''{% endif %},
+            week: { { block.settings.week | json } },
+            sub: { { block.settings.text | json } },
+        } {% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+            ];
+
+        const section = document.getElementById('gently-unfolding-{{ section.id }}');
+        const stack = section ? section.querySelector('.gu-stack-wrap') : null;
+        const timeline = section ? section.querySelector('.gu-timeline') : null;
+        const weekInner = section ? section.querySelector('.gu-week-inner') : null;
+        const subInner = section ? section.querySelector('.gu-sub-inner') : null;
+        const N = CARDS.length;
+
+        if (!section || !stack || !timeline || !weekInner || !subInner || !N) return;
+        if (section.dataset.gentlyUnfoldingReady === 'true') return;
+        section.dataset.gentlyUnfoldingReady = 'true';
+
+        const firstDot = document.createElement('div');
+        firstDot.className = 'gu-dot active';
+        firstDot.dataset.dot = 0;
+        timeline.appendChild(firstDot);
+
+        CARDS.forEach((c, i) => {
+            const card = document.createElement('div');
+            card.className = 'gu-card';
+            card.dataset.index = i;
+            card.style.zIndex = N - i;
+            card.innerHTML = `
+                    ${c.img ? `<img src="${c.img}" alt="" loading="lazy" />` : ''}
+                `;
+            stack.appendChild(card);
+
+            const ws = document.createElement('span');
+            ws.textContent = c.week || '';
+            weekInner.appendChild(ws);
+
+            const ss = document.createElement('span');
+            ss.textContent = c.sub || '';
+            subInner.appendChild(ss);
+
+            const step = document.createElement('div');
+            step.className = 'gu-step' + (i === 0 ? ' active' : '');
+            step.dataset.step = i;
+            step.textContent = String(i + 1).padStart(2, '0');
+            timeline.appendChild(step);
+
+            if (i < N - 1) {
+                const seg = document.createElement('div');
+                seg.className = 'gu-line-segment';
+                const fill = document.createElement('div');
+                fill.className = 'gu-line-fill';
+                seg.appendChild(fill);
+                timeline.appendChild(seg);
+
+                const dot = document.createElement('div');
+                dot.className = 'gu-dot';
+                dot.dataset.dot = i + 1;
+                timeline.appendChild(dot);
+            }
+        });
+
+        const cards = [...stack.querySelectorAll('.gu-card')];
+        const steps = [...timeline.querySelectorAll('.gu-step')];
+        const dots = [...timeline.querySelectorAll('.gu-dot')];
+        const fills = [...timeline.querySelectorAll('.gu-line-fill')];
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const totalTransitions = Math.max(N - 1, 1);
+        let currentIndex = 0;
+
+        gsap.set(cards, {
+            autoAlpha: 0,
+            rotateX: 82,
+            transformOrigin: 'top center',
+        });
+
+        gsap.set(cards[0], {
+            autoAlpha: 1,
+            rotateX: 0,
+        });
+
+        function updateCaption(index) {
+            const idx = Math.max(0, Math.min(N - 1, index));
+            weekInner.style.transform = `translateY(-${idx * 2}rem)`;
+            subInner.style.transform = `translateY(-${idx * 2.4}rem)`;
+            steps.forEach((step, i) => step.classList.toggle('active', i === idx));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i <= idx));
+        }
+
+        function updateProgress(progress) {
+            if (progress >= 0.999 || N === 1) {
+                fills.forEach((fill) => {
+                    fill.style.height = '100%';
+                });
+                if (currentIndex !== N - 1) {
+                    currentIndex = N - 1;
+                    updateCaption(currentIndex);
+                }
+                return;
+            }
+
+            const raw = progress * totalTransitions;
+            const activeTransition = Math.min(Math.floor(raw), totalTransitions - 1);
+            const transitionProgress = raw - Math.floor(raw);
+            const captionIndex = Math.min(activeTransition, N - 1);
+
+            if (captionIndex !== currentIndex) {
+                currentIndex = captionIndex;
+                updateCaption(currentIndex);
+            }
+
+            fills.forEach((fill, index) => {
+                let height = 0;
+
+                if (index < activeTransition) {
+                    height = 100;
+                } else if (index === activeTransition) {
+                    height = transitionProgress * 100;
+                }
+
+                fill.style.height = `${height}%`;
+            });
+        }
+
+        const tl = gsap.timeline({
+            defaults: { ease: 'none' },
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: () => `+=${window.innerHeight * Math.max(N - 1, 1)}`,
+                scrub: 0.9,
+                pin: true,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                    updateProgress(self.progress);
+                },
+            },
+        });
+
+        cards.forEach((card, index) => {
+            if (index === 0) return;
+
+            const position = index - 1;
+            const previousCard = cards[index - 1];
+
+            tl.to(previousCard, {
+                rotateX: -88,
+                autoAlpha: 0,
+                duration: 1,
+            }, position);
+
+            tl.fromTo(card,
+                {
+                    rotateX: 82,
+                    autoAlpha: 0,
+                },
+                {
+                    rotateX: 0,
+                    autoAlpha: 1,
+                    duration: 1,
+                },
+                position
+            );
+        });
+
+        updateCaption(0);
+        updateProgress(0);
+
+        window.addEventListener('load', () => ScrollTrigger.refresh());
+    }
+
+        init();
+    }) ();
+</script>
+
+{% schema %}
+{
+"name": "Gently Unfolding",
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading"
+},
+{
+"type": "text",
+"id": "cta_text",
+"label": "CTA Text"
+},
+{
+"type": "url",
+"id": "cta_link",
+"label": "CTA Link"
+}
+],
+"blocks": [
+{
+"type": "card",
+"name": "Card",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image"
+},
+{
+"type": "url",
+"id": "image_url",
+"label": "Image URL"
+},
+{
+"type": "text",
+"id": "week",
+"label": "Week"
+},
+{
+"type": "textarea",
+"id": "text",
+"label": "Text"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Gently Unfolding"
+}
+]
+}
+{% endschema %}

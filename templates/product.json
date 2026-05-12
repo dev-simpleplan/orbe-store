@@ -23,17 +23,16 @@
             "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
             "author_name": "Mark Jack",
             "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
-          }, 
+          }
         },
-          "slide_2": {
+        "slide_2": {
           "type": "slide",
           "settings": {
             "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
             "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
             "author_name": "Mark Jack",
             "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
-          },
-          
+          }
         }
       },
       "block_order": [
@@ -43,10 +42,59 @@
       "settings": {
         "heading": "“Best bio-available supplement”"
       }
+    },
+    "gently-unfold":{
+      "type": "gently-unfolding",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=900&q=80",
+            "week": "Week 1–2",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&q=80",
+            "week": "Week 3–4",
+            "text": "Cellular renewal begins as key bioavailable compounds reach full saturation."
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900&q=80",
+            "week": "Week 5–6",
+            "text": "Visible radiance emerges. Collagen pathways strengthen from within."
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image_url": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=80",
+            "week": "Week 7–8",
+            "text": "The full ritual effect: sustained glow, resilient skin, calm energy."
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
+      "settings": {
+        "heading": "The Journey, Gently Unfolding",
+        "cta_text": "See Clinical Evidence",
+        "cta_link": "#"
+      }
     }
   },
   "order": [
     "main",
-    "best-bio"
+    "best-bio",
+    "gently-unfold"
   ]
 }
