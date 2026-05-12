@@ -534,7 +534,9 @@
     align-items: start;
   }
   .gu-caption .gu-caption-cta {
-    margin-left: auto;
+    padding-left: 0px;
+    margin-left: 0px;
+    font-size: 12px;
   }
 }
 @media screen and (max-width: 400px) {
