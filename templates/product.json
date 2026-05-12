@@ -15,7 +15,34 @@
     },
     "best-bio":{
       "type": "best-bio-available",
-      "settings": {}
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
+            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
+            "author_name": "Mark Jack",
+            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
+          }, 
+        },
+          "slide_2": {
+          "type": "slide",
+          "settings": {
+            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
+            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
+            "author_name": "Mark Jack",
+            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
+          },
+          
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
+      "settings": {
+        "heading": "“Best bio-available supplement”"
+      }
     }
   },
   "order": [

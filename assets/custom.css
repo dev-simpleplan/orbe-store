@@ -703,7 +703,7 @@ body.mobile-menu-open {
 }
 .community-ticker > div {
   position: relative;
-  overflow:  hidden !important;
+  overflow: hidden !important;
   height: 100% !important;
 }
 .community-ticker .insta-icon {
@@ -803,7 +803,7 @@ body.mobile-menu-open {
   aspect-ratio: 2.4/ 2.5;
   overflow: hidden;
 }
-.blogs-feature-in .item{
+.blogs-feature-in .item {
   height: 100%;
 }
 .blogs-feature-card-wrap .blogs-feature-card:hover .blogs-feature-img {
@@ -1356,7 +1356,7 @@ body.mobile-menu-open {
   display: flex;
   gap: 10px;
 }
-.guided-by-in .owl-stage-outer{
+.guided-by-in .owl-stage-outer {
   height: 750px;
 }
 .guided-by-in .bottom .left {
@@ -1441,13 +1441,13 @@ body.mobile-menu-open {
   line-height: 150%;
   font-size: 12px;
 }
-.guided-by-in .top{
+.guided-by-in .top {
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.guided-by-in .top p{
+.guided-by-in .top p {
   max-width: 45ch;
   font-size: 15px;
 }
@@ -1497,7 +1497,8 @@ body.mobile-menu-open {
   left: 50%;
   width: var(--circle-size);
   height: var(--circle-size);
-  transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--ring-radius)) rotate(calc(-1 * var(--angle)));
+  transform: translate(-50%, -50%) rotate(var(--angle))
+    translate(var(--ring-radius)) rotate(calc(-1 * var(--angle)));
   transform-origin: center;
 }
 .standard-ring-item-1 {
@@ -1571,7 +1572,7 @@ body.mobile-menu-open {
     transform: rotate(-360deg);
   }
 }
-.blowing-pills .heading-block.for-mobile{
+.blowing-pills .heading-block.for-mobile {
   display: none;
 }
 /* Standard That Speaks */
@@ -1616,7 +1617,9 @@ body.mobile-menu-open {
   height: 100%;
   object-fit: cover;
   filter: grayscale(1);
-  transition: filter 0.45s ease, transform 0.45s ease;
+  transition:
+    filter 0.45s ease,
+    transform 0.45s ease;
 }
 .poo-content {
   position: absolute;
@@ -1627,7 +1630,9 @@ body.mobile-menu-open {
   color: #fff;
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
   pointer-events: none;
 }
 .poo-content h3 {
@@ -1646,12 +1651,12 @@ body.mobile-menu-open {
   line-height: 150%;
   letter-spacing: 2.88px;
   text-transform: uppercase;
-    color: #fff;
+  color: #fff;
 }
 .poo-card:hover .poo-img img {
   filter: grayscale(1) blur(7px);
   transform: scale(1.04);
-    mix-blend-mode: multiply;
+  mix-blend-mode: multiply;
 }
 .poo-card:hover .poo-content {
   opacity: 1;
@@ -1674,7 +1679,7 @@ body.mobile-menu-open {
 }
 /* People Of Orbe */
 /* What we choose */
-.what-we-choose{
+.what-we-choose {
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1685,17 +1690,17 @@ body.mobile-menu-open {
   overflow: hidden;
   position: relative;
 }
-.what-we-choose .container{
+.what-we-choose .container {
   height: 100%;
   position: relative;
 }
-.what-we-choose-in{
+.what-we-choose-in {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
 }
-.what-we-choose .what-we-block{
+.what-we-choose .what-we-block {
   aspect-ratio: 1/1;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1712,18 +1717,18 @@ body.mobile-menu-open {
   z-index: 2;
   will-change: transform, opacity;
 }
-.what-we-choose .text-white-block{
+.what-we-choose .text-white-block {
   background-color: #fff;
   padding: 40px;
 }
-.what-we-choose .text-white-block p{
-  color: #5D5D5D;
+.what-we-choose .text-white-block p {
+  color: #5d5d5d;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0px;
   line-height: 112%;
 }
-.what-we-choose .what-we-block h3{
+.what-we-choose .what-we-block h3 {
   color: #fff;
   font-size: clamp(38px, 4vw, 37.5px);
   line-height: 99%;
@@ -1731,10 +1736,10 @@ body.mobile-menu-open {
   font-weight: 400;
   max-width: 10ch;
 }
-.what-we-choose .what-we-block:first-child h3{
-color: #000;
+.what-we-choose .what-we-block:first-child h3 {
+  color: #000;
 }
-.what-we-choose .heading{
+.what-we-choose .heading {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1744,12 +1749,12 @@ color: #000;
   position: relative;
   z-index: 3;
 }
-.what-we-choose .heading p{
+.what-we-choose .heading p {
   max-width: 64ch;
   margin: 0 auto;
   color: #fff;
 }
-.what-we-choose .heading h2{
+.what-we-choose .heading h2 {
   text-transform: capitalize;
   color: #fff;
 }
@@ -1767,13 +1772,13 @@ color: #000;
     width: min(72vw, 520px);
     padding: 24px;
   }
-   .what-we-choose .text-white-block p{
+  .what-we-choose .text-white-block p {
     font-size: 16px;
   }
-    .what-we-choose .what-we-block h3{
+  .what-we-choose .what-we-block h3 {
     font-size: 32px;
   }
-  .what-we-choose .text-white-block{
+  .what-we-choose .text-white-block {
     padding: 30px;
   }
 }
@@ -1786,14 +1791,86 @@ color: #000;
     justify-content: end;
     gap: 10px;
   }
-  .what-we-choose .what-we-block h3{
+  .what-we-choose .what-we-block h3 {
     font-size: 26px;
   }
-  .what-we-choose .text-white-block{
+  .what-we-choose .text-white-block {
     padding: 20px;
   }
-  .what-we-choose .text-white-block p{
+  .what-we-choose .text-white-block p {
     font-size: 14px;
   }
 }
 /* What we choose */
+
+/* Best Bio Available */
+.best-bio-available .container {
+  position: relative;
+}
+.best-bio-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+.best-bio-available-in {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+.best-bio-available-in .left p {
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0em;
+  font-weight: 400;
+}
+.best-bio-available-in .left{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.best-bio-available-in .author-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-top: 40px;
+}
+.best-bio-available-in .author-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  filter: grayscale(1);
+}
+.best-bio-available-in .author-name p {
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--black);
+  font-size: 20px;
+  line-height: 110%;
+  font-weight: 400;
+}
+.best-bio-img {
+  max-height: 695px;
+  overflow: hidden;
+}
+.best-bio-nav {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  padding-bottom: 70px;
+}
+.prev-btn-bio,
+.next-btn-bio {
+  cursor: pointer;
+}
+.prev-btn-bio.disabled,
+.next-btn-bio.disabled {
+  cursor: default;
+  opacity: 0.35;
+  pointer-events: none;
+}
+/* Best Bio Available */

@@ -182,4 +182,63 @@ $(window).on('load', function () {
             peopleOwl.trigger('prev.owl.carousel');
         }
     });
+
+    $('.best-bio-available').each(function () {
+        var $section = $(this);
+        var bioOwl = $section.find('.best-bio-slider');
+        var bioItemCount = bioOwl.find('.item').length;
+        var bioLoop = false;
+
+        if (!bioItemCount) {
+            $section.find('.prev-btn-bio, .next-btn-bio').addClass('disabled');
+            return;
+        }
+
+        bioOwl.owlCarousel({
+            loop: bioLoop,
+            items: 1,
+            margin: 0,
+            dots: false,
+            nav: false,
+            autoHeight: true
+        });
+
+        function updateBioNav(event) {
+            var itemCount = event.item.count;
+            var itemIndex = event.item.index;
+            var itemsPerView = event.page.size;
+            var isFirst = itemIndex === 0;
+            var isLast = itemIndex + itemsPerView >= itemCount;
+
+            $section.find('.prev-btn-bio').toggleClass('disabled', isFirst);
+            $section.find('.next-btn-bio').toggleClass('disabled', isLast);
+
+            if (itemCount <= itemsPerView) {
+                $section.find('.prev-btn-bio, .next-btn-bio').addClass('disabled');
+            }
+        }
+
+        bioOwl.on('initialized.owl.carousel changed.owl.carousel translated.owl.carousel', updateBioNav);
+        updateBioNav({
+            item: {
+                count: bioItemCount,
+                index: 0
+            },
+            page: {
+                size: 1
+            }
+        });
+
+        $section.on('click', '.next-btn-bio', function () {
+            if (!$(this).hasClass('disabled')) {
+                bioOwl.trigger('next.owl.carousel');
+            }
+        });
+
+        $section.on('click', '.prev-btn-bio', function () {
+            if (!$(this).hasClass('disabled')) {
+                bioOwl.trigger('prev.owl.carousel');
+            }
+        });
+    });
 });
