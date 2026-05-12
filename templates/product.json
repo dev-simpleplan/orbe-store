@@ -49,6 +49,7 @@
         "card_1": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
             "week": "Week 1–2",
             "text": "Nutrients supported by global research for absorption and efficacy."
           }
@@ -56,6 +57,7 @@
         "card_2": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/deddc5d6816f40dc041a9a9b35cc723848308528.jpg",
             "week": "Week 3–4",
             "text": "Cellular renewal begins as key bioavailable compounds reach full saturation."
           }
@@ -63,6 +65,7 @@
         "card_3": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/63164f39dc38861d7b227014adaed204aaf76873_1.png",
             "week": "Week 5–6",
             "text": "Visible radiance emerges. Collagen pathways strengthen from within."
           }
@@ -70,6 +73,7 @@
         "card_4": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_3468538_1.png",
             "week": "Week 7–8",
             "text": "The full ritual effect: sustained glow, resilient skin, calm energy."
           }
