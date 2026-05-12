@@ -12,9 +12,14 @@
     "main": {
       "type": "product",
       "settings": {}
+    },
+    "best-bio":{
+      "type": "best-bio-available",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "best-bio"
   ]
 }
