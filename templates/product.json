@@ -13,7 +13,7 @@
       "type": "product",
       "settings": {}
     },
-    "best-bio":{
+    "best-bio": {
       "type": "best-bio-available",
       "blocks": {
         "slide_1": {
@@ -43,7 +43,7 @@
         "heading": "“Best bio-available supplement”"
       }
     },
-    "gently-unfold":{
+    "gently-unfold": {
       "type": "gently-unfolding",
       "blocks": {
         "card_1": {
