@@ -50,6 +50,37 @@
         "heading": "“Best bio-available supplement”"
       }
     },
+    "essential-ingredient":{
+      "type": "essential-ingredient",
+      "blocks": {
+        "accordion_inner_capsule": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Inner Capsule Phase",
+            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg\nVitamin B12 (as Methylcobalamin)\nIron (as Ferrochel® Ferrous Bisglycinate)\nZinc (as Zinc Citrate)\nMagnesium (as Magnesium Bisglycinate)"
+          }
+        },
+        "accordion_outer_capsule": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Outer Capsule Phase",
+            "content": "Veg DHA (as Algal Oil 45% — Omega-3 Vegan DHA Fatty Acids from Schizochytrium sp.)\nVitamin D (as Cholecalciferol) [from Lichen (Whole Plant), Vitashine™ 1,000,000 IU/g Lichen]\nVitamin E (as Alpha Tocopherol from Mixed Tocopherols) [from Brassica napus (Seed)]\nVitamin K2 (as MenaQ7® Menaquinone-7)"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_inner_capsule",
+        "accordion_outer_capsule"
+      ],
+      "settings": {
+        "heading": "Clean, Considered, Essential",
+        "description": "Each ingredient is selected for its purpose, its purity, and its ability to genuinely support your everyday rhythm: nothing extra, nothing distracting.",
+        "link_text": "View All about the ingredient",
+        "link_url": "#!",
+        "box_image": "shopify://shop_images/8080af840141c1fd49ad00aa36acf10aa815be9e.png",
+        "capsule_image": "shopify://shop_images/Group_2085663425.png"
+      }
+    },
     "gently-unfold": {
       "type": "gently-unfolding",
       "blocks": {
@@ -103,6 +134,7 @@
     "main",
     "care-behind-c",
     "best-bio",
+    "essential-ingredient",
     "gently-unfold"
   ]
 }
