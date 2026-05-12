@@ -1874,3 +1874,176 @@ body.mobile-menu-open {
   pointer-events: none;
 }
 /* Best Bio Available */
+
+/* Gently unfold */
+ .gently-unfolding {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gu-title {
+        margin-bottom: 50px;
+    }
+
+    .gently-unfolding-in {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 50px 0 46px;
+    }
+
+    .gu-layout {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: 0 54px;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .gu-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* — Timeline — */
+    .gu-timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: stretch;
+        height: 512px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .gu-step {
+        font-size: 15px;
+        font-weight: 500;
+        text-transform: uppercase;
+        line-height: 150%;
+        letter-spacing: 2.88px;
+        font-family: var(--aspekta);
+        color: var(--black);
+    }
+
+    .gu-line-segment {
+        width: 1px;
+        flex: 1;
+        min-height: 96px;
+        background: #ccc;
+        position: relative;
+    }
+
+    .gu-line-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #1a1a18;
+        height: 0%;
+    }
+
+    .gu-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1.5px solid #ccc;
+        flex-shrink: 0;
+        transition: background 0.4s, border-color 0.4s;
+    }
+
+    .gu-dot.active {
+        background: var(--black);
+        border-color: var(--black);
+    }
+
+    /* — Card Stack — */
+    .gu-stack-wrap {
+        position: relative;
+        width: 100%;
+        height: 512px;
+        perspective: 1440px;
+        overflow: hidden;
+    }
+
+    .gu-card {
+        position: absolute;
+        inset: 0;
+        border-radius: 2px;
+        overflow: hidden;
+        will-change: transform, opacity;
+        background: #222;
+        transform: rotateX(90deg);
+        opacity: 0;
+        transform-origin: top center;
+        backface-visibility: hidden;
+    }
+
+    .gu-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(100%);
+    }
+
+    /* — Caption — */
+    .gu-caption {
+        margin-top: 30px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .gu-caption-week {
+        font-family: var(--tobias);
+        font-size: 2rem;
+        line-height: 150%;
+        letter-spacing: 0em;
+        font-weight: 400;
+        position: relative;
+        color: var(--black);
+    }
+
+    .gu-week-inner {
+        display: block;
+    }
+
+    .gu-caption-sub {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #5d5d5d;
+        font-family: var(--aspekta);
+        margin-top: 0.35rem;
+        line-height: 150%;
+        position: relative;
+        max-width: 48ch;
+    }
+
+    .gu-sub-inner {
+        display: block;
+        line-height: inherit;
+    }
+
+    .gu-caption-cta {
+        font-size: 14px;
+        font-weight: 600;
+        font-family: var(--aspekta);
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        color: #000;
+        opacity: 80%;
+        white-space: nowrap;
+        margin-left: 1rem;
+        padding-bottom: 0.1rem;
+        cursor: pointer;
+    }
+/* Gently unfold */

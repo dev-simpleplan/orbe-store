@@ -302,7 +302,7 @@
     width: 40px;
     height: 40px;
   }
-.best-bio-available-in .left p {
+  .best-bio-available-in .left p {
     font-size: 16px;
   }
 }
@@ -499,6 +499,36 @@
   }
   .best-bio-available-in .left p {
     font-size: 14px;
+  }
+  .gu-caption-sub {
+    font-size: 14px;
+  }
+  .gu-caption {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .gu-caption-week {
+    font-size: 20px;
+  }
+  .gu-caption {
+    margin-top: 20px;
+  }
+
+  .gently-unfolding-in {
+    padding: 40px 0;
+  }
+
+  .gu-layout {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 0 18px;
+    max-width: 100%;
+  }
+
+  .gu-timeline,
+  .gu-stack-wrap {
+    height: 100vw;
+    min-height: 210px;
+    max-height: 800px;
   }
 }
 @media screen and (max-width: 400px) {
