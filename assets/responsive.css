@@ -530,6 +530,12 @@
     min-height: 210px;
     max-height: 800px;
   }
+  .gu-caption {
+    align-items: start;
+  }
+  .gu-caption .gu-caption-cta {
+    margin-left: auto;
+  }
 }
 @media screen and (max-width: 400px) {
 }
