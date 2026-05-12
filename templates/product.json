@@ -6,7 +6,19 @@
     },
     "care-behind-c":{
       "type": "care-behind-capsule",
-      "settings": {}
+      "settings": {
+        "background_image": "shopify://shop_images/image_7.png",
+        "heading": "The Care Behind the Capsule.",
+        "capsule_image": "shopify://shop_images/Untitled_13_1.png",
+        "title_1": "1. Clinically Backed",
+        "text_1": "Nutrients supported by global research for absorption and efficacy.",
+        "title_2": "2. Clinically Backed",
+        "text_2": "Nutrients supported by global research for absorption and efficacy.",
+        "title_3": "3. Clinically Backed",
+        "text_3": "Nutrients supported by global research for absorption and efficacy.",
+        "title_4": "4. Clinically Backed",
+        "text_4": "Nutrients supported by global research for absorption and efficacy."
+      }
     },
     "best-bio": {
       "type": "best-bio-available",
