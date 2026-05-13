@@ -121,13 +121,6 @@
         "capsule_image": "shopify://shop_images/Group_2085663425.png"
       }
     },
-    "spacer_EmgXpR": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
     "gently-unfold": {
       "type": "gently-unfolding",
       "blocks": {
@@ -192,7 +185,6 @@
     "best-bio",
     "spacer_6tMeNb",
     "essential-ingredient",
-    "spacer_EmgXpR",
     "gently-unfold",
     "spacer_VnKNLM"
   ]
