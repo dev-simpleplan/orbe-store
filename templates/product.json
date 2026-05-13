@@ -106,7 +106,6 @@
         "heading": "Clean, Considered, Essential",
         "description": "Each ingredient is selected for its purpose, its purity, and its ability to genuinely support your everyday rhythm: nothing extra, nothing distracting.",
         "link_text": "View All about the ingredient",
-        "link_url": "#!",
         "drawer_eyebrow": "Composition",
         "drawer_heading": "Active Ingredients",
         "inactive_heading": "Inactive Ingredients",
@@ -117,6 +116,7 @@
         "appearance_text": "A hard double locked Size '00' capsule having transparent cap and body containing size '3' clear transparent capsule suspended in slight yellow liquid and sealed with transparent band.",
         "nutrition_heading": "Nutritional Profile (Theoretical)",
         "nutrition_text": "(Approximate Values Per Serving) | Serving Size: 2 Capsules",
+        "nutrition_table_image": "shopify://shop_images/Frame_2072749470.png",
         "box_image": "shopify://shop_images/8080af840141c1fd49ad00aa36acf10aa815be9e.png",
         "capsule_image": "shopify://shop_images/Group_2085663425.png"
       }
