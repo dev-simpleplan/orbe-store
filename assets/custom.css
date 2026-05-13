@@ -525,6 +525,8 @@ body.mobile-menu-open {
 }
 .header.desktop .center {
   transition: 0.4s ease all;
+  display: flex;
+  justify-content: center;
 }
 .header.desktop.header--transparent ul:not(.dropdown) > li {
   padding: 60px 0px;
