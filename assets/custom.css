@@ -2383,9 +2383,30 @@ body.ingredient-drawer-open {
   width: 100%;
   height: auto;
 }
+.essential-ingredient .accordion-item:last-child{
+  border-bottom: none;
+}
 @media screen and (max-width: 991px) {
   .ingredient-drawer-content p, .ingredient-drawer-section p{
     font-size: 16px;
+  }
+  .essential-ingredient .accordion-content p{
+    font-size: 16px;
+  }
+  .essential-ingredient-in .left .box-img {
+  width: 250px;
+  }
+  .essential-ingredient .top .heading p{
+    font-size: 16px;
+  }
+  .essential-ingredient .top .top-right a{
+    font-size: 12px;
+  }
+  .essential-ingredient-in .right{
+    padding: 24px 30px;
+  }
+  .essential-ingredient .accordion-content{
+    gap: 5px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -2415,6 +2436,46 @@ body.ingredient-drawer-open {
   .ingredient-drawer-close{
     width: 24px;
     height: 24px;
+  }
+  .essential-ingredient-in{
+    grid-template-columns: 1fr;
+  }
+  .essential-ingredient-in .right{
+    padding: 40px 20px;
+    padding-top: 0px;
+  }
+  .essential-ingredient-in .right .capsule-img{
+    width: 60px;
+  }
+  .essential-ingredient-in .left .box-img{
+    width: 150px;
+  }
+  .essential-ingredient-in .left{
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  .essential-ingredient .top{
+    gap: 20px;
+  }
+  .essential-ingredient .top > div{
+    width: 100% !important;
+  }
+  .essential-ingredient .top .heading p{
+    font-size: 14px;
+  }
+  .essential-ingredient .accordion-content p{
+    font-size: 14px;
+  }
+    .essential-ingredient .capsule-img{
+    display: none;
+  }
+  .essential-ingredient-in .right{
+    background-color: transparent;
+    padding: 0px;
+  }
+  .essential-ingredient .accordion-icon svg{
+    width: 20px;
+    height: 20px;
   }
 }
 /* Essential Ingredients */

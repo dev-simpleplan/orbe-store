@@ -511,6 +511,7 @@
   }
   .best-bio-available-in .left p {
     font-size: 14px;
+    text-align: center;
   }
   .gu-caption-sub {
     font-size: 14px;
@@ -562,9 +563,21 @@
   .care-behind-c-in .right {
     gap: 0px;
   }
-    .care-behind-c-in .text-block{
-      margin-bottom: 20px;
-    }
+  .care-behind-c-in .text-block {
+    margin-bottom: 20px;
+  }
+  .best-bio-available-in .author-wrap {
+    justify-content: center;
+  }
+  .best-bio-nav {
+    padding-top: 20px;
+  }
+  .best-bio-top .heading {
+    width: 100%;
+  }
+  .best-bio-top .heading h2 {
+    text-align: center;
+  }
 }
 @media screen and (max-width: 400px) {
 }
