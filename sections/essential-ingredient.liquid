@@ -13,7 +13,7 @@
             </div>
             <div class="top-right">
                 {% if section.settings.link_text != blank %}
-                    <a href="{{ section.settings.link_url }}">{{ section.settings.link_text }}</a>
+                    <a href="#essential-ingredient-drawer-{{ section.id }}" class="open-ingredients">{{ section.settings.link_text }}</a>
                 {% endif %}
             </div>
         </div>
@@ -57,7 +57,101 @@
             </div>
         </div>
     </div>
-</section>
+    <div class="ingredient-drawer-backdrop" data-ingredient-drawer-close></div>
+    <aside class="ingredient-drawer" id="essential-ingredient-drawer-{{ section.id }}" aria-hidden="true">
+        <div class="ingredient-drawer-scroll" data-lenis-prevent>
+            <div class="ingredient-drawer-head">
+                {% if section.settings.drawer_eyebrow != blank %}
+                    <p>{{ section.settings.drawer_eyebrow }}</p>
+                {% endif %}
+                {% if section.settings.drawer_heading != blank %}
+                    <h2>{{ section.settings.drawer_heading }}</h2>
+                {% endif %}
+                <button type="button" class="ingredient-drawer-close" aria-label="Close ingredients" data-ingredient-drawer-close>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="ingredient-drawer-accordion">
+                {% for block in section.blocks %}
+                    <div class="ingredient-drawer-item">
+                        <button type="button" class="ingredient-drawer-title">
+                            <span>{{ block.settings.title }}</span>
+                            <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
+                        </button>
+                        <div class="ingredient-drawer-content">
+                            {% assign drawer_lines = block.settings.content | newline_to_br | split: '<br />' %}
+                            {% for line in drawer_lines %}
+                                {% assign clean_line = line | strip %}
+                                {% if clean_line != blank %}
+                                    <p>{{ clean_line }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if section.settings.inactive_heading != blank or section.settings.inactive_text != blank %}
+                <div class="ingredient-drawer-section">
+                    {% if section.settings.inactive_heading != blank %}
+                        <h2>{{ section.settings.inactive_heading }}</h2>
+                    {% endif %}
+                    {% assign inactive_lines = section.settings.inactive_text | newline_to_br | split: '<br />' %}
+                    {% for line in inactive_lines %}
+                        {% assign clean_line = line | strip %}
+                        {% if clean_line != blank %}
+                            <p>{{ clean_line }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if section.settings.fill_weight_heading != blank or section.settings.fill_weight_text != blank %}
+                <div class="ingredient-drawer-section">
+                    {% if section.settings.fill_weight_heading != blank %}
+                        <h2>{{ section.settings.fill_weight_heading }}</h2>
+                    {% endif %}
+                    {% assign fill_lines = section.settings.fill_weight_text | newline_to_br | split: '<br />' %}
+                    {% for line in fill_lines %}
+                        {% assign clean_line = line | strip %}
+                        {% if clean_line != blank %}
+                            <p>{{ clean_line }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if section.settings.appearance_heading != blank or section.settings.appearance_text != blank %}
+                <div class="ingredient-drawer-section">
+                    {% if section.settings.appearance_heading != blank %}
+                        <h2>{{ section.settings.appearance_heading }}</h2>
+                    {% endif %}
+                    {% if section.settings.appearance_text != blank %}
+                        <p>{{ section.settings.appearance_text }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if section.settings.nutrition_heading != blank or section.settings.nutrition_table_image != blank %}
+                <div class="ingredient-drawer-section ingredient-drawer-nutrition">
+                    {% if section.settings.nutrition_heading != blank %}
+                        <h2>{{ section.settings.nutrition_heading }}</h2>
+                    {% endif %}
+                    {% if section.settings.nutrition_text != blank %}
+                        <p>{{ section.settings.nutrition_text }}</p>
+                    {% endif %}
+                    {% if section.settings.nutrition_table_image != blank %}
+                        <div class="ingredient-drawer-table-img">
+                            {{ section.settings.nutrition_table_image | image_url: width: 900 | image_tag: alt: '', class: 'img' }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </aside>
+    </section>
 <script>
     (function () {
         function initEssentialIngredientAccordion() {
@@ -98,11 +192,80 @@
             });
 
             openItem(titles[0]);
+            
+            var openButton = section.querySelector('.open-ingredients');
+            var drawer = section.querySelector('.ingredient-drawer');
+            var drawerCloseButtons = section.querySelectorAll('[data-ingredient-drawer-close]');
+            var drawerTitles = Array.prototype.slice.call(section.querySelectorAll('.ingredient-drawer-title'));
 
+            function closeDrawerItem(title) {
+                var panel = title.nextElementSibling;
+                title.classList.remove('active');
+                if (panel) panel.style.maxHeight = '0px';
+            }
+
+            function openDrawerItem(title) {
+                var panel = title.nextElementSibling;
+                title.classList.add('active');
+                if (panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+
+            function openDrawer() {
+                if (!drawer) return;
+                drawer.setAttribute('aria-hidden', 'false');
+                section.classList.add('ingredient-drawer-active');
+                document.documentElement.classList.add('ingredient-drawer-open');
+                document.body.classList.add('ingredient-drawer-open');
+                if (drawerTitles.length) openDrawerItem(drawerTitles[0]);
+                if (window.lenis) window.lenis.stop();
+            }
+
+            function closeDrawer() {
+                if (!drawer) return;
+                drawer.setAttribute('aria-hidden', 'true');
+                section.classList.remove('ingredient-drawer-active');
+                document.documentElement.classList.remove('ingredient-drawer-open');
+                document.body.classList.remove('ingredient-drawer-open');
+                if (window.lenis) window.lenis.start();
+            }
+
+            if (openButton) {
+                openButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    openDrawer();
+                });
+            }
+
+            drawerCloseButtons.forEach(function (button) {
+                button.addEventListener('click', closeDrawer);
+            });
+
+            drawerTitles.forEach(function (title) {
+                title.addEventListener('click', function () {
+                    var isActive = title.classList.contains('active');
+
+                    drawerTitles.forEach(function (item) {
+                        if (item !== title) closeDrawerItem(item);
+                    });
+
+                    if (isActive) {
+                        closeDrawerItem(title);
+                    } else {
+                        openDrawerItem(title);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') closeDrawer();
+            });
+            
             window.addEventListener('resize', function () {
                 var activeTitle = section.querySelector('.accordion-title.active');
                 if (activeTitle) openItem(activeTitle);
-            });
+ var activeDrawerTitle = section.querySelector('.ingredient-drawer-title.active');
+                if (activeDrawerTitle) openDrawerItem(activeDrawerTitle);
+                        });
         }
 
         if (document.readyState === 'loading') {
@@ -132,10 +295,60 @@
       "id": "link_text",
       "label": "Link Text"
     },
+     {
+      "type": "text",
+      "id": "drawer_eyebrow",
+      "label": "Drawer Eyebrow"
+    },
     {
-      "type": "url",
-      "id": "link_url",
-      "label": "Link URL"
+      "type": "text",
+      "id": "drawer_heading",
+      "label": "Drawer Heading"
+    },
+    {
+      "type": "text",
+      "id": "inactive_heading",
+      "label": "Inactive Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "inactive_text",
+      "label": "Inactive Text"
+    },
+    {
+      "type": "text",
+      "id": "fill_weight_heading",
+      "label": "Fill Weight Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "fill_weight_text",
+      "label": "Fill Weight Text"
+    },
+    {
+      "type": "text",
+      "id": "appearance_heading",
+      "label": "Product Appearance Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "appearance_text",
+      "label": "Product Appearance Text"
+    },
+    {
+      "type": "text",
+      "id": "nutrition_heading",
+      "label": "Nutrition Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "nutrition_text",
+      "label": "Nutrition Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "nutrition_table_image",
+      "label": "Nutrition Table Image"
     },
     {
       "type": "image_picker",

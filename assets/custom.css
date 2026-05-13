@@ -2178,13 +2178,16 @@ body.mobile-menu-open {
 }
 .essential-ingredient .accordion-item {
   border-bottom: 1px solid #C2C2C2;
-  padding: 12px 0px;
+  padding: 20px 0px;
 }
 .essential-ingredient .accordion-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-out;
   max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .essential-ingredient .accordion-content p {
   padding-top: 10px;
@@ -2208,5 +2211,180 @@ body.mobile-menu-open {
   line:first-of-type {
   opacity: 0;
   transition: 0.4s ease all;
+}
+html.ingredient-drawer-open,
+body.ingredient-drawer-open {
+  overflow: hidden;
+  height: 100%;
+}
+.ingredient-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+.ingredient-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  width: min(100%, 530px);
+  height: 100vh;
+  height: 100dvh;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.77, 0, 0.18, 1);
+  box-shadow: -18px 0 38px rgba(0, 0, 0, 0.16);
+}
+.essential-ingredient.ingredient-drawer-active .ingredient-drawer-backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+.essential-ingredient.ingredient-drawer-active .ingredient-drawer {
+  transform: translateX(0);
+}
+.ingredient-drawer-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 28px 32px 48px;
+}
+.ingredient-drawer-head {
+  position: relative;
+  padding-right: 42px;
+  margin-bottom: 22px;
+}
+.ingredient-drawer-head p {
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.ingredient-drawer-head h2,
+.ingredient-drawer-section h2 {
+  font-family: var(--tobias);
+  font-size: clamp(20px, 3vw, 42px);
+  line-height: 110%;
+  font-weight: 400;
+  color: var(--black);
+}
+.ingredient-drawer-close {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}
+.ingredient-drawer-close span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 1px;
+  background: #fff;
+  transform-origin: center;
+}
+.ingredient-drawer-close span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.ingredient-drawer-close span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.ingredient-drawer-item {
+  border-bottom: 1px solid #c2c2c2;
+}
+.ingredient-drawer-title {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 16px 38px 16px 0;
+  border: 0;
+  background: transparent;
+  color: var(--black);
+  text-align: left;
+  font-family: var(--tobias);
+  font-size: 24px;
+  line-height: 120%;
+  font-weight: 400;
+  cursor: pointer;
+}
+.ingredient-drawer-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+}
+.ingredient-drawer-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.ingredient-drawer-icon svg line {
+  transition: opacity 0.35s ease;
+}
+.ingredient-drawer-title.active .ingredient-drawer-icon svg line:first-of-type {
+  opacity: 0;
+}
+.ingredient-drawer-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.ingredient-drawer-content p,
+.ingredient-drawer-section p {
+  color: #5d5d5d;
+  font-family: var(--aspekta);
+  font-size: 13px;
+  line-height: 150%;
+  font-weight: 400;
+  margin-bottom: 9px;
+}
+.ingredient-drawer-content p:last-child,
+.ingredient-drawer-section p:last-child {
+  margin-bottom: 0;
+}
+.ingredient-drawer-content {
+  padding-right: 26px;
+}
+.ingredient-drawer-content p:last-child {
+  padding-bottom: 14px;
+}
+.ingredient-drawer-section {
+  margin-top: 34px;
+}
+.ingredient-drawer-section h2 {
+  margin-bottom: 12px;
+}
+.ingredient-drawer-nutrition h2 {
+  font-size: 34px;
+}
+.ingredient-drawer-table-img {
+  margin-top: 26px;
+  width: 100%;
+}
+.ingredient-drawer-table-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 575px) {
+  .ingredient-drawer {
+    width: min(92vw, 430px);
+  }
+  .ingredient-drawer-scroll {
+    padding: 24px 22px 42px;
+  }
 }
 /* Essential Ingredients */
