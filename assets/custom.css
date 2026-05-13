@@ -2162,9 +2162,9 @@ body.mobile-menu-open {
   width: 80px;
   margin: 0 auto;
 }
-.accordion-wrap{
+.accordion-wrap {
   margin-top: 30px;
-} 
+}
 .essential-ingredient .accordion-title {
   color: var(--black);
   cursor: pointer;
@@ -2177,7 +2177,7 @@ body.mobile-menu-open {
   position: relative;
 }
 .essential-ingredient .accordion-item {
-  border-bottom: 1px solid #C2C2C2;
+  border-bottom: 1px solid #c2c2c2;
   padding: 20px 0px;
 }
 .essential-ingredient .accordion-content {
@@ -2207,7 +2207,8 @@ body.mobile-menu-open {
 }
 .essential-ingredient
   .accordion-title.active
-  .accordion-icon svg
+  .accordion-icon
+  svg
   line:first-of-type {
   opacity: 0;
   transition: 0.4s ease all;
@@ -2233,7 +2234,7 @@ body.ingredient-drawer-open {
   top: 0;
   right: 0;
   z-index: 999;
-  width: min(100%, 530px);
+  width: min(100%, 630px);
   height: 100vh;
   height: 100dvh;
   background: #fff;
@@ -2252,7 +2253,7 @@ body.ingredient-drawer-open {
   height: 100%;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 28px 32px 48px;
+  padding: 30px 50px 48px;
 }
 .ingredient-drawer-head {
   position: relative;
@@ -2267,20 +2268,23 @@ body.ingredient-drawer-open {
   color: var(--black);
   margin-bottom: 10px;
 }
-.ingredient-drawer-head h2,
+.ingredient-top-title h2,
 .ingredient-drawer-section h2 {
   font-family: var(--tobias);
-  font-size: clamp(20px, 3vw, 42px);
+  font-size: clamp(28px, 3vw, 42px);
   line-height: 110%;
   font-weight: 400;
   color: var(--black);
 }
+.ingredient-top-title {
+  margin-bottom: 10px;
+}
 .ingredient-drawer-close {
   position: absolute;
-  top: 8px;
+  top: 0px;
   right: 0;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border: 0;
   border-radius: 50%;
   background: #000;
@@ -2314,14 +2318,14 @@ body.ingredient-drawer-open {
   color: var(--black);
   text-align: left;
   font-family: var(--tobias);
-  font-size: 24px;
-  line-height: 120%;
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 150%;
   font-weight: 400;
   cursor: pointer;
 }
 .ingredient-drawer-icon {
   position: absolute;
-  top: 50%;
+  top: 35%;
   right: 0;
   width: 24px;
   height: 24px;
@@ -2346,7 +2350,7 @@ body.ingredient-drawer-open {
 .ingredient-drawer-section p {
   color: #5d5d5d;
   font-family: var(--aspekta);
-  font-size: 13px;
+  font-size: 18px;
   line-height: 150%;
   font-weight: 400;
   margin-bottom: 9px;
@@ -2359,7 +2363,7 @@ body.ingredient-drawer-open {
   padding-right: 26px;
 }
 .ingredient-drawer-content p:last-child {
-  padding-bottom: 14px;
+  padding-bottom: 20px;
 }
 .ingredient-drawer-section {
   margin-top: 34px;
@@ -2368,7 +2372,7 @@ body.ingredient-drawer-open {
   margin-bottom: 12px;
 }
 .ingredient-drawer-nutrition h2 {
-  font-size: 34px;
+  font-size: clamp(28px, 3vw, 42px);
 }
 .ingredient-drawer-table-img {
   margin-top: 26px;
@@ -2379,12 +2383,38 @@ body.ingredient-drawer-open {
   width: 100%;
   height: auto;
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 991px) {
+  .ingredient-drawer-content p, .ingredient-drawer-section p{
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 767px) {
   .ingredient-drawer {
-    width: min(92vw, 430px);
+    width: min(92vw, 100%);
   }
   .ingredient-drawer-scroll {
     padding: 24px 22px 42px;
+  }
+  .ingredient-drawer-content p,
+  .ingredient-drawer-section p {
+    font-size: 14px;
+  }
+  .ingredient-drawer-head p {
+    font-size: 14px;
+  }
+  .ingredient-drawer-title {
+    padding: 10px 28px 10px 0px;
+  }
+  .ingredient-drawer-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .ingredient-drawer-icon {
+    top: 45%;
+  }
+  .ingredient-drawer-close{
+    width: 24px;
+    height: 24px;
   }
 }
 /* Essential Ingredients */
