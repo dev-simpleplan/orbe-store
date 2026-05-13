@@ -121,6 +121,13 @@
         "capsule_image": "shopify://shop_images/Group_2085663425.png"
       }
     },
+    "spacer_RAkTAh": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100
+      }
+    },
     "gently-unfold": {
       "type": "gently-unfolding",
       "blocks": {
@@ -185,6 +192,7 @@
     "best-bio",
     "spacer_6tMeNb",
     "essential-ingredient",
+    "spacer_RAkTAh",
     "gently-unfold",
     "spacer_VnKNLM"
   ]
