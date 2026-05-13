@@ -1,10 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "product",
       "settings": {}
     },
-    "care-behind-c":{
+    "spacer_7L6pHN": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "care-behind-c": {
       "type": "care-behind-capsule",
       "settings": {
         "background_image": "shopify://shop_images/image_7.png",
@@ -18,6 +34,13 @@
         "text_3": "Nutrients supported by global research for absorption and efficacy.",
         "title_4": "4. Clinically Backed",
         "text_4": "Nutrients supported by global research for absorption and efficacy."
+      }
+    },
+    "spacer_iVnf8F": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
       }
     },
     "best-bio": {
@@ -50,7 +73,14 @@
         "heading": "“Best bio-available supplement”"
       }
     },
-    "essential-ingredient":{
+    "spacer_6tMeNb": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "essential-ingredient": {
       "type": "essential-ingredient",
       "blocks": {
         "accordion_inner_capsule": {
@@ -79,6 +109,13 @@
         "link_url": "#!",
         "box_image": "shopify://shop_images/8080af840141c1fd49ad00aa36acf10aa815be9e.png",
         "capsule_image": "shopify://shop_images/Group_2085663425.png"
+      }
+    },
+    "spacer_EmgXpR": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
       }
     },
     "gently-unfold": {
@@ -128,13 +165,25 @@
         "cta_text": "See Clinical Evidence",
         "cta_link": "#"
       }
+    },
+    "spacer_VnKNLM": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
     }
   },
   "order": [
     "main",
+    "spacer_7L6pHN",
     "care-behind-c",
+    "spacer_iVnf8F",
     "best-bio",
+    "spacer_6tMeNb",
     "essential-ingredient",
-    "gently-unfold"
+    "spacer_EmgXpR",
+    "gently-unfold",
+    "spacer_VnKNLM"
   ]
 }
