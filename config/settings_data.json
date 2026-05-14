@@ -12,7 +12,9 @@
     "sections": {
       "header": {
         "type": "header",
-        "settings": {}
+        "settings": {
+          "mega_card_image": "shopify://shop_images/Rectangle_3468651.png"
+        }
       },
       "footer": {
         "type": "footer",
