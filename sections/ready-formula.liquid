@@ -2,15 +2,61 @@
     <div class="container">
         <div class="ready-formula-in">
             <div class="left">
-               <div class="content-block">
-                 <h2>Ready To Explore The Full Formula?</h2>
-                <p>See how these nutrients come together in one thoughtfully designed supplement.</p>
-                <a href="#!" class="primary-btn">View Product Page</a>
+               <div class="content-block text-animation">
+                {% if section.settings.heading != blank %}
+                 <h2>{{ section.settings.heading }}</h2>
+                {% endif %}
+                {% if section.settings.text != blank %}
+                <p>{{ section.settings.text }}</p>
+                {% endif %}
+                {% if section.settings.button_text != blank %}
+                <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
+                {% endif %}
                </div>
             </div>
             <div class="right">
-                <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ChatGPT_Image_Feb_26_2026_01_52_18_PM_1.png?v=1777296931" alt="image" class="img">
+                {% if section.settings.image != blank %}
+                  {{ section.settings.image | image_url: width: 1200 | image_tag: alt: '', class: 'img' }}
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
+
+{% schema %}
+{
+  "name": "Ready Formula",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ready Formula"
+    }
+  ]
+}
+{% endschema %}

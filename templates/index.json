@@ -100,7 +100,13 @@
     },
     "ready-formula": {
       "type": "ready-formula",
-      "settings": {}
+      "settings": {
+        "heading": "Ready To Explore The Full Formula?",
+        "text": "See how these nutrients come together in one thoughtfully designed supplement.",
+        "button_text": "View Product Page",
+        "button_link": "#!",
+        "image": "shopify://shop_images/ChatGPT_Image_Feb_26_2026_01_52_18_PM_1.png"
+      }
     },
     "spacer_LNTQEE": {
       "type": "spacer",
