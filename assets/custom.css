@@ -240,7 +240,10 @@ body.mobile-menu-open {
 .mobile-submenu {
   padding-top: 30px;
 }
-
+.mobile-menu-item > a svg, .mobile-menu-bottom a svg {
+width: 7px;
+height: 12px;
+}
 .mobile-submenu-group + .mobile-submenu-group {
   margin-top: 24px;
 }
@@ -298,11 +301,15 @@ body.mobile-menu-open {
 
 .first-phase-header .fph-bar {
   min-height: 40px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
   align-items: center;
-  justify-content: space-between;
 }
-
+.fph-menu.fph-menu-right {
+  display: flex;
+  justify-content: end;
+}
 .first-phase-header .fph-menu > ul {
   display: flex;
   align-items: center;
@@ -342,7 +349,7 @@ body.mobile-menu-open {
 
 .fph-mega-dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% - 1px);
   left: 0;
   width: 100%;
   background: #fff;
@@ -352,6 +359,15 @@ body.mobile-menu-open {
   transition:
     opacity 0.35s ease,
     transform 0.35s ease;
+}
+
+.fph-mega-dropdown::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -28px;
+  height: 28px;
 }
 
 .has-mega-dropdown:hover .fph-mega-dropdown {
@@ -372,17 +388,17 @@ header.header--hidden .has-mega-dropdown:hover .fph-mega-dropdown {
   grid-template-columns: 1fr 1fr;
   padding-left: 60px;
 }
-.fph-mega-copy{
+.fph-mega-copy {
   padding-top: 60px;
 }
 .fph-mega-copy h2 {
   color: #1a1a1a;
-  font-family: var(--ivypresto);
-  font-size: 34px;
+  font-family: var(--tobias);
+  font-size: 42px;
   font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  margin-bottom: 74px;
+  letter-spacing: -0.05em;
+  line-height: 99%;
+  margin-bottom: 50px;
 }
 
 .fph-mega-group + .fph-mega-group {
@@ -398,15 +414,27 @@ header.header--hidden .has-mega-dropdown:hover .fph-mega-dropdown {
 .fph-mega-copy a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 15px;
   color: #1a1a1a;
-  font-family: var(--ivypresto);
-  font-size: 22px;
+  font-family: var(--tobias);
+  font-size: 32px;
   font-weight: 400;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   line-height: 1;
 }
-
+.mobile-top-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-top-link span, .mobile-accordion-toggle span{
+  font-family: var(--tobias);
+  font-family: 26px;
+  letter-spacing: 0em;
+  line-height: 150%;
+  font-weight: 400;
+  color: #1a1a1a;
+}
 .fph-mega-card {
   position: relative;
   display: block;
@@ -440,7 +468,7 @@ header.header--hidden .has-mega-dropdown:hover .fph-mega-dropdown {
   line-height: 0.96;
   letter-spacing: -0.04em;
 }
-.header.desktop .center {
+.header.desktop .center svg {
   max-width: 138px;
   padding: 15px 0px;
 }
@@ -2213,7 +2241,7 @@ header.header--transparent .center svg path {
   top: 0;
   left: 0;
   right: 0;
-  background: #1a1a18;
+  background: #1a1a1a;
   height: 0%;
 }
 
