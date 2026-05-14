@@ -654,7 +654,8 @@ body.mobile-menu-open {
   margin-top: 30px;
 }
 .ready-formula-in .right img {
-  width: 90%;
+  width: 100%;
+  filter: grayscale(1);
 }
 /* Ready Formula */
 /* Community Ticker */
@@ -2385,29 +2386,30 @@ body.ingredient-drawer-open {
   width: 100%;
   height: auto;
 }
-.essential-ingredient .accordion-item:last-child{
+.essential-ingredient .accordion-item:last-child {
   border-bottom: none;
 }
 @media screen and (max-width: 991px) {
-  .ingredient-drawer-content p, .ingredient-drawer-section p{
+  .ingredient-drawer-content p,
+  .ingredient-drawer-section p {
     font-size: 16px;
   }
-  .essential-ingredient .accordion-content p{
+  .essential-ingredient .accordion-content p {
     font-size: 16px;
   }
   .essential-ingredient-in .left .box-img {
-  width: 250px;
+    width: 250px;
   }
-  .essential-ingredient .top .heading p{
+  .essential-ingredient .top .heading p {
     font-size: 16px;
   }
-  .essential-ingredient .top .top-right a{
+  .essential-ingredient .top .top-right a {
     font-size: 12px;
   }
-  .essential-ingredient-in .right{
+  .essential-ingredient-in .right {
     padding: 24px 30px;
   }
-  .essential-ingredient .accordion-content{
+  .essential-ingredient .accordion-content {
     gap: 5px;
   }
 }
@@ -2435,47 +2437,47 @@ body.ingredient-drawer-open {
   .ingredient-drawer-icon {
     top: 45%;
   }
-  .ingredient-drawer-close{
+  .ingredient-drawer-close {
     width: 24px;
     height: 24px;
   }
-  .essential-ingredient-in{
+  .essential-ingredient-in {
     grid-template-columns: 1fr;
   }
-  .essential-ingredient-in .right{
+  .essential-ingredient-in .right {
     padding: 40px 20px;
     padding-top: 0px;
   }
-  .essential-ingredient-in .right .capsule-img{
+  .essential-ingredient-in .right .capsule-img {
     width: 60px;
   }
-  .essential-ingredient-in .left .box-img{
+  .essential-ingredient-in .left .box-img {
     width: 150px;
   }
-  .essential-ingredient-in .left{
+  .essential-ingredient-in .left {
     padding-top: 50px;
     padding-bottom: 30px;
   }
-  .essential-ingredient .top{
+  .essential-ingredient .top {
     gap: 20px;
   }
-  .essential-ingredient .top > div{
+  .essential-ingredient .top > div {
     width: 100% !important;
   }
-  .essential-ingredient .top .heading p{
+  .essential-ingredient .top .heading p {
     font-size: 14px;
   }
-  .essential-ingredient .accordion-content p{
+  .essential-ingredient .accordion-content p {
     font-size: 14px;
   }
-    .essential-ingredient .capsule-img{
+  .essential-ingredient .capsule-img {
     display: none;
   }
-  .essential-ingredient-in .right{
+  .essential-ingredient-in .right {
     background-color: transparent;
     padding: 0px;
   }
-  .essential-ingredient .accordion-icon svg{
+  .essential-ingredient .accordion-icon svg {
     width: 20px;
     height: 20px;
   }
