@@ -628,18 +628,19 @@ body.mobile-menu-open {
 /* Ready Formula */
 .ready-formula {
   background-color: #000;
-  padding: 120px 0px;
+  overflow: hidden;
 }
 .ready-formula-in {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 3fr;
+ height: 700px;
 }
 .ready-formula-in h2,
 .ready-formula-in p {
   color: #fff;
 }
 .ready-formula-in .left .content-block {
-  padding-top: 50px;
+  padding-top: 160px;
 }
 .ready-formula-in .left .content-block h2 {
   max-width: 14ch;

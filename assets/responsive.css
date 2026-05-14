@@ -43,6 +43,9 @@
   .blowing-pills-in .left .orbe-img {
     max-width: 400px;
   }
+  .ready-formula-in {
+    height: 600px;
+  }
 }
 @media screen and (max-width: 1100px) {
   .footer-nav-top {
@@ -69,6 +72,9 @@
   }
   .care-behind-c-in .pill-img {
     width: 100px;
+  }
+  .ready-formula {
+    padding: 50px 0px;
   }
 }
 @media screen and (max-width: 991px) {
@@ -316,6 +322,35 @@
   }
   .best-bio-available-in .left p {
     font-size: 16px;
+  }
+  .ready-formula {
+    padding: 0px;
+  }
+  .ready-formula-in {
+    position: relative;
+    height: auto;
+  }
+  .ready-formula-in {
+    display: flex;
+  }
+  .ready-formula-in .left {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .ready-formula-in .left .content-block p{
+    font-size: 16px;
+  }
+  .ready-formula-in .right{
+    height: 500px;
+    margin-left: auto;
+  }
+  .ready-formula-in .left .content-block {
+    padding-top: 0px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -577,6 +612,13 @@
   }
   .best-bio-top .heading h2 {
     text-align: center;
+  }
+ 
+   .ready-formula-in .left .content-block p{
+    font-size: 14px;
+  }
+  .ready-formula .container{
+padding-right: 0px;
   }
 }
 @media screen and (max-width: 400px) {
