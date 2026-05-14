@@ -1,6 +1,6 @@
 {% assign first_phase_menu = linklists['first-phase-header'] %}
 {% if first_phase_menu == blank %}
-  {% assign first_phase_menu = linklists['header-menu'] %}
+{% assign first_phase_menu = linklists['header-menu'] %}
 {% endif %}
 
 <header>
@@ -8,58 +8,88 @@
     <div class="fph-bar">
       <nav class="fph-menu fph-menu-left" aria-label="Primary menu">
         <ul>
-          {% for link in first_phase_menu.links limit: 1 %}
-            {% assign left_link = link %}
-            <li class="{% if left_link.links.size > 0 %}has-mega-dropdown{% endif %}">
-              <a href="{{ left_link.url }}" class="fph-link">
-                <span>{{ left_link.title }}</span>
-                {% if left_link.links.size > 0 %}
+          {% for link in first_phase_menu.links %}
+            {% assign link_title = link.title | downcase %}
+            {% unless link_title contains 'shop' %}
+              <li class="{% if link.links.size > 0 %}has-mega-dropdown{% endif %}">
+                <a href="{{ link.url }}" class="fph-link">
+                  <span>{{ link.title }}</span>
+                  {% if link.links.size > 0 %}
                   {% render 'chivron-down' %}
-                {% endif %}
-              </a>
+                  {% endif %}
+                </a>
 
-              {% if left_link.links.size > 0 %}
+              {% if link.links.size > 0 %}
                 <div class="fph-mega-dropdown">
                   <div class="fph-mega-inner">
                     <div class="fph-mega-copy">
-                      <h2>{{ left_link.title }}</h2>
-                      <ul>
-                        {% for child_link in left_link.links %}
-                          <li>
-                            <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                          </li>
-                        {% endfor %}
-                      </ul>
+                      {% for child_link in link.links %}
+                        <div class="fph-mega-group">
+                          <h2>{{ child_link.title }}</h2>
+
+                          {% if child_link.links.size > 0 %}
+                            <ul>
+                              {% for grandchild_link in child_link.links %}
+                                <li>
+                                  <a href="{{ grandchild_link.url }}">
+                                    <span>{{ grandchild_link.title }}</span>
+                                    {% render 'chivron-right-lg' %}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          {% else %}
+                            <ul>
+                              <li>
+                                <a href="{{ child_link.url }}">
+                                  <span>{{ child_link.title }}</span>
+                                  {% render 'chivron-right-lg' %}
+                                </a>
+                              </li>
+                            </ul>
+                          {% endif %}
+                        </div>
+                      {% endfor %}
                     </div>
 
-                    <a href="{{ left_link.url }}" class="fph-mega-card">
-                      <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/37ac90a8325a2eb5fb7dcc774ce97dcf06f2caae.png?v=1777901848" alt="" class="img">
-                      <span class="fph-mega-mark">
-                        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663252_1.svg?v=1778140575" alt="" class="icon">
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              {% endif %}
-            </li>
+                <a href="{{ link.url }}" class="fph-mega-card">
+                  {% if section.settings.mega_card_image != blank %}
+                    {{ section.settings.mega_card_image | image_url: width: 1200 | image_tag: alt: '', class: 'img' }}
+                  {% else %}
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/57d7cf59bd2d1c39a38ef5a08c98ef52f8c838d7_1.png?v=1778768356"
+                      alt="" class="img">
+                  {% endif %}
+                  <span class="fph-mega-mark">
+                     {% render 'mega-header-o' %}
+                  </span>
+                </a>
+              </div>
+            </div>
+            {% endif %}
+          </li>
+            {% endunless %}
           {% endfor %}
         </ul>
       </nav>
-{% comment %} <div class="center">
-  {% render 'orbe-home-logo-black' %}
-</div> {% endcomment %}
+      <div class="center">
+        {% render 'orbe-home-logo' %}
+      </div>
       <nav class="fph-menu fph-menu-right" aria-label="Secondary menu">
         <ul>
-          {% for link in first_phase_menu.links offset: 1 limit: 1 %}
-            <li>
-              <a href="{{ link.url }}" class="fph-link">{{ link.title }}</a>
-            </li>
+          {% for link in first_phase_menu.links %}
+            {% assign link_title = link.title | downcase %}
+            {% if link_title contains 'shop' %}
+              <li>
+                <a href="{{ link.url }}" class="fph-link">{{ link.title }}</a>
+              </li>
+            {% endif %}
           {% endfor %}
           <li class="cart-icon">
             <a href="{{ routes.cart_url }}" aria-label="Cart">
               {% render 'cart-icon' %}
               {% if cart.item_count > 0 %}
-                <span class="cart-count">{{ cart.item_count }}</span>
+              <span class="cart-count">{{ cart.item_count }}</span>
               {% endif %}
             </a>
           </li>
@@ -90,7 +120,7 @@
         <a href="{{ routes.cart_url }}" aria-label="Cart">
           {% render 'cart-icon' %}
           {% if cart.item_count > 0 %}
-            <span class="cart-count">{{ cart.item_count }}</span>
+          <span class="cart-count">{{ cart.item_count }}</span>
           {% endif %}
         </a>
       </div>
@@ -98,29 +128,61 @@
     <div class="mobile-menu">
       <div class="mobile-menu-in">
         <div class="close-menu">
-          <svg width="20px" height="30px" viewBox="0 0 12 12" enable-background="new 0 0 12 12" id="Слой_1" version="1.1"
-            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <svg width="20px" height="30px" viewBox="0 0 12 12" enable-background="new 0 0 12 12" id="Слой_1"
+            version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
             <polygon fill="#1D1D1B"
               points="12,0.7070313 11.2929688,0 6,5.2929688 0.7070313,0 0,0.7070313 5.2929688,6 0,11.2929688   0.7070313,12 6,6.7070313 11.2929688,12 12,11.2929688 6.7070313,6 " />
           </svg>
         </div>
-        <ul>
+        <ul class="mobile-menu-list">
           {% for link in first_phase_menu.links %}
-            <li>
-              <a href="{{ link.url }}">{{ link.title }}</a>
+            <li class="mobile-menu-item {% if link.links.size > 0 %}has-mobile-submenu{% endif %}">
               {% if link.links.size > 0 %}
-                <ul>
+                <button class="mobile-accordion-toggle" type="button" aria-expanded="false">
+                  <span>{{ link.title }}</span>
+                  {% render 'chivron-down' %}
+                </button>
+
+                <div class="mobile-submenu" hidden>
                   {% for child_link in link.links %}
-                    <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                    <div class="mobile-submenu-group">
+                      {% if child_link.links.size > 0 %}
+                        <p class="sublink-title">{{ child_link.title }}</p>
+                        <ul class="sublink-block">
+                          {% for grandchild_link in child_link.links %}
+                            <li>
+                              <a href="{{ grandchild_link.url }}">
+                                <span>{{ grandchild_link.title }}</span>
+                                {% render 'chivron-right' %}
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% else %}
+                        <a href="{{ child_link.url }}" class="mobile-sub-link">
+                          <span>{{ child_link.title }}</span>
+                          {% render 'chivron-right-lg' %}
+                        </a>
+                      {% endif %}
+                    </div>
                   {% endfor %}
-                </ul>
+                </div>
+              {% else %}
+                <a href="{{ link.url }}" class="mobile-top-link">
+                  <span>{{ link.title }}</span>
+                  {% render 'chivron-right-lg' %}
+                </a>
               {% endif %}
             </li>
           {% endfor %}
         </ul>
         <div class="mobile-menu-bottom">
           <div class="left">
-            <a href="{{ routes.all_products_collection_url }}">Shop N°1</a>
+            <a href="{{ routes.all_products_collection_url }}">
+              <span>Shop N°1</span>
+              {% render 'chivron-right-lg' %}
+            </a>
           </div>
           <div class="right">
             <div class="orbe-o">
@@ -133,3 +195,16 @@
     </div>
   </div>
 </header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "mega_card_image",
+      "label": "Mega menu card image"
+    }
+  ]
+}
+{% endschema %}

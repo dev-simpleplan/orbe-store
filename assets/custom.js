@@ -22,6 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
             window.lenis.start();
         }
     });
+
+    mobileMenu.querySelectorAll(".mobile-accordion-toggle").forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+            var submenu = toggle.nextElementSibling;
+            var isOpen = toggle.classList.toggle("active");
+
+            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+            if (submenu) {
+                submenu.hidden = !isOpen;
+            }
+        });
+    });
 });
 
 $(window).on('load', function () {
