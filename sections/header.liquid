@@ -58,7 +58,7 @@
                   {% else %}
                     <img
                       src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/57d7cf59bd2d1c39a38ef5a08c98ef52f8c838d7_1.png?v=1778768356"
-                      alt="" class="img">
+                      alt="" class="img" width="1200" height="480">
                   {% endif %}
                   <span class="fph-mega-mark">
                      {% render 'mega-header-o' %}
@@ -113,7 +113,7 @@
       <div class="mobile-header-logo">
         <a href="/">
           <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663247_1.svg?v=1777988237"
-            class="icon" alt="">
+            class="icon" alt="" width="110" height="37">
         </a>
       </div>
       <div class="cart-btn">
@@ -139,12 +139,12 @@
           {% for link in first_phase_menu.links %}
             <li class="mobile-menu-item {% if link.links.size > 0 %}has-mobile-submenu{% endif %}">
               {% if link.links.size > 0 %}
-                <button class="mobile-accordion-toggle" type="button" aria-expanded="false">
+                <button class="mobile-accordion-toggle {% if forloop.first %}active{% endif %}" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
                   <span>{{ link.title }}</span>
                   {% render 'chivron-down' %}
                 </button>
 
-                <div class="mobile-submenu" hidden>
+                <div class="mobile-submenu" {% unless forloop.first %}hidden{% endunless %}>
                   {% for child_link in link.links %}
                     <div class="mobile-submenu-group">
                       {% if child_link.links.size > 0 %}
@@ -187,7 +187,7 @@
           <div class="right">
             <div class="orbe-o">
               <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663252_1.svg?v=1778140575"
-                alt="" class="icon">
+                alt="" class="icon" width="50" height="50">
             </div>
           </div>
         </div>
