@@ -633,7 +633,7 @@ body.mobile-menu-open {
 .ready-formula-in {
   display: grid;
   grid-template-columns: 2fr 3fr;
- height: 700px;
+  height: 700px;
 }
 .ready-formula-in h2,
 .ready-formula-in p {
@@ -985,7 +985,6 @@ body.mobile-menu-open {
 .see-through-in .st-struct-1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 672px;
   overflow: hidden;
   gap: 23.29px;
 }
@@ -993,7 +992,7 @@ body.mobile-menu-open {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
   gap: 23.29px;
-  height: 335px;
+  height: 325px;
   overflow: hidden;
   margin-bottom: 20px;
 }
@@ -1006,13 +1005,12 @@ body.mobile-menu-open {
 }
 .st-orbe-logo {
   position: absolute;
-  bottom: 113px;
+  bottom: 101px;
   left: 50%;
+  max-width: 525px;
   transform: translateX(-50%);
 }
-.st-struct-3 img {
-  width: 488px;
-}
+
 .st-struct-1 h2 {
   padding-top: 200px;
   text-transform: capitalize;
@@ -1026,6 +1024,31 @@ body.mobile-menu-open {
 .st-struct-2 div:first-child {
   width: 233px;
   margin-left: auto;
+}
+.see-through .st-media {
+  overflow: hidden;
+height: 100%;
+width: 100%;
+max-height: 550px;
+}
+
+.see-through .st-media img,
+.see-through .st-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.st-question p {
+  font-family: var(--tobias);
+  font-size: 28px;
+  line-height: 112%;
+  color: var(--black);
+  max-width: 18ch;
+  letter-spacing: -0.05em;
+  padding-top: 240px;
+  font-style: italic;
+  font-weight: 400;
+  font-style: italic;
 }
 
 /* See Through  */

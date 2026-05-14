@@ -78,6 +78,67 @@
   }
 }
 @media screen and (max-width: 991px) {
+  .see-through .container-left {
+    padding-right: 30px;
+  }
+  .see-through-in {
+    gap: 14px;
+  }
+  .see-through-in .st-struct-1 {
+    grid-template-columns: 0.8fr 1fr 0.8fr;
+    gap: 14px;
+    height: auto;
+    overflow: visible;
+    align-items: center;
+  }
+
+  .see-through-in .st-struct-2 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 14px;
+    height: auto;
+    margin-bottom: 14px;
+    overflow: visible;
+    align-items: end;
+  }
+  .see-through-in .st-struct-2 .st-media {
+    height: 100%;
+    width: 100%;
+  }
+  .see-through-in .st-struct-2 div:first-child {
+    width: 100%;
+  }
+  .see-through .st-struct-3 {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    height: auto;
+    overflow: visible;
+  }
+  .see-through .st-struct-3 .st-media {
+    aspect-ratio: 0.72;
+    max-width: 250px;
+  }
+  .see-through .st-struct-3 img {
+    width: 100%;
+  }
+  .st-orbe-logo {
+    width: 400px;
+    bottom: 113px;
+  }
+  .st-struct-1 h2 {
+    padding-top: 0;
+    font-size: 32px;
+  }
+  .st-struct-1 p {
+    font-size: 14px;
+  }
+  .st-question p {
+    padding-top: 0;
+    font-size: 22px;
+  }
+  .see-through-in .st-struct-1 .st-media {
+    aspect-ratio: 4/5;
+  }
+
   .footer {
     padding-left: 30px;
   }
@@ -342,10 +403,10 @@
     display: flex;
     align-items: center;
   }
-  .ready-formula-in .left .content-block p{
+  .ready-formula-in .left .content-block p {
     font-size: 16px;
   }
-  .ready-formula-in .right{
+  .ready-formula-in .right {
     height: 500px;
     margin-left: auto;
   }
@@ -370,8 +431,50 @@
     grid-template-columns: 1fr;
   }
 
+  .see-through .container-left {
+    padding: 0 16px;
+  }
+  /* .see-through-in,
+  .see-through .st-struct-3 {
+    max-width: 320px;
+  } */
+  .see-through-in {
+    gap: 10px;
+  }
   .see-through-in .st-struct-1 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.9fr 1fr;
+    gap: 12px;
+    align-items: center;
+    padding-left: 54px;
+  }
+  .see-through-in .st-struct-1 > div:first-child {
+    display: none;
+  }
+  .see-through-in .st-struct-1 .st-media {
+    aspect-ratio: 0.77;
+  }
+
+  .see-through-in .st-struct-2 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    align-items: end;
+    margin-bottom: 8px;
+  }
+  .see-through-in .st-struct-2 .st-media {
+    height: 100%;
+    width: 100%;
+  }
+  .see-through .st-struct-3 {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .see-through .st-struct-3 .st-media {
+    max-width: 136px;
+    aspect-ratio: 0.77;
+  }
+  .st-orbe-logo {
+    width: 160px;
+    bottom: 63px;
   }
 
   #orbe-fullscreen-content p {
@@ -613,13 +716,25 @@
   .best-bio-top .heading h2 {
     text-align: center;
   }
- 
-   .ready-formula-in .left .content-block p{
+
+  .ready-formula-in .left .content-block p {
     font-size: 14px;
   }
-  .ready-formula .container{
-padding-right: 0px;
+  .ready-formula .container {
+    padding-right: 0px;
   }
+  .st-question p {
+    font-size: 18px;
+  }
+   .see-through-in img{
+    filter: grayscale(1);
+   }
 }
+
 @media screen and (max-width: 400px) {
+}
+@media screen and (min-width: 992px) {
+  .st-struct-3 .st-media {
+    max-width: 420px;
+  }
 }

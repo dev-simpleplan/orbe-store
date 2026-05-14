@@ -132,6 +132,126 @@
     .slide.active {
         opacity: 1;
     }
+
+    @media (max-width: 767px) {
+        #stickyWrapper {
+            height: 260vh;
+        }
+
+        #stickyWrapper .sticky-inner {
+            align-items: center;
+            /* padding-top: 70px; */
+        }
+
+        #stickyWrapper .scene {
+            width: min(430px, 100vw);
+            height: 430px;
+            overflow: visible;
+        }
+
+        #stickyWrapper .orbit-ring {
+            width: min(270px, 64vw);
+            height: min(270px, 64vw);
+            inset: 88px auto auto 50%;
+            transform: translateX(-50%);
+        }
+
+        #stickyWrapper .accent-ring {
+            width: 48px;
+            height: 48px;
+        }
+
+        #stickyWrapper .accent-ring.left {
+            left: -24px;
+        }
+
+        #stickyWrapper .accent-ring.right {
+            right: -24px;
+        }
+
+        #stickyWrapper .orbit-dot {
+            width: 12px;
+            height: 12px;
+        }
+
+        #stickyWrapper .orbit-label {
+            width: 118px;
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
+            text-align: left;
+            z-index: 4;
+        }
+
+        #stickyWrapper .orbit-label .label-title {
+            font-size: 13px;
+            line-height: 94%;
+            margin-bottom: 2px;
+        }
+
+        #stickyWrapper .orbit-label .label-sub {
+            font-size: 10px;
+            line-height: 106%;
+        }
+
+        #stickyWrapper .slide {
+            width: min(210px, 50vw);
+            left: 50%;
+            top: 78px;
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        #stickyWrapper {
+            height: 280vh;
+        }
+
+        #stickyWrapper .sticky-inner {
+            padding-top: 80px;
+            align-items: flex-start;
+        }
+
+        #stickyWrapper .scene {
+            width: min(620px, 92vw);
+            height: 590px;
+        }
+
+        #stickyWrapper .orbit-ring {
+            width: min(420px, 66vw);
+            height: min(420px, 66vw);
+            inset: 92px auto auto 50%;
+            transform: translateX(-50%);
+        }
+
+        #stickyWrapper .orbit-dot {
+            width: 18px;
+            height: 18px;
+        }
+
+        #stickyWrapper .orbit-label {
+            width: 150px;
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
+            text-align: left;
+        }
+
+        #stickyWrapper .orbit-label .label-title {
+            font-size: 16px;
+        }
+
+        #stickyWrapper .orbit-label .label-sub {
+            font-size: 11px;
+        }
+
+        #stickyWrapper .slide {
+            width: min(310px, 48vw);
+            left: 50%;
+            top: 86px;
+            transform: translateX(-50%);
+        }
+    }
 </style>
 
 <section class="sticky-wrapper" id="stickyWrapper">
@@ -203,11 +323,22 @@
      * and set left/top every frame. Labels get NO rotation — they stay upright always.
      */
     function positionOrbit(deg) {
-        const size = scene.offsetWidth;
-        const cx = size / 2;
-        const cy = size / 2;
+        const sceneRect = scene.getBoundingClientRect();
+        const ringRect = orbitRing.getBoundingClientRect();
+        const size = ringRect.width;
+        const cx = ringRect.left - sceneRect.left + (size / 2);
+        const cy = ringRect.top - sceneRect.top + (size / 2);
         const dotR = (size / 2) - 1;      /* sit on the ring */
+        const isCompact = window.matchMedia('(max-width: 991px)').matches;
+        const isMobile = window.matchMedia('(max-width: 767px)').matches;
         const labelR = (size / 2) + 70;     /* outside the ring */
+        const compactLabelInset = (lbls[0].offsetWidth / 2) + (isMobile ? 24 : 30);
+        const compactLabels = [
+            { x: compactLabelInset, y: isMobile ? 52 : 60 },
+            { x: scene.offsetWidth - compactLabelInset, y: isMobile ? 52 : 60 },
+            { x: scene.offsetWidth - compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
+            { x: compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
+        ];
 
         for (let i = 0; i < 4; i++) {
             /* start at top (-90°), step 90° per item, add current rotation */
@@ -218,8 +349,13 @@
             dots[i].style.top = (cy + Math.sin(a) * dotR) + 'px';
 
             /* label — same angle, bigger radius, NO rotation property touched */
-            lbls[i].style.left = (cx + Math.cos(a) * labelR) + 'px';
-            lbls[i].style.top = (cy + Math.sin(a) * labelR) + 'px';
+            if (isCompact) {
+                lbls[i].style.left = compactLabels[i].x + 'px';
+                lbls[i].style.top = compactLabels[i].y + 'px';
+            } else {
+                lbls[i].style.left = (cx + Math.cos(a) * labelR) + 'px';
+                lbls[i].style.top = (cy + Math.sin(a) * labelR) + 'px';
+            }
         }
     }
 
