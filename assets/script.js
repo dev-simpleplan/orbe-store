@@ -1,6 +1,19 @@
 // Initialize Lenis
-const lenis = new Lenis();
+const lenis = new Lenis({
+  duration: 1.35,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smoothWheel: true,
+  wheelMultiplier: 0.85,
+  touchMultiplier: 1.2,
+  syncTouch: false,
+});
 window.lenis = lenis;
+
+lenis.on('scroll', () => {
+  if (window.ScrollTrigger) {
+    window.ScrollTrigger.update();
+  }
+});
 
 // Use requestAnimationFrame to continuously update the scroll
 function raf(time) {
