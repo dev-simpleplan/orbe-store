@@ -1249,8 +1249,7 @@ header.header--transparent .center svg path {
   filter: grayscale(1);
   background-size: cover;
   width: 100%;
-  min-height: 700px;
-  height: 100vh;
+  min-height: max(700px, 100svh);
   padding: 85px 0px;
   position: relative;
   overflow: hidden;

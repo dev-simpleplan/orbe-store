@@ -54,20 +54,42 @@
       const section = document.getElementById('why-orbe-{{ section.id }}');
       if (!section) return;
 
-      gsap.fromTo(section.querySelector('.blur-overlay'),
-        { yPercent: 0 },
-        {
-          yPercent: -100,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1,
-            pin: true,
+      const overlay = section.querySelector('.blur-overlay');
+      if (!overlay) return;
+
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 992px)', () => {
+        const tween = gsap.fromTo(overlay,
+          { yPercent: 0 },
+          {
+            yPercent: -100,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: () => '+=' + window.innerHeight,
+              scrub: 1,
+              pin: true,
+              pinSpacing: true,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+            }
           }
-        }
-      );
+        );
+
+        return () => {
+          tween.scrollTrigger && tween.scrollTrigger.kill();
+          tween.kill();
+        };
+      });
+
+      mm.add('(max-width: 991px)', () => {
+        gsap.set(overlay, { clearProps: 'transform' });
+      });
+
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
     }
 
     init();
