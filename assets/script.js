@@ -9,6 +9,24 @@ const lenis = new Lenis({
 });
 window.lenis = lenis;
 
+let scrollRefreshTimer;
+
+function refreshScrollLayout() {
+  clearTimeout(scrollRefreshTimer);
+
+  scrollRefreshTimer = setTimeout(() => {
+    if (window.lenis && typeof window.lenis.resize === 'function') {
+      window.lenis.resize();
+    }
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.refresh();
+    }
+  }, 80);
+}
+
+window.orbeRefreshScrollLayout = refreshScrollLayout;
+
 lenis.on('scroll', () => {
   if (window.ScrollTrigger) {
     window.ScrollTrigger.update();
@@ -22,6 +40,28 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+window.addEventListener('load', () => {
+  refreshScrollLayout();
+  setTimeout(refreshScrollLayout, 300);
+  setTimeout(refreshScrollLayout, 900);
+});
+
+window.addEventListener('resize', refreshScrollLayout);
+
+document.addEventListener('shopify:section:load', refreshScrollLayout);
+document.addEventListener('shopify:section:unload', refreshScrollLayout);
+document.addEventListener('shopify:section:reorder', refreshScrollLayout);
+
+document.querySelectorAll('img').forEach((image) => {
+  if (image.complete) return;
+  image.addEventListener('load', refreshScrollLayout, { once: true });
+  image.addEventListener('error', refreshScrollLayout, { once: true });
+});
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(refreshScrollLayout);
+}
 
 // Header hide/show using Lenis scroll event
 (function () {
