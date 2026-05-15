@@ -116,6 +116,10 @@
       position: relative;
     }
 
+    #orbe-mobile-scroll-driver.orbe-hero-complete {
+      height: 100vh;
+    }
+
     #orbe-mobile-stage {
       position: sticky;
       top: 0;
@@ -262,12 +266,65 @@
 
       const header = document.querySelector('header');
       const mm = gsap.matchMedia();
+      let desktopHeroCompleted = false;
+      let mobileHeroCompleted = false;
+      let desktopHeaderTrigger;
+      let mobileHeaderTrigger;
+
+      function showTransparentHeader() {
+        if (!header) return;
+        header.classList.add('header--transparent');
+        header.classList.remove('header--hidden');
+      }
+
+      function hideTransparentHeader() {
+        header && header.classList.remove('header--transparent');
+      }
+
+      function createCompletedHeaderTrigger(trigger, isComplete) {
+        return ScrollTrigger.create({
+          trigger,
+          start: 'top top',
+          end: '+=40',
+          onEnter: () => isComplete() && showTransparentHeader(),
+          onEnterBack: () => isComplete() && showTransparentHeader(),
+          onLeave: () => isComplete() && hideTransparentHeader(),
+          onLeaveBack: () => isComplete() && showTransparentHeader(),
+        });
+      }
+
+      function refreshAfterHeroCollapse() {
+        ScrollTrigger.refresh();
+        if (window.lenis && typeof window.lenis.resize === 'function') {
+          window.lenis.resize();
+        }
+      }
+
+      function lockScrollToCompletedHero(scrollDriver) {
+        const target = scrollDriver.offsetTop;
+
+        if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+          window.lenis.scrollTo(target, {
+            immediate: true,
+            force: true,
+          });
+        } else {
+          window.scrollTo(0, target);
+        }
+      }
 
       mm.add('(min-width: 992px)', () => {
+        const scrollDriver = document.getElementById('orbe-scroll-driver');
         const oWrap = document.getElementById('orbe-o-wrap');
         const copy = document.getElementById('orbe-copy');
         const fullSec = document.getElementById('orbe-fullvideo-section');
         const fullContent = document.getElementById('orbe-fullscreen-content');
+        let desktopTrigger;
+        let tl;
+
+        if (!scrollDriver || !oWrap || !copy || !fullSec || !fullContent) return;
+
+        desktopHeaderTrigger = createCompletedHeaderTrigger(scrollDriver, () => desktopHeroCompleted);
 
         gsap.set(oWrap, {
           y: '60%',
@@ -286,23 +343,68 @@
           clipPath: 'circle(0% at 50% 50%)',
         });
 
-        const tl = gsap.timeline({
+        function completeDesktopHero() {
+          if (desktopHeroCompleted) return;
+
+          desktopHeroCompleted = true;
+          tl.progress(1).pause();
+          gsap.set(fullSec, { clipPath: 'inset(0% 0%)', webkitClipPath: 'inset(0% 0%)' });
+          gsap.set(fullContent, { opacity: 1 });
+          fullSec.style.pointerEvents = 'all';
+          scrollDriver.classList.add('orbe-hero-complete');
+          showTransparentHeader();
+
+          if (desktopTrigger) {
+            desktopTrigger.disable(false);
+          }
+
+          refreshAfterHeroCollapse();
+          lockScrollToCompletedHero(scrollDriver);
+          desktopHeaderTrigger && desktopHeaderTrigger.refresh();
+
+          const bounds = scrollDriver.getBoundingClientRect();
+          if (bounds.top <= 0 && bounds.bottom >= 0) {
+            showTransparentHeader();
+          } else {
+            hideTransparentHeader();
+          }
+        }
+
+        tl = gsap.timeline({
           scrollTrigger: {
             trigger: '#orbe-scroll-driver',
             start: 'top top',
             end: 'bottom bottom',
             scrub: 2,
             onUpdate: (self) => {
+              if (self.progress >= 0.98) {
+                completeDesktopHero();
+                return;
+              }
+
+              if (desktopHeroCompleted) {
+                tl.progress(1).pause();
+                return;
+              }
+
               if (self.progress >= 0.55 && self.progress < 0.95) {
-                header.classList.add('header--transparent');
+                showTransparentHeader();
               } else {
-                header.classList.remove('header--transparent');
+                hideTransparentHeader();
               }
             },
-            onLeave: () => header.classList.remove('header--transparent'),
-            onLeaveBack: () => header.classList.remove('header--transparent'),
+            onLeave: () => completeDesktopHero(),
+            onEnterBack: () => {
+              if (desktopHeroCompleted) {
+                tl.progress(1).pause();
+                showTransparentHeader();
+              }
+            },
+            onLeaveBack: () => hideTransparentHeader(),
           },
         });
+
+        desktopTrigger = tl.scrollTrigger;
 
         tl.to(oWrap, { y: '0%', scale: 0.6, ease: 'power2.inOut', duration: 0.4 }, 0);
         tl.to(copy, { scale: 0.8, bottom: '32%', ease: 'power2.inOut', duration: 0.4 }, 0);
@@ -327,29 +429,81 @@
       });
 
       mm.add('(max-width: 991px)', () => {
+        const scrollDriver = document.getElementById('orbe-mobile-scroll-driver');
         const fullSec = document.getElementById('orbe-mobile-fullvideo-section');
         const fullContent = document.getElementById('orbe-mobile-fullscreen-content');
+        let mobileTrigger;
+        let tl;
+
+        if (!scrollDriver || !fullSec || !fullContent) return;
+
+        mobileHeaderTrigger = createCompletedHeaderTrigger(scrollDriver, () => mobileHeroCompleted);
 
         gsap.set(fullSec, { clipPath: 'inset(65% 0%)' });
         gsap.set(fullContent, { opacity: 0 });
 
-        const tl = gsap.timeline({
+        function completeMobileHero() {
+          if (mobileHeroCompleted) return;
+
+          mobileHeroCompleted = true;
+          tl.progress(1).pause();
+          gsap.set(fullSec, { clipPath: 'inset(0% 0%)', webkitClipPath: 'inset(0% 0%)' });
+          gsap.set(fullContent, { opacity: 1 });
+          fullSec.style.pointerEvents = 'all';
+          scrollDriver.classList.add('orbe-hero-complete');
+          showTransparentHeader();
+
+          if (mobileTrigger) {
+            mobileTrigger.disable(false);
+          }
+
+          refreshAfterHeroCollapse();
+          lockScrollToCompletedHero(scrollDriver);
+          mobileHeaderTrigger && mobileHeaderTrigger.refresh();
+
+          const bounds = scrollDriver.getBoundingClientRect();
+          if (bounds.top <= 0 && bounds.bottom >= 0) {
+            showTransparentHeader();
+          } else {
+            hideTransparentHeader();
+          }
+        }
+
+        tl = gsap.timeline({
           scrollTrigger: {
             trigger: '#orbe-mobile-scroll-driver',
             start: 'top top',
             end: 'bottom bottom',
             scrub: 1.4,
             onUpdate: (self) => {
+              if (self.progress >= 0.98) {
+                completeMobileHero();
+                return;
+              }
+
+              if (mobileHeroCompleted) {
+                tl.progress(1).pause();
+                return;
+              }
+
               if (self.progress >= 0.35 && self.progress < 0.95) {
-                header.classList.add('header--transparent');
+                showTransparentHeader();
               } else {
-                header.classList.remove('header--transparent');
+                hideTransparentHeader();
               }
             },
-            onLeave: () => header.classList.remove('header--transparent'),
-            onLeaveBack: () => header.classList.remove('header--transparent'),
+            onLeave: () => completeMobileHero(),
+            onEnterBack: () => {
+              if (mobileHeroCompleted) {
+                tl.progress(1).pause();
+                showTransparentHeader();
+              }
+            },
+            onLeaveBack: () => hideTransparentHeader(),
           },
         });
+
+        mobileTrigger = tl.scrollTrigger;
 
         tl.to(fullSec, {
           clipPath: 'inset(0% 0%)',

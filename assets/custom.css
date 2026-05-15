@@ -675,6 +675,10 @@ header.header--transparent .center svg path {
   position: relative;
 }
 
+#orbe-scroll-driver.orbe-hero-complete {
+  height: 100vh;
+}
+
 #orbe-stage {
   position: sticky;
   top: 0;
