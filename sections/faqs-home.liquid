@@ -23,9 +23,9 @@
                         {% if block.settings.answer != blank %}
                         <p>{{ block.settings.answer }}</p>
                         {% endif %}
-                        {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                        {% comment %} {% if block.settings.button_text != blank and block.settings.button_link != blank %}
                         <a href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
-                        {% endif %}
+                        {% endif %} {% endcomment %}
                     </div>
 
                 </div>
