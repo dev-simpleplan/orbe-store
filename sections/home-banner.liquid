@@ -294,14 +294,9 @@
       }
 
       function refreshAfterHeroCollapse() {
+        ScrollTrigger.refresh();
         if (window.lenis && typeof window.lenis.resize === 'function') {
           window.lenis.resize();
-        }
-
-        if (typeof window.orbeRefreshScrollLayout === 'function') {
-          window.orbeRefreshScrollLayout();
-        } else {
-          ScrollTrigger.refresh();
         }
       }
 
@@ -365,10 +360,7 @@
 
           refreshAfterHeroCollapse();
           lockScrollToCompletedHero(scrollDriver);
-          requestAnimationFrame(() => {
-            refreshAfterHeroCollapse();
-            desktopHeaderTrigger && desktopHeaderTrigger.refresh();
-          });
+          desktopHeaderTrigger && desktopHeaderTrigger.refresh();
 
           const bounds = scrollDriver.getBoundingClientRect();
           if (bounds.top <= 0 && bounds.bottom >= 0) {
@@ -467,10 +459,7 @@
 
           refreshAfterHeroCollapse();
           lockScrollToCompletedHero(scrollDriver);
-          requestAnimationFrame(() => {
-            refreshAfterHeroCollapse();
-            mobileHeaderTrigger && mobileHeaderTrigger.refresh();
-          });
+          mobileHeaderTrigger && mobileHeaderTrigger.refresh();
 
           const bounds = scrollDriver.getBoundingClientRect();
           if (bounds.top <= 0 && bounds.bottom >= 0) {
