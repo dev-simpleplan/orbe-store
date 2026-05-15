@@ -1245,14 +1245,23 @@ header.header--transparent .center svg path {
 /* Faqs Home */
 /* Why Orbe */
 .why-orbe {
-  background-repeat: no-repeat;
-  filter: grayscale(1);
-  background-size: cover;
   width: 100%;
-  min-height: max(700px, 100svh);
-  padding: 85px 0px;
+  height: 200svh;
   position: relative;
+  overflow: visible;
+}
+
+.why-orbe-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 700px;
+  padding: 85px 0px;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1);
 }
 
 .blur-overlay {

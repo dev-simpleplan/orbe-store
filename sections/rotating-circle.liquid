@@ -134,47 +134,47 @@
     }
 
     @media (max-width: 767px) {
-        #stickyWrapper {
+        #stickyWrapper-{{ section.id }} {
             height: 260vh;
         }
 
-        #stickyWrapper .sticky-inner {
+        #stickyWrapper-{{ section.id }} .sticky-inner {
             align-items: center;
             /* padding-top: 70px; */
         }
 
-        #stickyWrapper .scene {
+        #stickyWrapper-{{ section.id }} .scene {
             width: min(430px, 100vw);
             height: 430px;
             overflow: visible;
         }
 
-        #stickyWrapper .orbit-ring {
+        #stickyWrapper-{{ section.id }} .orbit-ring {
             width: min(270px, 64vw);
             height: min(270px, 64vw);
             inset: 88px auto auto 50%;
             transform: translateX(-50%);
         }
 
-        #stickyWrapper .accent-ring {
+        #stickyWrapper-{{ section.id }} .accent-ring {
             width: 48px;
             height: 48px;
         }
 
-        #stickyWrapper .accent-ring.left {
+        #stickyWrapper-{{ section.id }} .accent-ring.left {
             left: -24px;
         }
 
-        #stickyWrapper .accent-ring.right {
+        #stickyWrapper-{{ section.id }} .accent-ring.right {
             right: -24px;
         }
 
-        #stickyWrapper .orbit-dot {
+        #stickyWrapper-{{ section.id }} .orbit-dot {
             width: 12px;
             height: 12px;
         }
 
-        #stickyWrapper .orbit-label {
+        #stickyWrapper-{{ section.id }} .orbit-label {
             width: 118px;
             padding: 0;
             border-radius: 0;
@@ -183,18 +183,18 @@
             z-index: 4;
         }
 
-        #stickyWrapper .orbit-label .label-title {
+        #stickyWrapper-{{ section.id }} .orbit-label .label-title {
             font-size: 13px;
             line-height: 94%;
             margin-bottom: 2px;
         }
 
-        #stickyWrapper .orbit-label .label-sub {
+        #stickyWrapper-{{ section.id }} .orbit-label .label-sub {
             font-size: 10px;
             line-height: 106%;
         }
 
-        #stickyWrapper .slide {
+        #stickyWrapper-{{ section.id }} .slide {
             width: min(210px, 50vw);
             left: 50%;
             top: 78px;
@@ -203,33 +203,33 @@
     }
 
     @media (min-width: 768px) and (max-width: 991px) {
-        #stickyWrapper {
+        #stickyWrapper-{{ section.id }} {
             height: 280vh;
         }
 
-        #stickyWrapper .sticky-inner {
+        #stickyWrapper-{{ section.id }} .sticky-inner {
             padding-top: 80px;
             align-items: flex-start;
         }
 
-        #stickyWrapper .scene {
+        #stickyWrapper-{{ section.id }} .scene {
             width: min(620px, 92vw);
             height: 590px;
         }
 
-        #stickyWrapper .orbit-ring {
+        #stickyWrapper-{{ section.id }} .orbit-ring {
             width: min(420px, 66vw);
             height: min(420px, 66vw);
             inset: 92px auto auto 50%;
             transform: translateX(-50%);
         }
 
-        #stickyWrapper .orbit-dot {
+        #stickyWrapper-{{ section.id }} .orbit-dot {
             width: 18px;
             height: 18px;
         }
 
-        #stickyWrapper .orbit-label {
+        #stickyWrapper-{{ section.id }} .orbit-label {
             width: 150px;
             padding: 0;
             border-radius: 0;
@@ -237,15 +237,15 @@
             text-align: left;
         }
 
-        #stickyWrapper .orbit-label .label-title {
+        #stickyWrapper-{{ section.id }} .orbit-label .label-title {
             font-size: 16px;
         }
 
-        #stickyWrapper .orbit-label .label-sub {
+        #stickyWrapper-{{ section.id }} .orbit-label .label-sub {
             font-size: 11px;
         }
 
-        #stickyWrapper .slide {
+        #stickyWrapper-{{ section.id }} .slide {
             width: min(310px, 48vw);
             left: 50%;
             top: 86px;
@@ -254,34 +254,30 @@
     }
 </style>
 
-<section class="sticky-wrapper" id="stickyWrapper">
+<section class="sticky-wrapper" id="stickyWrapper-{{ section.id }}">
     <div class="sticky-inner">
-        <div class="scene" id="scene">
+        <div class="scene">
 
-            <div class="orbit-ring" id="orbitRing">
+            <div class="orbit-ring">
                 <div class="accent-ring left"></div>
                 <div class="accent-ring right"></div>
             </div>
 
             <!-- 4 gold dots -->
-            <div class="orbit-dot" id="dot0"></div>
-            <div class="orbit-dot" id="dot1"></div>
-            <div class="orbit-dot" id="dot2"></div>
-            <div class="orbit-dot" id="dot3"></div>
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
 
             <!-- 4 text labels -->
-            <div class="orbit-label" id="lbl0"><span class="label-title" id="lt0"></span><span class="label-sub"
-                    id="ls0"></span></div>
-            <div class="orbit-label" id="lbl1"><span class="label-title" id="lt1"></span><span class="label-sub"
-                    id="ls1"></span></div>
-            <div class="orbit-label" id="lbl2"><span class="label-title" id="lt2"></span><span class="label-sub"
-                    id="ls2"></span></div>
-            <div class="orbit-label" id="lbl3"><span class="label-title" id="lt3"></span><span class="label-sub"
-                    id="ls3"></span></div>
+            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
+            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
+            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
+            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
 
             <!-- Central blobs -->
             <div class="center-blob">
-                <div class="slide active" id="slide1">
+                <div class="slide active">
                     <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/image_480.png?v=1777636144"
                         alt="Image" class="icon">
                 </div>
@@ -291,96 +287,123 @@
     </div>
 </section>
 <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    const slideData = [
-        [
-            { title: "System-Level Formulation", sub: "Designed for synergy, not isolation." },
-            { title: "Steady Energy Pathways", sub: "Helps reduce peaks and dips in the system." },
-            { title: "Dose Aware Design", sub: "Respects the body's natural balance." },
-            { title: "Optimised Bioavailability", sub: "Ensures efficient absorption and use." },
-        ]
-    ];
-
-    const scene = document.getElementById('scene');
-    const orbitRing = document.getElementById('orbitRing');
-    const dots = [0, 1, 2, 3].map(i => document.getElementById('dot' + i));
-    const lbls = [0, 1, 2, 3].map(i => document.getElementById('lbl' + i));
-    const ltEls = [0, 1, 2, 3].map(i => document.getElementById('lt' + i));
-    const lsEls = [0, 1, 2, 3].map(i => document.getElementById('ls' + i));
-
-    function setLabelText(idx) {
-        slideData[idx].forEach((d, i) => {
-            ltEls[i].textContent = d.title;
-            lsEls[i].textContent = d.sub;
-        });
-    }
-    setLabelText(0);
-
-    /*
-     * Key fix: instead of rotating a container and counter-rotating children,
-     * we calculate each dot/label x,y position directly using cos/sin
-     * and set left/top every frame. Labels get NO rotation — they stay upright always.
-     */
-    function positionOrbit(deg) {
-        const sceneRect = scene.getBoundingClientRect();
-        const ringRect = orbitRing.getBoundingClientRect();
-        const size = ringRect.width;
-        const cx = ringRect.left - sceneRect.left + (size / 2);
-        const cy = ringRect.top - sceneRect.top + (size / 2);
-        const dotR = (size / 2) - 1;      /* sit on the ring */
-        const isCompact = window.matchMedia('(max-width: 991px)').matches;
-        const isMobile = window.matchMedia('(max-width: 767px)').matches;
-        const labelR = (size / 2) + 70;     /* outside the ring */
-        const compactLabelInset = (lbls[0].offsetWidth / 2) + (isMobile ? 24 : 30);
-        const compactLabels = [
-            { x: compactLabelInset, y: isMobile ? 52 : 60 },
-            { x: scene.offsetWidth - compactLabelInset, y: isMobile ? 52 : 60 },
-            { x: scene.offsetWidth - compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
-            { x: compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
-        ];
-
-        for (let i = 0; i < 4; i++) {
-            /* start at top (-90°), step 90° per item, add current rotation */
-            const a = ((deg - 90) + i * 90) * (Math.PI / 180);
-
-            /* dot */
-            dots[i].style.left = (cx + Math.cos(a) * dotR) + 'px';
-            dots[i].style.top = (cy + Math.sin(a) * dotR) + 'px';
-
-            /* label — same angle, bigger radius, NO rotation property touched */
-            if (isCompact) {
-                lbls[i].style.left = compactLabels[i].x + 'px';
-                lbls[i].style.top = compactLabels[i].y + 'px';
-            } else {
-                lbls[i].style.left = (cx + Math.cos(a) * labelR) + 'px';
-                lbls[i].style.top = (cy + Math.sin(a) * labelR) + 'px';
+    (function () {
+        function init() {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                setTimeout(init, 100);
+                return;
             }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const wrapper = document.getElementById('stickyWrapper-{{ section.id }}');
+            if (!wrapper) return;
+
+            const scene = wrapper.querySelector('.scene');
+            const orbitRing = wrapper.querySelector('.orbit-ring');
+            const dots = Array.from(wrapper.querySelectorAll('.orbit-dot'));
+            const lbls = Array.from(wrapper.querySelectorAll('.orbit-label'));
+            const ltEls = Array.from(wrapper.querySelectorAll('.label-title'));
+            const lsEls = Array.from(wrapper.querySelectorAll('.label-sub'));
+            let currentDeg = 0;
+
+            if (!scene || !orbitRing || dots.length < 4 || lbls.length < 4) return;
+
+            const existingTrigger = ScrollTrigger.getById('rotating-circle-{{ section.id }}');
+            if (existingTrigger) existingTrigger.kill();
+
+            const slideData = [
+                { title: "System-Level Formulation", sub: "Designed for synergy, not isolation." },
+                { title: "Steady Energy Pathways", sub: "Helps reduce peaks and dips in the system." },
+                { title: "Dose Aware Design", sub: "Respects the body's natural balance." },
+                { title: "Optimised Bioavailability", sub: "Ensures efficient absorption and use." },
+            ];
+
+            slideData.forEach((d, i) => {
+                ltEls[i].textContent = d.title;
+                lsEls[i].textContent = d.sub;
+            });
+
+            function positionOrbit(deg) {
+                currentDeg = deg;
+                const sceneRect = scene.getBoundingClientRect();
+                const ringRect = orbitRing.getBoundingClientRect();
+                const size = ringRect.width;
+                const cx = ringRect.left - sceneRect.left + (size / 2);
+                const cy = ringRect.top - sceneRect.top + (size / 2);
+                const dotR = (size / 2) - 1;
+                const isCompact = window.matchMedia('(max-width: 991px)').matches;
+                const isMobile = window.matchMedia('(max-width: 767px)').matches;
+                const labelR = (size / 2) + 70;
+                const compactLabelInset = (lbls[0].offsetWidth / 2) + (isMobile ? 24 : 30);
+                const compactLabels = [
+                    { x: compactLabelInset, y: isMobile ? 52 : 60 },
+                    { x: scene.offsetWidth - compactLabelInset, y: isMobile ? 52 : 60 },
+                    { x: scene.offsetWidth - compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
+                    { x: compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
+                ];
+
+                for (let i = 0; i < 4; i++) {
+                    const a = ((deg - 90) + i * 90) * (Math.PI / 180);
+
+                    dots[i].style.left = (cx + Math.cos(a) * dotR) + 'px';
+                    dots[i].style.top = (cy + Math.sin(a) * dotR) + 'px';
+
+                    if (isCompact) {
+                        lbls[i].style.left = compactLabels[i].x + 'px';
+                        lbls[i].style.top = compactLabels[i].y + 'px';
+                    } else {
+                        lbls[i].style.left = (cx + Math.cos(a) * labelR) + 'px';
+                        lbls[i].style.top = (cy + Math.sin(a) * labelR) + 'px';
+                    }
+                }
+            }
+
+            positionOrbit(0);
+
+            function updateOrbitFromScroll() {
+                const rect = wrapper.getBoundingClientRect();
+                const distance = Math.max(1, wrapper.offsetHeight - window.innerHeight);
+                const progress = gsap.utils.clamp(0, 1, -rect.top / distance);
+                const deg = progress * 240;
+
+                gsap.set(orbitRing, { rotation: deg * 0.2 });
+                positionOrbit(deg);
+            }
+
+            const trigger = ScrollTrigger.create({
+                id: 'rotating-circle-{{ section.id }}',
+                trigger: wrapper,
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 2.4,
+                invalidateOnRefresh: true,
+                onRefresh: updateOrbitFromScroll,
+                onUpdate: updateOrbitFromScroll,
+            });
+
+            if (window.lenis && typeof window.lenis.on === 'function') {
+                window.lenis.on('scroll', updateOrbitFromScroll);
+            } else {
+                window.addEventListener('scroll', updateOrbitFromScroll, { passive: true });
+            }
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(updateOrbitFromScroll, 120);
+            });
+
+            requestAnimationFrame(() => {
+                updateOrbitFromScroll();
+                ScrollTrigger.refresh();
+            });
+            window.addEventListener('load', () => {
+                updateOrbitFromScroll();
+                ScrollTrigger.refresh();
+            }, { once: true });
         }
-    }
 
-    positionOrbit(0);
-
-    ScrollTrigger.create({
-        trigger: '#stickyWrapper',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 2.4,
-        onUpdate(self) {
-            const p = self.progress;
-            const deg = p * 240; /* reduced orbit for calmer label movement */
-
-            /* Ring itself drifts slowly */
-            gsap.set(orbitRing, { rotation: deg * 0.2 });
-
-            /* Dots & labels orbit — labels stay upright (no rotation set on them) */
-            positionOrbit(deg);
-        }
-    });
-
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => positionOrbit(0), 120);
-    });
+        init();
+    })();
 </script>

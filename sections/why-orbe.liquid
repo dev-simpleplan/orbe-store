@@ -1,40 +1,42 @@
-<section class="why-orbe" id="why-orbe-{{ section.id }}"
-  {% if section.settings.background_image != blank %}
-    style="background-image: url('{{ section.settings.background_image | image_url }}');"
-  {% endif %}>
-  <div class="blur-overlay"></div>
-  <div class="container">
-    <div class="why-orbe-in">
-      <div class="top">
-        {% if section.settings.heading != blank %}
-          <h2>{{ section.settings.heading }}</h2>
-        {% endif %}
-      </div>
-      <div class="bottom">
-        <div class="counter-grid">
-          <div class="left">
-            {% if section.settings.stat_1 != blank %}
-              <h3>{{ section.settings.stat_1 }}</h3>
-            {% endif %}
-            {% if section.settings.text_1 != blank %}
-              <p>{{ section.settings.text_1 }}</p>
-            {% endif %}
-          </div>
-          <div class="center">
-            {% if section.settings.stat_2 != blank %}
-              <h3>{{ section.settings.stat_2 }}</h3>
-            {% endif %}
-            {% if section.settings.text_2 != blank %}
-              <p>{{ section.settings.text_2 }}</p>
-            {% endif %}
-          </div>
-          <div class="right">
-            {% if section.settings.stat_3 != blank %}
-              <h3>{{ section.settings.stat_3 }}</h3>
-            {% endif %}
-            {% if section.settings.text_3 != blank %}
-              <p>{{ section.settings.text_3 }}</p>
-            {% endif %}
+<section class="why-orbe" id="why-orbe-{{ section.id }}">
+  <div class="why-orbe-sticky"
+    {% if section.settings.background_image != blank %}
+      style="background-image: url('{{ section.settings.background_image | image_url }}');"
+    {% endif %}>
+    <div class="blur-overlay"></div>
+    <div class="container">
+      <div class="why-orbe-in">
+        <div class="top">
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+        </div>
+        <div class="bottom">
+          <div class="counter-grid">
+            <div class="left">
+              {% if section.settings.stat_1 != blank %}
+                <h3>{{ section.settings.stat_1 }}</h3>
+              {% endif %}
+              {% if section.settings.text_1 != blank %}
+                <p>{{ section.settings.text_1 }}</p>
+              {% endif %}
+            </div>
+            <div class="center">
+              {% if section.settings.stat_2 != blank %}
+                <h3>{{ section.settings.stat_2 }}</h3>
+              {% endif %}
+              {% if section.settings.text_2 != blank %}
+                <p>{{ section.settings.text_2 }}</p>
+              {% endif %}
+            </div>
+            <div class="right">
+              {% if section.settings.stat_3 != blank %}
+                <h3>{{ section.settings.stat_3 }}</h3>
+              {% endif %}
+              {% if section.settings.text_3 != blank %}
+                <p>{{ section.settings.text_3 }}</p>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
@@ -57,35 +59,33 @@
       const overlay = section.querySelector('.blur-overlay');
       if (!overlay) return;
 
-      const mm = gsap.matchMedia();
+      const existingTrigger = ScrollTrigger.getById('why-orbe-{{ section.id }}');
+      if (existingTrigger) existingTrigger.kill();
 
-      mm.add('(min-width: 992px)', () => {
-        const tween = gsap.fromTo(overlay,
-          { yPercent: 0 },
-          {
-            yPercent: -100,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top top',
-              end: () => '+=' + window.innerHeight,
-              scrub: 1,
-              pin: true,
-              pinSpacing: true,
-              anticipatePin: 1,
-              invalidateOnRefresh: true,
-            }
-          }
-        );
+      gsap.set(overlay, { yPercent: 0 });
 
-        return () => {
-          tween.scrollTrigger && tween.scrollTrigger.kill();
-          tween.kill();
-        };
-      });
-
-      mm.add('(max-width: 991px)', () => {
-        gsap.set(overlay, { clearProps: 'transform' });
+      ScrollTrigger.create({
+        id: 'why-orbe-{{ section.id }}',
+        trigger: section,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          gsap.set(overlay, { yPercent: -100 * self.progress });
+        },
+        onRefresh: (self) => {
+          gsap.set(overlay, { yPercent: -100 * self.progress });
+        },
+        onLeave: () => {
+          gsap.set(overlay, { yPercent: -100 });
+        },
+        onEnterBack: () => {
+          gsap.set(overlay, { yPercent: -100 });
+        },
+        onLeaveBack: () => {
+          gsap.set(overlay, { yPercent: 0 });
+        }
       });
 
       requestAnimationFrame(() => ScrollTrigger.refresh());
