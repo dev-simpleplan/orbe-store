@@ -25,7 +25,7 @@
                     <div class="fph-mega-copy">
                       {% for child_link in link.links %}
                         <div class="fph-mega-group">
-                          <h2>{{ child_link.title }}</h2>
+                          {% comment %} <h2>{{ child_link.title }}</h2> {% endcomment %}
 
                           {% if child_link.links.size > 0 %}
                             <ul>
@@ -148,7 +148,7 @@
                   {% for child_link in link.links %}
                     <div class="mobile-submenu-group">
                       {% if child_link.links.size > 0 %}
-                        <p class="sublink-title">{{ child_link.title }}</p>
+                        {% comment %} <p class="sublink-title">{{ child_link.title }}</p> {% endcomment %}
                         <ul class="sublink-block">
                           {% for grandchild_link in child_link.links %}
                             <li>
