@@ -128,6 +128,10 @@
         "spacer_height": 100
       }
     },
+    "what-your-body": {
+      "type": "what-your-body",
+      "settings": {}
+    },
     "gently-unfold": {
       "type": "gently-unfolding",
       "blocks": {
@@ -189,11 +193,13 @@
     "spacer_7L6pHN",
     "care-behind-c",
     "spacer_iVnf8F",
-    "best-bio",
-    "spacer_6tMeNb",
     "essential-ingredient",
     "spacer_RAkTAh",
     "gently-unfold",
-    "spacer_VnKNLM"
+    "spacer_6tMeNb",
+    "what-your-body",
+    "spacer_VnKNLM",
+    "best-bio"
+
   ]
 }

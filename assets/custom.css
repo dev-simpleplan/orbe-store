@@ -350,7 +350,7 @@ body.mobile-menu-open {
   letter-spacing: 2.88px;
   line-height: 150%;
   text-transform: uppercase;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
   position: relative;
 }
 
@@ -465,14 +465,14 @@ header.header--hidden .has-mega-dropdown.is-mega-open .fph-mega-dropdown {
   letter-spacing: -0.05em;
   line-height: 1;
 }
-.fph-mega-copy a:hover svg{
-transform: translateX(10px);
+.fph-mega-copy a:hover svg {
+  transform: translateX(10px);
 }
 .fph-mega-copy a svg path {
   stroke: #fff;
 }
-.fph-mega-copy a svg{
-  transition: .4s ease all;
+.fph-mega-copy a svg {
+  transition: 0.4s ease all;
 }
 .mobile-top-link {
   display: flex;
@@ -2850,3 +2850,97 @@ body.ingredient-drawer-open {
   }
 }
 /* Essential Ingredients */
+
+/* what your body */
+.what-your-body {
+  background-color: #000;
+  padding: 110px 0px;
+  color: #fff;
+}
+.bottom-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 20px;
+}
+.what-your-body .e-head {
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2.88px;
+  line-height: 150%;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: var(--aspekta);
+  padding-bottom: 15px;
+}
+.what-your-body ul li {
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 0em;
+  line-height: 130%;
+  font-weight: 400;
+  font-family: var(--aspekta);
+  text-transform: capitalize;
+}
+.what-your-body ul {
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.what-your-body h2 {
+  color: #fff;
+  max-width: 18ch;
+}
+.what-your-body p {
+  color: #fff;
+  max-width: 38ch;
+}
+.what-your-body .top {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+.what-your-body .right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+}
+.what-your-body .left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: space-between;
+}
+.what-your-body .center {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.what-your-body .pill-img {
+  width: 184px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.what-your-body ul li{
+  list-style: none;
+  position: relative;
+}
+.what-your-body ul li::before{
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: -15px;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+/* what your body */

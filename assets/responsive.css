@@ -79,6 +79,12 @@
   .ready-formula {
     padding: 50px 0px;
   }
+  .what-your-body ul li{
+    font-size: 14px;
+  }
+  .what-your-body .pill-img{
+    width: 120px;
+  }
 }
 @media screen and (max-width: 991px) {
   .see-through .container-left {
