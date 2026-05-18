@@ -2102,9 +2102,6 @@ header.header--transparent .center svg path {
   font-weight: 400;
   max-width: 10ch;
 }
-.what-we-choose .what-we-block:first-child h3 {
-  color: #000;
-}
 .what-we-choose .heading {
   display: flex;
   flex-direction: column;
