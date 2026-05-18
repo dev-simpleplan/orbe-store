@@ -33,7 +33,7 @@
       "type": "slide-in-image",
       "settings": {
         "heading": "Women are navigating more expectations, more information, and more noise than ever. Orbe was created to offer a different kind of space, one rooted in calm, honesty, and clarity. Our purpose is simple: to support women with knowledge, nourishment, and rituals that feel intuitive, not overwhelming.",
-        "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png"
+        "image": "shopify://shop_images/Group_2085663427.png"
       }
     },
     "spacer_FjFe6V": {
@@ -49,7 +49,7 @@
         "card_YQ79UM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Frame_2072749402.png",
+            "image": "shopify://shop_images/Rectangle_3468570_2.png",
             "title": "Ingredients with Intention",
             "text": "Each ingredient is chosen for a purpose: how well it works, how well it absorbs, and how gently it supports your body. We source clean, high-quality nutrients and keep out anything unnecessary."
           }
@@ -57,7 +57,7 @@
         "card_design_with_intention": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/2718a218c952e17afd237f4a8ffa339456c6e72b.png",
+            "image": "shopify://shop_images/Rectangle_3468570_3.png",
             "title": "Design with Intention",
             "text": "Our pill-in-pill capsule keeps nutrients protected and releases them in the right order, exactly when your body needs them. A simple ritual, supported by thoughtful design."
           }
@@ -73,7 +73,7 @@
         "card_clarity_over_noise": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/deddc5d6816f40dc041a9a9b35cc723848308528.jpg",
+            "image": "shopify://shop_images/Rectangle_3468570_4.png",
             "title": "Science we Trust",
             "text": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
           }
@@ -101,9 +101,9 @@
     "heart-behind": {
       "type": "heart-behind",
       "settings": {
-        "top_image_1": "shopify://shop_images/37ac90a8325a2eb5fb7dcc774ce97dcf06f2caae.png",
-        "top_image_2": "shopify://shop_images/9c14938d24fac2e401e48d5fd699111e852d73d0.png",
-        "right_image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png",
+        "top_image_1": "shopify://shop_images/Rectangle_3468567.png",
+        "top_image_2": "shopify://shop_images/Rectangle_3468568.png",
+        "right_image": "shopify://shop_images/Frame_2072749125.png",
         "heading": "The Heart Behind Orbé",
         "text_1": "Orbe began with a simple but powerful frustration: why does taking care of ourselves feel so complicated?",
         "text_2": "Women feel overwhelmed by noise, conflicting advice, and wellness trends that offer more confusion than clarity. So we set out to create something different; a brand built on intention, rooted in evidence, and guided by simplicity.",
