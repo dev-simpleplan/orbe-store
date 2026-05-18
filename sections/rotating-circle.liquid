@@ -1,5 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
     * {
         margin: 0;
@@ -172,8 +170,11 @@
         #stickyWrapper-{{ section.id }} .orbit-ring {
             width: min(270px, 64vw);
             height: min(270px, 64vw);
-            inset: 88px auto auto 50%;
-            transform: translateX(-50%);
+            top: 88px;
+            left: 0;
+            right: 0;
+            bottom: auto;
+            margin: 0 auto;
         }
 
         #stickyWrapper-{{ section.id }} .accent-ring {
@@ -241,8 +242,11 @@
         #stickyWrapper-{{ section.id }} .orbit-ring {
             width: min(420px, 66vw);
             height: min(420px, 66vw);
-            inset: 92px auto auto 50%;
-            transform: translateX(-50%);
+            top: 92px;
+            left: 0;
+            right: 0;
+            bottom: auto;
+            margin: 0 auto;
         }
 
         #stickyWrapper-{{ section.id }} .orbit-dot {
@@ -348,11 +352,9 @@
 
             function positionOrbit(deg) {
                 currentDeg = deg;
-                const sceneRect = scene.getBoundingClientRect();
-                const ringRect = orbitRing.getBoundingClientRect();
-                const size = ringRect.width;
-                const cx = ringRect.left - sceneRect.left + (size / 2);
-                const cy = ringRect.top - sceneRect.top + (size / 2);
+                const size = orbitRing.offsetWidth;
+                const cx = orbitRing.offsetLeft + size / 2;
+                const cy = orbitRing.offsetTop + size / 2;
                 const dotR = (size / 2) - 1;
                 const isCompact = window.matchMedia('(max-width: 991px)').matches;
                 const isMobile = window.matchMedia('(max-width: 767px)').matches;
@@ -438,7 +440,11 @@
             }, { once: true });
         }
 
-        init();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
     })();
 </script>
 
