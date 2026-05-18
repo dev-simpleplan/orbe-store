@@ -12,7 +12,7 @@
 <div id="orbe-scroll-driver" class="orbe-desktop-banner">
   <div id="orbe-stage">
     <div id="orbe-fullvideo-section">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
         <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
       </video>
       <div id="orbe-fullscreen-content">
@@ -31,7 +31,7 @@
 
     <!-- O shape -->
     <div id="orbe-o-wrap">
-      <video id="orbe-masked-video" autoplay muted loop playsinline>
+      <video id="orbe-masked-video" autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
         <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
       </video>
       <svg id="orbe-o-outline" viewBox="0 0 520 527" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
 <div id="orbe-mobile-scroll-driver" class="orbe-mobile-banner">
   <div id="orbe-mobile-stage">
     <div id="orbe-mobile-fullvideo-section">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
         <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
       </video>
       <div id="orbe-mobile-fullscreen-content">
@@ -87,7 +87,7 @@
     </div>
 
     <div id="orbe-mobile-o-wrap">
-      <video id="orbe-mobile-masked-video" autoplay muted loop playsinline>
+      <video id="orbe-mobile-masked-video" autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
         <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
       </video>
       <svg id="orbe-mobile-o-outline" viewBox="0 0 520 527" xmlns="http://www.w3.org/2000/svg">
@@ -101,6 +101,24 @@
 </div>
 
 <style>
+  #orbe-scroll-driver video,
+  #orbe-mobile-scroll-driver video {
+    pointer-events: none;
+  }
+
+  #orbe-scroll-driver video::-webkit-media-controls,
+  #orbe-mobile-scroll-driver video::-webkit-media-controls,
+  #orbe-scroll-driver video::-webkit-media-controls-panel,
+  #orbe-mobile-scroll-driver video::-webkit-media-controls-panel,
+  #orbe-scroll-driver video::-webkit-media-controls-play-button,
+  #orbe-mobile-scroll-driver video::-webkit-media-controls-play-button,
+  #orbe-scroll-driver video::-webkit-media-controls-start-playback-button,
+  #orbe-mobile-scroll-driver video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    -webkit-appearance: none;
+  }
+
   #orbe-mobile-scroll-driver {
     display: none;
   }
