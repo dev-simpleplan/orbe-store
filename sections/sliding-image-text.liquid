@@ -36,6 +36,7 @@
   }
 
   #sit-section-{{ section.id }} .sit-media {
+    z-index: 3;
     will-change: transform;
   }
 
@@ -53,6 +54,7 @@
     justify-content: space-between;
     padding: 60px;
     opacity: 0;
+    z-index: 1;
     will-change: opacity, transform;
   }
 
@@ -82,6 +84,10 @@
     display: none;
   }
 
+  #sit-section-{{ section.id }} .sit-mobile-pin {
+    display: none;
+  }
+
   @media (max-width: 991px) {
     #sit-section-{{ section.id }} {
       height: auto;
@@ -92,51 +98,100 @@
     }
 
     #sit-section-{{ section.id }} .sit-mobile-fold {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 19px;
-      min-height: 100vw;
+      display: none;
     }
 
-    #sit-section-{{ section.id }} .sit-mobile-image {
+    #sit-section-{{ section.id }} .sit-mobile-pin {
+      display: block;
       position: relative;
-      overflow: hidden;
+      height: calc(var(--sit-mobile-fold-count, 3) * 100svh);
     }
 
-    #sit-section-{{ section.id }} .sit-mobile-copy {
+    #sit-section-{{ section.id }} .sit-mobile-sticky {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      will-change: opacity;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-bg.is-active {
+      opacity: 1;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-bg img,
+    #sit-section-{{ section.id }} .sit-mobile-bg .placeholder-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      pointer-events: none;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-text-track {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-panel {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 40px 30px;
+      gap: 40px;
+      padding: 90px 30px 60px;
+      opacity: 0;
+      transform: translateY(34px);
+      will-change: opacity, transform;
+      pointer-events: none;
     }
 
-    #sit-section-{{ section.id }} .sit-mobile-copy p {
-      font-size: clamp(0.85rem, 1.1vw, 1rem);
-      line-height: 1.75;
-      color: #1a1a1a;
+    #sit-section-{{ section.id }} .sit-mobile-panel.is-active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    #sit-section-{{ section.id }} .sit-mobile-copy h2 {
-      font-size: clamp(1.2rem, 2vw, 1.8rem);
+    #sit-section-{{ section.id }} .sit-mobile-panel p {
+      font-size: clamp(16px, 2.2vw, 20px);
+      line-height: 1.65;
+      color: #fff;
+      max-width: 34ch;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-panel h2 {
+      font-size: clamp(28px, 5.6vw, 46px);
+      line-height: 1;
       font-weight: 400;
-      color: #1a1a1a;
-      margin: 0 0 8px;
+      color: #fff;
+      margin: 0 0 18px;
+    }
+
+    #sit-section-{{ section.id }} .sit-mobile-panel .block-2 {
+      align-self: flex-end;
+      text-align: right;
     }
   }
 
   @media (max-width: 767px) {
-    #sit-section-{{ section.id }} .sit-mobile-fold {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    #sit-section-{{ section.id }} .sit-mobile-image {
-      height: 80vw;
-    }
-
-    #sit-section-{{ section.id }} .sit-mobile-copy {
-      min-height: 70vw;
-      padding: 30px 20px;
+    #sit-section-{{ section.id }} .sit-mobile-panel {
+      padding: 82px 20px 44px;
     }
   }
 </style>
@@ -152,7 +207,7 @@
           {% if is_even == 0 %}
             <div class="sit-media sit-image" data-sit-image>
               {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               {% endif %}
@@ -184,7 +239,7 @@
           {% else %}
             <div class="sit-media sit-image" data-sit-image>
               {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               {% endif %}
@@ -195,42 +250,38 @@
     {% endfor %}
   </div>
 
-  {% for block in section.blocks limit: 3 %}
-    {% assign fold_index = forloop.index0 %}
-    {% assign is_even = fold_index | modulo: 2 %}
-
-    <div class="sit-mobile-fold">
-      {% if is_even == 0 %}
-        <div class="sit-mobile-image">
-          {% if block.settings.image != blank %}
-            {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
-          {% else %}
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-          {% endif %}
-        </div>
-      {% endif %}
-
-      <div class="sit-mobile-copy">
-        {% if block.settings.heading != blank %}
-          <h2>{{ block.settings.heading }}</h2>
-        {% endif %}
-        <p>{{ block.settings.text_top }}</p>
-        {% if block.settings.text_bottom != blank %}
-          <p class="block-2">{{ block.settings.text_bottom }}</p>
-        {% endif %}
+  {% assign mobile_fold_count = section.blocks.size | at_most: 3 %}
+  <div class="sit-mobile-pin" style="--sit-mobile-fold-count: {{ mobile_fold_count }};">
+    <div class="sit-mobile-sticky">
+      <div class="sit-mobile-bg-wrap">
+        {% for block in section.blocks limit: 3 %}
+          <div class="sit-mobile-bg{% if forloop.first %} is-active{% endif %}" data-sit-mobile-bg="{{ forloop.index0 }}">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+        {% endfor %}
       </div>
 
-      {% if is_even != 0 %}
-        <div class="sit-mobile-image">
-          {% if block.settings.image != blank %}
-            {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
-          {% else %}
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-          {% endif %}
-        </div>
-      {% endif %}
+      <div class="sit-mobile-text-track">
+        {% for block in section.blocks limit: 3 %}
+          <div class="sit-mobile-panel{% if forloop.first %} is-active{% endif %}" data-sit-mobile-panel="{{ forloop.index0 }}">
+            <div>
+              {% if block.settings.heading != blank %}
+                <h2>{{ block.settings.heading }}</h2>
+              {% endif %}
+              <p>{{ block.settings.text_top }}</p>
+            </div>
+            {% if block.settings.text_bottom != blank %}
+              <p class="block-2">{{ block.settings.text_bottom }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
-  {% endfor %}
+  </div>
 </section>
 
 <script>
@@ -246,16 +297,17 @@
       const section = document.getElementById('sit-section-{{ section.id }}');
       const folds = gsap.utils.toArray('#sit-section-{{ section.id }} .sit-fold');
 
-      if (!section || folds.length < 2) return;
+      if (!section) return;
 
       const mm = gsap.matchMedia();
 
       mm.add('(min-width: 992px)', () => {
+        if (folds.length < 2) return;
+
         folds.forEach((fold, index) => {
           const image = fold.querySelector('[data-sit-image]');
           const copy = fold.querySelector('[data-sit-copy]');
 
-          gsap.set(fold, { zIndex: folds.length - index });
           gsap.set(copy, {
             autoAlpha: index === 0 ? 1 : 0,
             yPercent: index === 0 ? 0 : 10,
@@ -286,7 +338,6 @@
           const toImage = toFold.querySelector('[data-sit-image]');
           const toCopy = toFold.querySelector('[data-sit-copy]');
 
-          tl.set(toFold, { zIndex: folds.length + toIndex }, at);
           tl.fromTo(toImage, { yPercent: 100 }, { yPercent: 0, ease: 'none', duration: 1 }, at);
           tl.to(fromImage, { yPercent: 100, ease: 'none', duration: 1 }, at);
           tl.to(fromCopy, { autoAlpha: 0, yPercent: -8, ease: 'power1.out', duration: 0.28 }, at);
@@ -294,13 +345,66 @@
           tl.to(toCopy, { autoAlpha: 1, duration: 0.22 }, at + 1);
         }
 
-        transitionFold(0, 1, 0);
-        transitionFold(1, 2, 1.3);
+        for (let index = 0; index < folds.length - 1; index += 1) {
+          transitionFold(index, index + 1, index * 1.3);
+        }
 
         return () => {
           ScrollTrigger.getAll().forEach((trigger) => {
             if (trigger.trigger === section) trigger.kill();
           });
+        };
+      });
+
+      mm.add('(max-width: 991px)', () => {
+        const mobilePin = section.querySelector('.sit-mobile-pin');
+        const backgrounds = gsap.utils.toArray(section.querySelectorAll('.sit-mobile-bg'));
+        const panels = gsap.utils.toArray(section.querySelectorAll('.sit-mobile-panel'));
+
+        if (!mobilePin || panels.length < 1) return;
+
+        function setActiveBackground(index) {
+          backgrounds.forEach((background, bgIndex) => {
+            background.classList.toggle('is-active', bgIndex === index);
+          });
+        }
+
+        function updateMobileScene(progress) {
+          const maxIndex = panels.length - 1;
+          const scrollIndex = maxIndex === 0 ? 0 : progress * maxIndex;
+          const activeIndex = Math.min(maxIndex, Math.round(scrollIndex));
+
+          setActiveBackground(activeIndex);
+
+          panels.forEach((panel, index) => {
+            const distance = index - scrollIndex;
+            const visible = Math.abs(distance) < 1.05;
+
+            panel.classList.toggle('is-active', index === activeIndex);
+            gsap.set(panel, {
+              autoAlpha: visible ? 1 : 0,
+              yPercent: distance * 100,
+              y: 0,
+            });
+          });
+        }
+
+        updateMobileScene(0);
+
+        const trigger = ScrollTrigger.create({
+          trigger: mobilePin,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => updateMobileScene(self.progress),
+          onRefresh: (self) => updateMobileScene(self.progress),
+          onLeave: () => updateMobileScene(1),
+          onLeaveBack: () => updateMobileScene(0),
+        });
+
+        return () => {
+          trigger.kill();
         };
       });
     }
