@@ -127,6 +127,8 @@
         width: 70%;
         left: 88px;
         top: 50px;
+        transition: opacity 0.55s ease;
+        pointer-events: none;
     }
 
     .slide.active {
@@ -263,24 +265,35 @@
                 <div class="accent-ring right"></div>
             </div>
 
-            <!-- 4 gold dots -->
-            <div class="orbit-dot"></div>
-            <div class="orbit-dot"></div>
-            <div class="orbit-dot"></div>
-            <div class="orbit-dot"></div>
+            <!-- gold dots -->
+            {% for block in section.blocks limit: 4 %}
+                <div class="orbit-dot" {{ block.shopify_attributes }}></div>
+            {% endfor %}
 
-            <!-- 4 text labels -->
-            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
-            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
-            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
-            <div class="orbit-label"><span class="label-title"></span><span class="label-sub"></span></div>
+            <!-- text labels -->
+            {% for block in section.blocks limit: 4 %}
+                <div class="orbit-label">
+                    {% if block.settings.title != blank %}
+                        <span class="label-title">{{ block.settings.title }}</span>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                        <span class="label-sub">{{ block.settings.text }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
 
             <!-- Central blobs -->
             <div class="center-blob">
-                <div class="slide active">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/image_480.png?v=1777636144"
-                        alt="Image" class="icon">
-                </div>
+                {% if section.settings.image_1 != blank %}
+                    <div class="slide active">
+                        {{ section.settings.image_1 | image_url: width: 760 | image_tag: loading: 'lazy', alt: '', class: 'icon' }}
+                    </div>
+                {% endif %}
+                {% if section.settings.image_2 != blank %}
+                    <div class="slide{% if section.settings.image_1 == blank %} active{% endif %}">
+                        {{ section.settings.image_2 | image_url: width: 760 | image_tag: loading: 'lazy', alt: '', class: 'icon' }}
+                    </div>
+                {% endif %}
             </div>
 
         </div>
@@ -303,26 +316,15 @@
             const orbitRing = wrapper.querySelector('.orbit-ring');
             const dots = Array.from(wrapper.querySelectorAll('.orbit-dot'));
             const lbls = Array.from(wrapper.querySelectorAll('.orbit-label'));
-            const ltEls = Array.from(wrapper.querySelectorAll('.label-title'));
-            const lsEls = Array.from(wrapper.querySelectorAll('.label-sub'));
+            const slides = Array.from(wrapper.querySelectorAll('.slide'));
+            const imageSwapProgress = 0.82;
             let currentDeg = 0;
+            let activeSlideIndex = -1;
 
-            if (!scene || !orbitRing || dots.length < 4 || lbls.length < 4) return;
+            if (!scene || !orbitRing || dots.length < 1 || lbls.length < 1) return;
 
             const existingTrigger = ScrollTrigger.getById('rotating-circle-{{ section.id }}');
             if (existingTrigger) existingTrigger.kill();
-
-            const slideData = [
-                { title: "System-Level Formulation", sub: "Designed for synergy, not isolation." },
-                { title: "Steady Energy Pathways", sub: "Helps reduce peaks and dips in the system." },
-                { title: "Dose Aware Design", sub: "Respects the body's natural balance." },
-                { title: "Optimised Bioavailability", sub: "Ensures efficient absorption and use." },
-            ];
-
-            slideData.forEach((d, i) => {
-                ltEls[i].textContent = d.title;
-                lsEls[i].textContent = d.sub;
-            });
 
             function positionOrbit(deg) {
                 currentDeg = deg;
@@ -342,21 +344,31 @@
                     { x: scene.offsetWidth - compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
                     { x: compactLabelInset, y: scene.offsetHeight - (isMobile ? 58 : 70) },
                 ];
+                const itemCount = Math.min(dots.length, lbls.length);
+                const angleStep = 360 / itemCount;
 
-                for (let i = 0; i < 4; i++) {
-                    const a = ((deg - 90) + i * 90) * (Math.PI / 180);
+                for (let i = 0; i < itemCount; i++) {
+                    const a = ((deg - 90) + i * angleStep) * (Math.PI / 180);
 
                     dots[i].style.left = (cx + Math.cos(a) * dotR) + 'px';
                     dots[i].style.top = (cy + Math.sin(a) * dotR) + 'px';
 
                     if (isCompact) {
-                        lbls[i].style.left = compactLabels[i].x + 'px';
-                        lbls[i].style.top = compactLabels[i].y + 'px';
+                        lbls[i].style.left = compactLabels[i % compactLabels.length].x + 'px';
+                        lbls[i].style.top = compactLabels[i % compactLabels.length].y + 'px';
                     } else {
                         lbls[i].style.left = (cx + Math.cos(a) * labelR) + 'px';
                         lbls[i].style.top = (cy + Math.sin(a) * labelR) + 'px';
                     }
                 }
+            }
+
+            function setActiveSlide(index) {
+                if (!slides.length || activeSlideIndex === index) return;
+                activeSlideIndex = index;
+                slides.forEach((slide, slideIndex) => {
+                    slide.classList.toggle('active', slideIndex === index);
+                });
             }
 
             positionOrbit(0);
@@ -365,10 +377,12 @@
                 const rect = wrapper.getBoundingClientRect();
                 const distance = Math.max(1, wrapper.offsetHeight - window.innerHeight);
                 const progress = gsap.utils.clamp(0, 1, -rect.top / distance);
-                const deg = progress * 240;
+                const rotateProgress = gsap.utils.clamp(0, 1, progress / imageSwapProgress);
+                const deg = rotateProgress * 180;
 
                 gsap.set(orbitRing, { rotation: deg * 0.2 });
                 positionOrbit(deg);
+                setActiveSlide(progress >= imageSwapProgress && slides.length > 1 ? 1 : 0);
             }
 
             const trigger = ScrollTrigger.create({
@@ -407,3 +421,45 @@
         init();
     })();
 </script>
+
+{% schema %}
+{
+  "name": "Rotating Circle",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_item",
+      "name": "Text Item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rotating Circle"
+    }
+  ]
+}
+{% endschema %}

@@ -117,7 +117,46 @@
     },
     "rotating-circle": {
       "type": "rotating-circle",
-      "settings": {}
+      "blocks": {
+        "text_item_1": {
+          "type": "text_item",
+          "settings": {
+            "title": "System-Level Formulation",
+            "text": "Designed for synergy, not isolation."
+          }
+        },
+        "text_item_2": {
+          "type": "text_item",
+          "settings": {
+            "title": "Steady Energy Pathways",
+            "text": "Helps reduce peaks and dips in the system."
+          }
+        },
+        "text_item_3": {
+          "type": "text_item",
+          "settings": {
+            "title": "Dose Aware Design",
+            "text": "Respects the body's natural balance."
+          }
+        },
+        "text_item_4": {
+          "type": "text_item",
+          "settings": {
+            "title": "Optimised Bioavailability",
+            "text": "Ensures efficient absorption and use."
+          }
+        }
+      },
+      "block_order": [
+        "text_item_1",
+        "text_item_2",
+        "text_item_3",
+        "text_item_4"
+      ],
+      "settings": {
+        "image_1": "shopify://shop_images/image_480.png",
+        "image_2": "shopify://shop_images/Untitled_13_1.png"
+      }
     },
     "spacer_TyQLbr": {
       "type": "spacer",
