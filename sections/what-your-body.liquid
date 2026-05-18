@@ -1,84 +1,141 @@
 <section class="what-your-body">
-    <div class="container">
-        <div class="what-your-body-in">
-            <div class="top">
-                <h2>What Your Body’s Been Trying to Tell You</h2>
-                <p>You’re not imagining it. These everyday shifts are your body’s way of asking for support.</p>
-            </div>
-            <div class="bottom-wrap">
-                <div class="left">
-                    <div class="list-block">
-                        <p class="e-head">Energy & Fatigue</p>
-                        <ul>
-                            <li>low energy</li>
-                            <li>afternoon crashes</li>
-                            <li>tired for no clear reason</li>
-                            <li>feeling drained too easily</li>
-                            <li>slow starts to your mornings</li>
-                        </ul>
-                    </div>
-                    <div class="list-block">
-                        <p class="e-head">Energy & Fatigue</p>
-                        <ul>
-                            <li>low energy</li>
-                            <li>afternoon crashes</li>
-                            <li>tired for no clear reason</li>
-                            <li>feeling drained too easily</li>
-                            <li>slow starts to your mornings</li>
-                        </ul>
-                    </div>
-                    <div class="list-block">
-                        <p class="e-head">Energy & Fatigue</p>
-                        <ul>
-                            <li>low energy</li>
-                            <li>afternoon crashes</li>
-                            <li>tired for no clear reason</li>
-                            <li>feeling drained too easily</li>
-                            <li>slow starts to your mornings</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="center">
-                    <div class="pill-img">
-                        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Untitled_13_1.png?v=1778590436" alt="Image" class="icon">
-                    </div>
-                    <div class="pill-bg-img">
-                        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Vector_5.svg?v=1779089944" alt="Image" class="icon">
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="list-block">
-                        <p class="e-head">Energy & Fatigue</p>
-                        <ul>
-                            <li>low energy</li>
-                            <li>afternoon crashes</li>
-                            <li>tired for no clear reason</li>
-                            <li>feeling drained too easily</li>
-                            <li>slow starts to your mornings</li>
-                        </ul>
-                    </div>
-                    <div class="list-block">
-                        <p class="e-head">Energy & Fatigue</p>
-                        <ul>
-                            <li>low energy</li>
-                            <li>afternoon crashes</li>
-                            <li>tired for no clear reason</li>
-                            <li>feeling drained too easily</li>
-                            <li>slow starts to your mornings</li>
-                        </ul>
-                    </div>
-                    <div class="list-block">
-                        <p class="e-head">Energy & Fatigue</p>
-                        <ul>
-                            <li>low energy</li>
-                            <li>afternoon crashes</li>
-                            <li>tired for no clear reason</li>
-                            <li>feeling drained too easily</li>
-                            <li>slow starts to your mornings</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="what-your-body-in">
+      <div class="top text-animation">
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <p>{{ section.settings.text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="bottom-wrap">
+        <div class="left">
+          {% for block in section.blocks %}
+            {% if block.type == 'list_block' and block.settings.column == 'left' %}
+              <div class="list-block" {{ block.shopify_attributes }}>
+                {% if block.settings.heading != blank %}
+                  <p class="e-head">{{ block.settings.heading }}</p>
+                {% endif %}
+                {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
+                {% if block.settings.items != blank %}
+                  <ul>
+                    {% for item in items %}
+                      {% assign item_text = item | strip %}
+                      {% if item_text != blank %}
+                        <li>{{ item_text }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
         </div>
+
+        <div class="center">
+          {% if section.settings.pill_image != blank %}
+            <div class="pill-img">
+              {{ section.settings.pill_image | image_url: width: 420 | image_tag: alt: '', class: 'icon' }}
+            </div>
+          {% endif %}
+          {% if section.settings.background_image != blank %}
+            <div class="pill-bg-img">
+              {{ section.settings.background_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="right">
+          {% for block in section.blocks %}
+            {% if block.type == 'list_block' and block.settings.column == 'right' %}
+              <div class="list-block" {{ block.shopify_attributes }}>
+                {% if block.settings.heading != blank %}
+                  <p class="e-head">{{ block.settings.heading }}</p>
+                {% endif %}
+                {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
+                {% if block.settings.items != blank %}
+                  <ul>
+                    {% for item in items %}
+                      {% assign item_text = item | strip %}
+                      {% if item_text != blank %}
+                        <li>{{ item_text }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
+{% schema %}
+{
+  "name": "What Your Body",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "pill_image",
+      "label": "Pill image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_block",
+      "name": "List block",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Items"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What Your Body"
+    }
+  ]
+}
+{% endschema %}

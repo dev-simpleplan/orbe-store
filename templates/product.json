@@ -130,7 +130,70 @@
     },
     "what-your-body": {
       "type": "what-your-body",
-      "settings": {}
+      "blocks": {
+        "body_left_1": {
+          "type": "list_block",
+          "settings": {
+            "column": "left",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+          }
+        },
+        "body_left_2": {
+          "type": "list_block",
+          "settings": {
+            "column": "left",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+          }
+        },
+        "body_left_3": {
+          "type": "list_block",
+          "settings": {
+            "column": "left",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+          }
+        },
+        "body_right_1": {
+          "type": "list_block",
+          "settings": {
+            "column": "right",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+          }
+        },
+        "body_right_2": {
+          "type": "list_block",
+          "settings": {
+            "column": "right",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+          }
+        },
+        "body_right_3": {
+          "type": "list_block",
+          "settings": {
+            "column": "right",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+          }
+        }
+      },
+      "block_order": [
+        "body_left_1",
+        "body_left_2",
+        "body_left_3",
+        "body_right_1",
+        "body_right_2",
+        "body_right_3"
+      ],
+      "settings": {
+        "heading": "What Your Body’s Been Trying to Tell You",
+        "text": "You’re not imagining it. These everyday shifts are your body’s way of asking for support.",
+        "pill_image": "shopify://shop_images/Untitled_13_1.png",
+        "background_image": "shopify://shop_images/Vector_5.svg"
+      }
     },
     "gently-unfold": {
       "type": "gently-unfolding",
