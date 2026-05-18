@@ -1264,6 +1264,15 @@ header.header--transparent .center svg path {
   filter: grayscale(1);
 }
 
+.why-orbe-sticky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .blur-overlay {
   position: absolute;
   inset: 0;
@@ -1299,7 +1308,7 @@ header.header--transparent .center svg path {
   gap: 100px;
 }
 .why-orbe-in .bottom .counter-grid h3 {
-  font-size: clamp(80px, 11vw, 148px);
+  font-size: clamp(62px, 11vw, 148px);
   color: #fff;
 }
 .why-orbe-in .bottom .counter-grid p {

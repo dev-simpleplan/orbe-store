@@ -104,15 +104,17 @@
     #sit-section-{{ section.id }} .sit-mobile-pin {
       display: block;
       position: relative;
-      height: calc(var(--sit-mobile-fold-count, 3) * 100svh);
+      height: var(--sit-mobile-pin-height, 300vh);
     }
 
     #sit-section-{{ section.id }} .sit-mobile-sticky {
       position: sticky;
       top: 0;
-      height: 100svh;
+      height: 100vh;
       overflow: hidden;
       background: #1a1a1a;
+      contain: paint;
+      transform: translateZ(0);
     }
 
     #sit-section-{{ section.id }} .sit-mobile-bg {
@@ -121,6 +123,8 @@
       opacity: 0;
       transition: opacity 0.6s ease;
       will-change: opacity;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     #sit-section-{{ section.id }} .sit-mobile-bg.is-active {
@@ -146,26 +150,29 @@
     #sit-section-{{ section.id }} .sit-mobile-text-track {
       position: relative;
       z-index: 2;
-      height: 100%;
+      display: flex;
+      flex-direction: column;
+      height: var(--sit-mobile-pin-height, 300vh);
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
     }
 
     #sit-section-{{ section.id }} .sit-mobile-panel {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      flex: 0 0 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 40px;
       padding: 90px 30px 60px;
-      opacity: 0;
-      transform: translateY(34px);
-      will-change: opacity, transform;
+      opacity: 1;
       pointer-events: none;
     }
 
     #sit-section-{{ section.id }} .sit-mobile-panel.is-active {
       opacity: 1;
-      transform: translateY(0);
     }
 
     #sit-section-{{ section.id }} .sit-mobile-panel p {
@@ -192,6 +199,24 @@
   @media (max-width: 767px) {
     #sit-section-{{ section.id }} .sit-mobile-panel {
       padding: 82px 20px 44px;
+    }
+  }
+
+  @supports (height: 100svh) {
+    @media (max-width: 991px) {
+      #sit-section-{{ section.id }} .sit-mobile-pin,
+      #sit-section-{{ section.id }} .sit-mobile-text-track {
+        height: var(--sit-mobile-pin-height-svh, 300svh);
+      }
+
+      #sit-section-{{ section.id }} .sit-mobile-sticky {
+        height: 100svh;
+      }
+
+      #sit-section-{{ section.id }} .sit-mobile-panel {
+        flex-basis: 100svh;
+        min-height: 100svh;
+      }
     }
   }
 </style>
@@ -251,7 +276,8 @@
   </div>
 
   {% assign mobile_fold_count = section.blocks.size | at_most: 3 %}
-  <div class="sit-mobile-pin" style="--sit-mobile-fold-count: {{ mobile_fold_count }};">
+  {% assign mobile_pin_height = mobile_fold_count | times: 100 %}
+  <div class="sit-mobile-pin" style="--sit-mobile-fold-count: {{ mobile_fold_count }}; --sit-mobile-pin-height: {{ mobile_pin_height }}vh; --sit-mobile-pin-height-svh: {{ mobile_pin_height }}svh;">
     <div class="sit-mobile-sticky">
       <div class="sit-mobile-bg-wrap">
         {% for block in section.blocks limit: 3 %}
@@ -358,35 +384,35 @@
 
       mm.add('(max-width: 991px)', () => {
         const mobilePin = section.querySelector('.sit-mobile-pin');
+        const textTrack = section.querySelector('.sit-mobile-text-track');
         const backgrounds = gsap.utils.toArray(section.querySelectorAll('.sit-mobile-bg'));
         const panels = gsap.utils.toArray(section.querySelectorAll('.sit-mobile-panel'));
 
-        if (!mobilePin || panels.length < 1) return;
+        if (!mobilePin || !textTrack || panels.length < 1) return;
+
+        const maxIndex = panels.length - 1;
+        const setTrackY = gsap.quickSetter(textTrack, 'yPercent');
+        let currentIndex = -1;
 
         function setActiveBackground(index) {
+          if (index === currentIndex) return;
+          currentIndex = index;
+
           backgrounds.forEach((background, bgIndex) => {
             background.classList.toggle('is-active', bgIndex === index);
+          });
+
+          panels.forEach((panel, panelIndex) => {
+            panel.classList.toggle('is-active', panelIndex === index);
           });
         }
 
         function updateMobileScene(progress) {
-          const maxIndex = panels.length - 1;
           const scrollIndex = maxIndex === 0 ? 0 : progress * maxIndex;
           const activeIndex = Math.min(maxIndex, Math.round(scrollIndex));
 
+          setTrackY(maxIndex === 0 ? 0 : -progress * maxIndex * 100 / panels.length);
           setActiveBackground(activeIndex);
-
-          panels.forEach((panel, index) => {
-            const distance = index - scrollIndex;
-            const visible = Math.abs(distance) < 1.05;
-
-            panel.classList.toggle('is-active', index === activeIndex);
-            gsap.set(panel, {
-              autoAlpha: visible ? 1 : 0,
-              yPercent: distance * 100,
-              y: 0,
-            });
-          });
         }
 
         updateMobileScene(0);

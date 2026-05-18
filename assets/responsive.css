@@ -771,6 +771,12 @@
   .faqs-block p {
     margin-bottom: 0px;
   }
+  .why-orbe-in{
+    gap: 70px;
+  }
+  .why-orbe-in .bottom .counter-grid{
+    gap: 60px;
+  }
 }
 
 @media screen and (max-width: 400px) {
