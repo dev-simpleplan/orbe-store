@@ -741,7 +741,26 @@
   .see-through-in img {
     filter: grayscale(1);
   }
-  .faqs-block {
+  .faqs .top {
+    padding: 30px 20px;
+    margin-bottom: 20px;
+  }
+  .faqs-in {
+    gap: 5.5px;
+  }
+  .faqs-block h4 {
+    font-size: 12px;
+  }
+  .faqs-block p {
+    font-size: 10px;
+  }
+  .faqs .view-all-cta {
+    margin-top: 30px;
+  }
+  .faqs-img{
+    margin-bottom: 10px;
+  }
+  /* .faqs-block {
     padding: 0px;
   }
   .faqs-block::before {
@@ -770,11 +789,11 @@
   }
   .faqs-block p {
     margin-bottom: 0px;
-  }
-  .why-orbe-in{
+  } */
+  .why-orbe-in {
     gap: 70px;
   }
-  .why-orbe-in .bottom .counter-grid{
+  .why-orbe-in .bottom .counter-grid {
     gap: 60px;
   }
 }

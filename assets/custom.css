@@ -1153,18 +1153,12 @@ header.header--transparent .center svg path {
 }
 /* Blogs Feature */
 /* Faqs Home */
-.faqs {
-  height: auto;
-  min-height: 800px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
 .faqs-img {
   filter: grayscale(1);
   width: 100%;
-  max-height: 198.27px;
+  aspect-ratio: 1/1;
   overflow: hidden;
-  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .faqs-in {
@@ -1174,7 +1168,6 @@ header.header--transparent .center svg path {
 }
 .faqs-block {
   position: relative;
-  padding: 28px 30px;
   height: 100%;
   gap: 120px;
   display: flex;
@@ -1185,8 +1178,17 @@ header.header--transparent .center svg path {
   position: relative;
   z-index: 2;
 }
-
-.faqs-block::before {
+.faqs .top {
+  position: relative;
+  height: 100%;
+  padding: 50px 30px;
+  margin-bottom: 30px;
+  background-color: #F5F5F5;
+}
+.faqs .top h2{
+  font-size: clamp(42px, 9vw, 115px);
+}
+.faqs .top::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1200,30 +1202,17 @@ header.header--transparent .center svg path {
   mask-composite: exclude;
   z-index: 1;
 }
-/* .faqs-block a {
-  font-weight: 500px;
-  font-family: var(--aspekta);
-  letter-spacing: 2.88px;
-  line-height: 150%;
-  font-size: 12px;
-  color: var(--black);
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  display: inline-block;
-  padding-top: 50px;
-  transition: 0.4s ease all;
-
-}
-.faqs-block a:hover {
-  color: #b98846;
-} */
 .faqs-in h2 {
   font-size: clamp(54px, 9vw, 115px);
 }
+.faqs .view-all-cta{
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
 .faqs-block h4 {
   font-size: 26px;
-  font-weight: 350;
+  font-weight: 400;
   letter-spacing: -0.05em;
   text-transform: capitalize;
   line-height: 112%;
@@ -1235,12 +1224,10 @@ header.header--transparent .center svg path {
   color: #5d5d5d;
   font-weight: 400;
   margin-top: 6px;
-  margin-bottom: 20px;
 }
 .faqs-block .bottom {
   display: flex;
   flex-direction: column;
-  gap: 65px;
 }
 /* Faqs Home */
 /* Why Orbe */
@@ -2938,12 +2925,12 @@ body.ingredient-drawer-open {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.what-your-body ul li{
+.what-your-body ul li {
   list-style: none;
   position: relative;
 }
-.what-your-body ul li::before{
-  content: '';
+.what-your-body ul li::before {
+  content: "";
   position: absolute;
   top: 9px;
   left: -15px;
