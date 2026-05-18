@@ -244,6 +244,58 @@
     },
     "standard-that-speaks": {
       "type": "standard-that-speaks",
+      "blocks": {
+        "standard_1": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png",
+            "title": "Clean-label\ncommitments"
+          }
+        },
+        "standard_2": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/37ac90a8325a2eb5fb7dcc774ce97dcf06f2caae.png",
+            "title": "Third-party\ntesting"
+          }
+        },
+        "standard_3": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/9c14938d24fac2e401e48d5fd699111e852d73d0.png",
+            "title": "Vegan-certified\ncapsules"
+          }
+        },
+        "standard_4": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/9535738d3cadb555d7a157419abec5eaee44b597_1.png",
+            "title": "Ingredient\ntraceability"
+          }
+        },
+        "standard_5": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
+            "title": "Batch-Level\nTransparency"
+          }
+        },
+        "standard_6": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png",
+            "title": "GMP-certified\nfacilities"
+          }
+        }
+      },
+      "block_order": [
+        "standard_1",
+        "standard_2",
+        "standard_3",
+        "standard_4",
+        "standard_5",
+        "standard_6"
+      ],
       "settings": {
         "heading": "Standards that speaks for themselves",
         "description": "Because informed choices are powerful ones and you deserve both clarity and calm."
