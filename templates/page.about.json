@@ -248,42 +248,42 @@
         "standard_1": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/a456ca26b0e9b0f7bd557e46fac0239b4fb25bfd_1.png",
+            "image": "shopify://shop_images/6be72cd6a924785d95e517fcbe6e68e69f1cf8b0.png",
             "title": "Clean-label\ncommitments"
           }
         },
         "standard_2": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/37ac90a8325a2eb5fb7dcc774ce97dcf06f2caae.png",
+            "image": "shopify://shop_images/cfc4ff505145e8589d7cd6b72873edb93850c904.png",
             "title": "Third-party\ntesting"
           }
         },
         "standard_3": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/9c14938d24fac2e401e48d5fd699111e852d73d0.png",
+            "image": "shopify://shop_images/d1a30eb3b0af848fcd74a40ba852a94ae64c8c7f.png",
             "title": "Vegan-certified\ncapsules"
           }
         },
         "standard_4": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/9535738d3cadb555d7a157419abec5eaee44b597_1.png",
+            "image": "shopify://shop_images/198868244d6e622b93c670411b3ec99a7f273a2e.png",
             "title": "Ingredient\ntraceability"
           }
         },
         "standard_5": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
+            "image": "shopify://shop_images/e307fed96856350ee58a98c1105b6903c1429197.png",
             "title": "Batch-Level\nTransparency"
           }
         },
         "standard_6": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png",
+            "image": "shopify://shop_images/a16bc8c7a2dd5aec97f1493f992fd0cad7520500_1.png",
             "title": "GMP-certified\nfacilities"
           }
         }
