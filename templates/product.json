@@ -43,43 +43,6 @@
         "spacer_height": 120
       }
     },
-    "best-bio": {
-      "type": "best-bio-available",
-      "blocks": {
-        "slide_1": {
-          "type": "slide",
-          "settings": {
-            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
-            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
-            "author_name": "Mark Jack",
-            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
-          }
-        },
-        "slide_2": {
-          "type": "slide",
-          "settings": {
-            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
-            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
-            "author_name": "Mark Jack",
-            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
-          }
-        }
-      },
-      "block_order": [
-        "slide_1",
-        "slide_2"
-      ],
-      "settings": {
-        "heading": "“Best bio-available supplement”"
-      }
-    },
-    "spacer_6tMeNb": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
     "essential-ingredient": {
       "type": "essential-ingredient",
       "blocks": {
@@ -126,6 +89,61 @@
       "name": "Spacer",
       "settings": {
         "spacer_height": 100
+      }
+    },
+    "gently-unfold": {
+      "type": "gently-unfolding",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
+            "week": "Week 1–2",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/deddc5d6816f40dc041a9a9b35cc723848308528.jpg",
+            "week": "Week 3–4",
+            "text": "Cellular renewal begins as key bioavailable compounds reach full saturation."
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/63164f39dc38861d7b227014adaed204aaf76873_1.png",
+            "week": "Week 5–6",
+            "text": "Visible radiance emerges. Collagen pathways strengthen from within."
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468538_1.png",
+            "week": "Week 7–8",
+            "text": "The full ritual effect: sustained glow, resilient skin, calm energy."
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
+      "settings": {
+        "heading": "The Journey, Gently Unfolding",
+        "cta_text": "See Clinical Evidence",
+        "cta_link": "#"
+      }
+    },
+    "spacer_6tMeNb": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
       }
     },
     "what-your-body": {
@@ -195,55 +213,51 @@
         "background_image": "shopify://shop_images/Vector_5.svg"
       }
     },
-    "gently-unfold": {
-      "type": "gently-unfolding",
+    "spacer_VnKNLM": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "best-bio": {
+      "type": "best-bio-available",
       "blocks": {
-        "card_1": {
-          "type": "card",
+        "slide_1": {
+          "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
-            "week": "Week 1–2",
-            "text": "Nutrients supported by global research for absorption and efficacy."
+            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
+            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
+            "author_name": "Mark Jack",
+            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
           }
         },
-        "card_2": {
-          "type": "card",
+        "slide_2": {
+          "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/deddc5d6816f40dc041a9a9b35cc723848308528.jpg",
-            "week": "Week 3–4",
-            "text": "Cellular renewal begins as key bioavailable compounds reach full saturation."
-          }
-        },
-        "card_3": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/63164f39dc38861d7b227014adaed204aaf76873_1.png",
-            "week": "Week 5–6",
-            "text": "Visible radiance emerges. Collagen pathways strengthen from within."
-          }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468538_1.png",
-            "week": "Week 7–8",
-            "text": "The full ritual effect: sustained glow, resilient skin, calm energy."
+            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
+            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
+            "author_name": "Mark Jack",
+            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
           }
         }
       },
       "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4"
+        "slide_1",
+        "slide_2"
       ],
       "settings": {
-        "heading": "The Journey, Gently Unfolding",
-        "cta_text": "See Clinical Evidence",
-        "cta_link": "#"
+        "heading": "“Best bio-available supplement”"
       }
     },
-    "spacer_VnKNLM": {
+    "spacer_adLpCm": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "spacer_FUhyqE": {
       "type": "spacer",
       "name": "Spacer",
       "settings": {
@@ -262,7 +276,8 @@
     "spacer_6tMeNb",
     "what-your-body",
     "spacer_VnKNLM",
-    "best-bio"
-
+    "best-bio",
+    "spacer_adLpCm",
+    "spacer_FUhyqE"
   ]
 }
