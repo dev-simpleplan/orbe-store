@@ -1272,6 +1272,8 @@ header.header--transparent .center svg path {
   border: 1px solid rgba(255, 255, 255, 0.01);
   z-index: 5;
   pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .why-orbe .container {

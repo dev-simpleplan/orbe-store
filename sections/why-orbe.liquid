@@ -46,50 +46,44 @@
 <script>
   (function () {
     function init() {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-        setTimeout(init, 100);
-        return;
-      }
-
-      gsap.registerPlugin(ScrollTrigger);
-
       const section = document.getElementById('why-orbe-{{ section.id }}');
       if (!section) return;
 
+      const sticky = section.querySelector('.why-orbe-sticky');
       const overlay = section.querySelector('.blur-overlay');
-      if (!overlay) return;
+      if (!sticky || !overlay) return;
 
-      const existingTrigger = ScrollTrigger.getById('why-orbe-{{ section.id }}');
-      if (existingTrigger) existingTrigger.kill();
+      let ticking = false;
 
-      gsap.set(overlay, { yPercent: 0 });
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
 
-      ScrollTrigger.create({
-        id: 'why-orbe-{{ section.id }}',
-        trigger: section,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          gsap.set(overlay, { yPercent: -100 * self.progress });
-        },
-        onRefresh: (self) => {
-          gsap.set(overlay, { yPercent: -100 * self.progress });
-        },
-        onLeave: () => {
-          gsap.set(overlay, { yPercent: -100 });
-        },
-        onEnterBack: () => {
-          gsap.set(overlay, { yPercent: -100 });
-        },
-        onLeaveBack: () => {
-          gsap.set(overlay, { yPercent: 0 });
-        }
-      });
+      function updateWhyOrbe() {
+        ticking = false;
 
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+        const rect = section.getBoundingClientRect();
+        const distance = Math.max(1, section.offsetHeight - window.innerHeight);
+        const progress = clamp(-rect.top / distance, 0, 1);
+
+        overlay.style.transform = 'translate3d(0, ' + (-progress * 100) + '%, 0)';
+      }
+
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateWhyOrbe);
+      }
+
+      updateWhyOrbe();
+
+      if (window.lenis && typeof window.lenis.on === 'function') {
+        window.lenis.on('scroll', requestUpdate);
+      }
+
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+      window.addEventListener('load', requestUpdate, { once: true });
     }
 
     init();
