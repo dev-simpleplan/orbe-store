@@ -46,7 +46,7 @@
   .ready-formula-in {
     height: 600px;
   }
-  .first-phase-header .fph-link{
+  .first-phase-header .fph-link {
     font-size: 12px;
   }
 }
@@ -79,10 +79,10 @@
   .ready-formula {
     padding: 50px 0px;
   }
-  .what-your-body ul li{
+  .what-your-body ul li {
     font-size: 14px;
   }
-  .what-your-body .pill-img{
+  .what-your-body .pill-img {
     width: 120px;
   }
 }
@@ -419,10 +419,10 @@
   .ready-formula-in .left .content-block {
     padding-top: 0px;
   }
-  .spacer-template--20636199452828__spacer_TyQLbr{
+  .spacer-template--20636199452828__spacer_TyQLbr {
     display: none;
   }
-  .spacer-template--20636199452828__spacer_LNTQEE{
+  .spacer-template--20636199452828__spacer_LNTQEE {
     display: none;
   }
 }
@@ -439,13 +439,13 @@
   .footer-in .left {
     gap: 50px;
   }
-  .faqs-in {
-    grid-template-columns: 1fr;
+  .faqs-block .top {
+    display: none;
   }
-
   .see-through .container-left {
     padding: 0 16px;
   }
+
   /* .see-through-in,
   .see-through .st-struct-3 {
     max-width: 320px;
@@ -738,9 +738,39 @@
   .st-question p {
     font-size: 18px;
   }
-   .see-through-in img{
+  .see-through-in img {
     filter: grayscale(1);
-   }
+  }
+  .faqs-block {
+    padding: 0px;
+  }
+  .faqs-block::before {
+    background: none;
+  }
+  .faqs-block h4 {
+    font-size: 12px;
+  }
+  .faqs-block p {
+    font-size: 10px;
+  }
+  .faqs-in {
+    gap: 5px;
+  }
+  .faqs-img {
+    margin-top: 0px;
+    height: 85px;
+  }
+  .faqs-block .bottom {
+    gap: 10px;
+  }
+  .faqs {
+    padding: 0px;
+    height: 100%;
+    min-height: unset;
+  }
+  .faqs-block p {
+    margin-bottom: 0px;
+  }
 }
 
 @media screen and (max-width: 400px) {
