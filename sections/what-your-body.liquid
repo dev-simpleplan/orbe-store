@@ -40,11 +40,6 @@
             {{ section.settings.pill_image | image_url: width: 420 | image_tag: alt: '', class: 'icon' }}
           </div>
           {% endif %}
-          {% if section.settings.background_image != blank %}
-          <div class="pill-bg-img">
-            {{ section.settings.background_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
-          </div>
-          {% endif %}
         </div>
 
         <div class="right">
