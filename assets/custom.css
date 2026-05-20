@@ -3022,4 +3022,8 @@ body.ingredient-drawer-open {
 .contact-us-form input::placeholder {
   color: #6b6b6b;
 }
+.cib-icon{
+  width: 15px;
+  height: auto;
+}
 /* Contact Us */
