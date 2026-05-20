@@ -2991,7 +2991,7 @@ body.ingredient-drawer-open {
 .contact-us-form .input-wrap textarea, .iti__selected-dial-code {
   border: none;
   line-height: 150%;
-  font-family: var(--aspekta);
+  font-family: var(--aspekta) !important;
   font-weight: 300 !important;
   letter-spacing: 0.02em;
   color: #5d5d5d !important;

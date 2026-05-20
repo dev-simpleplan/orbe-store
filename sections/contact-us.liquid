@@ -34,9 +34,8 @@
             <div class="contact-info-block" {{ block.shopify_attributes }}>
               <div class="cib-icon">
                 {% if block.settings.icon != blank %}
-                <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="{{ block.settings.title }}"
-                  class="icon">
-                {% endif %}
+                {{ block.settings.icon | image_url: width: 40 | image_tag: class: 'icon', alt: block.settings.title }}
+              {% endif %}
               </div>
               <p class="cib-title">{{ block.settings.title }}</p>
               {% if block.settings.link != blank %}
