@@ -11,7 +11,23 @@
   "sections": {
     "main": {
       "type": "contact-us",
-      "settings": {}
+      "blocks": {
+        "social_link_akxUtt": {
+          "type": "social_link",
+          "settings": {
+            "label": "FACEBOOK",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "social_link_akxUtt"
+      ],
+      "settings": {
+        "heading": "Get in Touch With Our Team",
+        "subtitle": "Subtitle that supports the title.",
+        "form_bg": "shopify://shop_images/249803796757462e94d355e25592fa125f0e15a6.png"
+      }
     }
   },
   "order": [
