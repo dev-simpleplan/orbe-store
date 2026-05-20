@@ -90,9 +90,17 @@
         "subtitle": "Subtitle that supports the title. orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit.",
         "form_bg": "shopify://shop_images/249803796757462e94d355e25592fa125f0e15a6.png"
       }
+    },
+    "spacer_TpLeba": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "spacer_TpLeba"
   ]
 }
