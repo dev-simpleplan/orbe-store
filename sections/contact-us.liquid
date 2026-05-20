@@ -9,27 +9,29 @@
         <div class="bottom">
           <div class="contact-information">
             {% for block in section.blocks %}
-              {% if block.type == 'contact_info' %}
-                <div class="contact-info-block" {{ block.shopify_attributes }}>
-                  <div class="cib-icon">
-                    {% if block.settings.icon != blank %}
-                      <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="{{ block.settings.title }}" class="icon">
-                    {% endif %}
-                  </div>
-                  <p class="cib-title">{{ block.settings.title }}</p>
-                  {% if block.settings.link != blank %}
-                    <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
-                  {% else %}
-                    <span>{{ block.settings.text }}</span>
+              <div class="contact-info-block" {{ block.shopify_attributes }}>
+                <div class="cib-icon">
+                  {% if block.settings.icon != blank %}
+                    <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="{{ block.settings.title }}" class="icon">
                   {% endif %}
                 </div>
-              {% endif %}
+                <p class="cib-title">{{ block.settings.title }}</p>
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+                {% else %}
+                  <span>{{ block.settings.text }}</span>
+                {% endif %}
+              </div>
             {% endfor %}
           </div>
           <div class="social-platform-links">
-            {% for block in section.blocks %}
-              {% if block.type == 'social_link' %}
-                <a href="{{ block.settings.url }}" {{ block.shopify_attributes }}>{{ block.settings.label }} <span>
+            {% for i in (1..4) %}
+              {% assign label_key = 'social_' | append: i | append: '_label' %}
+              {% assign url_key   = 'social_' | append: i | append: '_url' %}
+              {% assign s_label   = section.settings[label_key] %}
+              {% assign s_url     = section.settings[url_key] %}
+              {% if s_label != blank %}
+                <a href="{{ s_url }}">{{ s_label }} <span>
                     <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0.930729 8.66667L7.33073 2.26667V8H8.66406V0H0.664062V1.33333H6.3974L-0.00260448 7.73333L0.930729 8.66667Z" fill="#1C1B1F" />
                     </svg>
@@ -41,7 +43,7 @@
         </div>
       </div>
       <div class="right">
-        <div class="contact-us-form">
+        <div class="contact-us-form" {% if section.settings.form_bg != blank %}style="background-image: url('{{ section.settings.form_bg | image_url: width: 1200 }}');"{% endif %}>
           {% form 'contact' %}
             {% if form.posted_successfully? %}
               <p class="form-success">Thank you for reaching out! We'll get back to you soon.</p>
@@ -95,6 +97,10 @@
   "name": "Contact Us",
   "settings": [
     {
+      "type": "header",
+      "content": "Content"
+    },
+    {
       "type": "text",
       "id": "heading",
       "label": "Heading",
@@ -105,6 +111,62 @@
       "id": "subtitle",
       "label": "Subtitle",
       "default": "Subtitle that supports the title."
+    },
+    {
+      "type": "header",
+      "content": "Form Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "form_bg",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Social Links"
+    },
+    {
+      "type": "text",
+      "id": "social_1_label",
+      "label": "Link 1 — Label",
+      "default": "FACEBOOK"
+    },
+    {
+      "type": "url",
+      "id": "social_1_url",
+      "label": "Link 1 — URL"
+    },
+    {
+      "type": "text",
+      "id": "social_2_label",
+      "label": "Link 2 — Label",
+      "default": "INSTAGRAM"
+    },
+    {
+      "type": "url",
+      "id": "social_2_url",
+      "label": "Link 2 — URL"
+    },
+    {
+      "type": "text",
+      "id": "social_3_label",
+      "label": "Link 3 — Label",
+      "default": "TWITTER"
+    },
+    {
+      "type": "url",
+      "id": "social_3_url",
+      "label": "Link 3 — URL"
+    },
+    {
+      "type": "text",
+      "id": "social_4_label",
+      "label": "Link 4 — Label"
+    },
+    {
+      "type": "url",
+      "id": "social_4_url",
+      "label": "Link 4 — URL"
     }
   ],
   "blocks": [
@@ -135,23 +197,6 @@
           "label": "Link"
         }
       ]
-    },
-    {
-      "type": "social_link",
-      "name": "Social Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Label",
-          "default": "FACEBOOK"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "URL"
-        }
-      ]
     }
   ],
   "presets": [
@@ -178,24 +223,6 @@
           "settings": {
             "title": "Email",
             "text": "hello@example.com"
-          }
-        },
-        {
-          "type": "social_link",
-          "settings": {
-            "label": "FACEBOOK"
-          }
-        },
-        {
-          "type": "social_link",
-          "settings": {
-            "label": "INSTAGRAM"
-          }
-        },
-        {
-          "type": "social_link",
-          "settings": {
-            "label": "TWITTER"
           }
         }
       ]
