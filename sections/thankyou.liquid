@@ -1,0 +1,68 @@
+<section class="error-404 thankyou-page">
+  <div class="container">
+    <div class="error-404-in">
+      <div class="thankyou-orb">
+        {% if section.settings.orb_image != blank %}
+          {{ section.settings.orb_image | image_url: width: 400 | image_tag: class: 'icon', alt: 'Thank You' }}
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Frame_2072749374_3.svg?v=1779278690" alt="orb" class="icon">
+        {% endif %}
+      </div>
+      <div class="bottom-block">
+        <h3>{{ section.settings.heading }}</h3>
+        <p>{{ section.settings.subtext }}</p>
+        <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_label }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .thankyou-page .thankyou-orb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .thankyou-page .thankyou-orb .icon {
+    width: clamp(180px, 24vw, 340px);
+    height: auto;
+    display: block;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Thank You",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "orb_image",
+      "label": "Orb Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Thank You!"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Your message has been received. We'll be in touch with you shortly."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Back To Home"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    }
+  ]
+}
+{% endschema %}
