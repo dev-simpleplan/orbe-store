@@ -3111,3 +3111,80 @@ padding-bottom: 160px;
   padding-bottom: 7px;
 }
 /* Contact Us */
+/* Error 404 */
+.error-404 {
+  background-color: var(--black);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.error-404::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663237.svg?v=1779278649');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+}
+.error-404-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 80px 0 60px;
+}
+.error-404-in h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: clamp(140px, 22vw, 320px);
+  line-height: 1;
+  font-family: var(--tobias);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  gap: 0;
+  margin: 0;
+}
+.error-404-in h1 span {
+  display: flex;
+  align-items: center;
+}
+.error-404-in h1 span .icon {
+  width: clamp(120px, 18vw, 280px);
+  height: auto;
+  display: block;
+}
+.error-404-in .bottom-block {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 480px;
+}
+.error-404-in .bottom-block h3 {
+  color: #fff;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 400;
+  font-family: var(--tobias);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+.error-404-in .bottom-block p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+.error-404-in .bottom-block .primary-btn {
+  margin-top: 8px;
+}
+/* Error 404 */

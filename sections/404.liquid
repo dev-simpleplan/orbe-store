@@ -1,12 +1,55 @@
-<section class="error-404" style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663237.svg?v=1779278649');">
+<section class="error-404">
   <div class="container">
     <div class="error-404-in">
-      <h1>4 <span><img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Frame_2072749374_3.svg?v=1779278690" alt="Image" class="icon"></span>4</h1>
+      <h1>4 <span>
+        {% if section.settings.orb_image != blank %}
+          {{ section.settings.orb_image | image_url: width: 400 | image_tag: class: 'icon', alt: '0' }}
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Frame_2072749374_3.svg?v=1779278690" alt="0" class="icon">
+        {% endif %}
+      </span> 4</h1>
       <div class="bottom-block">
-        <h3>Requested Page not found</h3>
-        <p>Lorem ipsum dolor sit amet consectetur. Aenean vulputate in pharetra netus scelerisque duis elementum. </p>
-        <a href="/" class="primary-btn">Back To Home</a>
+        <h3>{{ section.settings.heading }}</h3>
+        <p>{{ section.settings.subtext }}</p>
+        <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_label }}</a>
       </div>
     </div>
   </div>
 </section>
+
+{% schema %}
+{
+  "name": "404",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "orb_image",
+      "label": "Orb Image (center of 404)"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Requested Page Not Found"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Lorem ipsum dolor sit amet consectetur. Aenean vulputate in pharetra netus scelerisque duis elementum."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Back To Home"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    }
+  ]
+}
+{% endschema %}
