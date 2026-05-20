@@ -24,8 +24,8 @@
         "social_link_akxUtt": {
           "type": "social_link",
           "settings": {
-            "label": "FACEBOOK",
-            "url": ""
+            "label": "Facebook",
+            "url": "#!"
           }
         }
       },
