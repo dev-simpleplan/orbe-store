@@ -12,6 +12,24 @@
     "main": {
       "type": "contact-us",
       "blocks": {
+        "contact_info_CFFeVd": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "shopify://shop_images/call.svg",
+            "title": "Phone Number",
+            "text": "+44 (20) 35 14 45 90",
+            "link": "tel:442035144590"
+          }
+        },
+        "contact_info_mYyeyD": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "shopify://shop_images/mail.svg",
+            "title": "Email",
+            "text": "info@orbe.com",
+            "link": "mailto:info@orbe.com"
+          }
+        },
         "contact_info_pp3BfM": {
           "type": "contact_info",
           "settings": {
@@ -30,6 +48,8 @@
         }
       },
       "block_order": [
+        "contact_info_CFFeVd",
+        "contact_info_mYyeyD",
         "contact_info_pp3BfM",
         "social_link_akxUtt"
       ],
