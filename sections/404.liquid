@@ -1,23 +1,12 @@
-{% comment %}
-  This section is used in the 404 template to render page shown when customers
-  enter an invalid store URL.
-
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/404
-{% endcomment %}
-
-<h1>{{ '404.title' | t }}</h1>
-
-<p>
-  {{ '404.not_found' | t }}
-</p>
-
-<a href="{{ routes.all_products_collection_url }}">
-  {{ '404.back_to_shopping' | t }}
-</a>
-
-{% schema %}
-{
-  "name": "t:general.404",
-  "settings": []
-}
-{% endschema %}
+<section class="error-404" style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663237.svg?v=1779278649');">
+  <div class="container">
+    <div class="error-404-in">
+      <h1>4 <span><img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Frame_2072749374_3.svg?v=1779278690" alt="Image" class="icon"></span>4</h1>
+      <div class="bottom-block">
+        <h3>Requested Page not found</h3>
+        <p>Lorem ipsum dolor sit amet consectetur. Aenean vulputate in pharetra netus scelerisque duis elementum. </p>
+        <a href="/" class="primary-btn">Back To Home</a>
+      </div>
+    </div>
+  </div>
+</section>
