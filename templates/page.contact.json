@@ -12,6 +12,15 @@
     "main": {
       "type": "contact-us",
       "blocks": {
+        "contact_info_pp3BfM": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "shopify://shop_images/location_on_1.svg",
+            "title": "Office",
+            "text": "Hausvogteiplatz 12 10117 Berlin, Germany",
+            "link": "#!"
+          }
+        },
         "social_link_akxUtt": {
           "type": "social_link",
           "settings": {
@@ -21,6 +30,7 @@
         }
       },
       "block_order": [
+        "contact_info_pp3BfM",
         "social_link_akxUtt"
       ],
       "settings": {
