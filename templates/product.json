@@ -161,7 +161,7 @@
           "type": "list_block",
           "settings": {
             "column": "left",
-            "heading": "Energy & Fatigue",
+            "heading": "Mood & Clarity",
             "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
           }
         },
@@ -210,7 +210,7 @@
         "heading": "What Your Body’s Been Trying to Tell You",
         "text": "You’re not imagining it. These everyday shifts are your body’s way of asking for support.",
         "pill_image": "shopify://shop_images/Untitled_13_1.png",
-        "background_image": "shopify://shop_images/Vector_5.svg"
+        "background_image": "shopify://shop_images/1d55de5de569b792405280de8a506e1328316733_1.png"
       }
     },
     "spacer_VnKNLM": {
