@@ -3,139 +3,257 @@
     <div class="what-your-body-in">
       <div class="top text-animation">
         {% if section.settings.heading != blank %}
-          <h2>{{ section.settings.heading }}</h2>
+        <h2>{{ section.settings.heading }}</h2>
         {% endif %}
         {% if section.settings.text != blank %}
-          <p>{{ section.settings.text }}</p>
+        <p>{{ section.settings.text }}</p>
         {% endif %}
       </div>
 
       <div class="bottom-wrap">
         <div class="left">
           {% for block in section.blocks %}
-            {% if block.type == 'list_block' and block.settings.column == 'left' %}
-              <div class="list-block" {{ block.shopify_attributes }}>
-                {% if block.settings.heading != blank %}
-                  <p class="e-head">{{ block.settings.heading }}</p>
-                {% endif %}
-                {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
-                {% if block.settings.items != blank %}
-                  <ul>
-                    {% for item in items %}
-                      {% assign item_text = item | strip %}
-                      {% if item_text != blank %}
-                        <li>{{ item_text }}</li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </div>
+          {% if block.type == 'list_block' and block.settings.column == 'left' %}
+          <div class="list-block" {{ block.shopify_attributes }}>
+            {% if block.settings.heading != blank %}
+            <p class="e-head">{{ block.settings.heading }}</p>
             {% endif %}
+            {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
+            {% if block.settings.items != blank %}
+            <ul>
+              {% for item in items %}
+              {% assign item_text = item | strip %}
+              {% if item_text != blank %}
+              <li>{{ item_text }}</li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          {% endif %}
           {% endfor %}
         </div>
 
         <div class="center">
           {% if section.settings.pill_image != blank %}
-            <div class="pill-img">
-              {{ section.settings.pill_image | image_url: width: 420 | image_tag: alt: '', class: 'icon' }}
-            </div>
+          <div class="pill-img">
+            {{ section.settings.pill_image | image_url: width: 420 | image_tag: alt: '', class: 'icon' }}
+          </div>
           {% endif %}
           {% if section.settings.background_image != blank %}
-            <div class="pill-bg-img">
-              {{ section.settings.background_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
-            </div>
+          <div class="pill-bg-img">
+            {{ section.settings.background_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
+          </div>
           {% endif %}
         </div>
 
         <div class="right">
           {% for block in section.blocks %}
-            {% if block.type == 'list_block' and block.settings.column == 'right' %}
-              <div class="list-block" {{ block.shopify_attributes }}>
-                {% if block.settings.heading != blank %}
-                  <p class="e-head">{{ block.settings.heading }}</p>
-                {% endif %}
-                {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
-                {% if block.settings.items != blank %}
-                  <ul>
-                    {% for item in items %}
-                      {% assign item_text = item | strip %}
-                      {% if item_text != blank %}
-                        <li>{{ item_text }}</li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </div>
+          {% if block.type == 'list_block' and block.settings.column == 'right' %}
+          <div class="list-block" {{ block.shopify_attributes }}>
+            {% if block.settings.heading != blank %}
+            <p class="e-head">{{ block.settings.heading }}</p>
             {% endif %}
+            {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
+            {% if block.settings.items != blank %}
+            <ul>
+              {% for item in items %}
+              {% assign item_text = item | strip %}
+              {% if item_text != blank %}
+              <li>{{ item_text }}</li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          {% endif %}
           {% endfor %}
         </div>
       </div>
     </div>
   </div>
 </section>
+<section class="what-your-body-mobile{% if section.settings.background_image == blank %} no-mobile-bg{% endif %}" data-what-your-body-mobile-{{ section.id }}{% if section.settings.background_image != blank %} style="background-image: url('{{ section.settings.background_image | image_url: width: 900 }}');"{% endif %}>
+  <div class="container">
+    <div class="what-your-mobile-in">
+      <div class="top">
+        {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+        <p>{{ section.settings.text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="what-your-mobile-orbit" aria-label="Body signals">
+        {% assign mobile_blocks = section.blocks | where: 'type', 'list_block' %}
+        {% for pair_index in (0..2) %}
+        {% assign pair_offset = pair_index | times: 2 %}
+        {% assign circle_number = pair_index | plus: 1 %}
+        {% if mobile_blocks.size > pair_offset %}
+        <div class="what-your-mobile-circle what-your-mobile-circle-{{ circle_number }}">
+          {% for block in mobile_blocks limit: 2 offset: pair_offset %}
+          {% assign signal_number = pair_offset | plus: forloop.index %}
+          <div
+            class="what-your-mobile-signal signal-{{ signal_number }}{% if forloop.index == 1 %} is-first{% else %} is-second{% endif %}"
+            {{ block.shopify_attributes }}>
+            {% if block.settings.heading != blank %}
+            <span>{{ block.settings.heading }}</span>
+            {% endif %}
+            <a
+              href="#what-your-body-card-{{ section.id }}-{{ block.id }}"
+              data-body-card-open="{{ block.id }}"
+              aria-controls="what-your-body-card-{{ section.id }}-{{ block.id }}">Learn More</a>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="what-your-body-card-backdrop" data-body-card-close></div>
+  {% for block in mobile_blocks limit: 6 %}
+  <aside class="what-your-body-card" id="what-your-body-card-{{ section.id }}-{{ block.id }}" data-body-card="{{ block.id }}" aria-hidden="true">
+    <button type="button" class="what-your-body-card-close" aria-label="Close" data-body-card-close>
+      <span></span>
+      <span></span>
+    </button>
+
+    {% if block.settings.heading != blank %}
+    <h3>{{ block.settings.heading }}</h3>
+    {% endif %}
+
+    {% assign mobile_items = block.settings.items | newline_to_br | split: '<br />' %}
+    {% if block.settings.items != blank %}
+    <ul>
+      {% for item in mobile_items %}
+      {% assign item_text = item | strip %}
+      {% if item_text != blank %}
+      <li>{{ item_text }}</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </aside>
+  {% endfor %}
+</section>
+
+<script>
+  (function () {
+    var section = document.querySelector('[data-what-your-body-mobile-{{ section.id }}]');
+    if (!section) return;
+
+    var openButtons = section.querySelectorAll('[data-body-card-open]');
+    var closeButtons = section.querySelectorAll('[data-body-card-close]');
+    var cards = section.querySelectorAll('[data-body-card]');
+
+    function closeCards() {
+      section.classList.remove('body-card-active');
+      cards.forEach(function (card) {
+        card.setAttribute('aria-hidden', 'true');
+      });
+      document.documentElement.classList.remove('what-your-body-card-open');
+      document.body.classList.remove('what-your-body-card-open');
+      if (window.lenis) window.lenis.start();
+    }
+
+    function openCard(cardId) {
+      var card = section.querySelector('[data-body-card="' + cardId + '"]');
+      if (!card) return;
+
+      cards.forEach(function (item) {
+        item.setAttribute('aria-hidden', item === card ? 'false' : 'true');
+      });
+
+      section.classList.add('body-card-active');
+      document.documentElement.classList.add('what-your-body-card-open');
+      document.body.classList.add('what-your-body-card-open');
+      if (window.lenis) window.lenis.stop();
+    }
+
+    openButtons.forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        openCard(button.getAttribute('data-body-card-open'));
+      });
+    });
+
+    closeButtons.forEach(function (button) {
+      button.addEventListener('click', closeCards);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && section.classList.contains('body-card-active')) {
+        closeCards();
+      }
+    });
+  })();
+</script>
 
 {% schema %}
 {
-  "name": "What Your Body",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "text",
-      "label": "Text"
-    },
-    {
-      "type": "image_picker",
-      "id": "pill_image",
-      "label": "Pill image"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "list_block",
-      "name": "List block",
-      "settings": [
-        {
-          "type": "select",
-          "id": "column",
-          "label": "Column",
-          "options": [
-            {
-              "value": "left",
-              "label": "Left"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading"
-        },
-        {
-          "type": "textarea",
-          "id": "items",
-          "label": "Items"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "What Your Body"
-    }
-  ]
+"name": "What Your Body",
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading"
+},
+{
+"type": "textarea",
+"id": "text",
+"label": "Text"
+},
+{
+"type": "image_picker",
+"id": "pill_image",
+"label": "Pill image"
+},
+{
+"type": "image_picker",
+"id": "background_image",
+"label": "Background image"
+}
+],
+"blocks": [
+{
+"type": "list_block",
+"name": "List block",
+"settings": [
+{
+"type": "select",
+"id": "column",
+"label": "Column",
+"options": [
+{
+"value": "left",
+"label": "Left"
+},
+{
+"value": "right",
+"label": "Right"
+}
+]
+},
+{
+"type": "text",
+"id": "heading",
+"label": "Heading"
+},
+{
+"type": "textarea",
+"id": "items",
+"label": "Items"
+}
+]
+}
+],
+"presets": [
+{
+"name": "What Your Body"
+}
+]
 }
 {% endschema %}

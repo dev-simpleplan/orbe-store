@@ -2937,6 +2937,91 @@ body.ingredient-drawer-open {
   background-color: #fff;
   border-radius: 50%;
 }
+.what-your-body-mobile {
+  display: none;
+}
+html.what-your-body-card-open,
+body.what-your-body-card-open {
+  overflow: hidden;
+  height: 100%;
+}
+.what-your-body-card-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+.what-your-body-card {
+  position: fixed;
+  top: 40%;
+  right: 0;
+  z-index: 999;
+  width: min(100vw, 100%);
+  min-height: 320px;
+  background: #fff;
+  color: #151515;
+  padding: 38px 26px 34px;
+  transform: translateX(100%);
+  transition: transform 0.42s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.what-your-body-mobile.body-card-active .what-your-body-card-backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+.what-your-body-card[aria-hidden="false"] {
+  transform: translateX(0);
+}
+.what-your-body-card-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.what-your-body-card-close span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 1px;
+  background: #151515;
+  transform-origin: center;
+}
+.what-your-body-card-close span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.what-your-body-card-close span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.what-your-body-card h3 {
+  color: #151515;
+  font-family: var(--tobias);
+  font-size: 22px;
+  line-height: 120%;
+  font-weight: 400;
+  margin: 0 34px 140px 0;
+}
+.what-your-body-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.what-your-body-card li {
+  color: #151515;
+  font-family: var(--aspekta);
+  font-size: 12px;
+  line-height: 130%;
+  font-weight: 400;
+  text-transform: capitalize;
+}
 /* what your body */
 /* Contact Us */
 .contact-us {
@@ -3204,3 +3289,6 @@ body.ingredient-drawer-open {
 .thankyou-page .bottom-block{
   max-width: 100%;
 }
+  .what-your-body {
+    display: block;
+  }
