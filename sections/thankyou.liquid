@@ -1,13 +1,6 @@
 <section class="error-404 thankyou-page">
   <div class="container">
     <div class="error-404-in">
-      <div class="thankyou-orb">
-        {% if section.settings.orb_image != blank %}
-          {{ section.settings.orb_image | image_url: width: 400 | image_tag: class: 'icon', alt: 'Thank You' }}
-        {% else %}
-          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Frame_2072749374_3.svg?v=1779278690" alt="orb" class="icon">
-        {% endif %}
-      </div>
       <div class="bottom-block">
         <h3>{{ section.settings.heading }}</h3>
         <p>{{ section.settings.subtext }}</p>
