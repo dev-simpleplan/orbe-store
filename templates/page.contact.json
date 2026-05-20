@@ -52,6 +52,27 @@
             "label": "Linkedin",
             "url": "#!"
           }
+        },
+        "social_link_Bk7cA7": {
+          "type": "social_link",
+          "settings": {
+            "label": "Twitter",
+            "url": "#!"
+          }
+        },
+        "social_link_Ye8KAb": {
+          "type": "social_link",
+          "settings": {
+            "label": "Instagram",
+            "url": "#!"
+          }
+        },
+        "social_link_AWJ6kW": {
+          "type": "social_link",
+          "settings": {
+            "label": "Youtube",
+            "url": "#!"
+          }
         }
       },
       "block_order": [
@@ -59,7 +80,10 @@
         "contact_info_mYyeyD",
         "contact_info_CFFeVd",
         "social_link_akxUtt",
-        "social_link_CA9Qnk"
+        "social_link_CA9Qnk",
+        "social_link_Bk7cA7",
+        "social_link_Ye8KAb",
+        "social_link_AWJ6kW"
       ],
       "settings": {
         "heading": "Get in Touch With Our Team",
