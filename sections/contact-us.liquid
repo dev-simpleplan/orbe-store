@@ -30,7 +30,7 @@
           <div class="social-platform-links">
             {% for block in section.blocks %}
             {% if block.type == 'social_link' %}
-            <a href="{{ block.settings.url }}" {{ block.shopify_attributes }}>{{ block.settings.label }} <span>
+            <a href="{{ block.settings.url }}" target="_blank" {{ block.shopify_attributes }}>{{ block.settings.label }} <span>
                 <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M0.930729 8.66667L7.33073 2.26667V8H8.66406V0H0.664062V1.33333H6.3974L-0.00260448 7.73333L0.930729 8.66667Z"
@@ -76,7 +76,7 @@
           </div>
           <div class="input-wrap">
             <label for="ContactFormBody">Additional Information*</label>
-            <textarea rows="1" name="contact[body]" id="ContactFormBody"
+            <textarea rows="1" name="contact[body]" id="ContactFormBody" data-lenis-prevent
               placeholder="Please provide any additional details about your request"></textarea>
           </div>
           <div class="input-wrap submit-wrap">

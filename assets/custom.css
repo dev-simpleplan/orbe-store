@@ -2945,7 +2945,7 @@ body.ingredient-drawer-open {
 .contact-us-in {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 50px;
 }
 .contact-us-in .right {
   padding: 30px 0px 30px 20px;
@@ -3022,8 +3022,81 @@ body.ingredient-drawer-open {
 .contact-us-form input::placeholder {
   color: #6b6b6b;
 }
-.cib-icon{
+.contact-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  row-gap: 40px;
+}
+.contact-information .contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.contact-info-block .cib-icon {
   width: 15px;
   height: auto;
+}
+.contact-info-block .cib-title {
+  text-transform: uppercase;
+  letter-spacing: 2.88px;
+  line-height: 150%;
+  font-size: 12px;
+  color: #1A1A1A;
+  font-weight: 400;
+}
+.contact-info-block a{
+font-weight: 450;
+line-height: 130%;
+letter-spacing: 0em;
+color: #5d5d5d;
+font-size: 14px;
+font-family: var(--aspekta);
+max-width: 20ch;
+}
+.social-platform-links a{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-family: var(--aspekta);
+  line-height: 150%;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 400;
+  color: #1B1B1B;
+  display: flex;
+  gap: 5px;
+}
+.social-platform-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 27px;
+  row-gap: 15px;
+}
+.social-platform-links a span{
+  transition: .4s ease all;
+}
+.social-platform-links a:hover span{
+  transform: translate(3px, -3px);
+}
+.contact-us-in .left{
+  display: flex;
+  flex-direction: column;
+justify-content: space-between;
+padding-bottom: 160px;
+}
+.contact-us-in .left .top{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 40px;
+}
+.contact-us-in .left .top p{
+  max-width: 58ch;
+}
+.contact-us-in .left .bottom{
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 /* Contact Us */
