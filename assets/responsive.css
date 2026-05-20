@@ -441,6 +441,9 @@
   .contact-us {
     padding-top: 120px;
   }
+  .error-404-in .bottom-block p{
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 767px) {
   .footer {
@@ -842,6 +845,9 @@
   .contact-us-form .logo-o{
     width: 40px;
     height: auto;
+  }
+  .error-404-in .bottom-block p{
+    font-size: 14px;
   }
 }
 

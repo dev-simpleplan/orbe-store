@@ -2988,7 +2988,8 @@ body.ingredient-drawer-open {
 .contact-us-form .input-wrap input[type="text"],
 .contact-us-form .input-wrap input[type="tel"],
 .contact-us-form .input-wrap input[type="email"],
-.contact-us-form .input-wrap textarea, .iti__selected-dial-code {
+.contact-us-form .input-wrap textarea,
+.iti__selected-dial-code {
   border: none;
   line-height: 150%;
   font-family: var(--aspekta) !important;
@@ -3019,7 +3020,10 @@ body.ingredient-drawer-open {
 .contact-us-form .input-wrap.submit-wrap {
   border: none;
 }
-.contact-us-form .input-wrap input[type="text"]::placeholder, .contact-us-form .input-wrap input[type="tel"]::placeholder, .contact-us-form .input-wrap input[type="email"]::placeholder, .contact-us-form .input-wrap textarea::placeholder{
+.contact-us-form .input-wrap input[type="text"]::placeholder,
+.contact-us-form .input-wrap input[type="tel"]::placeholder,
+.contact-us-form .input-wrap input[type="email"]::placeholder,
+.contact-us-form .input-wrap textarea::placeholder {
   color: #6b6b6b !important;
   text-transform: capitalize;
 }
@@ -3043,19 +3047,19 @@ body.ingredient-drawer-open {
   letter-spacing: 2.88px;
   line-height: 150%;
   font-size: 12px;
-  color: #1A1A1A;
+  color: #1a1a1a;
   font-weight: 400;
 }
-.contact-info-block a{
-font-weight: 450;
-line-height: 130%;
-letter-spacing: 0em;
-color: #5d5d5d;
-font-size: 14px;
-font-family: var(--aspekta);
-max-width: 20ch;
+.contact-info-block a {
+  font-weight: 450;
+  line-height: 130%;
+  letter-spacing: 0em;
+  color: #5d5d5d;
+  font-size: 14px;
+  font-family: var(--aspekta);
+  max-width: 20ch;
 }
-.social-platform-links a{
+.social-platform-links a {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
@@ -3064,69 +3068,69 @@ max-width: 20ch;
   text-decoration: underline;
   text-underline-offset: 2px;
   font-weight: 400;
-  color: #1B1B1B;
+  color: #1b1b1b;
   display: flex;
   gap: 5px;
 }
-.social-platform-links{
+.social-platform-links {
   display: flex;
   flex-wrap: wrap;
   gap: 27px;
   row-gap: 15px;
 }
-.social-platform-links a span{
-  transition: .4s ease all;
+.social-platform-links a span {
+  transition: 0.4s ease all;
 }
-.social-platform-links a:hover span{
+.social-platform-links a:hover span {
   transform: translate(3px, -3px);
 }
-.contact-us-in .left{
+.contact-us-in .left {
   display: flex;
   flex-direction: column;
-justify-content: space-between;
-padding-bottom: 160px;
+  justify-content: space-between;
+  padding-bottom: 160px;
 }
-.contact-us-in .left .top{
+.contact-us-in .left .top {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding-top: 40px;
 }
-.contact-us-in .left .top p{
+.contact-us-in .left .top p {
   max-width: 58ch;
 }
-.contact-us-in .left .bottom{
+.contact-us-in .left .bottom {
   display: flex;
   flex-direction: column;
   gap: 80px;
 }
-.iti__selected-country{
+.iti__selected-country {
   align-items: unset;
 }
-.iti__country{
+.iti__country {
   font-family: var(--aspekta);
   font-size: 14px;
 }
-.iti__selected-country-primary{
+.iti__selected-country-primary {
   padding-bottom: 7px;
 }
 /* Contact Us */
 /* Error 404 */
 .error-404 {
-  background-color: var(--black);
+  background-color: #000;
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
 .error-404::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663237.svg?v=1779278649');
+  background-image: url("https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Group_2085663237.svg?v=1779278649");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-position: bottom;
+  background-size: cover;
   pointer-events: none;
 }
 .error-404-in {
@@ -3171,7 +3175,7 @@ padding-bottom: 160px;
 }
 .error-404-in .bottom-block h3 {
   color: #fff;
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(32px, 3vw, 52px);
   font-weight: 400;
   font-family: var(--tobias);
   letter-spacing: -0.02em;
@@ -3179,10 +3183,12 @@ padding-bottom: 160px;
   margin: 0;
 }
 .error-404-in .bottom-block p {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 15px;
-  line-height: 1.6;
+  color: #fff;
+  font-size: 18px;
+  line-height: 134%;
   margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 .error-404-in .bottom-block .primary-btn {
   margin-top: 8px;
