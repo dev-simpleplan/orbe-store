@@ -3191,10 +3191,13 @@ body.ingredient-drawer-open {
   letter-spacing: -0.01em;
 }
 .error-404-in .bottom-block .primary-btn {
-  font-size: clamp(52px, 9vw, 110px);
+  margin-top: 8px;
 }
 /* Error 404 */
 
 .thankyou-page h3{
-  font-size: 1;
+ font-size: clamp(52px, 9vw, 180px) !important;
+}
+.thankyou-page .bottom-block{
+  max-width: 100%;
 }
