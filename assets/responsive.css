@@ -425,12 +425,28 @@
   .spacer-template--20636199452828__spacer_LNTQEE {
     display: none;
   }
+  .contact-us-in {
+    grid-template-columns: 1fr;
+  }
+  .contact-us-in .left {
+    padding-bottom: 0px;
+  }
+  .contact-us-in .left .top {
+    padding: 0;
+    margin-bottom: 50px;
+  }
+  .contact-us-in .right {
+    padding-right: 30px;
+  }
+  .contact-us {
+    padding-top: 120px;
+  }
 }
 @media screen and (max-width: 767px) {
   .footer {
     padding-left: 20px;
   }
-  .footer-in{
+  .footer-in {
     padding-right: 20px;
   }
   .footer-logo {
@@ -760,7 +776,7 @@
   .faqs .view-all-cta {
     margin-top: 30px;
   }
-  .faqs-img{
+  .faqs-img {
     margin-bottom: 10px;
   }
   /* .faqs-block {
@@ -798,6 +814,34 @@
   }
   .why-orbe-in .bottom .counter-grid {
     gap: 60px;
+  }
+  .contact-info-block a {
+    font-size: 12px;
+  }
+  .contact-info-block .cib-title {
+    font-size: 11px;
+  }
+  .contact-us-in .right {
+    padding: 20px;
+  }
+  .contact-us-form {
+    padding: 30px 20px;
+  }
+  .contact-us .container {
+    padding: 0px;
+  }
+  .contact-us .left {
+    padding: 0px 20px;
+  }
+  .contact-us-form .input-wrap label{
+    font-size: 12px;
+  }
+  .contact-us-form .input-wrap input[type="text"], .contact-us-form .input-wrap input[type="tel"], .contact-us-form .input-wrap input[type="email"], .contact-us-form .input-wrap textarea{
+    font-size: 12px;
+  }
+  .contact-us-form .logo-o{
+    width: 40px;
+    height: auto;
   }
 }
 
