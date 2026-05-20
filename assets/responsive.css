@@ -836,7 +836,7 @@
   .contact-us-form .input-wrap label{
     font-size: 12px;
   }
-  .contact-us-form .input-wrap input[type="text"], .contact-us-form .input-wrap input[type="tel"], .contact-us-form .input-wrap input[type="email"], .contact-us-form .input-wrap textarea{
+  .contact-us-form .input-wrap input[type="text"], .contact-us-form .input-wrap input[type="tel"], .contact-us-form .input-wrap input[type="email"], .contact-us-form .input-wrap textarea, .iti__selected-dial-code{
     font-size: 12px;
   }
   .contact-us-form .logo-o{

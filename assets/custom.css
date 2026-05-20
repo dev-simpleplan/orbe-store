@@ -2988,13 +2988,13 @@ body.ingredient-drawer-open {
 .contact-us-form .input-wrap input[type="text"],
 .contact-us-form .input-wrap input[type="tel"],
 .contact-us-form .input-wrap input[type="email"],
-.contact-us-form .input-wrap textarea {
+.contact-us-form .input-wrap textarea, .iti__selected-dial-code {
   border: none;
   line-height: 150%;
   font-family: var(--aspekta);
-  font-weight: 300;
+  font-weight: 300 !important;
   letter-spacing: 0.02em;
-  color: #5d5d5d;
+  color: #5d5d5d !important;
   font-size: 14px;
   outline: none;
   max-width: 100%;
@@ -3020,7 +3020,7 @@ body.ingredient-drawer-open {
   border: none;
 }
 .contact-us-form .input-wrap input[type="text"]::placeholder, .contact-us-form .input-wrap input[type="tel"]::placeholder, .contact-us-form .input-wrap input[type="email"]::placeholder, .contact-us-form .input-wrap textarea::placeholder{
-  color: #6b6b6b;
+  color: #6b6b6b !important;
   text-transform: capitalize;
 }
 .contact-information {
@@ -3099,5 +3099,15 @@ padding-bottom: 160px;
   display: flex;
   flex-direction: column;
   gap: 80px;
+}
+.iti__selected-country{
+  align-items: unset;
+}
+.iti__country{
+  font-family: var(--aspekta);
+  font-size: 14px;
+}
+.iti__selected-country-primary{
+  padding-bottom: 7px;
 }
 /* Contact Us */

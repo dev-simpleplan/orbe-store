@@ -1,3 +1,24 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.7.0/build/css/intlTelInput.css">
+
+<style>
+  .field-error {
+    display: none;
+    color: #d0021b;
+    font-size: 12px;
+    margin-top: 5px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-family: var(--aspekta, sans-serif);
+  }
+  .contact-us-form input.input--error,
+  .contact-us-form textarea.input--error {
+    border-color: #d0021b !important;
+    outline: none;
+  }
+  .iti { width: 100%; }
+  .iti__tel-input { width: 100%; }
+</style>
+
 <section class="contact-us">
   <div class="container">
     <div class="contact-us-in">
@@ -53,31 +74,30 @@
           <div class="input-wrap">
             <label for="ContactFormFirstName">First Name</label>
             <input type="text" id="ContactFormFirstName" name="contact[first_name]" placeholder="Enter Your First Name">
+            <span class="field-error" id="error-first-name"></span>
           </div>
           <div class="input-wrap">
             <label for="ContactFormLastName">Last Name</label>
             <input type="text" id="ContactFormLastName" name="contact[last_name]" placeholder="Enter Your Last Name">
+            <span class="field-error" id="error-last-name"></span>
           </div>
           <div class="input-wrap">
             <label for="ContactFormEmail">Business Email</label>
-            <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Enter Your Email Address"
-              required>
+            <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Enter Your Email Address">
+            <span class="field-error" id="error-email"></span>
           </div>
           <div class="input-wrap">
             <label for="ContactFormPhone">Phone number (optional)</label>
-
             <div class="phone-warp">
-              <select name="contact[phone_code]" id="country-code">
-                <option value="+91">+91</option>
-              </select>
               <input type="tel" id="ContactFormPhone" name="contact[phone]" placeholder="Enter Your Phone Number">
             </div>
-
+            <span class="field-error" id="error-phone"></span>
           </div>
           <div class="input-wrap">
             <label for="ContactFormBody">Additional Information*</label>
             <textarea rows="1" name="contact[body]" id="ContactFormBody" data-lenis-prevent
               placeholder="Please provide any additional details about your request"></textarea>
+            <span class="field-error" id="error-body"></span>
           </div>
           <div class="input-wrap submit-wrap">
             <input type="submit" value="Submit" class="primary-btn">
@@ -101,6 +121,100 @@
     </div>
   </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.7.0/build/js/intlTelInput.min.js"></script>
+<script>
+(function () {
+  var phoneInput = document.getElementById('ContactFormPhone');
+  if (!phoneInput) return;
+
+  var iti = window.intlTelInput(phoneInput, {
+    initialCountry: 'in',
+    separateDialCode: true,
+    loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.7.0/build/js/utils.js'
+  });
+
+  var form = phoneInput.closest('form');
+  if (!form) return;
+
+  var requiredFields = [
+    { id: 'ContactFormFirstName', errorId: 'error-first-name', msg: 'First name is required' },
+    { id: 'ContactFormLastName',  errorId: 'error-last-name',  msg: 'Last name is required' },
+    { id: 'ContactFormEmail',     errorId: 'error-email',      msg: 'Email is required' },
+    { id: 'ContactFormBody',      errorId: 'error-body',       msg: 'This field is required' }
+  ];
+
+  function showError(errorId, inputEl, msg) {
+    var el = document.getElementById(errorId);
+    if (el) { el.textContent = msg; el.style.display = 'block'; }
+    if (inputEl) inputEl.classList.add('input--error');
+  }
+
+  function clearError(errorId, inputEl) {
+    var el = document.getElementById(errorId);
+    if (el) { el.textContent = ''; el.style.display = 'none'; }
+    if (inputEl) inputEl.classList.remove('input--error');
+  }
+
+  requiredFields.forEach(function (f) {
+    var el = document.getElementById(f.id);
+    if (el) el.addEventListener('input', function () { clearError(f.errorId, el); });
+  });
+  phoneInput.addEventListener('input', function () {
+    var digits = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+    phoneInput.value = digits;
+    clearError('error-phone', phoneInput);
+  });
+
+  phoneInput.addEventListener('keydown', function (e) {
+    var allowed = ['Backspace','Delete','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Tab','Home','End'];
+    if (allowed.indexOf(e.key) === -1 && !/^\d$/.test(e.key)) e.preventDefault();
+  });
+
+  form.addEventListener('submit', function (e) {
+    var hasError = false;
+
+    requiredFields.forEach(function (f) {
+      var el = document.getElementById(f.id);
+      if (!el) return;
+      if (!el.value.trim()) {
+        showError(f.errorId, el, f.msg);
+        hasError = true;
+      } else {
+        clearError(f.errorId, el);
+      }
+    });
+
+    // Email format
+    var emailEl = document.getElementById('ContactFormEmail');
+    if (emailEl && emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+      showError('error-email', emailEl, 'Please enter a valid email address');
+      hasError = true;
+    }
+
+    // Phone optional — if filled must be 10 digits
+    if (phoneInput.value.trim()) {
+      var digits = phoneInput.value.replace(/\D/g, '');
+      if (digits.length !== 10) {
+        showError('error-phone', phoneInput, 'Phone number must be exactly 10 digits');
+        hasError = true;
+      } else {
+        clearError('error-phone', phoneInput);
+      }
+    }
+
+    // Block submission first, then safely update phone value
+    if (hasError) {
+      e.preventDefault();
+      return;
+    }
+
+    if (phoneInput.value.trim()) {
+      try { phoneInput.value = iti.getNumber(); } catch (err) {}
+    }
+  });
+})();
+</script>
+
 {% schema %}
 {
 "name": "Contact Us",
