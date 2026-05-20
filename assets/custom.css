@@ -1184,9 +1184,9 @@ header.header--transparent .center svg path {
   height: 100%;
   padding: 50px 30px;
   margin-bottom: 30px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
-.faqs .top h2{
+.faqs .top h2 {
   font-size: clamp(42px, 9vw, 115px);
 }
 .faqs .top::before {
@@ -1206,7 +1206,7 @@ header.header--transparent .center svg path {
 .faqs-in h2 {
   font-size: clamp(54px, 9vw, 115px);
 }
-.faqs .view-all-cta{
+.faqs .view-all-cta {
   margin-top: 80px;
   display: flex;
   justify-content: center;
@@ -2938,3 +2938,88 @@ body.ingredient-drawer-open {
   border-radius: 50%;
 }
 /* what your body */
+/* Contact Us */
+.contact-us {
+  padding-top: 175px;
+}
+.contact-us-in {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.contact-us-in .right {
+  padding: 30px 0px 30px 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contact-us-form {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  padding: 80px 50px 40px 50px;
+}
+.contact-us-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.contact-us-form .logo-o {
+  width: 68px;
+  height: 70px;
+  margin-left: auto;
+}
+.contact-us-form .input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.contact-us-form .input-wrap label {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  line-height: 150%;
+  font-family: var(--aspekta);
+  color: #121212;
+}
+.contact-us-form .input-wrap input[type="text"],
+.contact-us-form .input-wrap input[type="tel"],
+.contact-us-form .input-wrap input[type="email"],
+.contact-us-form .input-wrap textarea {
+  border: none;
+  line-height: 150%;
+  font-family: var(--aspekta);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: #5d5d5d;
+  font-size: 14px;
+  outline: none;
+  max-width: 100%;
+  width: 100%;
+  padding-bottom: 5px;
+}
+.contact-us-form .input-wrap input[type="submit"] {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.contact-us-form .input-wrap select {
+  border: none;
+  color: #5d5d5d;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.contact-us-form .input-wrap .phone-warp {
+  display: flex;
+  gap: 20px;
+}
+.contact-us-form .input-wrap.submit-wrap {
+  border: none;
+}
+.contact-us-form input::placeholder {
+  color: #6b6b6b;
+}
+/* Contact Us */

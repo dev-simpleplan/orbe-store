@@ -9,79 +9,91 @@
         <div class="bottom">
           <div class="contact-information">
             {% for block in section.blocks %}
-              {% if block.type == 'contact_info' %}
-                <div class="contact-info-block" {{ block.shopify_attributes }}>
-                  <div class="cib-icon">
-                    {% if block.settings.icon != blank %}
-                      <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="{{ block.settings.title }}" class="icon">
-                    {% endif %}
-                  </div>
-                  <p class="cib-title">{{ block.settings.title }}</p>
-                  {% if block.settings.link != blank %}
-                    <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
-                  {% else %}
-                    <span>{{ block.settings.text }}</span>
-                  {% endif %}
-                </div>
+            {% if block.type == 'contact_info' %}
+            <div class="contact-info-block" {{ block.shopify_attributes }}>
+              <div class="cib-icon">
+                {% if block.settings.icon != blank %}
+                <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="{{ block.settings.title }}"
+                  class="icon">
+                {% endif %}
+              </div>
+              <p class="cib-title">{{ block.settings.title }}</p>
+              {% if block.settings.link != blank %}
+              <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+              {% else %}
+              <span>{{ block.settings.text }}</span>
               {% endif %}
+            </div>
+            {% endif %}
             {% endfor %}
           </div>
           <div class="social-platform-links">
             {% for block in section.blocks %}
-              {% if block.type == 'social_link' %}
-                <a href="{{ block.settings.url }}" {{ block.shopify_attributes }}>{{ block.settings.label }} <span>
-                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.930729 8.66667L7.33073 2.26667V8H8.66406V0H0.664062V1.33333H6.3974L-0.00260448 7.73333L0.930729 8.66667Z" fill="#1C1B1F" />
-                    </svg>
-                  </span>
-                </a>
-              {% endif %}
+            {% if block.type == 'social_link' %}
+            <a href="{{ block.settings.url }}" {{ block.shopify_attributes }}>{{ block.settings.label }} <span>
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0.930729 8.66667L7.33073 2.26667V8H8.66406V0H0.664062V1.33333H6.3974L-0.00260448 7.73333L0.930729 8.66667Z"
+                    fill="#1C1B1F" />
+                </svg>
+              </span>
+            </a>
+            {% endif %}
             {% endfor %}
           </div>
         </div>
       </div>
-      <div class="right">
-        <div class="contact-us-form" {% if section.settings.form_bg != blank %}style="background-image: url('{{ section.settings.form_bg | image_url: width: 1200 }}');"{% endif %}>
+      <div class="right" {% if section.settings.form_bg !=blank
+        %}style="background-image: url('{{ section.settings.form_bg | image_url: width: 1200 }}');" {% endif %}>
+        <div class="contact-us-form">
           {% form 'contact' %}
-            {% if form.posted_successfully? %}
-              <p class="form-success">Thank you for reaching out! We'll get back to you soon.</p>
-            {% endif %}
-            <div class="input-wrap">
-              <label for="ContactFormFirstName">First Name</label>
-              <input type="text" id="ContactFormFirstName" name="contact[first_name]" placeholder="Enter Your First Name">
+          {% if form.posted_successfully? %}
+          <p class="form-success">Thank you for reaching out! We'll get back to you soon.</p>
+          {% endif %}
+          <div class="input-wrap">
+            <label for="ContactFormFirstName">First Name</label>
+            <input type="text" id="ContactFormFirstName" name="contact[first_name]" placeholder="Enter Your First Name">
+          </div>
+          <div class="input-wrap">
+            <label for="ContactFormLastName">Last Name</label>
+            <input type="text" id="ContactFormLastName" name="contact[last_name]" placeholder="Enter Your Last Name">
+          </div>
+          <div class="input-wrap">
+            <label for="ContactFormEmail">Business Email</label>
+            <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Enter Your Email Address"
+              required>
+          </div>
+          <div class="input-wrap">
+            <label for="ContactFormPhone">Phone number (optional)</label>
+
+            <div class="phone-warp">
+              <select name="contact[phone_code]" id="country-code">
+                <option value="+91">+91</option>
+              </select>
+              <input type="tel" id="ContactFormPhone" name="contact[phone]" placeholder="Enter Your Phone Number">
             </div>
-            <div class="input-wrap">
-              <label for="ContactFormLastName">Last Name</label>
-              <input type="text" id="ContactFormLastName" name="contact[last_name]" placeholder="Enter Your Last Name">
-            </div>
-            <div class="input-wrap">
-              <label for="ContactFormEmail">Business Email</label>
-              <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Enter Your Email Address" required>
-            </div>
-            <div class="input-wrap">
-              <div>
-                <select name="contact[phone_code]" id="country-code">
-                  <option value="+91">+91</option>
-                </select>
-              </div>
-              <div>
-                <label for="ContactFormPhone">Phone number (optional)</label>
-                <input type="tel" id="ContactFormPhone" name="contact[phone]" placeholder="Enter Your Phone Number">
-              </div>
-            </div>
-            <div class="input-wrap">
-              <label for="ContactFormBody">Additional Information*</label>
-              <textarea name="contact[body]" id="ContactFormBody" placeholder="Please provide any additional details about your request"></textarea>
-            </div>
-            <div class="input-wrap">
-              <input type="submit" value="Submit" class="primary-btn">
-            </div>
+
+          </div>
+          <div class="input-wrap">
+            <label for="ContactFormBody">Additional Information*</label>
+            <textarea rows="1" name="contact[body]" id="ContactFormBody"
+              placeholder="Please provide any additional details about your request"></textarea>
+          </div>
+          <div class="input-wrap submit-wrap">
+            <input type="submit" value="Submit" class="primary-btn">
+          </div>
           {% endform %}
           <div class="logo-o">
             <svg class="icon" width="88" height="90" viewBox="0 0 88 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M76.5296 55.2629C76.5296 55.2629 67.3514 52.0528 65.1235 51.2736C67.1982 46.4296 68.7196 41.6911 68.8682 37.0701C68.902 36.9732 68.879 36.8837 68.8886 36.7784C69.1351 28.225 66.1204 20.7588 60.1394 16.9553C60.0111 16.8561 59.8742 16.7811 59.7132 16.6976C59.5364 16.5814 59.3354 16.4567 59.1259 16.3563C58.8922 16.2474 58.6912 16.1228 58.449 16.0381C58.248 15.9134 58.0385 15.813 57.8448 15.7452C50.5965 12.6124 41.6042 15.0097 34.0226 21.3779C33.858 21.5377 33.6776 21.6648 33.513 21.8245C29.9547 24.9269 26.7077 28.9262 24.156 33.6575C23.6309 34.615 23.0185 35.4332 22.5987 36.4003L11.9179 32.7461C13.259 28.1347 15.0242 24.4866 17.8754 20.9195C20.7593 17.3367 24.0696 14.555 27.799 12.5177C31.5527 10.4888 35.7001 9.27692 40.2571 8.9146C44.8225 8.52808 49.3894 9.14733 53.9422 10.7397C58.495 12.332 62.801 14.7075 66.2998 17.9145C69.8071 21.0973 72.2127 24.7099 74.1827 28.7135C76.1526 32.717 77.3805 36.9773 77.8228 41.6963C78.2567 46.4395 77.8864 50.6841 76.5296 55.2629Z" fill="#1A1A1A"/>
-              <path d="M59.7058 16.6951C59.2953 16.4701 58.8848 16.245 58.4416 16.0356C58.6838 16.1203 58.8848 16.245 59.1185 16.3539C59.328 16.4543 59.529 16.579 59.7058 16.6951Z" fill="#1A1A1A"/>
-              <path d="M75.2114 59.0346C73.917 62.1138 72.2933 64.9691 70.2517 67.5424C67.3497 71.2548 63.9971 74.1574 60.2422 76.2674C56.4874 78.3773 52.3145 79.6619 47.7406 80.0726C43.1583 80.5075 38.5829 79.9125 34.0059 78.3117C29.4289 76.7108 25.4558 74.316 21.974 71.0606C18.4836 67.8293 15.7789 64.1393 13.8428 60.0389C11.9067 55.9385 10.755 51.4604 10.355 46.6204C10.0718 43.2339 9.90354 39.7519 10.5041 36.4028L21.2806 40.172C20.8742 41.3339 20.5247 42.4886 20.2321 43.636L20.1644 43.8297C17.097 56.0966 20.221 67.7577 28.8185 72.3949C35.9423 76.2721 45.0909 74.2827 52.9365 68.1698C52.9777 68.1298 53.0431 68.0984 53.0842 68.0584C53.0927 68.0342 53.1096 67.9858 53.1665 67.9785C57.2297 64.7539 60.9124 60.3637 63.7642 55.0852L63.7811 55.0368L75.2114 59.0346Z" fill="#1A1A1A"/>
+              <path
+                d="M76.5296 55.2629C76.5296 55.2629 67.3514 52.0528 65.1235 51.2736C67.1982 46.4296 68.7196 41.6911 68.8682 37.0701C68.902 36.9732 68.879 36.8837 68.8886 36.7784C69.1351 28.225 66.1204 20.7588 60.1394 16.9553C60.0111 16.8561 59.8742 16.7811 59.7132 16.6976C59.5364 16.5814 59.3354 16.4567 59.1259 16.3563C58.8922 16.2474 58.6912 16.1228 58.449 16.0381C58.248 15.9134 58.0385 15.813 57.8448 15.7452C50.5965 12.6124 41.6042 15.0097 34.0226 21.3779C33.858 21.5377 33.6776 21.6648 33.513 21.8245C29.9547 24.9269 26.7077 28.9262 24.156 33.6575C23.6309 34.615 23.0185 35.4332 22.5987 36.4003L11.9179 32.7461C13.259 28.1347 15.0242 24.4866 17.8754 20.9195C20.7593 17.3367 24.0696 14.555 27.799 12.5177C31.5527 10.4888 35.7001 9.27692 40.2571 8.9146C44.8225 8.52808 49.3894 9.14733 53.9422 10.7397C58.495 12.332 62.801 14.7075 66.2998 17.9145C69.8071 21.0973 72.2127 24.7099 74.1827 28.7135C76.1526 32.717 77.3805 36.9773 77.8228 41.6963C78.2567 46.4395 77.8864 50.6841 76.5296 55.2629Z"
+                fill="#1A1A1A" />
+              <path
+                d="M59.7058 16.6951C59.2953 16.4701 58.8848 16.245 58.4416 16.0356C58.6838 16.1203 58.8848 16.245 59.1185 16.3539C59.328 16.4543 59.529 16.579 59.7058 16.6951Z"
+                fill="#1A1A1A" />
+              <path
+                d="M75.2114 59.0346C73.917 62.1138 72.2933 64.9691 70.2517 67.5424C67.3497 71.2548 63.9971 74.1574 60.2422 76.2674C56.4874 78.3773 52.3145 79.6619 47.7406 80.0726C43.1583 80.5075 38.5829 79.9125 34.0059 78.3117C29.4289 76.7108 25.4558 74.316 21.974 71.0606C18.4836 67.8293 15.7789 64.1393 13.8428 60.0389C11.9067 55.9385 10.755 51.4604 10.355 46.6204C10.0718 43.2339 9.90354 39.7519 10.5041 36.4028L21.2806 40.172C20.8742 41.3339 20.5247 42.4886 20.2321 43.636L20.1644 43.8297C17.097 56.0966 20.221 67.7577 28.8185 72.3949C35.9423 76.2721 45.0909 74.2827 52.9365 68.1698C52.9777 68.1298 53.0431 68.0984 53.0842 68.0584C53.0927 68.0342 53.1096 67.9858 53.1665 67.9785C57.2297 64.7539 60.9124 60.3637 63.7642 55.0852L63.7811 55.0368L75.2114 59.0346Z"
+                fill="#1A1A1A" />
             </svg>
           </div>
         </div>
@@ -91,119 +103,119 @@
 </section>
 {% schema %}
 {
-  "name": "Contact Us",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Get in Touch With Our Team"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Subtitle that supports the title."
-    },
-    {
-      "type": "image_picker",
-      "id": "form_bg",
-      "label": "Form Background Image"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "contact_info",
-      "name": "Contact Info",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Office"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "Your address here"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        }
-      ]
-    },
-    {
-      "type": "social_link",
-      "name": "Social Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Label",
-          "default": "FACEBOOK"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "URL"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Contact Us",
-      "blocks": [
-        {
-          "type": "contact_info",
-          "settings": {
-            "title": "Office",
-            "text": "Hausvogteiplatz 1210117 Berlin, Germany",
-            "link": "https://maps.app.goo.gl/nu2s5bs4X4C5feUJ7"
-          }
-        },
-        {
-          "type": "contact_info",
-          "settings": {
-            "title": "Phone",
-            "text": "+1 234 567 890"
-          }
-        },
-        {
-          "type": "contact_info",
-          "settings": {
-            "title": "Email",
-            "text": "hello@example.com"
-          }
-        },
-        {
-          "type": "social_link",
-          "settings": {
-            "label": "FACEBOOK"
-          }
-        },
-        {
-          "type": "social_link",
-          "settings": {
-            "label": "INSTAGRAM"
-          }
-        },
-        {
-          "type": "social_link",
-          "settings": {
-            "label": "TWITTER"
-          }
-        }
-      ]
-    }
-  ]
+"name": "Contact Us",
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "Get in Touch With Our Team"
+},
+{
+"type": "textarea",
+"id": "subtitle",
+"label": "Subtitle",
+"default": "Subtitle that supports the title."
+},
+{
+"type": "image_picker",
+"id": "form_bg",
+"label": "Form Background Image"
+}
+],
+"blocks": [
+{
+"type": "contact_info",
+"name": "Contact Info",
+"settings": [
+{
+"type": "image_picker",
+"id": "icon",
+"label": "Icon"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Title",
+"default": "Office"
+},
+{
+"type": "text",
+"id": "text",
+"label": "Text",
+"default": "Your address here"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Link"
+}
+]
+},
+{
+"type": "social_link",
+"name": "Social Link",
+"settings": [
+{
+"type": "text",
+"id": "label",
+"label": "Label",
+"default": "FACEBOOK"
+},
+{
+"type": "url",
+"id": "url",
+"label": "URL"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Contact Us",
+"blocks": [
+{
+"type": "contact_info",
+"settings": {
+"title": "Office",
+"text": "Hausvogteiplatz 1210117 Berlin, Germany",
+"link": "https://maps.app.goo.gl/nu2s5bs4X4C5feUJ7"
+}
+},
+{
+"type": "contact_info",
+"settings": {
+"title": "Phone",
+"text": "+1 234 567 890"
+}
+},
+{
+"type": "contact_info",
+"settings": {
+"title": "Email",
+"text": "hello@example.com"
+}
+},
+{
+"type": "social_link",
+"settings": {
+"label": "FACEBOOK"
+}
+},
+{
+"type": "social_link",
+"settings": {
+"label": "INSTAGRAM"
+}
+},
+{
+"type": "social_link",
+"settings": {
+"label": "TWITTER"
+}
+}
+]
+}
+]
 }
 {% endschema %}
