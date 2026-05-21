@@ -243,6 +243,19 @@ assign category_blocks = section.blocks | where: 'type', 'category'
         font-size: 13px;
     }
 
+    @media (max-width: 991px) {
+        .faq-page {
+            padding-top: 120px;
+        }
+
+        .faq-tab {
+            font-size: 12px;
+        }
+         .faq-bar {
+            margin: 60px 0px 80px 0px;
+        }
+    }
+
     @media (max-width: 767px) {
         .faq-bar {
             align-items: flex-start;
@@ -250,8 +263,8 @@ assign category_blocks = section.blocks | where: 'type', 'category'
         }
 
         .faq-tabs {
-            gap: 26px;
-            row-gap: 15px;
+            gap: 24px;
+            row-gap: 10px;
         }
 
         .faq-panel--active {
@@ -268,6 +281,14 @@ assign category_blocks = section.blocks | where: 'type', 'category'
 
         .faq-answer__inner {
             padding-left: 48px;
+        }
+
+        .faq-bar {
+            margin: 50px 0px 60px 0px;
+        }
+        .faq-icon{
+            width: 16px;
+            height: 16px;
         }
     }
 </style>
