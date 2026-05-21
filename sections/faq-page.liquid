@@ -1,435 +1,391 @@
 {% liquid
   assign category_blocks = section.blocks | where: 'type', 'category'
-  assign faq_blocks = section.blocks | where: 'type', 'faq_item'
 %}
 
 <section class="faq-page">
-  <div class="faq-bar">
-    <div class="faq-tabs" role="tablist">
-      {% for block in category_blocks %}
-        {% assign cat_handle = block.settings.title | handleize %}
-        <button
-          type="button"
-          class="faq-tab{% if forloop.first %} faq-tab--active{% endif %}"
-          data-tab="{{ cat_handle }}"
-          role="tab"
-          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-          {{ block.shopify_attributes }}>
-          {{ block.settings.title }}
-        </button>
-      {% endfor %}
-    </div>
-
-    {% if section.settings.show_sort %}
-      <button type="button" class="faq-sort">
-        <span>{{ section.settings.sort_label }}</span>
-        <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
-          <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    {% endif %}
-  </div>
-
-  <div class="faq-content">
-    {% for category in category_blocks %}
-      {% assign cat_handle = category.settings.title | handleize %}
-      <div
-        class="faq-panel{% if forloop.first %} faq-panel--active{% endif %}"
-        data-panel="{{ cat_handle }}"
-        role="tabpanel">
-        <h2 class="faq-panel__title">{{ category.settings.title }}</h2>
-
-        <div class="faq-list">
-          {% assign item_count = 0 %}
-          {% for block in faq_blocks %}
-            {% assign item_cat = block.settings.category | handleize %}
-            {% if item_cat == cat_handle %}
-              {% assign item_count = item_count | plus: 1 %}
-              <div class="faq-item" {{ block.shopify_attributes }}>
-                <button
-                  type="button"
-                  class="faq-question"
-                  aria-expanded="false"
-                  aria-controls="faq-ans-{{ block.id }}">
-                  <span class="faq-num">{{ item_count | prepend: '0' | slice: -2, 2 }}</span>
-                  <span class="faq-question__text">{{ block.settings.question }}</span>
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </button>
-                <div class="faq-answer" id="faq-ans-{{ block.id }}">
-                  <div class="faq-answer__inner">{{ block.settings.answer }}</div>
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-
-          {% if item_count == 0 %}
-            <p class="faq-empty">{{ section.settings.empty_text }}</p>
-          {% endif %}
+    <div class="container">
+        <div class="heading">
+            <h2>Frequently Asked Questions</h2>
         </div>
-      </div>
-    {% endfor %}
-  </div>
+
+        <div class="faq-bar">
+            <div class="faq-tabs" role="tablist">
+                {% for block in category_blocks %}
+                    <button
+                        type="button"
+                        class="faq-tab{% if forloop.first %} faq-tab--active{% endif %}"
+                        data-tab="cat-{{ block.id }}"
+                        role="tab"
+                        aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                        {{ block.shopify_attributes }}>
+                        {{ block.settings.title }}
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="faq-content">
+            {% assign in_panel = false %}
+            {% assign item_num = 0 %}
+            {% assign is_first_cat = true %}
+
+            {% for block in section.blocks %}
+                {% if block.type == 'category' %}
+
+                    {% comment %} Close previous panel if open {% endcomment %}
+                    {% if in_panel %}
+                        {% if item_num == 0 %}
+                            <p class="faq-empty">{{ section.settings.empty_text }}</p>
+                        {% endif %}
+                        </div>
+                        </div>
+                    {% endif %}
+
+                    {% assign in_panel = true %}
+                    {% assign item_num = 0 %}
+
+                    <div class="faq-panel{% if is_first_cat %} faq-panel--active{% endif %}"
+                        data-panel="cat-{{ block.id }}"
+                        role="tabpanel"
+                        {{ block.shopify_attributes }}>
+                        <h2 class="faq-panel__title">{{ block.settings.title }}</h2>
+                        <div class="faq-list">
+
+                    {% assign is_first_cat = false %}
+
+                {% elsif block.type == 'faq_item' and in_panel %}
+                    {% assign item_num = item_num | plus: 1 %}
+                    <div class="faq-item" {{ block.shopify_attributes }}>
+                        <button
+                            type="button"
+                            class="faq-question"
+                            aria-expanded="false"
+                            aria-controls="faq-ans-{{ block.id }}">
+                            <span class="faq-num">{{ item_num | prepend: '0' | slice: -2, 2 }}</span>
+                            <span class="faq-question__text">{{ block.settings.question }}</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-{{ block.id }}">
+                            <div class="faq-answer__inner">{{ block.settings.answer }}</div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            {% comment %} Close the last open panel {% endcomment %}
+            {% if in_panel %}
+                {% if item_num == 0 %}
+                    <p class="faq-empty">{{ section.settings.empty_text }}</p>
+                {% endif %}
+                </div>
+                </div>
+            {% endif %}
+
+            {% if category_blocks.size == 0 %}
+                <p class="faq-empty">Add a Category block to get started.</p>
+            {% endif %}
+        </div>
+    </div>
 </section>
 
 <style>
-  .faq-page {
-    display: block;
-    padding: 42px 28px 64px;
-    background: #fff;
-    color: #151515;
-  }
-
-  /* ── Top bar ── */
-  .faq-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto 80px;
-  }
-
-  .faq-tabs {
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .faq-tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .faq-tab {
-    border: 0;
-    background: transparent;
-    color: #8d8d8d;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    cursor: pointer;
-    padding: 0;
-    line-height: 1;
-  }
-
-  .faq-tab--active {
-    color: #151515;
-    font-weight: 700;
-  }
-
-  .faq-sort {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 0 0 auto;
-    border: 0;
-    background: transparent;
-    color: #8d8d8d;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 0;
-    white-space: nowrap;
-  }
-
-  /* ── Panels ── */
-  .faq-content {
-    max-width: 880px;
-    margin: 0 auto;
-  }
-
-  .faq-panel {
-    display: none;
-    grid-template-columns: 200px minmax(0, 1fr);
-    gap: 50px;
-  }
-
-  .faq-panel--active {
-    display: grid;
-  }
-
-  .faq-panel__title {
-    margin: 5px 0 0;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.2;
-  }
-
-  /* ── FAQ list ── */
-  .faq-list {
-    border-top: 1px solid #d9d9d9;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid #d9d9d9;
-  }
-
-  .faq-question {
-    display: grid;
-    grid-template-columns: 38px minmax(0, 1fr) 22px;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
-    min-height: 58px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: #151515;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .faq-num {
-    font-size: 13px;
-    color: #151515;
-  }
-
-  .faq-question__text {
-    font-size: 13px;
-    color: #767676;
-    line-height: 1.35;
-  }
-
-  /* ── +/- icon ── */
-  .faq-icon {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #151515;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .faq-icon::before,
-  .faq-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 7px;
-    height: 1px;
-    background: currentColor;
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease;
-  }
-
-  .faq-icon::after {
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
-  .faq-item--open .faq-icon::after {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  /* ── Answer ── */
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .faq-answer__inner {
-    padding: 0 48px 20px 52px;
-    font-size: 13px;
-    color: #767676;
-    line-height: 1.5;
-  }
-
-  .faq-answer__inner p {
-    margin: 0;
-  }
-
-  .faq-empty {
-    margin: 0;
-    padding: 18px 0;
-    color: #8d8d8d;
-    font-size: 13px;
-  }
-
-  /* ── Mobile ── */
-  @media (max-width: 767px) {
     .faq-page {
-      padding: 28px 18px 48px;
+        display: block;
+        padding-top: 180px;
+        background: #fff;
+        color: #151515;
     }
 
     .faq-bar {
-      align-items: flex-start;
-      margin-bottom: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 50px 0;
     }
 
     .faq-tabs {
-      gap: 26px;
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .faq-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .faq-tab {
+        border: 0;
+        background: transparent;
+        color: #8d8d8d;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+    }
+
+    .faq-tab--active {
+        color: #151515;
+        font-weight: 700;
+    }
+
+    .faq-panel {
+        display: none;
+        grid-template-columns: 200px minmax(0, 1fr);
+        gap: 50px;
     }
 
     .faq-panel--active {
-      display: block;
+        display: grid;
     }
 
     .faq-panel__title {
-      margin-bottom: 24px;
+        margin: 5px 0 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.2;
+    }
+
+    .faq-list {
+        border-top: 1px solid #d9d9d9;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #d9d9d9;
     }
 
     .faq-question {
-      grid-template-columns: 34px minmax(0, 1fr) 22px;
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr) 22px;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        min-height: 58px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #151515;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .faq-num {
+        font-size: 13px;
+        color: #151515;
+    }
+
+    .faq-question__text {
+        font-size: 13px;
+        color: #767676;
+        line-height: 1.35;
+    }
+
+    .faq-icon {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #151515;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 7px;
+        height: 1px;
+        background: currentColor;
+        transform: translate(-50%, -50%);
+        transition: transform 0.2s ease;
+    }
+
+    .faq-icon::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-item--open .faq-icon::after {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
     }
 
     .faq-answer__inner {
-      padding-left: 48px;
+        padding: 0 48px 20px 52px;
+        font-size: 13px;
+        color: #767676;
+        line-height: 1.5;
     }
-  }
+
+    .faq-answer__inner p {
+        margin: 0;
+    }
+
+    .faq-empty {
+        margin: 0;
+        padding: 18px 0;
+        color: #8d8d8d;
+        font-size: 13px;
+    }
+
+    @media (max-width: 767px) {
+        .faq-bar {
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+
+        .faq-tabs {
+            gap: 26px;
+        }
+
+        .faq-panel--active {
+            display: block;
+        }
+
+        .faq-panel__title {
+            margin-bottom: 24px;
+        }
+
+        .faq-question {
+            grid-template-columns: 34px minmax(0, 1fr) 22px;
+        }
+
+        .faq-answer__inner {
+            padding-left: 48px;
+        }
+    }
 </style>
 
 <script>
-  (function () {
-    var page = document.querySelector('.faq-page');
-    if (!page) return;
+    (function () {
+        var page = document.querySelector('.faq-page');
+        if (!page) return;
 
-    var tabs = Array.from(page.querySelectorAll('.faq-tab'));
-    var panels = Array.from(page.querySelectorAll('.faq-panel'));
+        var tabs = Array.from(page.querySelectorAll('.faq-tab'));
+        var panels = Array.from(page.querySelectorAll('.faq-panel'));
 
-    function openTab(tab) {
-      var target = tab.dataset.tab;
-
-      tabs.forEach(function (t) {
-        t.classList.toggle('faq-tab--active', t === tab);
-        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
-      });
-
-      panels.forEach(function (p) {
-        var isActive = p.dataset.panel === target;
-        p.classList.toggle('faq-panel--active', isActive);
-        if (!isActive) {
-          Array.from(p.querySelectorAll('.faq-item--open')).forEach(function (item) {
-            closeItem(item);
-          });
+        function openTab(tab) {
+            var target = tab.dataset.tab;
+            tabs.forEach(function (t) {
+                t.classList.toggle('faq-tab--active', t === tab);
+                t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+            });
+            panels.forEach(function (p) {
+                var isActive = p.dataset.panel === target;
+                p.classList.toggle('faq-panel--active', isActive);
+                if (!isActive) {
+                    Array.from(p.querySelectorAll('.faq-item--open')).forEach(closeItem);
+                }
+            });
         }
-      });
-    }
 
-    function openItem(item) {
-      var answer = item.querySelector('.faq-answer');
-      var btn = item.querySelector('.faq-question');
-      item.classList.add('faq-item--open');
-      btn.setAttribute('aria-expanded', 'true');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
+        function openItem(item) {
+            var answer = item.querySelector('.faq-answer');
+            item.classList.add('faq-item--open');
+            item.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
 
-    function closeItem(item) {
-      var answer = item.querySelector('.faq-answer');
-      var btn = item.querySelector('.faq-question');
-      item.classList.remove('faq-item--open');
-      btn.setAttribute('aria-expanded', 'false');
-      answer.style.maxHeight = '0';
-    }
+        function closeItem(item) {
+            var answer = item.querySelector('.faq-answer');
+            item.classList.remove('faq-item--open');
+            item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            answer.style.maxHeight = '0';
+        }
 
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () { openTab(tab); });
-    });
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () { openTab(tab); });
+        });
 
-    page.addEventListener('click', function (e) {
-      var btn = e.target.closest('.faq-question');
-      if (!btn) return;
+        page.addEventListener('click', function (e) {
+            var btn = e.target.closest('.faq-question');
+            if (!btn) return;
+            var item = btn.closest('.faq-item');
+            var panel = btn.closest('.faq-panel');
+            var isOpen = item.classList.contains('faq-item--open');
+            Array.from(panel.querySelectorAll('.faq-item--open')).forEach(closeItem);
+            if (!isOpen) openItem(item);
+        });
 
-      var item = btn.closest('.faq-item');
-      var panel = btn.closest('.faq-panel');
-      var isOpen = item.classList.contains('faq-item--open');
-
-      Array.from(panel.querySelectorAll('.faq-item--open')).forEach(closeItem);
-      if (!isOpen) openItem(item);
-    });
-
-    window.addEventListener('resize', function () {
-      Array.from(page.querySelectorAll('.faq-item--open')).forEach(function (item) {
-        item.querySelector('.faq-answer').style.maxHeight = item.querySelector('.faq-answer').scrollHeight + 'px';
-      });
-    });
-  })();
+        window.addEventListener('resize', function () {
+            Array.from(page.querySelectorAll('.faq-item--open')).forEach(function (item) {
+                item.querySelector('.faq-answer').style.maxHeight = item.querySelector('.faq-answer').scrollHeight + 'px';
+            });
+        });
+    })();
 </script>
 
 {% schema %}
 {
-  "name": "FAQ page",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_sort",
-      "label": "Show sort label",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "sort_label",
-      "label": "Sort label",
-      "default": "Sort by"
-    },
-    {
-      "type": "text",
-      "id": "empty_text",
-      "label": "Empty category text",
-      "default": "No FAQs added for this category yet."
-    }
-  ],
-  "blocks": [
-    {
-      "type": "category",
-      "name": "Category tab",
-      "settings": [
+    "name": "FAQ page",
+    "settings": [
         {
-          "type": "text",
-          "id": "title",
-          "label": "Category title",
-          "default": "Category 1"
+            "type": "text",
+            "id": "empty_text",
+            "label": "Empty category text",
+            "default": "No FAQs added for this category yet."
         }
-      ]
-    },
-    {
-      "type": "faq_item",
-      "name": "FAQ item",
-      "settings": [
+    ],
+    "blocks": [
         {
-          "type": "text",
-          "id": "category",
-          "label": "Category title",
-          "info": "Must match one of the category tab titles exactly.",
-          "default": "Category 1"
+            "type": "category",
+            "name": "Category",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Category title",
+                    "default": "Category 1"
+                }
+            ]
         },
         {
-          "type": "text",
-          "id": "question",
-          "label": "Question",
-          "default": "Frequently asked question 1"
-        },
-        {
-          "type": "richtext",
-          "id": "answer",
-          "label": "Answer",
-          "default": "<p>Add your answer here.</p>"
+            "type": "faq_item",
+            "name": "FAQ item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "question",
+                    "label": "Question",
+                    "default": "Frequently asked question"
+                },
+                {
+                    "type": "richtext",
+                    "id": "answer",
+                    "label": "Answer",
+                    "default": "<p>Add your answer here.</p>"
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "FAQ page",
-      "blocks": [
-        { "type": "category", "settings": { "title": "Category 1" } },
-        { "type": "category", "settings": { "title": "Category 2" } },
-        { "type": "category", "settings": { "title": "Category 3" } },
-        { "type": "category", "settings": { "title": "Category 4" } },
-        { "type": "category", "settings": { "title": "Category 5" } },
-        { "type": "faq_item", "settings": { "category": "Category 1", "question": "Frequently asked question 1" } },
-        { "type": "faq_item", "settings": { "category": "Category 1", "question": "Frequently asked question 2" } },
-        { "type": "faq_item", "settings": { "category": "Category 1", "question": "Frequently asked question 3" } },
-        { "type": "faq_item", "settings": { "category": "Category 1", "question": "Frequently asked question 4" } },
-        { "type": "faq_item", "settings": { "category": "Category 1", "question": "Frequently asked question 5" } },
-        { "type": "faq_item", "settings": { "category": "Category 1", "question": "Frequently asked question 6" } }
-      ]
-    }
-  ]
+    ],
+    "presets": [
+        {
+            "name": "FAQ page",
+            "blocks": [
+                { "type": "category", "settings": { "title": "Category 1" } },
+                { "type": "faq_item", "settings": { "question": "Frequently asked question 1" } },
+                { "type": "faq_item", "settings": { "question": "Frequently asked question 2" } },
+                { "type": "faq_item", "settings": { "question": "Frequently asked question 3" } },
+                { "type": "category", "settings": { "title": "Category 2" } },
+                { "type": "faq_item", "settings": { "question": "Frequently asked question 1" } },
+                { "type": "faq_item", "settings": { "question": "Frequently asked question 2" } },
+                { "type": "category", "settings": { "title": "Category 3" } },
+                { "type": "faq_item", "settings": { "question": "Frequently asked question 1" } },
+                { "type": "faq_item", "settings": { "question": "Frequently asked question 2" } }
+            ]
+        }
+    ]
 }
 {% endschema %}
