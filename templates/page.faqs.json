@@ -110,9 +110,17 @@
       "settings": {
         "empty_text": ""
       }
+    },
+    "spacer_btY3ER": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
     }
   },
   "order": [
-    "faq_page_KUMMdz"
+    "faq_page_KUMMdz",
+    "spacer_btY3ER"
   ]
 }
