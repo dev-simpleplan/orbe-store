@@ -2854,7 +2854,7 @@ body.ingredient-drawer-open {
 .bottom-wrap {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  gap: 20px;
+  gap: 100px;
 }
 .what-your-body .e-head {
   text-transform: uppercase;

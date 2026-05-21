@@ -49,6 +49,9 @@
   .first-phase-header .fph-link {
     font-size: 12px;
   }
+  .bottom-wrap {
+    gap: 40px;
+  }
 }
 @media screen and (max-width: 1100px) {
   .footer-nav-top {
@@ -85,6 +88,7 @@
   .what-your-body .pill-img {
     width: 120px;
   }
+  
 }
 @media screen and (max-width: 991px) {
   .see-through .container-left {
