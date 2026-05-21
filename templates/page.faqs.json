@@ -25,28 +25,11 @@
             "title": "Category 1"
           }
         },
-        "category_rJzGYQ": {
-          "type": "category",
+        "faq_item_EmTegj": {
+          "type": "faq_item",
           "settings": {
-            "title": "Category 2"
-          }
-        },
-        "category_BYwVTi": {
-          "type": "category",
-          "settings": {
-            "title": "Category 3"
-          }
-        },
-        "category_9RLXwT": {
-          "type": "category",
-          "settings": {
-            "title": "Category 4"
-          }
-        },
-        "category_MerCkH": {
-          "type": "category",
-          "settings": {
-            "title": "Category 5"
+            "question": "Frequently asked question 2",
+            "answer": "<p>Add your answer here.</p>"
           }
         },
         "faq_item_xtEdg6": {
@@ -56,11 +39,10 @@
             "answer": "<p>Add your answer here.</p>"
           }
         },
-        "faq_item_EmTegj": {
-          "type": "faq_item",
+        "category_rJzGYQ": {
+          "type": "category",
           "settings": {
-            "question": "Frequently asked question 2",
-            "answer": "<p>Add your answer here.</p>"
+            "title": "Category 2"
           }
         },
         "faq_item_MR3Hfb": {
@@ -77,11 +59,23 @@
             "answer": "<p>Add your answer here.</p>"
           }
         },
+        "category_BYwVTi": {
+          "type": "category",
+          "settings": {
+            "title": "Category 3"
+          }
+        },
         "faq_item_9HfpDa": {
           "type": "faq_item",
           "settings": {
             "question": "Frequently asked question 5",
             "answer": "<p>Add your answer here.</p>"
+          }
+        },
+        "category_9RLXwT": {
+          "type": "category",
+          "settings": {
+            "title": "Category 4"
           }
         },
         "faq_item_zTLyYN": {
@@ -90,21 +84,27 @@
             "question": "Frequently asked question 6",
             "answer": "<p>Add your answer here.</p>"
           }
+        },
+        "category_MerCkH": {
+          "type": "category",
+          "settings": {
+            "title": "Category 5"
+          }
         }
       },
       "block_order": [
         "faq_item_4QtLLB",
         "category_rGHHmq",
-        "category_rJzGYQ",
-        "category_BYwVTi",
-        "category_9RLXwT",
-        "category_MerCkH",
-        "faq_item_xtEdg6",
         "faq_item_EmTegj",
+        "faq_item_xtEdg6",
+        "category_rJzGYQ",
         "faq_item_MR3Hfb",
         "faq_item_dirNn8",
+        "category_BYwVTi",
         "faq_item_9HfpDa",
-        "faq_item_zTLyYN"
+        "category_9RLXwT",
+        "faq_item_zTLyYN",
+        "category_MerCkH"
       ],
       "name": "FAQ page",
       "settings": {
