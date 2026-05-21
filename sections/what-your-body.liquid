@@ -1,4 +1,4 @@
-<section class="what-your-body">
+<section class="what-your-body" data-what-your-body-desktop-{{ section.id }}>
   <div class="container">
     <div class="what-your-body-in">
       <div class="top text-animation">
@@ -10,7 +10,7 @@
         {% endif %}
       </div>
 
-      <div class="bottom-wrap">
+      <div class="bottom-wrap text-animation">
         <div class="left">
           {% for block in section.blocks %}
           {% if block.type == 'list_block' and block.settings.column == 'left' %}
@@ -184,6 +184,33 @@
         closeCards();
       }
     });
+  })();
+
+  (function () {
+    var section = document.querySelector('[data-what-your-body-desktop-{{ section.id }}]');
+    var desktopQuery = window.matchMedia('(min-width: 768px)');
+    if (!section || !desktopQuery.matches) return;
+
+    function showGlassCircle() {
+      section.classList.add('glass-circle-active');
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      showGlassCircle();
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        showGlassCircle();
+        observer.disconnect();
+      });
+    }, {
+      threshold: 0.35
+    });
+
+    observer.observe(section);
   })();
 </script>
 
