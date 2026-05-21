@@ -34,7 +34,7 @@
           {% endfor %}
         </div>
 
-        <div class="center">
+        <div class="center"{% if section.settings.center_background_image != blank %} style="--body-center-bg: url('{{ section.settings.center_background_image | image_url: width: 900 }}');"{% endif %}>
           {% if section.settings.pill_image != blank %}
           <div class="pill-img">
             {{ section.settings.pill_image | image_url: width: 420 | image_tag: alt: '', class: 'icon' }}
@@ -208,8 +208,13 @@
 },
 {
 "type": "image_picker",
+"id": "center_background_image",
+"label": "Center background image"
+},
+{
+"type": "image_picker",
 "id": "background_image",
-"label": "Background image"
+"label": "Mobile background image"
 }
 ],
 "blocks": [
