@@ -162,39 +162,39 @@
           "settings": {
             "column": "left",
             "heading": "Mood & Clarity",
-            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present"
           }
         },
         "body_left_3": {
           "type": "list_block",
           "settings": {
             "column": "left",
-            "heading": "Energy & Fatigue",
-            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+            "heading": "Cycles & Hormones",
+            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period"
           }
         },
         "body_right_1": {
           "type": "list_block",
           "settings": {
             "column": "right",
-            "heading": "Energy & Fatigue",
-            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+            "heading": "Sleep & Rest",
+            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed"
           }
         },
         "body_right_2": {
           "type": "list_block",
           "settings": {
             "column": "right",
-            "heading": "Energy & Fatigue",
-            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+            "heading": "Body & Foundations",
+            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness"
           }
         },
         "body_right_3": {
           "type": "list_block",
           "settings": {
             "column": "right",
-            "heading": "Energy & Fatigue",
-            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+            "heading": "Mental Load & Overwhelm",
+            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent"
           }
         }
       },
