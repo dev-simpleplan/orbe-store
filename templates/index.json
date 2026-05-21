@@ -16,7 +16,7 @@
     "spacer1": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "at-orbe": {
@@ -32,7 +32,7 @@
     "spacer2": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "at-single": {
@@ -50,7 +50,7 @@
     "spacer3": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "sliding-image": {
@@ -95,7 +95,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "ready-formula": {
@@ -112,7 +112,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "rotating-circle": {
@@ -162,7 +162,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "see-through": {
@@ -183,7 +183,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "why-orbe": {
@@ -203,7 +203,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "new-faq-section": {
@@ -254,7 +254,7 @@
     "spacer5": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "blogs-feature": {
@@ -270,7 +270,7 @@
     "spacer6": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     },
     "join-community": {
@@ -332,7 +332,7 @@
     "spacer7": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 180
+        "spacer_height": 120
       }
     }
   },
