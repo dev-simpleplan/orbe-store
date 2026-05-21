@@ -3073,18 +3073,18 @@ body.what-your-body-card-open {
   font-weight: 400;
   text-transform: capitalize;
 }
-.what-your-mobile-in .top{
+.what-your-mobile-in .top {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
   gap: 20px;
 }
-.what-your-mobile-in .top h2{
+.what-your-mobile-in .top h2 {
   color: #fff;
   font-size: 32px;
   max-width: 18ch;
 }
-.what-your-mobile-in .top p{
+.what-your-mobile-in .top p {
   color: #fff;
   max-width: 38ch;
 }
@@ -3265,7 +3265,7 @@ body.what-your-body-card-open {
 .iti__selected-country-primary {
   padding-bottom: 7px !important;
 }
-#ContactFormPhone{
+#ContactFormPhone {
   padding-left: 80px !important;
 }
 /* Contact Us */
@@ -3349,15 +3349,15 @@ body.what-your-body-card-open {
 }
 /* Error 404 */
 
-.thankyou-page h3{
- font-size: clamp(52px, 9vw, 180px) !important;
+.thankyou-page h3 {
+  font-size: clamp(52px, 9vw, 180px) !important;
 }
-.thankyou-page .bottom-block{
+.thankyou-page .bottom-block {
   max-width: 100%;
 }
-  .what-your-body {
-    display: block;
-  }
+.what-your-body {
+  display: block;
+}
 
 /* New FAQ Section */
 .new-faq-section {
@@ -3412,7 +3412,9 @@ body.what-your-body-card-open {
 .new-faq-item {
   border-bottom: 1px solid #8f8f8f;
   background: #fff;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 .new-faq-item.active {
   background: #151515;
@@ -3442,6 +3444,7 @@ body.what-your-body-card-open {
   width: 22px;
   height: 22px;
   flex: 0 0 22px;
+  margin-top: 5px;
   margin-bottom: auto;
 }
 .new-faq-icon::before,
@@ -3485,5 +3488,7 @@ body.what-your-body-card-open {
 .new-faq-cta {
   padding: 54px 50px 0;
 }
-
+.new-faq-item.active .new-faq-question {
+  padding-top: 40px;
+}
 /* New FAQ Section */
