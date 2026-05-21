@@ -3425,15 +3425,14 @@ body.what-your-body-card-open {
   justify-content: space-between;
   gap: 24px;
   width: 100%;
-  min-height: 80px;
   height: 100%;
-  padding: 20px 40px;
+  padding: 24px 40px;
   border: 0;
   background: transparent;
   color: inherit;
   text-align: left;
   font-family: var(--tobias);
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1.15;
   font-weight: 400;
   cursor: pointer;
@@ -3472,7 +3471,7 @@ body.what-your-body-card-open {
   transition: max-height 0.48s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .new-faq-answer-inner {
-  padding: 0 90px 40px 40px;
+  padding: 0 90px 30px 40px;
 }
 .new-faq-answer p {
   max-width: 460px;
