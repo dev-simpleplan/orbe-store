@@ -20,6 +20,9 @@
   .hb-bottom > h2 {
     padding-bottom: 40px;
   }
+    .new-faq-question{
+    font-size: 28px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -52,6 +55,7 @@
   .bottom-wrap {
     gap: 40px;
   }
+
 }
 @media screen and (max-width: 1100px) {
   .footer-nav-top {
@@ -87,6 +91,9 @@
   }
   .what-your-body .pill-img {
     width: 120px;
+  }
+    .new-faq-question{
+    font-size: 26px;
   }
   
 }
@@ -256,8 +263,8 @@
   }
   .new-faq-question {
     min-height: 70px;
-    padding: 0 28px;
-    font-size: 21px;
+    padding: 15px 30px;
+    font-size: 22px;
   }
   .new-faq-answer-inner {
     padding: 0 72px 34px 28px;
@@ -468,6 +475,7 @@
   .error-404-in .bottom-block p {
     font-size: 16px;
   }
+
 }
 @media screen and (max-width: 767px) {
   .new-faq-sec-img {
@@ -482,23 +490,23 @@
   }
   .new-faq-question {
     min-height: 62px;
-    padding: 0 20px;
-    font-size: 17px;
+    padding: 10px 20px;
+    font-size: 18px;
+  }.new-faq-answer p{
+    font-size: 14px;
   }
   .new-faq-icon {
     width: 18px;
     height: 18px;
     flex-basis: 18px;
+    margin-bottom: unset;
   }
   .new-faq-icon::before,
   .new-faq-icon::after {
     width: 18px;
   }
   .new-faq-answer-inner {
-    padding: 0 52px 28px 20px;
-  }
-  .new-faq-answer p {
-    font-size: 12px;
+    padding: 0 52px 25px 20px;
   }
   .new-faq-cta {
     padding: 30px 20px 0;
