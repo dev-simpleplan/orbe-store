@@ -1342,7 +1342,6 @@ header.header--transparent .center svg path {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22.6px;
-  height: 682px;
   overflow: hidden;
 }
 .st-orbe-logo {
