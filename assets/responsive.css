@@ -581,7 +581,8 @@
   }
   .st-orbe-logo {
     width: 160px;
-    bottom: 63px;
+    bottom: 18%;
+    left: 34%;
   }
 
   #orbe-fullscreen-content p {
