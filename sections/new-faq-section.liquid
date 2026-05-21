@@ -36,7 +36,7 @@
 
     {% if section.settings.cta_text != blank and section.settings.cta_link != blank %}
       <div class="new-faq-cta">
-        <a href="{{ section.settings.cta_link }}">{{ section.settings.cta_text }}</a>
+        <a class="primary-btn" href="{{ section.settings.cta_link }}">{{ section.settings.cta_text }}</a>
       </div>
     {% endif %}
   </div>

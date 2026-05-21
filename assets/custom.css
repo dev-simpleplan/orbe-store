@@ -3373,7 +3373,7 @@ body.what-your-body-card-open {
 }
 .new-faq-sec-img {
   height: 100%;
-  min-height: 635px;
+  max-height: 650px;
   overflow: hidden;
   filter: grayscale(1);
 }
@@ -3481,18 +3481,5 @@ body.what-your-body-card-open {
 .new-faq-cta {
   padding: 54px 50px 0;
 }
-.new-faq-cta a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 145px;
-  min-height: 34px;
-  padding: 8px 24px;
-  border-radius: 999px;
-  background: var(--golden);
-  color: #151515;
-  font-family: var(--aspekta);
-  font-size: 10px;
-  line-height: 1;
-}
+
 /* New FAQ Section */
