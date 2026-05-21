@@ -853,14 +853,14 @@
   .error-404-in .bottom-block p {
     font-size: 14px;
   }
-  .what-your-body{
+  .what-your-body {
     display: none;
   }
   .what-your-body-mobile {
     position: relative;
     display: block;
     min-height: 100svh;
-    padding: 26px 0 36px;
+    padding: 55px 0px;
     overflow: hidden;
     color: #fff;
     background-color: #111;
@@ -878,17 +878,13 @@
   .what-your-body-mobile .container {
     position: relative;
     z-index: 1;
-    padding: 0 9px;
+    padding: 0 20px;
   }
-  .what-your-mobile-in .top {
-    margin-bottom: 18px;
-  }
-  
   .what-your-mobile-orbit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: min(100%, 270px);
+    width: 100%;
     margin: 0 auto;
     gap: 30px;
   }
@@ -897,8 +893,8 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     gap: 12px;
-    width: min(100%, 245px);
-    height: 245px;
+    width: min(100%, 280px);
+    height: 280px;
     border-radius: 50%;
     overflow: hidden;
     background: transparent;
@@ -909,6 +905,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
     justify-content: center;
     min-width: 0;
     min-height: 0;
@@ -927,11 +924,11 @@
   }
   .what-your-mobile-signal span {
     display: block;
-    max-width: 10ch;
     color: #fff;
     font-family: var(--tobias);
-    font-size: 19px;
+    font-size: 22px;
     line-height: 112%;
+    letter-spacing: -0.05em;
     font-weight: 400;
   }
   .what-your-mobile-signal a {
@@ -941,8 +938,10 @@
     font-family: var(--aspekta);
     font-size: 10px;
     line-height: 1;
-    letter-spacing: 0.12em;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
   .what-your-mobile-circle:nth-child(even) {
     grid-template-rows: none;

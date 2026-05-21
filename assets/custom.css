@@ -2958,7 +2958,7 @@ body.what-your-body-card-open {
 }
 .what-your-body-card {
   position: fixed;
-  top: 40%;
+  top: 32%;
   right: 0;
   z-index: 999;
   width: min(100vw, 100%);
@@ -3005,7 +3005,7 @@ body.what-your-body-card-open {
 .what-your-body-card h3 {
   color: #151515;
   font-family: var(--tobias);
-  font-size: 22px;
+  font-size: 28px;
   line-height: 120%;
   font-weight: 400;
   margin: 0 34px 140px 0;
@@ -3017,10 +3017,25 @@ body.what-your-body-card-open {
 .what-your-body-card li {
   color: #151515;
   font-family: var(--aspekta);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 130%;
   font-weight: 400;
   text-transform: capitalize;
+}
+.what-your-mobile-in .top{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+.what-your-mobile-in .top h2{
+  color: #fff;
+  font-size: 32px;
+  max-width: 18ch;
+}
+.what-your-mobile-in .top p{
+  color: #fff;
+  max-width: 38ch;
 }
 /* what your body */
 /* Contact Us */
