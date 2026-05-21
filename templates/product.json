@@ -258,6 +258,52 @@
         "spacer_height": 120
       }
     },
+    "new_faq_section_n49mMB": {
+      "type": "new-faq-section",
+      "blocks": {
+        "faq_item_AJhLn9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why Isn’t Food Alone Always Enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+          }
+        },
+        "faq_item_znLyB9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why Isn’t Food Alone Always Enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+          }
+        },
+        "faq_item_TaBneX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why Isn’t Food Alone Always Enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+          }
+        },
+        "faq_item_cN46Ja": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why Isn’t Food Alone Always Enough?",
+            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_AJhLn9",
+        "faq_item_znLyB9",
+        "faq_item_TaBneX",
+        "faq_item_cN46Ja"
+      ],
+      "name": "New FAQ Section",
+      "settings": {
+        "image": "shopify://shop_images/06964c946e7a37b7af06c0134fdfeaf963659270.png",
+        "heading": "FAQs",
+        "cta_text": "View All FAQs",
+        "cta_link": ""
+      }
+    },
     "spacer_FUhyqE": {
       "type": "spacer",
       "name": "Spacer",
@@ -279,6 +325,7 @@
     "spacer_VnKNLM",
     "best-bio",
     "spacer_adLpCm",
+    "new_faq_section_n49mMB",
     "spacer_FUhyqE"
   ]
 }
