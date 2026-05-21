@@ -206,54 +206,51 @@
         "spacer_height": 180
       }
     },
-    "faqs-home": {
-      "type": "faqs-home",
-      "blocks": {
-        "faq_item_1": {
-          "type": "faq_item",
-          "settings": {
-            "image": "shopify://shop_images/faq-img_2b7178a7-6080-41ba-a1a2-130986611bf4.png",
-            "question": "Why isn't food alone always enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
-          }
-        },
-        "faq_item_2": {
-          "type": "faq_item",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468553.png",
-            "question": "Why isn't food alone always enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
-          }
-        },
-        "faq_item_3": {
-          "type": "faq_item",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468554.png",
-            "question": "Why isn't food alone always enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
-          }
-        },
-        "faq_item_4": {
-          "type": "faq_item",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468555.png",
-            "question": "Why isn't food alone always enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
-          }
+  "new-faq-section":{
+    "type": "new-faq-section",
+    "blocks": {
+      "faq_1": {
+        "type": "faq_item",
+        "settings": {
+          "question": "Why Isn’t Food Alone Always Enough?",
+          "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
         }
       },
-      "block_order": [
-        "faq_item_1",
-        "faq_item_2",
-        "faq_item_3",
-        "faq_item_4"
-      ],
-      "settings": {
-        "heading": "FAQs",
-        "cta_text": "View All FAQs",
-        "cta_link": "#"
+      "faq_2": {
+        "type": "faq_item",
+        "settings": {
+          "question": "Why Isn’t Food Alone Always Enough?",
+          "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+        }
+      },
+      "faq_3": {
+        "type": "faq_item",
+        "settings": {
+          "question": "Why Isn’t Food Alone Always Enough?",
+          "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+        }
+      },
+      "faq_4": {
+        "type": "faq_item",
+        "settings": {
+          "question": "Why Isn’t Food Alone Always Enough?",
+          "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+        }
       }
     },
+    "block_order": [
+      "faq_1",
+      "faq_2",
+      "faq_3",
+      "faq_4"
+    ],
+    "settings": {
+      "image": "shopify://shop_images/faq-img_2b7178a7-6080-41ba-a1a2-130986611bf4.png",
+      "heading": "FAQs",
+      "cta_text": "View All FAQs",
+      "cta_link": "#!"
+    }
+  },
     "spacer5": {
       "type": "spacer",
       "settings": {
@@ -356,7 +353,7 @@
     "spacer_mtgfHD",
     "why-orbe",
     "spacer_6YyPKx",
-    "faqs-home",
+    "new-faq-section",
     "spacer5",
     "blogs-feature",
     "spacer6",
