@@ -1,11 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "faq-page": {
+    "faq_page_KUMMdz": {
       "type": "faq-page",
-      "settings": {}
+      "blocks": {
+        "category_rGHHmq": {
+          "type": "category",
+          "settings": {
+            "title": "Category 1"
+          }
+        },
+        "category_rJzGYQ": {
+          "type": "category",
+          "settings": {
+            "title": "Category 2"
+          }
+        },
+        "category_BYwVTi": {
+          "type": "category",
+          "settings": {
+            "title": "Category 3"
+          }
+        },
+        "category_9RLXwT": {
+          "type": "category",
+          "settings": {
+            "title": "Category 4"
+          }
+        },
+        "category_MerCkH": {
+          "type": "category",
+          "settings": {
+            "title": "Category 5"
+          }
+        },
+        "faq_item_xtEdg6": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Category 1",
+            "question": "Frequently asked question 1",
+            "answer": "<p>Add your answer here.</p>"
+          }
+        },
+        "faq_item_EmTegj": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Category 1",
+            "question": "Frequently asked question 2",
+            "answer": "<p>Add your answer here.</p>"
+          }
+        },
+        "faq_item_MR3Hfb": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Category 1",
+            "question": "Frequently asked question 3",
+            "answer": "<p>Add your answer here.</p>"
+          }
+        },
+        "faq_item_dirNn8": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Category 1",
+            "question": "Frequently asked question 4",
+            "answer": "<p>Add your answer here.</p>"
+          }
+        },
+        "faq_item_9HfpDa": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Category 1",
+            "question": "Frequently asked question 5",
+            "answer": "<p>Add your answer here.</p>"
+          }
+        },
+        "faq_item_zTLyYN": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Category 1",
+            "question": "Frequently asked question 6",
+            "answer": "<p>Add your answer here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_rGHHmq",
+        "category_rJzGYQ",
+        "category_BYwVTi",
+        "category_9RLXwT",
+        "category_MerCkH",
+        "faq_item_xtEdg6",
+        "faq_item_EmTegj",
+        "faq_item_MR3Hfb",
+        "faq_item_dirNn8",
+        "faq_item_9HfpDa",
+        "faq_item_zTLyYN"
+      ],
+      "name": "FAQ page",
+      "settings": {
+        "show_sort": true,
+        "sort_label": "Sort by",
+        "empty_text": ""
+      }
     }
   },
   "order": [
-    "faq-page"
+    "faq_page_KUMMdz"
   ]
 }
