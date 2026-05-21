@@ -930,6 +930,7 @@
     line-height: 112%;
     letter-spacing: -0.05em;
     font-weight: 400;
+    max-width: 12ch;
   }
   .what-your-mobile-signal a {
     display: block;
@@ -948,7 +949,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .what-your-mobile-circle:nth-child(even) .what-your-mobile-signal span {
-    max-width: 8ch;
+    max-width: 7ch;
   }
 }
 
