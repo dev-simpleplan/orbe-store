@@ -556,6 +556,8 @@ header.header--transparent .center svg path {
   gap: 100px;
   padding-top: 80px;
   padding-bottom: 80px;
+  position: relative;
+  z-index: 5;
 }
 .footer-in .right {
   width: 50%;
