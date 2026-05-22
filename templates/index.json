@@ -257,9 +257,25 @@
         "spacer_height": 120
       }
     },
-    "testimonial-sec":{
+    "testimonial-sec": {
       "type": "testimonial-sec",
-      "settings": {}
+      "blocks": {
+        "text_block_7Wzj3Y": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/ed4d28208cedcb0bf81c3a4fb8033fc16ef0a3f2.png",
+            "author_name": "Ananya Mehra",
+            "rating": 5,
+            "review": "I've tried many wellness supplements before, but this one genuinely felt different."
+          }
+        }
+      },
+      "block_order": [
+        "text_block_7Wzj3Y"
+      ],
+      "settings": {
+        "heading": "Seeing through the noise"
+      }
     },
     "blogs-feature": {
       "type": "blogs-feature",
