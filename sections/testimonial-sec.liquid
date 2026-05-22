@@ -308,7 +308,7 @@
 
         .ts-card--text,
         .ts-card--video {
-            width: 60vw;
+            width: 80vw;
             max-width: none;
             min-height: 430px;
         }
@@ -352,9 +352,6 @@
         }
 
         function updateTestimonialNav(event) {
-            var itemCount = event.item.count;
-            var itemIndex = event.item.index;
-            var itemsPerView = event.page.size || 1;
             var $prev = jQuery('.ts-prev');
             var $next = jQuery('.ts-next');
 
@@ -363,8 +360,13 @@
                 return;
             }
 
-            $prev.toggleClass('disabled', itemIndex === 0);
-            $next.toggleClass('disabled', itemIndex + itemsPerView >= itemCount);
+            var carousel = event.relatedTarget;
+            var current = carousel.current();
+            var minimum = carousel.minimum();
+            var maximum = carousel.maximum();
+
+            $prev.toggleClass('disabled', current <= minimum);
+            $next.toggleClass('disabled', current >= maximum);
         }
 
         $owl.on('initialized.owl.carousel changed.owl.carousel resized.owl.carousel', updateTestimonialNav);
