@@ -1,21 +1,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
 <section class="testimonial-sec">
-    <div class="container">
-        <div class="heading">
+        <div class="container heading">
             <h2>{{ section.settings.heading }}</h2>
         </div>
         <div class="testimonial-sec-in">
             <div class="owl-carousel testimonial-owl">
-                {% for block in section.blocks %}
+                {% for block in section.blocks limit: 4 %}
                     {% if block.type == 'text_block' %}
                         <div class="ts-card ts-card--text" {{ block.shopify_attributes }}>
                             {% if block.settings.author_image != blank %}
                                 <div class="ts-img">
                                     <img
-                                        src="{{ block.settings.author_image | image_url: width: 200 }}"
+                                        src="{{ block.settings.author_image | image_url: width: 500 }}"
                                         alt="{{ block.settings.author_name | escape }}"
-                                        width="100" height="100" loading="lazy">
+                                        width="244" height="244" loading="lazy">
                                 </div>
                             {% endif %}
                             <div class="ts-meta">
@@ -26,12 +25,12 @@
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="#151515"><path d="M6 0l1.5 4h4l-3.3 2.4 1.3 4L6 8 2.5 10.4l1.3-4L.5 4h4z"/></svg>
                                         {% else %}
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#151515" stroke-width="0.8"><path d="M6 0l1.5 4h4l-3.3 2.4 1.3 4L6 8 2.5 10.4l1.3-4L.5 4h4z"/></svg>
-                                        {% endif %}
-                                    {% endfor %}
-                                </span>
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
                             </div>
                             {% if block.settings.review != blank %}
-                                <p class="ts-review">"{{ block.settings.review }}"</p>
+                                <p class="ts-review">{{ block.settings.review }}</p>
                             {% endif %}
                         </div>
 
@@ -50,7 +49,7 @@
                             {% elsif block.settings.poster != blank %}
                                 <img
                                     src="{{ block.settings.poster | image_url: width: 800 }}"
-                                    alt="" loading="lazy">
+                                    alt="" width="288" height="512" loading="lazy">
                             {% endif %}
                         </div>
                     {% endif %}
@@ -70,29 +69,73 @@
                 </button>
             </div>
         </div>
-    </div>
 </section>
 
 <style>
+    .testimonial-sec {
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .testimonial-sec .container {
+        max-width: 1440px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .testimonial-sec .heading {
+        margin-bottom: 110px;
+        text-align: center;
+    }
+
+    .testimonial-sec .heading h2 {
+        margin: 0;
+        color: #151515;
+        font-family: var(--tobias);
+        font-size: 58px;
+        font-weight: 400;
+        line-height: 0.95;
+        letter-spacing: 0;
+        text-transform: capitalize;
+    }
+
     .testimonial-sec-in {
         position: relative;
     }
 
-    .ts-card--text {
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        padding: 36px 32px;
+    .testimonial-owl .owl-stage {
         display: flex;
-        flex-direction: column;
-        gap: 20px;
-        min-height: 460px;
+        align-items: flex-end;
+    }
+
+    .testimonial-owl .owl-item {
+        width: auto !important;
+    }
+
+    .ts-card {
         box-sizing: border-box;
     }
 
+    .ts-card--text {
+        width: 364px;
+        max-width: 364px;
+        min-height: 512px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: stretch;
+        background: transparent;
+        border: 0;
+    }
+
     .ts-card--video {
-        min-height: 460px;
+        width: 288px;
+        max-width: 288px;
+        height: 512px;
+        min-height: 512px;
         overflow: hidden;
-        background: #111;
+        background: #f2f2f2;
     }
 
     .ts-card--video img,
@@ -104,11 +147,13 @@
     }
 
     .ts-img {
-        width: 100px;
-        height: 100px;
+        width: 244px;
+        height: 244px;
         border-radius: 50%;
         overflow: hidden;
-        flex-shrink: 0;
+        flex: 0 0 244px;
+        margin: 0 auto 8px;
+        background: #111;
     }
 
     .ts-img img {
@@ -120,8 +165,12 @@
 
     .ts-meta {
         display: flex;
-        flex-direction: column;
-        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 60px;
+        padding: 0 20px;
+        background: #f6f6f6;
     }
 
     .ts-author {
@@ -134,21 +183,32 @@
 
     .ts-stars {
         display: flex;
-        gap: 3px;
+        gap: 4px;
         align-items: center;
+        flex: 0 0 auto;
+    }
+
+    .ts-stars svg {
+        width: 13px;
+        height: 13px;
     }
 
     .ts-review {
-        font-size: 13px;
-        line-height: 1.65;
-        color: #555;
+        min-height: 160px;
         margin: 0;
-        flex: 1;
+        padding: 0 20px 18px;
+        background: #f6f6f6;
+        color: #333;
+        font-family: var(--aspekta);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.28;
+        letter-spacing: 0;
     }
 
     /* custom nav */
     .ts-nav {
-        display: flex;
+        display: none;
         gap: 12px;
         margin-top: 32px;
     }
@@ -180,19 +240,74 @@
         display: none;
     }
 
-    /* wider item for text blocks */
-    .testimonial-owl .owl-item .ts-card--text {
-        width: 100%;
+    @media (max-width: 1439px) {
+        .testimonial-sec .container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .testimonial-sec .heading {
+            margin-bottom: 80px;
+        }
     }
 
-    @media (max-width: 767px) {
-        .ts-card--text,
-        .ts-card--video {
-            min-height: 360px;
+    @media (max-width: 991px) {
+        .testimonial-sec .heading h2 {
+            font-size: 46px;
+        }
+
+        .testimonial-sec .heading {
+            margin-bottom: 48px;
+        }
+
+        .testimonial-owl .owl-stage {
+            align-items: stretch;
         }
 
         .ts-card--text {
-            padding: 28px 24px;
+            width: 320px;
+            max-width: 320px;
+            min-height: 460px;
+        }
+
+        .ts-card--video {
+            width: 260px;
+            max-width: 260px;
+            height: 460px;
+            min-height: 460px;
+        }
+
+        .ts-img {
+            width: 200px;
+            height: 200px;
+            flex-basis: 200px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .testimonial-sec .container {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .testimonial-sec .heading h2 {
+            font-size: 38px;
+        }
+
+        .ts-card--text,
+        .ts-card--video {
+            width: calc(100vw - 64px);
+            max-width: 320px;
+            min-height: 430px;
+        }
+
+        .ts-card--video {
+            height: 430px;
+        }
+
+        .ts-review {
+            font-size: 13px;
+            min-height: 150px;
         }
     }
 </style>
@@ -208,14 +323,14 @@
 
         $owl.owlCarousel({
             loop: false,
-            margin: 20,
+            margin: 12,
             nav: false,
             dots: false,
             autoWidth: true,
             responsive: {
-                0: { items: 1, autoWidth: false },
-                768: { autoWidth: true },
-                1024: { autoWidth: true }
+                0: { items: 1, autoWidth: true, margin: 12 },
+                768: { autoWidth: true, margin: 12 },
+                1024: { autoWidth: true, margin: 12 }
             }
         });
 
