@@ -102,66 +102,56 @@
         a {
             font-size: 14px;
         }
-
+        .heading p{
+            font-size: 10px;
+        }
     }
 </style>
 <section class="terms-policy">
     <div class="terms-policy-container">
         <div class="terms-policy-in">
             <div class="heading">
-                <h1>Privacy Policy</h1>
-                <p>Last modified : February 2025</p>
+                {% if section.settings.heading != blank %}
+                    <h1>{{ section.settings.heading }}</h1>
+                {% endif %}
+                {% if section.settings.last_modified != blank %}
+                    <p>{{ section.settings.last_modified }}</p>
+                {% endif %}
             </div>
             <div class="terms-policy-content">
-                <h2>Hello, this is terms and condition heading</h2>
-                <p>Lorem ipsum dolor sit amet consectetur. Nunc cras lacus aliquet posuere facilisis. Amet pellentesque
-                    viverra eu faucibus justo diam. Condimentum auctor ipsum urna pharetra eget. Ultrices suscipit amet
-                    felis sit non egestas. Pellentesque
-                    risus in egestas maecenas varius nascetur sit. Turpis amet enim justo purus. Velit vulputate integer
-                    in enim vitae diam feugiat. Venenatis rhoncus id non odio elementum tempor. Pulvinar fames imperdiet
-                    nisi pharetra pellentesque
-                    pellentesque tortor lorem. Libero velit dictum viverra quis purus et venenatis ac. Venenatis
-                    vestibulum molestie morbi faucibus diam diam scelerisque sit turpis. Scelerisque mattis aliquet eget
-                    quis enim tellus vitae at. In
-                    sed ipsum nisi magna. Eu urna euismod porta aliquet turpis arcu morbi posuere. Morbi proin magna
-                    tortor auctor quis magna lectus pretium convallis. Ornare quam quis habitasse nam enim vitae. Ornare
-                    consequat nisl sed risus
-                    urna morbi id. </p>
-                <h3>
-                    Title
-                </h3>
-                <h4>This is h4</h4>
-                <p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu
-                    fermentum platea fringilla. Leo massa congue convallis tortor gravida.</p>
-
-                <h5>This is h5</h5>
-                <p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu
-                    fermentum platea fringilla. Leo massa congue convallis tortor gravida.</p>
-
-                <h6>This is h6</h6>
-                <p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu
-                    fermentum platea fringilla. Leo massa congue convallis tortor gravida.</p>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. </li>
-                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. </li>
-                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. </li>
-                </ul>
-                <ol>
-                    <li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem? Rem dolore,
-                        dignissimos soluta, praesentium iusto magni natus, reiciendis sint officiis cupiditate eaque?
-                    </li>
-                    <li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem? Rem dolore,
-                        dignissimos soluta, praesentium iusto magni natus, reiciendis sint officiis cupiditate eaque?
-                    </li>
-                    <li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem? Rem dolore,
-                        dignissimos soluta, praesentium iusto magni natus, reiciendis sint officiis cupiditate eaque?
-                    </li>
-                </ol>
-                <a href="#!">click me boss</a>
-                <p>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem? Rem dolore, <a
-                        href="#!">Click me boss</a> soluta, praesentium iusto magni natus, reiciendis sint officiis
-                    cupiditate eaque?</p>
+                {{ section.settings.terms_policy_content }}
             </div>
         </div>
     </div>
 </section>
+
+{% schema %}
+{
+    "name": "Privacy Policy",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Privacy Policy"
+        },
+        {
+            "type": "text",
+            "id": "last_modified",
+            "label": "Last modified text",
+            "default": "Last modified : February 2025"
+        },
+        {
+            "type": "html",
+            "id": "terms_policy_content",
+            "label": "Terms policy content",
+            "default": "<h2>Hello, this is terms and condition heading</h2><p>Lorem ipsum dolor sit amet consectetur. Nunc cras lacus aliquet posuere facilisis. Amet pellentesque viverra eu faucibus justo diam. Condimentum auctor ipsum urna pharetra eget.</p><h3>Title</h3><h4>This is h4</h4><p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu fermentum platea fringilla.</p><h5>This is h5</h5><p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu fermentum platea fringilla.</p><h6>This is h6</h6><p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu fermentum platea fringilla.</p><ul><li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li><li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li><li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li></ul><ol><li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem?</li><li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem?</li><li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem?</li></ol><a href=\"#!\">click me boss</a><p>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem? Rem dolore, <a href=\"#!\">Click me boss</a> soluta, praesentium iusto magni natus.</p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Privacy Policy"
+        }
+    ]
+}
+{% endschema %}
