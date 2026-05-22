@@ -260,6 +260,12 @@
     "testimonial-sec": {
       "type": "testimonial-sec",
       "blocks": {
+        "video_8TWHQi": {
+          "type": "video",
+          "settings": {
+            "poster": "shopify://shop_images/88b4912c115cc344c2b6fe5c0974b590d99474db.png"
+          }
+        },
         "text_block_PB4UXb": {
           "type": "text_block",
           "settings": {
@@ -286,6 +292,7 @@
         }
       },
       "block_order": [
+        "video_8TWHQi",
         "text_block_PB4UXb",
         "video_4BYdtw",
         "text_block_7Wzj3Y"
