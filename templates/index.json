@@ -301,6 +301,13 @@
         "heading": "Seeing through the noise"
       }
     },
+    "spacer_MQJmqW": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "blogs-feature": {
       "type": "blogs-feature",
       "settings": {
@@ -400,6 +407,7 @@
     "new-faq-section",
     "spacer5",
     "testimonial-sec",
+    "spacer_MQJmqW",
     "blogs-feature",
     "spacer6",
     "join-community",
