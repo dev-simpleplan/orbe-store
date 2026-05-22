@@ -257,6 +257,10 @@
         "spacer_height": 120
       }
     },
+    "testimonial-sec":{
+      "type": "testimonial-sec",
+      "settings": {}
+    },
     "blogs-feature": {
       "type": "blogs-feature",
       "settings": {
@@ -355,6 +359,7 @@
     "spacer_6YyPKx",
     "new-faq-section",
     "spacer5",
+    "testimonial-sec",
     "blogs-feature",
     "spacer6",
     "join-community",

@@ -1,0 +1,402 @@
+<section class="ts-sec">
+    <div class="container">
+        {% if section.settings.heading != blank %}
+            <div class="heading">
+                <h2>{{ section.settings.heading }}</h2>
+            </div>
+        {% endif %}
+
+        <div class="ts-slider-wrap">
+            <div class="ts-outer">
+                <div class="ts-track">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'text_block' %}
+                            <div class="ts-card ts-card--text" {{ block.shopify_attributes }}>
+                                {% if block.settings.author_image != blank %}
+                                    <div class="ts-card__img">
+                                        <img
+                                            src="{{ block.settings.author_image | image_url: width: 200 }}"
+                                            alt="{{ block.settings.author_name | escape }}"
+                                            width="100"
+                                            height="100"
+                                            loading="lazy">
+                                    </div>
+                                {% endif %}
+                                <div class="ts-card__meta">
+                                    <span class="ts-card__author">{{ block.settings.author_name }}</span>
+                                    <span class="ts-card__stars">
+                                        {% assign rating = block.settings.rating %}
+                                        {% for i in (1..5) %}
+                                            {% if i <= rating %}
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="#151515"><path d="M6 0l1.5 4h4l-3.3 2.4 1.3 4L6 8 2.5 10.4l1.3-4L.5 4h4z"/></svg>
+                                            {% else %}
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#151515" stroke-width="0.8"><path d="M6 0l1.5 4h4l-3.3 2.4 1.3 4L6 8 2.5 10.4l1.3-4L.5 4h4z"/></svg>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </span>
+                                </div>
+                                {% if block.settings.review != blank %}
+                                    <p class="ts-card__review">"{{ block.settings.review }}"</p>
+                                {% endif %}
+                            </div>
+
+                        {% elsif block.type == 'video' %}
+                            <div class="ts-card ts-card--video" {{ block.shopify_attributes }}>
+                                {% if block.settings.video != blank %}
+                                    {{
+                                        block.settings.video
+                                        | video_tag:
+                                            autoplay: true,
+                                            loop: true,
+                                            muted: true,
+                                            playsinline: true,
+                                            image_size: '800x'
+                                    }}
+                                {% elsif block.settings.poster != blank %}
+                                    <img
+                                        src="{{ block.settings.poster | image_url: width: 800 }}"
+                                        alt=""
+                                        loading="lazy">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="ts-nav">
+                <button class="ts-btn ts-prev" aria-label="Previous">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="ts-btn ts-next" aria-label="Next">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .ts-sec {
+        padding: 80px 0;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .ts-sec .heading {
+        margin-bottom: 60px;
+    }
+
+    .ts-slider-wrap {
+        position: relative;
+    }
+
+    .ts-outer {
+        overflow: hidden;
+    }
+
+    .ts-track {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+        align-items: stretch;
+    }
+
+    /* ── Text card ── */
+    .ts-card--text {
+        flex: 0 0 380px;
+        width: 380px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-height: 460px;
+    }
+
+    .ts-card__img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .ts-card__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .ts-card__meta {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .ts-card__author {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #151515;
+    }
+
+    .ts-card__stars {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+    }
+
+    .ts-card__review {
+        font-size: 13px;
+        line-height: 1.65;
+        color: #555;
+        margin: 0;
+        flex: 1;
+    }
+
+    /* ── Video card ── */
+    .ts-card--video {
+        flex: 0 0 260px;
+        width: 260px;
+        min-height: 460px;
+        overflow: hidden;
+        background: #111;
+    }
+
+    .ts-card--video img,
+    .ts-card--video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* ── Nav ── */
+    .ts-nav {
+        display: flex;
+        gap: 12px;
+        margin-top: 40px;
+    }
+
+    .ts-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid #151515;
+        background: transparent;
+        color: #151515;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    .ts-btn:hover {
+        background: #151515;
+        color: #fff;
+    }
+
+    .ts-btn:disabled {
+        opacity: 0.3;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1199px) {
+        .ts-card--text {
+            flex: 0 0 320px;
+            width: 320px;
+        }
+
+        .ts-card--video {
+            flex: 0 0 220px;
+            width: 220px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .ts-sec {
+            padding: 60px 0;
+        }
+
+        .ts-card--text {
+            flex: 0 0 280px;
+            width: 280px;
+            min-height: 380px;
+            padding: 28px 24px;
+        }
+
+        .ts-card--video {
+            flex: 0 0 220px;
+            width: 220px;
+            min-height: 380px;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        var section = document.querySelector('.ts-sec');
+        if (!section) return;
+
+        var track = section.querySelector('.ts-track');
+        var prevBtn = section.querySelector('.ts-prev');
+        var nextBtn = section.querySelector('.ts-next');
+        var cards = Array.from(track.querySelectorAll('.ts-card'));
+        var gap = 20;
+        var currentIndex = 0;
+
+        function getVisibleCount() {
+            var outerW = track.parentElement.offsetWidth;
+            var count = 0;
+            var total = 0;
+            for (var i = 0; i < cards.length; i++) {
+                total += cards[i].offsetWidth + gap;
+                if (total <= outerW + gap) count = i + 1;
+                else break;
+            }
+            return Math.max(count, 1);
+        }
+
+        function getOffset(index) {
+            var offset = 0;
+            for (var i = 0; i < index; i++) {
+                offset += cards[i].offsetWidth + gap;
+            }
+            return offset;
+        }
+
+        function maxIndex() {
+            return Math.max(0, cards.length - getVisibleCount());
+        }
+
+        function goTo(index) {
+            currentIndex = Math.max(0, Math.min(index, maxIndex()));
+            track.style.transform = 'translateX(-' + getOffset(currentIndex) + 'px)';
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex >= maxIndex();
+        }
+
+        prevBtn.addEventListener('click', function () { goTo(currentIndex - 1); });
+        nextBtn.addEventListener('click', function () { goTo(currentIndex + 1); });
+
+        window.addEventListener('resize', function () { goTo(currentIndex); });
+
+        goTo(0);
+    })();
+</script>
+
+{% schema %}
+{
+    "name": "Testimonial Slider",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Section heading",
+            "default": "What Our Customers Say"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text_block",
+            "name": "Text testimonial",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "author_image",
+                    "label": "Author image"
+                },
+                {
+                    "type": "text",
+                    "id": "author_name",
+                    "label": "Author name",
+                    "default": "Ananya Mehra"
+                },
+                {
+                    "type": "range",
+                    "id": "rating",
+                    "label": "Star rating",
+                    "min": 1,
+                    "max": 5,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "textarea",
+                    "id": "review",
+                    "label": "Review",
+                    "default": "I've tried many wellness supplements before, but this one genuinely felt different."
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "name": "Video",
+            "settings": [
+                {
+                    "type": "video",
+                    "id": "video",
+                    "label": "Video"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "poster",
+                    "label": "Fallback image (if no video)"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Testimonial Slider",
+            "blocks": [
+                {
+                    "type": "text_block",
+                    "settings": {
+                        "author_name": "Ananya Mehra",
+                        "rating": 5,
+                        "review": "I've tried many wellness supplements before, but this one genuinely felt different. Within a few weeks, I noticed better energy levels, improved focus, and a much calmer routine overall."
+                    }
+                },
+                {
+                    "type": "video",
+                    "settings": {}
+                },
+                {
+                    "type": "text_block",
+                    "settings": {
+                        "author_name": "Priya Sharma",
+                        "rating": 5,
+                        "review": "What I love most is how clean and premium the experience feels — from the packaging to the results. It has honestly become a part of my daily self-care ritual."
+                    }
+                },
+                {
+                    "type": "video",
+                    "settings": {}
+                },
+                {
+                    "type": "text_block",
+                    "settings": {
+                        "author_name": "Sara Williams",
+                        "rating": 4,
+                        "review": "A genuinely thoughtful product. I appreciate the transparency in ingredients and the noticeable difference it makes to my day."
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
