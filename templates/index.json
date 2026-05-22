@@ -260,17 +260,34 @@
     "testimonial-sec": {
       "type": "testimonial-sec",
       "blocks": {
+        "text_block_PB4UXb": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/Ellipse_7627.png",
+            "author_name": "Ananya Mehra",
+            "rating": 5,
+            "review": "“I’ve tried many wellness supplements before, but this one genuinely felt different. Within a few weeks, I noticed better energy levels, improved focus, and a much calmer routine overall. What I love most is how clean and premium the experience feels — from the packaging to the results. It has honestly become a part of my daily self-care ritual.”"
+          }
+        },
+        "video_4BYdtw": {
+          "type": "video",
+          "settings": {
+            "poster": "shopify://shop_images/8f073bfb6846854cde12c88a56c593ee1561e135.png"
+          }
+        },
         "text_block_7Wzj3Y": {
           "type": "text_block",
           "settings": {
             "author_image": "shopify://shop_images/ed4d28208cedcb0bf81c3a4fb8033fc16ef0a3f2.png",
             "author_name": "Ananya Mehra",
             "rating": 5,
-            "review": "I've tried many wellness supplements before, but this one genuinely felt different."
+            "review": "“I’ve tried many wellness supplements before, but this one genuinely felt different. Within a few weeks, I noticed better energy levels, improved focus, and a much calmer routine overall. What I love most is how clean and premium the experience feels — from the packaging to the results. It has honestly become a part of my daily self-care ritual.”"
           }
         }
       },
       "block_order": [
+        "text_block_PB4UXb",
+        "video_4BYdtw",
         "text_block_7Wzj3Y"
       ],
       "settings": {
