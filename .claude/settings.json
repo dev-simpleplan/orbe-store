@@ -4,7 +4,8 @@
       "Bash(cp /Users/apple/Documents/GitHub/orbe-store/assets/favicon_io/* /Users/apple/Documents/GitHub/orbe-store/assets/ && ls /Users/apple/Documents/GitHub/orbe-store/assets/ | grep -i \"favicon\\\\|apple-touch\\\\|site.web\")"
     ],
     "additionalDirectories": [
-      "/Users/apple/Documents/GitHub/orbe-store/assets/favicon_io"
+      "/Users/apple/Documents/GitHub/orbe-store/assets/favicon_io",
+      "/private/var/folders/k1/3sgyc4dj1xx2f10w8fdt81th0000gn/T/fz3temp-2"
     ]
   }
 }
