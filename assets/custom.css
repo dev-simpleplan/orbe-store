@@ -3720,6 +3720,6 @@ body.what-your-body-card-open {
   padding: 54px 50px 0;
 }
 .new-faq-item.active .new-faq-question {
-  padding-top: 40px;
+padding-bottom: 10px;
 }
 /* New FAQ Section */
