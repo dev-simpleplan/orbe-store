@@ -106,13 +106,14 @@ header li {
   right: -8px;
   background: var(--golden);
   color: var(--black);
-  font-size: 10px;
+  font-size: 9px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--aspekta);
 }
 .header--transparent {
   background: transparent;
