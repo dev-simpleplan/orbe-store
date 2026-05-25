@@ -13,19 +13,46 @@
           <div class="footer-nav">
             <div class="footer-nav-top">
               {% assign footer_menu = linklists['footer'] %}
+              {% assign has_direct_links = false %}
+
               {% for link in footer_menu.links %}
-                  <div>
-                    <p>{{ link.title }}</p>
-                    {% if link.links.size > 0 %}
-                      <ul>
-                        {% for child_link in link.links %}
-                          <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-                  </div>
+                {% if link.links.size == 0 %}
+                  {% assign has_direct_links = true %}
+                {% endif %}
               {% endfor %}
-               <div class="subscribe-news">
+
+              {% if has_direct_links %}
+                <div class="footer-nav-links">
+                  <ul>
+                    {% for link in footer_menu.links %}
+                      {% if link.links.size == 0 %}
+                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+
+              {% for link in footer_menu.links %}
+                {% if link.links.size > 0 %}
+                  <div>
+                    <p>
+                      {% if link.url != blank and link.url != '#' %}
+                        <a href="{{ link.url }}" class="footer-nav-heading-link">{{ link.title }}</a>
+                      {% else %}
+                        {{ link.title }}
+                      {% endif %}
+                    </p>
+                    <ul>
+                      {% for child_link in link.links %}
+                        <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+              <div class="subscribe-news">
                 <p>Subscribe to Newsletter</p>
                 <p>You'll get an email once a month. We'll never share it.</p>
                 <div class="subscribe-news-form">
@@ -37,7 +64,6 @@
                   </form>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

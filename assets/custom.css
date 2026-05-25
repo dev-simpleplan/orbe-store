@@ -595,6 +595,12 @@ header.header--transparent .center svg path {
   color: #fff;
   letter-spacing: 0em;
 }
+.footer-nav a.footer-nav-heading-link {
+  font-size: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
 .footer-nav-top {
   display: flex;
   gap: 80px;
@@ -628,6 +634,8 @@ header.header--transparent .center svg path {
 }
 .subscribe-news-form {
   margin-top: 20px;
+  max-width: 352px;
+  width: 100%;
 }
 .subscribe-news-form form {
   display: flex;
