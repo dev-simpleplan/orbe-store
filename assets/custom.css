@@ -1313,15 +1313,15 @@ header.header--transparent .header.desktop li:not(.has-mega-dropdown) > .fph-lin
 .blogs-feature-card .eye-head {
   text-transform: uppercase;
   font-size: 12px;
-  font-family: var(--favorit);
+  font-family: var(--aspekta);
   letter-spacing: 2px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--black);
   margin-bottom: 10px;
 }
 .blogs-feature-card p:not(.eye-head) {
   font-size: 14px;
-  font-family: var(--favorit);
+  font-family: var(--aspekta);
   letter-spacing: 0px;
   font-weight: 300;
   color: #5d5d5d;
@@ -1638,7 +1638,8 @@ header.header--transparent .header.desktop li:not(.has-mega-dropdown) > .fph-lin
 }
 .about-banner-stage {
   position: relative;
-  min-height: calc(100vh - 120px);
+height: calc(100vh - 120px);
+min-height: 800px;
   overflow: hidden;
   display: flex;
   align-items: center;
