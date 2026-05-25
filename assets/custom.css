@@ -846,6 +846,9 @@ header.header--transparent .center svg path {
 .header.desktop {
   padding: 0px 60px;
 }
+header.header--transparent .header.desktop li:not(.has-mega-dropdown) > .fph-link::after {
+  background-color: #fff;
+}
 /* Home Banner */
 /* At Orbe */
 .at-orbe-block-wrap {
