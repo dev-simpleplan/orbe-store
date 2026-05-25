@@ -17,7 +17,12 @@
         <div class="cart-page__grid">
           <div class="cart-page__items" aria-label="Cart items">
             {% for item in cart.items %}
-              <article class="cart-item">
+              <article
+                class="cart-item"
+                data-cart-line
+                data-line-unit-price="{{ item.final_price }}"
+                data-line-original-unit-price="{{ item.original_price }}"
+              >
                 <a href="{{ item.url }}" class="cart-item__media" aria-label="{{ item.product.title | escape }}">
                   {% if item.image %}
                     {% assign cart_item_image_alt = item.image.alt | default: item.product.title %}
@@ -62,10 +67,8 @@
                     </div>
 
                     <div class="cart-item__price">
-                      {% if item.original_line_price != item.final_line_price %}
-                        <s>{{ item.original_line_price | money }}</s>
-                      {% endif %}
-                      <span>{{ item.final_line_price | money }}</span>
+                      <s data-line-original-price {% if item.original_line_price == item.final_line_price %}hidden{% endif %}>{{ item.original_line_price | money }}</s>
+                      <span data-line-price>{{ item.final_line_price | money }}</span>
                     </div>
                   </div>
 
@@ -115,7 +118,7 @@
 
               <div class="cart-summary__row">
                 <span>Subtotal</span>
-                <strong>{{ cart.total_price | money }}</strong>
+                <strong data-cart-subtotal>{{ cart.total_price | money }}</strong>
               </div>
 
               {% if cart.cart_level_discount_applications.size > 0 %}
@@ -154,6 +157,49 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    var moneyFormat = {{ shop.money_format | json }};
+
+    function formatMoney(cents) {
+      if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
+        return window.Shopify.formatMoney(cents, moneyFormat);
+      }
+
+      return (cents / 100).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    function updateCartPrices() {
+      var subtotal = 0;
+
+      document.querySelectorAll('[data-cart-line]').forEach(function (line) {
+        var input = line.querySelector('[data-quantity-input]');
+        var price = line.querySelector('[data-line-price]');
+        var originalPrice = line.querySelector('[data-line-original-price]');
+        var quantity = input ? Math.max(0, parseInt(input.value, 10) || 0) : 0;
+        var unitPrice = parseInt(line.dataset.lineUnitPrice, 10) || 0;
+        var originalUnitPrice = parseInt(line.dataset.lineOriginalUnitPrice, 10) || unitPrice;
+        var linePrice = unitPrice * quantity;
+        var originalLinePrice = originalUnitPrice * quantity;
+
+        subtotal += linePrice;
+
+        if (price) {
+          price.textContent = formatMoney(linePrice);
+        }
+
+        if (originalPrice) {
+          originalPrice.textContent = formatMoney(originalLinePrice);
+          originalPrice.hidden = originalLinePrice === linePrice;
+        }
+      });
+
+      document.querySelectorAll('[data-cart-subtotal]').forEach(function (subtotalElement) {
+        subtotalElement.textContent = formatMoney(subtotal);
+      });
+    }
+
     document.querySelectorAll('[data-cart-quantity]').forEach(function (quantityControl) {
       var input = quantityControl.querySelector('[data-quantity-input]');
       var minus = quantityControl.querySelector('[data-quantity-minus]');
@@ -164,12 +210,17 @@
       minus.addEventListener('click', function () {
         var currentValue = parseInt(input.value, 10) || 0;
         input.value = Math.max(0, currentValue - 1);
+        updateCartPrices();
       });
 
       plus.addEventListener('click', function () {
         var currentValue = parseInt(input.value, 10) || 0;
         input.value = currentValue + 1;
+        updateCartPrices();
       });
+
+      input.addEventListener('change', updateCartPrices);
+      input.addEventListener('input', updateCartPrices);
     });
   });
 </script>
