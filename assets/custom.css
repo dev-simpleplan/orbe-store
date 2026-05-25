@@ -2563,7 +2563,6 @@ min-height: 800px;
   position: relative;
   width: 100%;
   height: 512px;
-  perspective: 1440px;
   overflow: hidden;
 }
 
@@ -2574,9 +2573,9 @@ min-height: 800px;
   overflow: hidden;
   will-change: transform, opacity;
   background: #222;
-  transform: rotateX(90deg);
+  transform: translateY(0) scale(0.84);
   opacity: 0;
-  transform-origin: top center;
+  transform-origin: 50% 50%;
   backface-visibility: hidden;
 }
 

@@ -111,13 +111,15 @@
 
             gsap.set(cards, {
                 autoAlpha: 0,
-                rotateX: 82,
-                transformOrigin: 'top center',
+                y: 0,
+                scale: 0.84,
+                transformOrigin: '50% 50%',
             });
 
             gsap.set(cards[0], {
                 autoAlpha: 1,
-                rotateX: 0,
+                y: 0,
+                scale: 1,
             });
 
             function updateCaption(index) {
@@ -185,24 +187,33 @@
                 const position = index - 1;
                 const previousCard = cards[index - 1];
 
+                tl.set(card, {
+                    zIndex: N + index,
+                }, position + 0.24);
+
                 tl.to(previousCard, {
-                    rotateX: -88,
-                    autoAlpha: 0,
-                    duration: 1,
+                    y: -72,
+                    scale: 0.82,
+                    duration: 0.22,
+                    ease: 'power2.in',
                 }, position);
 
-                tl.fromTo(card,
-                    {
-                        rotateX: 82,
-                        autoAlpha: 0,
-                    },
-                    {
-                        rotateX: 0,
-                        autoAlpha: 1,
-                        duration: 1,
-                    },
-                    position
-                );
+                tl.set(previousCard, {
+                    autoAlpha: 0,
+                }, position + 0.22);
+
+                tl.set(card, {
+                    y: 0,
+                    scale: 0.86,
+                    autoAlpha: 1,
+                }, position + 0.24);
+
+                tl.to(card, {
+                    y: 0,
+                    scale: 1,
+                    duration: 0.34,
+                    ease: 'back.out(1.25)',
+                }, position + 0.24);
             });
 
             updateCaption(0);
