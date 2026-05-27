@@ -258,6 +258,10 @@
         "spacer_height": 120
       }
     },
+    "batch-verified":{
+      "type": "batch-verified",
+      "settings": {}
+    },
       "testimonial-sec": {
       "type": "testimonial-sec",
       "blocks": {
@@ -393,6 +397,7 @@
     "spacer_VnKNLM",
     "best-bio",
     "spacer_adLpCm",
+    "batch-verified",
     "testimonial-sec",
     "spacer_MQJmqW",
     "new_faq_section_n49mMB",
