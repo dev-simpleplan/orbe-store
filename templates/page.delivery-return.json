@@ -16,17 +16,9 @@
         "last_modified": "Last modified : February 2025",
         "terms_policy_content": "<h2>Hello, this is terms and condition heading</h2><p> Delivery Lorem ipsum dolor sit amet consectetur. Nunc cras lacus aliquet posuere facilisis. Amet pellentesque viverra eu faucibus justo diam. Condimentum auctor ipsum urna pharetra eget.</p><h3>Title</h3><h4>This is h4</h4><p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu fermentum platea fringilla.</p><h5>This is h5</h5><p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu fermentum platea fringilla.</p><h6>This is h6</h6><p>Feugiat in erat accumsan quis ornare posuere adipiscing aliquam ligula. Elementum vulputate eu fermentum platea fringilla.</p><ul>\n<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>\n<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>\n<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>\n</ul><ol>\n<li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem?</li>\n<li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem?</li>\n<li>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem?</li>\n</ol><a href=\"#!\">click me boss</a><p>Omnis itaque, dolorem maiores pariatur temporibus molestias quidem autem? Rem dolore, <a href=\"#!\">Click me boss</a> soluta, praesentium iusto magni natus.</p>"
       }
-    },
-    "spacer_btY3ER": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
     }
   },
   "order": [
-    "privacy-policy",
-    "spacer_btY3ER"
+    "privacy-policy"
   ]
 }
