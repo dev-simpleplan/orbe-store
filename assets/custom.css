@@ -3723,3 +3723,16 @@ body.what-your-body-card-open {
 padding-bottom: 10px;
 }
 /* New FAQ Section */
+/* Certified By */
+.slider-heading{
+  text-transform: uppercase;
+  line-height: 150%;
+  letter-spacing: 2.88px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-family: var(--aspekta);
+  text-align: center;
+  margin-bottom: 50px;
+}
+/* Certified By */

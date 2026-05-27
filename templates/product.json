@@ -328,7 +328,77 @@
     },
     "certified-by": {
       "type": "certified-by",
-      "settings": {}
+      "blocks": {
+        "certificate_1": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/22/170/200",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_2": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/23/170/200",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_3": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/24/170/200",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_4": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/25/170/200",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_5": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/26/170/200",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_6": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/27/170/200",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_7": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/28/170/200",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_8": {
+          "type": "certificate",
+          "settings": {
+            "image_url": "https://picsum.photos/id/29/170/200",
+            "alt": "Certification logo"
+          }
+        }
+      },
+      "block_order": [
+        "certificate_1",
+        "certificate_2",
+        "certificate_3",
+        "certificate_4",
+        "certificate_5",
+        "certificate_6",
+        "certificate_7",
+        "certificate_8"
+      ],
+      "settings": {
+        "heading": "Certified by"
+      }
     },
     "spacer_XatwMq": {
       "type": "spacer",

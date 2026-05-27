@@ -1,15 +1,38 @@
 <section class="certified-by">
     <div class="certified-by-in">
-        <div class="certified-by-slider">
-            <div><img src="https://picsum.photos/id/22/170/200"></div>
-            <div><img src="https://picsum.photos/id/23/170/200"></div>
-            <div><img src="https://picsum.photos/id/24/170/200"></div>
-            <div><img src="https://picsum.photos/id/25/170/200"></div>
-            <div><img src="https://picsum.photos/id/26/170/200"></div>
-            <div><img src="https://picsum.photos/id/27/170/200"></div>
-            <div><img src="https://picsum.photos/id/28/170/200"></div>
-            <div><img src="https://picsum.photos/id/29/170/200"></div>
-        </div>
+        {% if section.settings.heading != blank %}
+            <div class="container">
+                <p class="slider-heading">{{ section.settings.heading }}</p>
+            </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+            <div class="certified-by-slider">
+                {% for block in section.blocks %}
+                    {% liquid
+                        assign block_image = block.settings.image
+                        assign block_image_url = block.settings.image_url
+                        assign block_alt = block.settings.alt | default: section.settings.heading | escape
+                    %}
+
+                    {% if block_image != blank or block_image_url != blank %}
+                        <div {{ block.shopify_attributes }}>
+                            {% if block_image != blank %}
+                                <img
+                                    src="{{ block_image | image_url: width: 340 }}"
+                                    alt="{{ block_alt }}"
+                                    width="170"
+                                    height="200"
+                                    loading="lazy"
+                                >
+                            {% else %}
+                                <img src="{{ block_image_url }}" alt="{{ block_alt }}" width="170" height="200" loading="lazy">
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </section>
 
@@ -43,3 +66,52 @@
         document.addEventListener('shopify:section:load', function (event) { readyCertifiedBySlider(event.target); });
     })();
 </script>
+
+{% schema %}
+{
+  "name": "Certified by",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Certified by"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "certificate",
+      "name": "Certificate",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image URL"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text",
+          "default": "Certification logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Certified by",
+      "blocks": [
+        { "type": "certificate" },
+        { "type": "certificate" },
+        { "type": "certificate" },
+        { "type": "certificate" }
+      ]
+    }
+  ]
+}
+{% endschema %}
