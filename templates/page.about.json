@@ -303,13 +303,6 @@
         "image": "shopify://shop_images/Rectangle_3468672.png"
       }
     },
-    "spacer_C6RNQH": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
     "certified-by": {
       "type": "certified-by",
       "blocks": {
@@ -374,13 +367,6 @@
       ],
       "settings": {
         "heading": "Certified by"
-      }
-    },
-    "spacer_XatwMq": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
       }
     },
     "standard-that-speaks": {
@@ -564,9 +550,7 @@
     "guided-by",
     "spacer_FGEC3P",
     "batch-verified",
-    "spacer_C6RNQH",
     "certified-by",
-    "spacer_XatwMq",
     "standard-that-speaks",
     "spacer_XANpVD",
     "blowing_pills_Ghy3zU",
