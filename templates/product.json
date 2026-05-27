@@ -319,6 +319,10 @@
         "image": "shopify://shop_images/Rectangle_3468672.png"
       }
     },
+    "certified-by": {
+      "type": "certified-by",
+      "settings": {}
+    },
     "spacer_XatwMq": {
       "type": "spacer",
       "name": "Spacer",
@@ -462,6 +466,7 @@
     "best-bio",
     "spacer_adLpCm",
     "batch-verified",
+    "certified-by",
     "spacer_XatwMq",
     "testimonial-sec",
     "spacer_MQJmqW",

@@ -1,0 +1,58 @@
+<section class="certified-by">
+    <div class="certified-by-in">
+        <div class="certified-by-slider">
+            <div><img src="https://picsum.photos/id/22/170/200"></div>
+            <div><img src="https://picsum.photos/id/23/170/200"></div>
+            <div><img src="https://picsum.photos/id/24/170/200"></div>
+            <div><img src="https://picsum.photos/id/25/170/200"></div>
+            <div><img src="https://picsum.photos/id/26/170/200"></div>
+            <div><img src="https://picsum.photos/id/27/170/200"></div>
+            <div><img src="https://picsum.photos/id/28/170/200"></div>
+            <div><img src="https://picsum.photos/id/29/170/200"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function () {
+        function initCertifiedBySlider(root) {
+            if (!window.jQuery || !window.jQuery.fn || !window.jQuery.fn.bxSlider) return false;
+
+            var $ = window.jQuery;
+            var $root = root ? $(root) : $(document);
+            var $sliders = $root.is('.certified-by-slider') ? $root : $root.find('.certified-by-slider');
+
+            $sliders.each(function () {
+                var $slider = $(this);
+
+                if ($slider.data('certifiedByReady')) return;
+
+                $slider.data('certifiedByReady', true);
+                $slider.bxSlider({
+                    minSlides: 4,
+                    maxSlides: 4,
+                    slideWidth: 170,
+                    slideMargin: 10,
+                    ticker: true,
+                    speed: 9000
+                });
+            });
+
+            return true;
+        }
+
+        function readyCertifiedBySlider(root, attempts) {
+            attempts = attempts || 30;
+
+            if (initCertifiedBySlider(root) || attempts <= 0) return;
+
+            window.setTimeout(function () {
+                readyCertifiedBySlider(root, attempts - 1);
+            }, 100);
+        }
+
+        readyCertifiedBySlider(document);
+        window.addEventListener('load', function () { readyCertifiedBySlider(document); });
+        document.addEventListener('shopify:section:load', function (event) { readyCertifiedBySlider(event.target); });
+    })();
+</script>
