@@ -396,12 +396,6 @@
         "twitter_url": "#!",
         "linkedin_url": "#!"
       }
-    },
-    "spacer7": {
-      "type": "spacer",
-      "settings": {
-        "spacer_height": 120
-      }
     }
   },
   "order": [
@@ -427,7 +421,6 @@
     "spacer_MQJmqW",
     "blogs-feature",
     "spacer6",
-    "join-community",
-    "spacer7"
+    "join-community"
   ]
 }
