@@ -847,7 +847,10 @@ header.header--transparent .center svg path {
 .header.desktop {
   padding: 0px 60px;
 }
-header.header--transparent .header.desktop li:not(.has-mega-dropdown) > .fph-link::after {
+header.header--transparent
+  .header.desktop
+  li:not(.has-mega-dropdown)
+  > .fph-link::after {
   background-color: #fff;
 }
 /* Cart Page */
@@ -1638,8 +1641,8 @@ header.header--transparent .header.desktop li:not(.has-mega-dropdown) > .fph-lin
 }
 .about-banner-stage {
   position: relative;
-height: calc(100vh - 120px);
-min-height: 800px;
+  height: calc(100vh - 120px);
+  min-height: 800px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -3720,11 +3723,11 @@ body.what-your-body-card-open {
   padding: 54px 50px 0;
 }
 .new-faq-item.active .new-faq-question {
-padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 /* New FAQ Section */
 /* Certified By */
-.slider-heading{
+.slider-heading {
   text-transform: uppercase;
   line-height: 150%;
   letter-spacing: 2.88px;
@@ -3734,5 +3737,16 @@ padding-bottom: 10px;
   font-family: var(--aspekta);
   text-align: center;
   margin-bottom: 50px;
+}
+.cbs-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+.cbs-item img {
+  max-height: 80px;
+  height: auto;
+  width: auto;
 }
 /* Certified By */

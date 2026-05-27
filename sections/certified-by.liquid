@@ -15,7 +15,7 @@
                     %}
 
                     {% if block_image != blank %}
-                        <div {{ block.shopify_attributes }}>
+                        <div class="cbs-item" {{ block.shopify_attributes }}>
                             <img
                                 src="{{ block_image | image_url: width: 340 }}"
                                 alt="{{ block_alt }}"
@@ -48,8 +48,8 @@
                 $slider.data('certifiedByReady', true).bxSlider({
                     minSlides: 4,
                     maxSlides: 4,
-                    slideWidth: 170,
-                    slideMargin: 10,
+                    slideWidth: 180,
+                    slideMargin: 80,
                     ticker: true,
                     speed: 22000
                 });

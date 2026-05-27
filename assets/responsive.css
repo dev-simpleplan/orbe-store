@@ -91,7 +91,7 @@
   .new-faq-question {
     font-size: 22px;
   }
-  .new-faq-item.active .new-faq-question{
+  .new-faq-item.active .new-faq-question {
     padding-top: 30px;
   }
 }
@@ -473,31 +473,31 @@
   .error-404-in .bottom-block p {
     font-size: 16px;
   }
-    .new-faq-heading {
-      min-height: unset;
-      margin-bottom: 20px;
-      justify-content: start;
-    }
+  .new-faq-heading {
+    min-height: unset;
+    margin-bottom: 20px;
+    justify-content: start;
+  }
   .new-faq-heading h2 {
     font-size: 42px;
   }
   .new-faq-cta {
     margin: 0 auto;
   }
-  .new-faq-question{
+  .new-faq-question {
     padding: 20px 20px;
   }
 }
 @media screen and (max-width: 767px) {
-  .new-faq-heading h2{
+  .new-faq-heading h2 {
     font-size: 32px;
   }
   .new-faq-sec-img {
     min-height: 360px;
   }
-.new-faq-heading{
-  margin-bottom: 0px;
-}
+  .new-faq-heading {
+    margin-bottom: 0px;
+  }
   .new-faq-question {
     font-size: 22px;
   }
@@ -1076,6 +1076,14 @@
   .cart-summary h2,
   .cart-empty h2 {
     font-size: 28px;
+  }
+  .cbs-item {
+    margin-right: 70px !important;
+    width: 60px !important;
+    height: 60px;
+  }
+  .slider-heading {
+    font-size: 12px;
   }
 }
 
