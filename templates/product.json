@@ -328,6 +328,66 @@
     },
     "certified-by": {
       "type": "certified-by",
+      "blocks": {
+        "certificate_EiQhdF": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/c70552307b2ca6e7a16daa09f020767b678b019d.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_8LBn9k": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/073fbe87f14eccd8889c85c998a1cb00ee62ec20.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_bC6LFf": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/40538656897b1b060106c315841c017a668e6d0d.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_R8PtL6": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/45dfe35695e2ece93affd92df0e7ab931125f27d.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_6DgXgi": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/01650e751b85b6dcdcc369b9c0b83de1b176f161.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_Tx96NA": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/ba8ce2db94c33848ad519c53dad7d42a11f0c78e.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_gNCtmx": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/f08c27ba88bd0a33289b25134d228b87432edca1.png",
+            "alt": "Certification logo"
+          }
+        }
+      },
+      "block_order": [
+        "certificate_EiQhdF",
+        "certificate_8LBn9k",
+        "certificate_bC6LFf",
+        "certificate_R8PtL6",
+        "certificate_6DgXgi",
+        "certificate_Tx96NA",
+        "certificate_gNCtmx"
+      ],
       "settings": {
         "heading": "Certified by"
       }
