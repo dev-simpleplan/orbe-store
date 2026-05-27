@@ -3758,3 +3758,6 @@ body.template-page-thankyou .footer {
 body.template-404 .footer {
   margin-top: 0;
 }
+.certified-by, .batch-verified{
+  margin-bottom: 240px;
+}

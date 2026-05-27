@@ -99,6 +99,9 @@
   .footer {
     margin-top: 160px;
   }
+  .certified-by, .batch-verified{
+  margin-bottom: 160px;
+}
   .see-through .container-left {
     padding-right: 30px;
   }
@@ -495,6 +498,9 @@
   .footer {
     margin-top: 106px;
   }
+  .certified-by, .batch-verified{
+  margin-bottom: 106px;
+}
   .new-faq-heading h2 {
     font-size: 32px;
   }
