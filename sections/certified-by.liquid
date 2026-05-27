@@ -11,23 +11,18 @@
                 {% for block in section.blocks %}
                     {% liquid
                         assign block_image = block.settings.image
-                        assign block_image_url = block.settings.image_url
                         assign block_alt = block.settings.alt | default: section.settings.heading | escape
                     %}
 
-                    {% if block_image != blank or block_image_url != blank %}
+                    {% if block_image != blank %}
                         <div {{ block.shopify_attributes }}>
-                            {% if block_image != blank %}
-                                <img
-                                    src="{{ block_image | image_url: width: 340 }}"
-                                    alt="{{ block_alt }}"
-                                    width="170"
-                                    height="200"
-                                    loading="lazy"
-                                >
-                            {% else %}
-                                <img src="{{ block_image_url }}" alt="{{ block_alt }}" width="170" height="200" loading="lazy">
-                            {% endif %}
+                            <img
+                                src="{{ block_image | image_url: width: 340 }}"
+                                alt="{{ block_alt }}"
+                                width="170"
+                                height="200"
+                                loading="lazy"
+                            >
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -87,11 +82,6 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
-        },
-        {
-          "type": "url",
-          "id": "image_url",
-          "label": "Image URL"
         },
         {
           "type": "text",
