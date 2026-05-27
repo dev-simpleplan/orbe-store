@@ -15,20 +15,19 @@
 
 <script>
     (function () {
-        function initCertifiedBySlider(root) {
-            if (!window.jQuery || !window.jQuery.fn || !window.jQuery.fn.bxSlider) return false;
+        function readyCertifiedBySlider(root, attempts) {
+            attempts = attempts || 30;
 
-            var $ = window.jQuery;
-            var $root = root ? $(root) : $(document);
-            var $sliders = $root.is('.certified-by-slider') ? $root : $root.find('.certified-by-slider');
+            if (!window.jQuery || !jQuery.fn.bxSlider) {
+                if (attempts > 0) setTimeout(function () { readyCertifiedBySlider(root, attempts - 1); }, 100);
+                return;
+            }
 
-            $sliders.each(function () {
-                var $slider = $(this);
-
+            jQuery(root).find('.certified-by-slider').addBack('.certified-by-slider').each(function () {
+                var $slider = jQuery(this);
                 if ($slider.data('certifiedByReady')) return;
 
-                $slider.data('certifiedByReady', true);
-                $slider.bxSlider({
+                $slider.data('certifiedByReady', true).bxSlider({
                     minSlides: 4,
                     maxSlides: 4,
                     slideWidth: 170,
@@ -37,18 +36,6 @@
                     speed: 9000
                 });
             });
-
-            return true;
-        }
-
-        function readyCertifiedBySlider(root, attempts) {
-            attempts = attempts || 30;
-
-            if (initCertifiedBySlider(root) || attempts <= 0) return;
-
-            window.setTimeout(function () {
-                readyCertifiedBySlider(root, attempts - 1);
-            }, 100);
         }
 
         readyCertifiedBySlider(document);
