@@ -512,13 +512,6 @@
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
       }
-    },
-    "spacer_FUhyqE": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
     }
   },
   "order": [
@@ -540,7 +533,6 @@
     "spacer_XatwMq",
     "testimonial-sec",
     "spacer_MQJmqW",
-    "new_faq_section_n49mMB",
-    "spacer_FUhyqE"
+    "new_faq_section_n49mMB"
   ]
 }
