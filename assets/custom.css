@@ -546,6 +546,7 @@ header.header--transparent .center svg path {
   background-color: #1a1a1a;
   padding: 0px 60px;
   padding-right: 0px;
+  margin-top: 240px;
 }
 .footer-in {
   display: flex;

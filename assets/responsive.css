@@ -96,6 +96,9 @@
   }
 }
 @media screen and (max-width: 991px) {
+  .footer {
+    margin-top: 160px;
+  }
   .see-through .container-left {
     padding-right: 30px;
   }
@@ -489,6 +492,9 @@
   }
 }
 @media screen and (max-width: 767px) {
+  .footer {
+    margin-top: 106px;
+  }
   .new-faq-heading h2 {
     font-size: 32px;
   }
