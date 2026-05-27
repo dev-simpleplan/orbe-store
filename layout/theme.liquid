@@ -294,7 +294,7 @@
   {{ content_for_header }}
 </head>
 
-<body>
+<body class="template-{{ request.page_type | handle }}{% if template.suffix != blank %} template-{{ request.page_type | handle }}-{{ template.suffix | handle }}{% endif %}">
   {% section 'header' %}
 
   {{ content_for_layout }}

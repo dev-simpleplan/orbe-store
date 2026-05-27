@@ -3752,3 +3752,9 @@ body.what-your-body-card-open {
   width: auto;
 }
 /* Certified By */
+body.template-page-thankyou .footer {
+  margin-top: 0;
+}
+body.template-404 .footer {
+  margin-top: 0;
+}
