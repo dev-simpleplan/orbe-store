@@ -242,6 +242,147 @@
         "spacer_height": 120
       }
     },
+       "batch-verified": {
+      "type": "batch-verified",
+      "blocks": {
+        "verification_dkWhHz": {
+          "type": "verification",
+          "settings": {
+            "title": "Heavy Metals",
+            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "report_text": "View Report",
+            "report_link": ""
+          }
+        },
+        "verification_wAJekU": {
+          "type": "verification",
+          "settings": {
+            "title": "Pesticides",
+            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "report_text": "View Report",
+            "report_link": ""
+          }
+        },
+        "verification_AkAMRN": {
+          "type": "verification",
+          "settings": {
+            "title": "Microbial Safety",
+            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "report_text": "View Report",
+            "report_link": ""
+          }
+        },
+        "verification_JJUan6": {
+          "type": "verification",
+          "settings": {
+            "title": "Aflatoxins",
+            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "report_text": "View Report",
+            "report_link": ""
+          }
+        },
+        "verification_3brtdd": {
+          "type": "verification",
+          "settings": {
+            "title": "Melamine",
+            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "report_text": "View Report",
+            "report_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "verification_dkWhHz",
+        "verification_wAJekU",
+        "verification_AkAMRN",
+        "verification_JJUan6",
+        "verification_3brtdd"
+      ],
+      "settings": {
+        "heading": "Every Batch Independently Verified",
+        "image": "shopify://shop_images/Rectangle_3468672.png"
+      }
+    },
+    "spacer_C6RNQH": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "certified-by": {
+      "type": "certified-by",
+      "blocks": {
+        "certificate_EiQhdF": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/c70552307b2ca6e7a16daa09f020767b678b019d.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_8LBn9k": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/073fbe87f14eccd8889c85c998a1cb00ee62ec20.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_bC6LFf": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/40538656897b1b060106c315841c017a668e6d0d.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_R8PtL6": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/45dfe35695e2ece93affd92df0e7ab931125f27d.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_6DgXgi": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/01650e751b85b6dcdcc369b9c0b83de1b176f161.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_Tx96NA": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/ba8ce2db94c33848ad519c53dad7d42a11f0c78e.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_gNCtmx": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/f08c27ba88bd0a33289b25134d228b87432edca1.png",
+            "alt": "Certification logo"
+          }
+        }
+      },
+      "block_order": [
+        "certificate_EiQhdF",
+        "certificate_8LBn9k",
+        "certificate_bC6LFf",
+        "certificate_R8PtL6",
+        "certificate_6DgXgi",
+        "certificate_Tx96NA",
+        "certificate_gNCtmx"
+      ],
+      "settings": {
+        "heading": "Certified by"
+      }
+    },
+    "spacer_XatwMq": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "standard-that-speaks": {
       "type": "standard-that-speaks",
       "blocks": {
@@ -400,12 +541,12 @@
         "linkedin_url": "#!"
       }
     },
-    "spacer7": {
-      "type": "spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    }
+    // "spacer7": {
+    //   "type": "spacer",
+    //   "settings": {
+    //     "spacer_height": 120
+    //   }
+    // }
   },
   "order": [
     "about-banner",
@@ -422,6 +563,10 @@
     "spacer_9fGcBh",
     "guided-by",
     "spacer_FGEC3P",
+    "batch-verified",
+    "spacer_C6RNQH",
+    "certified-by",
+    "spacer_XatwMq",
     "standard-that-speaks",
     "spacer_XANpVD",
     "blowing_pills_Ghy3zU",
@@ -429,6 +574,6 @@
     "blogs_feature_dxjadX",
     "spacer_7GJQYM",
     "join-community",
-    "spacer7"
+    // "spacer7"
   ]
 }
