@@ -3761,3 +3761,35 @@ body.template-404 .footer {
 .certified-by, .batch-verified{
   margin-bottom: 240px;
 }
+
+
+
+/* We believe science */
+.orbe-icon{
+  width: 68px;
+  height: auto;
+}
+.we-believe-science{
+  /* min-height: 700px; */
+  /* height: 100vh; */
+}
+.we-believe-science-in{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+.we-believe-science-in h2{
+  font-size: clamp(28px, 4.5vw, 64px);
+  text-align: center;
+  font-style: italic;
+  text-transform: capitalize;
+  max-width: 22ch;
+}
+.we-believe-science-in p{
+  font-size: 20px;
+  text-align: center;
+  max-width: 60ch;
+  padding-top: 20px;
+}
+/* We believe science */
