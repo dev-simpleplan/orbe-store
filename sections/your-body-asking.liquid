@@ -1,0 +1,213 @@
+{% liquid
+  assign pill_image_url = 'https://cdn.shopify.com/s/files/1/0739/8014/9916/files/8080af840141c1fd49ad00aa36acf10aa815be9e_bda97860-3e12-496a-a663-7295a46b879b.png?v=1780309783'
+
+  if section.settings.pill_image != blank
+    assign pill_image_url = section.settings.pill_image | image_url: width: 800
+  endif
+%}
+
+<section class="your-body-asking">
+  <div class="your-body-asking-sticky">
+    <div class="container">
+      <div class="your-body-asking-in">
+        <div class="top-text">
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+
+          {% if section.settings.text != blank %}
+            <p>{{ section.settings.text }}</p>
+          {% endif %}
+        </div>
+
+        <div class="yba-stage">
+          <div class="yba-img yba-img-left">
+            <img src="{{ pill_image_url }}" alt="{{ section.settings.image_alt | escape }}" width="800" height="800">
+          </div>
+
+          <div class="yba-img yba-img-center">
+            <img src="{{ pill_image_url }}" alt="{{ section.settings.image_alt | escape }}" width="800" height="800">
+          </div>
+
+          <div class="yba-img yba-img-right">
+            <img src="{{ pill_image_url }}" alt="{{ section.settings.image_alt | escape }}" width="800" height="800">
+          </div>
+
+          <div class="yba-copy">
+            <div class="yba-copy-item active">
+              {% if section.settings.item_1_heading != blank %}
+                <h3>{{ section.settings.item_1_heading }}</h3>
+              {% endif %}
+
+              {% if section.settings.item_1_text != blank %}
+                <p>{{ section.settings.item_1_text }}</p>
+              {% endif %}
+            </div>
+            <div class="yba-copy-item">
+              {% if section.settings.item_2_heading != blank %}
+                <h3>{{ section.settings.item_2_heading }}</h3>
+              {% endif %}
+
+              {% if section.settings.item_2_text != blank %}
+                <p>{{ section.settings.item_2_text }}</p>
+              {% endif %}
+            </div>
+            <div class="yba-copy-item">
+              {% if section.settings.item_3_heading != blank %}
+                <h3>{{ section.settings.item_3_heading }}</h3>
+              {% endif %}
+
+              {% if section.settings.item_3_text != blank %}
+                <p>{{ section.settings.item_3_text }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function init() {
+      const script = document.currentScript;
+      const section = script ? script.previousElementSibling : document.querySelector('.your-body-asking');
+      if (!section) return;
+
+      const leftImage = section.querySelector('.yba-img-left');
+      const centerImage = section.querySelector('.yba-img-center');
+      const rightImage = section.querySelector('.yba-img-right');
+      const copyItems = section.querySelectorAll('.yba-copy-item');
+      if (!leftImage || !centerImage || !rightImage || !copyItems.length) return;
+
+      let ticking = false;
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function updateBodyAsking() {
+        ticking = false;
+
+        const rect = section.getBoundingClientRect();
+        const distance = Math.max(1, section.offsetHeight - window.innerHeight);
+        const progress = clamp(-rect.top / distance, 0, 1);
+        const sideProgress = clamp(progress / 0.38, 0, 1);
+        const activeIndex = Math.min(copyItems.length - 1, Math.floor(progress * copyItems.length));
+
+        leftImage.style.opacity = 1 - sideProgress;
+        rightImage.style.opacity = 1 - sideProgress;
+        leftImage.style.transform = 'translate3d(' + (-sideProgress * 90) + 'px, 0, 0) scale(' + (1 - sideProgress * 0.16) + ')';
+        rightImage.style.transform = 'translate3d(' + (sideProgress * 90) + 'px, 0, 0) scale(' + (1 - sideProgress * 0.16) + ')';
+        centerImage.style.transform = 'scale(' + (1 + progress * 0.34) + ')';
+
+        copyItems.forEach(function (item, index) {
+          item.classList.toggle('active', index === activeIndex);
+        });
+      }
+
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateBodyAsking);
+      }
+
+      updateBodyAsking();
+
+      if (window.lenis && typeof window.lenis.on === 'function') {
+        window.lenis.on('scroll', requestUpdate);
+      }
+
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+      window.addEventListener('load', requestUpdate, { once: true });
+    }
+
+    init();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Your Body Asking",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Your Body’s Asking For"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Between busy routines, changing food quality, and absorption challenges, essential nutrients don’t always reach the body in the way they should."
+    },
+    {
+      "type": "image_picker",
+      "id": "pill_image",
+      "label": "Pill box image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Orbe pill box"
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "text",
+      "id": "item_1_heading",
+      "label": "Heading",
+      "default": "Insufficient Vitamin D"
+    },
+    {
+      "type": "text",
+      "id": "item_1_text",
+      "label": "Text",
+      "default": "Over 40% may have insufficient vitamin D"
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "text",
+      "id": "item_2_heading",
+      "label": "Heading",
+      "default": "Low Magnesium & Zinc"
+    },
+    {
+      "type": "text",
+      "id": "item_2_text",
+      "label": "Text",
+      "default": "Magnesium and zinc intake often falls below daily need"
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "text",
+      "id": "item_3_heading",
+      "label": "Heading",
+      "default": "Low B12 and Folate"
+    },
+    {
+      "type": "text",
+      "id": "item_3_text",
+      "label": "Text",
+      "default": "B12 and folate gaps are common, especially with modern diets"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Your Body Asking"
+    }
+  ]
+}
+{% endschema %}

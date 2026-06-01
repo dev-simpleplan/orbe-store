@@ -22,10 +22,95 @@
         "heading": "We believe science should support you, not overwhelm you.",
         "text": "At Orbe, our approach begins with evidence, not trends. We focus on long-term support, gentle consistency, and clarity over excess. Every product is designed to work with the body, not force it."
       }
+    },
+    "your-body-asking": {
+      "type": "your-body-asking",
+      "settings": {
+        "heading": "What Your Body’s Asking For",
+        "text": "Between busy routines, changing food quality, and absorption challenges, essential nutrients don’t always reach the body in the way they should.",
+        "image_alt": "Orbe pill box",
+        "item_1_heading": "Insufficient Vitamin D",
+        "item_1_text": "Over 40% may have insufficient vitamin D",
+        "item_2_heading": "Low Magnesium & Zinc",
+        "item_2_text": "Magnesium and zinc intake often falls below daily need",
+        "item_3_heading": "Low B12 and Folate",
+        "item_3_text": "B12 and folate gaps are common, especially with modern diets"
+      }
+    },
+    "spacer1": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "essential-ingredient": {
+      "type": "essential-ingredient",
+      "blocks": {
+        "accordion_inner_capsule": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Inner Capsule Phase",
+            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg\nVitamin B12 (as Methylcobalamin)\nIron (as Ferrochel® Ferrous Bisglycinate)\nZinc (as Zinc Citrate)\nMagnesium (as Magnesium Bisglycinate)"
+          }
+        },
+        "accordion_outer_capsule": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Outer Capsule Phase",
+            "content": "Veg DHA (as Algal Oil 45% — Omega-3 Vegan DHA Fatty Acids from Schizochytrium sp.)\nVitamin D (as Cholecalciferol) [from Lichen (Whole Plant), Vitashine™ 1,000,000 IU/g Lichen]\nVitamin E (as Alpha Tocopherol from Mixed Tocopherols) [from Brassica napus (Seed)]\nVitamin K2 (as MenaQ7® Menaquinone-7)"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_inner_capsule",
+        "accordion_outer_capsule"
+      ],
+      "settings": {
+        "heading": "Clean, Considered, Essential",
+        "description": "Each ingredient is selected for its purpose, its purity, and its ability to genuinely support your everyday rhythm: nothing extra, nothing distracting.",
+        "link_text": "View All about the ingredient",
+        "drawer_eyebrow": "Composition",
+        "drawer_heading": "Active Ingredients",
+        "inactive_heading": "Inactive Ingredients",
+        "inactive_text": "Size '00' HPMC CT/CT Capsule\nSize '3' HPMC CT/CT Capsule\nColloidal Silicon Dioxide\nMCC ph. 102\nMagnesium Stearate",
+        "fill_weight_heading": "Fill Weight",
+        "fill_weight_text": "Fill Weight Range 630.00 mg - 650.00 mg\nWeight of Capsules Range 762.00 mg - 782.00 mg",
+        "appearance_heading": "Product Appearance",
+        "appearance_text": "A hard double locked Size '00' capsule having transparent cap and body containing size '3' clear transparent capsule suspended in slight yellow liquid and sealed with transparent band.",
+        "nutrition_heading": "Nutritional Profile (Theoretical)",
+        "nutrition_text": "(Approximate Values Per Serving) | Serving Size: 2 Capsules",
+        "nutrition_table_image": "shopify://shop_images/Frame_2072749470.png",
+        "box_image": "shopify://shop_images/8080af840141c1fd49ad00aa36acf10aa815be9e.png",
+        "capsule_image": "shopify://shop_images/Group_2085663425.png"
+      }
+    },
+    "spacer2": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "science-slanted-element": {
+      "type": "science-slanted-element",
+      "settings": {
+        "element_block1_heading": "Designed to Work Better Together",
+        "element_block1_text": "Oil-based nutrients and mineral nutrients are kept separate using pill-in-pill technology, helping protect potency and improve absorption.",
+        "element_block2_heading": "Made for Daily Use",
+        "element_block2_text": "Each ingredient is included at balanced levels for gentle, consistent support — designed for long-term use, not quick fixes.",
+        "element_block3_heading": "Nothing Extra",
+        "element_block3_text": "No fillers. No unnecessary blends. Every ingredient has a clear purpose."
+      }
     }
   },
   "order": [
     "spacer_4apEt6",
-    "we-believe-science"
+    "we-believe-science",
+    "your-body-asking",
+    "spacer1",
+    "essential-ingredient",
+    "spacer2",
+    "science-slanted-element"
   ]
 }

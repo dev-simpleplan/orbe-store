@@ -1,0 +1,137 @@
+<section class="science-slanted-element">
+  <div class="container">
+    <div class="science-slanted-element-in">
+      <div class="slanted-element-block element-block1">
+        <div class="slanted-element-img">
+          {% render 'slanted-element-icon' %}
+        </div>
+
+        {% if section.settings.element_block1_heading != blank %}
+          <h4>{{ section.settings.element_block1_heading }}</h4>
+        {% endif %}
+
+        {% if section.settings.element_block1_text != blank %}
+          <p>{{ section.settings.element_block1_text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="slanted-element-block element-block2">
+        <div class="slanted-element-img">
+          {% render 'slanted-element-icon' %}
+        </div>
+
+        {% if section.settings.element_block2_heading != blank %}
+          <h4>{{ section.settings.element_block2_heading }}</h4>
+        {% endif %}
+
+        {% if section.settings.element_block2_text != blank %}
+          <p>{{ section.settings.element_block2_text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="slanted-element-block element-block3">
+        <div class="slanted-element-img">
+          {% render 'slanted-element-icon' %}
+        </div>
+
+        {% if section.settings.element_block3_heading != blank %}
+          <h4>{{ section.settings.element_block3_heading }}</h4>
+        {% endif %}
+
+        {% if section.settings.element_block3_text != blank %}
+          <p>{{ section.settings.element_block3_text }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function init() {
+      const script = document.currentScript;
+      const section = script ? script.previousElementSibling : document.querySelector('.science-slanted-element');
+      if (!section) return;
+
+      if (!('IntersectionObserver' in window)) {
+        section.classList.add('is-aligned');
+        return;
+      }
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            section.classList.add('is-aligned');
+          }
+        });
+      }, {
+        threshold: 0.35
+      });
+
+      observer.observe(section);
+    }
+
+    init();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Science Slanted Element",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Element Block 1"
+    },
+    {
+      "type": "text",
+      "id": "element_block1_heading",
+      "label": "Heading",
+      "default": "Designed to Work Better Together"
+    },
+    {
+      "type": "textarea",
+      "id": "element_block1_text",
+      "label": "Text",
+      "default": "Oil-based nutrients and mineral nutrients are kept separate using pill-in-pill technology, helping protect potency and improve absorption."
+    },
+    {
+      "type": "header",
+      "content": "Element Block 2"
+    },
+    {
+      "type": "text",
+      "id": "element_block2_heading",
+      "label": "Heading",
+      "default": "Made for Daily Use"
+    },
+    {
+      "type": "textarea",
+      "id": "element_block2_text",
+      "label": "Text",
+      "default": "Each ingredient is included at balanced levels for gentle, consistent support — designed for long-term use, not quick fixes."
+    },
+    {
+      "type": "header",
+      "content": "Element Block 3"
+    },
+    {
+      "type": "text",
+      "id": "element_block3_heading",
+      "label": "Heading",
+      "default": "Nothing Extra"
+    },
+    {
+      "type": "textarea",
+      "id": "element_block3_text",
+      "label": "Text",
+      "default": "No fillers. No unnecessary blends. Every ingredient has a clear purpose."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Slanted Element"
+    }
+  ]
+}
+{% endschema %}
