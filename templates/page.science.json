@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
   "sections": {
     "main": {
@@ -17,7 +9,7 @@
           "settings": {
             "icon": "shopify://shop_images/location_on_1.svg",
             "title": "Office",
-            "text": "Hausvogteiplatz 12 10117 Berlin, Germany",
+            "text": "Hausvogteiplatz 1210117 Berlin, Germany",
             "link": "#!"
           }
         },
