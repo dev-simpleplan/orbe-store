@@ -18,7 +18,10 @@
     },
     "we-believe-science": {
       "type": "we-believe-science",
-      "settings": {}
+      "settings": {
+        "heading": "We believe science should support you, not overwhelm you.",
+        "text": "At Orbe, our approach begins with evidence, not trends. We focus on long-term support, gentle consistency, and clarity over excess. Every product is designed to work with the body, not force it."
+      }
     }
   },
   "order": [
