@@ -1,11 +1,94 @@
-<section class="we-believe-science">
+<section
+  class="we-believe-science"
+>
+  <div class="we-believe-science-sticky">
+    <div class="we-believe-science-blur-overlay"></div>
     <div class="container">
-        <div class="we-believe-science-in">
-            <h2>We believe science should support you, not overwhelm you.</h2>
-            <p>At Orbe, our approach begins with evidence, not trends. We focus on long-term support, gentle consistency, and clarity over excess. Every product is designed to work with the body, not force it.</p>
-            <div class="orbe-icon">
-                {% render 'orbe-logo-o' %}
-            </div>
+      <div class="we-believe-science-in">
+        {% if heading != blank %}
+          <h2>{{ heading }}</h2>
+        {% endif %}
+
+        {% if text != blank %}
+          <p>{{ text }}</p>
+        {% endif %}
+
+        <div class="orbe-icon">
+          {% render 'orbe-logo-o' %}
         </div>
+      </div>
     </div>
+  </div>
 </section>
+
+<script>
+  (function () {
+    function init() {
+      const script = document.currentScript;
+      const section = script ? script.previousElementSibling : document.querySelector('.we-believe-science');
+      if (!section) return;
+
+      const overlay = section.querySelector('.we-believe-science-blur-overlay');
+      if (!overlay) return;
+
+      let ticking = false;
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function updateScienceBlur() {
+        ticking = false;
+
+        const rect = section.getBoundingClientRect();
+        const distance = Math.max(1, section.offsetHeight - window.innerHeight);
+        const progress = clamp(-rect.top / distance, 0, 1);
+
+        overlay.style.transform = 'translate3d(0, ' + (-progress * 100) + '%, 0)';
+      }
+
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateScienceBlur);
+      }
+
+      updateScienceBlur();
+
+      if (window.lenis && typeof window.lenis.on === 'function') {
+        window.lenis.on('scroll', requestUpdate);
+      }
+
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+      window.addEventListener('load', requestUpdate, { once: true });
+    }
+
+    init();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "We Believe Science",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We believe science should support you, not overwhelm you."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "At Orbe, our approach begins with evidence, not trends. We focus on long-term support, gentle consistency, and clarity over excess. Every product is designed to work with the body, not force it."
+    }
+  ],
+  "presets": [
+    {
+      "name": "We Believe Science"
+    }
+  ]
+}
+{% endschema %}

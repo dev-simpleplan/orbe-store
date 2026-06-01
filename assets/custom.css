@@ -3765,19 +3765,51 @@ body.template-404 .footer {
 
 
 /* We believe science */
-.orbe-icon{
+.we-believe-science {
+  width: 100%;
+  height: 200svh;
+  position: relative;
+  overflow: visible;
+}
+
+.we-believe-science-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.we-believe-science-blur-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.we-believe-science .container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.we-believe-science-in .orbe-icon{
   width: 68px;
   height: auto;
 }
-.we-believe-science{
-  /* min-height: 700px; */
-  /* height: 100vh; */
-}
+
 .we-believe-science-in{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 80px;
+  min-height: 700px;
+  height: 100%;
 }
 .we-believe-science-in h2{
   font-size: clamp(28px, 4.5vw, 64px);
