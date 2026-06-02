@@ -4049,7 +4049,7 @@ body.template-404 .footer {
 }
 
 .built-for-how .left li::marker {
-appearance: none;
+  appearance: none;
 }
 
 .built-for-how .right {
@@ -4066,14 +4066,13 @@ appearance: none;
 }
 
 @media (max-width: 991px) {
-
   .built-for-how h2 {
     margin-bottom: 56px;
   }
 
-.built-for-how{
-  padding-bottom: 0px;
-}
+  .built-for-how {
+    padding-bottom: 0px;
+  }
 
   .built-for-how .left ul {
     gap: 36px;
@@ -4086,7 +4085,7 @@ appearance: none;
   .built-for-how .right img {
     min-height: 360px;
   }
-  .built-for-how .left li{
+  .built-for-how .left li {
     font-size: 20px;
   }
 }
@@ -4103,7 +4102,7 @@ appearance: none;
   .built-for-how .right img {
     min-height: 280px;
   }
-    .built-for-how-in {
+  .built-for-how-in {
     grid-template-columns: 1fr;
     gap: 46px;
   }
@@ -4234,15 +4233,15 @@ appearance: none;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
-.how-the-ritual .heading{
+.how-the-ritual .heading {
   margin-bottom: 50px;
 }
-.how-the-ritual-in .htr-card{
+.how-the-ritual-in .htr-card {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.how-the-ritual-in .htr-text{
+.how-the-ritual-in .htr-text {
   margin-top: 10px;
   font-size: 18px;
   letter-spacing: 0em;
@@ -4250,12 +4249,61 @@ appearance: none;
   font-weight: 400;
   color: #1a1a1a;
 }
-.how-the-ritual-in .serial-num{
-font-size: 32px;
-font-family: var(--tobias);
+.how-the-ritual-in .serial-num {
+  font-size: 32px;
+  font-family: var(--tobias);
 }
-.how-the-ritual-in .htr-img{
-  height: 560px;
+.how-the-ritual-in .htr-img {
+  aspect-ratio: 4/5;
   overflow: hidden;
+}
+
+@media (max-width: 991px) {
+  .how-the-ritual-in {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .how-the-ritual-in .htr-card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 10px);
+  }
+  .how-the-ritual-in .htr-img {
+    height: 400px;
+    aspect-ratio: unset;
+  }
+  .how-the-ritual-in .htr-text {
+    font-size: 16px;
+  }
+  .how-the-ritual-in .serial-num {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .how-the-ritual .heading {
+    margin-bottom: 30px;
+  }
+  .how-the-ritual-in {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .how-the-ritual-in .htr-card:nth-child(3) {
+    grid-column: auto;
+    width: 100%;
+  }
+  .how-the-ritual-in .htr-img {
+    height: 320px;
+  }
+  .how-the-ritual-in .serial-num {
+    font-size: 22px;
+  }
+  .how-the-ritual-in .htr-text {
+    font-size: 14px;
+  }
+  .how-the-ritual-in .htr-card {
+    gap: 10px;
+  }
 }
 /* How the ritual */
