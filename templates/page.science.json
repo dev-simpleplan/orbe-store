@@ -125,6 +125,17 @@
       "type": "how-the-ritual",
       "settings": {}
     },
+    "spacer5": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+       "progress-for-us": {
+      "type": "progress-for-us",
+      "settings": {}
+    },
   },
   "order": [
     "spacer_4apEt6",
@@ -137,6 +148,8 @@
     "spacer3",
     "built-for-how",
     "spacer4",
-    "how-the-ritual"
+    "how-the-ritual",
+    "spacer5",
+    "progress-for-us"
   ]
 }

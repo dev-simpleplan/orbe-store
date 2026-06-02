@@ -20,6 +20,9 @@
   .hb-bottom > h2 {
     padding-bottom: 40px;
   }
+  .progress-for-us-in {
+    gap: 100px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -51,6 +54,14 @@
   }
   .bottom-wrap {
     gap: 40px;
+  }
+  .progress-for-us-in {
+    gap: 50px;
+  }
+  .progress-for-us-img-sm {
+    width: 150px;
+    height: 180px;
+    aspect-ratio: unset;
   }
 }
 @media screen and (max-width: 1100px) {
@@ -99,9 +110,10 @@
   .footer {
     margin-top: 160px;
   }
-  .certified-by, .batch-verified{
-  margin-bottom: 160px;
-}
+  .certified-by,
+  .batch-verified {
+    margin-bottom: 160px;
+  }
   .see-through .container-left {
     padding-right: 30px;
   }
@@ -493,14 +505,22 @@
   .new-faq-question {
     padding: 20px 20px;
   }
+  .progress-for-us-in {
+    grid-template-columns: 1fr;
+  }
+  .progress-for-us-img {
+    height: 520px;
+    aspect-ratio: unset;
+  }
 }
 @media screen and (max-width: 767px) {
   .footer {
     margin-top: 106px;
   }
-  .certified-by, .batch-verified{
-  margin-bottom: 106px;
-}
+  .certified-by,
+  .batch-verified {
+    margin-bottom: 106px;
+  }
   .new-faq-heading h2 {
     font-size: 32px;
   }
@@ -1097,8 +1117,31 @@
   .slider-heading {
     font-size: 12px;
   }
-  .we-believe-science-in p{
+  .we-believe-science-in p {
     font-size: 16px;
+  }
+  .progress-for-us-content h2{
+    max-width: 100%;
+  }
+  .progress-for-us-img-sm{
+    display: none;
+  }
+  .progress-for-us-content{
+    padding-top: 0px;
+    gap: 20px;
+  }
+  .progress-for-us-pointers{
+    gap: 15px;
+  }
+  .progress-for-us-in{
+    gap: 30px;
+  }
+  .progress-for-us-pointers p{
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .progress-for-us-img{
+    height: 400px;
   }
 }
 
