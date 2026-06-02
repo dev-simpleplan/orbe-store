@@ -3851,7 +3851,8 @@ body.template-404 .footer {
 .your-body-asking-in {
   position: relative;
   height: 100%;
-  padding: 70px 0;
+  padding-top: 80px;
+  padding-bottom: 60px;
 }
 
 .your-body-asking .top-text {
@@ -3907,7 +3908,7 @@ body.template-404 .footer {
 .yba-img-left,
 .yba-img-right {
   width: clamp(100px, 10vw, 200px);
-  bottom: 10%;
+  bottom: 16%;
   z-index: 1;
   opacity: 1;
 }
