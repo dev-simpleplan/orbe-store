@@ -136,6 +136,30 @@
       "type": "progress-for-us",
       "settings": {}
     },
+      "spacer6": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "behind-every-choice":{
+      "type": "behind-every-choice",
+      "settings": {
+        "heading": "Expertise Behind Every Choice",
+        "text": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity.",
+        "quote_1": "“ORBÉ didn’t change my routine — it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.”",
+        "author_1": "MILLIE BONNIE, CEO",
+        "quote_2": "“The formulation feels thoughtful, restrained, and easy to recommend as part of a consistent daily ritual.”",
+        "author_2": "DR. ELAINE MORRIS",
+        "quote_3": "“Orbe brings a rare kind of clarity to nutrition: simple, evidence-led, and beautifully consistent.”",
+        "author_3": "ANIKA SHAH, NUTRITIONIST",
+        "ticker_1": "LOGPSM",
+        "ticker_2": "Logoipsum",
+        "ticker_3": "Logoipsum",
+        "ticker_4": "Logoipsum"
+      }
+    }
   },
   "order": [
     "spacer_4apEt6",
@@ -150,6 +174,8 @@
     "spacer4",
     "how-the-ritual",
     "spacer5",
-    "progress-for-us"
+    "progress-for-us",
+    "spacer6",
+    "behind-every-choice"
   ]
 }

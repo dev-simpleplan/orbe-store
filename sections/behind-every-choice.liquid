@@ -1,0 +1,204 @@
+<section class="behind-every-choice">
+  <div class="bec-bg-logo">
+    {% render 'orbe-logo-o' %}
+  </div>
+
+  <div class="container">
+    <div class="behind-every-choice-in">
+      <div class="left">
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <p>{{ section.settings.text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="right">
+        <div class="bec-slider">
+          <div class="bec-slide active">
+            <div class="bec-stars">★★★★★</div>
+            <h3>{{ section.settings.quote_1 }}</h3>
+            <div class="bec-author">
+              <span class="bec-avatar"></span>
+              <p>{{ section.settings.author_1 }}</p>
+            </div>
+          </div>
+
+          <div class="bec-slide">
+            <div class="bec-stars">★★★★★</div>
+            <h3>{{ section.settings.quote_2 }}</h3>
+            <div class="bec-author">
+              <span class="bec-avatar"></span>
+              <p>{{ section.settings.author_2 }}</p>
+            </div>
+          </div>
+
+          <div class="bec-slide">
+            <div class="bec-stars">★★★★★</div>
+            <h3>{{ section.settings.quote_3 }}</h3>
+            <div class="bec-author">
+              <span class="bec-avatar"></span>
+              <p>{{ section.settings.author_3 }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bec-controls">
+          <button class="bec-prev" type="button" aria-label="Previous testimonial">←</button>
+          <button class="bec-next" type="button" aria-label="Next testimonial">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bec-ticker" aria-hidden="true">
+    <div class="bec-ticker-track">
+      <span>{{ section.settings.ticker_1 }}</span>
+      <span>{{ section.settings.ticker_2 }}</span>
+      <span>{{ section.settings.ticker_3 }}</span>
+      <span>{{ section.settings.ticker_4 }}</span>
+      <span>{{ section.settings.ticker_1 }}</span>
+      <span>{{ section.settings.ticker_2 }}</span>
+      <span>{{ section.settings.ticker_3 }}</span>
+      <span>{{ section.settings.ticker_4 }}</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function init() {
+      const script = document.currentScript;
+      const section = script ? script.previousElementSibling : document.querySelector('.behind-every-choice');
+      if (!section) return;
+
+      const slides = section.querySelectorAll('.bec-slide');
+      const prev = section.querySelector('.bec-prev');
+      const next = section.querySelector('.bec-next');
+      if (!slides.length || !prev || !next) return;
+
+      let activeIndex = 0;
+
+      function showSlide(index) {
+        activeIndex = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, slideIndex) {
+          slide.classList.toggle('active', slideIndex === activeIndex);
+        });
+      }
+
+      prev.addEventListener('click', function () {
+        showSlide(activeIndex - 1);
+      });
+
+      next.addEventListener('click', function () {
+        showSlide(activeIndex + 1);
+      });
+    }
+
+    init();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Behind Every Choice",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Expertise Behind Every Choice"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity."
+    },
+    {
+      "type": "header",
+      "content": "Slide 1"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_1",
+      "label": "Quote",
+      "default": "“ORBÉ didn’t change my routine — it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.”"
+    },
+    {
+      "type": "text",
+      "id": "author_1",
+      "label": "Author",
+      "default": "MILLIE BONNIE, CEO"
+    },
+    {
+      "type": "header",
+      "content": "Slide 2"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_2",
+      "label": "Quote",
+      "default": "“The formulation feels thoughtful, restrained, and easy to recommend as part of a consistent daily ritual.”"
+    },
+    {
+      "type": "text",
+      "id": "author_2",
+      "label": "Author",
+      "default": "DR. ELAINE MORRIS"
+    },
+    {
+      "type": "header",
+      "content": "Slide 3"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_3",
+      "label": "Quote",
+      "default": "“Orbe brings a rare kind of clarity to nutrition: simple, evidence-led, and beautifully consistent.”"
+    },
+    {
+      "type": "text",
+      "id": "author_3",
+      "label": "Author",
+      "default": "ANIKA SHAH, NUTRITIONIST"
+    },
+    {
+      "type": "header",
+      "content": "Ticker"
+    },
+    {
+      "type": "text",
+      "id": "ticker_1",
+      "label": "Ticker 1",
+      "default": "LOGPSM"
+    },
+    {
+      "type": "text",
+      "id": "ticker_2",
+      "label": "Ticker 2",
+      "default": "Logoipsum"
+    },
+    {
+      "type": "text",
+      "id": "ticker_3",
+      "label": "Ticker 3",
+      "default": "Logoipsum"
+    },
+    {
+      "type": "text",
+      "id": "ticker_4",
+      "label": "Ticker 4",
+      "default": "Logoipsum"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Behind Every Choice"
+    }
+  ]
+}
+{% endschema %}

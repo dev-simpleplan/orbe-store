@@ -4228,6 +4228,236 @@ body.template-404 .footer {
 /* Science Slanted Element */
 
 /* How the ritual */
+
+/* Behind Every Choice */
+.behind-every-choice {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 46px;
+}
+
+.behind-every-choice .container {
+  position: relative;
+  z-index: 2;
+}
+
+.bec-bg-logo {
+  position: absolute;
+  left: 4%;
+  top: 0;
+  width: min(520px, 48vw);
+  opacity: 0.62;
+  filter: blur(22px);
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+.bec-bg-logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bec-bg-logo svg path {
+  fill: #1a1a1a;
+}
+
+.behind-every-choice-in {
+  display: grid;
+  grid-template-columns: 0.92fr 1fr;
+  gap: 80px;
+  align-items: start;
+  min-height: 430px;
+}
+
+.behind-every-choice .left h2 {
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.98;
+  font-weight: 400;
+  max-width: 720px;
+}
+
+.behind-every-choice .left p {
+  max-width: 470px;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.bec-slider {
+  position: relative;
+  min-height: 250px;
+}
+
+.bec-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+}
+
+.bec-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.bec-stars {
+  color: #d8b861;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.bec-slide h3 {
+  max-width: 700px;
+  font-size: clamp(30px, 3.2vw, 48px);
+  line-height: 0.98;
+  font-weight: 400;
+}
+
+.bec-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.bec-avatar {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #f2d4a3 0 18%, transparent 19%),
+    radial-gradient(circle at 65% 38%, #7b4f2e 0 16%, transparent 17%),
+    linear-gradient(135deg, #d7c0a0, #6f4a33 45%, #eadcc7);
+}
+
+.bec-author p {
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.bec-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 60px;
+}
+
+.bec-controls button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #8d8d8d;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bec-controls button:first-child,
+.bec-controls button:hover {
+  background: #1a1a1a;
+}
+
+.bec-ticker {
+  position: relative;
+  z-index: 2;
+  margin-top: 70px;
+  overflow: hidden;
+}
+
+.bec-ticker-track {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  animation: becTicker 22s linear infinite;
+}
+
+.bec-ticker span {
+  min-width: 25vw;
+  color: #8e8e8e;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+@keyframes becTicker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 991px) {
+  .behind-every-choice {
+    padding-top: 80px;
+  }
+
+  .behind-every-choice-in {
+    grid-template-columns: 1fr;
+    gap: 58px;
+  }
+
+  .bec-bg-logo {
+    width: 520px;
+    max-width: 90vw;
+    top: 40px;
+  }
+
+  .bec-slide h3 {
+    max-width: 760px;
+  }
+
+  .bec-ticker span {
+    min-width: 34vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .behind-every-choice {
+    padding-top: 64px;
+  }
+
+  .behind-every-choice .left h2 {
+    font-size: 40px;
+  }
+
+  .behind-every-choice .left p {
+    font-size: 15px;
+  }
+
+  .bec-slider {
+    min-height: 310px;
+  }
+
+  .bec-slide h3 {
+    font-size: 32px;
+  }
+
+  .bec-ticker {
+    margin-top: 44px;
+  }
+
+  .bec-ticker span {
+    min-width: 52vw;
+    font-size: 15px;
+  }
+}
+/* Behind Every Choice */
 .how-the-ritual-in {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
