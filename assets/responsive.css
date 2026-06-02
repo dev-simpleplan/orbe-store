@@ -23,6 +23,11 @@
   .progress-for-us-in {
     gap: 100px;
   }
+  .progress-for-us-img-sm {
+    aspect-ratio: unset;
+    width: 160px;
+    height: 200px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -511,6 +516,9 @@
   .progress-for-us-img {
     height: 520px;
     aspect-ratio: unset;
+  }
+  .progress-for-us-content h2 {
+  max-width: 32ch;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1120,27 +1128,27 @@
   .we-believe-science-in p {
     font-size: 16px;
   }
-  .progress-for-us-content h2{
+  .progress-for-us-content h2 {
     max-width: 100%;
   }
-  .progress-for-us-img-sm{
+  .progress-for-us-img-sm {
     display: none;
   }
-  .progress-for-us-content{
+  .progress-for-us-content {
     padding-top: 0px;
     gap: 20px;
   }
-  .progress-for-us-pointers{
+  .progress-for-us-pointers {
     gap: 15px;
   }
-  .progress-for-us-in{
+  .progress-for-us-in {
     gap: 30px;
   }
-  .progress-for-us-pointers p{
+  .progress-for-us-pointers p {
     font-size: 14px;
     max-width: 100%;
   }
-  .progress-for-us-img{
+  .progress-for-us-img {
     height: 400px;
   }
 }
