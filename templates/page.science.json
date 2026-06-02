@@ -102,7 +102,29 @@
         "element_block3_heading": "Nothing Extra",
         "element_block3_text": "No fillers. No unnecessary blends. Every ingredient has a clear purpose."
       }
-    }
+    },
+    "spacer3": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "built-for-how": {
+      "type": "built-for-how",
+      "settings": {}
+    },
+    "spacer4": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "how-the-ritual": {
+      "type": "how-the-ritual",
+      "settings": {}
+    },
   },
   "order": [
     "spacer_4apEt6",
@@ -111,6 +133,10 @@
     "spacer1",
     "essential-ingredient",
     "spacer2",
-    "science-slanted-element"
+    "science-slanted-element",
+    "spacer3",
+    "built-for-how",
+    "spacer4",
+    "how-the-ritual"
   ]
 }

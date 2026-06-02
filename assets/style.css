@@ -198,7 +198,8 @@ a {
     height: 100px;
   }
   .container-left {
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .d-sm {
     display: block;

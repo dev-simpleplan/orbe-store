@@ -1,0 +1,81 @@
+<section class="built-for-how">
+  <div class="container-left">
+    <h2>Built For How Your Body Works</h2>
+
+    <div class="built-for-how-in">
+      <div class="left">
+        <ul>
+          <li>Uses a pill-in-pill design to separate oil-based and mineral nutrients</li>
+          <li>Prevents nutrients from interfering with each other before absorption.</li>
+          <li>Helps protect stability and potency of sensitive ingredients.</li>
+        </ul>
+      </div>
+
+      <div class="right">
+        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468604.png?v=1780383097" alt="Image" class="img" width="912" height="580">
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function init() {
+      const script = document.currentScript;
+      const section = script ? script.previousElementSibling : document.querySelector('.built-for-how');
+      if (!section) return;
+
+      const items = section.querySelectorAll('li');
+      if (!items.length) return;
+
+      let ticking = false;
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function updateTextColor() {
+        ticking = false;
+
+        const rect = section.getBoundingClientRect();
+        const distance = Math.max(1, window.innerHeight + rect.height);
+        const progress = clamp((window.innerHeight - rect.top) / distance, 0, 1);
+
+        items.forEach(function (item, index) {
+          const itemProgress = clamp((progress - index * 0.18) / 0.34, 0, 1);
+          const color = Math.round(140 - itemProgress * 140);
+          item.style.color = 'rgb(' + color + ', ' + color + ', ' + color + ')';
+        });
+      }
+
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateTextColor);
+      }
+
+      updateTextColor();
+
+      if (window.lenis && typeof window.lenis.on === 'function') {
+        window.lenis.on('scroll', requestUpdate);
+      }
+
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+      window.addEventListener('load', requestUpdate, { once: true });
+    }
+
+    init();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Built For How",
+  "presets": [
+    {
+      "name": "Built For How"
+    }
+  ]
+}
+{% endschema %}
