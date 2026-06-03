@@ -154,10 +154,20 @@
             "quote": "“ORBÉ didn’t change my routine — it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.”",
             "author": "Millie bonnie, CEO"
           }
+        },
+        "slide_JDGV9x": {
+          "type": "slide",
+          "settings": {
+            "rating": 5,
+            "author_image": "shopify://shop_images/Ellipse_172_b955aa5c-ea40-4d5a-b986-8536b847b752.png",
+            "quote": "“ORBÉ didn’t change my routine — it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.”",
+            "author": "Millie bonnie, CEO"
+          }
         }
       },
       "block_order": [
-        "slide_aYkmJM"
+        "slide_aYkmJM",
+        "slide_JDGV9x"
       ],
       "settings": {
         "heading": "Expertise Behind Every Choice",
