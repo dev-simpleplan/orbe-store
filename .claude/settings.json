@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(cp /Users/apple/Documents/GitHub/orbe-store/assets/favicon_io/* /Users/apple/Documents/GitHub/orbe-store/assets/ && ls /Users/apple/Documents/GitHub/orbe-store/assets/ | grep -i \"favicon\\\\|apple-touch\\\\|site.web\")",
-      "Bash(python3 -m json.tool)"
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 -)"
     ],
     "additionalDirectories": [
       "/Users/apple/Documents/GitHub/orbe-store/assets/favicon_io",

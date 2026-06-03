@@ -130,96 +130,6 @@
     },
     {
       "type": "header",
-      "content": "Slide 1"
-    },
-    {
-      "type": "range",
-      "id": "rating_1",
-      "label": "Star rating",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "image_picker",
-      "id": "author_image_1",
-      "label": "Author image"
-    },
-    {
-      "type": "textarea",
-      "id": "quote_1",
-      "label": "Quote",
-      "default": "\u201cORBÉ didn’t change my routine — it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.\u201d"
-    },
-    {
-      "type": "text",
-      "id": "author_1",
-      "label": "Author",
-      "default": "MILLIE BONNIE, CEO"
-    },
-    {
-      "type": "header",
-      "content": "Slide 2"
-    },
-    {
-      "type": "range",
-      "id": "rating_2",
-      "label": "Star rating",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "image_picker",
-      "id": "author_image_2",
-      "label": "Author image"
-    },
-    {
-      "type": "textarea",
-      "id": "quote_2",
-      "label": "Quote",
-      "default": "\u201cThe formulation feels thoughtful, restrained, and easy to recommend as part of a consistent daily ritual.\u201d"
-    },
-    {
-      "type": "text",
-      "id": "author_2",
-      "label": "Author",
-      "default": "DR. ELAINE MORRIS"
-    },
-    {
-      "type": "header",
-      "content": "Slide 3"
-    },
-    {
-      "type": "range",
-      "id": "rating_3",
-      "label": "Star rating",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "image_picker",
-      "id": "author_image_3",
-      "label": "Author image"
-    },
-    {
-      "type": "textarea",
-      "id": "quote_3",
-      "label": "Quote",
-      "default": "\u201cOrbe brings a rare kind of clarity to nutrition: simple, evidence-led, and beautifully consistent.\u201d"
-    },
-    {
-      "type": "text",
-      "id": "author_3",
-      "label": "Author",
-      "default": "ANIKA SHAH, NUTRITIONIST"
-    },
-    {
-      "type": "header",
       "content": "Ticker"
     },
     {
@@ -243,9 +153,69 @@
       "label": "Ticker icon 4"
     }
   ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author image"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Your testimonial goes here."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "NAME, TITLE"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Behind Every Choice"
+      "name": "Behind Every Choice",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "rating": 5,
+            "quote": "\u201cORB\u00c9 didn't change my routine \u2014 it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.\u201d",
+            "author": "MILLIE BONNIE, CEO"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "rating": 5,
+            "quote": "\u201cThe formulation feels thoughtful, restrained, and easy to recommend as part of a consistent daily ritual.\u201d",
+            "author": "DR. ELAINE MORRIS"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "rating": 5,
+            "quote": "\u201cOrbe brings a rare kind of clarity to nutrition: simple, evidence-led, and beautifully consistent.\u201d",
+            "author": "ANIKA SHAH, NUTRITIONIST"
+          }
+        }
+      ]
     }
   ]
 }
