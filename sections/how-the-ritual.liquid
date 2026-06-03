@@ -1,42 +1,80 @@
 <section class="how-the-ritual">
     <div class="container">
         <div class="heading">
-            <h2>How the Ritual Works</h2>
+            <h2>{{ section.settings.heading }}</h2>
         </div>
         <div class="how-the-ritual-in">
-            <div class="htr-card">
-                <div class="htr-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468605.png?v=1780384552" alt="Image" class="img">
+            {% for block in section.blocks %}
+                <div class="htr-card" {{ block.shopify_attributes }}>
+                    <div class="htr-img">
+                        {% if block.settings.image != blank %}
+                            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.text | escape }}" class="img" loading="lazy" width="800" height="600">
+                        {% endif %}
+                    </div>
+                    <div class="htr-content">
+                        <h4 class="serial-num">{{ forloop.index }} .</h4>
+                        <p class="htr-text">{{ block.settings.text }}</p>
+                    </div>
                 </div>
-                <div class="htr-content">
-                    <h4 class="serial-num">
-                        1 .
-                    </h4>
-                    <p class="htr-text">Once taken, nutrients are released in stages, based on how the body absorbs them best.</p>
-                </div>
-            </div>
-            <div class="htr-card">
-                <div class="htr-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468605.png?v=1780384552" alt="Image" class="img">
-                </div>
-                <div class="htr-content">
-                    <h4 class="serial-num">
-                        1 .
-                    </h4>
-                    <p class="htr-text">Once taken, nutrients are released in stages, based on how the body absorbs them best.</p>
-                </div>
-            </div>
-            <div class="htr-card">
-                <div class="htr-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468605.png?v=1780384552" alt="Image" class="img">
-                </div>
-                <div class="htr-content">
-                    <h4 class="serial-num">
-                        1 .
-                    </h4>
-                    <p class="htr-text">Once taken, nutrients are released in stages, based on how the body absorbs them best.</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
+
+{% schema %}
+{
+  "name": "How the Ritual Works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How the Ritual Works"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Once taken, nutrients are released in stages, based on how the body absorbs them best."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How the Ritual Works",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "text": "Once taken, nutrients are released in stages, based on how the body absorbs them best."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "text": "Once taken, nutrients are released in stages, based on how the body absorbs them best."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "text": "Once taken, nutrients are released in stages, based on how the body absorbs them best."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

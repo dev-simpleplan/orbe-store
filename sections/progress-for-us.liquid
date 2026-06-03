@@ -3,23 +3,97 @@
         <div class="progress-for-us-in">
             <div class="left">
                 <div class="progress-for-us-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Frame_2072749125_c07a0eb0-4c90-4df3-975b-007c56109bdd.png?v=1780402147" alt="Image" class="img">
+                    {% if section.settings.main_image != blank %}
+                        <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="{{ section.settings.heading | escape }}" class="img" loading="lazy" width="1000" height="800">
+                    {% endif %}
                 </div>
             </div>
             <div class="right">
                 <div class="progress-for-us-img-sm">
-                    <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468568_fae16575-450f-447a-9181-016abc299947.png?v=1780402146" alt="Image" class="img">
+                    {% if section.settings.secondary_image != blank %}
+                        <img src="{{ section.settings.secondary_image | image_url: width: 600 }}" alt="" class="img" loading="lazy" width="600" height="400">
+                    {% endif %}
                 </div>
                 <div class="progress-for-us-content">
-                    <h2>Progress, for us, means refining what already works, with care, patience, and clarity.</h2>
+                    {% if section.settings.heading != blank %}
+                        <h2>{{ section.settings.heading }}</h2>
+                    {% endif %}
                     <div class="progress-for-us-pointers">
-                        <p>We monitor new clinical research to understand how nutrients work, interact, and absorb over time.</p>
-                        <p>Feedback from experts and the Orbe community helps guide future improvements and innovations.</p>
-                        <p>We review formulations regularly to ensure they remain relevant, effective, and safe.</p>
-                        <p>New products are developed slowly and intentionally — only when there is clear evidence and a genuine need.</p>
+                        {% for block in section.blocks %}
+                            <p {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{% schema %}
+{
+  "name": "Progress For Us",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main image (left)"
+    },
+    {
+      "type": "image_picker",
+      "id": "secondary_image",
+      "label": "Secondary image (right top)"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Progress, for us, means refining what already works, with care, patience, and clarity."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pointer",
+      "name": "Pointer",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Add your point here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Progress For Us",
+      "blocks": [
+        {
+          "type": "pointer",
+          "settings": {
+            "text": "We monitor new clinical research to understand how nutrients work, interact, and absorb over time."
+          }
+        },
+        {
+          "type": "pointer",
+          "settings": {
+            "text": "Feedback from experts and the Orbe community helps guide future improvements and innovations."
+          }
+        },
+        {
+          "type": "pointer",
+          "settings": {
+            "text": "We review formulations regularly to ensure they remain relevant, effective, and safe."
+          }
+        },
+        {
+          "type": "pointer",
+          "settings": {
+            "text": "New products are developed slowly and intentionally — only when there is clear evidence and a genuine need."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
