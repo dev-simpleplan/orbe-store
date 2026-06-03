@@ -254,6 +254,13 @@
     "built-on-what": {
       "type": "built-on-what",
       "blocks": {
+        "item_xgicEQ": {
+          "type": "item",
+          "settings": {
+            "title": "Clinically Studied Forms",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        },
         "item_Ymq3wT": {
           "type": "item",
           "settings": {
@@ -261,17 +268,34 @@
             "text": "Nutrients supported by global research for absorption and efficacy."
           }
         },
-        "item_xgicEQ": {
+        "item_Hwabk9": {
           "type": "item",
           "settings": {
-            "title": "Clinically Studied Forms",
+            "title": "Evidence-Based Dosing",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        },
+        "item_nrK78w": {
+          "type": "item",
+          "settings": {
+            "title": "Absorption Matters",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        },
+        "item_QwGHJR": {
+          "type": "item",
+          "settings": {
+            "title": "Absorption Matters",
             "text": "Nutrients supported by global research for absorption and efficacy."
           }
         }
       },
       "block_order": [
+        "item_xgicEQ",
         "item_Ymq3wT",
-        "item_xgicEQ"
+        "item_Hwabk9",
+        "item_nrK78w",
+        "item_QwGHJR"
       ],
       "name": "Built on What",
       "settings": {
@@ -301,4 +325,3 @@
     "built-on-what"
   ]
 }
-
