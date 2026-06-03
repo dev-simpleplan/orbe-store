@@ -151,7 +151,9 @@
         "step_fhEH8L",
         "step_arMBYL"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "How the Ritual Works"
+      }
     },
     "spacer5": {
       "type": "spacer",
@@ -251,8 +253,32 @@
     },
     "built-on-what": {
       "type": "built-on-what",
+      "blocks": {
+        "item_Ymq3wT": {
+          "type": "item",
+          "settings": {
+            "title": "Research-Led Ingredients",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        },
+        "item_xgicEQ": {
+          "type": "item",
+          "settings": {
+            "title": "Clinically Studied Forms",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        }
+      },
+      "block_order": [
+        "item_Ymq3wT",
+        "item_xgicEQ"
+      ],
       "name": "Built on What",
-      "settings": {}
+      "settings": {
+        "heading": "Built On What Science Already Understands",
+        "text": "Clinical evidence is not a headline for us. It's the foundation.",
+        "image": "shopify://shop_images/Rectangle_3468609.png"
+      }
     }
   },
   "order": [
