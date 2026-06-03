@@ -18,36 +18,76 @@
       <div class="right">
         <div class="bec-slider">
           <div class="bec-slide active">
-            <div class="bec-stars">★★★★★</div>
+            <div class="bec-stars">
+              {% for i in (1..5) %}
+                {% if i <= section.settings.rating_1 %}
+                  {% render 'rating-star' %}
+                {% endif %}
+              {% endfor %}
+            </div>
             <h3>{{ section.settings.quote_1 }}</h3>
             <div class="bec-author">
-              <span class="bec-avatar"></span>
+              <span class="bec-avatar">
+                {% if section.settings.author_image_1 != blank %}
+                  <img src="{{ section.settings.author_image_1 | image_url: width: 80 }}" alt="{{ section.settings.author_1 | escape }}" width="40" height="40" loading="lazy">
+                {% endif %}
+              </span>
               <p>{{ section.settings.author_1 }}</p>
             </div>
           </div>
 
           <div class="bec-slide">
-            <div class="bec-stars">★★★★★</div>
+            <div class="bec-stars">
+              {% for i in (1..5) %}
+                {% if i <= section.settings.rating_2 %}
+                  {% render 'rating-star' %}
+                {% endif %}
+              {% endfor %}
+            </div>
             <h3>{{ section.settings.quote_2 }}</h3>
             <div class="bec-author">
-              <span class="bec-avatar"></span>
+              <span class="bec-avatar">
+                {% if section.settings.author_image_2 != blank %}
+                  <img src="{{ section.settings.author_image_2 | image_url: width: 80 }}" alt="{{ section.settings.author_2 | escape }}" width="40" height="40" loading="lazy">
+                {% endif %}
+              </span>
               <p>{{ section.settings.author_2 }}</p>
             </div>
           </div>
 
           <div class="bec-slide">
-            <div class="bec-stars">★★★★★</div>
+            <div class="bec-stars">
+              {% for i in (1..5) %}
+                {% if i <= section.settings.rating_3 %}
+                  {% render 'rating-star' %}
+                {% endif %}
+              {% endfor %}
+            </div>
             <h3>{{ section.settings.quote_3 }}</h3>
             <div class="bec-author">
-              <span class="bec-avatar"></span>
+              <span class="bec-avatar">
+                {% if section.settings.author_image_3 != blank %}
+                  <img src="{{ section.settings.author_image_3 | image_url: width: 80 }}" alt="{{ section.settings.author_3 | escape }}" width="40" height="40" loading="lazy">
+                {% endif %}
+              </span>
               <p>{{ section.settings.author_3 }}</p>
             </div>
           </div>
         </div>
 
         <div class="bec-controls">
-          <button class="bec-prev" type="button" aria-label="Previous testimonial">←</button>
-          <button class="bec-next" type="button" aria-label="Next testimonial">→</button>
+          <button class="bec-prev" type="button" aria-label="Previous testimonial">
+            <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="21.3472" cy="21.3472" r="21.3472" transform="matrix(-1 0 0 1 42.6943 0)" fill="currentColor"/>
+              <path d="M30.0313 20.8421L17.665 20.8421L22.9648 15.5423L22.2985 14.7852L15.7368 21.3469L22.2985 27.9086L22.9648 27.1515L17.665 21.8516L30.0313 21.8516L30.0313 20.8421Z" fill="white"/>
+            </svg>
+          </button>
+          <button class="bec-next" type="button" aria-label="Next testimonial">
+            <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="21.3472" cy="21.3472" r="21.3472" fill="currentColor"/>
+              <path d="M12.663 20.8421L25.0294 20.8421L19.7295 15.5423L20.3958 14.7852L26.9575 21.3469L20.3958 27.9086L19.7295 27.1515L25.0294 21.8516L12.663 21.8516L12.663 20.8421Z" fill="white"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -55,14 +95,20 @@
 
   <div class="bec-ticker" aria-hidden="true">
     <div class="bec-ticker-track">
-      <span>{{ section.settings.ticker_1 }}</span>
-      <span>{{ section.settings.ticker_2 }}</span>
-      <span>{{ section.settings.ticker_3 }}</span>
-      <span>{{ section.settings.ticker_4 }}</span>
-      <span>{{ section.settings.ticker_1 }}</span>
-      <span>{{ section.settings.ticker_2 }}</span>
-      <span>{{ section.settings.ticker_3 }}</span>
-      <span>{{ section.settings.ticker_4 }}</span>
+      {% for i in (1..4) %}
+        {% assign img_id = 'ticker_image_' | append: i %}
+        {% assign img = section.settings[img_id] %}
+        {% if img != blank %}
+          <span><img src="{{ img | image_url: width: 200 }}" alt="" width="100" height="40" loading="lazy"></span>
+        {% endif %}
+      {% endfor %}
+      {% for i in (1..4) %}
+        {% assign img_id = 'ticker_image_' | append: i %}
+        {% assign img = section.settings[img_id] %}
+        {% if img != blank %}
+          <span><img src="{{ img | image_url: width: 200 }}" alt="" width="100" height="40" loading="lazy"></span>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -123,10 +169,24 @@
       "content": "Slide 1"
     },
     {
+      "type": "range",
+      "id": "rating_1",
+      "label": "Star rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "image_picker",
+      "id": "author_image_1",
+      "label": "Author image"
+    },
+    {
       "type": "textarea",
       "id": "quote_1",
       "label": "Quote",
-      "default": "“ORBÉ didn’t change my routine — it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.”"
+      "default": "\u201cORBÉ didn’t change my routine — it changed how I feel about it. Everything feels clearer, calmer, and easier to stay consistent with.\u201d"
     },
     {
       "type": "text",
@@ -139,10 +199,24 @@
       "content": "Slide 2"
     },
     {
+      "type": "range",
+      "id": "rating_2",
+      "label": "Star rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "image_picker",
+      "id": "author_image_2",
+      "label": "Author image"
+    },
+    {
       "type": "textarea",
       "id": "quote_2",
       "label": "Quote",
-      "default": "“The formulation feels thoughtful, restrained, and easy to recommend as part of a consistent daily ritual.”"
+      "default": "\u201cThe formulation feels thoughtful, restrained, and easy to recommend as part of a consistent daily ritual.\u201d"
     },
     {
       "type": "text",
@@ -155,10 +229,24 @@
       "content": "Slide 3"
     },
     {
+      "type": "range",
+      "id": "rating_3",
+      "label": "Star rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "image_picker",
+      "id": "author_image_3",
+      "label": "Author image"
+    },
+    {
       "type": "textarea",
       "id": "quote_3",
       "label": "Quote",
-      "default": "“Orbe brings a rare kind of clarity to nutrition: simple, evidence-led, and beautifully consistent.”"
+      "default": "\u201cOrbe brings a rare kind of clarity to nutrition: simple, evidence-led, and beautifully consistent.\u201d"
     },
     {
       "type": "text",
@@ -171,28 +259,24 @@
       "content": "Ticker"
     },
     {
-      "type": "text",
-      "id": "ticker_1",
-      "label": "Ticker 1",
-      "default": "LOGPSM"
+      "type": "image_picker",
+      "id": "ticker_image_1",
+      "label": "Ticker icon 1"
     },
     {
-      "type": "text",
-      "id": "ticker_2",
-      "label": "Ticker 2",
-      "default": "Logoipsum"
+      "type": "image_picker",
+      "id": "ticker_image_2",
+      "label": "Ticker icon 2"
     },
     {
-      "type": "text",
-      "id": "ticker_3",
-      "label": "Ticker 3",
-      "default": "Logoipsum"
+      "type": "image_picker",
+      "id": "ticker_image_3",
+      "label": "Ticker icon 3"
     },
     {
-      "type": "text",
-      "id": "ticker_4",
-      "label": "Ticker 4",
-      "default": "Logoipsum"
+      "type": "image_picker",
+      "id": "ticker_image_4",
+      "label": "Ticker icon 4"
     }
   ],
   "presets": [
