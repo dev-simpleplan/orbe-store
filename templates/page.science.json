@@ -123,6 +123,34 @@
     },
     "how-the-ritual": {
       "type": "how-the-ritual",
+      "blocks": {
+        "step_JycCVA": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468605.png",
+            "text": "Once taken, nutrients are released in stages, based on how the body absorbs them best."
+          }
+        },
+        "step_fhEH8L": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468606.png",
+            "text": "Once taken, nutrients are released in stages, based on how the body absorbs them best."
+          }
+        },
+        "step_arMBYL": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468607.png",
+            "text": "Once taken, nutrients are released in stages, based on how the body absorbs them best."
+          }
+        }
+      },
+      "block_order": [
+        "step_JycCVA",
+        "step_fhEH8L",
+        "step_arMBYL"
+      ],
       "settings": {}
     },
     "spacer5": {
@@ -134,6 +162,38 @@
     },
     "progress-for-us": {
       "type": "progress-for-us",
+      "blocks": {
+        "pointer_gf8r9k": {
+          "type": "pointer",
+          "settings": {
+            "text": "We review formulations regularly to ensure they remain relevant, effective, and safe."
+          }
+        },
+        "pointer_RgVQWn": {
+          "type": "pointer",
+          "settings": {
+            "text": "Feedback from experts and the Orbe community helps guide future improvements and innovations."
+          }
+        },
+        "pointer_tY4ydj": {
+          "type": "pointer",
+          "settings": {
+            "text": "We monitor new clinical research to understand how nutrients work, interact, and absorb over time."
+          }
+        },
+        "pointer_L8zicP": {
+          "type": "pointer",
+          "settings": {
+            "text": "New products are developed slowly and intentionally — only when there is clear evidence and a genuine need."
+          }
+        }
+      },
+      "block_order": [
+        "pointer_gf8r9k",
+        "pointer_RgVQWn",
+        "pointer_tY4ydj",
+        "pointer_L8zicP"
+      ],
       "settings": {}
     },
     "spacer6": {
