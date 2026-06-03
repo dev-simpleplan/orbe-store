@@ -194,7 +194,11 @@
         "pointer_tY4ydj",
         "pointer_L8zicP"
       ],
-      "settings": {}
+      "settings": {
+        "main_image": "shopify://shop_images/Frame_2072749125_c07a0eb0-4c90-4df3-975b-007c56109bdd.png",
+        "secondary_image": "shopify://shop_images/Rectangle_3468568_fae16575-450f-447a-9181-016abc299947.png",
+        "heading": "Progress, for us, means refining what already works, with care, patience, and clarity."
+      }
     },
     "spacer6": {
       "type": "spacer",
