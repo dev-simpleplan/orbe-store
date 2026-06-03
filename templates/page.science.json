@@ -241,6 +241,18 @@
         "ticker_image_3": "shopify://shop_images/Frame4.svg",
         "ticker_image_4": "shopify://shop_images/Frame3.svg"
       }
+    },
+    "spacer7": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "built-on-what": {
+      "type": "built-on-what",
+      "name": "Built on What",
+      "settings": {}
     }
   },
   "order": [
@@ -258,6 +270,8 @@
     "spacer5",
     "progress-for-us",
     "spacer6",
-    "behind-every-choice"
+    "behind-every-choice",
+    "spacer7",
+    "built-on-what"
   ]
 }
