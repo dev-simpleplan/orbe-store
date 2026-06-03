@@ -17,62 +17,26 @@
 
       <div class="right">
         <div class="bec-slider">
-          <div class="bec-slide active">
-            <div class="bec-stars">
-              {% for i in (1..5) %}
-                {% if i <= section.settings.rating_1 %}
-                  {% render 'rating-star' %}
-                {% endif %}
-              {% endfor %}
+          {% for block in section.blocks %}
+            <div class="bec-slide{% if forloop.first %} active{% endif %}" {{ block.shopify_attributes }}>
+              <div class="bec-stars">
+                {% for i in (1..5) %}
+                  {% if i <= block.settings.rating %}
+                    {% render 'rating-star' %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <h3>{{ block.settings.quote }}</h3>
+              <div class="bec-author">
+                <span class="bec-avatar">
+                  {% if block.settings.author_image != blank %}
+                    <img src="{{ block.settings.author_image | image_url: width: 80 }}" alt="{{ block.settings.author | escape }}" width="40" height="40" loading="lazy">
+                  {% endif %}
+                </span>
+                <p>{{ block.settings.author }}</p>
+              </div>
             </div>
-            <h3>{{ section.settings.quote_1 }}</h3>
-            <div class="bec-author">
-              <span class="bec-avatar">
-                {% if section.settings.author_image_1 != blank %}
-                  <img src="{{ section.settings.author_image_1 | image_url: width: 80 }}" alt="{{ section.settings.author_1 | escape }}" width="40" height="40" loading="lazy">
-                {% endif %}
-              </span>
-              <p>{{ section.settings.author_1 }}</p>
-            </div>
-          </div>
-
-          <div class="bec-slide">
-            <div class="bec-stars">
-              {% for i in (1..5) %}
-                {% if i <= section.settings.rating_2 %}
-                  {% render 'rating-star' %}
-                {% endif %}
-              {% endfor %}
-            </div>
-            <h3>{{ section.settings.quote_2 }}</h3>
-            <div class="bec-author">
-              <span class="bec-avatar">
-                {% if section.settings.author_image_2 != blank %}
-                  <img src="{{ section.settings.author_image_2 | image_url: width: 80 }}" alt="{{ section.settings.author_2 | escape }}" width="40" height="40" loading="lazy">
-                {% endif %}
-              </span>
-              <p>{{ section.settings.author_2 }}</p>
-            </div>
-          </div>
-
-          <div class="bec-slide">
-            <div class="bec-stars">
-              {% for i in (1..5) %}
-                {% if i <= section.settings.rating_3 %}
-                  {% render 'rating-star' %}
-                {% endif %}
-              {% endfor %}
-            </div>
-            <h3>{{ section.settings.quote_3 }}</h3>
-            <div class="bec-author">
-              <span class="bec-avatar">
-                {% if section.settings.author_image_3 != blank %}
-                  <img src="{{ section.settings.author_image_3 | image_url: width: 80 }}" alt="{{ section.settings.author_3 | escape }}" width="40" height="40" loading="lazy">
-                {% endif %}
-              </span>
-              <p>{{ section.settings.author_3 }}</p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
 
         <div class="bec-controls">
