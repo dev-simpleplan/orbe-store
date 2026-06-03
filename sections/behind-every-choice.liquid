@@ -92,12 +92,18 @@
       let activeIndex = 0;
 
       function showSlide(index) {
-        activeIndex = (index + slides.length) % slides.length;
+        if (index < 0 || index >= slides.length) return;
+        activeIndex = index;
 
         slides.forEach(function (slide, slideIndex) {
           slide.classList.toggle('active', slideIndex === activeIndex);
         });
+
+        prev.disabled = activeIndex === 0;
+        next.disabled = activeIndex === slides.length - 1;
       }
+
+      showSlide(0);
 
       prev.addEventListener('click', function () {
         showSlide(activeIndex - 1);
