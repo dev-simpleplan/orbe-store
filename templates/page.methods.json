@@ -23,6 +23,71 @@
         "spacer_height": 120
       }
     },
+    "smart-way-build": {
+      "type": "smart-way-build",
+      "settings": {
+        "heading": "A Smarter Way to Build Wellness",
+        "image": "shopify://shop_images/Union.png",
+        "text": "The wellness industry is crowded with claims but often short on proof. Our mission is to simplify health through transparency, science, and carefully designed formulations."
+      }
+    },
+    "spacer_JKdjAJ": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "feature-ingredients": {
+      "type": "feature-ingredients",
+      "blocks": {
+        "ingredient_7W6cEE": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/57d7cf59bd2d1c39a38ef5a08c98ef52f8c838d7.png",
+            "title": "Calcium HBM",
+            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
+            "link_text": "Learn more",
+            "link": "#!"
+          }
+        },
+        "ingredient_97yBdU": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468622.png",
+            "title": "Biotin",
+            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
+            "link_text": "Learn more",
+            "link": "#!"
+          }
+        },
+        "ingredient_KtbxHj": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468622_1.png",
+            "title": "Calcium HBM",
+            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
+            "link_text": "Learn more",
+            "link": "#!"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_7W6cEE",
+        "ingredient_97yBdU",
+        "ingredient_KtbxHj"
+      ],
+      "settings": {
+        "heading": "Ingredients With Intention"
+      }
+    },
+    "spacer_Rr6LmG": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "batch-verified": {
       "type": "batch-verified",
       "blocks": {
@@ -82,12 +147,6 @@
       "settings": {
         "heading": "Every Batch Independently Verified",
         "image": "shopify://shop_images/Rectangle_3468672.png"
-      }
-    },
-    "spacer2": {
-      "type": "spacer",
-      "settings": {
-        "spacer_height": 120
       }
     },
     "certified-by": {
@@ -156,13 +215,6 @@
         "heading": "Certified by"
       }
     },
-    "spacer_rKYLw7": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
     "blogs-feature": {
       "type": "blogs-feature",
       "settings": {
@@ -225,70 +277,19 @@
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
       }
-    },
-    "feature-ingredients": {
-      "type": "feature-ingredients",
-      "blocks": {
-        "ingredient_7W6cEE": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/57d7cf59bd2d1c39a38ef5a08c98ef52f8c838d7.png",
-            "title": "Calcium HBM",
-            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
-            "link_text": "Learn more",
-            "link": "#!"
-          }
-        },
-        "ingredient_97yBdU": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468622.png",
-            "title": "Biotin",
-            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
-            "link_text": "Learn more",
-            "link": "#!"
-          }
-        },
-        "ingredient_KtbxHj": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468622_1.png",
-            "title": "Calcium HBM",
-            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
-            "link_text": "Learn more",
-            "link": "#!"
-          }
-        }
-      },
-      "block_order": [
-        "ingredient_7W6cEE",
-        "ingredient_97yBdU",
-        "ingredient_KtbxHj"
-      ],
-      "settings": {
-        "heading": "Ingredients With Intention"
-      }
-    },
-    "smart-way-build": {
-      "type": "smart-way-build",
-      "settings": {
-        "heading": "A Smarter Way to Build Wellness",
-        "image": "shopify://shop_images/Union.png",
-        "text": "The wellness industry is crowded with claims but often short on proof. Our mission is to simplify health through transparency, science, and carefully designed formulations."
-      }
     }
   },
   "order": [
     "method-banner",
     "spacer1",
+    "smart-way-build",
+    "spacer_JKdjAJ",
+    "feature-ingredients",
+    "spacer_Rr6LmG",
     "batch-verified",
-    "spacer2",
     "certified-by",
-    "spacer_rKYLw7",
     "blogs-feature",
     "spacer_bVTWeE",
-    "new_faq_section_n49mMB",
-    "feature-ingredients",
-    "smart-way-build"
+    "new_faq_section_n49mMB"
   ]
 }
