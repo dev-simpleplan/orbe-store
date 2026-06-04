@@ -303,6 +303,20 @@
         "text": "Clinical evidence is not a headline for us. It's the foundation.",
         "image": "shopify://shop_images/Rectangle_3468609.png"
       }
+    },
+    "spacer8": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
+    "science-contact-sec":{
+      "type": "science-contact-sec",
+      "name":"Scienct Contact Section",
+      "settings": {
+
+      }
     }
   },
   "order": [
@@ -322,6 +336,8 @@
     "spacer6",
     "behind-every-choice",
     "spacer7",
-    "built-on-what"
+    "built-on-what",
+    "spacer8",
+    "science-contact-sec"
   ]
 }
