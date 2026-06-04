@@ -4678,3 +4678,7 @@ body.template-404 .footer {
   margin-top: 50px;
   max-width: 50ch;
 }
+.feature-ingredients{
+  background-color: #000;
+  padding-top: 50px 0px;
+}
