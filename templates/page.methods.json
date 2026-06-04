@@ -229,11 +229,20 @@
     "feature-ingredients": {
       "type": "feature-ingredients",
       "blocks": {
+        "ingredient_97yBdU": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Ashwagandha",
+            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
+            "link_text": "Learn more",
+            "link": ""
+          }
+        },
         "ingredient_7W6cEE": {
           "type": "ingredient",
           "settings": {
             "image": "shopify://shop_images/57d7cf59bd2d1c39a38ef5a08c98ef52f8c838d7.png",
-            "title": "Ashwagandha",
+            "title": "Biotin",
             "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
             "link_text": "Learn more",
             "link": "#!"
@@ -241,6 +250,7 @@
         }
       },
       "block_order": [
+        "ingredient_97yBdU",
         "ingredient_7W6cEE"
       ],
       "settings": {
