@@ -4687,4 +4687,8 @@ body.template-404 .footer {
 }
 .feature-ingredients-card{
   background-color: #F5F5F5;
+  height: 470px;
 } 
+.feature-ingredients-card .f-ing-img{
+  height: 260px;
+}
