@@ -311,11 +311,19 @@
         "spacer_height": 120
       }
     },
-    "science-contact-sec":{
+    "science-contact-sec": {
       "type": "science-contact-sec",
-      "name":"Scienct Contact Section",
+      "name": "Scienct Contact Section",
       "settings": {
-
+        "heading": "A Space For Your Question",
+        "subtext": "Subtitle that supports the title. orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit.",
+        "qod_label": "Question Of The Day",
+        "qod_question": "Why Isn't Food Alone Always Enough?",
+        "qod_desc": "Whether you're curious about ingredients, absorption, or how Orbe fits into your routine, we're here to help.",
+        "author_name": "Lali Sinclair",
+        "author_role": "Marketing",
+        "form_bg": "shopify://shop_images/249803796757462e94d355e25592fa125f0e15a6.png",
+        "submit_label": "Submit"
       }
     }
   },
