@@ -11,10 +11,14 @@
   "sections": {
     "method-banner": {
       "type": "method-banner",
-      "settings": {}
+      "settings": {
+        "bg_image": "shopify://shop_images/method-banner.png",
+        "heading": "Built on Principles, Not Trends",
+        "text": "ORBÉ products are guided by clear scientific and human-centered principles. These foundations shape every formulation today — and every product we create tomorrow."
+      }
     }
   },
   "order": [
-    "method-banner",
+    "method-banner"
   ]
 }
