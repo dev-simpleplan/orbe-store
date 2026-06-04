@@ -4646,9 +4646,9 @@ body.template-404 .footer {
 .method-banner-in p {
   font-size: 14px;
   line-height: 120%;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0 auto;
-  max-width: 62ch;
+  max-width: 62chs;
 }
 
 @media (max-width: 767px) {
@@ -4656,4 +4656,10 @@ body.template-404 .footer {
     min-height: 60vh;
     padding: 80px 20px;
   }
+}
+
+.feature-ingredients-wrap{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
