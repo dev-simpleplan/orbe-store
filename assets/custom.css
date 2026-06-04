@@ -4602,25 +4602,23 @@ body.template-404 .footer {
   max-width: 38ch;
 }
 .method-banner {
-  position: relative;
-  width: 100%;
-  min-height: 700px;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: grayscale(1);
+  overflow: hidden;
 }
 
 .method-banner-in {
   width: 100%;
-  max-width: 620px;
-  padding: 120px 20px;
+  min-height: 700px;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: 0 auto;
+  padding: 100px 20px;
+  box-sizing: border-box;
 }
 
 .method-banner-in h2 {
@@ -4639,11 +4637,8 @@ body.template-404 .footer {
 }
 
 @media (max-width: 767px) {
-  .method-banner {
-    min-height: 60vh;
-  }
-
   .method-banner-in {
+    min-height: 60vh;
     padding: 80px 20px;
   }
 }
