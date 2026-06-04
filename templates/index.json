@@ -165,7 +165,7 @@
         "spacer_height": 120
       }
     },
-           "batch-verified": {
+   "batch-verified": {
       "type": "batch-verified",
       "blocks": {
         "verification_dkWhHz": {
