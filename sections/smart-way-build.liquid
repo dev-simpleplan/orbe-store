@@ -1,0 +1,49 @@
+<section class="smart-build-liquid">
+    <div class="container">
+        {% if section.settings.heading != blank %}
+            <div class="heading">
+                <h2>{{ section.settings.heading }}</h2>
+            </div>
+        {% endif %}
+        <div class="smart-build-liquid-in">
+            <div class="smart-build-img">
+                {% if section.settings.image != blank %}
+                    <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.heading | escape }}" class="img" loading="lazy" width="1200" height="800">
+                {% endif %}
+            </div>
+            {% if section.settings.text != blank %}
+                <p>{{ section.settings.text }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Smart Way Build",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Smarter Way to Build Wellness"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "The wellness industry is crowded with claims but often short on proof. Our mission is to simplify health through transparency, science, and carefully designed formulations."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Smart Way Build"
+    }
+  ]
+}
+{% endschema %}
