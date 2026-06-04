@@ -269,9 +269,13 @@
         "heading": "Ingredients With Intention"
       }
     },
-    "smart-way-build":{
+    "smart-way-build": {
       "type": "smart-way-build",
-      "settings": {}
+      "settings": {
+        "heading": "A Smarter Way to Build Wellness",
+        "image": "shopify://shop_images/Union.png",
+        "text": "The wellness industry is crowded with claims but often short on proof. Our mission is to simplify health through transparency, science, and carefully designed formulations."
+      }
     }
   },
   "order": [
