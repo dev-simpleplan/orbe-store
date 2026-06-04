@@ -9,90 +9,12 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "contact-us",
-      "blocks": {
-        "contact_info_pp3BfM": {
-          "type": "contact_info",
-          "settings": {
-            "icon": "shopify://shop_images/location_on_1.svg",
-            "title": "Office",
-            "text": "Hausvogteiplatz 12 10117 Berlin, Germany",
-            "link": "#!"
-          }
-        },
-        "contact_info_mYyeyD": {
-          "type": "contact_info",
-          "settings": {
-            "icon": "shopify://shop_images/mail.svg",
-            "title": "Email",
-            "text": "info@orbe.com",
-            "link": "mailto:info@orbe.com"
-          }
-        },
-        "contact_info_CFFeVd": {
-          "type": "contact_info",
-          "settings": {
-            "icon": "shopify://shop_images/call.svg",
-            "title": "Phone Number",
-            "text": "+44 (20) 35 14 45 90",
-            "link": "tel:442035144590"
-          }
-        },
-        "social_link_akxUtt": {
-          "type": "social_link",
-          "settings": {
-            "label": "Facebook",
-            "url": "#!"
-          }
-        },
-        "social_link_CA9Qnk": {
-          "type": "social_link",
-          "settings": {
-            "label": "Linkedin",
-            "url": "#!"
-          }
-        },
-        "social_link_Bk7cA7": {
-          "type": "social_link",
-          "settings": {
-            "label": "Twitter",
-            "url": "#!"
-          }
-        },
-        "social_link_Ye8KAb": {
-          "type": "social_link",
-          "settings": {
-            "label": "Instagram",
-            "url": "#!"
-          }
-        },
-        "social_link_AWJ6kW": {
-          "type": "social_link",
-          "settings": {
-            "label": "Youtube",
-            "url": "#!"
-          }
-        }
-      },
-      "block_order": [
-        "contact_info_pp3BfM",
-        "contact_info_mYyeyD",
-        "contact_info_CFFeVd",
-        "social_link_akxUtt",
-        "social_link_CA9Qnk",
-        "social_link_Bk7cA7",
-        "social_link_Ye8KAb",
-        "social_link_AWJ6kW"
-      ],
-      "settings": {
-        "heading": "Get in Touch With Our Team",
-        "subtitle": "Subtitle that supports the title. orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit.",
-        "form_bg": "shopify://shop_images/249803796757462e94d355e25592fa125f0e15a6.png"
-      }
+    "method-banner": {
+      "type": "method-banner",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "method-banner",
   ]
 }
