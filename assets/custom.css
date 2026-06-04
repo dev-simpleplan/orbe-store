@@ -4658,8 +4658,23 @@ body.template-404 .footer {
   }
 }
 
-.feature-ingredients-wrap{
+.feature-ingredients-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+}
+.smart-build-liquid .heading {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.smart-build-liquid .smart-build-img {
+  max-width: 870px;
+  margin: 0 auto;
+}
+.smart-build-liquid-in p{
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 50ch;
 }
