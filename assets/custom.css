@@ -4598,6 +4598,47 @@ aspect-ratio: 2/2.5;
   font-size: 18px;
   max-width: 38ch;
 }
-.method-banner-in{
-  height: 100vh;
+.method-banner {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-banner-in {
+  width: 100%;
+  max-width: 620px;
+  padding: 120px 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.method-banner-in h2 {
+  font-size: clamp(32px, 4.5vw, 56px);
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.method-banner-in p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  max-width: 460px;
+}
+
+@media (max-width: 767px) {
+  .method-banner {
+    min-height: 60vh;
+  }
+
+  .method-banner-in {
+    padding: 80px 20px;
+  }
 }
