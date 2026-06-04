@@ -212,6 +212,10 @@
         "heading": "Certified by"
       }
     },
+    "feature-ingredients":{
+      "type": "feature-ingredients",
+      "settings": {}
+    }
   },
   "order": [
     "method-banner",
@@ -220,6 +224,7 @@
     "spacer2",
     "new_faq_section_n49mMB",
     "batch-verified",
-    "certified-by"
+    "certified-by",
+    "feature-ingredients"
   ]
 }
