@@ -4293,7 +4293,10 @@ body.template-404 .footer {
   opacity: 0;
   visibility: hidden;
   transform: translateY(14px);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
 }
 
 .bec-slide.active {
@@ -4562,52 +4565,54 @@ body.template-404 .footer {
   }
 }
 /* How the ritual */
-.progress-for-us-in{
+.progress-for-us-in {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 132px;
 }
-.progress-for-us-img-sm{
-aspect-ratio: 2/2.5;
+.progress-for-us-img-sm {
+  aspect-ratio: 2/2.5;
   margin-left: auto;
 }
-.progress-for-us-content h2{
+.progress-for-us-content h2 {
   font-size: clamp(22px, 3vw, 42px);
   letter-spacing: -0.05em;
   line-height: 112%;
   text-transform: capitalize;
   max-width: 17ch;
 }
-.progress-for-us-content{
+.progress-for-us-content {
   display: flex;
   flex-direction: column;
   gap: 60px;
   padding-top: 30px;
-} 
-.progress-for-us-in .right{
+}
+.progress-for-us-in .right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.progress-for-us-pointers{
+.progress-for-us-pointers {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-.progress-for-us-pointers p{
+.progress-for-us-pointers p {
   font-size: 18px;
   max-width: 38ch;
 }
 .method-banner {
   position: relative;
   width: 100%;
-  min-height: 70vh;
+  min-height: 700px;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: grayscale(1);
 }
 
 .method-banner-in {
