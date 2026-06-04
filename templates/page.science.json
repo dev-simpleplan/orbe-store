@@ -325,10 +325,6 @@
         "form_bg": "shopify://shop_images/249803796757462e94d355e25592fa125f0e15a6.png",
         "submit_label": "Submit"
       }
-    },
-    "feature-ingredients":{
-      "type": "feature-ingredients",
-      "settings": {}
     }
   },
   "order": [
@@ -350,7 +346,6 @@
     "spacer7",
     "built-on-what",
     "spacer8",
-    "science-contact-sec",
-    "feature-ingredients"
+    "science-contact-sec"
   ]
 }

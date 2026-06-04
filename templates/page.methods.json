@@ -225,6 +225,10 @@
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
       }
+    },
+    "feature-ingredients":{
+      "type": "feature-ingredients",
+      "settings": {}
     }
   },
   "order": [
@@ -236,6 +240,7 @@
     "spacer_rKYLw7",
     "blogs-feature",
     "spacer_bVTWeE",
-    "new_faq_section_n49mMB"
+    "new_faq_section_n49mMB",
+        "feature-ingredients"
   ]
 }
