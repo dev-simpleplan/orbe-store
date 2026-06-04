@@ -4685,12 +4685,6 @@ body.template-404 .footer {
 .feature-ingredients-in h2{
   color: #fff;
 }
-.feature-ingredients-card p{
-  color: #fff;
-}
-.feature-ingredients-card h4{
-  color: #fff;
-}
-.feature-ingredients-card .learn-more-cta{
-  color: #fff;
-}
+.feature-ingredients-card{
+  background-color: #F5F5F5;
+} 
