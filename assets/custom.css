@@ -4606,6 +4606,7 @@ body.template-404 .footer {
 }
 
 .method-banner-in {
+  position: relative;
   width: 100%;
   min-height: 700px;
   height: 100vh;
@@ -4621,6 +4622,19 @@ body.template-404 .footer {
   filter: grayscale(1);
   box-sizing: border-box;
 }
+.method-banner-in::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.method-banner-in h2,
+.method-banner-in p {
+  position: relative;
+  z-index: 3;
+}
 
 .method-banner-in h2 {
   font-size: clamp(32px, 4.5vw, 56px);
@@ -4631,10 +4645,10 @@ body.template-404 .footer {
 
 .method-banner-in p {
   font-size: 14px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  line-height: 120%;
+  color: #FFFFFF;
   margin: 0 auto;
-  max-width: 460px;
+  max-width: 62ch;
 }
 
 @media (max-width: 767px) {
