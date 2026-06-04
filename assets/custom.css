@@ -4618,6 +4618,7 @@ body.template-404 .footer {
   justify-content: center;
   text-align: center;
   padding: 100px 20px;
+  filter: grayscale(1);
   box-sizing: border-box;
 }
 
