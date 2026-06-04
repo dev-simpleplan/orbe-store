@@ -1,6 +1,6 @@
-<section class="method-banner"{% if section.settings.bg_image != blank %} style="background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');"{% endif %}>
+<section class="method-banner">
     <div class="container">
-        <div class="method-banner-in">
+        <div class="method-banner-in" {% if section.settings.bg_image != blank %} style="background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');"{% endif %}>
             {% if section.settings.heading != blank %}
                 <h2>{{ section.settings.heading }}</h2>
             {% endif %}
