@@ -4728,6 +4728,7 @@ body.template-404 .footer {
   object-fit: cover;
   display: block;
   will-change: transform;
+  filter: grayscale(1);
 }
 /* Mobile track — hidden on desktop */
 .sci-mobile-track {

@@ -89,6 +89,24 @@
   var section = document.querySelector('.science-banner');
   if (!section) return;
 
+  /* --- Transparent header (mirrors home-banner behaviour) --- */
+  var header = document.querySelector('header');
+
+  function updateHeader() {
+    if (!header) return;
+    var scrolled = window.scrollY - section.offsetTop;
+    if (scrolled <= 40) {
+      header.classList.add('header--transparent');
+      header.classList.remove('header--hidden');
+    } else {
+      header.classList.remove('header--transparent');
+    }
+  }
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  /* ---------------------------------------------------------- */
+
   var isMobile     = window.innerWidth <= 991;
   var desktopTrack = section.querySelector('.sci-desktop-track');
   var mobileTrack  = section.querySelector('.sci-mobile-track');
