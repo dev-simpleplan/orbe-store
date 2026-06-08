@@ -4742,8 +4742,7 @@ body.template-404 .footer {
   text-align: center;
   color: #fff;
   z-index: 2;
-  width: 80%;
-  max-width: 560px;
+  width: 100%;
   pointer-events: none;
   white-space: nowrap;
 }
@@ -4758,8 +4757,10 @@ body.template-404 .footer {
 .sci-slide-text p {
   font-size: 16px;
   color: #fff;
+  max-width: 68ch;
+  white-space: normal;
+  margin: 0 auto;
   margin-top: 20px;
-  max-width: 48ch;
 }
 /* Progress dots — desktop hidden */
 .sci-progress {

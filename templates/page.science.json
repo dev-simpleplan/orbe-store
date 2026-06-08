@@ -350,6 +350,11 @@
         "form_bg": "shopify://shop_images/249803796757462e94d355e25592fa125f0e15a6.png",
         "submit_label": "Submit"
       }
+    },
+    "every-orbe-capsule":{
+      "type": "every-orbe-capsule",
+      "name": "Every Orbe Capsule",
+      "settings": {}
     }
   },
   "order": [
@@ -372,6 +377,7 @@
     "spacer7",
     "built-on-what",
     "spacer8",
-    "science-contact-sec"
+    "science-contact-sec",
+    "every-orbe-capsule"
   ]
 }
