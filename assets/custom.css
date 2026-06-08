@@ -4748,21 +4748,18 @@ body.template-404 .footer {
   white-space: nowrap;
 }
 .sci-slide-text h1 {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-size: clamp(32px, 4.5vw, 62px);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 99%;
   color: #fff;
-  margin: 0 0 1rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.05em;
   white-space: normal;
 }
 .sci-slide-text p {
-  font-size: clamp(0.8rem, 1vw, 0.9rem);
-  line-height: 1.65;
-  margin: 0;
+  font-size: 16px;
   color: #fff;
-  opacity: 0.88;
-  white-space: normal;
+  margin-top: 20px;
+  max-width: 48ch;
 }
 /* Progress dots — desktop hidden */
 .sci-progress {
@@ -4826,11 +4823,8 @@ body.template-404 .footer {
     width: 85%;
     max-width: 100%;
   }
-  .sci-slide-text h1 {
-    font-size: clamp(1.6rem, 7vw, 2.4rem);
-  }
   .sci-slide-text p {
-    font-size: 0.85rem;
+    font-size: 14px;
   }
 }
 /* Science Banner */
