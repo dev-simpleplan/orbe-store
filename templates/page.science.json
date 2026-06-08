@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "science-banner":{
+      "type": "science-banner",
+      "name": "Science Banner",
+      "settings": {
+
+      }
+    },
     "spacer_4apEt6": {
       "type": "spacer",
       "name": "Spacer",
@@ -328,6 +335,7 @@
     }
   },
   "order": [
+    "science-banner",
     "spacer_4apEt6",
     "we-believe-science",
     "your-body-asking",
