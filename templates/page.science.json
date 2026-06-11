@@ -351,10 +351,48 @@
         "submit_label": "Submit"
       }
     },
-    "every-orbe-capsule":{
+    "every-orbe-capsule": {
       "type": "every-orbe-capsule",
+      "blocks": {
+        "point_xVEGBh": {
+          "type": "point",
+          "settings": {
+            "title": "INGREDIENTS ARE VERIFIED AT SOURCE.",
+            "description": "Each nutrient is checked for identity, purity, and quality before it ever enters a formula."
+          }
+        },
+        "point_zHQhbP": {
+          "type": "point",
+          "settings": {
+            "title": "INGREDIENTS ARE VERIFIED AT SOURCE.",
+            "description": "Each nutrient is checked for identity, purity, and quality before it ever enters a formula."
+          }
+        },
+        "point_DQX9AN": {
+          "type": "point",
+          "settings": {
+            "title": "INGREDIENTS ARE VERIFIED AT SOURCE.",
+            "description": "Each nutrient is checked for identity, purity, and quality before it ever enters a formula."
+          }
+        },
+        "point_TY3Lpn": {
+          "type": "point",
+          "settings": {
+            "title": "INGREDIENTS ARE VERIFIED AT SOURCE.",
+            "description": "Each nutrient is checked for identity, purity, and quality before it ever enters a formula."
+          }
+        }
+      },
+      "block_order": [
+        "point_xVEGBh",
+        "point_zHQhbP",
+        "point_DQX9AN",
+        "point_TY3Lpn"
+      ],
       "name": "Every Orbe Capsule",
-      "settings": {}
+      "settings": {
+        "heading": "Every Orbe Capsule Is Tested To Ensure It Does What It's Designed To Do: Safely, Consistently, And Over Time."
+      }
     }
   },
   "order": [
