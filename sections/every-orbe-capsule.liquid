@@ -1,16 +1,182 @@
-<section class="every-orbe-capsule">
-    <div class="container">
-        <div class="every-orbe-capsule-in">
-            <div class="left">
-                <h2>Every Orbe capsule is tested to ensure it does what it’s designed to do: safely, consistently, and
-                    over time.</h2>
-            </div>
-            <div class="center">
+{% assign heading = section.settings.heading %}
+{% assign capsule_image = section.settings.capsule_image %}
+{% assign bg_image = section.settings.background_image %}
 
-            </div>
-            <div class="right">
+<section class="every-orbe-capsule"
+  {% if bg_image != blank %}
+    style="background-image: url('{{ bg_image | image_url: width: 2000 }}');"
+  {% else %}
+    style="background-image: url('https://cdn.shopify.com/s/files/1/0739/8014/9916/files/image_16.png?v=1781179509');"
+  {% endif %}
+>
 
-            </div>
-        </div>
+  <!-- DESKTOP -->
+  <div class="eoc-desktop">
+    <div class="eoc-left">
+      <h2 class="eoc-heading">{{ heading }}</h2>
     </div>
+
+    <div class="eoc-center">
+      <div class="eoc-pill" id="eocPill">
+
+        {% if capsule_image != blank %}
+          <img src="{{ capsule_image | image_url: width: 600 }}" alt="Orbe Capsule" class="eoc-pill-img">
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Untitled_13_1_d5b6f6f5-fca2-4310-9b7f-c83ae57eefe3.png?v=1781179578" alt="Orbe Capsule" class="eoc-pill-img">
+        {% endif %}
+
+        {% for block in section.blocks %}
+          {% assign idx = forloop.index %}
+          <button class="eoc-dot eoc-dot-{{ idx }}" data-index="{{ idx }}" aria-label="Point {{ idx }}" {{ block.shopify_attributes }}>
+            <span class="eoc-dot-num">{{ idx }}</span>
+          </button>
+
+          <div class="eoc-card eoc-card-{{ idx }}{% if idx == 1 or idx == 3 %} eoc-card--left{% else %} eoc-card--right{% endif %}" data-card="{{ idx }}">
+            {% if block.settings.title != blank %}
+              <p class="eoc-card-title">{{ block.settings.title }}</p>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class="eoc-card-desc">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <div class="eoc-right"></div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="eoc-mobile">
+    <div class="eoc-mobile-track" id="eocTrack">
+
+      <div class="eoc-mobile-slide eoc-slide--capsule">
+        <div class="eoc-pill">
+          {% if capsule_image != blank %}
+            <img src="{{ capsule_image | image_url: width: 600 }}" alt="Orbe Capsule" class="eoc-pill-img">
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Untitled_13_1_d5b6f6f5-fca2-4310-9b7f-c83ae57eefe3.png?v=1781179578" alt="Orbe Capsule" class="eoc-pill-img">
+          {% endif %}
+          {% for block in section.blocks %}
+            <button class="eoc-dot eoc-dot-{{ forloop.index }} eoc-dot--mobile" data-mobile-index="{{ forloop.index }}" aria-label="Point {{ forloop.index }}">
+              <span class="eoc-dot-num">{{ forloop.index }}</span>
+            </button>
+          {% endfor %}
+        </div>
+        <h2 class="eoc-heading eoc-heading--mobile">{{ heading }}</h2>
+      </div>
+
+      {% for block in section.blocks %}
+        <div class="eoc-mobile-slide eoc-slide--info" data-slide="{{ forloop.index }}" {{ block.shopify_attributes }}>
+          <div class="eoc-slide-info-inner">
+            {% if block.settings.title != blank %}
+              <p class="eoc-info-title">{{ block.settings.title }}</p>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class="eoc-info-desc">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
 </section>
+
+<script>
+(function() {
+  // Desktop: click dot to toggle card
+  var dots = document.querySelectorAll('.eoc-dot:not(.eoc-dot--mobile)');
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = this.dataset.index;
+      var card = document.querySelector('.eoc-card-' + idx);
+      var isOpen = card.classList.contains('is-open');
+
+      // close all cards first
+      document.querySelectorAll('.eoc-card').forEach(function(c) {
+        c.classList.remove('is-open');
+      });
+      document.querySelectorAll('.eoc-dot:not(.eoc-dot--mobile)').forEach(function(d) {
+        d.classList.remove('is-active');
+      });
+
+      if (!isOpen) {
+        card.classList.add('is-open');
+        this.classList.add('is-active');
+      }
+    });
+  });
+
+  // Mobile: click dot to scroll to that info slide
+  var mobileDots = document.querySelectorAll('.eoc-dot--mobile');
+  var track = document.getElementById('eocTrack');
+  mobileDots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.dataset.mobileIndex);
+      var slide = track.querySelector('.eoc-slide--info[data-slide="' + idx + '"]');
+      if (slide) {
+        slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Every Orbe Capsule",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Every Orbe Capsule Is Tested To Ensure It Does What It's Designed To Do: Safely, Consistently, And Over Time."
+    },
+    {
+      "type": "image_picker",
+      "id": "capsule_image",
+      "label": "Capsule Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Feature Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "INGREDIENTS ARE VERIFIED AT SOURCE."
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Each nutrient is checked for identity, purity, and quality before it ever enters a formula."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Every Orbe Capsule",
+      "blocks": [
+        { "type": "point" },
+        { "type": "point" },
+        { "type": "point" },
+        { "type": "point" }
+      ]
+    }
+  ]
+}
+{% endschema %}

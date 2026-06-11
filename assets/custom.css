@@ -4829,3 +4829,229 @@ body.template-404 .footer {
   }
 }
 /* Science Banner */
+/* Every Orbe Capsule */
+.every-orbe-capsule {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ── Desktop ────────────────────────────────────────────────── */
+.eoc-desktop {
+  display: flex;
+  align-items: center;
+  min-height: 620px;
+  padding: 80px 60px;
+}
+
+.eoc-left,
+.eoc-right { flex: 1; }
+
+.eoc-left {
+  display: flex;
+  align-items: center;
+}
+
+.eoc-center {
+  flex: 0 0 300px;
+  position: relative;
+}
+
+.eoc-heading {
+  color: #fff;
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.2;
+  font-weight: 400;
+  max-width: 300px;
+}
+
+.eoc-pill {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.eoc-pill-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Dots ──────────────────────────────────────────────────── */
+.eoc-dot {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.eoc-dot-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.eoc-dot.is-active .eoc-dot-num {
+  background: #111;
+  color: #fff;
+  transform: scale(1.12);
+}
+
+.eoc-dot-1 { top: 12%; left: 28%; }
+.eoc-dot-2 { top: 36%; left: 76%; }
+.eoc-dot-3 { top: 56%; left: 22%; }
+.eoc-dot-4 { top: 74%; left: 74%; }
+
+/* ── Info cards (click to open) ────────────────────────────── */
+.eoc-card {
+  position: absolute;
+  width: 215px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.12);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.95);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.eoc-card.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+.eoc-card-1 { top: 12%; right: calc(100% + 22px); }
+.eoc-card-2 { top: 36%; left: calc(100% + 22px); }
+.eoc-card-3 { top: 56%; right: calc(100% + 22px); }
+.eoc-card-4 { top: 74%; left: calc(100% + 22px); }
+
+.eoc-card--left  { right: calc(100% + 22px); left: auto; }
+.eoc-card--right { left: calc(100% + 22px); right: auto; }
+
+.eoc-card-title {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.eoc-card-desc {
+  font-size: 12.5px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+.eoc-mobile { display: none; }
+
+@media screen and (max-width: 991px) {
+  .eoc-desktop { display: none; }
+
+  .eoc-mobile {
+    display: block;
+    padding: 40px 0 40px 20px;
+  }
+
+  .eoc-mobile-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding-right: 20px;
+    scrollbar-width: none;
+  }
+
+  .eoc-mobile-track::-webkit-scrollbar { display: none; }
+
+  .eoc-mobile-slide {
+    flex: 0 0 calc(100vw - 56px);
+    scroll-snap-align: start;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .eoc-slide--capsule {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .eoc-slide--capsule .eoc-pill {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .eoc-heading--mobile {
+    font-size: clamp(18px, 5vw, 26px);
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 24px;
+  }
+
+  .eoc-slide--info {
+    background: #e4e4e4;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eoc-slide-info-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 420px;
+    padding: 28px 24px;
+  }
+
+  .eoc-info-title {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .eoc-info-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .eoc-slide--capsule .eoc-dot-num {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  /* Mobile dots: clicking scrolls to info slide, no card popup */
+  .eoc-card { display: none; }
+}
+/* Every Orbe Capsule */
