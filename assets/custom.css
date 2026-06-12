@@ -4826,6 +4826,8 @@ body.template-404 .footer {
   }
   .sci-slide-text p {
     font-size: 14px;
+    margin: 0px;
+    margin-top: 10px;
   }
 }
 /* Science Banner */
@@ -4834,35 +4836,61 @@ body.template-404 .footer {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding: 100px 60px;
+  position: relative;
+}
+
+.every-orbe-capsule::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .every-orbe-capsule::before {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+.every-orbe-capsule > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Desktop ────────────────────────────────────────────────── */
 .eoc-desktop {
   display: flex;
-  align-items: center;
-  min-height: 620px;
+  min-height: 557px;
   padding: 80px 60px;
+  background: rgba(217, 217, 217, 0.1);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
 }
 
 .eoc-left,
-.eoc-right { flex: 1; }
+.eoc-right {
+  flex: 1;
+}
 
 .eoc-left {
   display: flex;
-  align-items: center;
+  align-items: end;
 }
 
 .eoc-center {
-  flex: 0 0 300px;
+  flex: 0 0 175px;
   position: relative;
 }
 
 .eoc-heading {
   color: #fff;
-  font-size: clamp(20px, 2.2vw, 32px);
-  line-height: 1.2;
+  font-size: clamp(26px, 2.2vw, 32px);
+  line-height: 112%;
   font-weight: 400;
-  max-width: 300px;
+  max-width: 42ch;
 }
 
 .eoc-pill {
@@ -4894,15 +4922,17 @@ body.template-404 .footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #fff;
   color: #111;
-  font-size: 12px;
-  font-weight: 600;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, background 0.2s ease;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--aspekta);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .eoc-dot.is-active .eoc-dot-num {
@@ -4911,24 +4941,37 @@ body.template-404 .footer {
   transform: scale(1.12);
 }
 
-.eoc-dot-1 { top: 12%; left: 28%; }
-.eoc-dot-2 { top: 36%; left: 76%; }
-.eoc-dot-3 { top: 56%; left: 22%; }
-.eoc-dot-4 { top: 74%; left: 74%; }
+.eoc-dot-1 {
+  top: 18%;
+  left: 6%;
+}
+.eoc-dot-2 {
+  top: 36%;
+  left: 96%;
+}
+.eoc-dot-3 {
+  top: 56%;
+  left: 6%;
+}
+.eoc-dot-4 {
+  top: 74%;
+  left: 96%;
+}
 
-/* ── Info cards (click to open) ────────────────────────────── */
+/* ── Desktop side cards ─────────────────────────────────────── */
 .eoc-card {
   position: absolute;
-  width: 215px;
-  background: #fff;
+  width: 200%;
+  background: #f2f3f5;
   border-radius: 16px;
   padding: 20px 22px;
-  box-shadow: 0 4px 28px rgba(0,0,0,0.12);
   z-index: 10;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-50%) scale(0.95);
-  transition: opacity 0.22s ease, transform 0.22s ease;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
 }
 
 .eoc-card.is-open {
@@ -4937,121 +4980,165 @@ body.template-404 .footer {
   transform: translateY(-50%) scale(1);
 }
 
-.eoc-card-1 { top: 12%; right: calc(100% + 22px); }
-.eoc-card-2 { top: 36%; left: calc(100% + 22px); }
-.eoc-card-3 { top: 56%; right: calc(100% + 22px); }
-.eoc-card-4 { top: 74%; left: calc(100% + 22px); }
+.eoc-card--left {
+  right: calc(100% + 22px);
+  left: auto;
+}
+.eoc-card--right {
+  left: calc(100% + 22px);
+  right: auto;
+}
 
-.eoc-card--left  { right: calc(100% + 22px); left: auto; }
-.eoc-card--right { left: calc(100% + 22px); right: auto; }
+.eoc-card-1 {
+  top: 12%;
+}
+.eoc-card-2 {
+  top: 36%;
+}
+.eoc-card-3 {
+  top: 56%;
+}
+.eoc-card-4 {
+  top: 74%;
+}
 
 .eoc-card-title {
-  font-size: 9px;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  font-weight: 500;
-  color: #111;
-  margin: 0 0 10px;
-  line-height: 1.5;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 5px;
+  line-height: 150%;
 }
 
 .eoc-card-desc {
-  font-size: 12.5px;
-  color: #555;
-  line-height: 1.6;
+  font-size: 12px;
+  color: #1a1a1a;
   margin: 0;
+  line-height: 150%;
+  font-weight: 300;
 }
 
 /* ── Mobile ─────────────────────────────────────────────────── */
-.eoc-mobile { display: none; }
+.eoc-mobile {
+  display: none;
+}
 
 @media screen and (max-width: 991px) {
-  .eoc-desktop { display: none; }
+  .eoc-desktop {
+    display: none;
+  }
 
   .eoc-mobile {
     display: block;
-    padding: 40px 0 40px 20px;
   }
 
-  .eoc-mobile-track {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 12px;
-    padding-right: 20px;
-    scrollbar-width: none;
-  }
-
-  .eoc-mobile-track::-webkit-scrollbar { display: none; }
-
-  .eoc-mobile-slide {
-    flex: 0 0 calc(100vw - 56px);
-    scroll-snap-align: start;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  .eoc-slide--capsule {
+  .eoc-mobile-inner {
     display: flex;
     flex-direction: column;
-    background: transparent;
-    border-radius: 0;
-    overflow: visible;
+    align-items: center;
+    gap: 24px;
   }
 
-  .eoc-slide--capsule .eoc-pill {
-    border-radius: 20px;
-    overflow: hidden;
+  .eoc-pill--mobile {
+    width: 80%;
+    max-width: 129px;
   }
 
-  .eoc-heading--mobile {
-    font-size: clamp(18px, 5vw, 26px);
-    color: #fff;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-top: 24px;
-  }
-
-  .eoc-slide--info {
-    background: #e4e4e4;
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .eoc-slide-info-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 420px;
-    padding: 28px 24px;
-  }
-
-  .eoc-info-title {
-    font-size: 9px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: #111;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .eoc-info-desc {
-    font-size: 13px;
-    color: #444;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .eoc-slide--capsule .eoc-dot-num {
-    width: 24px;
-    height: 24px;
+  .eoc-dot-num {
+    width: 26px;
+    height: 26px;
     font-size: 11px;
   }
 
-  /* Mobile dots: clicking scrolls to info slide, no card popup */
-  .eoc-card { display: none; }
+  /* Hide desktop side cards on mobile */
+  .eoc-card {
+    display: none;
+  }
+  .every-orbe-capsule {
+    padding: 60px 20px;
+  }
+}
+
+/* ── Modal dialog (mobile) ──────────────────────────────────── */
+.eoc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.28s ease,
+    background 0.28s ease,
+    visibility 0s linear 0.28s;
+}
+
+.eoc-modal-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.45);
+  transition:
+    opacity 0.28s ease,
+    background 0.28s ease,
+    visibility 0s linear 0s;
+}
+
+.eoc-modal {
+  position: relative;
+  background: #d9d9d9;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 420px;
+  padding: 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transform: scale(0.92) translateY(28px);
+  transition:
+    opacity 0.32s ease,
+    transform 0.36s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.eoc-modal-overlay.is-open .eoc-modal {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.eoc-modal-close {
+  position: absolute;
+  top: 22px;
+  right: 18px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.eoc-modal-title {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: var(--black);
+  margin: 0;
+  line-height: 99%;
+  padding-right: 30px;
+}
+
+.eoc-modal-desc {
+  font-size: 12px;
+  color: var(--black);
+  line-height: 112%;
+  margin: 0;
+  font-weight: 300;
 }
 /* Every Orbe Capsule */

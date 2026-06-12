@@ -10,15 +10,14 @@
   {% endif %}
 >
 
-  <!-- DESKTOP -->
+  <!-- DESKTOP (>991px) -->
   <div class="eoc-desktop">
     <div class="eoc-left">
       <h2 class="eoc-heading">{{ heading }}</h2>
     </div>
 
     <div class="eoc-center">
-      <div class="eoc-pill" id="eocPill">
-
+      <div class="eoc-pill">
         {% if capsule_image != blank %}
           <img src="{{ capsule_image | image_url: width: 600 }}" alt="Orbe Capsule" class="eoc-pill-img">
         {% else %}
@@ -30,78 +29,68 @@
           <button class="eoc-dot eoc-dot-{{ idx }}" data-index="{{ idx }}" aria-label="Point {{ idx }}" {{ block.shopify_attributes }}>
             <span class="eoc-dot-num">{{ idx }}</span>
           </button>
-
-          <div class="eoc-card eoc-card-{{ idx }}{% if idx == 1 or idx == 3 %} eoc-card--left{% else %} eoc-card--right{% endif %}" data-card="{{ idx }}">
-            {% if block.settings.title != blank %}
-              <p class="eoc-card-title">{{ block.settings.title }}</p>
-            {% endif %}
-            {% if block.settings.description != blank %}
-              <p class="eoc-card-desc">{{ block.settings.description }}</p>
-            {% endif %}
+          <div class="eoc-card eoc-card-{{ idx }}{% if idx == 1 or idx == 3 %} eoc-card--left{% else %} eoc-card--right{% endif %}">
+            {% if block.settings.title != blank %}<p class="eoc-card-title">{{ block.settings.title }}</p>{% endif %}
+            {% if block.settings.description != blank %}<p class="eoc-card-desc">{{ block.settings.description }}</p>{% endif %}
           </div>
         {% endfor %}
-
       </div>
     </div>
 
     <div class="eoc-right"></div>
   </div>
 
-  <!-- MOBILE -->
+  <!-- MOBILE (≤991px) -->
   <div class="eoc-mobile">
-    <div class="eoc-mobile-track" id="eocTrack">
-
-      <div class="eoc-mobile-slide eoc-slide--capsule">
-        <div class="eoc-pill">
-          {% if capsule_image != blank %}
-            <img src="{{ capsule_image | image_url: width: 600 }}" alt="Orbe Capsule" class="eoc-pill-img">
-          {% else %}
-            <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Untitled_13_1_d5b6f6f5-fca2-4310-9b7f-c83ae57eefe3.png?v=1781179578" alt="Orbe Capsule" class="eoc-pill-img">
-          {% endif %}
-          {% for block in section.blocks %}
-            <button class="eoc-dot eoc-dot-{{ forloop.index }} eoc-dot--mobile" data-mobile-index="{{ forloop.index }}" aria-label="Point {{ forloop.index }}">
-              <span class="eoc-dot-num">{{ forloop.index }}</span>
-            </button>
-          {% endfor %}
-        </div>
-        <h2 class="eoc-heading eoc-heading--mobile">{{ heading }}</h2>
+    <div class="eoc-mobile-inner">
+      <div class="eoc-pill eoc-pill--mobile">
+        {% if capsule_image != blank %}
+          <img src="{{ capsule_image | image_url: width: 600 }}" alt="Orbe Capsule" class="eoc-pill-img">
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Untitled_13_1_d5b6f6f5-fca2-4310-9b7f-c83ae57eefe3.png?v=1781179578" alt="Orbe Capsule" class="eoc-pill-img">
+        {% endif %}
+        {% for block in section.blocks %}
+          <button
+            class="eoc-dot eoc-dot-{{ forloop.index }} eoc-dot--mobile"
+            data-title="{{ block.settings.title | escape }}"
+            data-desc="{{ block.settings.description | escape }}"
+            aria-label="Point {{ forloop.index }}"
+          >
+            <span class="eoc-dot-num">{{ forloop.index }}</span>
+          </button>
+        {% endfor %}
       </div>
+      <h2 class="eoc-heading eoc-heading--mobile">{{ heading }}</h2>
+    </div>
+  </div>
 
-      {% for block in section.blocks %}
-        <div class="eoc-mobile-slide eoc-slide--info" data-slide="{{ forloop.index }}" {{ block.shopify_attributes }}>
-          <div class="eoc-slide-info-inner">
-            {% if block.settings.title != blank %}
-              <p class="eoc-info-title">{{ block.settings.title }}</p>
-            {% endif %}
-            {% if block.settings.description != blank %}
-              <p class="eoc-info-desc">{{ block.settings.description }}</p>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
-
+  <!-- Modal dialog (mobile only) -->
+  <div class="eoc-modal-overlay" id="eocModalOverlay" aria-hidden="true">
+    <div class="eoc-modal" role="dialog">
+      <button class="eoc-modal-close" id="eocModalClose" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="1" y1="1" x2="17" y2="17" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="17" y1="1" x2="1" y2="17" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <p class="eoc-modal-title" id="eocModalTitle"></p>
+      <p class="eoc-modal-desc" id="eocModalDesc"></p>
     </div>
   </div>
 
 </section>
 
 <script>
-(function() {
-  // Desktop: click dot to toggle card
-  var dots = document.querySelectorAll('.eoc-dot:not(.eoc-dot--mobile)');
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function() {
+(function () {
+  // ── Desktop: click dot → side card ──────────────────────────
+  document.querySelectorAll('.eoc-dot:not(.eoc-dot--mobile)').forEach(function (dot) {
+    dot.addEventListener('click', function () {
       var idx = this.dataset.index;
       var card = document.querySelector('.eoc-card-' + idx);
       var isOpen = card.classList.contains('is-open');
 
-      // close all cards first
-      document.querySelectorAll('.eoc-card').forEach(function(c) {
-        c.classList.remove('is-open');
-      });
-      document.querySelectorAll('.eoc-dot:not(.eoc-dot--mobile)').forEach(function(d) {
-        d.classList.remove('is-active');
-      });
+      document.querySelectorAll('.eoc-card').forEach(function (c) { c.classList.remove('is-open'); });
+      document.querySelectorAll('.eoc-dot:not(.eoc-dot--mobile)').forEach(function (d) { d.classList.remove('is-active'); });
 
       if (!isOpen) {
         card.classList.add('is-open');
@@ -110,17 +99,43 @@
     });
   });
 
-  // Mobile: click dot to scroll to that info slide
-  var mobileDots = document.querySelectorAll('.eoc-dot--mobile');
-  var track = document.getElementById('eocTrack');
-  mobileDots.forEach(function(dot) {
-    dot.addEventListener('click', function() {
-      var idx = parseInt(this.dataset.mobileIndex);
-      var slide = track.querySelector('.eoc-slide--info[data-slide="' + idx + '"]');
-      if (slide) {
-        slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-      }
+  // ── Mobile: click dot → centered modal ───────────────────────
+  var overlay = document.getElementById('eocModalOverlay');
+  var closeBtn = document.getElementById('eocModalClose');
+  var modalTitle = document.getElementById('eocModalTitle');
+  var modalDesc = document.getElementById('eocModalDesc');
+
+  var scrollY = 0;
+
+  function openModal(title, desc) {
+    modalTitle.textContent = title || '';
+    modalDesc.textContent = desc || '';
+    scrollY = window.scrollY;
+    document.body.style.top = '-' + scrollY + 'px';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+  }
+
+  document.querySelectorAll('.eoc-dot--mobile').forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      openModal(this.dataset.title, this.dataset.desc);
     });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
   });
 })();
 </script>
