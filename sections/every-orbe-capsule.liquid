@@ -12,7 +12,7 @@
 
   <!-- DESKTOP (>991px) -->
   <div class="eoc-desktop">
-    <div class="eoc-left">
+    <div class="eoc-left text-animation">
       <h2 class="eoc-heading">{{ heading }}</h2>
     </div>
 
@@ -43,7 +43,7 @@
   <!-- MOBILE (≤991px) -->
   <div class="eoc-mobile">
     <div class="eoc-mobile-inner">
-      <div class="eoc-pill eoc-pill--mobile">
+      <div class="eoc-pill eoc-pill--mobile text-animation">
         {% if capsule_image != blank %}
           <img src="{{ capsule_image | image_url: width: 600 }}" alt="Orbe Capsule" class="eoc-pill-img">
         {% else %}
@@ -82,6 +82,16 @@
 
 <script>
 (function () {
+  // ── Desktop: open first dot by default ───────────────────────
+  if (window.innerWidth > 991) {
+    var firstDot  = document.querySelector('.eoc-dot-1:not(.eoc-dot--mobile)');
+    var firstCard = document.querySelector('.eoc-card-1');
+    if (firstDot && firstCard) {
+      firstDot.classList.add('is-active');
+      firstCard.classList.add('is-open');
+    }
+  }
+
   // ── Desktop: click dot → side card ──────────────────────────
   document.querySelectorAll('.eoc-dot:not(.eoc-dot--mobile)').forEach(function (dot) {
     dot.addEventListener('click', function () {
