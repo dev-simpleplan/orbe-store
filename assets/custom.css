@@ -5095,7 +5095,7 @@ body.template-404 .footer {
   border-radius: 16px;
   width: 100%;
   max-width: 400px;
-  min-height: 420px;
+  min-height: 360px;
   padding: 28px 28px;
   display: flex;
   flex-direction: column;
