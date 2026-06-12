@@ -1,0 +1,79 @@
+<section class="we-kept-things">
+  <div class="container">
+    <div class="we-kept-things-in">
+      <div class="left">
+        <h2>{{ section.settings.heading_left }}</h2>
+      </div>
+      <div class="center">
+        <div class="we-kept-things-video">
+          {% if section.settings.video != blank %}
+            <video
+              src="{{ section.settings.video }}"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+            ></video>
+          {% elsif section.settings.video_url != blank %}
+            <video
+              src="{{ section.settings.video_url }}"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+            ></video>
+          {% endif %}
+        </div>
+        {% if section.settings.description != blank %}
+          <p>{{ section.settings.description }}</p>
+        {% endif %}
+      </div>
+      <div class="right">
+        <h2>{{ section.settings.heading_right }}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "We Kept Things",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_left",
+      "label": "Left Heading",
+      "default": "So We Kept"
+    },
+    {
+      "type": "text",
+      "id": "heading_right",
+      "label": "Right Heading",
+      "default": "Things Simple"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video (upload)"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL (fallback)"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Orbe was created to support these everyday gaps, gently and intentionally. We focus on the essential nutrients women are most often missing, chosen in forms the body can absorb more easily. Each formula is balanced for daily, long-term use, not short-term fixes."
+    }
+  ],
+  "presets": [
+    {
+      "name": "We Kept Things"
+    }
+  ]
+}
+{% endschema %}

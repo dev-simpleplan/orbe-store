@@ -393,6 +393,10 @@
       "settings": {
         "heading": "Every Orbe Capsule Is Tested To Ensure It Does What It's Designed To Do: Safely, Consistently, And Over Time."
       }
+    },
+    "we-kept-things":{
+      "type": "we-kept-things",
+      "settings": {}
     }
   },
   "order": [
@@ -416,6 +420,7 @@
     "built-on-what",
     "spacer8",
     "science-contact-sec",
-    "every-orbe-capsule"
+    "every-orbe-capsule",
+    "we-kept-things"
   ]
 }

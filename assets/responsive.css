@@ -520,6 +520,12 @@
   .progress-for-us-content h2 {
   max-width: 32ch;
   }
+  .we-kept-things-video video{
+    height: 300px;
+  }
+  .we-kept-things{
+    padding: 50px 0px;
+  }
 }
 @media screen and (max-width: 767px) {
   .footer {
@@ -1150,6 +1156,10 @@
   }
   .progress-for-us-img {
     height: 400px;
+  }
+  .we-kept-things-in{
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
