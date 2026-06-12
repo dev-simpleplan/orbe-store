@@ -394,9 +394,15 @@
         "heading": "Every Orbe Capsule Is Tested To Ensure It Does What It's Designed To Do: Safely, Consistently, And Over Time."
       }
     },
-    "we-kept-things":{
+    "we-kept-things": {
       "type": "we-kept-things",
-      "settings": {}
+      "settings": {
+        "heading_left": "So We Kept",
+        "heading_right": "Things Simple",
+        "video": "shopify://files/videos/Abstract Swirling Red Black Paint Video.mov",
+        "video_url": "",
+        "description": "Orbe was created to support these everyday gaps, gently and intentionally. We focus on the essential nutrients women are most often missing, chosen in forms the body can absorb more easily. Each formula is balanced for daily, long-term use, not short-term fixes."
+      }
     }
   },
   "order": [
