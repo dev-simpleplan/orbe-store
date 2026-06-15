@@ -120,13 +120,6 @@
         "capsule_image": "shopify://shop_images/Group_2085663425.png"
       }
     },
-    "spacer2": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
     "science-slanted-element": {
       "type": "science-slanted-element",
       "settings": {
@@ -315,6 +308,13 @@
         "heading": "Every Orbe Capsule Is Tested To Ensure It Does What It's Designed To Do: Safely, Consistently, And Over Time."
       }
     },
+    "spacer_MbHR4n": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "standard-that-speaks": {
       "type": "standard-that-speaks",
       "blocks": {
@@ -372,6 +372,13 @@
       "settings": {
         "heading": "Standards that speaks for themselves",
         "description": "Because informed choices are powerful ones and you deserve both clarity and calm."
+      }
+    },
+    "spacer8": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
       }
     },
     "built-on-what": {
@@ -523,13 +530,6 @@
         "spacer_height": 120
       }
     },
-    "spacer8": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
     "science-contact-sec": {
       "type": "science-contact-sec",
       "name": "Scienct Contact Section",
@@ -554,7 +554,6 @@
     "we-kept-things",
     "spacer1",
     "essential-ingredient",
-    "spacer2",
     "science-slanted-element",
     "spacer3",
     "built-for-how",
@@ -563,6 +562,7 @@
     "spacer_FkprCV",
     "gently-unfold",
     "every-orbe-capsule",
+    "spacer_MbHR4n",
     "standard-that-speaks",
     "spacer8",
     "built-on-what",
