@@ -1,18 +1,22 @@
 <section class="built-for-how">
   <div class="container-left">
-    <h2>Built For How Your Body Works</h2>
+    <h2>{{ section.settings.heading }}</h2>
 
     <div class="built-for-how-in">
       <div class="left">
         <ul>
-          <li>Uses a pill-in-pill design to separate oil-based and mineral nutrients</li>
-          <li>Prevents nutrients from interfering with each other before absorption.</li>
-          <li>Helps protect stability and potency of sensitive ingredients.</li>
+          {% for block in section.blocks %}
+            <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+          {% endfor %}
         </ul>
       </div>
 
       <div class="right">
-        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468604.png?v=1780383097" alt="Image" class="img" width="912" height="580">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 912 }}" alt="{{ section.settings.image.alt | escape }}" class="img" width="912" height="580">
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468604.png?v=1780383097" alt="Image" class="img" width="912" height="580">
+        {% endif %}
       </div>
     </div>
   </div>
@@ -72,9 +76,40 @@
 {% schema %}
 {
   "name": "Built For How",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built For How Your Body Works"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Built For How"
+      "name": "Built For How",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Uses a pill-in-pill design to separate oil-based and mineral nutrients" } },
+        { "type": "item", "settings": { "text": "Prevents nutrients from interfering with each other before absorption." } },
+        { "type": "item", "settings": { "text": "Helps protect stability and potency of sensitive ingredients." } }
+      ]
     }
   ]
 }
