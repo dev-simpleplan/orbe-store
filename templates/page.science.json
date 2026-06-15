@@ -137,7 +137,34 @@
     },
     "built-for-how": {
       "type": "built-for-how",
-      "settings": {}
+      "blocks": {
+        "item_gHpdN3": {
+          "type": "item",
+          "settings": {
+            "text": "Uses a pill-in-pill design to separate oil-based and mineral nutrients"
+          }
+        },
+        "item_FcGkqQ": {
+          "type": "item",
+          "settings": {
+            "text": "Prevents nutrients from interfering with each other before absorption."
+          }
+        },
+        "item_meNNqQ": {
+          "type": "item",
+          "settings": {
+            "text": "Helps protect stability and potency of sensitive ingredients."
+          }
+        }
+      },
+      "block_order": [
+        "item_gHpdN3",
+        "item_FcGkqQ",
+        "item_meNNqQ"
+      ],
+      "settings": {
+        "heading": "Built For How Your Body Works"
+      }
     },
     "spacer4": {
       "type": "spacer",
