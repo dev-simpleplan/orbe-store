@@ -7,31 +7,49 @@
       </div>
       {% endif %}
 
-      <div class="feature-ingredients-wrap">
+      <div class="feature-ingredients-wrap owl-carousel">
         {% for block in section.blocks %}
-        <div class="feature-ingredients-card" {{ block.shopify_attributes }}>
-          <div class="f-ing-img">
-            {% if block.settings.image != blank %}
-            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}"
-              class="img" loading="lazy" width="600" height="600">
-            {% endif %}
-          </div>
-          <div class="f-ing-content">
-            {% if block.settings.title != blank %}
-            <h4>{{ block.settings.title }}</h4>
-            {% endif %}
-            {% if block.settings.text != blank %}
-            <p>{{ block.settings.text }}</p>
-            {% endif %}
-            {% if block.settings.link_text != blank %}
-            <a href="{{ block.settings.link | default: '#' }}" class="learn-more-cta">
-              {{ block.settings.link_text }}
-            </a>
-            {% endif %}
+        <div class="item" {{ block.shopify_attributes }}>
+          <div class="feature-ingredients-card">
+            <div class="f-ing-img">
+              {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}"
+                class="img" loading="lazy" width="600" height="600">
+              {% endif %}
+            </div>
+            <div class="f-ing-content">
+              {% if block.settings.title != blank %}
+              <h4>{{ block.settings.title }}</h4>
+              {% endif %}
+              {% if block.settings.text != blank %}
+              <p>{{ block.settings.text }}</p>
+              {% endif %}
+              {% if block.settings.link_text != blank %}
+              <a href="{{ block.settings.link | default: '#' }}" class="learn-more-cta">
+                {{ block.settings.link_text }}
+              </a>
+              {% endif %}
+            </div>
           </div>
         </div>
         {% endfor %}
       </div>
+
+      <div class="fi-nav">
+        <div class="prev-btn-fi" aria-label="Previous">
+          <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21.3472" cy="21.3472" r="21.3472" transform="matrix(-1 0 0 1 42.6943 0)" fill="#1A1A1A"/>
+            <path d="M30.0313 20.8421L17.665 20.8421L22.9648 15.5423L22.2985 14.7852L15.7368 21.3469L22.2985 27.9086L22.9648 27.1515L17.665 21.8516L30.0313 21.8516L30.0313 20.8421Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="next-btn-fi" aria-label="Next">
+          <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21.3472" cy="21.3472" r="21.3472" fill="#1A1A1A"/>
+            <path d="M12.663 20.8421L25.0294 20.8421L19.7295 15.5423L20.3958 14.7852L26.9575 21.3469L20.3958 27.9086L19.7295 27.1515L25.0294 21.8516L12.663 21.8516L12.663 20.8421Z" fill="white"/>
+          </svg>
+        </div>
+      </div>
+
       <div class="view-more-cta">
         <a href="#!" class="primary-btn">View More</a>
       </div>

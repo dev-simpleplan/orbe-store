@@ -292,4 +292,50 @@ $(window).on('load', function () {
             }
         });
     });
+
+    // ── Feature Ingredients (mobile only ≤991px) ─────────────────
+    if ($(window).width() <= 991) {
+        var $fiWrap = $('.feature-ingredients-wrap');
+        if ($fiWrap.length) {
+            var fiItemCount = $fiWrap.find('.item').length;
+            var fiLoop = false;
+
+            $fiWrap.owlCarousel({
+                loop: fiLoop,
+                dots: false,
+                nav: false,
+                margin: 16,
+                responsive: {
+                    0:   { items: 1 },
+                    600: { items: 1.5 },
+                    768: { items: 2 }
+                }
+            });
+
+            var $fiNext = $('.next-btn-fi');
+            var $fiPrev = $('.prev-btn-fi');
+
+            function updateFiNav(event) {
+                if (fiLoop) {
+                    $fiPrev.removeClass('disabled');
+                    $fiNext.removeClass('disabled');
+                    return;
+                }
+                var itemCount    = event.item.count;
+                var itemIndex    = event.item.index;
+                var itemsPerView = event.page.size;
+                $fiPrev.toggleClass('disabled', itemIndex === 0);
+                $fiNext.toggleClass('disabled', itemIndex + itemsPerView >= itemCount);
+            }
+
+            $fiWrap.on('initialized.owl.carousel changed.owl.carousel', updateFiNav);
+
+            $fiNext.click(function () {
+                if (!$(this).hasClass('disabled')) $fiWrap.trigger('next.owl.carousel');
+            });
+            $fiPrev.click(function () {
+                if (!$(this).hasClass('disabled')) $fiWrap.trigger('prev.owl.carousel');
+            });
+        }
+    }
 });
