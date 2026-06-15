@@ -4108,7 +4108,9 @@ body.template-404 .footer {
   }
 }
 /* Built For How */
-
+.science-slanted-element{
+margin: 240px 0px;
+}
 .science-slanted-element-in {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
