@@ -430,13 +430,121 @@
         "video_url": "",
         "description": "Orbe was created to support these everyday gaps, gently and intentionally. We focus on the essential nutrients women are most often missing, chosen in forms the body can absorb more easily. Each formula is balanced for daily, long-term use, not short-term fixes."
       }
-    }
+    },
+    "standard-that-speaks": {
+      "type": "standard-that-speaks",
+      "blocks": {
+        "standard_1": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/6be72cd6a924785d95e517fcbe6e68e69f1cf8b0.png",
+            "title": "Clean-label\ncommitments"
+          }
+        },
+        "standard_2": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/cfc4ff505145e8589d7cd6b72873edb93850c904.png",
+            "title": "Third-party\ntesting"
+          }
+        },
+        "standard_3": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/d1a30eb3b0af848fcd74a40ba852a94ae64c8c7f.png",
+            "title": "Vegan-certified\ncapsules"
+          }
+        },
+        "standard_4": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/198868244d6e622b93c670411b3ec99a7f273a2e.png",
+            "title": "Ingredient\ntraceability"
+          }
+        },
+        "standard_5": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/e307fed96856350ee58a98c1105b6903c1429197.png",
+            "title": "Batch-Level\nTransparency"
+          }
+        },
+        "standard_6": {
+          "type": "standard",
+          "settings": {
+            "image": "shopify://shop_images/a16bc8c7a2dd5aec97f1493f992fd0cad7520500_1.png",
+            "title": "GMP-certified\nfacilities"
+          }
+        }
+      },
+      "block_order": [
+        "standard_1",
+        "standard_2",
+        "standard_3",
+        "standard_4",
+        "standard_5",
+        "standard_6"
+      ],
+      "settings": {
+        "heading": "Standards that speaks for themselves",
+        "description": "Because informed choices are powerful ones and you deserve both clarity and calm."
+      }
+    },
+    "gently-unfold": {
+      "type": "gently-unfolding",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
+            "week": "Week 1–2",
+            "text": "Nutrients supported by global research for absorption and efficacy."
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/deddc5d6816f40dc041a9a9b35cc723848308528.jpg",
+            "week": "Week 3–4",
+            "text": "Cellular renewal begins as key bioavailable compounds reach full saturation."
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/63164f39dc38861d7b227014adaed204aaf76873_1.png",
+            "week": "Week 5–6",
+            "text": "Visible radiance emerges. Collagen pathways strengthen from within."
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468538_1.png",
+            "week": "Week 7–8",
+            "text": "The full ritual effect: sustained glow, resilient skin, calm energy."
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
+      "settings": {
+        "heading": "The Journey, Gently Unfolding",
+        "cta_text": "See Clinical Evidence",
+        "cta_link": "#"
+      }
+    },
   },
   "order": [
     "science-banner",
     "spacer_4apEt6",
     "we-believe-science",
     "your-body-asking",
+    "we-kept-things",
     "spacer1",
     "essential-ingredient",
     "spacer2",
@@ -445,15 +553,16 @@
     "built-for-how",
     "spacer4",
     "how-the-ritual",
+    "gently-unfold",
+    "every-orbe-capsule",
+    "standard-that-speaks",
+    "built-on-what",
     "spacer5",
     "progress-for-us",
     "spacer6",
     "behind-every-choice",
     "spacer7",
-    "built-on-what",
     "spacer8",
     "science-contact-sec",
-    "every-orbe-capsule",
-    "we-kept-things"
   ]
 }
