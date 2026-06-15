@@ -307,7 +307,6 @@ $(window).on('load', function () {
                 margin: 16,
                 responsive: {
                     0:   { items: 1 },
-                    600: { items: 1.5 },
                     768: { items: 2 }
                 }
             });

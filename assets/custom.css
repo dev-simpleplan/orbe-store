@@ -4667,9 +4667,15 @@ body.template-404 .footer {
 }
 
 .feature-ingredients-wrap {
-  display: grid;
+  display: grid !important;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .feature-ingredients-wrap {
+    display: block !important;
+  }
 }
 
 /* fi = feature-ingredients nav */
@@ -4693,10 +4699,6 @@ body.template-404 .footer {
 }
 
 @media (max-width: 991px) {
-  .feature-ingredients-wrap {
-    display: block;
-  }
-
   .fi-nav {
     display: flex;
     justify-content: center;

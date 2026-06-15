@@ -520,22 +520,22 @@
   .progress-for-us-content h2 {
     max-width: 100%;
   }
-  .we-kept-things-video video{
+  .we-kept-things-video video {
     height: 300px;
   }
-  .we-kept-things{
+  .we-kept-things {
     padding: 50px 0px;
   }
-  .progress-for-us-img-sm{
+  .progress-for-us-img-sm {
     display: none;
   }
-  .progress-for-us-pointers p{
+  .progress-for-us-pointers p {
     max-width: 100%;
   }
-  .progress-for-us-content{
+  .progress-for-us-content {
     gap: 20px;
   }
-  .progress-for-us-in{
+  .progress-for-us-in {
     gap: 20px;
   }
 }
@@ -1083,6 +1083,12 @@
   .what-your-mobile-circle:nth-child(even) .what-your-mobile-signal span {
     max-width: 7ch;
   }
+  .f-ing-content h4 {
+    font-size: 22px;
+  }
+  .feature-ingredients{
+    padding-top: 60px;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -1169,7 +1175,7 @@
   .progress-for-us-img {
     height: 400px;
   }
-  .we-kept-things-in{
+  .we-kept-things-in {
     grid-template-columns: 1fr;
     gap: 20px;
   }
