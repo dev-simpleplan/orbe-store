@@ -4545,7 +4545,7 @@ body.template-404 .footer {
   }
   .how-the-ritual-in {
     grid-template-columns: 1fr;
-    row-gap: 20px;
+    row-gap: 30px;
   }
   .how-the-ritual-in .htr-card:nth-child(3) {
     grid-column: auto;

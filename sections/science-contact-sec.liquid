@@ -5,76 +5,89 @@
             <div class="scs-left">
                 <div class="scs-heading">
                     {% if section.settings.heading != blank %}
-                        <h2>{{ section.settings.heading }}</h2>
+                    <h2>{{ section.settings.heading }}</h2>
                     {% endif %}
                     {% if section.settings.subtext != blank %}
-                        <p>{{ section.settings.subtext }}</p>
+                    <p>{{ section.settings.subtext }}</p>
                     {% endif %}
                 </div>
 
                 <div class="scs-qod">
                     {% if section.settings.qod_label != blank %}
-                        <p class="scs-qod-label">{{ section.settings.qod_label }}</p>
+                    <p class="scs-qod-label">{{ section.settings.qod_label }}</p>
                     {% endif %}
                     <div class="scs-qod-body">
                         <div class="scs-qod-text">
                             {% if section.settings.qod_question != blank %}
-                                <h3 class="scs-qod-question">{{ section.settings.qod_question }}</h3>
+                            <h3 class="scs-qod-question">{{ section.settings.qod_question }}</h3>
                             {% endif %}
-                            {% if section.settings.qod_desc != blank %}
-                                <p class="scs-qod-desc">{{ section.settings.qod_desc }}</p>
+                               {% if section.settings.qod_desc != blank %}
+                            <p class="scs-qod-desc">{{ section.settings.qod_desc }}</p>
                             {% endif %}
                         </div>
-                        {% if section.settings.qod_image != blank %}
-                            <div class="scs-qod-img">
-                                <img src="{{ section.settings.qod_image | image_url: width: 300 }}" alt="" width="120" height="120" loading="lazy">
-                            </div>
-                        {% endif %}
                     </div>
-                    <div class="scs-qod-author">
+                    <div class="bottom-scs-qod">
+                        <div class="scs-qod-author">
                         {% if section.settings.author_name != blank %}
-                            <p class="scs-author-name">{{ section.settings.author_name }}</p>
+                        <p class="scs-author-name">{{ section.settings.author_name }}</p>
                         {% endif %}
                         {% if section.settings.author_role != blank %}
-                            <p class="scs-author-role">{{ section.settings.author_role }}</p>
+                        <p class="scs-author-role">{{ section.settings.author_role }}</p>
                         {% endif %}
+                    </div>
+                    <div class="dark-o-logo">
+
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 97" width="92" height="97"><style>.a{opacity:.01}.b{opacity:.1;fill:#fff}</style><path fill-rule="evenodd" class="a" d="m68.4 6.2c22.6 11.8 31.3 39.6 19.6 62.1l-1.1 2.2c-11.8 22.5-39.6 31.3-62.1 19.5-22.5-11.7-31.3-39.5-19.6-62l1.2-2.2c11.7-22.5 39.5-31.3 62-19.6z"/><path class="b" d="m87.8 68.6c0 0-11.6-6-14.4-7.4 3.7-6.1 6.6-12.1 7.7-18.2 0.1-0.1 0.1-0.2 0.1-0.4 2-11.3-0.6-21.8-7.8-28q-0.2-0.2-0.5-0.4-0.3-0.3-0.7-0.6c-0.3-0.2-0.6-0.4-0.9-0.5q-0.4-0.3-0.7-0.5c-9.1-5.6-21.5-4.1-32.8 2.9-0.2 0.2-0.5 0.3-0.7 0.5-5.3 3.4-10.4 8.1-14.7 13.9-0.9 1.2-1.9 2.1-2.6 3.3l-13.5-6.9c2.7-5.8 5.7-10.3 10.2-14.5 4.5-4.2 9.4-7.3 14.8-9.3q8-3 17.2-2.4 9.2 0.6 17.9 5.1c5.7 3 11 6.9 15 11.9 4 4.9 6.5 10.1 8.4 15.8 1.8 5.7 2.7 11.6 2.3 18-0.3 6.4-1.6 11.9-4.3 17.7z"/><path class="b" d="m85.3 73.4c-2.3 3.9-5 7.3-8.2 10.4-4.6 4.3-9.6 7.5-15 9.6-5.4 2.1-11.2 3-17.3 2.7q-9.3-0.5-17.9-5c-5.8-3-10.6-6.9-14.6-11.9-4-5-6.9-10.4-8.7-16.2q-2.7-8.8-2.1-18.5c0.3-4.6 0.8-9.2 2.2-13.6l13.6 7.1q-1.1 2.2-2.1 4.4l-0.1 0.2c-6.4 15.8-4.5 31.8 6 39.7 8.8 6.5 21.3 5.6 32.9-1 0-0.1 0.1-0.1 0.2-0.1 0-0.1 0-0.1 0.1-0.1 6-3.5 11.8-8.7 16.6-15.1v-0.1z"/></svg>
+                    </div>
                     </div>
                 </div>
             </div>
 
-            <div class="scs-right" {% if section.settings.form_bg != blank %}style="background-image: url('{{ section.settings.form_bg | image_url: width: 1400 }}');"{% endif %}>
+            <div class="scs-right" {% if section.settings.form_bg !=blank
+                %}style="background-image: url('{{ section.settings.form_bg | image_url: width: 1400 }}');" {% endif %}>
                 <div class="scs-form-wrap">
                     {% form 'contact' %}
-                        {% if form.posted_successfully? %}
-                            <p class="scs-form-success">Thank you for reaching out! We'll get back to you soon.</p>
-                        {% endif %}
+                    {% if form.posted_successfully? %}
+                    <p class="scs-form-success">Thank you for reaching out! We'll get back to you soon.</p>
+                    {% endif %}
 
-                        <div class="scs-input-wrap">
-                            <label for="ScsFirstName">First Name</label>
-                            <input type="text" id="ScsFirstName" name="contact[first_name]" placeholder="Enter Your Full Name">
-                        </div>
-                        <div class="scs-input-wrap">
-                            <label for="ScsLastName">Last Name*</label>
-                            <input type="text" id="ScsLastName" name="contact[last_name]" placeholder="Enter Your Last Name" required>
-                        </div>
-                        <div class="scs-input-wrap">
-                            <label for="ScsEmail">Email Address</label>
-                            <input type="email" id="ScsEmail" name="contact[email]" placeholder="Enter Your Email Address" required>
-                        </div>
-                        <div class="scs-input-wrap">
-                            <label for="ScsBody">Your Question</label>
-                            <textarea id="ScsBody" name="contact[body]" rows="3" placeholder="Write Your Message Here" data-lenis-prevent></textarea>
-                        </div>
-                        <div class="scs-input-wrap scs-submit-wrap">
-                            <input type="submit" value="{{ section.settings.submit_label | default: 'Submit' }}" class="scs-submit-btn">
-                        </div>
+                    <div class="scs-input-wrap">
+                        <label for="ScsFirstName">First Name</label>
+                        <input type="text" id="ScsFirstName" name="contact[first_name]"
+                            placeholder="Enter Your Full Name">
+                    </div>
+                    <div class="scs-input-wrap">
+                        <label for="ScsLastName">Last Name*</label>
+                        <input type="text" id="ScsLastName" name="contact[last_name]" placeholder="Enter Your Last Name"
+                            required>
+                    </div>
+                    <div class="scs-input-wrap">
+                        <label for="ScsEmail">Email Address</label>
+                        <input type="email" id="ScsEmail" name="contact[email]" placeholder="Enter Your Email Address"
+                            required>
+                    </div>
+                    <div class="scs-input-wrap">
+                        <label for="ScsBody">Your Question</label>
+                        <textarea id="ScsBody" name="contact[body]" rows="1" placeholder="Write Your Message Here"
+                            data-lenis-prevent></textarea>
+                    </div>
+                    <div class="scs-input-wrap scs-submit-wrap">
+                        <input type="submit" value="{{ section.settings.submit_label | default: 'Submit' }}"
+                            class="scs-submit-btn primary-btn">
+                    </div>
                     {% endform %}
 
                     <div class="scs-logo-o">
                         <svg width="88" height="90" viewBox="0 0 88 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M76.5296 55.2629C76.5296 55.2629 67.3514 52.0528 65.1235 51.2736C67.1982 46.4296 68.7196 41.6911 68.8682 37.0701C68.902 36.9732 68.879 36.8837 68.8886 36.7784C69.1351 28.225 66.1204 20.7588 60.1394 16.9553C60.0111 16.8561 59.8742 16.7811 59.7132 16.6976C59.5364 16.5814 59.3354 16.4567 59.1259 16.3563C58.8922 16.2474 58.6912 16.1228 58.449 16.0381C58.248 15.9134 58.0385 15.813 57.8448 15.7452C50.5965 12.6124 41.6042 15.0097 34.0226 21.3779C33.858 21.5377 33.6776 21.6648 33.513 21.8245C29.9547 24.9269 26.7077 28.9262 24.156 33.6575C23.6309 34.615 23.0185 35.4332 22.5987 36.4003L11.9179 32.7461C13.259 28.1347 15.0242 24.4866 17.8754 20.9195C20.7593 17.3367 24.0696 14.555 27.799 12.5177C31.5527 10.4888 35.7001 9.27692 40.2571 8.9146C44.8225 8.52808 49.3894 9.14733 53.9422 10.7397C58.495 12.332 62.801 14.7075 66.2998 17.9145C69.8071 21.0973 72.2127 24.7099 74.1827 28.7135C76.1526 32.717 77.3805 36.9773 77.8228 41.6963C78.2567 46.4395 77.8864 50.6841 76.5296 55.2629Z" fill="#1A1A1A"/>
-                            <path d="M59.7058 16.6951C59.2953 16.4701 58.8848 16.245 58.4416 16.0356C58.6838 16.1203 58.8848 16.245 59.1185 16.3539C59.328 16.4543 59.529 16.579 59.7058 16.6951Z" fill="#1A1A1A"/>
-                            <path d="M75.2114 59.0346C73.917 62.1138 72.2933 64.9691 70.2517 67.5424C67.3497 71.2548 63.9971 74.1574 60.2422 76.2674C56.4874 78.3773 52.3145 79.6619 47.7406 80.0726C43.1583 80.5075 38.5829 79.9125 34.0059 78.3117C29.4289 76.7108 25.4558 74.316 21.974 71.0606C18.4836 67.8293 15.7789 64.1393 13.8428 60.0389C11.9067 55.9385 10.755 51.4604 10.355 46.6204C10.0718 43.2339 9.90354 39.7519 10.5041 36.4028L21.2806 40.172C20.8742 41.3339 20.5247 42.4886 20.2321 43.636L20.1644 43.8297C17.097 56.0966 20.221 67.7577 28.8185 72.3949C35.9423 76.2721 45.0909 74.2827 52.9365 68.1698C52.9777 68.1298 53.0431 68.0984 53.0842 68.0584C53.0927 68.0342 53.1096 67.9858 53.1665 67.9785C57.2297 64.7539 60.9124 60.3637 63.7642 55.0852L63.7811 55.0368L75.2114 59.0346Z" fill="#1A1A1A"/>
+                            <path
+                                d="M76.5257 55.2624C76.5257 55.2624 67.3475 52.0523 65.1196 51.2731C67.1943 46.4292 68.7157 41.6906 68.8642 37.0696C68.8981 36.9727 68.8751 36.8832 68.8847 36.7779C69.1312 28.2245 66.1165 20.7583 60.1355 16.9548C60.0072 16.8556 59.8703 16.7806 59.7093 16.6971C59.5325 16.5809 59.3315 16.4563 59.122 16.3558C58.8883 16.2469 58.6873 16.1223 58.4451 16.0376C58.2441 15.9129 58.0346 15.8125 57.8409 15.7447C50.5926 12.6119 41.6003 15.0092 34.0187 21.3774C33.8541 21.5372 33.6737 21.6643 33.5091 21.8241C29.9508 24.9265 26.7038 28.9257 24.1521 33.6571C23.627 34.6145 23.0146 35.4327 22.5948 36.3998L11.914 32.7456C13.2551 28.1342 15.0203 24.4861 17.8715 20.919C20.7553 17.3362 24.0657 14.5545 27.7951 12.5172C31.5488 10.4884 35.6962 9.27643 40.2532 8.91411C44.8186 8.52759 49.3855 9.14684 53.9383 10.7392C58.491 12.3315 62.7971 14.707 66.2959 17.914C69.8031 21.0968 72.2088 24.7094 74.1788 28.713C76.1487 32.7166 77.3766 36.9768 77.8189 41.6958C78.2528 46.439 77.8825 50.6836 76.5257 55.2624Z"
+                                fill="#1A1A1A" />
+                            <path
+                                d="M59.7019 16.6947C59.2914 16.4696 58.8809 16.2445 58.4377 16.0352C58.6799 16.1199 58.8809 16.2445 59.1146 16.3534C59.3241 16.4538 59.5251 16.5785 59.7019 16.6947Z"
+                                fill="#1A1A1A" />
+                            <path
+                                d="M75.2075 59.0341C73.9131 62.1133 72.2894 64.9686 70.2478 67.5419C67.3458 71.2543 63.9932 74.1569 60.2383 76.2669C56.4834 78.3768 52.3106 79.6614 47.7367 80.0721C43.1544 80.5071 38.579 79.912 34.002 78.3112C29.425 76.7104 25.4519 74.3155 21.9701 71.0601C18.4797 67.8288 15.775 64.1388 13.8389 60.0384C11.9028 55.938 10.7511 51.4599 10.3511 46.6199C10.0679 43.2334 9.89964 39.7514 10.5002 36.4023L21.2767 40.1715C20.8703 41.3334 20.5208 42.4881 20.2282 43.6355L20.1605 43.8292C17.0931 56.0961 20.217 67.7573 28.8146 72.3944C35.9384 76.2716 45.087 74.2822 52.9326 68.1693C52.9738 68.1294 53.0391 68.0979 53.0803 68.0579C53.0888 68.0337 53.1057 67.9853 53.1626 67.978C57.2258 64.7534 60.9085 60.3632 63.7603 55.0847L63.7772 55.0363L75.2075 59.0341Z"
+                                fill="#1A1A1A" />
                         </svg>
                     </div>
                 </div>
@@ -85,6 +98,10 @@
 </section>
 
 <style>
+    .scs-submit-btn {
+        border: none;
+    }
+
     .science-contact-sec {
         overflow: hidden;
     }
@@ -101,7 +118,7 @@
         max-width: 42%;
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 100px;
         padding: 80px 0;
     }
 
@@ -126,13 +143,15 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        max-width: 400px;
     }
 
     .scs-qod-label {
         font-size: 40px;
-        font-family: var(--canela);
+        font-family: var(--tobias);
         font-weight: 400;
-        line-height: 1.1;
+        line-height: 120%;
+        letter-spacing: -0.05em;
         color: #fff;
         margin: 0;
     }
@@ -150,17 +169,22 @@
 
     .scs-qod-question {
         font-size: 26px;
-        font-family: var(--canela);
+        font-family: var(--tobias);
         font-weight: 400;
-        line-height: 1.2;
+        line-height: 120%;
         color: #fff;
-        margin: 0 0 12px;
+        letter-spacing: -0.05em;
+        margin: 0 0 15px;
+        max-width: 15ch;
     }
 
     .scs-qod-desc {
         font-size: 14px;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.75);
+        line-height: 136%;
+        color: #fff;
+        letter-spacing: 0em;
+        font-weight: 500;
+        max-width: 32ch;
         margin: 0;
     }
 
@@ -178,23 +202,25 @@
     }
 
     .scs-qod-author {
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
         padding-top: 16px;
     }
 
     .scs-author-name {
-        font-size: 13px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 400;
         color: #fff;
+        line-height: 150%;
+        letter-spacing: 0em;
         margin: 0 0 2px;
-        font-family: var(--aspekta);
+        font-family: var(--tobias);
     }
 
     .scs-author-role {
-        font-size: 11px;
+        font-size: 12px;
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.6);
+        color: #fff;
+        letter-spacing: 2.88px;
         margin: 0;
         font-family: var(--aspekta);
     }
@@ -207,14 +233,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 40px 20px;
+        padding: 37px 0px 37px 20px;
     }
 
     .scs-form-wrap {
         background: #fff;
         width: 100%;
-        max-width: 500px;
-        padding: 48px 40px 40px;
+        padding: 80px 40px 100px;
         position: relative;
     }
 
@@ -267,34 +292,15 @@
         margin-bottom: 0;
     }
 
-    .scs-submit-btn {
-        display: inline-block;
-        padding: 14px 48px;
-        border-radius: 50px;
-        border: 0;
-        background: linear-gradient(135deg, #C9A96E 0%, #F0D9A8 50%, #C9A96E 100%);
-        color: #fff;
-        font-size: 14px;
-        font-family: var(--aspekta);
-        letter-spacing: 1px;
-        cursor: pointer;
-        transition: opacity 0.2s ease;
-    }
-
-    .scs-submit-btn:hover {
-        opacity: 0.85;
-    }
-
     .scs-logo-o {
         position: absolute;
         bottom: 20px;
         right: 20px;
-        opacity: 0.15;
     }
 
     .scs-logo-o svg {
-        width: 44px;
-        height: 45px;
+        width: 60px;
+        height: 60px;
         display: block;
     }
 
@@ -302,6 +308,11 @@
         font-size: 14px;
         color: #1A1A1A;
         margin-bottom: 24px;
+    }
+    .bottom-scs-qod{
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
     }
 
     @media (max-width: 991px) {
@@ -313,23 +324,28 @@
         .scs-left {
             flex: none;
             max-width: 100%;
-            padding: 60px 0 48px;
+            padding: 0px 20px;
+            padding-bottom: 20px;
             gap: 36px;
         }
 
         .scs-right {
-            padding: 60px 0;
+            padding: 40px 20px;
+        }
+
+        .science-contact-sec .container {
+            padding: 0px;
         }
 
         .scs-form-wrap {
             padding: 40px 32px 32px;
         }
+        .scs-qod{
+            max-width: 100%;
+        }
     }
 
     @media (max-width: 767px) {
-        .scs-left {
-            padding: 48px 0 36px;
-        }
 
         .scs-heading h2 {
             font-size: 32px;
@@ -343,97 +359,95 @@
             font-size: 20px;
         }
 
-        .scs-right {
-            margin-left: calc(50% - 50vw);
-            margin-right: calc(50% - 50vw);
-            padding: 48px 16px;
-        }
-
         .scs-form-wrap {
             padding: 32px 20px 24px;
+        }
+        .dark-o-logo svg{
+            width: 60px;
+            height: 60px;
         }
     }
 </style>
 
 {% schema %}
 {
-  "name": "Science Contact",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Left — Heading"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "A Space For Your Question"
-    },
-    {
-      "type": "textarea",
-      "id": "subtext",
-      "label": "Subtitle",
-      "default": "Subtitle that supports the title. orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit."
-    },
-    {
-      "type": "header",
-      "content": "Left — Question Of The Day card"
-    },
-    {
-      "type": "text",
-      "id": "qod_label",
-      "label": "Card label",
-      "default": "Question Of The Day"
-    },
-    {
-      "type": "textarea",
-      "id": "qod_question",
-      "label": "Question",
-      "default": "Why Isn't Food Alone Always Enough?"
-    },
-    {
-      "type": "textarea",
-      "id": "qod_desc",
-      "label": "Description",
-      "default": "Whether you're curious about ingredients, absorption, or how Orbe fits into your routine, we're here to help."
-    },
-    {
-      "type": "image_picker",
-      "id": "qod_image",
-      "label": "Card image (bottom right)"
-    },
-    {
-      "type": "text",
-      "id": "author_name",
-      "label": "Author name",
-      "default": "Lali Sinclair"
-    },
-    {
-      "type": "text",
-      "id": "author_role",
-      "label": "Author role",
-      "default": "Marketing"
-    },
-    {
-      "type": "header",
-      "content": "Right — Form"
-    },
-    {
-      "type": "image_picker",
-      "id": "form_bg",
-      "label": "Form background image"
-    },
-    {
-      "type": "text",
-      "id": "submit_label",
-      "label": "Submit button text",
-      "default": "Submit"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Science Contact"
-    }
-  ]
+"name": "Science Contact",
+"settings": [
+{
+"type": "header",
+"content": "Left — Heading"
+},
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "A Space For Your Question"
+},
+{
+"type": "textarea",
+"id": "subtext",
+"label": "Subtitle",
+"default": "Subtitle that supports the title. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit."
+},
+{
+"type": "header",
+"content": "Left — Question Of The Day card"
+},
+{
+"type": "text",
+"id": "qod_label",
+"label": "Card label",
+"default": "Question Of The Day"
+},
+{
+"type": "textarea",
+"id": "qod_question",
+"label": "Question",
+"default": "Why Isn't Food Alone Always Enough?"
+},
+{
+"type": "textarea",
+"id": "qod_desc",
+"label": "Description",
+"default": "Whether you're curious about ingredients, absorption, or how Orbe fits into your routine, we're here to help."
+},
+{
+"type": "image_picker",
+"id": "qod_image",
+"label": "Card image (bottom right)"
+},
+{
+"type": "text",
+"id": "author_name",
+"label": "Author name",
+"default": "Lali Sinclair"
+},
+{
+"type": "text",
+"id": "author_role",
+"label": "Author role",
+"default": "Marketing"
+},
+{
+"type": "header",
+"content": "Right — Form"
+},
+{
+"type": "image_picker",
+"id": "form_bg",
+"label": "Form background image"
+},
+{
+"type": "text",
+"id": "submit_label",
+"label": "Submit button text",
+"default": "Submit"
+}
+],
+"presets": [
+{
+"name": "Science Contact"
+}
+]
 }
 {% endschema %}
