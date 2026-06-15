@@ -518,13 +518,25 @@
     aspect-ratio: unset;
   }
   .progress-for-us-content h2 {
-  max-width: 32ch;
+    max-width: 100%;
   }
   .we-kept-things-video video{
     height: 300px;
   }
   .we-kept-things{
     padding: 50px 0px;
+  }
+  .progress-for-us-img-sm{
+    display: none;
+  }
+  .progress-for-us-pointers p{
+    max-width: 100%;
+  }
+  .progress-for-us-content{
+    gap: 20px;
+  }
+  .progress-for-us-in{
+    gap: 20px;
   }
 }
 @media screen and (max-width: 767px) {

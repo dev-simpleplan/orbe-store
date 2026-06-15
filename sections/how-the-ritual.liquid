@@ -1,6 +1,6 @@
 <section class="how-the-ritual">
     <div class="container">
-        <div class="heading">
+        <div class="heading text-animation">
             <h2>{{ section.settings.heading }}</h2>
         </div>
         <div class="how-the-ritual-in">
@@ -11,7 +11,7 @@
                             <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.text | escape }}" class="img" loading="lazy" width="800" height="600">
                         {% endif %}
                     </div>
-                    <div class="htr-content">
+                    <div class="htr-content text-animation">
                         <h4 class="serial-num">{{ forloop.index }} .</h4>
                         <p class="htr-text">{{ block.settings.text }}</p>
                     </div>
