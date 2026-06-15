@@ -4697,12 +4697,9 @@ body.template-404 .footer {
     display: block;
   }
 
-  .feature-ingredients-wrap .item {
-    padding-right: 16px;
-  }
-
   .fi-nav {
     display: flex;
+    justify-content: center;
   }
 }
 .smart-build-liquid .heading {
