@@ -131,13 +131,6 @@
         "element_block3_text": "No fillers. No unnecessary blends. Every ingredient has a clear purpose."
       }
     },
-    "spacer3": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
     "built-for-how": {
       "type": "built-for-how",
       "blocks": {
@@ -263,6 +256,13 @@
         "heading": "The Journey, Gently Unfolding",
         "cta_text": "See Clinical Evidence",
         "cta_link": "#"
+      }
+    },
+    "spacer_4kVnbX": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
       }
     },
     "every-orbe-capsule": {
@@ -555,12 +555,12 @@
     "spacer1",
     "essential-ingredient",
     "science-slanted-element",
-    "spacer3",
     "built-for-how",
     "spacer4",
     "how-the-ritual",
     "spacer_FkprCV",
     "gently-unfold",
+    "spacer_4kVnbX",
     "every-orbe-capsule",
     "spacer_MbHR4n",
     "standard-that-speaks",
