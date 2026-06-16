@@ -299,10 +299,43 @@
         "counter_3_text": "Reduction in visible signs of surface dullness and uneven texture."
       }
     },
-    "that-scale":{
+    "that-scale": {
       "type": "that-scale",
+      "blocks": {
+        "card_8gJca4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468626_3019eb13-127f-4226-8874-77765856f89a.png",
+            "title": "Consistency By Design",
+            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
+          }
+        },
+        "card_dH8Bm6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468630.png",
+            "title": "Consistency By Design",
+            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
+          }
+        },
+        "card_xHf6p8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468631.png",
+            "title": "Consistency By Design",
+            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
+          }
+        }
+      },
+      "block_order": [
+        "card_8gJca4",
+        "card_dH8Bm6",
+        "card_xHf6p8"
+      ],
       "name": "That Scale Slider",
-      "settings": {}
+      "settings": {
+        "heading": "Principles That Scale With Us"
+      }
     }
   },
   "order": [
@@ -319,6 +352,6 @@
     "new_faq_section_n49mMB",
     "spacer_nBzpiz",
     "serum-legal",
-     "that-scale"
+    "that-scale"
   ]
 }
