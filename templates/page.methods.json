@@ -38,6 +38,51 @@
         "spacer_height": 120
       }
     },
+    "that-scale": {
+      "type": "that-scale",
+      "blocks": {
+        "card_dH8Bm6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468630.png",
+            "title": "Consistency By Design",
+            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
+          }
+        },
+        "card_xHf6p8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468631.png",
+            "title": "Clarity Always First",
+            "text": "From formulation to communication, transparency remains central across all future innovations."
+          }
+        },
+        "card_8gJca4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468626_3019eb13-127f-4226-8874-77765856f89a.png",
+            "title": "Consistency By Design",
+            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
+          }
+        }
+      },
+      "block_order": [
+        "card_dH8Bm6",
+        "card_xHf6p8",
+        "card_8gJca4"
+      ],
+      "name": "That Scale Slider",
+      "settings": {
+        "heading": "Principles That Scale With Us"
+      }
+    },
+    "spacer_biXR4Q": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "feature-ingredients": {
       "type": "feature-ingredients",
       "blocks": {
@@ -298,44 +343,6 @@
         "counter_3_number": "60%",
         "counter_3_text": "Reduction in visible signs of surface dullness and uneven texture."
       }
-    },
-    "that-scale": {
-      "type": "that-scale",
-      "blocks": {
-        "card_dH8Bm6": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468630.png",
-            "title": "Consistency By Design",
-            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
-          }
-        },
-        "card_xHf6p8": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468631.png",
-            "title": "Clarity Always First",
-            "text": "From formulation to communication, transparency remains central across all future innovations."
-          }
-        },
-        "card_8gJca4": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468626_3019eb13-127f-4226-8874-77765856f89a.png",
-            "title": "Consistency By Design",
-            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
-          }
-        }
-      },
-      "block_order": [
-        "card_dH8Bm6",
-        "card_xHf6p8",
-        "card_8gJca4"
-      ],
-      "name": "That Scale Slider",
-      "settings": {
-        "heading": "Principles That Scale With Us"
-      }
     }
   },
   "order": [
@@ -343,6 +350,8 @@
     "spacer1",
     "smart-way-build",
     "spacer_JKdjAJ",
+    "that-scale",
+    "spacer_biXR4Q",
     "feature-ingredients",
     "spacer_Rr6LmG",
     "batch-verified",
@@ -351,7 +360,6 @@
     "spacer_bVTWeE",
     "new_faq_section_n49mMB",
     "spacer_nBzpiz",
-    "serum-legal",
-    "that-scale"
+    "serum-legal"
   ]
 }
