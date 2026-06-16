@@ -620,8 +620,18 @@ header.header--transparent .center svg path {
 }
 .footer-nav > div > div:not(.subscribe-news) {
   display: flex;
+  gap: 50px;
+}
+.footer-nav > div > div:nth-child(2){
   flex-direction: column;
   gap: 10px;
+}
+.footer-nav-top ul li a:hover{
+  color: var(--yellow);
+  cursor: pointer;
+}
+.footer-nav-top ul li a{
+  transition: .4s ease all;
 }
 .footer-nav > div > div ul {
   display: flex;

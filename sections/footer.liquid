@@ -24,9 +24,24 @@
               {% if has_direct_links %}
                 <div class="footer-nav-links">
                   <ul>
+                    {% assign direct_i = 0 %}
                     {% for link in footer_menu.links %}
                       {% if link.links.size == 0 %}
-                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        {% assign direct_i = direct_i | plus: 1 %}
+                        {% if direct_i <= 3 %}
+                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                  <ul>
+                    {% assign direct_i = 0 %}
+                    {% for link in footer_menu.links %}
+                      {% if link.links.size == 0 %}
+                        {% assign direct_i = direct_i | plus: 1 %}
+                        {% if direct_i > 3 %}
+                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        {% endif %}
                       {% endif %}
                     {% endfor %}
                   </ul>
@@ -79,6 +94,13 @@
       </div>
   </div>
 </footer>
+
+<style>
+  .footer-nav-links {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
 
 {% schema %}
 {
