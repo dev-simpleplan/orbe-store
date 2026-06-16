@@ -19,7 +19,7 @@
               data-img="{% if block.settings.drawer_image != blank %}{{ block.settings.drawer_image | image_url: width: 900 }}{% elsif block.settings.image != blank %}{{ block.settings.image | image_url: width: 900 }}{% endif %}"
               aria-label="Open {{ block.settings.title | escape }}">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 1V13M1 7H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M7 1V13M1 7H13" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"/>
               </svg>
             </button>
           </div>
@@ -40,7 +40,7 @@
 
   <!-- Right-side drawer -->
   <div class="crs-overlay" aria-hidden="true">
-    <div class="crs-drawer" role="dialog" aria-modal="true">
+    <div class="crs-drawer" role="dialog" aria-modal="true" data-lenis-prevent>
       <div class="crs-drawer-head">
         <button class="crs-close" aria-label="Close drawer">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,25 +128,26 @@
   .crs-ring-inner span {
     position: relative;
     z-index: 2;
-    max-width: 12ch;
     color: #fff;
     font-family: var(--aspekta);
-    font-size: 17px;
-    line-height: 1.1;
+    font-size: 20px;
+    line-height: 100%;
     font-weight: 400;
     padding: 0 10px;
+    text-align: center;
   }
 
   /* ── + button ── */
   .crs-plus {
     position: absolute;
-    bottom: -6px;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #C8A951;
+background: linear-gradient(180deg, #E3B26F -10.88%, #FFFAB6 100%);
+
     border: none;
     cursor: pointer;
     display: flex;
@@ -179,8 +180,8 @@
   }
 
   .crs-center p {
-    font-family: var(--garamond, Georgia, serif);
-    font-size: clamp(18px, 2vw, 26px);
+    font-family: var(--tobias);
+    font-size: clamp(22px, 3vw, 32px);
     font-style: italic;
     font-weight: 400;
     color: #1A1A1A;
@@ -222,10 +223,10 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: min(520px, 90vw);
+    width: min(620px, 90vw);
     height: 100%;
     background: #fff;
-    overflow-y: auto;
+    overflow: hidden;
     transform: translateX(100%);
     transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -238,8 +239,8 @@
 
   .crs-drawer-head {
     display: flex;
-    align-items: end;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: end;
     padding: 18px 24px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     flex-shrink: 0;
@@ -287,8 +288,10 @@
   }
 
   .crs-drawer-body {
-    padding: 28px 24px 40px;
+    padding: 28px 30px 40px;
     flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .crs-dtitle {
@@ -308,8 +311,30 @@
     white-space: pre-line;
   }
 
+  /* ── Tablet (601px – 991px): shrink ring so circles don't overlap ── */
+  @media (max-width: 991px) and (min-width: 601px) {
+    .crs-ring {
+      --ring-size: min(560px, 88vw);
+      --circle-size: 160px;
+    }
+
+    .crs-ring-wrap { min-height: 520px; }
+
+    .crs-ring-inner span { font-size: 14px; }
+
+    .crs-plus {
+      width: 26px;
+      height: 26px;
+    }
+
+    .crs-plus svg { width: 10px; height: 10px; }
+  }
+
   /* ── Mobile ── */
   @media (max-width: 600px) {
+    .crs-plus{
+    bottom: 10%;
+        }
     .crs-ring {
       --ring-size: min(340px, 95vw);
       --circle-size: 100px;
@@ -320,11 +345,11 @@
     .crs-ring-inner span { font-size: 11px; }
 
     .crs-plus {
-      width: 24px;
-      height: 24px;
+      width: 18px;
+      height: 18px;
     }
 
-    .crs-plus svg { width: 10px; height: 10px; }
+    .crs-plus svg { width: 8px; height: 8px; }
 
     .crs-center p { font-size: 14px; }
     .crs-center .img { width: 44px; }
