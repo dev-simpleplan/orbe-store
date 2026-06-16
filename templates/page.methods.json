@@ -399,7 +399,7 @@
             "title": "Clinical Endpoints",
             "drawer_image": "shopify://shop_images/c95b1343118ab4b83d89778382a992161439b05d.png",
             "description": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research. This approach minimizes bias and allows us to measure the true impact of our formulations on human health.\n\nOur studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research. This approach minimizes bias and allows us to measure the true impact of our formulations on human health."
-          },
+          }
         }
       },
       "block_order": [
@@ -417,8 +417,38 @@
     },
     "scientific-process": {
       "type": "scientific-process",
+      "blocks": {
+        "step_kGFTYm": {
+          "type": "step",
+          "settings": {
+            "title": "Research",
+            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        },
+        "step_RnkLnB": {
+          "type": "step",
+          "settings": {
+            "title": "Research",
+            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        },
+        "step_dpLGt9": {
+          "type": "step",
+          "settings": {
+            "title": "Research",
+            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        }
+      },
+      "block_order": [
+        "step_kGFTYm",
+        "step_RnkLnB",
+        "step_dpLGt9"
+      ],
       "name": "Sceintifc Process",
-      "settings": {},
+      "settings": {
+        "background_image": "shopify://shop_images/4ff20677ec3cf1b8280a26c72235061adadc2e4b.png"
+      }
     }
   },
   "order": [
@@ -438,6 +468,6 @@
     "spacer_nBzpiz",
     "serum-legal",
     "clinical-research",
-     "scientific-process"
+    "scientific-process"
   ]
 }
