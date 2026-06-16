@@ -278,10 +278,19 @@
         "cta_link": "shopify://pages/faqs"
       }
     },
-    "serum-legal":{
+    "serum-legal": {
       "type": "serum-legal",
-      "name":"Serum Legal",
-      "settings": {}      
+      "name": "Serum Legal",
+      "settings": {
+        "heading": "The Serum-Level Ingredients Behind Our Formula",
+        "text": "Every formulation begins with research. We study how specific compounds behave at a molecular level — how they interact with the body, how they remain stable, and how they deliver measurable results.\nOur serum-grade acids and bioactive compounds are selected for their clinical relevance, purity, and proven performance.\n \nThe result is a formulation designed not just to work, but to work consistently and reliably.",
+        "counter_1_number": "89%",
+        "counter_1_text": "Reported noticeable improvements in overall skin balance within four weeks of consistent use.",
+        "counter_2_number": "93%",
+        "counter_2_text": "Observed enhanced hydration and barrier support during independent clinical evaluation.",
+        "counter_3_number": "60%",
+        "counter_3_text": "Reduction in visible signs of surface dullness and uneven texture."
+      }
     }
   },
   "order": [
