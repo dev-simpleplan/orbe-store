@@ -352,6 +352,7 @@
           "settings": {
             "image": "shopify://shop_images/f9d06415b2937f99f63182a7353929172d4ca2f1.png",
             "title": "Study Design",
+            "drawer_image": "shopify://shop_images/f9d06415b2937f99f63182a7353929172d4ca2f1.png",
             "description": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research."
           }
         },
@@ -360,6 +361,7 @@
           "settings": {
             "image": "shopify://shop_images/9de7b569bf7464fc4a3b168948ea46a1b6b7fd12.png",
             "title": "Study Design",
+            "drawer_image": "shopify://shop_images/9de7b569bf7464fc4a3b168948ea46a1b6b7fd12.png",
             "description": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research."
           }
         },
@@ -368,6 +370,7 @@
           "settings": {
             "image": "shopify://shop_images/d1a30eb3b0af848fcd74a40ba852a94ae64c8c7f_1.png",
             "title": "Study Design",
+            "drawer_image": "shopify://shop_images/d1a30eb3b0af848fcd74a40ba852a94ae64c8c7f_1.png",
             "description": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research."
           }
         },
@@ -376,6 +379,7 @@
           "settings": {
             "image": "shopify://shop_images/20ad8d195e68157e95bc937c765979e9f7f67f90.png",
             "title": "Study Design",
+            "drawer_image": "shopify://shop_images/20ad8d195e68157e95bc937c765979e9f7f67f90.png",
             "description": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research."
           }
         },
@@ -384,6 +388,7 @@
           "settings": {
             "image": "shopify://shop_images/b8fcc1d7594f15dc2a9b2b4f1768c1a4a9c79511.png",
             "title": "Study Design",
+            "drawer_image": "shopify://shop_images/b8fcc1d7594f15dc2a9b2b4f1768c1a4a9c79511.png",
             "description": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research."
           }
         },
@@ -392,6 +397,7 @@
           "settings": {
             "image": "shopify://shop_images/c95b1343118ab4b83d89778382a992161439b05d.png",
             "title": "Study Design",
+            "drawer_image": "shopify://shop_images/c95b1343118ab4b83d89778382a992161439b05d.png",
             "description": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research."
           }
         }
