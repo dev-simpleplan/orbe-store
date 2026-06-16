@@ -110,6 +110,19 @@
   .new-faq-item.active .new-faq-question {
     padding-top: 30px;
   }
+.serum-legal-in .bottom .counter-wrap > div{
+  padding: 0px 15px;
+  font-size: 14px;
+}
+.serum-legal-in .bottom .counter-wrap > div:nth-child(2){
+  align-items: start;
+}
+.serum-legal-in .bottom .counter-wrap > div:nth-child(3){
+  align-items: start;
+}
+.serum-legal-in .bottom{
+  margin-top: 40px;
+}
 }
 @media screen and (max-width: 991px) {
   .footer {
@@ -537,6 +550,12 @@
   }
   .progress-for-us-in {
     gap: 20px;
+  }
+  .serum-legal-in .top{
+    gap: 20px;
+  }
+  .serum-legal-in .slt-right{
+    gap: 30px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1089,6 +1108,17 @@
   .feature-ingredients{
     padding-top: 60px;
   }
+.serum-legal-in .top{
+  grid-template-columns: 1fr;
+}
+.serum-legal-in .bottom .counter-wrap{
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.serum-legal-in .bottom .counter-wrap > div{
+  padding: 0px;
+  border: none;
+}
 }
 
 @media screen and (min-width: 992px) {

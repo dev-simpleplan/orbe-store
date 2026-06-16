@@ -277,6 +277,11 @@
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
       }
+    },
+    "serum-legal":{
+      "type": "serum-legal",
+      "name":"Serum Legal",
+      "settings": {}      
     }
   },
   "order": [
@@ -290,6 +295,7 @@
     "certified-by",
     "blogs-feature",
     "spacer_bVTWeE",
-    "new_faq_section_n49mMB"
+    "new_faq_section_n49mMB",
+    "serum-legal"
   ]
 }

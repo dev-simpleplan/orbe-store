@@ -5259,3 +5259,57 @@ body.template-404 .footer {
   height: 500px;
   object-fit: cover;
 }
+.serum-legal-in .top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+}
+.serum-legal-in .top p {
+  font-size: 16px;
+  line-height: 120%;
+}
+.serum-legal-in .bottom .counter-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.serum-legal-in .bottom .counter-wrap h3 {
+  font-size: clamp(32px, 11vw, 148px);
+}
+.serum-legal-in .bottom .counter-wrap p {
+  font-size: 18px;
+  margin-top: 20px;
+  max-width: 28ch;
+}
+.serum-legal-in .bottom .counter-wrap > div {
+  border-left: 1px solid #c0c0c0;
+}
+.serum-legal-in .bottom .counter-wrap > div:nth-child(1) {
+  border: none;
+}
+.serum-legal-in .bottom .counter-wrap > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.serum-legal-in .bottom .counter-wrap > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.serum-legal-in .bottom {
+  margin-top: 80px;
+}
+
+.serum-legal-in .slt-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+.serum-legal-in .slt-right h2{
+  line-height: 112%;
+  max-width: 14ch;
+}
+.slt-left-img{
+  height: 100%;
+}
