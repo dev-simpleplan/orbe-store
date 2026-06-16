@@ -83,6 +83,50 @@
         "spacer_height": 120
       }
     },
+    "scientific-process": {
+      "type": "scientific-process",
+      "blocks": {
+        "step_kGFTYm": {
+          "type": "step",
+          "settings": {
+            "title": "Research",
+            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        },
+        "step_RnkLnB": {
+          "type": "step",
+          "settings": {
+            "title": "Research",
+            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        },
+        "step_dpLGt9": {
+          "type": "step",
+          "settings": {
+            "title": "Research",
+            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        }
+      },
+      "block_order": [
+        "step_kGFTYm",
+        "step_RnkLnB",
+        "step_dpLGt9"
+      ],
+      "name": "Sceintifc Process",
+      "settings": {
+        "heading": "Our Scientific Process",
+        "description": "At Orbé, simplicity is an act of respect. Respect for your time, your mind, and your body. We refine everything: our formulas, our design, even the way we communicate.",
+        "background_image": "shopify://shop_images/4ff20677ec3cf1b8280a26c72235061adadc2e4b.png"
+      }
+    },
+    "spacer_wbAF4K": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "feature-ingredients": {
       "type": "feature-ingredients",
       "blocks": {
@@ -414,41 +458,6 @@
       "settings": {
         "center_label": "Clinical Research"
       }
-    },
-    "scientific-process": {
-      "type": "scientific-process",
-      "blocks": {
-        "step_kGFTYm": {
-          "type": "step",
-          "settings": {
-            "title": "Research",
-            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
-          }
-        },
-        "step_RnkLnB": {
-          "type": "step",
-          "settings": {
-            "title": "Research",
-            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
-          }
-        },
-        "step_dpLGt9": {
-          "type": "step",
-          "settings": {
-            "title": "Research",
-            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
-          }
-        }
-      },
-      "block_order": [
-        "step_kGFTYm",
-        "step_RnkLnB",
-        "step_dpLGt9"
-      ],
-      "name": "Sceintifc Process",
-      "settings": {
-        "background_image": "shopify://shop_images/4ff20677ec3cf1b8280a26c72235061adadc2e4b.png"
-      }
     }
   },
   "order": [
@@ -458,6 +467,8 @@
     "spacer_JKdjAJ",
     "that-scale",
     "spacer_biXR4Q",
+    "scientific-process",
+    "spacer_wbAF4K",
     "feature-ingredients",
     "spacer_Rr6LmG",
     "batch-verified",
@@ -467,7 +478,6 @@
     "new_faq_section_n49mMB",
     "spacer_nBzpiz",
     "serum-legal",
-    "clinical-research",
-    "scientific-process"
+    "clinical-research"
   ]
 }
