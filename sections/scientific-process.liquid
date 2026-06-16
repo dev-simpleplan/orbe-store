@@ -11,51 +11,38 @@
         {% endfor %}
       </video>
     {% elsif section.settings.background_image != blank %}
-      <img src="{{ section.settings.background_image | image_url: width: 1920 }}" alt="" class="sp-bg-media" loading="lazy">
+      <img src="{{ section.settings.background_image | image_url: width: 1920 }}" alt="" class="sp-bg-media">
     {% endif %}
   </div>
-  <div class="sp-overlay"></div>
 
-  <!-- Content -->
-  <div class="sp-inner">
+  <!-- Stacked cards (GSAP drives visibility + movement) -->
+  <div class="sp-cards-wrap">
+    {% for block in section.blocks %}
+      <div class="sp-card" {{ block.shopify_attributes }}>
 
-    <!-- Static heading -->
-    {% if section.settings.heading != blank or section.settings.description != blank %}
-      <div class="sp-head">
-        {% if section.settings.heading != blank %}
-          <h2>{{ section.settings.heading }}</h2>
-        {% endif %}
-        {% if section.settings.description != blank %}
-          <p>{{ section.settings.description }}</p>
-        {% endif %}
-      </div>
-    {% endif %}
+        <div class="sp-card-top">
+          <span class="sp-step">0{{ forloop.index }}</span>
 
-    <!-- Cards (stacked, GSAP drives visibility) -->
-    <div class="sp-cards-wrap">
-      {% for block in section.blocks %}
-        <div class="sp-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
-          <div class="sp-card-top">
-            <span class="sp-step">0{{ forloop.index }}</span>
-            {% if section.settings.logo != blank %}
-              {{ section.settings.logo | image_url: width: 120 | image_tag: loading: 'lazy', class: 'sp-logo' }}
-            {% endif %}
-          </div>
-          <div class="sp-card-bot">
-            {% if block.settings.title != blank %}
-              <h3>{{ block.settings.title }}</h3>
-            {% endif %}
-            {% if block.settings.description != blank %}
-              <p>{{ block.settings.description }}</p>
-            {% endif %}
-          </div>
+          <!-- Hardcoded Orbé O icon -->
+          <svg class="sp-orbe-icon" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23 5C13.06 5 5 13.06 5 23C5 32.94 13.06 41 23 41C32.94 41 41 32.94 41 23C41 17.84 38.7 13.22 35.1 10.1" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
         </div>
-      {% endfor %}
-    </div>
 
+        <div class="sp-card-bot">
+          {% if block.settings.title != blank %}
+            <h3>{{ block.settings.title }}</h3>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <p>{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+
+      </div>
+    {% endfor %}
   </div>
 
-  <!-- Dots -->
+  <!-- Dots indicator -->
   {% if sp_count > 1 %}
     <div class="sp-dots" aria-hidden="true">
       {% for block in section.blocks %}
@@ -67,16 +54,17 @@
 </section>
 
 <style>
-  /* ── Section: full viewport, sticky handled by GSAP ── */
+  /* Section: full viewport, GSAP pins it */
   .sp-section {
     position: relative;
     overflow: hidden;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* Background */
+  /* Background fills section */
   .sp-bg {
     position: absolute;
     inset: 0;
@@ -91,67 +79,23 @@
     filter: grayscale(1);
   }
 
-  .sp-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.52);
-    z-index: 1;
-  }
-
-  /* Inner flex column */
-  .sp-inner {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    padding: 70px 60px 100px;
-    gap: 48px;
-    box-sizing: border-box;
-  }
-
-  /* Static heading */
-  .sp-head {
-    text-align: center;
-    color: #fff;
-    flex-shrink: 0;
-  }
-
-  .sp-head h2 {
-    font-size: clamp(34px, 4.5vw, 64px);
-    font-weight: 400;
-    line-height: 1;
-    margin: 0 0 18px;
-    letter-spacing: -0.03em;
-  }
-
-  .sp-head p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.72);
-    max-width: 52ch;
-    margin: 0 auto;
-  }
-
-  /* Cards stack */
+  /* Cards stack — centered, square-ish */
   .sp-cards-wrap {
     position: relative;
-    width: 100%;
-    max-width: 860px;
-    flex: 1;
+    z-index: 2;
+    width: min(620px, 88vw);
+    aspect-ratio: 1 / 1.08;
   }
 
-  /* All cards absolutely stacked — GSAP controls opacity/transform */
+  /* All cards stacked — GSAP controls visibility */
   .sp-card {
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.06);
-    -webkit-backdrop-filter: blur(48px);
-    backdrop-filter: blur(48px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 6px;
-    padding: 40px 44px;
+    background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
+    border-radius: 4px;
+    padding: 36px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -159,6 +103,7 @@
     opacity: 0;
   }
 
+  /* Top row: step number + icon */
   .sp-card-top {
     display: flex;
     justify-content: space-between;
@@ -166,46 +111,45 @@
   }
 
   .sp-step {
-    font-size: clamp(30px, 3.5vw, 50px);
+    font-size: clamp(28px, 3.5vw, 46px);
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.90);
     font-family: var(--aspekta);
     line-height: 1;
   }
 
-  .sp-logo {
-    width: 58px;
-    height: 58px;
-    object-fit: contain;
-    border-radius: 50%;
+  .sp-orbe-icon {
     display: block;
+    flex-shrink: 0;
+    opacity: 0.85;
   }
 
+  /* Bottom text */
   .sp-card-bot {
     text-align: center;
     color: #fff;
   }
 
   .sp-card-bot h3 {
-    font-size: clamp(34px, 5vw, 62px);
+    font-size: clamp(32px, 5vw, 60px);
     font-weight: 400;
     line-height: 1;
-    margin: 0 0 16px;
+    margin: 0 0 14px;
     letter-spacing: -0.02em;
   }
 
   .sp-card-bot p {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.70);
-    max-width: 42ch;
+    max-width: 38ch;
     margin: 0 auto;
   }
 
   /* Dots */
   .sp-dots {
     position: absolute;
-    bottom: 36px;
+    bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -223,12 +167,10 @@
     display: block;
   }
 
-  /* Mobile: no pin, stacked cards scroll naturally */
   @media (max-width: 767px) {
     .sp-section { height: auto; min-height: 100vh; }
-    .sp-inner { padding: 60px 20px 90px; gap: 36px; }
-    .sp-cards-wrap { flex: none; height: 380px; }
-    .sp-card { padding: 28px 22px; }
+    .sp-cards-wrap { width: 88vw; }
+    .sp-card { padding: 24px 22px; }
   }
 </style>
 
@@ -249,7 +191,7 @@
     const dots  = gsap.utils.toArray(section.querySelectorAll('.sp-dot'));
     if (!cards.length) return;
 
-    /* ── Timing constants (mirrors what-we-choose pattern) ── */
+    /* ── Same timing constants as what-we-choose ── */
     const cardOverlap    = 0.85;
     const cardEnterDur   = 0.70;
     const cardHoldDur    = 0.30;
@@ -260,7 +202,7 @@
     const getPinDistance   = () => window.innerHeight * timelineLength * 1.12;
     const getEarlyDistance = () => window.innerHeight * 0.8;
 
-    /* ── Pin the section ── */
+    /* ── Pin section ── */
     ScrollTrigger.create({
       trigger: section,
       start: 'top top',
@@ -270,11 +212,11 @@
       invalidateOnRefresh: true,
     });
 
-    /* ── Initial state: all cards hidden below ── */
-    gsap.set(cards, { autoAlpha: 0, y: 72 });
+    /* ── Initial state ── */
+    gsap.set(cards, { autoAlpha: 0, y: 70 });
     gsap.set(dots,  { opacity: 0.3, scale: 1 });
 
-    /* ── Scrubbed timeline drives card + dot animations ── */
+    /* ── Scrubbed timeline ── */
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -288,10 +230,9 @@
     cards.forEach((card, index) => {
       const pos = index * cardOverlap;
 
-      /* Ensure card is hidden before its turn */
-      tl.set(card, { autoAlpha: 0, y: 72 }, pos);
+      tl.set(card, { autoAlpha: 0, y: 70 }, pos);
 
-      /* Enter — slide up from below */
+      /* Enter: slide up from below */
       tl.to(card, {
         autoAlpha: 1,
         y: 0,
@@ -299,14 +240,10 @@
         duration: cardEnterDur,
       }, pos);
 
-      /* Hold at center */
-      tl.to(card, {
-        y: 0,
-        ease: 'none',
-        duration: cardHoldDur,
-      }, pos + cardEnterDur);
+      /* Hold */
+      tl.to(card, { y: 0, ease: 'none', duration: cardHoldDur }, pos + cardEnterDur);
 
-      /* Exit — slide up and out */
+      /* Exit: slide up and out */
       tl.to(card, {
         autoAlpha: 0,
         y: -60,
@@ -316,21 +253,10 @@
 
       tl.set(card, { autoAlpha: 0 }, pos + cardTotalDur);
 
-      /* Dot: brighten on enter, dim on exit */
+      /* Dot */
       if (dots[index]) {
-        tl.to(dots[index], {
-          opacity: 1,
-          scale: 1.5,
-          ease: 'none',
-          duration: cardEnterDur,
-        }, pos);
-
-        tl.to(dots[index], {
-          opacity: 0.3,
-          scale: 1,
-          ease: 'none',
-          duration: cardExitDur,
-        }, pos + cardEnterDur + cardHoldDur);
+        tl.to(dots[index], { opacity: 1, scale: 1.5, ease: 'none', duration: cardEnterDur }, pos);
+        tl.to(dots[index], { opacity: 0.3, scale: 1, ease: 'none', duration: cardExitDur }, pos + cardEnterDur + cardHoldDur);
       }
     });
 
@@ -345,23 +271,6 @@
 {
   "name": "Scientific Process",
   "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Our Scientific Process"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "At Orbé, simplicity is an act of respect. Respect for your time, your mind, and your body. We refine everything: our formulas, our design, even the way we communicate."
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Card Icon / Logo (top-right of card)"
-    },
     {
       "type": "image_picker",
       "id": "background_image",
