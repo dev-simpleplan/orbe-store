@@ -1,9 +1,198 @@
 <section class="that-scale">
-    <div class="container">
-        <div class="that-scale-in">
-            <div class="heading">
-                <h2>Principles That Scale With Us</h2>
-            </div>
+  <div class="container">
+    <div class="that-scale-in">
+      {% if section.settings.heading != blank %}
+        <div class="heading">
+          <h2>{{ section.settings.heading }}</h2>
         </div>
+      {% endif %}
+
+      <div class="that-scale-slider owl-carousel">
+        {% for block in section.blocks %}
+          <div class="item ts-item{% cycle '', ' ts-item--large' %}" {{ block.shopify_attributes }}>
+            <div class="ts-card">
+              <div class="ts-card-img">
+                {% if block.settings.image != blank %}
+                  <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.title | escape }}" class="img" loading="lazy">
+                {% endif %}
+              </div>
+              <div class="ts-card-content">
+                {% if block.settings.title != blank %}
+                  <h3>{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p>{{ block.settings.text }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="ts-nav">
+        <div class="prev-btn-ts" aria-label="Previous">
+          <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21.3472" cy="21.3472" r="21.3472" transform="matrix(-1 0 0 1 42.6943 0)" fill="#1A1A1A"/>
+            <path d="M30.0313 20.8421L17.665 20.8421L22.9648 15.5423L22.2985 14.7852L15.7368 21.3469L22.2985 27.9086L22.9648 27.1515L17.665 21.8516L30.0313 21.8516L30.0313 20.8421Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="next-btn-ts" aria-label="Next">
+          <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21.3472" cy="21.3472" r="21.3472" fill="#1A1A1A"/>
+            <path d="M12.663 20.8421L25.0294 20.8421L19.7295 15.5423L20.3958 14.7852L26.9575 21.3469L20.3958 27.9086L19.7295 27.1515L25.0294 21.8516L12.663 21.8516L12.663 20.8421Z" fill="white"/>
+          </svg>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
+
+<style>
+  .that-scale { padding: 80px 0; }
+
+  .that-scale .heading { margin-bottom: 48px; }
+
+  /* Slider */
+  .that-scale-slider { display: block !important; }
+
+  /* Small item (1st, 3rd…) */
+  .ts-item { width: 390px; }
+
+  /* Large item (2nd, 4th…) */
+  .ts-item--large { width: 580px; }
+
+  .ts-card { display: flex; flex-direction: column; height: 100%; }
+
+  /* Small card image */
+  .ts-item .ts-card-img {
+    height: 440px;
+    overflow: hidden;
+  }
+
+  /* Large card image */
+  .ts-item--large .ts-card-img {
+    height: 440px;
+    overflow: hidden;
+  }
+
+  .ts-card-img .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ts-card-content { padding: 20px 0 0; }
+
+  .ts-card-content h3 {
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 10px;
+  }
+
+  .ts-card-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5d5d5d;
+    margin: 0;
+    max-width: 38ch;
+  }
+
+  /* Nav */
+  .ts-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .prev-btn-ts,
+  .next-btn-ts {
+    cursor: pointer;
+    line-height: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .prev-btn-ts.disabled,
+  .next-btn-ts.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .ts-item,
+    .ts-item--large { width: calc(100vw - 60px); }
+
+    .ts-item .ts-card-img,
+    .ts-item--large .ts-card-img { height: 300px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "That Scale",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Principles That Scale With Us"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Consistency By Design"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "That Scale",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Consistency By Design",
+            "text": "Every product follows the same scientific and ethical framework — so trust stays constant as we grow."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Clarity Always First",
+            "text": "From formulation to communication, transparency remains central across all future innovations."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Built To Last",
+            "text": "We design for long-term trust, not short-term trends."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

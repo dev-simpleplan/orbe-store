@@ -337,4 +337,43 @@ $(window).on('load', function () {
             });
         }
     }
+
+    // ── That Scale slider ────────────────────────────────────────
+    var $tsSlider = $('.that-scale-slider');
+    if ($tsSlider.length) {
+        var tsLoop = false;
+
+        $tsSlider.owlCarousel({
+            loop: tsLoop,
+            autoWidth: true,
+            dots: false,
+            nav: false,
+            margin: 20
+        });
+
+        var $tsNext = $('.next-btn-ts');
+        var $tsPrev = $('.prev-btn-ts');
+
+        function updateTsNav(event) {
+            if (tsLoop) {
+                $tsPrev.removeClass('disabled');
+                $tsNext.removeClass('disabled');
+                return;
+            }
+            var itemCount    = event.item.count;
+            var itemIndex    = event.item.index;
+            var itemsPerView = event.page.size;
+            $tsPrev.toggleClass('disabled', itemIndex === 0);
+            $tsNext.toggleClass('disabled', itemIndex + itemsPerView >= itemCount);
+        }
+
+        $tsSlider.on('initialized.owl.carousel changed.owl.carousel', updateTsNav);
+
+        $tsNext.click(function () {
+            if (!$(this).hasClass('disabled')) $tsSlider.trigger('next.owl.carousel');
+        });
+        $tsPrev.click(function () {
+            if (!$(this).hasClass('disabled')) $tsSlider.trigger('prev.owl.carousel');
+        });
+    }
 });
