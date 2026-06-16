@@ -1,0 +1,454 @@
+<section class="crs-section" id="crs-{{ section.id }}">
+  <div class="container">
+    <div class="crs-ring-wrap">
+      <div class="crs-ring">
+
+        {% for block in section.blocks limit: 6 %}
+          <div class="crs-ring-item crs-ring-item-{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <div class="crs-ring-inner">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 480 }}" alt="{{ block.settings.title | escape }}" class="img" loading="lazy">
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <span>{{ block.settings.title | newline_to_br }}</span>
+              {% endif %}
+            </div>
+            <button class="crs-plus"
+              data-title="{{ block.settings.title | escape }}"
+              data-desc="{{ block.settings.description | escape }}"
+              data-img="{% if block.settings.drawer_image != blank %}{{ block.settings.drawer_image | image_url: width: 900 }}{% elsif block.settings.image != blank %}{{ block.settings.image | image_url: width: 900 }}{% endif %}"
+              aria-label="Open {{ block.settings.title | escape }}">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 1V13M1 7H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        {% endfor %}
+
+        <div class="crs-center">
+          {% if section.settings.center_label != blank %}
+            <p>{{ section.settings.center_label }}</p>
+          {% endif %}
+          {% if section.settings.center_image != blank %}
+            {{ section.settings.center_image | image_url: width: 140 | image_tag: loading: 'lazy', class: 'img' }}
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Right-side drawer -->
+  <div class="crs-overlay" aria-hidden="true">
+    <div class="crs-drawer" role="dialog" aria-modal="true">
+      <div class="crs-drawer-head">
+        <span class="crs-tag">card</span>
+        <button class="crs-close" aria-label="Close drawer">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4L4 18M4 4L18 18" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="crs-drawer-img-wrap">
+        <img src="" alt="" class="crs-dimg">
+      </div>
+      <div class="crs-drawer-body">
+        <h3 class="crs-dtitle"></h3>
+        <p class="crs-ddesc"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .crs-section { padding: 80px 0; }
+
+  /* ── Ring ── */
+  .crs-ring-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 700px;
+  }
+
+  .crs-ring {
+    --ring-size: min(780px, 90vw);
+    --circle-size: 230px;
+    --ring-radius: calc((var(--ring-size) - var(--circle-size)) / 2);
+    position: relative;
+    width: var(--ring-size);
+    height: var(--ring-size);
+  }
+
+  .crs-ring-item {
+    --angle: 0deg;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--ring-radius)) rotate(calc(-1 * var(--angle)));
+  }
+
+  .crs-ring-item-1 { --angle: -90deg; }
+  .crs-ring-item-2 { --angle: -30deg; }
+  .crs-ring-item-3 { --angle: 30deg; }
+  .crs-ring-item-4 { --angle: 90deg; }
+  .crs-ring-item-5 { --angle: 150deg; }
+  .crs-ring-item-6 { --angle: 210deg; }
+
+  .crs-ring-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .crs-ring-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.22);
+    z-index: 1;
+  }
+
+  .crs-ring-inner .img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+  }
+
+  .crs-ring-inner span {
+    position: relative;
+    z-index: 2;
+    max-width: 12ch;
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 17px;
+    line-height: 1.1;
+    font-weight: 400;
+    padding: 0 10px;
+  }
+
+  /* ── + button ── */
+  .crs-plus {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #C8A951;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 10;
+    transition: background 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .crs-plus:hover {
+    background: #b8963e;
+    transform: translateX(-50%) scale(1.12);
+  }
+
+  /* ── Center piece ── */
+  .crs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .crs-center p {
+    font-family: var(--garamond, Georgia, serif);
+    font-size: clamp(18px, 2vw, 26px);
+    font-style: italic;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .crs-center .img {
+    width: 64px;
+    height: auto;
+    display: block;
+  }
+
+  /* ── Overlay backdrop ── */
+  .crs-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  .crs-overlay.is-open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+  }
+
+  .crs-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  /* ── Drawer panel ── */
+  .crs-drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(520px, 90vw);
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .crs-overlay.is-open .crs-drawer {
+    transform: translateX(0);
+  }
+
+  .crs-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+  }
+
+  .crs-tag {
+    font-size: 11px;
+    font-family: var(--aspekta);
+    text-transform: lowercase;
+    letter-spacing: 0.06em;
+    color: #1A1A1A;
+    background: #f0f0f0;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .crs-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .crs-close:hover { opacity: 0.6; }
+
+  .crs-drawer-img-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #f5f5f5;
+    flex-shrink: 0;
+  }
+
+  .crs-dimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1);
+  }
+
+  .crs-drawer-body {
+    padding: 28px 24px 40px;
+    flex: 1;
+  }
+
+  .crs-dtitle {
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 18px;
+    color: #1A1A1A;
+    letter-spacing: -0.02em;
+  }
+
+  .crs-ddesc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #5d5d5d;
+    margin: 0;
+    white-space: pre-line;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .crs-ring {
+      --ring-size: min(340px, 95vw);
+      --circle-size: 100px;
+    }
+
+    .crs-ring-wrap { min-height: 380px; }
+
+    .crs-ring-inner span { font-size: 11px; }
+
+    .crs-plus {
+      width: 24px;
+      height: 24px;
+    }
+
+    .crs-plus svg { width: 10px; height: 10px; }
+
+    .crs-center p { font-size: 14px; }
+    .crs-center .img { width: 44px; }
+  }
+</style>
+
+<script>
+(function () {
+  var sec     = document.getElementById('crs-{{ section.id }}');
+  if (!sec) return;
+
+  var overlay  = sec.querySelector('.crs-overlay');
+  var drawer   = sec.querySelector('.crs-drawer');
+  var dimg     = sec.querySelector('.crs-dimg');
+  var dtitle   = sec.querySelector('.crs-dtitle');
+  var ddesc    = sec.querySelector('.crs-ddesc');
+  var closeBtn = sec.querySelector('.crs-close');
+  var lockedY  = 0;
+
+  function openDrawer(title, desc, img) {
+    dimg.src            = img || '';
+    dimg.style.display  = img ? 'block' : 'none';
+    dtitle.textContent  = title || '';
+    ddesc.textContent   = desc  || '';
+    overlay.setAttribute('aria-hidden', 'false');
+
+    lockedY = window.scrollY;
+    document.body.style.top      = '-' + lockedY + 'px';
+    document.body.style.position = 'fixed';
+    document.body.style.width    = '100%';
+
+    overlay.classList.add('is-open');
+  }
+
+  function closeDrawer() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+
+    document.body.style.position = '';
+    document.body.style.top      = '';
+    document.body.style.width    = '';
+    window.scrollTo(0, lockedY);
+  }
+
+  sec.querySelectorAll('.crs-plus').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      openDrawer(btn.dataset.title, btn.dataset.desc, btn.dataset.img);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeDrawer);
+
+  overlay.addEventListener('click', function (e) {
+    if (!drawer.contains(e.target)) closeDrawer();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeDrawer();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Clinical Research",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "center_label",
+      "label": "Center Label",
+      "default": "Clinical Research"
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Logo / Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Circle Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Study Design"
+        },
+        {
+          "type": "image_picker",
+          "id": "drawer_image",
+          "label": "Drawer Image (optional — uses circle image if blank)"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Drawer Description",
+          "default": "Our studies follow rigorous scientific protocols to ensure accuracy and reliability. Most trials are conducted using randomized, double-blind, placebo-controlled designs — the gold standard in clinical research."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinical Research",
+      "blocks": [
+        { "type": "item", "settings": { "title": "Study Design" } },
+        { "type": "item", "settings": { "title": "Clinical Endpoints" } },
+        { "type": "item", "settings": { "title": "Research Partners" } },
+        { "type": "item", "settings": { "title": "In-Vitro Research" } },
+        { "type": "item", "settings": { "title": "Ongoing Research" } },
+        { "type": "item", "settings": { "title": "Strain-Specific Evidence" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -343,6 +343,11 @@
         "counter_3_number": "60%",
         "counter_3_text": "Reduction in visible signs of surface dullness and uneven texture."
       }
+    },
+    "clinical-research": {
+      "type": "clinical-research",
+      "name": "Clinical Research",
+      "setting": {}
     }
   },
   "order": [
@@ -360,6 +365,7 @@
     "spacer_bVTWeE",
     "new_faq_section_n49mMB",
     "spacer_nBzpiz",
-    "serum-legal"
+    "serum-legal",
+    "clinical-research"
   ]
 }

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="that-scale-in">
             {% if section.settings.heading != blank %}
-            <div class="heading">
+            <div class="heading text-animation">
                 <h2>{{ section.settings.heading }}</h2>
             </div>
             {% endif %}
@@ -150,7 +150,7 @@
         color: #5d5d5d;
         margin: 0;
         letter-spacing: 0.02em;
-        max-width: 48ch;
+        max-width: 42ch;
     }
 
     /* Nav */
@@ -184,6 +184,9 @@
         .ts-item .ts-card-img,
         .ts-item--large .ts-card-img {
             height: 300px;
+        }
+        .that-scale .heading{
+            margin-bottom: 40px;
         }
     }
 </style>
