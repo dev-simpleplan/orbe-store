@@ -354,7 +354,9 @@ body.mobile-menu-open {
   transition: 0.4s ease all;
   position: relative;
 }
-
+.first-phase-header .fph-link span{
+  white-space: nowrap;
+}
 .first-phase-header .fph-link svg {
   transition: transform 0.3s ease;
 }
