@@ -278,6 +278,13 @@
         "cta_link": "shopify://pages/faqs"
       }
     },
+    "spacer_nBzpiz": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "serum-legal": {
       "type": "serum-legal",
       "name": "Serum Legal",
@@ -305,6 +312,7 @@
     "blogs-feature",
     "spacer_bVTWeE",
     "new_faq_section_n49mMB",
+    "spacer_nBzpiz",
     "serum-legal"
   ]
 }
