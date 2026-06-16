@@ -4,42 +4,128 @@
             <div class="top">
                 <div class="slt-left">
                     <div class="slt-left-img">
-                        <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468626.png?v=1781567707"
-                            alt="Image" class="img">
+                        {% if section.settings.image != blank %}
+                            <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image.alt | escape }}" class="img">
+                        {% else %}
+                            <img src="https://cdn.shopify.com/s/files/1/0739/8014/9916/files/Rectangle_3468626.png?v=1781567707" alt="Image" class="img">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="slt-right text-animation">
-                    <h2>The Serum-Level Ingredients Behind Our Formula</h2>
-                    <p>Every formulation begins with research. We study how specific compounds behave at a molecular
-                        level — how they interact with the body, how they remain stable, and how they deliver measurable
-                        results.
-                        Our serum-grade acids and bioactive compounds are selected for their clinical relevance, purity,
-                        and proven performance.
-                        <br>
-                        <br>
-                        The result is a formulation designed not just to work, but to work consistently and reliably.
-                    </p>
+                    {% if section.settings.heading != blank %}
+                        <h2>{{ section.settings.heading }}</h2>
+                    {% endif %}
+                    {% if section.settings.text != blank %}
+                        <p>{{ section.settings.text | newline_to_br }}</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="bottom">
                 <div class="counter-wrap">
                     <div class="count1 text-animation">
-                        <h3>89%</h3>
-                        <p>Reported noticeable improvements in overall skin balance within four weeks of consistent use.
-                        </p>
+                        {% if section.settings.counter_1_number != blank %}
+                            <h3>{{ section.settings.counter_1_number }}</h3>
+                        {% endif %}
+                        {% if section.settings.counter_1_text != blank %}
+                            <p>{{ section.settings.counter_1_text }}</p>
+                        {% endif %}
                     </div>
                     <div class="count2 text-animation">
-                        <h3>93%</h3>
-                        <p>Observed enhanced hydration and barrier support during independent clinical evaluation.
-                        </p>
+                        {% if section.settings.counter_2_number != blank %}
+                            <h3>{{ section.settings.counter_2_number }}</h3>
+                        {% endif %}
+                        {% if section.settings.counter_2_text != blank %}
+                            <p>{{ section.settings.counter_2_text }}</p>
+                        {% endif %}
                     </div>
                     <div class="count3 text-animation">
-                        <h3>60%</h3>
-                        <p>Reduction in visible signs of surface dullness and uneven texture.
-                        </p>
+                        {% if section.settings.counter_3_number != blank %}
+                            <h3>{{ section.settings.counter_3_number }}</h3>
+                        {% endif %}
+                        {% if section.settings.counter_3_text != blank %}
+                            <p>{{ section.settings.counter_3_text }}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{% schema %}
+{
+  "name": "Serum Legal",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Serum-Level Ingredients Behind Our Formula"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Every formulation begins with research. We study how specific compounds behave at a molecular level — how they interact with the body, how they remain stable, and how they deliver measurable results."
+    },
+    {
+      "type": "header",
+      "content": "Counter 1"
+    },
+    {
+      "type": "text",
+      "id": "counter_1_number",
+      "label": "Number",
+      "default": "89%"
+    },
+    {
+      "type": "textarea",
+      "id": "counter_1_text",
+      "label": "Description",
+      "default": "Reported noticeable improvements in overall skin balance within four weeks of consistent use."
+    },
+    {
+      "type": "header",
+      "content": "Counter 2"
+    },
+    {
+      "type": "text",
+      "id": "counter_2_number",
+      "label": "Number",
+      "default": "93%"
+    },
+    {
+      "type": "textarea",
+      "id": "counter_2_text",
+      "label": "Description",
+      "default": "Observed enhanced hydration and barrier support during independent clinical evaluation."
+    },
+    {
+      "type": "header",
+      "content": "Counter 3"
+    },
+    {
+      "type": "text",
+      "id": "counter_3_number",
+      "label": "Number",
+      "default": "60%"
+    },
+    {
+      "type": "textarea",
+      "id": "counter_3_text",
+      "label": "Description",
+      "default": "Reduction in visible signs of surface dullness and uneven texture."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Serum Legal"
+    }
+  ]
+}
+{% endschema %}
