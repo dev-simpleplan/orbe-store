@@ -1209,6 +1209,16 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  .sp-card-top svg{
+    width: 35px;
+    height: 35px;
+  }
+  .sp-desc{
+    font-size: 14px;
+  }
+  .sp-card-bot p{
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 430px) {
