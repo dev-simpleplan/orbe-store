@@ -1,0 +1,467 @@
+{% assign sp_count = section.blocks.size %}
+
+<div class="sp-pin-wrap" style="--sp-steps: {{ sp_count }};" id="sp-wrap-{{ section.id }}">
+  <section class="sp-section" id="sp-{{ section.id }}">
+
+    <!-- Background -->
+    <div class="sp-bg">
+      {% if section.settings.video != blank %}
+        <video autoplay muted loop playsinline preload="auto" class="sp-bg-media">
+          {% for source in section.settings.video.sources %}
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {% endfor %}
+        </video>
+      {% elsif section.settings.background_image != blank %}
+        <img src="{{ section.settings.background_image | image_url: width: 1920 }}" alt="" class="sp-bg-media" loading="lazy">
+      {% endif %}
+    </div>
+    <div class="sp-overlay"></div>
+
+    <!-- Content -->
+    <div class="sp-inner">
+
+      <!-- Top heading (stays static while cards animate) -->
+      {% if section.settings.heading != blank or section.settings.description != blank %}
+        <div class="sp-head">
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <p>{{ section.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <!-- Cards stack (position:absolute, driven by scroll) -->
+      <div class="sp-cards-wrap">
+        {% for block in section.blocks %}
+          <div class="sp-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <div class="sp-card-top">
+              <span class="sp-step">0{{ forloop.index }}</span>
+              {% if section.settings.logo != blank %}
+                {{ section.settings.logo | image_url: width: 120 | image_tag: loading: 'lazy', class: 'sp-logo' }}
+              {% endif %}
+            </div>
+            <div class="sp-card-bot">
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <p>{{ block.settings.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+    <!-- Dots indicator -->
+    {% if sp_count > 1 %}
+      <div class="sp-dots" aria-hidden="true">
+        {% for block in section.blocks %}
+          <span class="sp-dot"></span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </section>
+</div>
+
+<style>
+  /* ── Pin wrapper — creates the scroll height ── */
+  .sp-pin-wrap {
+    height: calc(var(--sp-steps) * 100vh);
+  }
+
+  /* ── Sticky section fills viewport ── */
+  .sp-section {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Background ── */
+  .sp-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .sp-bg-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1);
+  }
+
+  .sp-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    z-index: 1;
+  }
+
+  /* ── Inner flex column ── */
+  .sp-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 70px 60px 100px;
+    gap: 48px;
+    box-sizing: border-box;
+  }
+
+  /* ── Static heading ── */
+  .sp-head {
+    text-align: center;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .sp-head h2 {
+    font-size: clamp(34px, 4.5vw, 64px);
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 0 18px;
+    letter-spacing: -0.03em;
+  }
+
+  .sp-head p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 52ch;
+    margin: 0 auto;
+  }
+
+  /* ── Cards stack ── */
+  .sp-cards-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    flex: 1;
+  }
+
+  /* All cards stacked at same position */
+  .sp-card {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(48px);
+    backdrop-filter: blur(48px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 6px;
+    padding: 40px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* Default: hidden below */
+    opacity: 0;
+    transform: translateY(48px);
+    pointer-events: none;
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.34, 1.05, 0.64, 1);
+  }
+
+  /* Active card */
+  .sp-card.sp-card--active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Exiting card (scrolled past) */
+  .sp-card.sp-card--exit {
+    opacity: 0;
+    transform: translateY(-40px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  /* Card top row */
+  .sp-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .sp-step {
+    font-size: clamp(30px, 3.5vw, 50px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: var(--aspekta);
+    line-height: 1;
+  }
+
+  .sp-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 50%;
+    display: block;
+  }
+
+  /* Card bottom text */
+  .sp-card-bot {
+    text-align: center;
+    color: #fff;
+  }
+
+  .sp-card-bot h3 {
+    font-size: clamp(34px, 5vw, 62px);
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .sp-card-bot p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.70);
+    max-width: 42ch;
+    margin: 0 auto;
+  }
+
+  /* ── Dots indicator ── */
+  .sp-dots {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .sp-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: block;
+  }
+
+  .sp-dot.sp-dot--active {
+    background: #fff;
+    transform: scale(1.4);
+  }
+
+  /* ── Mobile: disable pin, normal flow ── */
+  @media (max-width: 767px) {
+    .sp-pin-wrap { height: auto; }
+
+    .sp-section {
+      position: relative;
+      height: auto;
+      min-height: 100vh;
+    }
+
+    .sp-inner { padding: 60px 20px 90px; gap: 36px; }
+
+    .sp-cards-wrap {
+      flex: none;
+      height: 380px;
+    }
+
+    .sp-card { padding: 28px 22px; }
+
+    .sp-dots { bottom: 24px; }
+  }
+</style>
+
+<script>
+(function () {
+  var wrap = document.getElementById('sp-wrap-{{ section.id }}');
+  var sec  = document.getElementById('sp-{{ section.id }}');
+  if (!wrap || !sec) return;
+
+  var cards   = Array.from(sec.querySelectorAll('.sp-card'));
+  var dots    = Array.from(sec.querySelectorAll('.sp-dot'));
+  var current = -1;
+
+  /* ── Calculate absolute offset of wrap from document top ── */
+  function getDocTop(el) {
+    var top = 0;
+    while (el) { top += el.offsetTop; el = el.offsetParent; }
+    return top;
+  }
+
+  var wrapTop    = 0;
+  var wrapHeight = 0;
+
+  function measureWrap() {
+    wrapTop    = getDocTop(wrap);
+    wrapHeight = wrap.offsetHeight;
+  }
+
+  /* ── Show card by index ── */
+  function showCard(index) {
+    if (index === current) return;
+
+    cards.forEach(function (c, i) {
+      if (i === index) {
+        c.classList.remove('sp-card--exit');
+        c.classList.add('sp-card--active');
+      } else if (i < index) {
+        /* already scrolled past → exit upward */
+        c.classList.add('sp-card--exit');
+        c.classList.remove('sp-card--active');
+      } else {
+        /* not yet reached → wait below */
+        c.classList.remove('sp-card--exit', 'sp-card--active');
+      }
+    });
+
+    dots.forEach(function (d, i) {
+      d.classList.toggle('sp-dot--active', i === index);
+    });
+
+    current = index;
+  }
+
+  /* ── Scroll handler ── */
+  function handleScroll(scrollY) {
+    /* On mobile the pin is disabled — just show first card */
+    if (window.innerWidth <= 767) {
+      showCard(0);
+      return;
+    }
+
+    var scrollIntoPin = scrollY - wrapTop;
+    var scrollable    = wrapHeight - window.innerHeight;
+
+    if (scrollIntoPin <= 0 || scrollable <= 0) {
+      showCard(0);
+      return;
+    }
+
+    if (scrollIntoPin >= scrollable) {
+      showCard(cards.length - 1);
+      return;
+    }
+
+    var progress  = scrollIntoPin / scrollable;
+    var cardIndex = Math.min(
+      Math.floor(progress * cards.length),
+      cards.length - 1
+    );
+
+    showCard(cardIndex);
+  }
+
+  /* ── Bootstrap ── */
+  measureWrap();
+  showCard(0);
+
+  /* Re-measure on resize */
+  window.addEventListener('resize', function () {
+    measureWrap();
+    handleScroll(window.lenis ? window.lenis.scroll : (window.scrollY || 0));
+  });
+
+  /* Prefer Lenis scroll event; fall back to native */
+  if (window.lenis) {
+    window.lenis.on('scroll', function (e) {
+      handleScroll(e.scroll);
+    });
+  } else {
+    window.addEventListener('scroll', function () {
+      handleScroll(window.scrollY || document.documentElement.scrollTop);
+    }, { passive: true });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Scientific Process",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Scientific Process"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "At Orbé, simplicity is an act of respect. Respect for your time, your mind, and your body. We refine everything: our formulas, our design, even the way we communicate."
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Card Icon / Logo (top-right of card)"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background Video (overrides image)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Research"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scientific Process",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Research",
+            "description": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Formulation",
+            "description": "Each ingredient is selected at a therapeutic dose and combined in a formula that works synergistically — never for show, always for function."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Testing",
+            "description": "We test every batch for purity, potency, and stability before it reaches you. No compromises at this stage."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
