@@ -298,6 +298,11 @@
         "counter_3_number": "60%",
         "counter_3_text": "Reduction in visible signs of surface dullness and uneven texture."
       }
+    },
+    "that-scale":{
+      "type": "that-scale",
+      "name": "That Scale Slider",
+      "settings": {}
     }
   },
   "order": [
@@ -313,6 +318,7 @@
     "spacer_bVTWeE",
     "new_faq_section_n49mMB",
     "spacer_nBzpiz",
-    "serum-legal"
+    "serum-legal",
+     "that-scale"
   ]
 }
