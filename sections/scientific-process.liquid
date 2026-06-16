@@ -1,90 +1,82 @@
 {% assign sp_count = section.blocks.size %}
 
-<div class="sp-pin-wrap" style="--sp-steps: {{ sp_count }};" id="sp-wrap-{{ section.id }}">
-  <section class="sp-section" id="sp-{{ section.id }}">
+<section class="sp-section" id="sp-{{ section.id }}">
 
-    <!-- Background -->
-    <div class="sp-bg">
-      {% if section.settings.video != blank %}
-        <video autoplay muted loop playsinline preload="auto" class="sp-bg-media">
-          {% for source in section.settings.video.sources %}
-            <source src="{{ source.url }}" type="{{ source.mime_type }}">
-          {% endfor %}
-        </video>
-      {% elsif section.settings.background_image != blank %}
-        <img src="{{ section.settings.background_image | image_url: width: 1920 }}" alt="" class="sp-bg-media" loading="lazy">
-      {% endif %}
-    </div>
-    <div class="sp-overlay"></div>
-
-    <!-- Content -->
-    <div class="sp-inner">
-
-      <!-- Top heading (stays static while cards animate) -->
-      {% if section.settings.heading != blank or section.settings.description != blank %}
-        <div class="sp-head">
-          {% if section.settings.heading != blank %}
-            <h2>{{ section.settings.heading }}</h2>
-          {% endif %}
-          {% if section.settings.description != blank %}
-            <p>{{ section.settings.description }}</p>
-          {% endif %}
-        </div>
-      {% endif %}
-
-      <!-- Cards stack (position:absolute, driven by scroll) -->
-      <div class="sp-cards-wrap">
-        {% for block in section.blocks %}
-          <div class="sp-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
-            <div class="sp-card-top">
-              <span class="sp-step">0{{ forloop.index }}</span>
-              {% if section.settings.logo != blank %}
-                {{ section.settings.logo | image_url: width: 120 | image_tag: loading: 'lazy', class: 'sp-logo' }}
-              {% endif %}
-            </div>
-            <div class="sp-card-bot">
-              {% if block.settings.title != blank %}
-                <h3>{{ block.settings.title }}</h3>
-              {% endif %}
-              {% if block.settings.description != blank %}
-                <p>{{ block.settings.description }}</p>
-              {% endif %}
-            </div>
-          </div>
+  <!-- Background -->
+  <div class="sp-bg">
+    {% if section.settings.video != blank %}
+      <video autoplay muted loop playsinline preload="auto" class="sp-bg-media">
+        {% for source in section.settings.video.sources %}
+          <source src="{{ source.url }}" type="{{ source.mime_type }}">
         {% endfor %}
-      </div>
+      </video>
+    {% elsif section.settings.background_image != blank %}
+      <img src="{{ section.settings.background_image | image_url: width: 1920 }}" alt="" class="sp-bg-media" loading="lazy">
+    {% endif %}
+  </div>
+  <div class="sp-overlay"></div>
 
-    </div>
+  <!-- Content -->
+  <div class="sp-inner">
 
-    <!-- Dots indicator -->
-    {% if sp_count > 1 %}
-      <div class="sp-dots" aria-hidden="true">
-        {% for block in section.blocks %}
-          <span class="sp-dot"></span>
-        {% endfor %}
+    <!-- Static heading -->
+    {% if section.settings.heading != blank or section.settings.description != blank %}
+      <div class="sp-head">
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <p>{{ section.settings.description }}</p>
+        {% endif %}
       </div>
     {% endif %}
 
-  </section>
-</div>
+    <!-- Cards (stacked, GSAP drives visibility) -->
+    <div class="sp-cards-wrap">
+      {% for block in section.blocks %}
+        <div class="sp-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <div class="sp-card-top">
+            <span class="sp-step">0{{ forloop.index }}</span>
+            {% if section.settings.logo != blank %}
+              {{ section.settings.logo | image_url: width: 120 | image_tag: loading: 'lazy', class: 'sp-logo' }}
+            {% endif %}
+          </div>
+          <div class="sp-card-bot">
+            {% if block.settings.title != blank %}
+              <h3>{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p>{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <!-- Dots -->
+  {% if sp_count > 1 %}
+    <div class="sp-dots" aria-hidden="true">
+      {% for block in section.blocks %}
+        <span class="sp-dot"></span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</section>
 
 <style>
-  /* ── Pin wrapper — creates the scroll height ── */
-  .sp-pin-wrap {
-    height: calc(var(--sp-steps) * 100vh);
-  }
-
-  /* ── Sticky section fills viewport ── */
+  /* ── Section: full viewport, sticky handled by GSAP ── */
   .sp-section {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+    position: relative;
     overflow: hidden;
+    height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
-  /* ── Background ── */
+  /* Background */
   .sp-bg {
     position: absolute;
     inset: 0;
@@ -106,7 +98,7 @@
     z-index: 1;
   }
 
-  /* ── Inner flex column ── */
+  /* Inner flex column */
   .sp-inner {
     position: relative;
     z-index: 2;
@@ -119,7 +111,7 @@
     box-sizing: border-box;
   }
 
-  /* ── Static heading ── */
+  /* Static heading */
   .sp-head {
     text-align: center;
     color: #fff;
@@ -142,7 +134,7 @@
     margin: 0 auto;
   }
 
-  /* ── Cards stack ── */
+  /* Cards stack */
   .sp-cards-wrap {
     position: relative;
     width: 100%;
@@ -150,7 +142,7 @@
     flex: 1;
   }
 
-  /* All cards stacked at same position */
+  /* All cards absolutely stacked — GSAP controls opacity/transform */
   .sp-card {
     position: absolute;
     inset: 0;
@@ -163,30 +155,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    /* Default: hidden below */
+    visibility: hidden;
     opacity: 0;
-    transform: translateY(48px);
-    pointer-events: none;
-    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.34, 1.05, 0.64, 1);
   }
 
-  /* Active card */
-  .sp-card.sp-card--active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  /* Exiting card (scrolled past) */
-  .sp-card.sp-card--exit {
-    opacity: 0;
-    transform: translateY(-40px);
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  /* Card top row */
   .sp-card-top {
     display: flex;
     justify-content: space-between;
@@ -209,7 +181,6 @@
     display: block;
   }
 
-  /* Card bottom text */
   .sp-card-bot {
     text-align: center;
     color: #fff;
@@ -231,7 +202,7 @@
     margin: 0 auto;
   }
 
-  /* ── Dots indicator ── */
+  /* Dots */
   .sp-dots {
     position: absolute;
     bottom: 36px;
@@ -247,139 +218,126 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.35);
-    transition: background 0.3s ease, transform 0.3s ease;
+    background: #fff;
+    opacity: 0.3;
     display: block;
   }
 
-  .sp-dot.sp-dot--active {
-    background: #fff;
-    transform: scale(1.4);
-  }
-
-  /* ── Mobile: disable pin, normal flow ── */
+  /* Mobile: no pin, stacked cards scroll naturally */
   @media (max-width: 767px) {
-    .sp-pin-wrap { height: auto; }
-
-    .sp-section {
-      position: relative;
-      height: auto;
-      min-height: 100vh;
-    }
-
+    .sp-section { height: auto; min-height: 100vh; }
     .sp-inner { padding: 60px 20px 90px; gap: 36px; }
-
-    .sp-cards-wrap {
-      flex: none;
-      height: 380px;
-    }
-
+    .sp-cards-wrap { flex: none; height: 380px; }
     .sp-card { padding: 28px 22px; }
-
-    .sp-dots { bottom: 24px; }
   }
 </style>
 
 <script>
 (function () {
-  var wrap = document.getElementById('sp-wrap-{{ section.id }}');
-  var sec  = document.getElementById('sp-{{ section.id }}');
-  if (!wrap || !sec) return;
+  function init() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      setTimeout(init, 100);
+      return;
+    }
 
-  var cards   = Array.from(sec.querySelectorAll('.sp-card'));
-  var dots    = Array.from(sec.querySelectorAll('.sp-dot'));
-  var current = -1;
+    gsap.registerPlugin(ScrollTrigger);
 
-  /* ── Calculate absolute offset of wrap from document top ── */
-  function getDocTop(el) {
-    var top = 0;
-    while (el) { top += el.offsetTop; el = el.offsetParent; }
-    return top;
-  }
+    const section = document.getElementById('sp-{{ section.id }}');
+    if (!section) return;
 
-  var wrapTop    = 0;
-  var wrapHeight = 0;
+    const cards = gsap.utils.toArray(section.querySelectorAll('.sp-card'));
+    const dots  = gsap.utils.toArray(section.querySelectorAll('.sp-dot'));
+    if (!cards.length) return;
 
-  function measureWrap() {
-    wrapTop    = getDocTop(wrap);
-    wrapHeight = wrap.offsetHeight;
-  }
+    /* ── Timing constants (mirrors what-we-choose pattern) ── */
+    const cardOverlap    = 0.85;
+    const cardEnterDur   = 0.70;
+    const cardHoldDur    = 0.30;
+    const cardExitDur    = 0.55;
+    const cardTotalDur   = cardEnterDur + cardHoldDur + cardExitDur;
+    const timelineLength = (cards.length - 1) * cardOverlap + cardTotalDur;
 
-  /* ── Show card by index ── */
-  function showCard(index) {
-    if (index === current) return;
+    const getPinDistance   = () => window.innerHeight * timelineLength * 1.12;
+    const getEarlyDistance = () => window.innerHeight * 0.8;
 
-    cards.forEach(function (c, i) {
-      if (i === index) {
-        c.classList.remove('sp-card--exit');
-        c.classList.add('sp-card--active');
-      } else if (i < index) {
-        /* already scrolled past → exit upward */
-        c.classList.add('sp-card--exit');
-        c.classList.remove('sp-card--active');
-      } else {
-        /* not yet reached → wait below */
-        c.classList.remove('sp-card--exit', 'sp-card--active');
+    /* ── Pin the section ── */
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top top',
+      end: () => `+=${getPinDistance()}`,
+      pin: true,
+      anticipatePin: 1.5,
+      invalidateOnRefresh: true,
+    });
+
+    /* ── Initial state: all cards hidden below ── */
+    gsap.set(cards, { autoAlpha: 0, y: 72 });
+    gsap.set(dots,  { opacity: 0.3, scale: 1 });
+
+    /* ── Scrubbed timeline drives card + dot animations ── */
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 80%',
+        end: () => `+=${getPinDistance() + getEarlyDistance()}`,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    cards.forEach((card, index) => {
+      const pos = index * cardOverlap;
+
+      /* Ensure card is hidden before its turn */
+      tl.set(card, { autoAlpha: 0, y: 72 }, pos);
+
+      /* Enter — slide up from below */
+      tl.to(card, {
+        autoAlpha: 1,
+        y: 0,
+        ease: 'power2.out',
+        duration: cardEnterDur,
+      }, pos);
+
+      /* Hold at center */
+      tl.to(card, {
+        y: 0,
+        ease: 'none',
+        duration: cardHoldDur,
+      }, pos + cardEnterDur);
+
+      /* Exit — slide up and out */
+      tl.to(card, {
+        autoAlpha: 0,
+        y: -60,
+        ease: 'power2.in',
+        duration: cardExitDur,
+      }, pos + cardEnterDur + cardHoldDur);
+
+      tl.set(card, { autoAlpha: 0 }, pos + cardTotalDur);
+
+      /* Dot: brighten on enter, dim on exit */
+      if (dots[index]) {
+        tl.to(dots[index], {
+          opacity: 1,
+          scale: 1.5,
+          ease: 'none',
+          duration: cardEnterDur,
+        }, pos);
+
+        tl.to(dots[index], {
+          opacity: 0.3,
+          scale: 1,
+          ease: 'none',
+          duration: cardExitDur,
+        }, pos + cardEnterDur + cardHoldDur);
       }
     });
 
-    dots.forEach(function (d, i) {
-      d.classList.toggle('sp-dot--active', i === index);
-    });
-
-    current = index;
+    window.addEventListener('load', () => ScrollTrigger.refresh());
   }
 
-  /* ── Scroll handler ── */
-  function handleScroll(scrollY) {
-    /* On mobile the pin is disabled — just show first card */
-    if (window.innerWidth <= 767) {
-      showCard(0);
-      return;
-    }
-
-    var scrollIntoPin = scrollY - wrapTop;
-    var scrollable    = wrapHeight - window.innerHeight;
-
-    if (scrollIntoPin <= 0 || scrollable <= 0) {
-      showCard(0);
-      return;
-    }
-
-    if (scrollIntoPin >= scrollable) {
-      showCard(cards.length - 1);
-      return;
-    }
-
-    var progress  = scrollIntoPin / scrollable;
-    var cardIndex = Math.min(
-      Math.floor(progress * cards.length),
-      cards.length - 1
-    );
-
-    showCard(cardIndex);
-  }
-
-  /* ── Bootstrap ── */
-  measureWrap();
-  showCard(0);
-
-  /* Re-measure on resize */
-  window.addEventListener('resize', function () {
-    measureWrap();
-    handleScroll(window.lenis ? window.lenis.scroll : (window.scrollY || 0));
-  });
-
-  /* Prefer Lenis scroll event; fall back to native */
-  if (window.lenis) {
-    window.lenis.on('scroll', function (e) {
-      handleScroll(e.scroll);
-    });
-  } else {
-    window.addEventListener('scroll', function () {
-      handleScroll(window.scrollY || document.documentElement.scrollTop);
-    }, { passive: true });
-  }
+  init();
 })();
 </script>
 
