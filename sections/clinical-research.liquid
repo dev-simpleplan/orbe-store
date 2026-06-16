@@ -112,7 +112,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.22);
+    background: rgba(0, 0, 0, 0.40);
     z-index: 1;
   }
 
@@ -295,17 +295,18 @@ background: linear-gradient(180deg, #E3B26F -10.88%, #FFFAB6 100%);
   }
 
   .crs-dtitle {
-    font-size: clamp(24px, 3vw, 34px);
+    font-size: clamp(28px, 5vw, 52px);
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 150%;
     margin: 0 0 18px;
     color: #1A1A1A;
-    letter-spacing: -0.02em;
+    letter-spacing: 0em;
   }
 
   .crs-ddesc {
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 16px;
+    line-height: 150%;
+    font-family: var(--aspekta);
     color: #5d5d5d;
     margin: 0;
     white-space: pre-line;
@@ -353,9 +354,11 @@ background: linear-gradient(180deg, #E3B26F -10.88%, #FFFAB6 100%);
 
     .crs-center p { font-size: 14px; }
     .crs-center .img { width: 44px; }
+    .crs-ddesc{
+        font-size: 14px;
+    }
   }
 </style>
-
 <script>
 (function () {
   var sec     = document.getElementById('crs-{{ section.id }}');
