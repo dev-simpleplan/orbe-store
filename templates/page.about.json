@@ -32,7 +32,7 @@
     "slide-in-img": {
       "type": "slide-in-image",
       "settings": {
-        "heading": "Women are navigating more expectations, more information, and more noise than ever. Orbe was created to offer a different kind of space, one rooted in calm, honesty, and clarity. Our purpose is simple: to support women with knowledge, nourishment, and rituals that feel intuitive, not overwhelming.",
+        "heading": "<p>Women are navigating more expectations, more information, and more noise than ever. <strong>Orbe</strong> was created to offer a different kind of space, one rooted in <strong>calm, honesty, and clarity.</strong> Our purpose is simple: to support women with knowledge, nourishment, and rituals that feel intuitive, not overwhelming.</p>",
         "image": "shopify://shop_images/Group_2085663427.png"
       }
     },
@@ -242,7 +242,7 @@
         "spacer_height": 120
       }
     },
-       "batch-verified": {
+    "batch-verified": {
       "type": "batch-verified",
       "blocks": {
         "verification_dkWhHz": {
@@ -471,7 +471,7 @@
         "spacer_height": 120
       }
     },
-      "join-community": {
+    "join-community": {
       "type": "join-community",
       "blocks": {
         "image_jMfm34": {
@@ -526,13 +526,7 @@
         "twitter_url": "#!",
         "linkedin_url": "#!"
       }
-    },
-    // "spacer7": {
-    //   "type": "spacer",
-    //   "settings": {
-    //     "spacer_height": 120
-    //   }
-    // }
+    }
   },
   "order": [
     "about-banner",
@@ -557,7 +551,6 @@
     "spacer_12",
     "blogs_feature_dxjadX",
     "spacer_7GJQYM",
-    "join-community",
-    // "spacer7"
+    "join-community"
   ]
 }
