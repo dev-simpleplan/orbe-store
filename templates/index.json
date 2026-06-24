@@ -165,7 +165,7 @@
         "spacer_height": 120
       }
     },
-   "batch-verified": {
+    "batch-verified": {
       "type": "batch-verified",
       "blocks": {
         "verification_dkWhHz": {
@@ -303,7 +303,8 @@
         "image_3": "shopify://shop_images/Rectangle_3468542.png",
         "image_4": "shopify://shop_images/Rectangle_3468540.png",
         "image_5": "shopify://shop_images/Rectangle_3468541.png",
-        "orbe_logo": "shopify://shop_images/Group_2085663253.svg"
+        "orbe_logo_top": "shopify://shop_images/Group_2085663253_a33fd947-7f3f-40b8-bcfe-569038a0f662.svg",
+        "orbe_logo_bottom": "shopify://shop_images/Group_2085663253_copy.svg"
       }
     },
     "spacer_mtgfHD": {
@@ -538,7 +539,7 @@
     "spacer_LNTQEE",
     "rotating-circle",
     "spacer_TyQLbr",
-      "batch-verified",
+    "batch-verified",
     "certified-by",
     "see-through",
     "spacer_mtgfHD",
