@@ -1,0 +1,37 @@
+{% comment %}
+  Renders a See Through media slot.
+  Shows the video if one is set, otherwise the image.
+  Videos get a play/pause control button; images have no button.
+
+  Accepts:
+    image - image setting
+    video - video setting (shopify video)
+    width - image render width (default 800)
+{% endcomment %}
+{% liquid
+  assign st_width = width | default: 800
+%}
+{% if video != blank %}
+  <div class="st-video-wrap">
+    {{
+      video
+      | video_tag:
+        autoplay: true,
+        loop: true,
+        muted: true,
+        controls: false,
+        playsinline: true,
+        class: 'st-video'
+    }}
+    <button type="button" class="st-play is-playing" aria-label="Pause">
+      <svg class="st-play-pause" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor" />
+      </svg>
+      <svg class="st-play-play" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M8 5v14l11-7z" fill="currentColor" />
+      </svg>
+    </button>
+  </div>
+{% elsif image != blank %}
+  {{ image | image_url: width: st_width | image_tag: alt: '', class: 'img' }}
+{% endif %}

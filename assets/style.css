@@ -123,6 +123,7 @@ a {
   display: block;
 }
 .primary-btn {
+  position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #e3b26f -10.88%, #fffab6 100%);
   border-radius: 50px;
@@ -137,10 +138,20 @@ a {
   color: #6a5635;
   display: inline-block;
   width: fit-content;
-  transition: 0.4s ease all;
+  z-index: 0;
 }
-.primary-btn:hover {
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
   background: linear-gradient(180deg, #fffab6 -10.88%, #e3b26f 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.primary-btn:hover::before {
+  opacity: 1;
 }
 .spacer {
   height: 360px;

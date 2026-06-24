@@ -10,7 +10,7 @@
 
       <div class="sii-img">
         {% if section.settings.image != blank %}
-        <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.heading | escape }}"
+        <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.heading | strip_html | escape }}"
           class="parallax-img">
         {% endif %}
       </div>
@@ -25,8 +25,34 @@
 
     function splitWords(selector) {
       document.querySelectorAll(selector).forEach(el => {
-        let words = el.innerText.trim().split(" ");
-        el.innerHTML = words.map(word => `<span>${word}</span>`).join(" ");
+        const frag = document.createDocumentFragment();
+
+        // Recursively walk the rich-text tree (Shopify wraps content in <p>, and
+        // accent words come through as <strong>/<b>). Any text inside a bold tag
+        // becomes an accent word.
+        function walk(node, accent) {
+          node.childNodes.forEach(child => {
+            if (child.nodeType === 3) {
+              const text = child.textContent.trim();
+              if (!text) return;
+              text.split(/\s+/).forEach(word => {
+                const span = document.createElement("span");
+                span.textContent = word;
+                if (accent) span.classList.add("accent");
+                frag.appendChild(span);
+                frag.appendChild(document.createTextNode(" "));
+              });
+            } else if (child.nodeType === 1) {
+              const tag = child.tagName;
+              walk(child, accent || tag === "STRONG" || tag === "B");
+            }
+          });
+        }
+
+        walk(el, false);
+
+        el.innerHTML = "";
+        el.appendChild(frag);
       });
     }
 
@@ -45,7 +71,8 @@
     });
 
     tl1.to(words, {
-      color: "#1A1A1A",
+      // Accent (bold) words fill to the gold color, the rest to near-black.
+      color: (i, target) => target.classList.contains("accent") ? "#b98846" : "#1A1A1A",
       stagger: {
         each: 0.1,
         ease: "power1.inOut"
@@ -71,7 +98,7 @@
 "name": "Slide In Image",
 "settings": [
 {
-"type": "textarea",
+"type": "richtext",
 "id": "heading",
 "label": "Heading Text",
 },

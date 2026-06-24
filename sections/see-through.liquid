@@ -11,9 +11,7 @@
           {% endif %}
         </div>
         <div class="st-media">
-          {% if section.settings.image_1 != blank %}
-            {{ section.settings.image_1 | image_url: width: 900 | image_tag: alt: '', class: 'img' }}
-          {% endif %}
+          {% render 'st-media', image: section.settings.image_1, video: section.settings.video_1, width: 900 %}
         </div>
         <div class="st-orbe-logo top">
           {% if section.settings.orbe_logo_top != blank %}
@@ -28,20 +26,14 @@
       </div>
       <div class="st-struct-2">
         <div class="st-media">
-          {% if section.settings.image_2 != blank %}
-            {{ section.settings.image_2 | image_url: width: 500 | image_tag: alt: '', class: 'img' }}
-          {% endif %}
+          {% render 'st-media', image: section.settings.image_2, video: section.settings.video_2, width: 500 %}
         </div>
         <div></div>
         <div class="st-media">
-          {% if section.settings.image_3 != blank %}
-            {{ section.settings.image_3 | image_url: width: 500 | image_tag: alt: '', class: 'img' }}
-          {% endif %}
+          {% render 'st-media', image: section.settings.image_3, video: section.settings.video_3, width: 500 %}
         </div>
         <div class="st-media">
-          {% if section.settings.image_4 != blank %}
-            {{ section.settings.image_4 | image_url: width: 700 | image_tag: alt: '', class: 'img' }}
-          {% endif %}
+          {% render 'st-media', image: section.settings.image_4, video: section.settings.video_4, width: 700 %}
         </div>
         <div class="st-orbe-logo bottom">
           {% if section.settings.orbe_logo_bottom != blank %}
@@ -58,13 +50,39 @@
     <div class="st-struct-3">
       <div></div>
       <div class="st-media">
-        {% if section.settings.image_5 != blank %}
-          {{ section.settings.image_5 | image_url: width: 800 | image_tag: alt: '', class: 'img' }}
-        {% endif %}
+        {% render 'st-media', image: section.settings.image_5, video: section.settings.video_5, width: 800 %}
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    document.querySelectorAll('.see-through .st-video-wrap').forEach(function (wrap) {
+      var video = wrap.querySelector('video');
+      var btn = wrap.querySelector('.st-play');
+      if (!video || !btn) return;
+
+      function sync() {
+        var playing = !video.paused && !video.ended;
+        btn.classList.toggle('is-playing', playing);
+        btn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+      }
+
+      btn.addEventListener('click', function () {
+        if (video.paused || video.ended) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener('play', sync);
+      video.addEventListener('pause', sync);
+      sync();
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -88,9 +106,23 @@
       "label": "Side Text"
     },
     {
+      "type": "header",
+      "content": "Structure 1 — Media",
+      "info": "Add a video to show video, otherwise the image is shown."
+    },
+    {
       "type": "image_picker",
       "id": "image_1",
       "label": "Structure 1 — Image"
+    },
+    {
+      "type": "video",
+      "id": "video_1",
+      "label": "Structure 1 — Video"
+    },
+    {
+      "type": "header",
+      "content": "Structure 2 — Media 1"
     },
     {
       "type": "image_picker",
@@ -98,9 +130,27 @@
       "label": "Structure 2 — Image 1"
     },
     {
+      "type": "video",
+      "id": "video_2",
+      "label": "Structure 2 — Video 1"
+    },
+    {
+      "type": "header",
+      "content": "Structure 2 — Media 2"
+    },
+    {
       "type": "image_picker",
       "id": "image_3",
       "label": "Structure 2 — Image 2"
+    },
+    {
+      "type": "video",
+      "id": "video_3",
+      "label": "Structure 2 — Video 2"
+    },
+    {
+      "type": "header",
+      "content": "Structure 2 — Media 3"
     },
     {
       "type": "image_picker",
@@ -108,9 +158,23 @@
       "label": "Structure 2 — Image 3"
     },
     {
+      "type": "video",
+      "id": "video_4",
+      "label": "Structure 2 — Video 3"
+    },
+    {
+      "type": "header",
+      "content": "Structure 3 — Media"
+    },
+    {
       "type": "image_picker",
       "id": "image_5",
       "label": "Structure 3 — Image"
+    },
+    {
+      "type": "video",
+      "id": "video_5",
+      "label": "Structure 3 — Video"
     },
     {
       "type": "image_picker",

@@ -529,7 +529,7 @@ header.header--hidden .has-mega-dropdown.is-mega-open .fph-mega-dropdown {
 }
 .header.desktop .center svg {
   max-width: 138px;
-  padding: 15px 0px;
+  padding: 8px 0px;
 }
 
 header.header--transparent .fph-link {
@@ -795,6 +795,7 @@ header.header--transparent .center svg path {
   z-index: 2;
   will-change: transform;
   pointer-events: none;
+  top: -20.6%;
 }
 
 #orbe-masked-video {
@@ -1181,10 +1182,26 @@ header.header--transparent
   z-index: 1;
   filter: grayscale(1);
 }
+.at-single-strike {
+  position: absolute;
+  top: calc(50% + 10px);
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: #fff;
+  z-index: 2;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+}
+.at-single-image-block.is-struck .at-single-strike {
+  transform: translateY(-50%) scaleX(1);
+}
 .orbe-motion-logo {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   justify-content: center;
 }
@@ -1519,6 +1536,20 @@ header.header--transparent
   pointer-events: none;
   transform: translate3d(0, 0, 0);
   will-change: transform;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 12%,
+    #000 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 12%,
+    #000 90%,
+    transparent 100%
+  );
 }
 
 .why-orbe .container {
@@ -1579,7 +1610,7 @@ header.header--transparent
 .see-through-in .st-struct-2 {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
-  gap: 23.29px;
+  gap: 23px;
   height: 325px;
   overflow: hidden;
   margin-bottom: 20px;
@@ -1625,6 +1656,84 @@ header.header--transparent
   height: 100%;
   width: 100%;
   max-height: 550px;
+  position: relative;
+  min-height: 500px;
+}
+
+.see-through .st-media .st-play {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--golden, #c9a36a);
+  color: var(--black, #1a1a1a);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.see-through .st-media .st-play:hover {
+  transform: scale(1.08);
+}
+.st-struct-2 .st-media {
+  height: 325px;
+  max-height: inherit;
+  min-height: inherit;
+}
+.st-struct-2 .st-media .st-video-wrap {
+  height: 100%;
+}
+.st-struct-2 .st-media:nth-child(3) .st-play {
+  top: auto;
+  bottom: 12px;
+}
+.st-struct-2 .st-media:nth-child(4) .st-play {
+  right: auto;
+  left: 12px;
+}
+.st-struct-3 .st-media .st-play {
+  top: auto;
+  bottom: 12px;
+}
+
+.see-through .st-media .st-video-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.see-through .st-media .st-play svg {
+  display: block;
+}
+
+.see-through .st-media .st-play .st-play-play {
+  margin-left: 2px;
+}
+
+.see-through .st-media .st-play .st-play-play {
+  display: none;
+}
+
+.see-through .st-media .st-play.is-playing .st-play-pause {
+  display: block;
+}
+
+.see-through .st-media .st-play.is-playing .st-play-play {
+  display: none;
+}
+
+.see-through .st-media .st-play:not(.is-playing) .st-play-pause {
+  display: none;
+}
+
+.see-through .st-media .st-play:not(.is-playing) .st-play-play {
+  display: block;
 }
 
 .see-through .st-media img,
@@ -1838,6 +1947,7 @@ header.header--transparent
   max-height: 700px;
   height: 100%;
   position: relative;
+  margin-top: 40px;
 }
 
 .slide-in-img h2 {
@@ -1857,6 +1967,10 @@ header.header--transparent
   color: #9d9d9d;
   display: inline-block;
   margin-right: 4px;
+}
+
+.slide-in-img .text-target span.accent {
+  font-weight: inherit;
 }
 
 .slide-in-img .parallax-img {
@@ -2316,6 +2430,7 @@ header.header--transparent
 .what-we-choose .container {
   height: 100%;
   position: relative;
+  padding-top: 20px;
 }
 .what-we-choose-in {
   position: absolute;
@@ -2324,7 +2439,7 @@ header.header--transparent
   pointer-events: none;
 }
 .what-we-choose .what-we-block {
-  aspect-ratio: 1/1;
+  aspect-ratio: 2/1.4;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -2587,7 +2702,8 @@ header.header--transparent
 .gu-stack-wrap {
   position: relative;
   width: 100%;
-  height: 512px;
+  /* height: 512px; */
+  height: 72%;
   overflow: hidden;
 }
 
@@ -2808,6 +2924,7 @@ header.header--transparent
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-bottom: 4px;
 }
 .essential-ingredient .accordion-content p {
   padding-top: 10px;
@@ -3770,6 +3887,7 @@ body.what-your-body-card-open {
   max-height: 80px;
   height: auto;
   width: auto;
+  filter: grayscale(1);
 }
 /* Certified By */
 body.template-page-thankyou .footer {

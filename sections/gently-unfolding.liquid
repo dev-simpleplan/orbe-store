@@ -145,7 +145,12 @@
                 const raw = progress * totalTransitions;
                 const activeTransition = Math.min(Math.floor(raw), totalTransitions - 1);
                 const transitionProgress = raw - Math.floor(raw);
-                const captionIndex = Math.min(activeTransition, N - 1);
+                // The image card swaps near the end of each transition (see the card
+                // tweens below), as the line fill reaches the next dot — advance the
+                // caption/timeline at the same point so all three change together.
+                const swapPoint = 0.88;
+                const destinationIndex = Math.min(activeTransition + 1, N - 1);
+                const captionIndex = transitionProgress >= swapPoint ? destinationIndex : activeTransition;
 
                 if (captionIndex !== currentIndex) {
                     currentIndex = captionIndex;
@@ -187,33 +192,36 @@
                 const position = index - 1;
                 const previousCard = cards[index - 1];
 
-                tl.set(card, {
-                    zIndex: N + index,
-                }, position + 0.24);
-
+                // Hold the current card while the line fills, then swap in the final
+                // stretch [position+0.74 .. position+1.0] so the image, the timeline dot
+                // and the line reaching the next dot all happen together.
                 tl.to(previousCard, {
                     y: -72,
                     scale: 0.82,
-                    duration: 0.22,
+                    duration: 0.16,
                     ease: 'power2.in',
-                }, position);
+                }, position + 0.74);
+
+                tl.set(card, {
+                    zIndex: N + index,
+                }, position + 0.84);
 
                 tl.set(previousCard, {
                     autoAlpha: 0,
-                }, position + 0.22);
+                }, position + 0.90);
 
                 tl.set(card, {
                     y: 0,
                     scale: 0.86,
                     autoAlpha: 1,
-                }, position + 0.24);
+                }, position + 0.84);
 
                 tl.to(card, {
                     y: 0,
                     scale: 1,
-                    duration: 0.34,
+                    duration: 0.16,
                     ease: 'back.out(1.25)',
-                }, position + 0.24);
+                }, position + 0.84);
             });
 
             updateCaption(0);
