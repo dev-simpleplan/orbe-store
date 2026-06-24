@@ -174,10 +174,10 @@
   .see-through .st-struct-3 img {
     width: 100%;
   }
-  .st-orbe-logo {
+  /* .st-orbe-logo {
     width: 400px;
     bottom: 113px;
-  }
+  } */
   .st-struct-1 h2 {
     padding-top: 0;
     font-size: 32px;
@@ -657,8 +657,8 @@
     aspect-ratio: 0.77;
   }
   .st-orbe-logo {
-    width: 160px;
-    bottom: 18%;
+    /* width: 160px;
+    bottom: 18%; */
     left: 34%;
   }
 

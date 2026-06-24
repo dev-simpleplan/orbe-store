@@ -1592,12 +1592,20 @@ header.header--transparent
 }
 .st-orbe-logo {
   position: absolute;
-  bottom: 101px;
   left: 50%;
-  max-width: 525px;
+  max-width: 36%;
   transform: translateX(-50%);
 }
+.st-orbe-logo.top {
+  bottom: -1px;
+}
+.st-orbe-logo.bottom {
+  top: -1px;
+}
 
+.st-struct-1, .st-struct-2 {
+  position: relative;
+}
 .st-struct-1 h2 {
   padding-top: 200px;
   text-transform: capitalize;

@@ -15,6 +15,11 @@
             {{ section.settings.image_1 | image_url: width: 900 | image_tag: alt: '', class: 'img' }}
           {% endif %}
         </div>
+        <div class="st-orbe-logo top">
+          {% if section.settings.orbe_logo_top != blank %}
+            {{ section.settings.orbe_logo_top | image_url: width: 500 | image_tag: alt: '', class: 'img' }}
+          {% endif %}
+        </div>
         <div class="st-question">
           {% if section.settings.side_text != blank %}
             <p>{{ section.settings.side_text }}</p>
@@ -38,12 +43,17 @@
             {{ section.settings.image_4 | image_url: width: 700 | image_tag: alt: '', class: 'img' }}
           {% endif %}
         </div>
+        <div class="st-orbe-logo bottom">
+          {% if section.settings.orbe_logo_bottom != blank %}
+            {{ section.settings.orbe_logo_bottom | image_url: width: 500 | image_tag: alt: '', class: 'img' }}
+          {% endif %}
+        </div>
       </div>
-      <div class="st-orbe-logo">
+      {% comment %} <div class="st-orbe-logo">
         {% if section.settings.orbe_logo != blank %}
           {{ section.settings.orbe_logo | image_url: width: 500 | image_tag: alt: '', class: 'img' }}
         {% endif %}
-      </div>
+      </div> {% endcomment %}
     </div>
     <div class="st-struct-3">
       <div></div>
@@ -104,8 +114,13 @@
     },
     {
       "type": "image_picker",
-      "id": "orbe_logo",
-      "label": "Orbe Logo"
+      "id": "orbe_logo_top",
+      "label": "Orbe Logo Top"
+    },
+    {
+      "type": "image_picker",
+      "id": "orbe_logo_bottom",
+      "label": "Orbe Logo Bottom"
     }
   ],
   "presets": [
