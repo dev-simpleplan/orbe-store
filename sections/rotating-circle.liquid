@@ -464,8 +464,12 @@
                         lbls[i].style.left = compactLabels[i % compactLabels.length].x + 'px';
                         lbls[i].style.top = compactLabels[i % compactLabels.length].y + 'px';
                     } else {
-                        lbls[i].style.left = (cx + Math.cos(a) * labelR) + 'px';
-                        lbls[i].style.top = (cy + Math.sin(a) * labelR) + 'px';
+                        // Push labels further out the more horizontal they are, so their
+                        // wide boxes never cover the gold dots on the left/right sides.
+                        const horiz = Math.abs(Math.cos(a));
+                        const sideLabelR = labelR + horiz * ((lbls[i].offsetWidth / 2) + 20);
+                        lbls[i].style.left = (cx + Math.cos(a) * sideLabelR) + 'px';
+                        lbls[i].style.top = (cy + Math.sin(a) * sideLabelR) + 'px';
                     }
                 }
             }

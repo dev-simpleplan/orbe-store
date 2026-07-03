@@ -1254,7 +1254,7 @@ header.header--transparent
 }
 .ready-formula-in .right img {
   width: 100%;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
 }
 /* Ready Formula */
 /* Community Ticker */
