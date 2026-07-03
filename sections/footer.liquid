@@ -12,60 +12,37 @@
 
           <div class="footer-nav">
             <div class="footer-nav-top">
-              {% assign footer_menu = linklists['footer'] %}
-              {% assign has_direct_links = false %}
 
-              {% for link in footer_menu.links %}
-                {% if link.links.size == 0 %}
-                  {% assign has_direct_links = true %}
-                {% endif %}
-              {% endfor %}
+              {% for i in (1..4) %}
+                {% assign menu_setting = 'footer_menu_' | append: i %}
+                {% assign heading_setting = 'footer_heading_' | append: i %}
 
-              {% if has_direct_links %}
-                <div class="footer-nav-links">
-                  <ul>
-                    {% assign direct_i = 0 %}
-                    {% for link in footer_menu.links %}
-                      {% if link.links.size == 0 %}
-                        {% assign direct_i = direct_i | plus: 1 %}
-                        {% if direct_i <= 3 %}
-                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                        {% endif %}
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-                  <ul>
-                    {% assign direct_i = 0 %}
-                    {% for link in footer_menu.links %}
-                      {% if link.links.size == 0 %}
-                        {% assign direct_i = direct_i | plus: 1 %}
-                        {% if direct_i > 3 %}
-                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                        {% endif %}
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-                </div>
-              {% endif %}
+                {% assign menu = section.settings[menu_setting] %}
+                {% assign heading = section.settings[heading_setting] %}
 
-              {% for link in footer_menu.links %}
-                {% if link.links.size > 0 %}
-                  <div>
-                    <p>
-                      {% if link.url != blank and link.url != '#' %}
-                        <a href="{{ link.url }}" class="footer-nav-heading-link">{{ link.title }}</a>
-                      {% else %}
-                        {{ link.title }}
-                      {% endif %}
-                    </p>
+                {% if menu != blank %}
+                  <div class="footer-menu-column">
+
+                    {% if heading != blank %}
+                      <p class="footer-menu-heading">
+                        {{ heading }}
+                      </p>
+                    {% endif %}
+
                     <ul>
-                      {% for child_link in link.links %}
-                        <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                      {% for link in menu.links %}
+                        <li>
+                          <a href="{{ link.url }}">
+                            {{ link.title }}
+                          </a>
+                        </li>
                       {% endfor %}
                     </ul>
+
                   </div>
                 {% endif %}
               {% endfor %}
+
             </div>
               <div class="subscribe-news">
                 <p>Subscribe to Newsletter</p>
@@ -115,6 +92,66 @@
       "type": "image_picker",
       "id": "footer_image",
       "label": "Footer Image"
+    },
+
+    {
+      "type": "header",
+      "content": "Footer Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "footer_heading_1",
+      "label": "Heading"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_1",
+      "label": "Menu"
+    },
+
+    {
+      "type": "header",
+      "content": "Footer Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "footer_heading_2",
+      "label": "Heading"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_2",
+      "label": "Menu"
+    },
+
+    {
+      "type": "header",
+      "content": "Footer Menu 3"
+    },
+    {
+      "type": "text",
+      "id": "footer_heading_3",
+      "label": "Heading"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_3",
+      "label": "Menu"
+    },
+
+    {
+      "type": "header",
+      "content": "Footer Menu 4"
+    },
+    {
+      "type": "text",
+      "id": "footer_heading_4",
+      "label": "Heading"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_4",
+      "label": "Menu"
     }
   ]
 }
