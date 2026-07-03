@@ -3,17 +3,11 @@
     "main": {
       "type": "product",
       "blocks": {
-        "target_sleep": { "type": "target", "settings": { "label": "Sleep" } },
-        "target_anxiety": { "type": "target", "settings": { "label": "Anxiety" } },
-        "target_stress": { "type": "target", "settings": { "label": "Stress" } },
-        "target_immunity": { "type": "target", "settings": { "label": "Immunity" } },
-        "target_hair": { "type": "target", "settings": { "label": "Hair" } },
-        "target_nails": { "type": "target", "settings": { "label": "Nails" } },
-        "target_skin": { "type": "target", "settings": { "label": "Skin" } },
         "acc_why": {
           "type": "collapsible",
           "settings": {
             "title": "Why Orbe",
+            "metafield_key": "custom.why_orbe",
             "content": "<p>Essential nourishment for energy, mood, hormonal balance, and long-term wellbeing.</p>"
           }
         },
@@ -21,6 +15,7 @@
           "type": "collapsible",
           "settings": {
             "title": "Ingredients",
+            "metafield_key": "custom.ingredients",
             "content": "<p>Clean, considered, essential. Each ingredient selected for purpose and purity.</p>"
           }
         },
@@ -28,6 +23,7 @@
           "type": "collapsible",
           "settings": {
             "title": "Nutrition Profile",
+            "metafield_key": "custom.nutrition_profile",
             "content": "<p>Approximate values per serving. Serving size: 2 capsules.</p>"
           }
         },
@@ -35,18 +31,12 @@
           "type": "collapsible",
           "settings": {
             "title": "How To Use",
+            "metafield_key": "custom.how_to_use",
             "content": "<p>Take 2 capsules daily with water, ideally with a meal.</p>"
           }
         }
       },
       "block_order": [
-        "target_sleep",
-        "target_anxiety",
-        "target_stress",
-        "target_immunity",
-        "target_hair",
-        "target_nails",
-        "target_skin",
         "acc_why",
         "acc_ingredients",
         "acc_nutrition",

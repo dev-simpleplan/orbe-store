@@ -5455,7 +5455,7 @@ body.template-404 .footer {
    Product Page (PDP)
 ============================================================ */
 .pdp {
-  padding: 110px 0 80px;
+  padding: 110px 0 0px;
 }
 .pdp-grid {
   display: grid;
@@ -5565,9 +5565,9 @@ body.template-404 .footer {
 	grid-template-columns: auto 1fr auto auto;
 	align-items: center;
 	gap: 12px;
-	padding: 18px 22px;
+	padding: 15px 16px;
 	border: 1px solid #e2e2e2;
-	border-radius: 8px;
+	border-radius: 0px;
 	cursor: pointer;
 	transition: border-color 0.25s ease, background 0.25s ease;
 }
@@ -5625,13 +5625,13 @@ body.template-404 .footer {
   font-family: var(--aspekta);
   font-size: 12px;
   color: var(--gray);
-  margin-top: 6px;
+  margin-top: 16px;
   line-height: 1.4;
 }
 
 /* Targets */
 .pdp-targets {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 .pdp-targets-label {
   font-family: var(--aspekta);
@@ -5644,15 +5644,18 @@ body.template-404 .footer {
 .pdp-targets-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 }
 .pdp-target {
   font-family: var(--aspekta);
   font-size: 13px;
-  color: var(--gray);
-  padding: 9px 20px;
+  font-weight: 400;
+  color: #2F2F2F;
+  padding: 8px 30px;
   border: 1px solid #e2e2e2;
-  border-radius: 6px;
+  background-color: #EBEBEB;
+  border-radius: 30px;
+  letter-spacing: 0.32px;
 }
 
 /* Buy row */
@@ -5773,8 +5776,8 @@ body.template-404 .footer {
 }
 .pdp-acc-icon {
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 13px;
   flex: 0 0 auto;
 }
 .pdp-acc-icon::before,
@@ -5813,6 +5816,12 @@ body.template-404 .footer {
   font-size: 14px;
   line-height: 1.6;
   color: var(--gray);
+}
+.pdp-acc-content p {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 150%;
+	color: #5d5d5d;
 }
 
 @media (max-width: 991px) {

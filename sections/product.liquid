@@ -85,7 +85,7 @@
                       <label class="pdp-option" data-option>
                         <input type="radio" name="selling_plan" value="{{ plan.id }}" data-plan-price="{{ allocation.price }}">
                         <span class="pdp-option-radio" aria-hidden="true"></span>
-                        <span class="pdp-option-label">{{ plan.name }}</span>
+                        <span class="pdp-option-label">{{ group.name | default: plan.name }}</span>
                         {%- assign saving = current_variant.price | minus: allocation.price -%}
                         {%- if saving > 0 -%}
                           {%- assign pct = saving | times: 100.0 | divided_by: current_variant.price | round -%}
@@ -102,19 +102,29 @@
               {% endif %}
             </div>
 
-            <!-- Targets -->
-            {% if section.blocks.size > 0 %}
-              {% assign target_blocks = section.blocks | where: 'type', 'target' %}
-              {% if target_blocks.size > 0 %}
-                <div class="pdp-targets">
-                  <p class="pdp-targets-label">{{ section.settings.targets_label }}</p>
-                  <div class="pdp-targets-list">
-                    {% for block in target_blocks %}
-                      <span class="pdp-target" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
-                    {% endfor %}
-                  </div>
+            <!-- Targets (from product tags) -->
+            {%- assign prefix = section.settings.target_prefix -%}
+            {%- assign target_tags = '' -%}
+            {%- for tag in product.tags -%}
+              {%- if prefix != blank -%}
+                {%- if tag contains prefix -%}
+                  {%- assign clean = tag | remove_first: prefix | strip -%}
+                  {%- assign target_tags = target_tags | append: clean | append: '|' -%}
+                {%- endif -%}
+              {%- else -%}
+                {%- assign target_tags = target_tags | append: tag | append: '|' -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign target_list = target_tags | split: '|' -%}
+            {% if target_list.size > 0 %}
+              <div class="pdp-targets">
+                <p class="pdp-targets-label">{{ section.settings.targets_label }}</p>
+                <div class="pdp-targets-list">
+                  {% for tag in target_list %}
+                    <span class="pdp-target">{{ tag }}</span>
+                  {% endfor %}
                 </div>
-              {% endif %}
+              </div>
             {% endif %}
 
             <!-- Quantity + Add to cart -->
@@ -158,13 +168,21 @@
           {% if acc_blocks.size > 0 %}
             <div class="pdp-accordion" data-accordion>
               {% for block in acc_blocks %}
+                {%- assign mf_value = blank -%}
+                {%- assign mf_key = block.settings.metafield_key | strip -%}
+                {%- if mf_key contains '.' -%}
+                  {%- assign mf_parts = mf_key | split: '.' -%}
+                  {%- assign mf_value = product.metafields[mf_parts[0]][mf_parts[1]] -%}
+                {%- endif -%}
                 <div class="pdp-acc-item" {{ block.shopify_attributes }}>
                   <button type="button" class="pdp-acc-head" aria-expanded="false">
                     <span>{{ block.settings.title }}</span>
                     <span class="pdp-acc-icon" aria-hidden="true"></span>
                   </button>
                   <div class="pdp-acc-body">
-                    <div class="pdp-acc-content">{{ block.settings.content }}</div>
+                    <div class="pdp-acc-content">
+                      {%- if mf_value != blank -%}{{ mf_value | metafield_tag }}{%- else -%}{{ block.settings.content }}{%- endif -%}
+                    </div>
                   </div>
                 </div>
               {% endfor %}
@@ -297,6 +315,12 @@
       "default": "Targets:"
     },
     {
+      "type": "text",
+      "id": "target_prefix",
+      "label": "Tag prefix (optional)",
+      "info": "Leave blank to show all product tags. Set e.g. 'target:' to only show tags like 'target:Sleep' (prefix is hidden on the page)."
+    },
+    {
       "type": "header",
       "content": "Add to cart"
     },
@@ -337,18 +361,6 @@
   ],
   "blocks": [
     {
-      "type": "target",
-      "name": "Target",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Label",
-          "default": "Sleep"
-        }
-      ]
-    },
-    {
       "type": "collapsible",
       "name": "Accordion row",
       "settings": [
@@ -359,9 +371,15 @@
           "default": "Why Orbe"
         },
         {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield key",
+          "info": "e.g. custom.why_orbe — pulls this row's content from the product metafield so it can differ per product. Falls back to the content below if empty or unset."
+        },
+        {
           "type": "richtext",
           "id": "content",
-          "label": "Content",
+          "label": "Fallback content",
           "default": "<p>Add your content here.</p>"
         }
       ]
@@ -374,13 +392,6 @@
     {
       "name": "Product",
       "blocks": [
-        { "type": "target", "settings": { "label": "Sleep" } },
-        { "type": "target", "settings": { "label": "Anxiety" } },
-        { "type": "target", "settings": { "label": "Stress" } },
-        { "type": "target", "settings": { "label": "Immunity" } },
-        { "type": "target", "settings": { "label": "Hair" } },
-        { "type": "target", "settings": { "label": "Nails" } },
-        { "type": "target", "settings": { "label": "Skin" } },
         { "type": "collapsible", "settings": { "title": "Why Orbe" } },
         { "type": "collapsible", "settings": { "title": "Ingredients" } },
         { "type": "collapsible", "settings": { "title": "Nutrition Profile" } },
