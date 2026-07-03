@@ -20,7 +20,15 @@
         "type": "footer",
         "settings": {
           "footer_logo": "shopify://shop_images/Group_1707486900.svg",
-          "footer_image": "shopify://shop_images/Frame_2072749374.svg"
+          "footer_image": "shopify://shop_images/Frame_2072749374.svg",
+          "footer_heading_1": "",
+          "footer_menu_1": "footer-menu-1",
+          "footer_heading_2": "Meet Orbé",
+          "footer_menu_2": "footer-menu-2",
+          "footer_heading_3": "Learn",
+          "footer_menu_3": "footer-menu-3",
+          "footer_heading_4": "Legal",
+          "footer_menu_4": "legal-pages"
         }
       }
     },
