@@ -123,8 +123,12 @@
         width: 62%;
         height: 62%;
         transform: translate(-50%, -50%);
-        z-index: 2;
+        z-index: -1;
         pointer-events: none;
+        width: min(490px, 82vw);
+        height: min(490px, 82vw);
+        border-radius: 50%;
+        overflow: hidden;
     }
 
     .slide {
@@ -145,6 +149,14 @@
         height: 100%;
         object-fit: contain;
         display: block;
+    }
+
+    .center-blob .blob-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
     }
 
     .slide.active {
@@ -315,15 +327,23 @@
 
             <!-- Central blobs -->
             <div class="center-blob">
-                {% if section.settings.image_1 != blank %}
-                    <div class="slide active">
-                        {{ section.settings.image_1 | image_url: width: 760 | image_tag: loading: 'lazy', alt: '', class: 'icon' }}
-                    </div>
-                {% endif %}
-                {% if section.settings.image_2 != blank %}
-                    <div class="slide{% if section.settings.image_1 == blank %} active{% endif %}">
-                        {{ section.settings.image_2 | image_url: width: 760 | image_tag: loading: 'lazy', alt: '', class: 'icon' }}
-                    </div>
+                {% if section.settings.video != blank %}
+                    <video class="blob-video" muted playsinline webkit-playsinline preload="auto" tabindex="-1" aria-hidden="true">
+                        {% for source in section.settings.video.sources %}
+                            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                        {% endfor %}
+                    </video>
+                {% else %}
+                    {% if section.settings.image_1 != blank %}
+                        <div class="slide active">
+                            {{ section.settings.image_1 | image_url: width: 760 | image_tag: loading: 'lazy', alt: '', class: 'icon' }}
+                        </div>
+                    {% endif %}
+                    {% if section.settings.image_2 != blank %}
+                        <div class="slide{% if section.settings.image_1 == blank %} active{% endif %}">
+                            {{ section.settings.image_2 | image_url: width: 760 | image_tag: loading: 'lazy', alt: '', class: 'icon' }}
+                        </div>
+                    {% endif %}
                 {% endif %}
             </div>
 
@@ -348,9 +368,67 @@
             const dots = Array.from(wrapper.querySelectorAll('.orbit-dot'));
             const lbls = Array.from(wrapper.querySelectorAll('.orbit-label'));
             const slides = Array.from(wrapper.querySelectorAll('.slide'));
+            const blobVideo = wrapper.querySelector('.blob-video');
             const imageSwapProgress = 0.82;
             let currentDeg = 0;
             let activeSlideIndex = -1;
+            let videoDuration = 0;
+            let targetTime = 0;
+            let videoRafId = null;
+            let videoPrimed = false;
+
+            function videoTick() {
+                videoRafId = null;
+                if (!blobVideo || !videoDuration) return;
+                if (!blobVideo.paused) blobVideo.pause();
+                var cur = blobVideo.currentTime;
+                var diff = targetTime - cur;
+                if (Math.abs(diff) > 0.008) {
+                    // Ease toward the scroll target; re-setting each frame self-heals
+                    // if any single seek gets dropped (fixes reverse-scroll freezing).
+                    blobVideo.currentTime = cur + diff * 0.25;
+                    videoRafId = requestAnimationFrame(videoTick);
+                }
+            }
+
+            function seekVideo(t) {
+                targetTime = t;
+                if (videoRafId === null) {
+                    videoRafId = requestAnimationFrame(videoTick);
+                }
+            }
+
+            function primeVideo() {
+                if (videoPrimed || !blobVideo) return;
+                videoDuration = blobVideo.duration || 0;
+                // Warm the decoder with a play->pause cycle so backward seeks repaint.
+                var playAttempt = blobVideo.play();
+                var finish = function () {
+                    blobVideo.pause();
+                    blobVideo.currentTime = 0;
+                    videoPrimed = true;
+                    updateOrbitFromScroll();
+                };
+                if (playAttempt && typeof playAttempt.then === 'function') {
+                    playAttempt.then(finish).catch(finish);
+                } else {
+                    finish();
+                }
+            }
+
+            if (blobVideo) {
+                blobVideo.autoplay = false;
+                blobVideo.removeAttribute('autoplay');
+                // Never let it free-play once primed; only scroll drives the frame.
+                blobVideo.addEventListener('play', function () {
+                    if (videoPrimed) blobVideo.pause();
+                });
+                if (blobVideo.readyState >= 2) {
+                    primeVideo();
+                } else {
+                    blobVideo.addEventListener('loadeddata', primeVideo, { once: true });
+                }
+            }
 
             if (!scene || !orbitRing || dots.length < 1 || lbls.length < 1) return;
 
@@ -411,7 +489,15 @@
 
                 gsap.set(orbitRing, { rotation: deg * 0.2 });
                 positionOrbit(deg);
-                setActiveSlide(progress >= imageSwapProgress && slides.length > 1 ? 1 : 0);
+
+                if (blobVideo && videoDuration) {
+                    // Scrub the video: map scroll progress to playback time (both directions).
+                    if (!blobVideo.paused) blobVideo.pause();
+                    var t = gsap.utils.clamp(0, videoDuration - 0.05, progress * videoDuration);
+                    seekVideo(t);
+                } else {
+                    setActiveSlide(progress >= imageSwapProgress && slides.length > 1 ? 1 : 0);
+                }
             }
 
             const trigger = ScrollTrigger.create({
@@ -459,6 +545,12 @@
 {
   "name": "Rotating Circle",
   "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Center video",
+      "info": "Plays/scrubs with scroll. If set, it replaces the two images below."
+    },
     {
       "type": "image_picker",
       "id": "image_1",
