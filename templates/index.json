@@ -229,6 +229,13 @@
     "certified-by": {
       "type": "certified-by",
       "blocks": {
+        "certificate_bC6LFf": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/40538656897b1b060106c315841c017a668e6d0d.png",
+            "alt": "Certification logo"
+          }
+        },
         "certificate_EiQhdF": {
           "type": "certificate",
           "settings": {
@@ -236,17 +243,17 @@
             "alt": "Certification logo"
           }
         },
+        "certificate_PHdyEJ": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/ISO_9001-2015-1.svg",
+            "alt": "Certification logo"
+          }
+        },
         "certificate_8LBn9k": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/073fbe87f14eccd8889c85c998a1cb00ee62ec20.png",
-            "alt": "Certification logo"
-          }
-        },
-        "certificate_bC6LFf": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/40538656897b1b060106c315841c017a668e6d0d.png",
             "alt": "Certification logo"
           }
         },
@@ -280,9 +287,10 @@
         }
       },
       "block_order": [
-        "certificate_EiQhdF",
-        "certificate_8LBn9k",
         "certificate_bC6LFf",
+        "certificate_EiQhdF",
+        "certificate_PHdyEJ",
+        "certificate_8LBn9k",
         "certificate_R8PtL6",
         "certificate_6DgXgi",
         "certificate_Tx96NA",
