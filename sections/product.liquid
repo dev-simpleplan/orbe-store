@@ -1,52 +1,392 @@
 {% comment %}
-  This section is used in the product template to render product page with
-  media, content, and add-to-cart form.
-
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/product
+  Product page — sticky image gallery + purchase panel.
 {% endcomment %}
 
-<div class="product-images">
-  {% for image in product.images %}
-    {% render 'image', class: 'product-image', image: image %}
-  {% endfor %}
-</div>
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign has_selling_plans = false -%}
+{%- if product.selling_plan_groups.size > 0 -%}
+  {%- assign has_selling_plans = true -%}
+{%- endif -%}
 
-<div class="product-info">
-  <h1>{{ product.title }}</h1>
-  <p>{{ product.price | money }}</p>
-  <p>{{ product.description }}</p>
-</div>
+<section class="pdp" id="pdp-{{ section.id }}" data-pdp>
+  <div class="container">
+    <div class="pdp-grid">
 
-<div class="product-form">
-  {% form 'product', product %}
-    {% assign current_variant = product.selected_or_first_available_variant %}
+      <!-- ============ GALLERY ============ -->
+      <div class="pdp-gallery">
+        {% for image in product.images %}
+          <div class="pdp-gallery-item">
+            {%- assign img_alt = image.alt | default: product.title | escape -%}
+            {{ image | image_url: width: 1200 | image_tag: alt: img_alt, class: 'pdp-gallery-img', loading: 'lazy' }}
+          </div>
+        {% else %}
+          <div class="pdp-gallery-item pdp-gallery-item--placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'pdp-gallery-img' }}
+          </div>
+        {% endfor %}
+      </div>
 
-    <select name="id">
-      {% for variant in product.variants %}
-        <option
-          value="{{ variant.id }}"
-          {% if variant == current_variant %}
-            selected="selected"
+      <!-- ============ INFO ============ -->
+      <div class="pdp-info">
+        <div class="pdp-info-inner">
+
+          {% if section.settings.show_rating %}
+            <div class="pdp-rating">
+              <span class="pdp-stars" aria-label="{{ section.settings.rating_value }} out of 5 stars">
+                {% assign filled = section.settings.rating_value %}
+                {% for i in (1..5) %}
+                  <svg viewBox="0 0 24 24" width="16" height="16" class="pdp-star {% if i <= filled %}is-filled{% endif %}" aria-hidden="true">
+                    <path d="M12 2l2.9 6.26 6.1.53-4.6 4.02 1.36 6.19L12 15.9l-5.76 3.1 1.36-6.19-4.6-4.02 6.1-.53z"/>
+                  </svg>
+                {% endfor %}
+              </span>
+              {% if section.settings.reviews_text != blank %}
+                <span class="pdp-reviews">{{ section.settings.reviews_text }}</span>
+              {% endif %}
+            </div>
           {% endif %}
-        >
-          {{ variant.title }} - {{ variant.price | money }}
-        </option>
-      {% endfor %}
-    </select>
 
-    <input type="text" name="quantity" min="1" value="1">
+          <h1 class="pdp-title">{{ product.title }}</h1>
 
-    <input type="submit" value="Add to cart">
-    {{ form | payment_button }}
-  {% endform %}
-</div>
+          {% if product.description != blank %}
+            <div class="pdp-desc">{{ product.description }}</div>
+          {% endif %}
+
+          <div class="pdp-price">
+            <span class="pdp-price-current" data-price>{{ current_variant.price | money }}</span>
+          </div>
+
+          {% if section.settings.supply_text != blank %}
+            <p class="pdp-supply">{{ section.settings.supply_text }}</p>
+          {% endif %}
+
+          {% form 'product', product, id: 'pdp-form', class: 'pdp-form', novalidate: 'novalidate' %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+
+            <!-- Purchase options -->
+            <div class="pdp-options" data-options>
+              <label class="pdp-option is-active" data-option>
+                <input type="radio" name="selling_plan" value="" checked data-plan-price="{{ current_variant.price }}">
+                <span class="pdp-option-radio" aria-hidden="true"></span>
+                <span class="pdp-option-label">{{ section.settings.onetime_label }}</span>
+                <span class="pdp-option-price">{{ current_variant.price | money }}</span>
+              </label>
+
+              {% if has_selling_plans %}
+                {% for group in product.selling_plan_groups %}
+                  {% for plan in group.selling_plans %}
+                    {%- assign allocation = false -%}
+                    {%- for a in current_variant.selling_plan_allocations -%}
+                      {%- if a.selling_plan.id == plan.id -%}
+                        {%- assign allocation = a -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    {%- if allocation -%}
+                      <label class="pdp-option" data-option>
+                        <input type="radio" name="selling_plan" value="{{ plan.id }}" data-plan-price="{{ allocation.price }}">
+                        <span class="pdp-option-radio" aria-hidden="true"></span>
+                        <span class="pdp-option-label">{{ plan.name }}</span>
+                        {%- assign saving = current_variant.price | minus: allocation.price -%}
+                        {%- if saving > 0 -%}
+                          {%- assign pct = saving | times: 100.0 | divided_by: current_variant.price | round -%}
+                          <span class="pdp-option-save">Save {{ pct }}%</span>
+                        {%- endif -%}
+                        <span class="pdp-option-price">{{ allocation.price | money }}</span>
+                        {% if group.name != blank %}
+                          <span class="pdp-option-sub">{{ section.settings.subscription_sub }}</span>
+                        {% endif %}
+                      </label>
+                    {%- endif -%}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <!-- Targets -->
+            {% if section.blocks.size > 0 %}
+              {% assign target_blocks = section.blocks | where: 'type', 'target' %}
+              {% if target_blocks.size > 0 %}
+                <div class="pdp-targets">
+                  <p class="pdp-targets-label">{{ section.settings.targets_label }}</p>
+                  <div class="pdp-targets-list">
+                    {% for block in target_blocks %}
+                      <span class="pdp-target" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+
+            <!-- Quantity + Add to cart -->
+            <div class="pdp-buy">
+              <div class="pdp-qty" data-qty>
+                <button type="button" class="pdp-qty-btn" data-qty-minus aria-label="Decrease quantity">&minus;</button>
+                <input type="text" inputmode="numeric" name="quantity" value="1" class="pdp-qty-input" data-qty-input aria-label="Quantity">
+                <button type="button" class="pdp-qty-btn" data-qty-plus aria-label="Increase quantity">+</button>
+              </div>
+              <button type="submit" class="pdp-add-btn primary-btn" {% unless current_variant.available %}disabled{% endunless %}>
+                {% if current_variant.available %}{{ section.settings.add_button_text }}{% else %}{{ section.settings.sold_out_text }}{% endif %}
+              </button>
+            </div>
+          {% endform %}
+
+          <!-- Trust: safe checkout -->
+          {% if section.settings.show_checkout_badges %}
+            <div class="pdp-checkout">
+              <p class="pdp-checkout-label">{{ section.settings.checkout_label }}</p>
+              <div class="pdp-checkout-icons">
+                {% for type in shop.enabled_payment_types %}
+                  {{ type | payment_type_svg_tag: class: 'pdp-pay-icon' }}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Perks -->
+          {% if section.settings.perks != blank %}
+            <ul class="pdp-perks">
+              {% assign perks = section.settings.perks | newline_to_br | split: '<br />' %}
+              {% for perk in perks %}
+                {% assign p = perk | strip %}
+                {% if p != blank %}<li>{{ p }}</li>{% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <!-- Accordions -->
+          {% assign acc_blocks = section.blocks | where: 'type', 'collapsible' %}
+          {% if acc_blocks.size > 0 %}
+            <div class="pdp-accordion" data-accordion>
+              {% for block in acc_blocks %}
+                <div class="pdp-acc-item" {{ block.shopify_attributes }}>
+                  <button type="button" class="pdp-acc-head" aria-expanded="false">
+                    <span>{{ block.settings.title }}</span>
+                    <span class="pdp-acc-icon" aria-hidden="true"></span>
+                  </button>
+                  <div class="pdp-acc-body">
+                    <div class="pdp-acc-content">{{ block.settings.content }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('pdp-{{ section.id }}');
+    if (!root) return;
+
+    // Quantity stepper
+    var qtyInput = root.querySelector('[data-qty-input]');
+    root.querySelectorAll('[data-qty-minus]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+        qtyInput.value = v;
+      });
+    });
+    root.querySelectorAll('[data-qty-plus]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = Math.max(1, (parseInt(qtyInput.value, 10) || 1) + 1);
+        qtyInput.value = v;
+      });
+    });
+    qtyInput && qtyInput.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
+    // Purchase option selection + price swap
+    var priceEl = root.querySelector('[data-price]');
+    var options = root.querySelectorAll('[data-option]');
+    options.forEach(function (opt) {
+      var input = opt.querySelector('input[type="radio"]');
+      input && input.addEventListener('change', function () {
+        options.forEach(function (o) { o.classList.remove('is-active'); });
+        opt.classList.add('is-active');
+        var priceStr = opt.querySelector('.pdp-option-price');
+        if (priceEl && priceStr) priceEl.textContent = priceStr.textContent;
+      });
+    });
+
+    // Accordion
+    var accItems = root.querySelectorAll('.pdp-acc-item');
+    accItems.forEach(function (item) {
+      var head = item.querySelector('.pdp-acc-head');
+      var body = item.querySelector('.pdp-acc-body');
+      head.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+        if (isOpen) {
+          item.classList.remove('is-open');
+          head.setAttribute('aria-expanded', 'false');
+          body.style.maxHeight = null;
+        } else {
+          item.classList.add('is-open');
+          head.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+</script>
 
 {% schema %}
 {
-  "name": "t:general.product",
-  "settings": [],
+  "name": "Product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show rating",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "rating_value",
+      "label": "Stars filled",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "reviews_text",
+      "label": "Reviews text",
+      "default": "200+ Reviews"
+    },
+    {
+      "type": "header",
+      "content": "Purchase options"
+    },
+    {
+      "type": "text",
+      "id": "supply_text",
+      "label": "Supply line",
+      "default": "30 Days: 60 N Capsules"
+    },
+    {
+      "type": "text",
+      "id": "onetime_label",
+      "label": "One-time label",
+      "default": "One Time Purchase"
+    },
+    {
+      "type": "text",
+      "id": "subscription_sub",
+      "label": "Subscription subtitle",
+      "default": "Subscribe for a simpler routine delivered effortlessly every month."
+    },
+    {
+      "type": "header",
+      "content": "Targets"
+    },
+    {
+      "type": "text",
+      "id": "targets_label",
+      "label": "Targets label",
+      "default": "Targets:"
+    },
+    {
+      "type": "header",
+      "content": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "add_button_text",
+      "label": "Button text",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_text",
+      "label": "Sold out text",
+      "default": "Sold out"
+    },
+    {
+      "type": "header",
+      "content": "Trust"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkout_badges",
+      "label": "Show safe checkout badges",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "checkout_label",
+      "label": "Checkout label",
+      "default": "Guaranteed Safe Checkout With"
+    },
+    {
+      "type": "textarea",
+      "id": "perks",
+      "label": "Perks (one per line)",
+      "default": "Free shipping on all orders\nSecure checkout\nExclusive D2C savings"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "target",
+      "name": "Target",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Sleep"
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "name": "Accordion row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Why Orbe"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Add your content here.</p>"
+        }
+      ]
+    }
+  ],
   "disabled_on": {
     "groups": ["header", "footer"]
-  }
+  },
+  "presets": [
+    {
+      "name": "Product",
+      "blocks": [
+        { "type": "target", "settings": { "label": "Sleep" } },
+        { "type": "target", "settings": { "label": "Anxiety" } },
+        { "type": "target", "settings": { "label": "Stress" } },
+        { "type": "target", "settings": { "label": "Immunity" } },
+        { "type": "target", "settings": { "label": "Hair" } },
+        { "type": "target", "settings": { "label": "Nails" } },
+        { "type": "target", "settings": { "label": "Skin" } },
+        { "type": "collapsible", "settings": { "title": "Why Orbe" } },
+        { "type": "collapsible", "settings": { "title": "Ingredients" } },
+        { "type": "collapsible", "settings": { "title": "Nutrition Profile" } },
+        { "type": "collapsible", "settings": { "title": "How To Use" } }
+      ]
+    }
+  ]
 }
 {% endschema %}
