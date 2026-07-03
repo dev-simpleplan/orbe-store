@@ -51,7 +51,21 @@
         "acc_nutrition",
         "acc_how"
       ],
-      "settings": {}
+      "settings": {
+        "show_rating": true,
+        "rating_value": 4,
+        "reviews_text": "200+ Reviews",
+        "supply_text": "30 Days: 60 N Capsules",
+        "onetime_label": "One Time Purchase",
+        "subscription_sub": "Subscribe for a simpler routine delivered effortlessly every month.",
+        "targets_label": "Targets:",
+        "target_prefix": "",
+        "add_button_text": "Add to cart",
+        "sold_out_text": "Sold out",
+        "show_checkout_badges": true,
+        "checkout_label": "Guaranteed Safe Checkout With",
+        "perks": "Free shipping on all orders\nSecure checkout\nExclusive D2C savings"
+      }
     },
     "spacer_7L6pHN": {
       "type": "spacer",
@@ -65,7 +79,7 @@
       "settings": {
         "background_image": "shopify://shop_images/image_7.png",
         "heading": "The Care Behind the Capsule.",
-        "capsule_image": "shopify://shop_images/Untitled_13_1.png",
+        "capsule_image": "shopify://shop_images/7492628db081e0fa60013843e42383c7e530515b.png",
         "title_1": "1. Clinically Backed",
         "text_1": "Nutrients supported by global research for absorption and efficacy.",
         "title_2": "2. Clinically Backed",
@@ -120,7 +134,7 @@
         "nutrition_heading": "Nutritional Profile (Theoretical)",
         "nutrition_text": "(Approximate Values Per Serving) | Serving Size: 2 Capsules",
         "nutrition_table_image": "shopify://shop_images/Frame_2072749470.png",
-        "box_image": "shopify://shop_images/8080af840141c1fd49ad00aa36acf10aa815be9e.png",
+        "box_image": "shopify://shop_images/4b71103731745baa2973924e8986d9a975f1bbcb_1.jpg",
         "capsule_image": "shopify://shop_images/Group_2085663425.png"
       }
     },

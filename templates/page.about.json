@@ -13,7 +13,7 @@
       "type": "about-banner",
       "settings": {
         "hero_logo": "shopify://shop_images/Group_2085663252_4.svg",
-        "hero_image": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
+        "hero_image": "shopify://shop_images/39152dd64df64b331780fd662480af989de8bb4c.png",
         "left_img_1": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
         "left_img_2": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
         "top_right_img": "shopify://shop_images/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png",
@@ -33,7 +33,7 @@
       "type": "slide-in-image",
       "settings": {
         "heading": "<p>Women are navigating more expectations, more information, and more noise than ever. <strong>Orbe</strong> was created to offer a different kind of space, one rooted in <strong>calm, honesty, and clarity.</strong> Our purpose is simple: to support women with knowledge, nourishment, and rituals that feel intuitive, not overwhelming.</p>",
-        "image": "shopify://shop_images/Group_2085663427.png"
+        "image": "shopify://shop_images/Group_2085663340.png"
       }
     },
     "spacer_FjFe6V": {
@@ -49,7 +49,7 @@
         "card_YQ79UM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570_2.png",
+            "image": "shopify://shop_images/Rectangle_3468570.png",
             "title": "Ingredients with Intention",
             "text": "Each ingredient is chosen for a purpose: how well it works, how well it absorbs, and how gently it supports your body. We source clean, high-quality nutrients and keep out anything unnecessary."
           }
@@ -57,7 +57,7 @@
         "card_design_with_intention": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570_3.png",
+            "image": "shopify://shop_images/Rectangle_3468570_1_3ccaab61-f971-42c5-89bc-6972a198848e.png",
             "title": "Design with Intention",
             "text": "Our pill-in-pill capsule keeps nutrients protected and releases them in the right order, exactly when your body needs them. A simple ritual, supported by thoughtful design."
           }
@@ -65,7 +65,7 @@
         "card_science_we_trust": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570_1.png",
+            "image": "shopify://shop_images/Rectangle_3468570_2_c0ff9e68-de44-42d8-aefb-07071cbe7e1c.png",
             "title": "Made for women",
             "text": "We design for women who want clarity, not confusion. For women who want to feel supported, steady, and more like themselves again without the overwhelm."
           }
@@ -103,7 +103,7 @@
       "settings": {
         "top_image_1": "shopify://shop_images/Rectangle_3468567.png",
         "top_image_2": "shopify://shop_images/Rectangle_3468568.png",
-        "right_image": "shopify://shop_images/Frame_2072749125.png",
+        "right_image": "shopify://shop_images/Frame_2072749125_c4efa625-5fa7-4bf8-b756-5f2665c84af8.png",
         "heading": "The Heart Behind Orbé",
         "text_1": "Orbe began with a simple but powerful frustration: why does taking care of ourselves feel so complicated?",
         "text_2": "Women feel overwhelmed by noise, conflicting advice, and wellness trends that offer more confusion than clarity. So we set out to create something different; a brand built on intention, rooted in evidence, and guided by simplicity.",
@@ -313,6 +313,13 @@
             "alt": "Certification logo"
           }
         },
+        "certificate_bNTdtG": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/ISO_9001-2015-1.svg",
+            "alt": "Certification logo"
+          }
+        },
         "certificate_8LBn9k": {
           "type": "certificate",
           "settings": {
@@ -358,6 +365,7 @@
       },
       "block_order": [
         "certificate_EiQhdF",
+        "certificate_bNTdtG",
         "certificate_8LBn9k",
         "certificate_bC6LFf",
         "certificate_R8PtL6",
