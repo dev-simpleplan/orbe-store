@@ -22,10 +22,10 @@
     "at-orbe": {
       "type": "at-orbe",
       "settings": {
-        "image_1": "shopify://shop_images/Frame_2072749083.png",
+        "image_1": "shopify://shop_images/Frame_2072749083.jpg",
         "text_1": "At Orbé, we believe simplicity is not the absence of complexity but the presence of clarity.",
         "text_2": "In a world full of excess and contradiction, we choose to move with transparency, honesty, and intention.",
-        "small_image": "shopify://shop_images/Rectangle_3468532.png",
+        "small_image": "shopify://shop_images/Rectangle_3468532.jpg",
         "image_2": "shopify://shop_images/Rectangle_3468531.png"
       }
     },
@@ -68,7 +68,7 @@
         "fold_7KmNqB": {
           "type": "fold",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468538_4_60fc5292-3bbe-4a9b-b406-75552374d638.png",
+            "image": "shopify://shop_images/Group_2085663462.jpg",
             "heading": "",
             "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
             "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
@@ -77,7 +77,7 @@
         "fold_MVV873": {
           "type": "fold",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468538_5_ff53fedb-f9ae-46cc-b9b9-2cc3992dc1bf.png",
+            "image": "shopify://shop_images/Group_2085663464.jpg",
             "heading": "",
             "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
             "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
@@ -154,6 +154,7 @@
         "text_item_4"
       ],
       "settings": {
+        "video": "shopify://files/videos/Prompt Using Upl from Midjourney.mp4",
         "image_1": "shopify://shop_images/ChatGPT_Image_May_8_2026_01_18_12_PM_1.png",
         "image_2": "shopify://shop_images/ChatGPT_Image_May_8_2026_06_37_12_PM_1_1.png"
       }
@@ -325,7 +326,7 @@
     "why-orbe": {
       "type": "why-orbe",
       "settings": {
-        "background_image": "shopify://shop_images/ae3880116c7ba112f0e3d7bc428bf614b3703da1.jpg",
+        "background_image": "shopify://shop_images/332250ea30a42eaec291fc7edaa47c87edbc04c7.png",
         "heading": "Why Orbe?",
         "stat_1": "89%",
         "text_1": "Because informed choices are powerful ones and you deserve both clarity and calm.",
@@ -381,7 +382,7 @@
         "faq_4"
       ],
       "settings": {
-        "image": "shopify://shop_images/faq-img_2b7178a7-6080-41ba-a1a2-130986611bf4.png",
+        "image": "shopify://shop_images/52583d2a3e0453e64966b774fd3be9fe70b28415.png",
         "heading": "FAQs",
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
