@@ -5850,10 +5850,11 @@ body.template-404 .footer {
 }
 .shopify-policy__body p {
   margin-bottom: 16px;
+  line-height: 140%;
 }
 .shopify-policy__body ul,
 .shopify-policy__body ol {
-  padding-left: 20px;
+    padding-left: 20px;
     margin-bottom: 16px;
     display: flex;
     flex-direction: column;
@@ -5862,7 +5863,7 @@ body.template-404 .footer {
 .shopify-policy__body ul li,
 .shopify-policy__body ol li {
   color: var(--gray);
-  line-height: 120%;
+  line-height: 140%;
   letter-spacing: 0em;
   font-family: var(--aspekta);
   font-size: 14px;
