@@ -5833,9 +5833,9 @@ body.template-404 .footer {
 	line-height: 150%;
 	color: #5d5d5d;
 }
-.shopify-section .shopify-policy__container {
-  margin-top: 100px;
-  max-width: 85ch;
+.shopify-policy__container {
+  margin-top: 100px!important;
+  max-width: 85ch!important;
 }
 .shopify-policy__title {
   margin-bottom: 20px;
@@ -5850,6 +5850,20 @@ body.template-404 .footer {
 }
 .shopify-policy__body p {
   margin-bottom: 16px;
+}
+.shopify-policy__body ul,
+.shopify-policy__body ol {
+  padding-left: 20px;
+    margin-bottom: 16px;
+}
+.shopify-policy__body ul li,
+.shopify-policy__body ol li {
+  color: var(--gray);
+  line-height: 112%;
+  letter-spacing: 0em;
+  font-family: var(--aspekta);
+  font-size: 14px;
+  font-weight: 450; 
 }
 
 @media (max-width: 991px) {
