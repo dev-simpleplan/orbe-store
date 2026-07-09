@@ -5833,6 +5833,10 @@ body.template-404 .footer {
 	line-height: 150%;
 	color: #5d5d5d;
 }
+.shopify-policy__container {
+  margin-top: 100px;
+  max-width: 85ch;
+}
 .shopify-policy__body h1,
 .shopify-policy__body h2,
 .shopify-policy__body h4,
