@@ -5855,11 +5855,14 @@ body.template-404 .footer {
 .shopify-policy__body ol {
   padding-left: 20px;
     margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 .shopify-policy__body ul li,
 .shopify-policy__body ol li {
   color: var(--gray);
-  line-height: 112%;
+  line-height: 120%;
   letter-spacing: 0em;
   font-family: var(--aspekta);
   font-size: 14px;
