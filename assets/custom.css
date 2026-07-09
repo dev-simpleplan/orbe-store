@@ -5833,6 +5833,17 @@ body.template-404 .footer {
 	line-height: 150%;
 	color: #5d5d5d;
 }
+.shopify-policy__body h1,
+.shopify-policy__body h2,
+.shopify-policy__body h4,
+.shopify-policy__body h5,
+.shopify-policy__body h6 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.shopify-policy__body p {
+  margin-bottom: 16px;
+}
 
 @media (max-width: 991px) {
   .pdp-grid {
