@@ -33,7 +33,7 @@
                                 {% endif %}
 
                                 {% if block.settings.report_text != blank %}
-                                <a href="{{ block.settings.report_link | default: '#!' }}" class="primary-btn">
+                                <a href="{{ block.settings.report_link | default: '#!' }}" class="primary-btn" target="_blank">
                                     {{ block.settings.report_text }}
                                 </a>
                                 {% endif %}
