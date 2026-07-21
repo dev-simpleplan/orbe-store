@@ -41,8 +41,8 @@
         "heading": "A single ritual that makes space for your becoming.",
         "image": "shopify://shop_images/1182acf2e64d11c314c3eb29b617586b463dadaa_1.png",
         "logo": "shopify://shop_images/Group_2085663252.svg",
-        "left_text": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
-        "right_text": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
+        "left_text": "A moment made for you: simple, intentional, and crafted to help you feel more like yourself again.",
+        "right_text": "Thoughtfully crafted to support your inner steadiness, your energy, your clarity, your becoming.",
         "button_text": "Start Your Journey",
         "button_link": "#!"
       }
@@ -69,18 +69,18 @@
           "type": "fold",
           "settings": {
             "image": "shopify://shop_images/Group_2085663462.jpg",
-            "heading": "",
-            "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
-            "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
+            "heading": "Balanced Mood & Restful Sleep",
+            "text_top": "Supports nervous system balance to promote a calmer emotional baseline, better stress regulation, and deeper, more restorative sleep.",
+            "text_bottom": ""
           }
         },
         "fold_MVV873": {
           "type": "fold",
           "settings": {
-            "image": "shopify://shop_images/Group_2085663464.jpg",
-            "heading": "",
-            "text_top": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention.",
-            "text_bottom": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming—without pressure, without noise, just clarity and intention."
+            "image": "shopify://shop_images/Rectangle_3468536_2929cd81-3771-4473-a259-d420951e6e99.png",
+            "heading": "Harmonised Cycles",
+            "text_top": "Supports hormonal rhythms and helps ease common PMS discomfort by providing nutrients that support the body’s natural cycle.",
+            "text_bottom": ""
           }
         }
       },
@@ -101,9 +101,9 @@
     "ready-formula": {
       "type": "ready-formula",
       "settings": {
-        "heading": "Ready To Explore The Full Formula?",
-        "text": "See how these nutrients come together in one thoughtfully designed supplement.",
-        "button_text": "View Product Page",
+        "heading": "Your Body Has Been Asking For This",
+        "text": "A daily foundation of thoughtfully selected nutrients to support how you feel, every day.",
+        "button_text": "Start Your Orbé Journey",
         "button_link": "shopify://products/n-1",
         "image": "shopify://shop_images/d6da9b291cc2ceb29277aa587d271e32b07d253a.png"
       }
@@ -121,29 +121,29 @@
         "text_item_1": {
           "type": "text_item",
           "settings": {
-            "title": "System-Level Formulation",
-            "text": "Designed for synergy, not isolation."
+            "title": "Cleanly Crafted",
+            "text": "Made without unnecessary fillers or additives."
           }
         },
         "text_item_2": {
           "type": "text_item",
           "settings": {
-            "title": "Steady Energy Pathways",
-            "text": "Helps reduce peaks and dips in the system."
+            "title": "Clinically Considered",
+            "text": "Active ingredients chosen for proven efficacy."
           }
         },
         "text_item_3": {
           "type": "text_item",
           "settings": {
-            "title": "Dose Aware Design",
-            "text": "Respects the body's natural balance."
+            "title": "Thoughtfully Designed",
+            "text": "A dual-layer capsule designed to protect potency and support absorption."
           }
         },
         "text_item_4": {
           "type": "text_item",
           "settings": {
-            "title": "Optimised Bioavailability",
-            "text": "Ensures efficient absorption and use."
+            "title": "Intentionally Essential",
+            "text": "Only the nutrients needed to address the real gaps women face."
           }
         }
       },
@@ -173,7 +173,7 @@
           "type": "verification",
           "settings": {
             "title": "Heavy Metals",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "Mercury, lead, arsenic, and cadmium, screened against FSSAI limits.",
             "report_text": "View Report",
             "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Complete_Heavy_Metal_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
@@ -182,7 +182,7 @@
           "type": "verification",
           "settings": {
             "title": "Pesticides",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "216 compounds tested. Every one below detection limit.",
             "report_text": "View Report",
             "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Pesticide_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
@@ -191,7 +191,7 @@
           "type": "verification",
           "settings": {
             "title": "Microbial Safety",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "Screened for salmonella, E. coli, staph, yeast, and mould. All absent or under limit.",
             "report_text": "View Report",
             "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Microbial_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
@@ -200,7 +200,7 @@
           "type": "verification",
           "settings": {
             "title": "Aflatoxins",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "The four aflatoxins (B1, B2, G1, G2) that contaminate poorly stored botanicals. All under 0.5 µg/kg.",
             "report_text": "View Report",
             "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Aflatoxin_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
@@ -209,7 +209,7 @@
           "type": "verification",
           "settings": {
             "title": "Melamine",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "The adulterant behind past supplement scandals. Screened and cleared at under 0.5 mg/kg, well below the 2.5 limit.",
             "report_text": "View Report",
             "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Melamine_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
@@ -327,9 +327,9 @@
       "type": "why-orbe",
       "settings": {
         "background_image": "shopify://shop_images/332250ea30a42eaec291fc7edaa47c87edbc04c7.png",
-        "heading": "Why Orbe?",
-        "stat_1": "89%",
-        "text_1": "Because informed choices are powerful ones and you deserve both clarity and calm.",
+        "heading": "The Beauty of Intention",
+        "stat_1": "2X",
+        "text_1": "Deeper, more restful sleep within weeks.",
         "stat_2": "93%",
         "text_2": "Because informed choices are powerful ones and you deserve both clarity and calm.",
         "stat_3": "60%",
