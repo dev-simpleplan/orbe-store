@@ -41,7 +41,7 @@
           "settings": {
             "title": "How To Use",
             "metafield_key": "custom.how_to_use",
-            "content": "<p>Take 2 capsules daily with water, ideally with a meal.</p>"
+            "content": "<p>Two capsules with water after a meal. Use consistently for best results. Benefits build gradually over time.</p>"
           }
         }
       },
@@ -64,7 +64,7 @@
         "sold_out_text": "Sold out",
         "show_checkout_badges": true,
         "checkout_label": "Guaranteed Safe Checkout With",
-        "perks": "Free shipping on all orders\nSecure checkout\nExclusive D2C savings"
+        "perks": "30-day supply in every pack\nCancel or pause anytime\nFormulated for Indian women"
       }
     },
     "spacer_7L6pHN": {
@@ -81,13 +81,13 @@
         "heading": "The Care Behind the Capsule.",
         "capsule_image": "shopify://shop_images/7492628db081e0fa60013843e42383c7e530515b.png",
         "title_1": "1. Clinically Backed",
-        "text_1": "Nutrients supported by global research for absorption and efficacy.",
-        "title_2": "2. Clinically Backed",
-        "text_2": "Nutrients supported by global research for absorption and efficacy.",
-        "title_3": "3. Clinically Backed",
-        "text_3": "Nutrients supported by global research for absorption and efficacy.",
-        "title_4": "4. Clinically Backed",
-        "text_4": "Nutrients supported by global research for absorption and efficacy."
+        "text_1": "Research-supported nutrients selected for their absorption, efficacy, and quality.",
+        "title_2": "2. Certified & Tested",
+        "text_2": "Made in GMP- and FDA-compliant facilities, with every batch tested for purity, potency, stability, and consistency.",
+        "title_3": "3. Thoughtfully Delivered",
+        "text_3": "Pill-in-pill technology helps protect nutrients and support their bioavailability.",
+        "title_4": "4. Clean & Transparent",
+        "text_4": "No fillers or unnecessary additives. Carefully sourced, branded ingredients you can identify and trust."
       }
     },
     "spacer_iVnf8F": {
@@ -104,14 +104,14 @@
           "type": "accordion_item",
           "settings": {
             "title": "Inner Capsule Phase",
-            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg\nVitamin B12 (as Methylcobalamin)\nIron (as Ferrochel® Ferrous Bisglycinate)\nZinc (as Zinc Citrate)\nMagnesium (as Magnesium Bisglycinate)"
+            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 100 mcg\n\nVitamin B12 (as Methylcobalamin) — 100 mcg\n\nIron (as Ferrochel® Ferrous Bisglycinate) — 15 mg\n\nZinc (as Zinc Citrate) — 10 mg\n\nMagnesium (as Magnesium Bisglycinate) — 72 mg\n\nBoron (as Boron Proteonate) — 2.20 mg"
           }
         },
         "accordion_outer_capsule": {
           "type": "accordion_item",
           "settings": {
             "title": "Outer Capsule Phase",
-            "content": "Veg DHA (as Algal Oil 45% — Omega-3 Vegan DHA Fatty Acids from Schizochytrium sp.)\nVitamin D (as Cholecalciferol) [from Lichen (Whole Plant), Vitashine™ 1,000,000 IU/g Lichen]\nVitamin E (as Alpha Tocopherol from Mixed Tocopherols) [from Brassica napus (Seed)]\nVitamin K2 (as MenaQ7® Menaquinone-7)"
+            "content": "DHA (Docosahexaenoic Acid) Omega-3 — 100 mg\n\nVitashine® Vitamin D3 (Cholecalciferol) — 600 IU\n\nVitamin E (D-Alpha Tocopherol) — 54 mg\n\nMenaQ7® (Vitamin K2 MK-7) — 100 mcg"
           }
         }
       },
@@ -152,32 +152,32 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
-            "week": "Week 1–2",
-            "text": "Nutrients supported by global research for absorption and efficacy."
+            "week": "Week 1–2 — a little more clarity, a little more energy",
+            "text": "Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality."
           }
         },
         "card_2": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/deddc5d6816f40dc041a9a9b35cc723848308528.jpg",
-            "week": "Week 3–4",
-            "text": "Cellular renewal begins as key bioavailable compounds reach full saturation."
+            "week": "Week 3–6 — your rhythm begins to soften",
+            "text": "Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise."
           }
         },
         "card_3": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/63164f39dc38861d7b227014adaed204aaf76873_1.png",
-            "week": "Week 5–6",
-            "text": "Visible radiance emerges. Collagen pathways strengthen from within."
+            "week": "Month 2–3 — your foundation strengthens",
+            "text": "Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady."
           }
         },
         "card_4": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468538_1.png",
-            "week": "Week 7–8",
-            "text": "The full ritual effect: sustained glow, resilient skin, calm energy."
+            "week": "Month 3+ — a steadier version of yourself",
+            "text": "Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience."
           }
         }
       },
@@ -319,7 +319,7 @@
           "type": "verification",
           "settings": {
             "title": "Heavy Metals",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "Mercury, lead, arsenic, and cadmium, screened against FSSAI limits.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -328,7 +328,7 @@
           "type": "verification",
           "settings": {
             "title": "Pesticides",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "216 compounds tested. Every one below detection limit.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -337,7 +337,7 @@
           "type": "verification",
           "settings": {
             "title": "Microbial Safety",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "Screened for salmonella, E. coli, staph, yeast, and mould. All absent or under limit.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -346,7 +346,7 @@
           "type": "verification",
           "settings": {
             "title": "Aflatoxins",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "The four aflatoxins (B1, B2, G1, G2) that contaminate poorly stored botanicals. All under 0.5 µg/kg.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -355,7 +355,7 @@
           "type": "verification",
           "settings": {
             "title": "Melamine",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "The adulterant behind past supplement scandals. Screened and cleared at under 0.5 mg/kg, well below the 2.5 limit.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -369,7 +369,7 @@
         "verification_3brtdd"
       ],
       "settings": {
-        "heading": "Every Batch Independently Verified",
+        "heading": "A First for India. A Standard for You.",
         "image": "shopify://shop_images/Rectangle_3468672.png"
       }
     },
@@ -497,7 +497,7 @@
         "video_AcW8tR"
       ],
       "settings": {
-        "heading": "Seeing through the noise"
+        "heading": "Made For Her. Loved By Her."
       }
     },
     "spacer_MQJmqW": {
@@ -513,29 +513,85 @@
         "faq_item_AJhLn9": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "How do I take Orbe?",
+            "answer": "Two capsules a day: a simple ritual that fits naturally into your morning or evening."
           }
         },
         "faq_item_znLyB9": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "When will I start noticing changes?",
+            "answer": "Most women feel subtle shifts in clarity and energy within 1–2 weeks, with deeper benefits unfolding over 6–12 weeks."
           }
         },
         "faq_item_TaBneX": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "Can I take Orbe every day?",
+            "answer": "Yes. It’s designed to be gentle, balanced, and safe for daily use. Consistency is where the transformation happens."
           }
         },
         "faq_item_cN46Ja": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "Can anyone take an overall wellness supplement?",
+            "answer": "Most adults can. If you're pregnant, breastfeeding, or managing a medical condition, check in with a professional first."
+          }
+        },
+        "faq_item_DwHmci": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a prescription?",
+            "answer": "No. Orbe is a daily wellness supplement, not a medication. It can be taken without a prescription."
+          }
+        },
+        "faq_item_7ACbPH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it upset my stomach?",
+            "answer": "Unlikely. We use gentle, chelated minerals like Ferrochel® iron and magnesium bisglycinate that are easy on digestion."
+          }
+        },
+        "faq_item_iPNtek": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes Orbe different from other supplements?",
+            "answer": "A pill-in-pill design that protects potency, clinically validated nutrients, and clean, intentional formulation."
+          }
+        },
+        "faq_item_eG4BrW": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe to take long-term?",
+            "answer": "Yes. Orbe is crafted with clean ingredients and balanced dosing for daily foundational support."
+          }
+        },
+        "faq_item_Dyij7B": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take Orbe with other supplements?",
+            "answer": "In most cases, yes, but it’s helpful to avoid doubling nutrients. If you’re unsure, a quick professional check-in is wise."
+          }
+        },
+        "faq_item_UNE9pY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Orbe vegan?",
+            "answer": "Yes. The capsule is fully plant-based, and all nutrient sources are vegan-friendly."
+          }
+        },
+        "faq_item_FxdBEQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I forget a dose?",
+            "answer": "No stress. Just take your next dose as usual. Consistency matters more than perfection."
+          }
+        },
+        "faq_item_TdXgaQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does Orbe have side effects?",
+            "answer": "Our forms are chosen precisely because they’re gentle and well-tolerated. Side effects are rare."
           }
         }
       },
@@ -543,7 +599,15 @@
         "faq_item_AJhLn9",
         "faq_item_znLyB9",
         "faq_item_TaBneX",
-        "faq_item_cN46Ja"
+        "faq_item_cN46Ja",
+        "faq_item_DwHmci",
+        "faq_item_7ACbPH",
+        "faq_item_iPNtek",
+        "faq_item_eG4BrW",
+        "faq_item_Dyij7B",
+        "faq_item_UNE9pY",
+        "faq_item_FxdBEQ",
+        "faq_item_TdXgaQ"
       ],
       "name": "New FAQ Section",
       "settings": {

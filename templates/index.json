@@ -223,7 +223,7 @@
         "verification_3brtdd"
       ],
       "settings": {
-        "heading": "Every Batch Independently Verified",
+        "heading": "A First for India. A Standard for You.",
         "image": "shopify://shop_images/Rectangle_3468672.png"
       }
     },
@@ -330,10 +330,10 @@
         "heading": "The Beauty of Intention",
         "stat_1": "2X",
         "text_1": "Deeper, more restful sleep within weeks.",
-        "stat_2": "93%",
-        "text_2": "Because informed choices are powerful ones and you deserve both clarity and calm.",
-        "stat_3": "60%",
-        "text_3": "Because informed choices are powerful ones and you deserve both clarity and calm."
+        "stat_2": "70%",
+        "text_2": "More steady energy across your day.",
+        "stat_3": "3X",
+        "text_3": "Better absorption with every capsule."
       }
     },
     "spacer_6YyPKx": {
@@ -349,29 +349,50 @@
         "faq_1": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "Do I need a prescription to take supplements?",
+            "answer": "No. Supplements are designed to support wellbeing, not replace medical treatment. But speaking with a healthcare professional is helpful if you have specific conditions or concerns."
           }
         },
         "faq_2": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "Will supplements affect my hormones?",
+            "answer": "Not negatively, in fact, the right nutrients gently support hormonal balance. Magnesium, zinc, B-vitamins and iron all play a role in regulating cycles and mood."
           }
         },
         "faq_3": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "Are supplements safe to take long-term?",
+            "answer": "Yes, when they’re clean, thoughtfully formulated, and used in recommended amounts. Consistency is where benefits unfold."
           }
         },
         "faq_4": {
           "type": "faq_item",
           "settings": {
-            "question": "Why Isn’t Food Alone Always Enough?",
-            "answer": "Because informed choices are powerful ones and you deserve both clarity and calm."
+            "question": "Why do some supplements not “work”?",
+            "answer": "Because not all forms of nutrients are easily absorbed. The body responds best to active, bioavailable forms, the ones it recognises and uses deeply."
+          }
+        },
+        "faq_item_xPBdTP": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why does simplicity matter in supplements?",
+            "answer": "Because when something feels clear and uncomplicated, you’re more likely to stay consistent, and consistency is where results happen."
+          }
+        },
+        "faq_item_zNPzxt": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What results should I realistically expect?",
+            "answer": "Subtle shifts that build: better energy, steadier mood, smoother cycles, deeper rest, stronger foundation. Small changes compounding over time."
+          }
+        },
+        "faq_item_xbya6q": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes Orbe different from other supplement brands?",
+            "answer": "Intention. Clarity. Purpose in design. Clean ingredients, active nutrient forms, and thoughtful delivery — all crafted to simplify your daily wellbeing."
           }
         }
       },
@@ -379,7 +400,10 @@
         "faq_1",
         "faq_2",
         "faq_3",
-        "faq_4"
+        "faq_4",
+        "faq_item_xPBdTP",
+        "faq_item_zNPzxt",
+        "faq_item_xbya6q"
       ],
       "settings": {
         "image": "shopify://shop_images/52583d2a3e0453e64966b774fd3be9fe70b28415.png",
@@ -452,7 +476,7 @@
         "video_AcW8tR"
       ],
       "settings": {
-        "heading": "Seeing through the noise"
+        "heading": "Made For Her. Loved By Her."
       }
     },
     "spacer_MQJmqW": {
@@ -526,7 +550,7 @@
       ],
       "settings": {
         "heading": "Join our community",
-        "subheading": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity.",
+        "subheading": "A community shaped by learning, listening, and intention, created for thoughtful conversations and support.",
         "social_label": "Follow Us On Social Media",
         "facebook_url": "#!",
         "instagram_url": "#!",

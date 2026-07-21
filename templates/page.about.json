@@ -58,7 +58,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468570_1_3ccaab61-f971-42c5-89bc-6972a198848e.png",
-            "title": "Design with Intention",
+            "title": "Designed with Purpose",
             "text": "Our pill-in-pill capsule keeps nutrients protected and releases them in the right order, exactly when your body needs them. A simple ritual, supported by thoughtful design."
           }
         },
@@ -123,7 +123,7 @@
         "background_image": "shopify://shop_images/Rectangle_3468571.png",
         "heading": "A Letter From Our Founder",
         "founder_image": "shopify://shop_images/e05aee5203b43522ad12954497c7ca7e98fb69f1.png",
-        "letter_text": "There was a moment, quiet but unmistakable, when I realised just how complicated caring for ourselves had become. Everywhere I looked, there were louder promises, conflicting advice, and an overwhelming amount of information that left most of us feeling more confused than supported.\nOrbe began as an answer to that feeling.",
+        "letter_text": "There was a moment when I realised how complicated caring for ourselves had become. Orbe began as an answer to that feeling: a space where women could understand their bodies without the noise, where science and simplicity work together, and wellbeing feels calm, clear, and beautifully uncomplicated.",
         "signature_image": "shopify://shop_images/Kevin_Hart.svg",
         "signature_text": "CEO, Orbe"
       }
@@ -232,7 +232,7 @@
       ],
       "settings": {
         "heading": "Guided By Expertise",
-        "description": "Orbe exists to make feeling good less complicated through clean science, intentional design, and rituals that support the woman you’re becoming."
+        "description": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity."
       }
     },
     "spacer_FGEC3P": {
@@ -249,7 +249,7 @@
           "type": "verification",
           "settings": {
             "title": "Heavy Metals",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "Mercury, lead, arsenic, and cadmium, screened against FSSAI limits.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -258,7 +258,7 @@
           "type": "verification",
           "settings": {
             "title": "Pesticides",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "216 compounds tested. Every one below detection limit.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -267,7 +267,7 @@
           "type": "verification",
           "settings": {
             "title": "Microbial Safety",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "Screened for salmonella, E. coli, staph, yeast, and mould. All absent or under limit.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -276,7 +276,7 @@
           "type": "verification",
           "settings": {
             "title": "Aflatoxins",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "The four aflatoxins (B1, B2, G1, G2) that contaminate poorly stored botanicals. All under 0.5 µg/kg.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -285,7 +285,7 @@
           "type": "verification",
           "settings": {
             "title": "Melamine",
-            "description": "Mercury, Lead, Arsenic & Cadmium screened against FSSAI limits.",
+            "description": "The adulterant behind past supplement scandals. Screened and cleared at under 0.5 mg/kg, well below the 2.5 limit.",
             "report_text": "View Report",
             "report_link": ""
           }
@@ -299,7 +299,7 @@
         "verification_3brtdd"
       ],
       "settings": {
-        "heading": "Every Batch Independently Verified",
+        "heading": "A First for India. A Standard for You.",
         "image": "shopify://shop_images/Rectangle_3468672.png"
       }
     },
@@ -398,7 +398,7 @@
           "type": "standard",
           "settings": {
             "image": "shopify://shop_images/d1a30eb3b0af848fcd74a40ba852a94ae64c8c7f.png",
-            "title": "Vegan-certified\ncapsules"
+            "title": "100% vegan formula"
           }
         },
         "standard_4": {
@@ -433,7 +433,7 @@
       ],
       "settings": {
         "heading": "Standards that speaks for themselves",
-        "description": "Because informed choices are powerful ones and you deserve both clarity and calm."
+        "description": "Because what goes into your body should meet a standard you can trust."
       }
     },
     "spacer_XANpVD": {
@@ -527,7 +527,7 @@
       ],
       "settings": {
         "heading": "Join our community",
-        "subheading": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity.",
+        "subheading": "A community shaped by learning, listening, and intention, created for thoughtful conversations and support.",
         "social_label": "Follow Us On Social Media",
         "facebook_url": "#!",
         "instagram_url": "#!",
