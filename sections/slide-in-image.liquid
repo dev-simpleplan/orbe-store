@@ -1,7 +1,6 @@
 <section class="slide-in-img">
   <div class="container">
     <div class="slide-in-img-in">
-
       <div class="sii-text">
         <h2 class="text-target">
           {{ section.settings.heading }}
@@ -10,108 +9,118 @@
 
       <div class="sii-img">
         {% if section.settings.image != blank %}
-        <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.heading | strip_html | escape }}"
-          class="parallax-img">
+          <img
+            src="{{ section.settings.image | image_url }}"
+            alt="{{ section.settings.heading | strip_html | escape }}"
+            class="parallax-img"
+          >
         {% endif %}
       </div>
-
+    </div>
+    <div class="sii-para">
+      <p>{{ section.settings.sec_para }}</p>
     </div>
   </div>
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     function splitWords(selector) {
-      document.querySelectorAll(selector).forEach(el => {
+      document.querySelectorAll(selector).forEach((el) => {
         const frag = document.createDocumentFragment();
 
         // Recursively walk the rich-text tree (Shopify wraps content in <p>, and
         // accent words come through as <strong>/<b>). Any text inside a bold tag
         // becomes an accent word.
         function walk(node, accent) {
-          node.childNodes.forEach(child => {
+          node.childNodes.forEach((child) => {
             if (child.nodeType === 3) {
               const text = child.textContent.trim();
               if (!text) return;
-              text.split(/\s+/).forEach(word => {
-                const span = document.createElement("span");
+              text.split(/\s+/).forEach((word) => {
+                const span = document.createElement('span');
                 span.textContent = word;
-                if (accent) span.classList.add("accent");
+                if (accent) span.classList.add('accent');
                 frag.appendChild(span);
-                frag.appendChild(document.createTextNode(" "));
+                frag.appendChild(document.createTextNode(' '));
               });
             } else if (child.nodeType === 1) {
               const tag = child.tagName;
-              walk(child, accent || tag === "STRONG" || tag === "B");
+              walk(child, accent || tag === 'STRONG' || tag === 'B');
             }
           });
         }
 
         walk(el, false);
 
-        el.innerHTML = "";
+        el.innerHTML = '';
         el.appendChild(frag);
       });
     }
 
-    splitWords(".text-target");
+    splitWords('.text-target');
 
-    const words = document.querySelectorAll(".text-target span");
-    const image = document.querySelector(".parallax-img");
+    const words = document.querySelectorAll('.text-target span');
+    const image = document.querySelector('.parallax-img');
 
     let tl1 = gsap.timeline({
       scrollTrigger: {
-        trigger: ".slide-in-img",
-        start: "top 40%",
-        end: "top 20%",
-        scrub: true
-      }
+        trigger: '.slide-in-img',
+        start: 'top 40%',
+        end: 'top 20%',
+        scrub: true,
+      },
     });
 
     tl1.to(words, {
       // Accent (bold) words fill to the gold color, the rest to near-black.
-      color: (i, target) => target.classList.contains("accent") ? "#b98846" : "#1A1A1A",
+      color: (i, target) => (target.classList.contains('accent') ? '#b98846' : '#1A1A1A'),
       stagger: {
         each: 0.1,
-        ease: "power1.inOut"
+        ease: 'power1.inOut',
       },
-      ease: "none"
+      ease: 'none',
     });
 
-    gsap.to(".parallax-img", {
+    gsap.to('.parallax-img', {
       y: -50,
-      ease: "none",
+      ease: 'none',
       scrollTrigger: {
-        trigger: ".slide-in-img",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
+        trigger: '.slide-in-img',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
     });
   });
 </script>
 
 {% schema %}
 {
-"name": "Slide In Image",
-"settings": [
-{
-"type": "richtext",
-"id": "heading",
-"label": "Heading Text",
-},
-{
-"type": "image_picker",
-"id": "image",
-"label": "Image"
-}
-],
-"presets": [
-{
-"name": "Slide In Image"
-}
-]
+  "name": "Slide In Image",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading Text"
+    },
+    {
+      "type": "text",
+      "id": "sec_para",
+      "label": "Section Paragraph Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slide In Image"
+    }
+  ]
 }
 {% endschema %}
