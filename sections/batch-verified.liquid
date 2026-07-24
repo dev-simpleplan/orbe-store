@@ -18,6 +18,9 @@
           {% if section.settings.heading != blank %}
             <h2>{{ section.settings.heading }}</h2>
           {% endif %}
+          {% if section.settings.subheading != blank %}
+            <p>{{ section.settings.subheading }}</p>
+          {% endif %}
         </div>
 
         <div class="batch-varified-accordion">
@@ -284,6 +287,11 @@
       "id": "heading",
       "label": "Heading",
       "default": "Every Batch Independently Verified"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub Heading"
     },
     {
       "type": "image_picker",
