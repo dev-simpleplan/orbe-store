@@ -121,29 +121,29 @@
         "text_item_1": {
           "type": "text_item",
           "settings": {
-            "title": "Cleanly Crafted",
-            "text": "Made without unnecessary fillers or additives."
+            "title": "Intentionally Essential",
+            "text": "Only the nutrients needed to address the real gaps women face."
           }
         },
         "text_item_2": {
-          "type": "text_item",
-          "settings": {
-            "title": "Clinically Considered",
-            "text": "Active ingredients chosen for proven efficacy."
-          }
-        },
-        "text_item_3": {
           "type": "text_item",
           "settings": {
             "title": "Thoughtfully Designed",
             "text": "A dual-layer capsule designed to protect potency and support absorption."
           }
         },
+        "text_item_3": {
+          "type": "text_item",
+          "settings": {
+            "title": "Clinically Considered",
+            "text": "Active ingredients chosen for proven efficacy."
+          }
+        },
         "text_item_4": {
           "type": "text_item",
           "settings": {
-            "title": "Intentionally Essential",
-            "text": "Only the nutrients needed to address the real gaps women face."
+            "title": "Cleanly Crafted",
+            "text": "Made without unnecessary fillers or additives."
           }
         }
       },
@@ -224,7 +224,9 @@
       ],
       "settings": {
         "heading": "A First for India. A Standard for You.",
-        "image": "shopify://shop_images/Rectangle_3468672.png"
+        "subheading": "Most brands test to meet the minimum. We run a five-point screen on every batch through a NABL-accredited lab, then publish the results. Nothing to take on faith.",
+        "image": "shopify://shop_images/Rectangle_3468672.png",
+        "testedby": "Tested by Equinox Labs, NABL-accredited. Reports are batch-specific and dated, so you can match what you're holding to the paperwork."
       }
     },
     "certified-by": {
