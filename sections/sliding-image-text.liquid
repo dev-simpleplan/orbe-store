@@ -223,7 +223,7 @@
 
 <section class="sliding-image-text" id="sit-section-{{ section.id }}">
   <div class="sliding-image-text-in">
-    {% for block in section.blocks limit: 3 %}
+    {% for block in section.blocks limit: 4 %}
       {% assign fold_index = forloop.index0 %}
       {% assign is_even = fold_index | modulo: 2 %}
 
@@ -275,12 +275,12 @@
     {% endfor %}
   </div>
 
-  {% assign mobile_fold_count = section.blocks.size | at_most: 3 %}
+  {% assign mobile_fold_count = section.blocks.size | at_most: 4 %}
   {% assign mobile_pin_height = mobile_fold_count | times: 100 %}
   <div class="sit-mobile-pin" style="--sit-mobile-fold-count: {{ mobile_fold_count }}; --sit-mobile-pin-height: {{ mobile_pin_height }}vh; --sit-mobile-pin-height-svh: {{ mobile_pin_height }}svh;">
     <div class="sit-mobile-sticky">
       <div class="sit-mobile-bg-wrap">
-        {% for block in section.blocks limit: 3 %}
+        {% for block in section.blocks limit: 4 %}
           <div class="sit-mobile-bg{% if forloop.first %} is-active{% endif %}" data-sit-mobile-bg="{{ forloop.index0 }}">
             {% if block.settings.image != blank %}
               {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}
@@ -292,7 +292,7 @@
       </div>
 
       <div class="sit-mobile-text-track">
-        {% for block in section.blocks limit: 3 %}
+        {% for block in section.blocks limit: 4 %}
           <div class="sit-mobile-panel{% if forloop.first %} is-active{% endif %}" data-sit-mobile-panel="{{ forloop.index0 }}">
             <div>
               {% if block.settings.heading != blank %}
