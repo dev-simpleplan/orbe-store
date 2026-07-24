@@ -43,13 +43,22 @@
             "metafield_key": "custom.how_to_use",
             "content": "<p>Two capsules with water after a meal. Use consistently for best results. Benefits build gradually over time.</p>"
           }
+        },
+        "collapsible_EUBVPY": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Product Details",
+            "metafield_key": "custom.product_details",
+            "content": "<p>Add your content here.</p>"
+          }
         }
       },
       "block_order": [
         "acc_why",
         "acc_ingredients",
         "acc_nutrition",
-        "acc_how"
+        "acc_how",
+        "collapsible_EUBVPY"
       ],
       "settings": {
         "show_rating": true,
