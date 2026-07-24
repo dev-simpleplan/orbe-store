@@ -1984,6 +1984,17 @@ header.header--transparent
   clip-path: inset(0% 0% 0% 0%);
   transform: translateZ(0);
 }
+.sii-para {
+  margin-top: 10px;
+}
+.sii-para p {
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000;
+}
 
 /* Heart Behind */
 .heart-behind-in {
