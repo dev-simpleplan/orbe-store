@@ -56,6 +56,14 @@
     "sliding-image": {
       "type": "sliding-image-text",
       "blocks": {
+        "fold_bcVhNE": {
+          "type": "fold",
+          "settings": {
+            "heading": "Whole-Body Replenishment",
+            "text_top": "Replenishes key nutrients commonly depleted by modern life while supporting long-term bone strength, resilience, absorption, and overall wellbeing.",
+            "text_bottom": ""
+          }
+        },
         "fold_nUmdXx": {
           "type": "fold",
           "settings": {
@@ -85,6 +93,7 @@
         }
       },
       "block_order": [
+        "fold_bcVhNE",
         "fold_nUmdXx",
         "fold_7KmNqB",
         "fold_MVV873"
