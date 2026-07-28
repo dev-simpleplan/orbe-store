@@ -222,6 +222,18 @@
     // Purchase option selection + price swap
     var priceEl = root.querySelector('[data-price]');
     var options = root.querySelectorAll('[data-option]');
+    var qtyWrap = root.querySelector('[data-qty]');
+
+    function setQtyLocked(locked) {
+      if (!qtyWrap || !qtyInput) return;
+      qtyWrap.classList.toggle('is-locked', locked);
+      qtyInput.disabled = locked;
+      root.querySelectorAll('[data-qty-minus], [data-qty-plus]').forEach(function (b) {
+        b.disabled = locked;
+      });
+      if (locked) qtyInput.value = 1;
+    }
+
     options.forEach(function (opt) {
       var input = opt.querySelector('input[type="radio"]');
       input && input.addEventListener('change', function () {
@@ -229,8 +241,12 @@
         opt.classList.add('is-active');
         var priceStr = opt.querySelector('.pdp-option-price');
         if (priceEl && priceStr) priceEl.textContent = priceStr.textContent;
+        setQtyLocked(input.value !== '');
       });
     });
+
+    var checkedOption = root.querySelector('[data-option] input[type="radio"]:checked');
+    setQtyLocked(!!checkedOption && checkedOption.value !== '');
 
     // Accordion
     var accItems = root.querySelectorAll('.pdp-acc-item');

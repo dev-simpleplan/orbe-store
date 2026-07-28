@@ -1,0 +1,96 @@
+{% if section.settings.text != blank %}
+<style>
+  #announcement-bar-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    background: {{ section.settings.background_color }};
+  }
+
+  #announcement-bar-{{ section.id }} .announcement-bar-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 10px 60px;
+    text-align: center;
+  }
+
+  #announcement-bar-{{ section.id }} .announcement-bar-text {
+    margin: 0;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color }};
+  }
+  .announcement-bar-text p {
+    color: {{ section.settings.text_color }};
+  }
+
+  #announcement-bar-{{ section.id }} .announcement-bar-text a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 991px) {
+    #announcement-bar-{{ section.id }} .announcement-bar-container {
+      padding: 8px 20px;
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-bar-text {
+      font-size: 11px;
+      letter-spacing: 0.8px;
+    }
+  }
+</style>
+
+<div id="announcement-bar-{{ section.id }}" class="announcement-bar" data-announcement-bar {{ section.shopify_attributes }}>
+  <div class="announcement-bar-container">
+    <div class="announcement-bar-text">{{ section.settings.text }}</div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    function setAnnouncementHeight() {
+      var bar = document.querySelector('[data-announcement-bar]');
+      var height = bar ? bar.offsetHeight : 0;
+      document.documentElement.style.setProperty('--announcement-h', height + 'px');
+    }
+
+    setAnnouncementHeight();
+    window.addEventListener('resize', setAnnouncementHeight);
+    document.addEventListener('DOMContentLoaded', setAnnouncementHeight);
+  })();
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Free shipping on all orders over $100</p>"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

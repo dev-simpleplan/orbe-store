@@ -44,7 +44,14 @@ requestAnimationFrame(raf);
     });
   }
 
+  function getAnnouncementHeight() {
+    var raw = getComputedStyle(document.documentElement).getPropertyValue('--announcement-h');
+    return parseFloat(raw) || 0;
+  }
+
   lenis.on('scroll', ({ scroll }) => {
+    header.classList.toggle('header--past-announcement', scroll >= getAnnouncementHeight());
+
     if (isInsideHomeBanner(scroll)) {
       header.classList.remove('header--hidden');
       lastScrollY = scroll;
