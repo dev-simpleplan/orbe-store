@@ -1261,11 +1261,14 @@
   .pdp-gallery {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 92%;
+    grid-auto-columns: 83%;
     overflow-x: scroll;
+    grid-template-columns: auto;
+    align-items: stretch;
   }
   .pdp-gallery-item {
-    aspect-ratio: 4/2.5;
+    /* aspect-ratio: 4/2.5; */
+    width: 100%;
   }
     .essential-ingredient-in .left .box-img {
       width: 100%;

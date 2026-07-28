@@ -2945,10 +2945,13 @@ header.header--transparent
   overflow: hidden;
   transition: max-height 0.4s ease-out;
   max-width: 90%;
+}
+.essential-ingredient .accordion-content .accordioncontent-in {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding-bottom: 4px;
+  padding-top: 10px;
 }
 .essential-ingredient .accordion-content p {
   padding-top: 10px;
@@ -5520,6 +5523,7 @@ body.template-404 .footer {
 .pdp-gallery-item:first-child {
   grid-column: span 2;
 }
+
 .pdp-gallery-img {
   width: 100%;
   height: 100%;
