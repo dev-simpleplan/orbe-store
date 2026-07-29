@@ -1266,14 +1266,19 @@ header.header--transparent
 }
 /* Ready Formula */
 /* Community Ticker */
-.join-community .heading {
+.join-community .heading,
+.community-heading .heading {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-bottom: 50px;
 }
-.join-community .heading p {
+.join-community .heading p,
+.community-heading .heading p {
   max-width: 42ch;
+}
+.social-follow {
+  padding: 40px 0;
 }
 .social-media-block {
   display: flex;
