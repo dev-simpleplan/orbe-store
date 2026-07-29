@@ -5,10 +5,14 @@
 <section class="cart-page">
   <div class="container">
     <div class="cart-page__header">
-      <p class="cart-page__eyebrow">Shopping Cart</p>
-      <h1>{{ 'cart.title' | t }}</h1>
+      <p class="cart-page__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.title }}</h1>
       {% if cart.item_count > 0 %}
-        <p>{{ cart.item_count }} {% if cart.item_count == 1 %}item{% else %}items{% endif %} in your cart</p>
+        <p>
+          {{ cart.item_count }}
+          {% if cart.item_count == 1 %}{{ section.settings.item_singular }}{% else %}{{ section.settings.item_plural }}{% endif %}
+          {{ section.settings.item_count_suffix }}
+        </p>
       {% endif %}
     </div>
 
@@ -95,7 +99,7 @@
                       <button type="button" class="cart-quantity__button" data-quantity-plus aria-label="Increase quantity for {{ item.product.title | escape }}">+</button>
                     </div>
 
-                    <a href="{{ item.url_to_remove }}" class="cart-item__remove">{{ 'cart.remove' | t }}</a>
+                    <a href="{{ item.url_to_remove }}" class="cart-item__remove">{{ section.settings.remove_text }}</a>
                   </div>
 
                   {% if item.unit_price_measurement %}
@@ -114,10 +118,10 @@
 
           <aside class="cart-summary" aria-label="Cart summary">
             <div class="cart-summary__inner">
-              <h2>Order Summary</h2>
+              <h2>{{ section.settings.summary_title }}</h2>
 
               <div class="cart-summary__row">
-                <span>Subtotal</span>
+                <span>{{ section.settings.subtotal_label }}</span>
                 <strong data-cart-subtotal>{{ cart.total_price | money }}</strong>
               </div>
 
@@ -132,14 +136,14 @@
                 </div>
               {% endif %}
 
-              <p class="cart-summary__note">Taxes and shipping are calculated at checkout.</p>
+              <p class="cart-summary__note">{{ section.settings.tax_note }}</p>
 
-              <label for="CartNote" class="cart-summary__label">Order note</label>
-              <textarea id="CartNote" name="note" rows="4" placeholder="Add a note for your order">{{ cart.note | escape }}</textarea>
+              <label for="CartNote" class="cart-summary__label">{{ section.settings.note_label }}</label>
+              <textarea id="CartNote" name="note" rows="4" placeholder="{{ section.settings.note_placeholder }}">{{ cart.note | escape }}</textarea>
 
               <div class="cart-summary__actions">
-                <button type="submit" name="update" class="cart-summary__update">{{ 'cart.update' | t }}</button>
-                <button type="submit" name="checkout" class="primary-btn cart-summary__checkout">{{ 'cart.checkout' | t }}</button>
+                <button type="submit" name="update" class="cart-summary__update">{{ section.settings.update_button_text }}</button>
+                <button type="submit" name="checkout" class="primary-btn cart-summary__checkout">{{ section.settings.checkout_button_text }}</button>
               </div>
             </div>
           </aside>
@@ -147,9 +151,9 @@
       </form>
     {% else %}
       <div class="cart-empty">
-        <h2>Your cart is empty</h2>
-        <p>Explore Orbe and add your essentials when you are ready.</p>
-        <a href="{{ routes.all_products_collection_url }}" class="primary-btn">Continue shopping</a>
+        <h2>{{ section.settings.empty_title }}</h2>
+        <p>{{ section.settings.empty_text }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="primary-btn">{{ section.settings.empty_button_text }}</a>
       </div>
     {% endif %}
   </div>
@@ -228,6 +232,115 @@
 {% schema %}
 {
   "name": "t:general.cart",
-  "settings": []
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shopping Cart"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Cart"
+    },
+    {
+      "type": "text",
+      "id": "item_singular",
+      "label": "Item count label (singular)",
+      "default": "item"
+    },
+    {
+      "type": "text",
+      "id": "item_plural",
+      "label": "Item count label (plural)",
+      "default": "items"
+    },
+    {
+      "type": "text",
+      "id": "item_count_suffix",
+      "label": "Item count suffix",
+      "default": "in your cart"
+    },
+    {
+      "type": "text",
+      "id": "remove_text",
+      "label": "Remove link text",
+      "default": "Remove"
+    },
+    {
+      "type": "header",
+      "content": "Order summary"
+    },
+    {
+      "type": "text",
+      "id": "summary_title",
+      "label": "Summary title",
+      "default": "Order Summary"
+    },
+    {
+      "type": "text",
+      "id": "subtotal_label",
+      "label": "Subtotal label",
+      "default": "Subtotal"
+    },
+    {
+      "type": "text",
+      "id": "tax_note",
+      "label": "Tax/shipping note",
+      "default": "Taxes and shipping are calculated at checkout."
+    },
+    {
+      "type": "text",
+      "id": "note_label",
+      "label": "Order note label",
+      "default": "Order note"
+    },
+    {
+      "type": "text",
+      "id": "note_placeholder",
+      "label": "Order note placeholder",
+      "default": "Add a note for your order"
+    },
+    {
+      "type": "text",
+      "id": "update_button_text",
+      "label": "Update button text",
+      "default": "Update"
+    },
+    {
+      "type": "text",
+      "id": "checkout_button_text",
+      "label": "Checkout button text",
+      "default": "Checkout"
+    },
+    {
+      "type": "header",
+      "content": "Empty cart"
+    },
+    {
+      "type": "text",
+      "id": "empty_title",
+      "label": "Empty cart title",
+      "default": "Your cart is empty"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty cart text",
+      "default": "Explore Orbe and add your essentials when you are ready."
+    },
+    {
+      "type": "text",
+      "id": "empty_button_text",
+      "label": "Empty cart button text",
+      "default": "Continue shopping"
+    }
+  ]
 }
 {% endschema %}
