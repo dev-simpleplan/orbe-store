@@ -459,6 +459,7 @@
     },
     "spacer_12": {
       "type": "spacer",
+      "disabled": true,
       "name": "Spacer",
       "settings": {
         "spacer_height": 120
@@ -466,6 +467,7 @@
     },
     "blogs_feature_dxjadX": {
       "type": "blogs-feature",
+      "disabled": true,
       "name": "Blogs Feature",
       "settings": {
         "heading": "Thoughts Worth Returning To",
@@ -482,60 +484,54 @@
         "spacer_height": 120
       }
     },
-    "join-community": {
-      "type": "join-community",
+    "community_heading_CXdBMN": {
+      "type": "community-heading",
+      "name": "Community Heading",
+      "settings": {
+        "heading": "Join our community",
+        "subheading": "A community shaped by learning, listening, and intention, created for thoughtful conversations and support."
+      }
+    },
+    "178533314010833b7c": {
+      "type": "apps",
       "blocks": {
-        "image_jMfm34": {
-          "type": "image",
+        "instafeed_app_block_6rHmxb": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468500_1.png",
-            "link": ""
-          }
-        },
-        "image_qVEKqX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468502_1.png",
-            "link": ""
-          }
-        },
-        "image_HB9Bir": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468501_1.png",
-            "link": ""
-          }
-        },
-        "image_HEUgRU": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468556.png",
-            "link": ""
-          }
-        },
-        "image_Kjg7tC": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468557.png",
-            "link": ""
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
           }
         }
       },
       "block_order": [
-        "image_jMfm34",
-        "image_qVEKqX",
-        "image_HB9Bir",
-        "image_HEUgRU",
-        "image_Kjg7tC"
+        "instafeed_app_block_6rHmxb"
       ],
+      "settings": {}
+    },
+    "social_follow_KWRfNg": {
+      "type": "social-follow",
+      "name": "Social Follow",
       "settings": {
-        "heading": "Join our community",
-        "subheading": "A community shaped by learning, listening, and intention, created for thoughtful conversations and support.",
         "social_label": "Follow Us On Social Media",
-        "facebook_url": "#!",
-        "instagram_url": "#!",
-        "twitter_url": "#!",
-        "linkedin_url": "#!"
+        "show_facebook": false,
+        "facebook_url": "",
+        "show_instagram": true,
+        "instagram_url": "https://www.instagram.com/orbecare?igsh=MjBrNHE2eTgyc3Nz",
+        "show_twitter": false,
+        "twitter_url": "",
+        "show_linkedin": false,
+        "linkedin_url": ""
       }
     }
   },
@@ -562,6 +558,8 @@
     "spacer_12",
     "blogs_feature_dxjadX",
     "spacer_7GJQYM",
-    "join-community"
+    "community_heading_CXdBMN",
+    "178533314010833b7c",
+    "social_follow_KWRfNg"
   ]
 }
