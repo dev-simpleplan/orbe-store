@@ -1,0 +1,8 @@
+{%- comment -%} Renders <source> tags for the home banner background video, falling back to a default hosted file if no video is set. {%- endcomment -%}
+{%- if section.settings.video != blank -%}
+  {%- for source in section.settings.video.sources -%}
+    <source src="{{ source.url }}" type="{{ source.mime_type }}">
+  {%- endfor -%}
+{%- else -%}
+  <source src="https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov" type="video/mp4">
+{%- endif -%}

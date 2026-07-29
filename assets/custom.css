@@ -23,7 +23,8 @@ header.header--hidden {
 .header-in .right {
   margin-left: auto;
 }
-.header--transparent svg path {
+.header--transparent svg path,
+.header--transparent svg circle {
   stroke: #fff;
 }
 header ul,
@@ -132,7 +133,9 @@ header li {
 .header--transparent .hamburger rect {
   fill: #fff;
 }
-.header--transparent .cart-btn svg path {
+.header--transparent .cart-btn svg path,
+.header--transparent .account-btn svg path,
+.header--transparent .account-btn svg circle {
   stroke: #fff;
 }
 .header--transparent .mobile-header-logo img {
@@ -140,6 +143,8 @@ header li {
 }
 .hamburger rect,
 .cart-btn svg path,
+.account-btn svg path,
+.account-btn svg circle,
 .mobile-header-logo img {
   transition: 0.4s ease all;
 }
@@ -157,6 +162,11 @@ header li {
 .mobile-header-logo {
   width: 110px;
   margin: 0 auto;
+}
+.header-mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 .hamburger,
 .close-menu {

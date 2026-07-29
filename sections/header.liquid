@@ -85,6 +85,11 @@
               </li>
             {% endif %}
           {% endfor %}
+          <li class="account-icon">
+            <a href="{{ routes.account_url }}" aria-label="{% if customer %}Account{% else %}Login{% endif %}">
+              {% render 'account-icon' %}
+            </a>
+          </li>
           <li class="cart-icon">
             <a href="{{ routes.cart_url }}" aria-label="Cart">
               {% render 'cart-icon' %}
@@ -116,13 +121,20 @@
             class="icon" alt="" width="110" height="37">
         </a>
       </div>
-      <div class="cart-btn">
-        <a href="{{ routes.cart_url }}" aria-label="Cart">
-          {% render 'cart-icon' %}
-          {% if cart.item_count > 0 %}
-          <span class="cart-count">{{ cart.item_count }}</span>
-          {% endif %}
-        </a>
+      <div class="header-mobile-actions">
+        <div class="account-btn">
+          <a href="{{ routes.account_url }}" aria-label="{% if customer %}Account{% else %}Login{% endif %}">
+            {% render 'account-icon' %}
+          </a>
+        </div>
+        <div class="cart-btn">
+          <a href="{{ routes.cart_url }}" aria-label="Cart">
+            {% render 'cart-icon' %}
+            {% if cart.item_count > 0 %}
+            <span class="cart-count">{{ cart.item_count }}</span>
+            {% endif %}
+          </a>
+        </div>
       </div>
     </div>
     <div class="mobile-menu">

@@ -1,3 +1,5 @@
+{%- assign banner_heading = section.settings.heading | newline_to_br -%}
+{%- assign banner_text = section.settings.text | newline_to_br -%}
 <svg width="0" height="0" style="position:absolute;overflow:hidden;">
   <defs>
     <clipPath id="orbe-clip-path" clipPathUnits="objectBoundingBox" transform="scale(0.001923077 0.001898)">
@@ -13,26 +15,22 @@
   <div id="orbe-stage">
     <div id="orbe-fullvideo-section">
       <video autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
-        <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
+        {% render 'home-banner-video-sources' %}
       </video>
       <div id="orbe-fullscreen-content">
 
-        <h2>
-          The Beauty That<br>
-          Simplicity Creates
-        </h2>
-        <p>
-          Guiding you toward choices that honour your strength,<br>
-          your rhythm, your becoming.
-        </p>
-        <a href="#!" class="primary-btn">Start Your Journey</a>
+        <h2>{{ banner_heading }}</h2>
+        <p>{{ banner_text }}</p>
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link | default: '#!' }}" class="primary-btn">{{ section.settings.button_text }}</a>
+        {% endif %}
       </div>
     </div>
 
     <!-- O shape -->
     <div id="orbe-o-wrap">
       <video id="orbe-masked-video" autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
-        <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
+        {% render 'home-banner-video-sources' %}
       </video>
       <svg id="orbe-o-outline" viewBox="0 0 520 527" xmlns="http://www.w3.org/2000/svg">
         <path fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"
@@ -42,15 +40,11 @@
       </svg>
     </div>
     <div id="orbe-copy">
-      <h1>
-        The Beauty That<br>
-        Simplicity Creates
-      </h1>
-      <p>
-        Guiding you toward choices that honour your strength,<br>
-        your rhythm, your becoming.
-      </p>
-      <a href="#" class="primary-btn">Start Your Journey</a>
+      <h1>{{ banner_heading }}</h1>
+      <p>{{ banner_text }}</p>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link | default: '#!' }}" class="primary-btn">{{ section.settings.button_text }}</a>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -59,36 +53,28 @@
   <div id="orbe-mobile-stage">
     <div id="orbe-mobile-fullvideo-section">
       <video autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
-        <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
+        {% render 'home-banner-video-sources' %}
       </video>
       <div id="orbe-mobile-fullscreen-content">
-        <h2>
-          The Beauty That<br>
-          Simplicity Creates
-        </h2>
-        <p>
-          Guiding you toward choices that honour your strength,
-          your rhythm, your becoming.
-        </p>
-        <a href="#!" class="primary-btn">Start Your Journey</a>
+        <h2>{{ banner_heading }}</h2>
+        <p>{{ banner_text }}</p>
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link | default: '#!' }}" class="primary-btn">{{ section.settings.button_text }}</a>
+        {% endif %}
       </div>
     </div>
 
     <div id="orbe-mobile-copy">
-      <h1>
-        The Beauty That<br>
-        Simplicity Creates
-      </h1>
-      <p>
-        Guiding you toward choices that honour your strength,
-        your rhythm, your becoming.
-      </p>
-      <a href="#" class="primary-btn">Start Your Journey</a>
+      <h1>{{ banner_heading }}</h1>
+      <p>{{ banner_text }}</p>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link | default: '#!' }}" class="primary-btn">{{ section.settings.button_text }}</a>
+      {% endif %}
     </div>
 
     <div id="orbe-mobile-o-wrap">
       <video id="orbe-mobile-masked-video" autoplay muted loop playsinline webkit-playsinline disableremoteplayback disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" x-webkit-airplay="deny">
-        <source src="{{ 'https://cdn.shopify.com/videos/c/o/v/604b7e3add1647179b72bc88154397e9.mov'}}" type="video/mp4">
+        {% render 'home-banner-video-sources' %}
       </video>
       <svg id="orbe-mobile-o-outline" viewBox="0 0 520 527" xmlns="http://www.w3.org/2000/svg">
         <path fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"
@@ -545,3 +531,40 @@
     init();
   })();
 </script>
+
+{% schema %}
+{
+  "name": "Home Banner",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background video",
+      "info": "Falls back to the default hosted video if left blank."
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Beauty That\nSimplicity Creates"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Guiding you toward choices that honour your strength,\nyour rhythm, your becoming."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Start Your Journey"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}
