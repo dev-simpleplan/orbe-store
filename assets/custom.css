@@ -2915,11 +2915,12 @@ header.header--transparent
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin-top: 60px;
 }
 
 .essential-ingredient-in .left {
-  padding-top: 80px;
-  /*  padding-bottom: 50px; */
+  /* padding-top: 80px;
+  padding-bottom: 50px; */
   padding-bottom: 0;
 }
 .essential-ingredient-in .left .box-img {
