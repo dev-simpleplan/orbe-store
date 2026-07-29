@@ -174,6 +174,17 @@
                   {%- assign mf_parts = mf_key | split: '.' -%}
                   {%- assign mf_value = product.metafields[mf_parts[0]][mf_parts[1]] -%}
                 {%- endif -%}
+
+                {%- assign mf_image = blank -%}
+                {%- assign mf_image_key = block.settings.image_metafield_key | strip -%}
+                {%- if mf_image_key contains '.' -%}
+                  {%- assign mf_image_parts = mf_image_key | split: '.' -%}
+                  {%- assign mf_image = product.metafields[mf_image_parts[0]][mf_image_parts[1]].value -%}
+                {%- endif -%}
+                {%- unless mf_image != blank -%}
+                  {%- assign mf_image = block.settings.image -%}
+                {%- endunless -%}
+
                 <div class="pdp-acc-item" {{ block.shopify_attributes }}>
                   <button type="button" class="pdp-acc-head" aria-expanded="false">
                     <span>{{ block.settings.title }}</span>
@@ -181,6 +192,11 @@
                   </button>
                   <div class="pdp-acc-body">
                     <div class="pdp-acc-content">
+                      {%- if mf_image != blank -%}
+                        <div class="pdp-acc-image">
+                          {{ mf_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                        </div>
+                      {%- endif -%}
                       {%- if mf_value != blank -%}{{ mf_value | metafield_tag }}{%- else -%}{{ block.settings.content }}{%- endif -%}
                     </div>
                   </div>
@@ -263,6 +279,14 @@
           item.classList.add('is-open');
           head.setAttribute('aria-expanded', 'true');
           body.style.maxHeight = body.scrollHeight + 'px';
+          var img = body.querySelector('.pdp-acc-image img');
+          if (img && !img.complete) {
+            img.addEventListener('load', function () {
+              if (item.classList.contains('is-open')) {
+                body.style.maxHeight = body.scrollHeight + 'px';
+              }
+            }, { once: true });
+          }
         }
       });
     });
@@ -397,6 +421,18 @@
           "id": "content",
           "label": "Fallback content",
           "default": "<p>Add your content here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "image_metafield_key",
+          "label": "Image metafield key",
+          "info": "e.g. custom.why_orbe_image — pulls this row's image from a product file/image metafield so it can differ per product. Falls back to the image below if empty or unset."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Fallback image",
+          "info": "Optional — shown above the text. You can add an image, text, or both."
         }
       ]
     }
