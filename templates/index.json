@@ -11,7 +11,12 @@
   "sections": {
     "main": {
       "type": "home-banner",
-      "settings": {}
+      "settings": {
+        "heading": "The Beauty That\nSimplicity Creates",
+        "text": "Guiding you toward choices that honour your strength,\nyour rhythm, your becoming.",
+        "button_text": "Start Your Journey",
+        "button_link": "shopify://products/n-1"
+      }
     },
     "spacer1": {
       "type": "spacer",
