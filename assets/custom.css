@@ -2918,9 +2918,8 @@ header.header--transparent
 }
 
 .essential-ingredient-in .left {
-  /* padding-top: 80px;
-  padding-bottom: 50px; */
-  padding-top: 0;
+  padding-top: 80px;
+  /*  padding-bottom: 50px; */
   padding-bottom: 0;
 }
 .essential-ingredient-in .left .box-img {
