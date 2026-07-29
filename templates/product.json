@@ -17,7 +17,8 @@
           "settings": {
             "title": "Why Orbe",
             "metafield_key": "custom.why_orbe",
-            "content": "<p>Essential nourishment for energy, mood, hormonal balance, and long-term wellbeing.</p>"
+            "content": "<p>Essential nourishment for energy, mood, hormonal balance, and long-term wellbeing.</p>",
+            "image_metafield_key": ""
           }
         },
         "acc_ingredients": {
@@ -25,7 +26,8 @@
           "settings": {
             "title": "Ingredients",
             "metafield_key": "custom.ingredients",
-            "content": "<p>Clean, considered, essential. Each ingredient selected for purpose and purity.</p>"
+            "content": "<p>Clean, considered, essential. Each ingredient selected for purpose and purity.</p>",
+            "image_metafield_key": ""
           }
         },
         "acc_nutrition": {
@@ -33,7 +35,9 @@
           "settings": {
             "title": "Nutrition Profile",
             "metafield_key": "custom.nutrition_profile",
-            "content": "<p>Approximate values per serving. Serving size: 2 capsules.</p>"
+            "content": "<p>Approximate values per serving. Serving size: 2 capsules.</p>",
+            "image_metafield_key": "",
+            "image": "shopify://shop_images/image_14.png"
           }
         },
         "acc_how": {
@@ -41,7 +45,8 @@
           "settings": {
             "title": "How To Use",
             "metafield_key": "custom.how_to_use",
-            "content": "<p>Two capsules with water after a meal. Use consistently for best results. Benefits build gradually over time.</p>"
+            "content": "<p>Two capsules with water after a meal. Use consistently for best results. Benefits build gradually over time.</p>",
+            "image_metafield_key": ""
           }
         },
         "collapsible_EUBVPY": {
@@ -49,7 +54,8 @@
           "settings": {
             "title": "Product Details",
             "metafield_key": "custom.product_details",
-            "content": "<p>Add your content here.</p>"
+            "content": "<p>Add your content here.</p>",
+            "image_metafield_key": ""
           }
         }
       },
