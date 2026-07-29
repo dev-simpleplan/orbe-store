@@ -852,6 +852,7 @@ header.header--transparent .center svg path {
 }
 #orbe-copy .primary-btn {
   margin-top: 30px;
+  pointer-events: auto;
 }
 #orbe-fullscreen-content .primary-btn {
   margin-top: 30px;
