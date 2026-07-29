@@ -36,7 +36,7 @@
           "settings": {
             "title": "Nutrition Profile",
             "metafield_key": "custom.nutrition_profile",
-            "content": "<p>Approximate values per serving. Serving size: 2 capsules.</p>",
+            "content": "",
             "image_metafield_key": "",
             "image": "shopify://shop_images/ChatGPT_Image_Jul_29_2026_07_48_24_PM.png"
           }
