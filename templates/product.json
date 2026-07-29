@@ -27,7 +27,8 @@
             "title": "Ingredients",
             "metafield_key": "custom.ingredients",
             "content": "<p>Clean, considered, essential. Each ingredient selected for purpose and purity.</p>",
-            "image_metafield_key": ""
+            "image_metafield_key": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_29_2026_07_46_06_PM.png"
           }
         },
         "acc_nutrition": {
@@ -37,7 +38,7 @@
             "metafield_key": "custom.nutrition_profile",
             "content": "<p>Approximate values per serving. Serving size: 2 capsules.</p>",
             "image_metafield_key": "",
-            "image": "shopify://shop_images/image_14.png"
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_29_2026_07_48_24_PM.png"
           }
         },
         "acc_how": {
