@@ -153,8 +153,7 @@
       <div class="cart-empty">
         <h2>{{ section.settings.empty_title }}</h2>
         <p>{{ section.settings.empty_text }}</p>
-        {%- assign empty_button_url = section.settings.empty_button_link | default: routes.all_products_collection_url -%}
-        <a href="{{ empty_button_url }}" class="primary-btn">{{ section.settings.empty_button_text }}</a>
+        <a href="{{ routes.all_products_collection_url }}" class="primary-btn">{{ section.settings.empty_button_text }}</a>
       </div>
     {% endif %}
   </div>
@@ -341,13 +340,6 @@
       "id": "empty_button_text",
       "label": "Empty cart button text",
       "default": "Continue shopping"
-    },
-    {
-      "type": "url",
-      "id": "empty_button_link",
-      "label": "Empty cart button link",
-      "info": "Defaults to the Shop N°1 product page if left blank.",
-      "default": "/products/n-1"
     }
   ]
 }
