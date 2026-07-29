@@ -506,6 +506,33 @@
         "subheading": "A community shaped by learning, listening, and intention, created for thoughtful conversations and support."
       }
     },
+    "178532585679964ad7": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_LpHGck": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_LpHGck"
+      ],
+      "settings": {}
+    },
     "social_follow_bgHhmm": {
       "type": "social-follow",
       "name": "Social Follow",
@@ -520,19 +547,6 @@
         "show_linkedin": false,
         "linkedin_url": ""
       }
-    },
-    "178532585679964ad7": {
-      "type": "apps",
-      "blocks": {
-        "socialwidget_instafeed_base_widget_nFfTin": {
-          "type": "shopify://apps/socialwidget-instafeed/blocks/base-widget/508b8d5b-b176-4dc6-a0ba-2b222db6eb79",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "socialwidget_instafeed_base_widget_nFfTin"
-      ],
-      "settings": {}
     }
   },
   "order": [
