@@ -498,77 +498,41 @@
         "spacer_height": 120
       }
     },
-    "blogs-feature": {
-      "type": "blogs-feature",
+    "community_heading_pCqYMx": {
+      "type": "community-heading",
+      "name": "Community Heading",
       "settings": {
-        "heading": "Thoughts Worth Returning To",
-        "blog": "articles",
-        "articles_to_show": 4,
-        "show_category": true,
-        "show_navigation": true
+        "heading": "Join our community",
+        "subheading": "A community shaped by learning, listening, and intention, created for thoughtful conversations and support."
       }
     },
-    "spacer6": {
-      "type": "spacer",
+    "social_follow_bgHhmm": {
+      "type": "social-follow",
+      "name": "Social Follow",
       "settings": {
-        "spacer_height": 120
+        "social_label": "Follow Us On Social Media",
+        "show_facebook": false,
+        "facebook_url": "",
+        "show_instagram": true,
+        "instagram_url": "https://www.instagram.com/orbecare",
+        "show_twitter": false,
+        "twitter_url": "",
+        "show_linkedin": false,
+        "linkedin_url": ""
       }
     },
-    "join-community": {
-      "type": "join-community",
+    "178532585679964ad7": {
+      "type": "apps",
       "blocks": {
-        "image_jMfm34": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468500_1.png",
-            "link": ""
-          }
-        },
-        "image_qVEKqX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468502_1.png",
-            "link": ""
-          }
-        },
-        "image_HB9Bir": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468501_1.png",
-            "link": ""
-          }
-        },
-        "image_HEUgRU": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468556.png",
-            "link": ""
-          }
-        },
-        "image_Kjg7tC": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468557.png",
-            "link": ""
-          }
+        "socialwidget_instafeed_base_widget_nFfTin": {
+          "type": "shopify://apps/socialwidget-instafeed/blocks/base-widget/508b8d5b-b176-4dc6-a0ba-2b222db6eb79",
+          "settings": {}
         }
       },
       "block_order": [
-        "image_jMfm34",
-        "image_qVEKqX",
-        "image_HB9Bir",
-        "image_HEUgRU",
-        "image_Kjg7tC"
+        "socialwidget_instafeed_base_widget_nFfTin"
       ],
-      "settings": {
-        "heading": "Join our community",
-        "subheading": "A community shaped by learning, listening, and intention, created for thoughtful conversations and support.",
-        "social_label": "Follow Us On Social Media",
-        "facebook_url": "#!",
-        "instagram_url": "https://www.instagram.com/orbecare?igsh=MjBrNHE2eTgyc3Nz",
-        "twitter_url": "#!",
-        "linkedin_url": "#!"
-      }
+      "settings": {}
     }
   },
   "order": [
@@ -594,8 +558,8 @@
     "spacer5",
     "testimonial-sec",
     "spacer_MQJmqW",
-    "blogs-feature",
-    "spacer6",
-    "join-community"
+    "community_heading_pCqYMx",
+    "178532585679964ad7",
+    "social_follow_bgHhmm"
   ]
 }
