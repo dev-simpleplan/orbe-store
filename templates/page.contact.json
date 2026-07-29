@@ -41,6 +41,7 @@
         },
         "social_link_akxUtt": {
           "type": "social_link",
+          "disabled": true,
           "settings": {
             "label": "Facebook",
             "url": "#!"
@@ -48,6 +49,7 @@
         },
         "social_link_CA9Qnk": {
           "type": "social_link",
+          "disabled": true,
           "settings": {
             "label": "Linkedin",
             "url": "#!"
@@ -55,6 +57,7 @@
         },
         "social_link_Bk7cA7": {
           "type": "social_link",
+          "disabled": true,
           "settings": {
             "label": "Twitter",
             "url": "#!"
@@ -64,11 +67,12 @@
           "type": "social_link",
           "settings": {
             "label": "Instagram",
-            "url": "#!"
+            "url": "https://www.instagram.com/orbecare?igsh=MjBrNHE2eTgyc3Nz"
           }
         },
         "social_link_AWJ6kW": {
           "type": "social_link",
+          "disabled": true,
           "settings": {
             "label": "Youtube",
             "url": "#!"
