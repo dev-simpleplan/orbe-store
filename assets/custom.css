@@ -3253,7 +3253,7 @@ body.ingredient-drawer-open {
   }
   .essential-ingredient-in .left {
     padding-top: 50px;
-    padding-bottom: 30px;
+    padding-bottom: 0px;
   }
   .essential-ingredient .top {
     gap: 20px;
