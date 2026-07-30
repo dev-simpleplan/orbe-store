@@ -194,14 +194,16 @@
           "type": "accordion_item",
           "settings": {
             "title": "Inner Capsule Phase",
-            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 100 mcg\n\nVitamin B12 (as Methylcobalamin) — 100 mcg\n\nIron (as Ferrochel® Ferrous Bisglycinate) — 15 mg\n\nZinc (as Zinc Citrate) — 10 mg\n\nMagnesium (as Magnesium Bisglycinate) — 72 mg\n\nBoron (as Boron Proteonate) — 2.20 mg"
+            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 100 mcg\n\nVitamin B12 (as Methylcobalamin) — 100 mcg\n\nIron (as Ferrochel® Ferrous Bisglycinate) — 15 mg\n\nZinc (as Zinc Citrate) — 10 mg\n\nMagnesium (as Magnesium Bisglycinate) — 72 mg\n\nBoron (as Boron Proteonate) — 2.20 mg",
+            "image": "shopify://shop_images/627a8008896753d283edbdb79e3ad123b2978ab9.png"
           }
         },
         "accordion_outer_capsule": {
           "type": "accordion_item",
           "settings": {
             "title": "Outer Capsule Phase",
-            "content": "DHA (Docosahexaenoic Acid) Omega-3 — 100 mg\n\nVitashine® Vitamin D3 (Cholecalciferol) — 600 IU\n\nVitamin E (D-Alpha Tocopherol) — 54 mg\n\nMenaQ7® (Vitamin K2 MK-7) — 100 mcg"
+            "content": "DHA (Docosahexaenoic Acid) Omega-3 — 100 mg\n\nVitashine® Vitamin D3 (Cholecalciferol) — 600 IU\n\nVitamin E (D-Alpha Tocopherol) — 54 mg\n\nMenaQ7® (Vitamin K2 MK-7) — 100 mcg",
+            "image": "shopify://shop_images/61336f8624df961fe7afbb50e7ccad8c9a81bfa8.png"
           }
         }
       },
