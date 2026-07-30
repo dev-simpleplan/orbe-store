@@ -21,9 +21,20 @@
         <div class="essential-ingredient-in">
             <div class="left">
                 <div class="box-img">
-                    {% if section.settings.box_image != blank %}
-                    {{ section.settings.box_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
-                    {% endif %}
+                    {% for block in section.blocks %}
+                        {% assign phase_image = block.settings.image | default: section.settings.box_image %}
+                        {% if phase_image != blank %}
+                        <div class="box-img-item{% if forloop.first %} is-active{% endif %}" data-box-image="{{ forloop.index0 }}">
+                            {{ phase_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
+                        </div>
+                        {% endif %}
+                    {% else %}
+                        {% if section.settings.box_image != blank %}
+                        <div class="box-img-item is-active">
+                            {{ section.settings.box_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
             <div class="right">
@@ -35,7 +46,7 @@
                 <div class="accordion-wrap essential-ingredient">
                     <div class="accordion">
                         {% for block in section.blocks %}
-                        <div class="accordion-item" {{ block.shopify_attributes }}>
+                        <div class="accordion-item" data-accordion-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
                             <div class="accordion-title">
                                 {{ block.settings.title }}
                                 <span class="accordion-icon">
@@ -175,10 +186,24 @@
                 if (panel) panel.style.maxHeight = '0px';
             }
 
+            var boxImages = Array.prototype.slice.call(section.querySelectorAll('[data-box-image]'));
+
+            function setActiveBoxImage(index) {
+                if (!boxImages.length) return;
+                boxImages.forEach(function (image) {
+                    image.classList.toggle('is-active', image.dataset.boxImage === String(index));
+                });
+            }
+
             function openItem(title) {
                 var panel = title.nextElementSibling;
                 title.classList.add('active');
                 if (panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+
+                var item = title.closest('.accordion-item');
+                if (item && item.dataset.accordionIndex !== undefined) {
+                    setActiveBoxImage(item.dataset.accordionIndex);
+                }
             }
 
             titles.forEach(function (title) {
@@ -381,6 +406,12 @@
 "type": "textarea",
 "id": "content",
 "label": "Content"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image",
+"info": "Shown on the left when this accordion row is open. Falls back to the Box Image above if left blank."
 }
 ]
 }
