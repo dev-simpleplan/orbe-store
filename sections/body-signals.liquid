@@ -1,0 +1,166 @@
+{% comment %} Body Signals Section {% endcomment %}
+
+<section class="body-signals" id="body-signals-{{ section.id }}">
+  <div class="body-signals-bg">
+    {% for block in section.blocks %}
+      <div class="body-signals-bg-item{% if forloop.first %} is-active{% endif %}" data-signal-bg="{{ forloop.index0 }}">
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: block.settings.label }}
+        {% endif %}
+      </div>
+    {% endfor %}
+    <div class="body-signals-overlay"></div>
+  </div>
+
+  <div class="container body-signals-content">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="body-signals-head">
+        {% if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif %}
+        {% if section.settings.subheading != blank %}<p>{{ section.settings.subheading }}</p>{% endif %}
+      </div>
+    {% endif %}
+
+    <div class="body-signals-bottom">
+      <div class="body-signals-tabs" role="tablist">
+        {% for block in section.blocks %}
+          <button
+            type="button"
+            class="body-signals-tab{% if forloop.first %} is-active{% endif %}"
+            data-signal-tab="{{ forloop.index0 }}"
+            role="tab"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <span class="body-signals-tab-dot" aria-hidden="true"></span>
+            <span class="body-signals-tab-label">{{ block.settings.label }}</span>
+          </button>
+        {% endfor %}
+      </div>
+
+      <div class="body-signals-panels">
+        {% for block in section.blocks %}
+          <div class="body-signals-panel{% if forloop.first %} is-active{% endif %}" data-signal-panel="{{ forloop.index0 }}">
+            {% assign panel_heading = block.settings.heading | default: block.settings.label %}
+            {% if panel_heading != blank %}<h3>{{ panel_heading }}</h3>{% endif %}
+            {% if block.settings.items != blank %}
+              <ul>
+                {% assign signal_items = block.settings.items | newline_to_br | split: '<br />' %}
+                {% for item in signal_items %}
+                  {% assign clean_item = item | strip %}
+                  {% if clean_item != blank %}<li>{{ clean_item }}</li>{% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function initBodySignals() {
+      var section = document.getElementById('body-signals-{{ section.id }}');
+      if (!section || section.dataset.signalsReady === 'true') return;
+
+      var tabs = Array.prototype.slice.call(section.querySelectorAll('[data-signal-tab]'));
+      if (!tabs.length) return;
+
+      section.dataset.signalsReady = 'true';
+
+      var panels = Array.prototype.slice.call(section.querySelectorAll('[data-signal-panel]'));
+      var bgItems = Array.prototype.slice.call(section.querySelectorAll('[data-signal-bg]'));
+
+      function activate(index) {
+        tabs.forEach(function (tab) {
+          var isActive = tab.dataset.signalTab === String(index);
+          tab.classList.toggle('is-active', isActive);
+          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        panels.forEach(function (panel) {
+          panel.classList.toggle('is-active', panel.dataset.signalPanel === String(index));
+        });
+        bgItems.forEach(function (bg) {
+          bg.classList.toggle('is-active', bg.dataset.signalBg === String(index));
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activate(tab.dataset.signalTab);
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBodySignals);
+    } else {
+      initBodySignals();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Body Signals",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Your Body's Been Trying To Tell You"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "You're not imagining it. These everyday shifts are your body's way of asking for support."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab label",
+          "default": "Energy & Fatigue"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image",
+          "info": "Shown when this tab is active."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Content heading",
+          "info": "Falls back to the tab label if left blank."
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Bullet items (one per line)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Body Signals",
+      "blocks": [
+        { "type": "tab", "settings": { "label": "Energy & Fatigue" } },
+        { "type": "tab", "settings": { "label": "Sleep & Rest" } },
+        { "type": "tab", "settings": { "label": "Mood & Clarity" } },
+        { "type": "tab", "settings": { "label": "Body & Foundations" } },
+        { "type": "tab", "settings": { "label": "Cycle & Hormones" } },
+        { "type": "tab", "settings": { "label": "Mental Load & Overwhelm" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
