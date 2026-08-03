@@ -328,8 +328,18 @@
             <!-- Central blobs -->
             <div class="center-blob">
                 {% if section.settings.video != blank %}
-                    <video class="blob-video" muted playsinline webkit-playsinline preload="auto" tabindex="-1" aria-hidden="true">
-                        {% for source in section.settings.video.sources %}
+                    {% comment %}
+                      Progressive MP4 only — the HLS (.m3u8) source in section.settings.video.sources
+                      fetches new network segments on every seek, which makes scroll-scrubbing laggy.
+                      A fully-buffered MP4 seeks instantly with no network round-trip.
+                    {% endcomment %}
+                    {% assign blob_video_sources = section.settings.video.sources | where: 'mime_type', 'video/mp4' %}
+                    {% assign blob_video_source = blob_video_sources.first %}
+                    {% if blob_video_source %}
+                        <link rel="preload" as="video" href="{{ blob_video_source.url }}" type="{{ blob_video_source.mime_type }}" fetchpriority="high">
+                    {% endif %}
+                    <video class="blob-video" muted playsinline webkit-playsinline preload="auto" fetchpriority="high" tabindex="-1" aria-hidden="true">
+                        {% for source in blob_video_sources %}
                             <source src="{{ source.url }}" type="{{ source.mime_type }}">
                         {% endfor %}
                     </video>
@@ -374,27 +384,35 @@
             let activeSlideIndex = -1;
             let videoDuration = 0;
             let targetTime = 0;
-            let videoRafId = null;
+            let videoSeekPending = false;
             let videoPrimed = false;
 
-            function videoTick() {
-                videoRafId = null;
-                if (!blobVideo || !videoDuration) return;
+            function applyVideoSeek() {
+                if (!blobVideo) return;
+                videoSeekPending = true;
                 if (!blobVideo.paused) blobVideo.pause();
-                var cur = blobVideo.currentTime;
-                var diff = targetTime - cur;
-                if (Math.abs(diff) > 0.008) {
-                    // Ease toward the scroll target; re-setting each frame self-heals
-                    // if any single seek gets dropped (fixes reverse-scroll freezing).
-                    blobVideo.currentTime = cur + diff * 0.25;
-                    videoRafId = requestAnimationFrame(videoTick);
-                }
+                blobVideo.currentTime = targetTime;
+            }
+
+            if (blobVideo) {
+                // Decoding a seeked-to frame isn't instant even for a fully-buffered
+                // local video. Only ever seek once the previous seek has actually
+                // finished, always jumping straight to the freshest scroll target —
+                // this prevents a backlog of stale seeks from queuing up and the
+                // video progressively falling further behind while scrolling.
+                blobVideo.addEventListener('seeked', function () {
+                    videoSeekPending = false;
+                    if (Math.abs(blobVideo.currentTime - targetTime) > 0.02) {
+                        applyVideoSeek();
+                    }
+                });
             }
 
             function seekVideo(t) {
                 targetTime = t;
-                if (videoRafId === null) {
-                    videoRafId = requestAnimationFrame(videoTick);
+                if (!blobVideo) return;
+                if (!videoSeekPending) {
+                    applyVideoSeek();
                 }
             }
 
@@ -509,7 +527,7 @@
                 trigger: wrapper,
                 start: 'top top',
                 end: 'bottom bottom',
-                scrub: 2.4,
+                scrub: true,
                 invalidateOnRefresh: true,
                 onRefresh: updateOrbitFromScroll,
                 onUpdate: updateOrbitFromScroll,
