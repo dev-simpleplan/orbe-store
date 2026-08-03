@@ -27,10 +27,10 @@
     "at-orbe": {
       "type": "at-orbe",
       "settings": {
-        "image_1": "shopify://shop_images/Frame_2072749083.jpg",
+        "image_1": "shopify://shop_images/Frame_2072749083_1_1.jpg",
         "text_1": "At Orbé, we believe simplicity is not the absence of complexity but the presence of clarity.",
         "text_2": "In a world full of excess and contradiction, we choose to move with transparency, honesty, and intention.",
-        "small_image": "shopify://shop_images/Rectangle_3468532.jpg",
+        "small_image": "shopify://shop_images/Rectangle_3468532_1_1.jpg",
         "image_2": "shopify://shop_images/Rectangle_3468531.png"
       }
     },
@@ -44,7 +44,7 @@
       "type": "at-single",
       "settings": {
         "heading": "A single ritual that makes space for your becoming.",
-        "image": "shopify://shop_images/1182acf2e64d11c314c3eb29b617586b463dadaa_1.png",
+        "image": "shopify://shop_images/75fb95c0f3566b49fd9392e2eca78bc40f4bf456_1.jpg",
         "logo": "shopify://shop_images/Group_2085663252.svg",
         "left_text": "A moment made for you: simple, intentional, and crafted to help you feel more like yourself again.",
         "right_text": "Thoughtfully crafted to support your inner steadiness, your energy, your clarity, your becoming.",
@@ -120,7 +120,7 @@
         "text": "A daily foundation of thoughtfully selected nutrients to support how you feel, every day.",
         "button_text": "Start Your Orbé Journey",
         "button_link": "shopify://products/n-1",
-        "image": "shopify://shop_images/65c4ea1baea681f501926e1a9ad33db52afa0a7f.png"
+        "image": "shopify://shop_images/ChatGPT_Image_May_8_2026_01_44_31_PM_1_1.jpg"
       }
     },
     "spacer_LNTQEE": {
