@@ -65,44 +65,26 @@
           "type": "fold",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468536_1.png",
-            "heading": "Elevated Energy",
-            "text_top": "Supports steady, sustained vitality by replenishing essential nutrients and supporting natural energy production without spikes or crashes.",
-            "text_bottom": ""
+            "top_heading": "Elevated Energy",
+            "top_text": "Supports steady, sustained vitality by replenishing essential nutrients and supporting natural energy production without spikes or crashes.",
+            "bottom_heading": "Harmonised Cycles",
+            "bottom_text": "Supports hormonal rhythms and helps ease common PMS discomfort by providing nutrients that support the body’s natural cycle."
           }
         },
         "fold_7KmNqB": {
           "type": "fold",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468538_1_d1f9ec6d-ded6-4bfb-b336-2cf63a17a990.png",
-            "heading": "Balanced Mood & Restful Sleep",
-            "text_top": "Supports nervous system balance to promote a calmer emotional baseline, better stress regulation, and deeper, more restorative sleep.",
-            "text_bottom": ""
-          }
-        },
-        "fold_MVV873": {
-          "type": "fold",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468536_2929cd81-3771-4473-a259-d420951e6e99.png",
-            "heading": "Harmonised Cycles",
-            "text_top": "Supports hormonal rhythms and helps ease common PMS discomfort by providing nutrients that support the body’s natural cycle.",
-            "text_bottom": ""
-          }
-        },
-        "fold_bcVhNE": {
-          "type": "fold",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468538_2be198f0-aa8d-4bf0-ad0d-f5bffabee505.png",
-            "heading": "Whole-Body Replenishment",
-            "text_top": "Replenishes key nutrients commonly depleted by modern life while supporting long-term bone strength, resilience, absorption, and overall wellbeing.",
-            "text_bottom": ""
+            "top_heading": "Balanced Mood & Restful Sleep",
+            "top_text": "Supports nervous system balance to promote a calmer emotional baseline, better stress regulation, and deeper, more restorative sleep.",
+            "bottom_heading": "Whole-Body Replenishment",
+            "bottom_text": "Replenishes key nutrients commonly depleted by modern life while supporting long-term bone strength, resilience, absorption, and overall wellbeing."
           }
         }
       },
       "block_order": [
         "fold_nUmdXx",
-        "fold_7KmNqB",
-        "fold_MVV873",
-        "fold_bcVhNE"
+        "fold_7KmNqB"
       ],
       "settings": {}
     },
