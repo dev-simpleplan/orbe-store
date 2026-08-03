@@ -1247,6 +1247,13 @@ header.header--transparent
   background-color: #000;
   overflow: hidden;
 }
+.ready-formula .container {
+  max-width: 100%;
+    padding-left: 60px;
+    margin-left: calc((100vw - 1440px) / 2);
+    margin-right: 0;
+    padding-right: 0;
+}
 .ready-formula-in {
   display: grid;
   grid-template-columns: 2fr 3fr;
@@ -5553,11 +5560,12 @@ body.template-404 .footer {
 }
 .pdp-gallery-item {
   /* aspect-ratio: 7.5/4; */
-  aspect-ratio: 1/1;
+  aspect-ratio: 2/3;
   overflow: hidden;
 }
 .pdp-gallery-item:first-child {
   grid-column: span 2;
+  aspect-ratio: 1/1;
 }
 
 .pdp-gallery-img {
