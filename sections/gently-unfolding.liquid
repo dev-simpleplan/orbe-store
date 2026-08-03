@@ -1,4 +1,5 @@
-<section class="gently-unfolding" id="gently-unfolding-{{ section.id }}">
+{% assign gu_count = section.blocks.size | at_least: 1 %}
+<section class="gently-unfolding" id="gently-unfolding-{{ section.id }}" style="--gu-count: {{ gu_count }};">
     <div class="container">
         <div class="gently-unfolding-in">
 
@@ -170,15 +171,16 @@
                 });
             }
 
+            // Pinning is handled by CSS `position: sticky` on .gently-unfolding-in
+            // (the outer .gently-unfolding element is sized to N * 100vh to match).
+            // ScrollTrigger here only scrubs progress across that CSS-defined height.
             const tl = gsap.timeline({
                 defaults: { ease: 'none' },
                 scrollTrigger: {
                     trigger: section,
                     start: 'top top',
-                    end: () => `+=${window.innerHeight * Math.max(N - 1, 1)}`,
+                    end: 'bottom bottom',
                     scrub: 0.9,
-                    pin: true,
-                    anticipatePin: 1,
                     invalidateOnRefresh: true,
                     onUpdate: (self) => {
                         updateProgress(self.progress);

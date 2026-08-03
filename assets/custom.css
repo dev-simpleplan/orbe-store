@@ -2655,7 +2655,11 @@ header.header--transparent
 /* Gently unfold */
 .gently-unfolding {
   position: relative;
-  overflow: hidden;
+  height: calc(var(--gu-count, 1) * 100vh);
+}
+
+.gently-unfolding > .container {
+  height: 100%;
 }
 
 .gu-title {
@@ -2664,7 +2668,8 @@ header.header--transparent
 }
 
 .gently-unfolding-in {
-  position: relative;
+  position: sticky;
+  top: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -3819,7 +3824,7 @@ body.what-your-body-card-open {
   max-height: 100%;
   overflow: hidden;
   filter: grayscale(1);
-  max-height: 815px;
+  /* max-height: 815px; */
 }
 .new-faq-sec-img img {
   width: 100%;

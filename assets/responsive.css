@@ -893,7 +893,7 @@
 
   .gu-timeline,
   .gu-stack-wrap {
-    height: 100vw;
+    height: 65vw;
     min-height: 210px;
     max-height: 800px;
   }
