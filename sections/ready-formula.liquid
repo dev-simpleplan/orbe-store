@@ -1,26 +1,30 @@
 <section class="ready-formula">
-    <div class="container">
-        <div class="ready-formula-in">
-            <div class="left">
-               <div class="content-block text-animation">
-                {% if section.settings.heading != blank %}
-                 <h2>{{ section.settings.heading }}</h2>
-                {% endif %}
-                {% if section.settings.text != blank %}
-                <p>{{ section.settings.text }}</p>
-                {% endif %}
-                {% if section.settings.button_text != blank %}
-                <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
-                {% endif %}
-               </div>
-            </div>
-            <div class="right">
-                {% if section.settings.image != blank %}
-                  {{ section.settings.image | image_url: width: 1200 | image_tag: alt: '', class: 'img' }}
-                {% endif %}
+    
+    <div class="ready-formula-in">
+        <div class="left">
+            <div class="container">
+              <div class="rfleft-in">
+                <div class="content-block text-animation">
+                  {% if section.settings.heading != blank %}
+                    <h2>{{ section.settings.heading }}</h2>
+                  {% endif %}
+                  {% if section.settings.text != blank %}
+                  <p>{{ section.settings.text }}</p>
+                  {% endif %}
+                  {% if section.settings.button_text != blank %}
+                  <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
+                  {% endif %}
+                </div>
+              </div>
             </div>
         </div>
+        <div class="right">
+            {% if section.settings.image != blank %}
+              {{ section.settings.image | image_url: width: 1200 | image_tag: alt: '', class: 'img' }}
+            {% endif %}
+        </div>
     </div>
+    
 </section>
 
 {% schema %}

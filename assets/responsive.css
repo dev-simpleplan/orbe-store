@@ -102,8 +102,8 @@
   .care-behind-c-in .pill-img {
     width: 100px;
   }
-  .ready-formula {
-    padding: 50px 0px;
+  .ready-formula-in .left .content-block {
+    padding-top: 80px;
   }
   .what-your-body ul li {
     font-size: 14px;
@@ -472,15 +472,6 @@
   .ready-formula-in {
     display: flex;
   }
-  .ready-formula-in .left {
-    position: absolute;
-    z-index: 2;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
   .ready-formula-in .left .content-block p {
     font-size: 16px;
   }
@@ -489,7 +480,7 @@
     margin-left: auto;
   }
   .ready-formula-in .left .content-block {
-    padding-top: 0px;
+    padding-top: 60px;
   }
   .spacer-template--20636199452828__spacer_TyQLbr {
     display: none;
@@ -936,9 +927,6 @@
   .ready-formula-in .left .content-block p {
     font-size: 14px;
   }
-  .ready-formula .container {
-    padding-right: 0px;
-  }
   .st-question p {
     font-size: 18px;
   }
@@ -1273,6 +1261,22 @@
     .essential-ingredient-in .left .box-img {
       width: 100%;
       aspect-ratio: 3 / 4;
+  }
+  .ready-formula-in {
+    flex-direction: column-reverse;
+  }
+  .ready-formula-in .left {
+    position: relative;
+  }
+  .ready-formula-in .left .rfleft-in {
+    max-width: 100%;
+  }
+  .ready-formula-in .right {
+    width: 100%;
+    max-width: 100%;
+  }
+  .ready-formula-in .left .content-block {
+    padding: 40px 0;
   }
 }
 
