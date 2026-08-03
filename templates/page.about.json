@@ -13,11 +13,11 @@
       "type": "about-banner",
       "settings": {
         "hero_logo": "shopify://shop_images/Group_2085663252_4.svg",
-        "hero_image": "shopify://shop_images/39152dd64df64b331780fd662480af989de8bb4c.png",
-        "left_img_1": "shopify://shop_images/1a8d976d2a04f4ca91c80f07eafed4b9fb071027_1.png",
+        "hero_image": "shopify://shop_images/Rectangle_3468561_1.jpg",
+        "left_img_1": "shopify://shop_images/Rectangle_3468561_1.jpg",
         "left_img_2": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
-        "top_right_img": "shopify://shop_images/c1a59def97b3f3bff6c226dadac007d718ed7033_1.png",
-        "bottom_right_img": "shopify://shop_images/9535738d3cadb555d7a157419abec5eaee44b597_1.png",
+        "top_right_img": "shopify://shop_images/Rectangle_3468565.jpg",
+        "bottom_right_img": "shopify://shop_images/Rectangle_3468566.jpg",
         "heading": "Wellbeing, Simplified With Intention.",
         "description": "Orbe exists to make feeling good less complicated through clean science, intentional design, and rituals that support the woman you’re becoming."
       }
@@ -34,7 +34,7 @@
       "settings": {
         "heading": "<p>Women are navigating more expectations, more information, and more noise than ever. <strong>Orbe</strong> was created to offer a different kind of space, one rooted in <strong>calm, honesty, and clarity.</strong> Our purpose is simple: to support women with knowledge, nourishment, and rituals that feel intuitive, not overwhelming.</p>",
         "sec_para": "When you remove the unnecessary, what remains is powerful.",
-        "image": "shopify://shop_images/Group_2085663340.png"
+        "image": "shopify://shop_images/Group_2085663340_1.jpg"
       }
     },
     "spacer_FjFe6V": {
@@ -47,10 +47,18 @@
     "what-we-choose": {
       "type": "what-we-choose",
       "blocks": {
+        "card_clarity_over_noise": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468570_3_1.jpg",
+            "title": "Science we Trust",
+            "text": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
+          }
+        },
         "card_YQ79UM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570.png",
+            "image": "shopify://shop_images/Rectangle_3468570_1_1.jpg",
             "title": "Ingredients with Intention",
             "text": "Each ingredient is chosen for a purpose: how well it works, how well it absorbs, and how gently it supports your body. We source clean, high-quality nutrients and keep out anything unnecessary."
           }
@@ -58,7 +66,7 @@
         "card_design_with_intention": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570_1_3ccaab61-f971-42c5-89bc-6972a198848e.png",
+            "image": "shopify://shop_images/Rectangle_3468570_4.jpg",
             "title": "Designed with Purpose",
             "text": "Our pill-in-pill capsule keeps nutrients protected and releases them in the right order, exactly when your body needs them. A simple ritual, supported by thoughtful design."
           }
@@ -66,25 +74,17 @@
         "card_science_we_trust": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570_2_c0ff9e68-de44-42d8-aefb-07071cbe7e1c.png",
+            "image": "shopify://shop_images/Rectangle_3468570_2_1.jpg",
             "title": "Made for women",
             "text": "We design for women who want clarity, not confusion. For women who want to feel supported, steady, and more like themselves again without the overwhelm."
-          }
-        },
-        "card_clarity_over_noise": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468570_4.png",
-            "title": "Science we Trust",
-            "text": "Our formulas are built on real research, proven nutrient forms, and careful testing. Everything we create is grounded in evidence and not assumptions or trends."
           }
         }
       },
       "block_order": [
+        "card_clarity_over_noise",
         "card_YQ79UM",
         "card_design_with_intention",
-        "card_science_we_trust",
-        "card_clarity_over_noise"
+        "card_science_we_trust"
       ],
       "settings": {
         "background_image": "shopify://shop_images/d496c14e81bf59867e96506ff4c11c022eabb483.png",
