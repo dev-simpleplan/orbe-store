@@ -386,7 +386,7 @@
           "settings": {
             "label": "Mood & Clarity",
             "image": "shopify://shop_images/image3.jpg",
-            "heading": "",
+            "heading": "Mood & Clarity",
             "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present"
           }
         },
@@ -395,16 +395,8 @@
           "settings": {
             "label": "Body & Foundations",
             "image": "shopify://shop_images/image4.jpg",
-            "heading": "",
+            "heading": "Body & Foundations",
             "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness"
-          }
-        },
-        "tab_8FGzn7": {
-          "type": "tab",
-          "settings": {
-            "label": "Energy & Fatigue",
-            "heading": "",
-            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period"
           }
         },
         "tab_Tz3G3E": {
@@ -412,8 +404,8 @@
           "settings": {
             "label": "Cycle & Hormones",
             "image": "shopify://shop_images/image5.jpg",
-            "heading": "",
-            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent"
+            "heading": "Cycle & Hormones",
+            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period"
           }
         },
         "tab_JPeipi": {
@@ -421,8 +413,8 @@
           "settings": {
             "label": "Mental Load & Overwhelm",
             "image": "shopify://shop_images/image6.jpg",
-            "heading": "",
-            "items": ""
+            "heading": "Mental Load & Overwhelm",
+            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent"
           }
         }
       },
@@ -431,7 +423,6 @@
         "tab_qnXgpN",
         "tab_KVhcnm",
         "tab_KCPkC8",
-        "tab_8FGzn7",
         "tab_Tz3G3E",
         "tab_JPeipi"
       ],
