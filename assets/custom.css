@@ -6302,6 +6302,7 @@ body.template-404 .footer {
 @media (max-width: 991px) {
   .body-signals {
     min-height: auto;
+    height: auto;
   }
   .body-signals-content {
     padding-top: 120px;
@@ -6310,10 +6311,16 @@ body.template-404 .footer {
   }
   .body-signals-bottom {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 50px;
   }
   .body-signals-panels {
     margin-left: 0;
+  }
+  .body-signals-panel li {
+    font-size: 16px;
+  }
+  .body-signals-panel {
+    gap: 20px;
   }
 }
 
