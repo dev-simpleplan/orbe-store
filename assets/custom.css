@@ -6160,6 +6160,7 @@ body.template-404 .footer {
 .body-signals {
   position: relative;
   min-height: 760px;
+  height: 100vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -6310,6 +6311,9 @@ body.template-404 .footer {
   .body-signals-bottom {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+  .body-signals-panels {
+    margin-left: 0;
   }
 }
 
