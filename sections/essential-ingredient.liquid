@@ -89,7 +89,7 @@
                 <h2>{{ section.settings.drawer_heading }}</h2>
                 {% endif %}
             </div>
-            <div class="ingredient-drawer-accordion">
+            {% comment %} <div class="ingredient-drawer-accordion">
                 {% for block in section.blocks %}
                 <div class="ingredient-drawer-item">
                     <button type="button" class="ingredient-drawer-title">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 {% endfor %}
-            </div>
+            </div> {% endcomment %}
 
             {% if section.settings.inactive_heading != blank or section.settings.inactive_text != blank %}
             <div class="ingredient-drawer-section">
