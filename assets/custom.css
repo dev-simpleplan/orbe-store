@@ -3957,8 +3957,9 @@ body.what-your-body-card-open {
   max-width: 100%;
 }
 .what-your-body {
-  display: block;
+  display: none;
 }
+
 
 /* New FAQ Section */
 .new-faq-section {
@@ -6322,6 +6323,7 @@ body.template-404 .footer {
   .body-signals-panel {
     gap: 20px;
   }
+  
 }
 
 @media (max-width: 767px) {
@@ -6330,5 +6332,11 @@ body.template-404 .footer {
   }
   .body-signals-head p {
     font-size: 15px;
+  }
+  .body-signals {
+    display: none;
+  }
+  .what-your-body-mobile {
+    display: block;
   }
 }
