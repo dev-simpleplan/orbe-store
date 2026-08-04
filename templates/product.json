@@ -359,6 +359,87 @@
         "background_image": "shopify://shop_images/1d55de5de569b792405280de8a506e1328316733_1.png"
       }
     },
+    "body_signals_7GzjnK": {
+      "type": "body-signals",
+      "blocks": {
+        "tab_eXQme4": {
+          "type": "tab",
+          "settings": {
+            "label": "Energy & Fatigue",
+            "image": "shopify://shop_images/image1.jpg",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+          }
+        },
+        "tab_qnXgpN": {
+          "type": "tab",
+          "settings": {
+            "label": "Sleep & Rest",
+            "image": "shopify://shop_images/image2.jpg",
+            "heading": "Sleep & Rest",
+            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed"
+          }
+        },
+        "tab_KVhcnm": {
+          "type": "tab",
+          "settings": {
+            "label": "Mood & Clarity",
+            "image": "shopify://shop_images/image3.jpg",
+            "heading": "",
+            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present"
+          }
+        },
+        "tab_KCPkC8": {
+          "type": "tab",
+          "settings": {
+            "label": "Body & Foundations",
+            "image": "shopify://shop_images/image4.jpg",
+            "heading": "",
+            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness"
+          }
+        },
+        "tab_8FGzn7": {
+          "type": "tab",
+          "settings": {
+            "label": "Energy & Fatigue",
+            "heading": "",
+            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period"
+          }
+        },
+        "tab_Tz3G3E": {
+          "type": "tab",
+          "settings": {
+            "label": "Cycle & Hormones",
+            "image": "shopify://shop_images/image5.jpg",
+            "heading": "",
+            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent"
+          }
+        },
+        "tab_JPeipi": {
+          "type": "tab",
+          "settings": {
+            "label": "Mental Load & Overwhelm",
+            "image": "shopify://shop_images/image6.jpg",
+            "heading": "",
+            "items": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_eXQme4",
+        "tab_qnXgpN",
+        "tab_KVhcnm",
+        "tab_KCPkC8",
+        "tab_8FGzn7",
+        "tab_Tz3G3E",
+        "tab_JPeipi"
+      ],
+      "name": "Body Signals",
+      "settings": {
+        "heading": "What Your Body's Been Trying To Tell You",
+        "subheading": "You're not imagining it. These everyday shifts are your body's way of asking for support."
+      }
+    },
     "spacer_VnKNLM": {
       "type": "spacer",
       "name": "Spacer",
@@ -676,6 +757,7 @@
     "gently-unfold",
     "spacer_6tMeNb",
     "what-your-body",
+    "body_signals_7GzjnK",
     "spacer_VnKNLM",
     "best-bio",
     "spacer_adLpCm",
