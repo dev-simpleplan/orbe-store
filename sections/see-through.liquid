@@ -1,4 +1,59 @@
 <section class="see-through">
+  <div class="st-mobile" id="st-mobile-{{ section.id }}">
+    <div class="st-mobile-bg-sticky">
+      <div class="st-mobile-bg">
+        {% if section.settings.image_1 != blank %}
+          {{ section.settings.image_1 | image_url: width: 1200 | image_tag: loading: 'lazy', alt: '' }}
+        {% endif %}
+      </div>
+      <div class="st-mobile-overlay"></div>
+    </div>
+
+    <div class="st-mobile-content">
+      {% if section.settings.heading != blank or section.settings.subheading != blank %}
+        <div class="st-mobile-intro">
+          {% if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif %}
+          {% if section.settings.subheading != blank %}<p>{{ section.settings.subheading }}</p>{% endif %}
+        </div>
+      {% endif %}
+
+      {% assign qa_blocks = section.blocks | where: 'type', 'qa_item' %}
+      {% if qa_blocks.size > 0 %}
+        <div class="st-mobile-qa" data-st-qa>
+          {% for block in qa_blocks %}
+            <div class="st-mobile-qa-item{% if forloop.index0 >= 2 %} is-extra{% endif %}" data-st-qa-item {{ block.shopify_attributes }}>
+              <p class="st-mobile-qa-label">Q{{ forloop.index }}</p>
+              {% if block.settings.question != blank %}
+                <h3 class="st-mobile-qa-question">{{ block.settings.question }}</h3>
+              {% endif %}
+              {% if block.settings.answer != blank %}
+                <p class="st-mobile-qa-answer">{{ block.settings.answer }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="st-mobile-actions" data-st-actions-initial>
+        {% if section.settings.mobile_button_1_text != blank %}
+          <a class="primary-btn st-mobile-btn" href="{{ section.settings.mobile_button_1_link | default: '#' }}">{{ section.settings.mobile_button_1_text }}</a>
+        {% endif %}
+        {% if section.settings.mobile_button_2_text != blank and qa_blocks.size > 2 %}
+          <button type="button" class="primary-btn st-mobile-btn" data-st-expand-trigger>{{ section.settings.mobile_button_2_text }}</button>
+        {% endif %}
+      </div>
+
+      <div class="st-mobile-actions st-mobile-actions--expanded is-hidden" data-st-actions-expanded>
+        {% if section.settings.mobile_expanded_cta_text != blank %}
+          <a class="primary-btn st-mobile-btn" href="{{ section.settings.mobile_expanded_cta_link | default: '#' }}">{{ section.settings.mobile_expanded_cta_text }}</a>
+        {% endif %}
+        {% if section.settings.mobile_contact_note != blank %}
+          <p class="st-mobile-note">{{ section.settings.mobile_contact_note }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
   <div class="container-left">
     <div class="see-through-in">
       <div class="st-struct-1">
@@ -58,6 +113,22 @@
 
 <script>
   (function () {
+    var stMobile = document.getElementById('st-mobile-{{ section.id }}');
+    if (stMobile) {
+      var expandTrigger = stMobile.querySelector('[data-st-expand-trigger]');
+      var qaWrap = stMobile.querySelector('[data-st-qa]');
+      var initialActions = stMobile.querySelector('[data-st-actions-initial]');
+      var expandedActions = stMobile.querySelector('[data-st-actions-expanded]');
+
+      if (expandTrigger) {
+        expandTrigger.addEventListener('click', function () {
+          if (qaWrap) qaWrap.classList.add('is-expanded');
+          if (initialActions) initialActions.classList.add('is-hidden');
+          if (expandedActions) expandedActions.classList.remove('is-hidden');
+        });
+      }
+    }
+
     document.querySelectorAll('.see-through .st-video-wrap').forEach(function (wrap) {
       var video = wrap.querySelector('video');
       var btn = wrap.querySelector('.st-play');
@@ -185,11 +256,112 @@
       "type": "image_picker",
       "id": "orbe_logo_bottom",
       "label": "Orbe Logo Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Mobile — buttons & note",
+      "info": "Reuses the heading, subheading and Structure 1 image above, plus the Q&A blocks below, for the mobile-only layout."
+    },
+    {
+      "type": "text",
+      "id": "mobile_button_1_text",
+      "label": "Button 1 text",
+      "default": "I'm ready to begin"
+    },
+    {
+      "type": "url",
+      "id": "mobile_button_1_link",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "text",
+      "id": "mobile_button_2_text",
+      "label": "Button 2 text (expands more Q&A)",
+      "default": "I still have questions"
+    },
+    {
+      "type": "text",
+      "id": "mobile_expanded_cta_text",
+      "label": "Expanded state — CTA text",
+      "default": "Okay, I'm ready"
+    },
+    {
+      "type": "url",
+      "id": "mobile_expanded_cta_link",
+      "label": "Expanded state — CTA link"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_contact_note",
+      "label": "Expanded state — note",
+      "default": "Still deciding? Ask us anything. A person replies within a day."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "qa_item",
+      "name": "Q&A item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "See Through"
+      "name": "See Through",
+      "blocks": [
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "Do I really need a supplement?",
+            "answer": "Maybe not. If your diet consistently gives you iron, D3, B12, folate and omega-3, you're covered. Most Indian women's blood work says otherwise. n01 fills the gaps that show up most often."
+          }
+        },
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "How long until I feel something?",
+            "answer": "Weeks, not days. Nutrients replenish quietly; they don't stimulate. Most women notice steadier energy around week 4 to 6. Any brand promising 7 days is selling you something else."
+          }
+        },
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "Why isn't food alone enough?",
+            "answer": "Even careful eaters fall short on a few nutrients, consistently. A supplement covers the 10% your plate keeps missing."
+          }
+        },
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "Are there side effects?",
+            "answer": "n01 uses gentle, well-studied forms at maintenance doses. Ferrochel® iron skips the constipation common with cheaper iron. Take it with breakfast and you're fine."
+          }
+        },
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "Do I need a doctor's prescription?",
+            "answer": "No. It's dosed for everyday maintenance. If you're pregnant, on medication, or managing a condition, check with your doctor first. That's just sensible."
+          }
+        },
+        {
+          "type": "qa_item",
+          "settings": {
+            "question": "What if it doesn't suit me?",
+            "answer": "30 days, full refund, keep the bottle. We'd rather you start somewhere than nowhere."
+          }
+        }
+      ]
     }
   ]
 }

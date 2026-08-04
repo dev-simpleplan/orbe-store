@@ -1798,6 +1798,148 @@ header.header--transparent
 
 /* See Through  */
 
+/* See Through — Mobile */
+.st-mobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .see-through .container-left {
+    display: none;
+  }
+
+  .st-mobile {
+    display: block;
+    position: relative;
+  }
+
+  /* The image pins for as long as .st-mobile-content (which overlaps it via
+     the negative margin below) is taller than one viewport — same sticky-pin
+     technique used by .sit-mobile-sticky in sliding-image-text, just with
+     continuously-scrolling content instead of discrete swapped panels. */
+  .st-mobile-bg-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .st-mobile-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .st-mobile-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .st-mobile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 30%, rgba(0, 0, 0, 0.75) 100%);
+  }
+
+  .st-mobile-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: -100vh;
+    padding: 58vh 24px 50px;
+    box-sizing: border-box;
+  }
+
+  .st-mobile-intro h2 {
+    font-family: var(--tobias);
+    font-size: 30px;
+    line-height: 105%;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin: 0 0 10px;
+  }
+
+  .st-mobile-intro p {
+    font-family: var(--aspekta);
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .st-mobile-qa {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .st-mobile-qa-item.is-extra {
+    display: none;
+  }
+
+  .st-mobile-qa.is-expanded .st-mobile-qa-item.is-extra {
+    display: block;
+  }
+
+  .st-mobile-qa-label {
+    font-family: var(--aspekta);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 4px;
+  }
+
+  .st-mobile-qa-question {
+    font-family: var(--tobias);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 130%;
+    color: #fff;
+    margin: 0 0 6px;
+  }
+
+  .st-mobile-qa-answer {
+    font-family: var(--aspekta);
+    font-size: 14px;
+    line-height: 155%;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .st-mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .st-mobile-actions.is-hidden {
+    display: none;
+  }
+
+  /* .st-mobile-btn reuses the site's .primary-btn look; only override layout
+     so it sits full-width in this stacked mobile button group. */
+  .st-mobile-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: none;
+  }
+
+  .st-mobile-actions--expanded .st-mobile-note {
+    font-family: var(--tobias);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 4px;
+  }
+}
+
 /* About Banner */
 .about-banner {
   min-height: 100vh;

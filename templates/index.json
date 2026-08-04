@@ -302,6 +302,51 @@
     },
     "see-through": {
       "type": "see-through",
+      "blocks": {
+        "qa_item_1": {
+          "type": "qa_item",
+          "settings": {
+            "question": "Do I really need a supplement?",
+            "answer": "Maybe not. If your diet consistently gives you iron, D3, B12, folate and omega-3, you're covered. Most Indian women's blood work says otherwise. n01 fills the gaps that show up most often."
+          }
+        },
+        "qa_item_2": {
+          "type": "qa_item",
+          "settings": {
+            "question": "How long until I feel something?",
+            "answer": "Weeks, not days. Nutrients replenish quietly; they don't stimulate. Most women notice steadier energy around week 4 to 6. Any brand promising 7 days is selling you something else."
+          }
+        },
+        "qa_item_3": {
+          "type": "qa_item",
+          "settings": {
+            "question": "Why isn't food alone enough?",
+            "answer": "Even careful eaters fall short on a few nutrients, consistently. A supplement covers the 10% your plate keeps missing."
+          }
+        },
+        "qa_item_4": {
+          "type": "qa_item",
+          "settings": {
+            "question": "Are there side effects?",
+            "answer": "n01 uses gentle, well-studied forms at maintenance doses. Ferrochel® iron skips the constipation common with cheaper iron. Take it with breakfast and you're fine."
+          }
+        },
+        "qa_item_5": {
+          "type": "qa_item",
+          "settings": {
+            "question": "Do I need a doctor's prescription?",
+            "answer": "No. It's dosed for everyday maintenance. If you're pregnant, on medication, or managing a condition, check with your doctor first. That's just sensible."
+          }
+        },
+        "qa_item_6": {
+          "type": "qa_item",
+          "settings": {
+            "question": "What if it doesn't suit me?",
+            "answer": "30 days, full refund, keep the bottle. We'd rather you start somewhere than nowhere."
+          }
+        }
+      },
+      "block_order": ["qa_item_1", "qa_item_2", "qa_item_3", "qa_item_4", "qa_item_5", "qa_item_6"],
       "settings": {
         "heading": "Seeing through the noise",
         "subheading": "Because informed choices are powerful ones and you deserve both clarity and calm.",
@@ -312,7 +357,13 @@
         "image_4": "shopify://shop_images/Rectangle_3468540.jpg",
         "image_5": "shopify://shop_images/Rectangle_3468541.jpg",
         "orbe_logo_top": "shopify://shop_images/Group_2085663253_a33fd947-7f3f-40b8-bcfe-569038a0f662.svg",
-        "orbe_logo_bottom": "shopify://shop_images/Group_2085663253_copy.svg"
+        "orbe_logo_bottom": "shopify://shop_images/Group_2085663253_copy.svg",
+        "mobile_button_1_text": "I'm ready to begin",
+        "mobile_button_1_link": "shopify://products/n-1",
+        "mobile_button_2_text": "I still have questions",
+        "mobile_expanded_cta_text": "Okay, I'm ready",
+        "mobile_expanded_cta_link": "shopify://products/n-1",
+        "mobile_contact_note": "Still deciding? Ask us anything. A person replies within a day."
       }
     },
     "spacer_mtgfHD": {
