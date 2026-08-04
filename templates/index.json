@@ -151,7 +151,7 @@
         "text_item_4"
       ],
       "settings": {
-        "video": "shopify://files/videos/14967823-hd_720_1280_30fps_45858382-8e7c-4f1f-83ef-c62713a15d42.mp4",
+        "video": "shopify://files/videos/ee833cc2763746269a74e9bd776a14a5.mp4",
         "image_1": "shopify://shop_images/ChatGPT_Image_May_8_2026_01_18_12_PM_1.png",
         "image_2": "shopify://shop_images/ChatGPT_Image_May_8_2026_06_37_12_PM_1_1.png"
       }
@@ -346,7 +346,14 @@
           }
         }
       },
-      "block_order": ["qa_item_1", "qa_item_2", "qa_item_3", "qa_item_4", "qa_item_5", "qa_item_6"],
+      "block_order": [
+        "qa_item_1",
+        "qa_item_2",
+        "qa_item_3",
+        "qa_item_4",
+        "qa_item_5",
+        "qa_item_6"
+      ],
       "settings": {
         "heading": "Seeing through the noise",
         "subheading": "Because informed choices are powerful ones and you deserve both clarity and calm.",
