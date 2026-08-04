@@ -3337,6 +3337,7 @@ body.ingredient-drawer-open {
 }
 .ingredient-drawer-nutrition h2 {
   font-size: clamp(28px, 3vw, 42px);
+  letter-spacing: 0;
 }
 .ingredient-drawer-table-img {
   margin-top: 26px;
@@ -6183,6 +6184,7 @@ body.template-404 .footer {
   height: 100%;
   object-fit: cover;
   display: block;
+  background-position: center;
 }
 .body-signals-overlay {
   position: absolute;
@@ -6193,29 +6195,36 @@ body.template-404 .footer {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding-top: 160px;
+  padding-top: 100px;
   padding-bottom: 60px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: -webkit-fill-available;
   gap: 80px;
 }
 .body-signals-head {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 640px;
+  /* max-width: 640px; */
+  align-items: center;
+  text-align: center;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 .body-signals-head h2 {
   color: #fff;
 }
 .body-signals-head p {
-  color: rgba(255, 255, 255, 0.75);
+  color: #fff;
   font-size: 18px;
   font-weight: 300;
 }
 .body-signals-bottom {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 60px;
   align-items: end;
 }
@@ -6261,6 +6270,7 @@ body.template-404 .footer {
 }
 .body-signals-panels {
   position: relative;
+  margin-left: auto;
 }
 .body-signals-panel {
   display: none;
@@ -6276,14 +6286,16 @@ body.template-404 .footer {
 .body-signals-panel ul {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   padding-left: 20px;
 }
 .body-signals-panel li {
   color: rgba(255, 255, 255, 0.85);
   font-family: var(--aspekta);
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 130%;
+  text-transform: capitalize;
 }
 
 @media (max-width: 991px) {
