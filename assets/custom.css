@@ -2239,6 +2239,18 @@ header.header--transparent
   height: 176px;
   aspect-ratio: 1/1;
 }
+.letter-from-founder-in .letter_text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.letter_text p {
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0em;
+  font-weight: 400;
+  color: #5D5D5D;
+}
 .letter-card h2 {
   font-size: clamp(28px, 4.5vw, 42px);
   font-style: italic;
