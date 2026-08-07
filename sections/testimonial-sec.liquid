@@ -4,7 +4,7 @@
             <h2>{{ section.settings.heading }}</h2>
         </div>
         <div class="testimonial-sec-in">
-            <div class="owl-carousel testimonial-owl">
+            <div class="testimonial-scroll" data-testimonial-scroll>
                 {% for block in section.blocks %}
                     {% if block.type == 'text_block' %}
                         <div class="ts-card ts-card--text" {{ block.shopify_attributes }}>
@@ -90,17 +90,35 @@
         position: relative;
     }
 
-    .testimonial-owl .owl-stage {
+    .testimonial-scroll {
         display: flex;
         align-items: flex-end;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: clamp(24px, 8vw, 260px);
+        padding-inline: clamp(24px, 8vw, 260px);
+        cursor: grab;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
-    .testimonial-owl .owl-item {
-        width: auto !important;
+    .testimonial-scroll.is-dragging {
+        cursor: grabbing;
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+    }
+
+    .testimonial-scroll::-webkit-scrollbar {
+        display: none;
     }
 
     .ts-card {
         box-sizing: border-box;
+        flex: 0 0 auto;
+        scroll-snap-align: center;
     }
 
     .ts-card--text {
@@ -197,10 +215,7 @@
 
     /* custom nav */
     .ts-nav {
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-        margin-top: 32px;
+        display: none;
     }
 
     .ts-prev,
@@ -238,12 +253,6 @@
         display: block;
     }
 
-    /* hide owl default nav/dots */
-    .testimonial-owl .owl-nav,
-    .testimonial-owl .owl-dots {
-        display: none;
-    }
-
     @media (max-width: 1439px) {
         .testimonial-sec .container {
             padding-left: 20px;
@@ -262,7 +271,7 @@
             margin-bottom: 48px;
         }
 
-        .testimonial-owl .owl-stage {
+        .testimonial-scroll {
             align-items: stretch;
         }
 
@@ -297,13 +306,10 @@
             margin-right: calc(50% - 50vw);
         }
 
-        .testimonial-owl,
-        .testimonial-owl .owl-stage-outer {
-            overflow: visible;
-        }
-
-        .testimonial-owl .owl-stage {
+        .testimonial-scroll {
             align-items: flex-end;
+            scroll-padding-inline: 10vw;
+            padding-inline: 10vw;
         }
 
         .ts-card--text,
@@ -328,74 +334,88 @@
             min-height: 150px;
         }
 
-        .ts-nav {
-            display: flex;
-            margin-top: 34px;
-        }
-
-        .ts-prev,
-        .ts-next {
-            width: 40px;
-            height: 40px;
-        }
     }
 </style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        if (typeof jQuery === 'undefined') return;
+        var scroller = document.querySelector('[data-testimonial-scroll]');
+        var prevBtn = document.querySelector('.ts-prev');
+        var nextBtn = document.querySelector('.ts-next');
+        if (!scroller) return;
 
-        var $owl = jQuery('.testimonial-owl');
+        // Native horizontal scroll — works with trackpad, touch, and mouse-wheel
+        // (shift+wheel) out of the box. Add plain click-and-drag for mouse users too.
+        var isDragging = false;
+        var dragStartX = 0;
+        var dragStartScroll = 0;
+        var dragMoved = false;
 
-        function mobileStagePadding() {
-            return Math.round(window.innerWidth * 0.2);
+        scroller.addEventListener('pointerdown', function (event) {
+            if (event.pointerType === 'touch') return; // let touch scroll natively
+            isDragging = true;
+            dragMoved = false;
+            dragStartX = event.clientX;
+            dragStartScroll = scroller.scrollLeft;
+            scroller.classList.add('is-dragging');
+        });
+
+        scroller.addEventListener('pointermove', function (event) {
+            if (!isDragging) return;
+            var delta = event.clientX - dragStartX;
+            if (Math.abs(delta) > 3) dragMoved = true;
+            scroller.scrollLeft = dragStartScroll - delta;
+        });
+
+        function endDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            scroller.classList.remove('is-dragging');
         }
 
-        function updateTestimonialNav(event) {
-            var $prev = jQuery('.ts-prev');
-            var $next = jQuery('.ts-next');
+        scroller.addEventListener('pointerup', endDrag);
+        scroller.addEventListener('pointerleave', endDrag);
 
-            if (window.innerWidth < 768) {
-                $prev.add($next).removeClass('disabled');
-                return;
+        // Suppress the click on a card immediately after a drag (e.g. links inside cards).
+        scroller.addEventListener('click', function (event) {
+            if (dragMoved) {
+                event.preventDefault();
+                event.stopPropagation();
+                dragMoved = false;
             }
+        }, true);
 
-            var carousel = event.relatedTarget;
-            var current = carousel.current();
-            var minimum = carousel.minimum();
-            var maximum = carousel.maximum();
-
-            $prev.toggleClass('disabled', current <= minimum);
-            $next.toggleClass('disabled', current >= maximum);
+        function stepDistance() {
+            var firstCard = scroller.querySelector('.ts-card');
+            if (!firstCard) return scroller.clientWidth;
+            var gap = parseFloat(getComputedStyle(scroller).columnGap || getComputedStyle(scroller).gap || 12);
+            return firstCard.getBoundingClientRect().width + gap;
         }
 
-        $owl.on('initialized.owl.carousel changed.owl.carousel resized.owl.carousel', updateTestimonialNav);
+        function updateNavState() {
+            if (!prevBtn || !nextBtn) return;
+            var maxScroll = scroller.scrollWidth - scroller.clientWidth;
+            prevBtn.classList.toggle('disabled', scroller.scrollLeft <= 1);
+            nextBtn.classList.toggle('disabled', scroller.scrollLeft >= maxScroll - 1);
+        }
 
-        $owl.owlCarousel({
-            loop: false,
-            margin: 12,
-            nav: false,
-            dots: false,
-            autoWidth: true,
-            center: true,
-            responsive: {
-                0: { items: 1, autoWidth: true, center: true, loop: true, margin: 12, stagePadding: mobileStagePadding() },
-                768: { autoWidth: true, center: false, loop: false, margin: 12, stagePadding: 0 },
-                1024: { autoWidth: true, center: false, loop: false, margin: 12, stagePadding: 0 }
-            }
-        });
+        scroller.addEventListener('scroll', updateNavState, { passive: true });
+        window.addEventListener('resize', updateNavState);
+        updateNavState();
 
-        jQuery('.ts-prev').on('click', function () {
-            if (!jQuery(this).hasClass('disabled')) {
-                $owl.trigger('prev.owl.carousel');
-            }
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function () {
+                if (prevBtn.classList.contains('disabled')) return;
+                scroller.scrollBy({ left: -stepDistance(), behavior: 'smooth' });
+            });
+        }
 
-        jQuery('.ts-next').on('click', function () {
-            if (!jQuery(this).hasClass('disabled')) {
-                $owl.trigger('next.owl.carousel');
-            }
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function () {
+                if (nextBtn.classList.contains('disabled')) return;
+                scroller.scrollBy({ left: stepDistance(), behavior: 'smooth' });
+            });
+        }
     });
 </script>
 
