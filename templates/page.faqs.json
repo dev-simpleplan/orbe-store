@@ -12,103 +12,75 @@
     "faq_page_KUMMdz": {
       "type": "faq-page",
       "blocks": {
-        "faq_item_4QtLLB": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Frequently asked question",
-            "answer": "<p>Add your answer here.</p>"
-          }
-        },
         "category_rGHHmq": {
           "type": "category",
           "settings": {
-            "title": "Category 1"
+            "title": "General Questions"
           }
         },
         "faq_item_EmTegj": {
           "type": "faq_item",
           "settings": {
-            "question": "Frequently asked question 2",
-            "answer": "<p>Add your answer here.</p>"
+            "question": "Do I need a prescription to take supplements?",
+            "answer": "<p>No. Supplements are designed to support wellbeing, not replace medical treatment. But speaking with a healthcare professional is helpful if you have specific conditions or concerns.</p>"
           }
         },
         "faq_item_xtEdg6": {
           "type": "faq_item",
           "settings": {
-            "question": "Frequently asked question 1",
-            "answer": "<p>Add your answer here.</p>"
+            "question": "Will supplements affect my hormones?",
+            "answer": "<p>Not negatively, in fact, the right nutrients gently support hormonal balance. Magnesium, zinc, B-vitamins and iron all play a role in regulating cycles and mood.Add your answer here.</p>"
           }
         },
-        "category_rJzGYQ": {
-          "type": "category",
-          "settings": {
-            "title": "Category 2"
-          }
-        },
-        "faq_item_MR3Hfb": {
+        "faq_item_xtAkyL": {
           "type": "faq_item",
           "settings": {
-            "question": "Frequently asked question 3",
-            "answer": "<p>Add your answer here.</p>"
+            "question": "Are supplements safe to take long-term?",
+            "answer": "<p>Yes, when they’re clean, thoughtfully formulated, and used in recommended amounts. Consistency is where benefits unfold.</p>"
           }
         },
-        "faq_item_dirNn8": {
+        "faq_item_9qHRfQ": {
           "type": "faq_item",
           "settings": {
-            "question": "Frequently asked question 4",
-            "answer": "<p>Add your answer here.</p>"
+            "question": "Why do some supplements not “work”?",
+            "answer": "<p>Because not all forms of nutrients are easily absorbed. The body responds best to active, bioavailable forms, the ones it recognises and uses deeply.</p>"
           }
         },
-        "category_BYwVTi": {
-          "type": "category",
-          "settings": {
-            "title": "Category 3"
-          }
-        },
-        "faq_item_9HfpDa": {
+        "faq_item_xfjHHG": {
           "type": "faq_item",
           "settings": {
-            "question": "Frequently asked question 5",
-            "answer": "<p>Add your answer here.</p>"
+            "question": "Why does simplicity matter in supplements?",
+            "answer": "<p>Because when something feels clear and uncomplicated, you’re more likely to stay consistent, and consistency is where results happen.</p>"
           }
         },
-        "category_9RLXwT": {
-          "type": "category",
-          "settings": {
-            "title": "Category 4"
-          }
-        },
-        "faq_item_zTLyYN": {
+        "faq_item_DBMXDn": {
           "type": "faq_item",
           "settings": {
-            "question": "Frequently asked question 6",
-            "answer": "<p>Add your answer here.</p>"
+            "question": "What results should I realistically expect?",
+            "answer": "<p>Subtle shifts that build: better energy, steadier mood, smoother cycles, deeper rest, stronger foundation. Small changes compounding over time.</p>"
           }
         },
-        "category_MerCkH": {
-          "type": "category",
+        "faq_item_yrar38": {
+          "type": "faq_item",
           "settings": {
-            "title": "Category 5"
+            "question": "What makes Orbe different from other supplement brands?",
+            "answer": "<p>Intention. Clarity. Purpose in design. Clean ingredients, active nutrient forms, and thoughtful delivery — all crafted to simplify your daily wellbeing.</p>"
           }
         }
       },
       "block_order": [
-        "faq_item_4QtLLB",
         "category_rGHHmq",
         "faq_item_EmTegj",
         "faq_item_xtEdg6",
-        "category_rJzGYQ",
-        "faq_item_MR3Hfb",
-        "faq_item_dirNn8",
-        "category_BYwVTi",
-        "faq_item_9HfpDa",
-        "category_9RLXwT",
-        "faq_item_zTLyYN",
-        "category_MerCkH"
+        "faq_item_xtAkyL",
+        "faq_item_9qHRfQ",
+        "faq_item_xfjHHG",
+        "faq_item_DBMXDn",
+        "faq_item_yrar38"
       ],
       "name": "FAQ page",
       "settings": {
-        "empty_text": ""
+        "empty_text": "General"
       }
     }
   },
