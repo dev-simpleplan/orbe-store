@@ -2125,7 +2125,7 @@ header.header--transparent
 .sii-img {
   max-width: 481px;
   width: 100%;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
   margin: 0 auto;
   max-height: 700px;
   height: 100%;
@@ -2251,6 +2251,9 @@ header.header--transparent
   flex-direction: column;
   gap: 20px;
 }
+.letter-card .signature img {
+  height: 80px;
+}
 .letter-card > p {
   font-size: 16px;
   line-height: 150%;
@@ -2289,6 +2292,7 @@ header.header--transparent
 }
 .guided-by-in .owl-stage-outer {
   height: 750px;
+  overflow: visible!important;
 }
 .guided-by-in .bottom .left {
   width: 10%;
@@ -2328,7 +2332,7 @@ header.header--transparent
 }
 .guided-by-card .text-content {
   position: absolute;
-  top: 45px;
+  bottom: 45px;
   left: 40px;
   z-index: 2;
   color: #fff;
@@ -2547,7 +2551,7 @@ header.header--transparent
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
   transition:
     filter 0.45s ease,
     transform 0.45s ease;
