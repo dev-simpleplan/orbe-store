@@ -1267,9 +1267,9 @@ header.header--transparent
 .ready-formula-in p {
   color: #fff;
 }
-.ready-formula-in .left .content-block {
+/* .ready-formula-in .left .content-block {
   padding-top: 160px;
-}
+} */
 .ready-formula-in .left .rfleft-in {
   max-width: 35%;
 }
