@@ -187,6 +187,43 @@
         "spacer_height": 120
       }
     },
+    "guided_by_w3PegE": {
+      "type": "guided-by",
+      "blocks": {
+        "expert_cxAGfX": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468579_1.jpg",
+            "name": "Dr. Maitri",
+            "designation": "Consultant Dermatologist, Leprology & Cosmetology"
+          }
+        },
+        "expert_jEieNM": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468581_1.jpg",
+            "name": "Dr. Mansi",
+            "designation": "Consultant Obstetrician & Gynaecologist, Laparoscopic Surgeon, and Fertility Expert"
+          }
+        }
+      },
+      "block_order": [
+        "expert_cxAGfX",
+        "expert_jEieNM"
+      ],
+      "name": "Guided By",
+      "settings": {
+        "heading": "Guided By Expertise",
+        "description": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity."
+      }
+    },
+    "spacer_PDTr8t": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "essential-ingredient": {
       "type": "essential-ingredient",
       "blocks": {
@@ -233,7 +270,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 100
+        "spacer_height": 70
       }
     },
     "gently-unfold": {
@@ -482,12 +519,14 @@
         "slide_1",
         "slide_2"
       ],
+      "disabled": true,
       "settings": {
         "heading": "“Best bio-available supplement”"
       }
     },
     "spacer_adLpCm": {
       "type": "spacer",
+      "disabled": true,
       "name": "Spacer",
       "settings": {
         "spacer_height": 120
@@ -812,6 +851,8 @@
     "spacer_7L6pHN",
     "care-behind-c",
     "spacer_iVnf8F",
+    "guided_by_w3PegE",
+    "spacer_PDTr8t",
     "essential-ingredient",
     "spacer_RAkTAh",
     "gently-unfold",
