@@ -243,7 +243,7 @@
             "title": "Heavy Metals",
             "description": "Mercury, lead, arsenic, and cadmium, screened against FSSAI limits.",
             "report_text": "View Report",
-            "report_link": ""
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Complete_Heavy_Metal_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
         },
         "verification_wAJekU": {
@@ -252,7 +252,7 @@
             "title": "Pesticides",
             "description": "216 compounds tested. Every one below detection limit.",
             "report_text": "View Report",
-            "report_link": ""
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Pesticide_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
         },
         "verification_AkAMRN": {
@@ -261,7 +261,7 @@
             "title": "Microbial Safety",
             "description": "Screened for salmonella, E. coli, staph, yeast, and mould. All absent or under limit.",
             "report_text": "View Report",
-            "report_link": ""
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Microbial_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
         },
         "verification_JJUan6": {
@@ -270,7 +270,7 @@
             "title": "Aflatoxins",
             "description": "The four aflatoxins (B1, B2, G1, G2) that contaminate poorly stored botanicals. All under 0.5 µg/kg.",
             "report_text": "View Report",
-            "report_link": ""
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Aflatoxin_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
         },
         "verification_3brtdd": {
@@ -279,7 +279,7 @@
             "title": "Melamine",
             "description": "The adulterant behind past supplement scandals. Screened and cleared at under 0.5 mg/kg, well below the 2.5 limit.",
             "report_text": "View Report",
-            "report_link": ""
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Melamine_Test_-_Batch_6061VGV1.pdf?v=1783685324"
           }
         }
       },
@@ -384,28 +384,28 @@
         "standard_2": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/cfc4ff505145e8589d7cd6b72873edb93850c904.png",
+            "image": "shopify://shop_images/Ellipse_176.jpg",
             "title": "Third-party\ntesting"
           }
         },
         "standard_3": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/d1a30eb3b0af848fcd74a40ba852a94ae64c8c7f.png",
-            "title": "100% vegan formula"
+            "image": "shopify://shop_images/Ellipse_177.jpg",
+            "title": "Vegan-certified capsules"
           }
         },
         "standard_4": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/198868244d6e622b93c670411b3ec99a7f273a2e.png",
+            "image": "shopify://shop_images/Ellipse_178.jpg",
             "title": "Ingredient\ntraceability"
           }
         },
         "standard_5": {
           "type": "standard",
           "settings": {
-            "image": "shopify://shop_images/e307fed96856350ee58a98c1105b6903c1429197.png",
+            "image": "shopify://shop_images/Ellipse_179.jpg",
             "title": "Batch-Level\nTransparency"
           }
         },
