@@ -1278,6 +1278,15 @@
   .ready-formula-in .left .content-block {
     padding: 40px 0;
   }
+  .letter-from-founder-in .letter-card {
+    gap: 30px;
+  }
+  .letter_text p {
+    font-size: 14px;
+  }
+  .letter-card .signature img {
+    height: 60px;
+  }
 }
 
 @media screen and (max-width: 430px) {
