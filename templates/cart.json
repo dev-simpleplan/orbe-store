@@ -11,7 +11,25 @@
   "sections": {
     "main": {
       "type": "cart",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Shopping Cart",
+        "title": "Cart",
+        "item_singular": "item",
+        "item_plural": "items",
+        "item_count_suffix": "in your cart",
+        "remove_text": "Remove",
+        "summary_title": "Order Summary",
+        "subtotal_label": "Subtotal",
+        "tax_note": "Taxes and shipping are calculated at checkout.",
+        "note_label": "Order note",
+        "note_placeholder": "Add a note for your order",
+        "update_button_text": "Update",
+        "checkout_button_text": "Checkout",
+        "empty_title": "Your cart is empty",
+        "empty_text": "Explore Orbe and add your essentials when you are ready.",
+        "empty_button_text": "Continue shopping",
+        "empty_button_link": "shopify://products/n-1"
+      }
     }
   },
   "order": [
