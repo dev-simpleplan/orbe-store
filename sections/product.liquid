@@ -13,17 +13,51 @@
     <div class="pdp-grid">
 
       <!-- ============ GALLERY ============ -->
-      <div class="pdp-gallery">
+      <div class="pdp-gallery" data-pdp-gallery>
         {% for image in product.images %}
           <div class="pdp-gallery-item">
             {%- assign img_alt = image.alt | default: product.title | escape -%}
-            {{ image | image_url: width: 1200 | image_tag: alt: img_alt, class: 'pdp-gallery-img', loading: 'lazy' }}
+            <button
+              type="button"
+              class="pdp-gallery-zoom-btn"
+              data-pdp-zoom-trigger
+              data-full-src="{{ image | image_url: width: 2400 }}"
+              data-alt="{{ img_alt }}"
+              aria-label="Zoom image"
+            >
+              {{ image | image_url: width: 1200 | image_tag: alt: img_alt, class: 'pdp-gallery-img', loading: 'lazy' }}
+            </button>
           </div>
         {% else %}
           <div class="pdp-gallery-item pdp-gallery-item--placeholder">
             {{ 'product-1' | placeholder_svg_tag: 'pdp-gallery-img' }}
           </div>
         {% endfor %}
+      </div>
+
+      <!-- ============ ZOOM LIGHTBOX ============ -->
+      <div class="pdp-zoom-lightbox" data-pdp-zoom-lightbox hidden>
+        <div class="pdp-zoom-backdrop" data-pdp-zoom-close></div>
+        <div class="pdp-zoom-stage">
+          <button type="button" class="pdp-zoom-close" data-pdp-zoom-close aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L19 19M19 1L1 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </button>
+          {% if product.images.size > 1 %}
+            <button type="button" class="pdp-zoom-nav pdp-zoom-prev" data-pdp-zoom-prev aria-label="Previous image">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 16L6.5 10L12.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button type="button" class="pdp-zoom-nav pdp-zoom-next" data-pdp-zoom-next aria-label="Next image">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 4L13.5 10L7.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          {% endif %}
+          <img class="pdp-zoom-img" data-pdp-zoom-img src="" alt="">
+        </div>
       </div>
 
       <!-- ============ INFO ============ -->
@@ -290,6 +324,72 @@
         }
       });
     });
+
+    // Click-to-zoom gallery lightbox
+    var zoomTriggers = Array.prototype.slice.call(root.querySelectorAll('[data-pdp-zoom-trigger]'));
+    var lightbox = root.querySelector('[data-pdp-zoom-lightbox]');
+
+    if (zoomTriggers.length && lightbox) {
+      var zoomImg = lightbox.querySelector('[data-pdp-zoom-img]');
+      var prevBtn = lightbox.querySelector('[data-pdp-zoom-prev]');
+      var nextBtn = lightbox.querySelector('[data-pdp-zoom-next]');
+      var currentIndex = 0;
+      var lastFocusedTrigger = null;
+
+      function showImage(index) {
+        currentIndex = (index + zoomTriggers.length) % zoomTriggers.length;
+        var trigger = zoomTriggers[currentIndex];
+        zoomImg.src = trigger.getAttribute('data-full-src');
+        zoomImg.alt = trigger.getAttribute('data-alt') || '';
+      }
+
+      function openLightbox(index, trigger) {
+        lastFocusedTrigger = trigger;
+        showImage(index);
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+      }
+
+      function closeLightbox() {
+        lightbox.hidden = true;
+        zoomImg.src = '';
+        document.body.style.overflow = '';
+        if (window.lenis) window.lenis.start();
+        if (lastFocusedTrigger) lastFocusedTrigger.focus();
+      }
+
+      zoomTriggers.forEach(function (trigger, index) {
+        trigger.addEventListener('click', function () {
+          openLightbox(index, trigger);
+        });
+      });
+
+      root.querySelectorAll('[data-pdp-zoom-close]').forEach(function (btn) {
+        btn.addEventListener('click', closeLightbox);
+      });
+
+      zoomImg.addEventListener('click', closeLightbox);
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          showImage(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          showImage(currentIndex + 1);
+        });
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (lightbox.hidden) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (event.key === 'ArrowRight') showImage(currentIndex + 1);
+      });
+    }
   })();
 </script>
 
