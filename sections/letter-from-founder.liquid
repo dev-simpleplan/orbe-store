@@ -13,7 +13,7 @@
                 {% endif %}
 
                 {% if section.settings.letter_text != blank %}
-                    <p>{{ section.settings.letter_text }}</p>
+                    {{ section.settings.letter_text }}
                 {% endif %}
 
                 {% if section.settings.signature_image != blank or section.settings.signature_text != blank %}
@@ -90,7 +90,7 @@
       "label": "Founder image"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "letter_text",
       "label": "Letter text"
     },
