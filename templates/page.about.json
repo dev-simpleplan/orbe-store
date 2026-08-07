@@ -204,32 +204,23 @@
         "expert_mpab4n": {
           "type": "expert",
           "settings": {
-            "image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c.png",
-            "name": "Neil Paul",
-            "designation": "Marketing"
+            "image": "shopify://shop_images/Rectangle_3468579_1.jpg",
+            "name": "Dr. Maitri",
+            "designation": "Consultant Dermatologist, Leprology & Cosmetology"
           }
         },
         "expert_NhJW3B": {
           "type": "expert",
           "settings": {
-            "image": "shopify://shop_images/734e97d18c35254fe654c967b1f6d274ef1ad4fa.png",
-            "name": "Katherine",
-            "designation": "Sales Manager"
-          }
-        },
-        "expert_VzxDQk": {
-          "type": "expert",
-          "settings": {
-            "image": "shopify://shop_images/1909e2900846ce31e6884d3e303ade59a9adf719.png",
-            "name": "Test Name",
-            "designation": "Test Designation"
+            "image": "shopify://shop_images/Rectangle_3468581_1.jpg",
+            "name": "Dr. Mansi",
+            "designation": "Consultant Obstetrician & Gynaecologist, Laparoscopic Surgeon, and Fertility Expert"
           }
         }
       },
       "block_order": [
         "expert_mpab4n",
-        "expert_NhJW3B",
-        "expert_VzxDQk"
+        "expert_NhJW3B"
       ],
       "settings": {
         "heading": "Guided By Expertise",
