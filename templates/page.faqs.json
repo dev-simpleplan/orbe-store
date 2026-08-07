@@ -66,6 +66,96 @@
             "question": "What makes Orbe different from other supplement brands?",
             "answer": "<p>Intention. Clarity. Purpose in design. Clean ingredients, active nutrient forms, and thoughtful delivery — all crafted to simplify your daily wellbeing.</p>"
           }
+        },
+        "category_j6FtaN": {
+          "type": "category",
+          "settings": {
+            "title": "Product"
+          }
+        },
+        "faq_item_DL9zrg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I take Orbe?",
+            "answer": "<p>Two capsules a day: a simple ritual that fits naturally into your morning or evening.</p>"
+          }
+        },
+        "faq_item_D77cbH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When will I start noticing changes?",
+            "answer": "<p>Most women feel subtle shifts in clarity and energy within 1–2 weeks, with deeper benefits unfolding over 6–12 weeks.</p>"
+          }
+        },
+        "faq_item_WKD9fQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take Orbe every day?",
+            "answer": "<p>Yes. It’s designed to be gentle, balanced, and safe for daily use. Consistency is where the transformation happens.</p>"
+          }
+        },
+        "faq_item_R9Dk7E": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can anyone take an overall wellness supplement?",
+            "answer": "<p>Most adults can. If you're pregnant, breastfeeding, or managing a medical condition, check in with a professional first.</p>"
+          }
+        },
+        "faq_item_dNrLNA": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a prescription?",
+            "answer": "<p>No. Orbe is a daily wellness supplement, not a medication. It can be taken without a prescription.</p>"
+          }
+        },
+        "faq_item_469q8B": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it upset my stomach?",
+            "answer": "<p>Unlikely. We use gentle, chelated minerals like Ferrochel® iron and magnesium bisglycinate that are easy on digestion.</p>"
+          }
+        },
+        "faq_item_gWtWNX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes Orbe different from other supplements?",
+            "answer": "<p>A pill-in-pill design that protects potency, clinically validated nutrients, and clean, intentional formulation.</p>"
+          }
+        },
+        "faq_item_nMXMea": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe to take long-term?",
+            "answer": "<p>Yes. Orbe is crafted with clean ingredients and balanced dosing for daily foundational support.</p>"
+          }
+        },
+        "faq_item_xAwGgz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take Orbe with other supplements?",
+            "answer": "<p>In most cases, yes, but it’s helpful to avoid doubling nutrients. If you’re unsure, a quick professional check-in is wise.</p>"
+          }
+        },
+        "faq_item_kNRacc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Orbe vegan?",
+            "answer": "<p>Yes. The capsule is fully plant-based, and all nutrient sources are vegan-friendly.</p>"
+          }
+        },
+        "faq_item_HdTpPc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I forget a dose?",
+            "answer": "<p>No stress. Just take your next dose as usual. Consistency matters more than perfection.</p>"
+          }
+        },
+        "faq_item_RDiCdm": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does Orbe have side effects?",
+            "answer": "<p>Our forms are chosen precisely because they’re gentle and well-tolerated. Side effects are rare.</p>"
+          }
         }
       },
       "block_order": [
@@ -76,7 +166,20 @@
         "faq_item_9qHRfQ",
         "faq_item_xfjHHG",
         "faq_item_DBMXDn",
-        "faq_item_yrar38"
+        "faq_item_yrar38",
+        "category_j6FtaN",
+        "faq_item_DL9zrg",
+        "faq_item_D77cbH",
+        "faq_item_WKD9fQ",
+        "faq_item_R9Dk7E",
+        "faq_item_dNrLNA",
+        "faq_item_469q8B",
+        "faq_item_gWtWNX",
+        "faq_item_nMXMea",
+        "faq_item_xAwGgz",
+        "faq_item_kNRacc",
+        "faq_item_HdTpPc",
+        "faq_item_RDiCdm"
       ],
       "name": "FAQ page",
       "settings": {
