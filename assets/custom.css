@@ -1413,6 +1413,9 @@ header.header--transparent
   display: flex;
   gap: 5px;
 }
+.guided-by-nav.is-hidden {
+  display: none;
+}
 .prev-btn,
 .next-btn,
 .prev-btn-guided,

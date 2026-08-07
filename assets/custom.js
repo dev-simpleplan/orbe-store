@@ -127,20 +127,7 @@ $(window).on('load', function () {
     });
 
     var guidedByOwl = $('.guided-by-slider');
-
-    guidedByOwl.owlCarousel({
-        loop: false,
-        items: 2,
-        margin: 130,
-        dots: false,
-        nav: false,
-        responsive: {
-            0: {margin: 10 },
-            600: { margin: 20 },
-             991: {  margin: 130 }
-        }
-    });
-
+    var $guidedNav = $('.guided-by-nav');
     var $guidedNextBtn = $('.next-btn-guided');
     var $guidedPrevBtn = $('.prev-btn-guided');
 
@@ -160,9 +147,33 @@ $(window).on('load', function () {
         } else {
             $guidedNextBtn.removeClass('disabled');
         }
+
+        // Only show the arrows at all when there's actually something to
+        // scroll to at the current breakpoint (e.g. mobile shows 1.2 items,
+        // so 2 blocks still need the arrows even though desktop wouldn't).
+        var nothingToScroll = $guidedPrevBtn.hasClass('disabled') && $guidedNextBtn.hasClass('disabled');
+        $guidedNav.toggleClass('is-hidden', nothingToScroll);
     }
 
-    guidedByOwl.on('initialized.owl.carousel changed.owl.carousel', updateGuidedNav);
+    // Bind before init — Owl fires 'initialized'/'changed' synchronously
+    // during owlCarousel(), so binding after the call would miss them.
+    guidedByOwl.on('initialized.owl.carousel changed.owl.carousel resized.owl.carousel', updateGuidedNav);
+
+    guidedByOwl.owlCarousel({
+        loop: false,
+        items: 2,
+        margin: 130,
+        dots: false,
+        nav: false,
+        responsive: {
+            // Fractional `items` (e.g. 1.2) leaves Owl's next()/prev() unreliable —
+            // it updates its internal position but never actually translates the
+            // stage. items:1 is Owl's reliable single-item-per-view mode.
+            0: { margin: 10, items: 1 },
+            600: { margin: 20 },
+             991: {  margin: 130 }
+        }
+    });
 
     $guidedNextBtn.click(function () {
         if (!$(this).hasClass('disabled')) {
