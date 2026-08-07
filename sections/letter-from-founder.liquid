@@ -12,9 +12,13 @@
                     </div>
                 {% endif %}
 
-                {% if section.settings.letter_text != blank %}
-                    {{ section.settings.letter_text }}
-                {% endif %}
+                
+                  {% if section.settings.letter_text != blank %}
+                    <div class="letter_text">
+                      {{ section.settings.letter_text }}
+                    </div>
+                  {% endif %}
+                
 
                 {% if section.settings.signature_image != blank or section.settings.signature_text != blank %}
                     <div class="signature">
