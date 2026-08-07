@@ -438,6 +438,24 @@
         "spacer_height": 120
       }
     },
+    "ready_formula_h7deTm": {
+      "type": "ready-formula",
+      "name": "Ready Formula",
+      "settings": {
+        "heading": "Your Body Has Been Asking For This",
+        "text": "A daily foundation of thoughtfully selected nutrients to support how you feel, every day.",
+        "button_text": "",
+        "button_link": "",
+        "image": "shopify://shop_images/ChatGPT_Image_May_8_2026_01_44_31_PM_1_1.jpg"
+      }
+    },
+    "spacer_NHBfLd": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "best-bio": {
       "type": "best-bio-available",
       "blocks": {
@@ -740,6 +758,8 @@
     "what-your-body",
     "body_signals_7GzjnK",
     "spacer_VnKNLM",
+    "ready_formula_h7deTm",
+    "spacer_NHBfLd",
     "best-bio",
     "spacer_adLpCm",
     "batch-verified",
