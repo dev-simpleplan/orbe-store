@@ -1310,7 +1310,7 @@ header.header--transparent
 }
 .social-media-block {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 24px;
   margin-left: auto;
   width: fit-content;
