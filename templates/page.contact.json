@@ -17,7 +17,7 @@
           "settings": {
             "icon": "shopify://shop_images/location_on_1.svg",
             "title": "Office",
-            "text": "Hausvogteiplatz 12 10117 Berlin, Germany",
+            "text": "513 - Satyamev Elite, Bopal, Ahmedabad, Gujrat, 380058",
             "link": "#!"
           }
         },
@@ -26,8 +26,8 @@
           "settings": {
             "icon": "shopify://shop_images/mail.svg",
             "title": "Email",
-            "text": "info@orbe.com",
-            "link": "mailto:info@orbe.com"
+            "text": "ayush@orbecare.com",
+            "link": "mailto:ayush@orbecare.com"
           }
         },
         "contact_info_CFFeVd": {
@@ -35,8 +35,8 @@
           "settings": {
             "icon": "shopify://shop_images/call.svg",
             "title": "Phone Number",
-            "text": "+44 (20) 35 14 45 90",
-            "link": "tel:442035144590"
+            "text": "+91-9825187518",
+            "link": "tel:9825187518"
           }
         },
         "social_link_akxUtt": {
