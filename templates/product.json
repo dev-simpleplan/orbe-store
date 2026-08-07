@@ -565,13 +565,13 @@
             "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
           }
         },
-        "text_block_7Wzj3Y": {
+        "text_block_inCXmp": {
           "type": "text_block",
           "settings": {
             "author_image": "shopify://shop_images/b8eef1266f870e6229405da462092df88b3228c6.jpg",
-            "author_name": "Ananya Mehra",
+            "author_name": "Neha",
             "rating": 5,
-            "review": "“I’ve tried many wellness supplements before, but this one genuinely felt different. Within a few weeks, I noticed better energy levels, improved focus, and a much calmer routine overall. What I love most is how clean and premium the experience feels — from the packaging to the results. It has honestly become a part of my daily self-care ritual.”"
+            "review": "I've tried so many supplements over the years, but Orbé is the first one that made me feel confident about what I am taking. The transparency, the quality of the ingredients, and the thought behind the product really stood out to me."
           }
         },
         "video_8TWHQi": {
@@ -580,7 +580,61 @@
             "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
           }
         },
+        "text_block_JB3HA9": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/a9603290a96516e0196bdb17904f2cf4dd8bd56a.png",
+            "author_name": "Mahima",
+            "rating": 5,
+            "review": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down."
+          }
+        },
         "video_AcW8tR": {
+          "type": "video",
+          "settings": {
+            "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
+          }
+        },
+        "text_block_h8pRDJ": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/5c846ee5649e7f9f3375b48aba4eae710d177b67.png",
+            "author_name": "Priyanshi",
+            "rating": 5,
+            "review": "I didn't start taking Orbé expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed."
+          }
+        },
+        "video_ChzBex": {
+          "type": "video",
+          "settings": {
+            "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
+          }
+        },
+        "text_block_7Wzj3Y": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/b8eef1266f870e6229405da462092df88b3228c6.jpg",
+            "author_name": "Neha",
+            "rating": 5,
+            "review": "I've tried so many supplements over the years, but Orbé is the first one that made me feel confident about what I am taking. The transparency, the quality of the ingredients, and the thought behind the product really stood out to me."
+          }
+        },
+        "video_kG74WW": {
+          "type": "video",
+          "settings": {
+            "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
+          }
+        },
+        "text_block_U6cNxK": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/a9603290a96516e0196bdb17904f2cf4dd8bd56a.png",
+            "author_name": "Mahima",
+            "rating": 5,
+            "review": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down."
+          }
+        },
+        "video_gBABwp": {
           "type": "video",
           "settings": {
             "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
@@ -590,17 +644,24 @@
           "type": "text_block",
           "settings": {
             "author_image": "shopify://shop_images/5c846ee5649e7f9f3375b48aba4eae710d177b67.png",
-            "author_name": "Ananya Mehra",
+            "author_name": "Priyanshi",
             "rating": 5,
-            "review": "“I’ve tried many wellness supplements before, but this one genuinely felt different. Within a few weeks, I noticed better energy levels, improved focus, and a much calmer routine overall. What I love most is how clean and premium the experience feels — from the packaging to the results. It has honestly become a part of my daily self-care ritual.”"
+            "review": "I didn't start taking Orbé expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed."
           }
         }
       },
       "block_order": [
         "video_4BYdtw",
-        "text_block_7Wzj3Y",
+        "text_block_inCXmp",
         "video_8TWHQi",
+        "text_block_JB3HA9",
         "video_AcW8tR",
+        "text_block_h8pRDJ",
+        "video_ChzBex",
+        "text_block_7Wzj3Y",
+        "video_kG74WW",
+        "text_block_U6cNxK",
+        "video_gBABwp",
         "text_block_PB4UXb"
       ],
       "settings": {
