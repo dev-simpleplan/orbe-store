@@ -123,10 +123,10 @@
       "settings": {
         "background_image": "shopify://shop_images/Rectangle_3468571.png",
         "heading": "A Letter From Our Founder",
-        "founder_image": "shopify://shop_images/e05aee5203b43522ad12954497c7ca7e98fb69f1.png",
-        "letter_text": "There was a moment when I realised how complicated caring for ourselves had become. Orbe began as an answer to that feeling: a space where women could understand their bodies without the noise, where science and simplicity work together, and wellbeing feels calm, clear, and beautifully uncomplicated.",
-        "signature_image": "shopify://shop_images/Kevin_Hart.svg",
-        "signature_text": "CEO, Orbe"
+        "founder_image": "shopify://shop_images/Rectangle_3468573_1_1.jpg",
+        "letter_text": "The conversation around women’s wellness has grown far too loud. ORBÉ exists to be the quiet pause.\n\nBy marrying uncompromising science with elegant minimalism, ORBÉ strips away the excess, leaving only what is pure and essential. It is a space where the noise fades, empowering women to tune back into their bodies with absolute confidence.\n\nBecause caring for yourself shouldn't be a complication. It should be a beautifully effortless ritual.",
+        "signature_image": "shopify://shop_images/image_551.jpg",
+        "signature_text": "CEO, ORBE"
       }
     },
     "spacer_gwXedj": {
@@ -142,41 +142,41 @@
         "person_KkNfA4": {
           "type": "person",
           "settings": {
-            "image": "shopify://shop_images/18a742267661f744f7d96daeb32e38cd96e22faa.png",
-            "name": "Neil Paul",
-            "designation": "Marketing"
+            "image": "shopify://shop_images/Rectangle_3468574.jpg",
+            "name": "Brijesh",
+            "designation": "Head of Operations"
           }
         },
         "person_qNTn3y": {
           "type": "person",
           "settings": {
-            "image": "shopify://shop_images/1909e2900846ce31e6884d3e303ade59a9adf719.png",
-            "name": "Neil Paul",
-            "designation": "Marketing"
+            "image": "shopify://shop_images/Rectangle_3468575.jpg",
+            "name": "Janki",
+            "designation": "Growth & Strategy Lead"
           }
         },
         "person_aGXVpD": {
           "type": "person",
           "settings": {
-            "image": "shopify://shop_images/35690d93e13e607a882cec480cb76417a1454184.png",
-            "name": "Neil Paul",
-            "designation": "Marketing"
+            "image": "shopify://shop_images/Rectangle_3468576.jpg",
+            "name": "Kiran",
+            "designation": "Community & Experience Lead"
           }
         },
         "person_k4r9jA": {
           "type": "person",
           "settings": {
-            "image": "shopify://shop_images/069af891b967fbee64166e5576984bfd7c8d451d.png",
-            "name": "Neil Paul",
-            "designation": "Marketing"
+            "image": "shopify://shop_images/Rectangle_3468577.jpg",
+            "name": "Kosha",
+            "designation": "Co-Founder"
           }
         },
         "person_iP9UnT": {
           "type": "person",
           "settings": {
-            "image": "shopify://shop_images/e0bd84865e894fe7f04bb330bd57b6b20fba3a24.png",
-            "name": "Neil Paul",
-            "designation": "Marketing"
+            "image": "shopify://shop_images/Rectangle_3468578.jpg",
+            "name": "Shilpa",
+            "designation": "Creative Lead"
           }
         }
       },
