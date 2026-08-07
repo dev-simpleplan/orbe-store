@@ -9,6 +9,7 @@
  */
 {
   "current": {
+    "favicon": "shopify://shop_images/orbe-favicon.png",
     "sections": {
       "header": {
         "type": "header",
@@ -29,6 +30,14 @@
           "footer_menu_3": "footer-menu-3",
           "footer_heading_4": "Legal",
           "footer_menu_4": "legal-pages"
+        }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "<p>Free shipping on all orders over $100</p>",
+          "background_color": "#1a1a1a",
+          "text_color": "#ffffff"
         }
       }
     },
