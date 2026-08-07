@@ -9,7 +9,6 @@
  */
 {
   "current": {
-    "favicon": "shopify://shop_images/orbe-favicon.png",
     "sections": {
       "header": {
         "type": "header",
