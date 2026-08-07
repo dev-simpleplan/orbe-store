@@ -1946,9 +1946,9 @@ header.header--transparent
   padding-top: 90px;
   position: relative;
 }
-.about-banner img {
+/* .about-banner img {
   filter: grayscale(1);
-}
+} */
 .about-banner .container {
   height: 100%;
 }
@@ -1991,9 +1991,9 @@ header.header--transparent
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.about-banner-in img {
+/* .about-banner-in img {
   filter: grayscale(1);
-}
+} */
 .ab-img-1 {
   height: 368px;
   overflow: hidden;
