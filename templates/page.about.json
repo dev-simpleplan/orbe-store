@@ -378,28 +378,28 @@
           "type": "standard",
           "settings": {
             "image": "shopify://shop_images/6be72cd6a924785d95e517fcbe6e68e69f1cf8b0.png",
-            "title": "Clean-label\ncommitments"
+            "title": "Clean-Label\nCommitments"
           }
         },
         "standard_2": {
           "type": "standard",
           "settings": {
             "image": "shopify://shop_images/Ellipse_176.jpg",
-            "title": "Third-party\ntesting"
+            "title": "Third-Party\nTesting"
           }
         },
         "standard_3": {
           "type": "standard",
           "settings": {
             "image": "shopify://shop_images/Ellipse_177.jpg",
-            "title": "Vegan-certified capsules"
+            "title": "Vegan Certified\nCapsules"
           }
         },
         "standard_4": {
           "type": "standard",
           "settings": {
             "image": "shopify://shop_images/Ellipse_178.jpg",
-            "title": "Ingredient\ntraceability"
+            "title": "Ingredient\nTraceability"
           }
         },
         "standard_5": {
@@ -413,7 +413,7 @@
           "type": "standard",
           "settings": {
             "image": "shopify://shop_images/a16bc8c7a2dd5aec97f1493f992fd0cad7520500_1.png",
-            "title": "GMP-certified\nfacilities"
+            "title": "GMP Certified\nFacilities"
           }
         }
       },
