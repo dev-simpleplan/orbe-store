@@ -809,7 +809,7 @@ header.header--transparent .center svg path {
   position: absolute;
   width: 45vw;
   /* width: 70vw; */
-  width: 67vw;
+  width: 66vw;
   aspect-ratio: 520 / 527;
   z-index: 2;
   will-change: transform;
