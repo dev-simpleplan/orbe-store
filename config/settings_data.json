@@ -34,7 +34,7 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "text": "<p>Free shipping on all orders over $100</p>",
+          "text": "",
           "background_color": "#1a1a1a",
           "text_color": "#ffffff"
         }
