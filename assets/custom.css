@@ -814,7 +814,8 @@ header.header--transparent .center svg path {
   z-index: 2;
   will-change: transform;
   pointer-events: none;
-  top: -20.6%;
+  /* top: -20.6%; */
+  top: auto;
 }
 
 #orbe-masked-video {
