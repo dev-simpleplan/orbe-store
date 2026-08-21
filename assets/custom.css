@@ -1243,6 +1243,9 @@ header.header--transparent
 .at-single-content-block .right .primary-btn {
   margin-top: 30px;
 }
+.at-single-content-block p {
+  font-size: 15px;
+}
 /* At Single */
 /* Ready Formula */
 .ready-formula {
