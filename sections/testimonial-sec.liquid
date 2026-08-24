@@ -69,8 +69,12 @@
                     </svg>
                 </button>
             </div>
+
+            <div class="ts-scrollbar" data-testimonial-scrollbar>
+                <div class="ts-scrollbar-thumb" data-testimonial-scrollbar-thumb></div>
+            </div>
         </div>
-    </div> 
+    </div>
 </section>
 
 <style>
@@ -213,6 +217,36 @@
         letter-spacing: 0;
     }
 
+    /* custom scrollbar */
+    .ts-scrollbar {
+        position: relative;
+        height: 4px;
+        margin: 24px clamp(24px, 8vw, 260px) 0;
+        background: #e6e6e6;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .ts-scrollbar-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #151515;
+        border-radius: 2px;
+        cursor: grab;
+    }
+
+    .ts-scrollbar-thumb.is-dragging {
+        cursor: grabbing;
+    }
+
+    @media (max-width: 767px) {
+        .ts-scrollbar {
+            margin-inline: 16px;
+        }
+    }
+
     /* custom nav */
     .ts-nav {
         display: none;
@@ -342,7 +376,61 @@
         var scroller = document.querySelector('[data-testimonial-scroll]');
         var prevBtn = document.querySelector('.ts-prev');
         var nextBtn = document.querySelector('.ts-next');
+        var scrollbar = document.querySelector('[data-testimonial-scrollbar]');
+        var thumb = document.querySelector('[data-testimonial-scrollbar-thumb]');
         if (!scroller) return;
+
+        function updateThumb() {
+            if (!scrollbar || !thumb) return;
+            var maxScroll = scroller.scrollWidth - scroller.clientWidth;
+            var thumbWidthRatio = scroller.clientWidth / scroller.scrollWidth;
+            var thumbWidth = Math.max(scrollbar.clientWidth * thumbWidthRatio, 40);
+            var maxThumbLeft = scrollbar.clientWidth - thumbWidth;
+            var progress = maxScroll > 0 ? scroller.scrollLeft / maxScroll : 0;
+            thumb.style.width = thumbWidth + 'px';
+            thumb.style.left = (maxThumbLeft * progress) + 'px';
+        }
+
+        if (scrollbar && thumb) {
+            var thumbDragging = false;
+            var thumbStartX = 0;
+            var thumbStartLeft = 0;
+
+            thumb.addEventListener('pointerdown', function (event) {
+                thumbDragging = true;
+                thumbStartX = event.clientX;
+                thumbStartLeft = thumb.offsetLeft;
+                thumb.classList.add('is-dragging');
+                thumb.setPointerCapture(event.pointerId);
+            });
+
+            thumb.addEventListener('pointermove', function (event) {
+                if (!thumbDragging) return;
+                var maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                var maxThumbLeft = scrollbar.clientWidth - thumb.offsetWidth;
+                var delta = event.clientX - thumbStartX;
+                var newLeft = Math.min(Math.max(thumbStartLeft + delta, 0), maxThumbLeft);
+                scroller.scrollLeft = maxThumbLeft > 0 ? (newLeft / maxThumbLeft) * maxScroll : 0;
+            });
+
+            function endThumbDrag() {
+                thumbDragging = false;
+                thumb.classList.remove('is-dragging');
+            }
+
+            thumb.addEventListener('pointerup', endThumbDrag);
+            thumb.addEventListener('pointercancel', endThumbDrag);
+
+            scrollbar.addEventListener('click', function (event) {
+                if (event.target === thumb) return;
+                var rect = scrollbar.getBoundingClientRect();
+                var clickX = event.clientX - rect.left;
+                var maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                var maxThumbLeft = scrollbar.clientWidth - thumb.offsetWidth;
+                var newLeft = Math.min(Math.max(clickX - thumb.offsetWidth / 2, 0), maxThumbLeft);
+                scroller.scrollLeft = maxThumbLeft > 0 ? (newLeft / maxThumbLeft) * maxScroll : 0;
+            });
+        }
 
         // Native horizontal scroll — works with trackpad, touch, and mouse-wheel
         // (shift+wheel) out of the box. Add plain click-and-drag for mouse users too.
@@ -400,8 +488,20 @@
         }
 
         scroller.addEventListener('scroll', updateNavState, { passive: true });
+        scroller.addEventListener('scroll', updateThumb, { passive: true });
         window.addEventListener('resize', updateNavState);
+        window.addEventListener('resize', updateThumb);
+        window.addEventListener('load', updateThumb);
         updateNavState();
+        updateThumb();
+
+        if (window.ResizeObserver) {
+            new ResizeObserver(updateThumb).observe(scroller);
+        }
+
+        scroller.querySelectorAll('img').forEach(function (img) {
+            if (!img.complete) img.addEventListener('load', updateThumb, { once: true });
+        });
 
         if (prevBtn) {
             prevBtn.addEventListener('click', function () {

@@ -74,9 +74,9 @@
       const cardCenterHold = 0.25;
       const cardExitDuration = 0.65;
       const cardTotalDuration = cardEnterDuration + cardCenterHold + cardExitDuration;
-      const timelineLength = (cards.length - 1) * cardOverlap + cardTotalDuration;
-      const getPinDistance = () => window.innerHeight * timelineLength * 1.12;
-      const getEarlyDistance = () => window.innerHeight * 0.8;
+      const lastCardDuration = cardEnterDuration + cardCenterHold;
+      const timelineLength = (cards.length - 1) * cardOverlap + lastCardDuration;
+      const getPinDistance = () => window.innerHeight * timelineLength;
 
       ScrollTrigger.create({
         trigger: section,
@@ -90,8 +90,8 @@
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%',
-          end: () => `+=${getPinDistance() + getEarlyDistance()}`,
+          start: 'top top',
+          end: () => `+=${getPinDistance()}`,
           scrub: 1,
           invalidateOnRefresh: true,
         },
@@ -124,15 +124,19 @@
           duration: cardCenterHold,
         }, position + cardEnterDuration);
 
-        tl.to(card, {
-          x: () => path().endX,
-          y: () => path().endY,
-          rotate: -5,
-          ease: 'sine.inOut',
-          duration: cardExitDuration,
-        }, position + cardEnterDuration + cardCenterHold);
+        const isLast = index === cards.length - 1;
 
-        tl.set(card, { autoAlpha: 0 }, position + cardTotalDuration);
+        if (!isLast) {
+          tl.to(card, {
+            x: () => path().endX,
+            y: () => path().endY,
+            rotate: -5,
+            ease: 'sine.inOut',
+            duration: cardExitDuration,
+          }, position + cardEnterDuration + cardCenterHold);
+
+          tl.set(card, { autoAlpha: 0 }, position + cardTotalDuration);
+        }
       });
 
       window.addEventListener('load', () => ScrollTrigger.refresh());
