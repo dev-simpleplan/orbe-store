@@ -233,14 +233,14 @@
         "certificate_bC6LFf": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/40538656897b1b060106c315841c017a668e6d0d.png",
+            "image": "shopify://shop_images/surface1.svg",
             "alt": "Certification logo"
           }
         },
         "certificate_EiQhdF": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/c70552307b2ca6e7a16daa09f020767b678b019d.png",
+            "image": "shopify://shop_images/HACCP_Logo_-1.svg",
             "alt": "Certification logo"
           }
         },
@@ -254,7 +254,7 @@
         "certificate_8LBn9k": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/073fbe87f14eccd8889c85c998a1cb00ee62ec20.png",
+            "image": "shopify://shop_images/halal-seeklogo-2-1.svg",
             "alt": "Certification logo"
           }
         },
@@ -268,7 +268,7 @@
         "certificate_6DgXgi": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/01650e751b85b6dcdcc369b9c0b83de1b176f161.png",
+            "image": "shopify://shop_images/GMP_Certified-1.svg",
             "alt": "Certification logo"
           }
         },
@@ -282,7 +282,7 @@
         "certificate_gNCtmx": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/f08c27ba88bd0a33289b25134d228b87432edca1.png",
+            "image": "shopify://shop_images/IEC.png",
             "alt": "Certification logo"
           }
         }
