@@ -260,6 +260,7 @@
         },
         "certificate_R8PtL6": {
           "type": "certificate",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/45dfe35695e2ece93affd92df0e7ab931125f27d.png",
             "alt": "Certification logo"
@@ -275,7 +276,7 @@
         "certificate_Tx96NA": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/ba8ce2db94c33848ad519c53dad7d42a11f0c78e.png",
+            "image": "shopify://shop_images/FDA_Logo-1.svg",
             "alt": "Certification logo"
           }
         },
