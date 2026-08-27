@@ -15,7 +15,7 @@
         "acc_why": {
           "type": "collapsible",
           "settings": {
-            "title": "Why Orbe",
+            "title": "Why Orbé",
             "metafield_key": "custom.why_orbe",
             "content": "<p>Essential nourishment for energy, mood, hormonal balance, and long-term wellbeing.</p>",
             "image_metafield_key": ""
