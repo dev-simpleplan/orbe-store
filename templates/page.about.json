@@ -515,12 +515,12 @@
       "name": "Social Follow",
       "settings": {
         "social_label": "Follow Us On Social Media",
-        "show_facebook": false,
-        "facebook_url": "",
+        "show_facebook": true,
+        "facebook_url": "https://www.facebook.com/profile.php?id=61593538515024",
         "show_instagram": true,
         "instagram_url": "https://www.instagram.com/orbecare?igsh=MjBrNHE2eTgyc3Nz",
-        "show_twitter": false,
-        "twitter_url": "",
+        "show_twitter": true,
+        "twitter_url": "https://x.com/orbecare",
         "show_linkedin": false,
         "linkedin_url": ""
       }
