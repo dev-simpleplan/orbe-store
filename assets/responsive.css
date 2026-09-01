@@ -1290,6 +1290,19 @@
   .letter-card .signature img {
     height: 60px;
   }
+  .small-img-parallex {
+    display: none;
+  }
+}
+
+@media(max-width: 480px){
+  .at-single-content-block {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .at-single-button {
+    text-align: left;
+  }
 }
 
 @media screen and (max-width: 430px) {

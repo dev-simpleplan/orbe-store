@@ -2652,7 +2652,7 @@ header.header--transparent
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
   min-height: 800px;
   padding: 80px 0px;
   overflow: hidden;
