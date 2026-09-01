@@ -30,12 +30,13 @@
                     {% if section.settings.right_text != blank %}
                         <p>{{ section.settings.right_text }}</p>
                     {% endif %}
-                    {% if section.settings.button_text != blank %}
-                        <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
-                    {% endif %}
                 </div>
             </div>
-
+            <div class="at-single-button">
+              {% if section.settings.button_text != blank %}
+                  <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
+              {% endif %}
+            </div>
         </div>
     </div>
 </section>
