@@ -15,7 +15,7 @@
         "heading": "The Beauty That\nSimplicity Creates",
         "text": "Guiding you toward choices that honour your strength,\nyour rhythm, your becoming.",
         "button_text": "Start Your Journey",
-        "button_link": "shopify://products/n-1"
+        "button_link": "shopify://products/n01"
       }
     },
     "spacer1": {
@@ -49,7 +49,7 @@
         "left_text": "A moment made for you: simple, intentional, and crafted to help you feel more like yourself again.",
         "right_text": "Thoughtfully crafted to support your inner steadiness, your energy, your clarity, your becoming.",
         "button_text": "Start Your Journey",
-        "button_link": "shopify://products/n-1"
+        "button_link": "shopify://products/n01"
       }
     },
     "spacer3": {
@@ -102,7 +102,7 @@
         "heading": "Your Body Has Been Asking For This",
         "text": "A daily foundation of thoughtfully selected nutrients to support how you feel, every day.",
         "button_text": "View Product Page",
-        "button_link": "shopify://products/n-1",
+        "button_link": "shopify://products/n01",
         "image": "shopify://shop_images/ChatGPT_Image_May_8_2026_01_44_31_PM_1_1.jpg"
       }
     },
@@ -368,10 +368,10 @@
         "orbe_logo_top": "shopify://shop_images/Group_2085663253_a33fd947-7f3f-40b8-bcfe-569038a0f662.svg",
         "orbe_logo_bottom": "shopify://shop_images/Group_2085663253_copy.svg",
         "mobile_button_1_text": "I'm ready to begin",
-        "mobile_button_1_link": "shopify://products/n-1",
+        "mobile_button_1_link": "shopify://products/n01",
         "mobile_button_2_text": "I still have questions",
         "mobile_expanded_cta_text": "Okay, I'm ready",
-        "mobile_expanded_cta_link": "shopify://products/n-1",
+        "mobile_expanded_cta_link": "shopify://products/n01",
         "mobile_contact_note": "Still deciding? Ask us anything. A person replies within a day."
       }
     },
