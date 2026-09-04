@@ -48,7 +48,11 @@
           <a class="primary-btn st-mobile-btn" href="{{ section.settings.mobile_expanded_cta_link | default: '#' }}">{{ section.settings.mobile_expanded_cta_text }}</a>
         {% endif %}
         {% if section.settings.mobile_contact_note != blank %}
-          <p class="st-mobile-note">{{ section.settings.mobile_contact_note }}</p>
+          {% if section.settings.mobile_contact_note_link != blank %}
+            <a class="st-mobile-note" href="{{ section.settings.mobile_contact_note_link }}" target="_blank" rel="noopener">{{ section.settings.mobile_contact_note }}</a>
+          {% else %}
+            <p class="st-mobile-note">{{ section.settings.mobile_contact_note }}</p>
+          {% endif %}
         {% endif %}
       </div>
     </div>
@@ -295,6 +299,12 @@
       "id": "mobile_contact_note",
       "label": "Expanded state — note",
       "default": "Still deciding? Ask us anything. A person replies within a day."
+    },
+    {
+      "type": "url",
+      "id": "mobile_contact_note_link",
+      "label": "Expanded state — note link",
+      "info": "Optional. Turns the note into a link — pick a PDF from Files (or any URL) to open it in a new tab."
     }
   ],
   "blocks": [
