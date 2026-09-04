@@ -408,6 +408,7 @@
         "video_4BYdtw": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 1 Vertical.mp4",
             "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
           }
         },
@@ -514,6 +515,12 @@
         "heading": "Made For Her. Loved By Her."
       }
     },
+    "spacer5": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "new-faq-section": {
       "type": "new-faq-section",
       "blocks": {
@@ -581,12 +588,6 @@
         "heading": "FAQs",
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
-      }
-    },
-    "spacer5": {
-      "type": "spacer",
-      "settings": {
-        "spacer_height": 120
       }
     },
     "spacer_MQJmqW": {
