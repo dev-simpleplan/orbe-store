@@ -380,6 +380,90 @@
             "text": "Vegan Omega-3 DHA\nForm: Algal oil from Schizochytrium sp. Dose: [XXX] mg DHA per serving\nWhat it supports: Brain and eye function, cardiovascular health, skin, and the body's inflammatory balance.\nWhy this form: DHA usually comes from fish. Fish get it from algae. We source it directly from the algae, which skips the fish entirely. No fishy aftertaste, no reflux, no marine contaminant risk, and it works for vegetarians and vegans.\nThe gap in India: Vegetarian diets are close to zero in preformed DHA. The body can convert ALA from flax and walnuts into DHA, but the conversion rate in women is low and unreliable."
           }
         },
+        "drawer_section_xwprKH": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Vitamin D3",
+            "text": "Form: Vitashine™ cholecalciferol, from lichen Dose: 600 IU per serving\nWhat it supports: Calcium absorption, bone strength, immune function, and mood.\nWhy this form: Almost all vitamin D3 on the market comes from lanolin, which is sheep's wool grease. Vitashine™ is grown from lichen, so it's genuinely vegan and still D3 rather than the weaker D2 that most vegan products use.\nThe gap in India: Vitamin D insufficiency runs between 70 and 90 percent across Indian studies, despite the sunlight. Indoor work, covered clothing, sunscreen and darker skin all reduce how much your skin makes."
+          }
+        },
+        "drawer_section_RnHDxg": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Vitamin E",
+            "text": "Form: D-Alpha Tocopherol from mixed tocopherols (rapeseed) Dose: 10 mg per serving\nWhat it supports: Cell membrane protection and skin health. It also protects the DHA in this capsule from oxidising, both on the shelf and inside you.\nWhy this form: Natural D-alpha tocopherol is roughly twice as bioavailable as the synthetic DL-alpha form, and sourcing it from a mixed tocopherol base gives broader antioxidant coverage than isolated alpha alone.\nThe gap in India: Intake is suboptimal in an estimated 40 to 50 percent of adults. Air pollution and repeatedly heated cooking oils both raise how much your body needs."
+          }
+        },
+        "drawer_section_Gx8XFM": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Vitamin K2",
+            "text": "Form: MenaQ7® menaquinone-7 (MK-7) Dose: 55 mcg per serving\nWhat it supports: Bone mineralisation and cardiovascular health. K2 activates the proteins that put calcium into your bones and keep it out of your arteries.\nWhy this form: MK-7 stays in the blood for days, where the shorter MK-4 form clears in hours. That means a small daily dose works. MenaQ7® is the most studied MK-7 on the market.\nThe gap in India: K2 comes mainly from fermented foods and animal products. Indian vegetarian diets have very little. Taking vitamin D without K2 raises calcium absorption without directing where that calcium goes."
+          }
+        },
+        "drawer_section_NXf89A": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Inner capsule phase",
+            "text": ""
+          }
+        },
+        "drawer_section_n4RndL": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Iron",
+            "text": "Form: Ferrochel® ferrous bisglycinate chelate Dose: 20.88 mg per serving\nWhat it supports: Haemoglobin production and oxygen transport. Adequate iron helps reduce tiredness and supports stamina through the menstrual cycle.\nWhy this form: Ferrous sulfate is cheap and works, and it also causes the nausea and constipation that make women stop taking iron. Ferrochel® binds the iron to glycine, which cuts free iron in the gut. Less irritation, and the chelate gets past the phytates in wheat and rice that block ordinary iron. It costs us several times more than sulfate. Iron you actually keep taking is worth more than iron you abandon in week two.\nThe gap in India: NFHS-5 (2019 to 2021) found 57 percent of women aged 15 to 49 anaemic. Tea and coffee with meals make it worse by blocking absorption.\nIf you suspect anaemia, get a ferritin and haemoglobin test. A daily supplement supports normal iron status. It isn't a treatment for diagnosed deficiency, which needs a doctor and higher supervised doses."
+          }
+        },
+        "drawer_section_kL4xWk": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Folate",
+            "text": "Form: Quatrefolic® (6S)-5-methyltetrahydrofolate, glucosamine salt Dose: 220 mcg per serving\nWhat it supports: Red blood cell formation, DNA synthesis, cell renewal, and the methylation cycle that also governs mood and hormone metabolism.\nWhy this form: Folic acid is synthetic and your body has to convert it through the MTHFR enzyme before it can be used. A large share of South Asians carry MTHFR variants that slow that conversion down. Quatrefolic® is already in the active 5-MTHF form, so the conversion step doesn't apply.\nThe gap in India: A study of Indian women of reproductive age found 78.3 percent with insufficient red blood cell folate. Low green leafy vegetable intake is the main driver."
+          }
+        },
+        "drawer_section_7iL3Qg": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Vitamin B12",
+            "text": "Form: Methylcobalamin Dose: 2.2 mcg per serving\nWhat it supports: Energy metabolism, nerve function, and mental clarity. B12 works with folate in the methylation cycle and improves how well your body uses iron.\nWhy this form: Methylcobalamin is the coenzyme form your cells use directly. Cyanocobalamin, the cheaper standard, has to be converted and releases a cyanide molecule in the process, which is harmless at these doses but pointless when the active form is available.\nThe gap in India: Studies put B12 deficiency across the Indian population above 70 percent, with one urban study finding 52.2 percent of women deficient. B12 comes almost entirely from animal foods. The symptoms, fatigue, low mood, brain fog, get written off as stress."
+          }
+        },
+        "drawer_section_KaUwry": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Magnesium",
+            "text": "Form: Magnesium bisglycinate Dose: 55.5 mg per serving\nWhat it supports: Sleep quality, muscle relaxation, stress response, and monthly comfort. It also helps your body convert vitamin D into its usable form.\nWhy this form: Magnesium oxide is the cheapest magnesium and most of it doesn't get absorbed. What stays in the gut draws in water, which is why oxide is sold as a laxative. Bisglycinate is chelated to glycine, absorbs well, and doesn't have that effect.\nThe gap in India: Dietary assessments show 40 to 50 percent of urban Indian women taking in less magnesium than the RDA. Processed food, low nut and seed intake, high caffeine and chronic stress all deplete it."
+          }
+        },
+        "drawer_section_KXnL6n": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Zinc",
+            "text": "Form: Zinc citrate Dose: 7.128 mg per serving\nWhat it supports: Immune function, skin barrier health, wound healing, and hormone regulation. Zinc is a cofactor in more than 300 enzymes.\nWhy this form: Absorption studies put zinc citrate well ahead of zinc oxide, and it's gentler on an empty stomach.\nThe gap in India: Around 24.7 percent of non-pregnant urban Indian women show low serum zinc, with marginal intake estimated across 25 to 52 percent. Phytates in cereal-heavy diets block zinc the same way they block iron."
+          }
+        },
+        "drawer_section_znjWTR": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Boron",
+            "text": "Form: Boron proteonate Dose: 1 mg per serving\nWhat it supports: Bone metabolism and hormone balance. Boron improves how the body holds on to calcium and magnesium, and influences oestrogen levels.\nWhy this form: Proteonate is an amino acid chelate, absorbed better than sodium borate.\nThe gap in India: India has no formal RDA for boron. Typical intake is roughly 1 mg a day and comes from fresh fruit, vegetables and nuts, so urban diets low in fresh produce fall short."
+          }
+        },
+        "drawer_section_cLVGNz": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "How they work together",
+            "text": "ndividual nutrients aren't the whole story here. Four pairings do specific work:\nFolate + B12. Both run the methylation cycle. Taking folate without B12 can mask a B12 deficiency. Together they support red blood cell production, which is also what makes iron useful.\n\nVitamin D3 + K2 + Boron + Magnesium. D3 raises how much calcium you absorb. K2 activates the proteins that route it into bone. Boron and magnesium support the same process. Taking D3 alone raises calcium in circulation without directing it.\nDHA + Vitamin E. DHA is a polyunsaturated fat and oxidises easily. Vitamin E sits in the same oil phase and protects it.\n\nZinc + Magnesium. Both are cofactors for hormone-related enzymes and both support skin and immune function."
+          }
+        },
+        "drawer_section_HkrJrc": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Purity",
+            "text": "Every batch of ORBÉ N°01 goes through a 5-point third-party screen at an NABL-accredited lab. Batch 6061VGV1 cleared all five.\nHeavy metals report (PDF)\nPesticide residue report (PDF)\nMicrobial report (PDF)\nAflatoxin report (PDF)\nMelamine report (PDF)\nManufactured under FSSAI licence in a GMP-certified, FSSC 22000 facility.\n\nFull label\nComplete formulation and nutritional profile (PDF)\nIngredient evidence and references (PDF)\nOther ingredients: HPMC capsule shells (size 00 outer, size 3 inner), microcrystalline cellulose, colloidal silicon dioxide, magnesium stearate.\n\nNot for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease, and is not a substitute for a varied and balanced diet."
+          }
+        },
         "accordion_inner_capsule": {
           "type": "accordion_item",
           "settings": {
@@ -401,6 +485,18 @@
         "drawer_section_cTbwWP",
         "drawer_section_pF9tLM",
         "drawer_section_WY7Gph",
+        "drawer_section_xwprKH",
+        "drawer_section_RnHDxg",
+        "drawer_section_Gx8XFM",
+        "drawer_section_NXf89A",
+        "drawer_section_n4RndL",
+        "drawer_section_kL4xWk",
+        "drawer_section_7iL3Qg",
+        "drawer_section_KaUwry",
+        "drawer_section_KXnL6n",
+        "drawer_section_znjWTR",
+        "drawer_section_cLVGNz",
+        "drawer_section_HkrJrc",
         "accordion_inner_capsule",
         "accordion_outer_capsule"
       ],
