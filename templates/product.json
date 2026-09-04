@@ -68,13 +68,13 @@
         "collapsible_EUBVPY"
       ],
       "settings": {
-        "show_rating": true,
+        "show_rating": false,
         "rating_value": 4,
         "reviews_text": "200+ Reviews",
         "supply_text": "30 Days: 60 Capsules",
         "onetime_label": "One Time Purchase",
         "subscription_sub": "Subscribe for a simpler routine delivered effortlessly every month.",
-        "targets_label": "Targets:",
+        "targets_label": "Supports:",
         "target_prefix": "",
         "add_button_text": "Add to cart",
         "sold_out_text": "Sold out",
