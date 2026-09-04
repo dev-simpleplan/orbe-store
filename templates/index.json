@@ -302,6 +302,26 @@
         "heading": "Certified by"
       }
     },
+    "why-orbe": {
+      "type": "why-orbe",
+      "settings": {
+        "background_image": "shopify://shop_images/332250ea30a42eaec291fc7edaa47c87edbc04c7.png",
+        "heading": "The Beauty of Intention",
+        "stat_1": "2X",
+        "text_1": "Deeper, more restful sleep within weeks.",
+        "stat_2": "70%",
+        "text_2": "More steady energy across your day.",
+        "stat_3": "3X",
+        "text_3": "Better absorption with every capsule."
+      }
+    },
+    "spacer_mtgfHD": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "see-through": {
       "type": "see-through",
       "blocks": {
@@ -375,104 +395,9 @@
         "mobile_contact_note": "Still deciding? Ask us anything. A person replies within a day."
       }
     },
-    "spacer_mtgfHD": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
-    "why-orbe": {
-      "type": "why-orbe",
-      "settings": {
-        "background_image": "shopify://shop_images/332250ea30a42eaec291fc7edaa47c87edbc04c7.png",
-        "heading": "The Beauty of Intention",
-        "stat_1": "2X",
-        "text_1": "Deeper, more restful sleep within weeks.",
-        "stat_2": "70%",
-        "text_2": "More steady energy across your day.",
-        "stat_3": "3X",
-        "text_3": "Better absorption with every capsule."
-      }
-    },
     "spacer_6YyPKx": {
       "type": "spacer",
       "name": "Spacer",
-      "settings": {
-        "spacer_height": 120
-      }
-    },
-    "new-faq-section": {
-      "type": "new-faq-section",
-      "blocks": {
-        "faq_1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Do I need a prescription to take supplements?",
-            "answer": "No. Supplements are designed to support wellbeing, not replace medical treatment. But speaking with a healthcare professional is helpful if you have specific conditions or concerns."
-          }
-        },
-        "faq_2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Will supplements affect my hormones?",
-            "answer": "Not negatively. In fact, the right nutrients gently support hormonal balance. Magnesium, zinc, B-vitamins, and iron all play a role in regulating cycles and mood."
-          }
-        },
-        "faq_3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Are supplements safe to take long-term?",
-            "answer": "Yes, when they’re clean, thoughtfully formulated, and used in recommended amounts. Consistency is where benefits unfold."
-          }
-        },
-        "faq_4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Why do some supplements not “work”?",
-            "answer": "Because not all forms of nutrients are easily absorbed. The body responds best to active, bioavailable forms — the ones it recognises and uses deeply."
-          }
-        },
-        "faq_item_xPBdTP": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Why does simplicity matter in supplements?",
-            "answer": "Because when something feels clear and uncomplicated, you’re more likely to stay consistent, and consistency is where results happen."
-          }
-        },
-        "faq_item_zNPzxt": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What results should I realistically expect?",
-            "answer": "Subtle shifts that build: better energy, steadier mood, smoother cycles, deeper rest, stronger foundation. Small changes compounding over time."
-          }
-        },
-        "faq_item_xbya6q": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What makes Orbé different from other supplement brands?",
-            "answer": "Intention. Clarity. Purpose in design. Clean ingredients, active nutrient forms, and thoughtful delivery — all crafted to simplify your daily wellbeing."
-          }
-        }
-      },
-      "block_order": [
-        "faq_1",
-        "faq_2",
-        "faq_3",
-        "faq_4",
-        "faq_item_xPBdTP",
-        "faq_item_zNPzxt",
-        "faq_item_xbya6q"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/39b6526f3731f9bb53b904b733cf581b1ffcd5fd_1_1.png",
-        "heading": "FAQs",
-        "cta_text": "View All FAQs",
-        "cta_link": "shopify://pages/faqs"
-      }
-    },
-    "spacer5": {
-      "type": "spacer",
       "settings": {
         "spacer_height": 120
       }
@@ -589,6 +514,81 @@
         "heading": "Made For Her. Loved By Her."
       }
     },
+    "new-faq-section": {
+      "type": "new-faq-section",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a prescription to take supplements?",
+            "answer": "No. Supplements are designed to support wellbeing, not replace medical treatment. But speaking with a healthcare professional is helpful if you have specific conditions or concerns."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will supplements affect my hormones?",
+            "answer": "Not negatively. In fact, the right nutrients gently support hormonal balance. Magnesium, zinc, B-vitamins, and iron all play a role in regulating cycles and mood."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are supplements safe to take long-term?",
+            "answer": "Yes, when they’re clean, thoughtfully formulated, and used in recommended amounts. Consistency is where benefits unfold."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why do some supplements not “work”?",
+            "answer": "Because not all forms of nutrients are easily absorbed. The body responds best to active, bioavailable forms — the ones it recognises and uses deeply."
+          }
+        },
+        "faq_item_xPBdTP": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why does simplicity matter in supplements?",
+            "answer": "Because when something feels clear and uncomplicated, you’re more likely to stay consistent, and consistency is where results happen."
+          }
+        },
+        "faq_item_zNPzxt": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What results should I realistically expect?",
+            "answer": "Subtle shifts that build: better energy, steadier mood, smoother cycles, deeper rest, stronger foundation. Small changes compounding over time."
+          }
+        },
+        "faq_item_xbya6q": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes Orbé different from other supplement brands?",
+            "answer": "Intention. Clarity. Purpose in design. Clean ingredients, active nutrient forms, and thoughtful delivery — all crafted to simplify your daily wellbeing."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_item_xPBdTP",
+        "faq_item_zNPzxt",
+        "faq_item_xbya6q"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/39b6526f3731f9bb53b904b733cf581b1ffcd5fd_1_1.png",
+        "heading": "FAQs",
+        "cta_text": "View All FAQs",
+        "cta_link": "shopify://pages/faqs"
+      }
+    },
+    "spacer5": {
+      "type": "spacer",
+      "settings": {
+        "spacer_height": 120
+      }
+    },
     "spacer_MQJmqW": {
       "type": "spacer",
       "name": "Spacer",
@@ -666,9 +666,9 @@
     "spacer_mtgfHD",
     "see-through",
     "spacer_6YyPKx",
-    "new-faq-section",
-    "spacer5",
     "testimonial-sec",
+    "spacer5",
+    "new-faq-section",
     "spacer_MQJmqW",
     "community_heading_pCqYMx",
     "178532585679964ad7",
