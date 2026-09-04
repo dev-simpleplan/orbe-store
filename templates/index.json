@@ -424,6 +424,7 @@
         "video_8TWHQi": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 3.mp4",
             "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
           }
         },
@@ -439,6 +440,7 @@
         "video_AcW8tR": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
             "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
           }
         },
@@ -454,6 +456,7 @@
         "video_cmYgik": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 1 Vertical.mp4",
             "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
           }
         },
@@ -469,6 +472,7 @@
         "video_RnBCyK": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 3.mp4",
             "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
           }
         },
@@ -484,6 +488,7 @@
         "video_bFreQM": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
             "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
           }
         },
@@ -594,7 +599,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 90
+        "spacer_height": 120
       }
     },
     "community_heading_pCqYMx": {
