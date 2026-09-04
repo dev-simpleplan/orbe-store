@@ -12,8 +12,8 @@
     "main": {
       "type": "home-banner",
       "settings": {
-        "heading": "Wellness made simple, \nfor women who have e\nnough to think about.",
-        "text": "Guiding you toward choices that honour your strength,\nyour rhythm, your becoming.",
+        "heading": "The Beauty That \nSimplicity Creates",
+        "text": "Wellness made simple, for women who have enough to think about.",
         "button_text": "Start Your Journey",
         "button_link": "shopify://products/n01"
       }
@@ -43,7 +43,7 @@
     "at-single": {
       "type": "at-single",
       "settings": {
-        "heading": "A single ritual that makes space for your becoming.",
+        "heading": "2 years of formulation work..",
         "image": "shopify://shop_images/75fb95c0f3566b49fd9392e2eca78bc40f4bf456_1.jpg",
         "logo": "shopify://shop_images/Group_2085663252.svg",
         "left_text": "A moment made for you: simple, intentional, and crafted to help you feel more like yourself again.",
