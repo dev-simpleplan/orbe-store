@@ -1248,14 +1248,14 @@ header.header--transparent
   margin: 0 auto;
   margin-top: 25px;
 }
-.at-single-content-block .right .primary-btn {
+/* .at-single-content-block .right .primary-btn {
   margin-top: 30px;
-}
+} */
 .at-single-content-block p {
   font-size: 15px;
 }
 .at-single-button {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   text-align: center;
 }
 /* At Single */
