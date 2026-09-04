@@ -359,6 +359,27 @@
     "essential-ingredient": {
       "type": "essential-ingredient",
       "blocks": {
+        "drawer_section_cTbwWP": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "About the ingredients",
+            "text": "Ten nutrients - every form is chosen on absorption data, and not on cost.\n\nBelow is what's in ORBÉ N°01, why each ingredient is there, and why we picked the specific form we did. Where the choice cost us more, we've said so."
+          }
+        },
+        "drawer_section_pF9tLM": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "How to read this page",
+            "text": "The capsule has two phases.\n\nThe outer capsule holds an oil: algal DHA plus the fat-soluble vitamins D3, E and K2. It dissolves in the stomach and the oil carries those vitamins into the duodenum, where bile helps you absorb them.\n\nThe inner capsule is a sealed powder capsule sitting inside that oil. It holds the minerals and the water-soluble vitamins. Keeping them physically apart until you swallow stops the iron from oxidising the DHA on the shelf.\n\nServing size is 2 capsules, once a day, with your main meal."
+          }
+        },
+        "drawer_section_WY7Gph": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Outer capsule phase",
+            "text": "Vegan Omega-3 DHA\nForm: Algal oil from Schizochytrium sp. Dose: [XXX] mg DHA per serving\nWhat it supports: Brain and eye function, cardiovascular health, skin, and the body's inflammatory balance.\nWhy this form: DHA usually comes from fish. Fish get it from algae. We source it directly from the algae, which skips the fish entirely. No fishy aftertaste, no reflux, no marine contaminant risk, and it works for vegetarians and vegans.\nThe gap in India: Vegetarian diets are close to zero in preformed DHA. The body can convert ALA from flax and walnuts into DHA, but the conversion rate in women is low and unreliable."
+          }
+        },
         "accordion_inner_capsule": {
           "type": "accordion_item",
           "settings": {
@@ -377,6 +398,9 @@
         }
       },
       "block_order": [
+        "drawer_section_cTbwWP",
+        "drawer_section_pF9tLM",
+        "drawer_section_WY7Gph",
         "accordion_inner_capsule",
         "accordion_outer_capsule"
       ],
