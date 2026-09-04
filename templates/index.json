@@ -99,9 +99,9 @@
     "ready-formula": {
       "type": "ready-formula",
       "settings": {
-        "heading": "Your Body Has Been Asking For This",
-        "text": "A daily foundation of thoughtfully selected nutrients to support how you feel, every day.",
-        "button_text": "View Product Page",
+        "heading": "Your Body Has Been Asking For This <br><br> It's Okay To Start Now",
+        "text": "n1 is a daily..",
+        "button_text": "See what's inside",
         "button_link": "shopify://products/n01",
         "image": "shopify://shop_images/ChatGPT_Image_May_8_2026_01_44_31_PM_1_1.jpg"
       }
@@ -662,9 +662,9 @@
     "spacer_TyQLbr",
     "batch-verified",
     "certified-by",
-    "see-through",
-    "spacer_mtgfHD",
     "why-orbe",
+    "spacer_mtgfHD",
+    "see-through",
     "spacer_6YyPKx",
     "new-faq-section",
     "spacer5",
