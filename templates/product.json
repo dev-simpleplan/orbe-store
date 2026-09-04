@@ -80,7 +80,7 @@
         "sold_out_text": "Sold out",
         "show_checkout_badges": true,
         "checkout_label": "Guaranteed Safe Checkout With",
-        "perks": "30-day supply in every pack\nCancel or pause anytime\nFormulated for Indian women"
+        "perks": "ENERGY THAT DOESN'T DIP AT 3PM\nEASIER SLEEP, STEADIER MOOD\nBONE, SKIN AND IMMUNE SUPPORT"
       }
     },
     "spacer_aADnDt": {
@@ -600,6 +600,7 @@
         "video_4BYdtw": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 1 Vertical.mp4",
             "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
           }
         },
@@ -615,6 +616,7 @@
         "video_8TWHQi": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 3.mp4",
             "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
           }
         },
@@ -630,6 +632,7 @@
         "video_AcW8tR": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
             "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
           }
         },
@@ -645,6 +648,7 @@
         "video_ChzBex": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 1 Vertical.mp4",
             "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
           }
         },
@@ -660,6 +664,7 @@
         "video_kG74WW": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 3.mp4",
             "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
           }
         },
@@ -675,6 +680,7 @@
         "video_gBABwp": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
             "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
           }
         },
