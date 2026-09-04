@@ -231,7 +231,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Inner Capsule Phase",
-            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate)\n\nVitamin B12 (as Methylcobalamin)\n\nIron (as Ferrochel® Ferrous Bisglycinate)\n\nZinc (as Zinc Citrate)\nMagnesium (as Magnesium Bisglycinate)\n\nBoron (as Boron Proteonate)",
+            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate) - Active folate; red blood cell formation, cell renewal, reproductive health\n\nVitamin B12 (as Methylcobalamin) - Energy metabolism, mental clarity, works with folate and iron\n\nIron (as Ferrochel® Ferrous Bisglycinate) - Haemoglobin and oxygen transport; helps reduce tiredness; gentle on the stomach\n\nZinc (as Zinc Citrate) - Immunity, skin health, hormone regulation\n\nMagnesium (as Magnesium Bisglycinate) - Sleep quality, stress resilience, monthly comfort\n\nBoron (as Boron Proteonate) - Bone metabolism; helps the body use calcium and magnesium",
             "image": "shopify://shop_images/627a8008896753d283edbdb79e3ad123b2978ab9.png"
           }
         },
@@ -239,7 +239,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Outer Capsule Phase",
-            "content": "Vegan Omega-3 DHA (as Docosahexaenoic Acid; derived from Algae)\n\nVitashine® Vitamin D3 (as Cholecalciferol)\n\nVitamin E (as D-Alpha Tocopherol)\nMenaQ7® (as Vitamin K2 MK-7)",
+            "content": "Vegan Omega-3 DHA (as Docosahexaenoic Acid; derived from Algae) - Brain, eye and heart function; cellular health\n\nVitashine® Vitamin D3 (as Cholecalciferol) - Calcium absorption, bone strength, immunity, mood\n\nVitamin D3 (as Vitashine™, lichen-sourced) - Antioxidant protection; shields DHA from oxidation; skin health\n\nVitamin K2 (as MenaQ7® MK-7) - Directs calcium to bone; works alongside vitamin D",
             "image": "shopify://shop_images/61336f8624df961fe7afbb50e7ccad8c9a81bfa8.png"
           }
         }
