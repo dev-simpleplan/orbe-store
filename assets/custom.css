@@ -2317,6 +2317,10 @@ header.header--transparent
   font-weight: 400;
   font-style: italic;
 }
+.blowing-pills-in .right {
+  max-height: 650px;
+  overflow: hidden;
+}
 /* Blowing Pill */
 /* Guided By */
 .guided-by-in .bottom {
