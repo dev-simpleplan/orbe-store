@@ -183,11 +183,7 @@
                   {{ type | payment_type_svg_tag: class: 'pdp-pay-icon' }}
                 {% endfor %}
                 {% if section.settings.razorpay_badge != blank %}
-                  <img
-                    src="{{ section.settings.razorpay_badge | image_url: width: 200 }}"
-                    alt="Razorpay"
-                    class="pdp-pay-icon"
-                    width="80" height="24" loading="lazy">
+                  {{ section.settings.razorpay_badge | img_url: 'master' | image_tag: alt: 'Razorpay', class: 'pdp-pay-icon', loading: 'lazy' }}
                 {% endif %}
               </div>
             </div>
