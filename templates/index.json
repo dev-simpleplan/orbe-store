@@ -455,6 +455,7 @@
         },
         "video_cmYgik": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "video": "shopify://files/videos/Testimonial 1 Vertical.mp4",
             "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
@@ -462,6 +463,7 @@
         },
         "text_block_DcKf7K": {
           "type": "text_block",
+          "disabled": true,
           "settings": {
             "author_image": "shopify://shop_images/b8eef1266f870e6229405da462092df88b3228c6.jpg",
             "author_name": "Neha",
@@ -471,6 +473,7 @@
         },
         "video_RnBCyK": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "video": "shopify://files/videos/Testimonial 3.mp4",
             "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
@@ -478,6 +481,7 @@
         },
         "text_block_zU9KfX": {
           "type": "text_block",
+          "disabled": true,
           "settings": {
             "author_image": "shopify://shop_images/a9603290a96516e0196bdb17904f2cf4dd8bd56a.png",
             "author_name": "Mahima",
@@ -487,6 +491,7 @@
         },
         "video_bFreQM": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
             "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
@@ -494,6 +499,7 @@
         },
         "text_block_E3A4jJ": {
           "type": "text_block",
+          "disabled": true,
           "settings": {
             "author_image": "shopify://shop_images/5c846ee5649e7f9f3375b48aba4eae710d177b67_1.jpg",
             "author_name": "Priyanshi",
