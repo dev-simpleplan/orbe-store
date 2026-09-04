@@ -182,6 +182,13 @@
                 {% for type in shop.enabled_payment_types %}
                   {{ type | payment_type_svg_tag: class: 'pdp-pay-icon' }}
                 {% endfor %}
+                {% if section.settings.razorpay_badge != blank %}
+                  <img
+                    src="{{ section.settings.razorpay_badge | image_url: width: 200 }}"
+                    alt="Razorpay"
+                    class="pdp-pay-icon"
+                    width="80" height="24" loading="lazy">
+                {% endif %}
               </div>
             </div>
           {% endif %}
@@ -491,6 +498,12 @@
       "id": "checkout_label",
       "label": "Checkout label",
       "default": "Guaranteed Safe Checkout With"
+    },
+    {
+      "type": "image_picker",
+      "id": "razorpay_badge",
+      "label": "Razorpay / alternate payment badge",
+      "info": "Shown alongside (or instead of) the built-in card icons, since Shopify doesn't provide an icon for Razorpay."
     },
     {
       "type": "textarea",

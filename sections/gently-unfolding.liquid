@@ -7,6 +7,10 @@
                 <h2 class="gu-title">{{ section.settings.heading }}</h2>
             {% endif %}
 
+            {% if section.settings.subheading != blank %}
+                <p class="gu-subtitle">{{ section.settings.subheading }}</p>
+            {% endif %}
+
             <div class="gu-layout">
                 <div class="gu-timeline"></div>
 
@@ -266,6 +270,11 @@
       "type": "text",
       "id": "heading",
       "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading"
     },
     {
       "type": "text",

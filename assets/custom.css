@@ -2852,8 +2852,14 @@ header.header--transparent
 }
 
 .gu-title {
-  margin-bottom: 50px;
   margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.gu-subtitle {
+  margin-bottom: 50px;
+  text-align: center;
+  color: #5D5D5D;
 }
 
 .gently-unfolding-in {
