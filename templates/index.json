@@ -151,6 +151,9 @@
         "text_item_3",
         "text_item_4"
       ],
+      "custom_css": [
+        "@media (max-width: 767px) {.sticky-wrapper {display:none; }}"
+      ],
       "settings": {
         "video": "shopify://files/videos/ASMR-unboxing-v5.mp4",
         "image_1": "shopify://shop_images/ChatGPT_Image_May_8_2026_01_18_12_PM_1.png",
