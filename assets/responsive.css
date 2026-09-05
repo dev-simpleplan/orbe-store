@@ -1296,6 +1296,9 @@
   .sticky-wrapper {
     display: none;
   }
+  .mobile-hidden {
+    display: none;
+  }
 }
 
 @media(max-width: 480px){
