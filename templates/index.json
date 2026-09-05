@@ -69,11 +69,11 @@
           "settings": {
             "image": "shopify://shop_images/a3b5e4c48f61ba242b49fb612557970ad72c1666_1_1.png",
             "top_heading": "Energy",
-            "top_text": "Tired by 3pm, even after a full night's sleep?",
-            "top_italic_text": "Iron carries oxygen to your cells and B12 turns food into usable energy. Both are the nutrients Indian women run lowest on.",
+            "top_text": "Iron carries oxygen to your cells and B12 turns food into usable energy. Both are the nutrients Indian women run lowest on.",
+            "top_italic_text": "Tired by 3pm, even after a full night's sleep?",
             "bottom_heading": "Mood & Restful Sleep",
-            "bottom_text": "Body exhausted, mind still going at midnight?",
-            "bottom_italic_text": "Magnesium settles the nervous system so cortisol can drop the way it's meant to at night. Stress and caffeine both burn through it faster than you replace it."
+            "bottom_text": "Magnesium settles the nervous system so cortisol can drop the way it's meant to at night. Stress and caffeine both burn through it faster than you replace it.",
+            "bottom_italic_text": "Body exhausted, mind still going at midnight?"
           }
         },
         "fold_7KmNqB": {
@@ -81,11 +81,11 @@
           "settings": {
             "image": "shopify://shop_images/ed0ae1cf0701d72e5d17ea3742eb69b220a808f3_1.png",
             "top_heading": "Hormonal Balance",
-            "top_text": "Does the week before your period take more out of you than the period itself?\n<br> <br>\nYou lose iron every cycle, and magnesium runs lower in the luteal phase. That combination is behind most of what gets written off as \"just PMS.\"",
-            "top_italic_text": "",
+            "top_text": "You lose iron every cycle, and magnesium runs lower in the luteal phase. That combination is behind most of what gets written off as \"just PMS.\"",
+            "top_italic_text": "Does the week before your period take more out of you than the period itself?",
             "bottom_heading": "Whole-Body Replenishment",
-            "bottom_text": "Hair thinning, skin dull, catching every bug going around?\n<br> <br>\nZinc does the repair work for skin and immunity, and vitamin D3 with K2 keeps bone strong underneath. The parts of health you only notice once they slip.",
-            "bottom_italic_text": ""
+            "bottom_text": "Zinc does the repair work for skin and immunity, and vitamin D3 with K2 keeps bone strong underneath. The parts of health you only notice once they slip.",
+            "bottom_italic_text": "Hair thinning, skin dull, catching every bug going around?"
           }
         }
       },
