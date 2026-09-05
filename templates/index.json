@@ -152,7 +152,7 @@
         "text_item_4"
       ],
       "custom_css": [
-        "@media (max-width: 767px) {.sticky-wrapper {display:none; }}"
+        "@media (max-width: 767px) {.sticky-wrapper, .spacer-template--20446285004956__spacer_LNTQEE, .spacer-template--20446285004956__spacer_TyQLbr {display: none; }}"
       ],
       "settings": {
         "video": "shopify://files/videos/ASMR-unboxing-v5.mp4",
