@@ -259,6 +259,9 @@
                 {% if block.settings.top_heading != blank %}
                   <h2>{{ block.settings.top_heading }}</h2>
                 {% endif %}
+                {% if block.settings.top_italic_text != blank %}
+                  <p class="sit-italic">{{ block.settings.top_italic_text }}</p>
+                {% endif %}
                 {% if block.settings.top_text != blank %}
                   <p>{{ block.settings.top_text }}</p>
                 {% endif %}
@@ -266,6 +269,9 @@
               <div class="sit-copy-group sit-copy-group--bottom">
                 {% if block.settings.bottom_heading != blank %}
                   <h2>{{ block.settings.bottom_heading }}</h2>
+                {% endif %}
+                {% if block.settings.bottom_italic_text != blank %}
+                  <p class="sit-italic">{{ block.settings.bottom_italic_text }}</p>
                 {% endif %}
                 {% if block.settings.bottom_text != blank %}
                   <p>{{ block.settings.bottom_text }}</p>
