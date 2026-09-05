@@ -21,7 +21,8 @@
     "spacer1": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "at-orbe": {
@@ -37,7 +38,8 @@
     "spacer2": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "at-single": {
@@ -55,7 +57,8 @@
     "spacer3": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "sliding-image": {
@@ -93,7 +96,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "ready-formula": {
@@ -113,7 +117,8 @@
       ],
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": "mobile-hidden"
       }
     },
     "rotating-circle": {
@@ -165,7 +170,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "batch-verified": {
@@ -323,7 +329,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "see-through": {
@@ -404,7 +411,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "testimonial-sec": {
@@ -534,7 +542,8 @@
     "spacer5": {
       "type": "spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "new-faq-section": {
@@ -610,7 +619,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "community_heading_pCqYMx": {
