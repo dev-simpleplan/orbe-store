@@ -13,6 +13,8 @@
       "header": {
         "type": "header",
         "settings": {
+          "desktop_menu": "first-phase-header",
+          "mobile_menu": "first-phase-mobile-header",
           "mega_card_image": "shopify://shop_images/Rectangle_3468651.png"
         }
       },
