@@ -84,6 +84,13 @@
   #sit-section-{{ section.id }} .sit-copy-group {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+  }
+  #sit-section-{{ section.id }} .sit-copy-group p {
+    font-family: var(--tobias);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 19px;
   }
 
   #sit-section-{{ section.id }} .sit-copy-group--bottom {
@@ -278,22 +285,22 @@
                 {% if block.settings.top_heading != blank %}
                   <h2>{{ block.settings.top_heading }}</h2>
                 {% endif %}
-                {% if block.settings.top_text != blank %}
-                  <p>{{ block.settings.top_text }}</p>
-                {% endif %}
                 {% if block.settings.top_italic_text != blank %}
                   <p class="sit-italic">{{ block.settings.top_italic_text }}</p>
+                {% endif %}
+                {% if block.settings.top_text != blank %}
+                  <p>{{ block.settings.top_text }}</p>
                 {% endif %}
               </div>
               <div class="sit-copy-group sit-copy-group--bottom">
                 {% if block.settings.bottom_heading != blank %}
                   <h2>{{ block.settings.bottom_heading }}</h2>
                 {% endif %}
-                {% if block.settings.bottom_text != blank %}
-                  <p>{{ block.settings.bottom_text }}</p>
-                {% endif %}
                 {% if block.settings.bottom_italic_text != blank %}
                   <p class="sit-italic">{{ block.settings.bottom_italic_text }}</p>
+                {% endif %}
+                {% if block.settings.bottom_text != blank %}
+                  <p>{{ block.settings.bottom_text }}</p>
                 {% endif %}
               </div>
             </div>
@@ -334,23 +341,25 @@
               {% if block.settings.top_heading != blank %}
                 <h2>{{ block.settings.top_heading }}</h2>
               {% endif %}
-              {% if block.settings.top_text != blank %}
-                <p>{{ block.settings.top_text }}</p>
-              {% endif %}
               {% if block.settings.top_italic_text != blank %}
                 <p class="sit-italic">{{ block.settings.top_italic_text }}</p>
               {% endif %}
+              {% if block.settings.top_text != blank %}
+                <p>{{ block.settings.top_text }}</p>
+              {% endif %}
+              
             </div>
             <div class="sit-copy-group sit-copy-group--bottom">
               {% if block.settings.bottom_heading != blank %}
                 <h2>{{ block.settings.bottom_heading }}</h2>
               {% endif %}
-              {% if block.settings.bottom_text != blank %}
-                <p>{{ block.settings.bottom_text }}</p>
-              {% endif %}
               {% if block.settings.bottom_italic_text != blank %}
                 <p class="sit-italic">{{ block.settings.bottom_italic_text }}</p>
               {% endif %}
+              {% if block.settings.bottom_text != blank %}
+                <p>{{ block.settings.bottom_text }}</p>
+              {% endif %}
+              
             </div>
           </div>
         {% endfor %}
