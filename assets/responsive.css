@@ -1266,7 +1266,7 @@
       aspect-ratio: 3 / 4;
   }
   .ready-formula-in {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .ready-formula-in .left {
     position: relative;
@@ -1298,6 +1298,9 @@
   }
   .mobile-hidden {
     display: none;
+  }
+  .ready-formula-in .left .content-block h2 {
+    max-width: 19ch;
   }
 }
 
