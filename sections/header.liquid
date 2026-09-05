@@ -1,6 +1,14 @@
-{% assign first_phase_menu = linklists['first-phase-header'] %}
+{% assign first_phase_menu = linklists[section.settings.desktop_menu] %}
 {% if first_phase_menu == blank %}
-{% assign first_phase_menu = linklists['header-menu'] %}
+  {% assign first_phase_menu = linklists['first-phase-header'] %}
+{% endif %}
+{% if first_phase_menu == blank %}
+  {% assign first_phase_menu = linklists['header-menu'] %}
+{% endif %}
+
+{% assign mobile_menu = linklists[section.settings.mobile_menu] %}
+{% if mobile_menu == blank %}
+  {% assign mobile_menu = first_phase_menu %}
 {% endif %}
 
 <header>
@@ -148,7 +156,7 @@
           </svg>
         </div>
         <ul class="mobile-menu-list">
-          {% for link in first_phase_menu.links %}
+          {% for link in mobile_menu.links %}
             <li class="mobile-menu-item {% if link.links.size > 0 %}has-mobile-submenu{% endif %}">
               {% if link.links.size > 0 %}
                 <button class="mobile-accordion-toggle {% if forloop.first %}active{% endif %}" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
@@ -212,6 +220,24 @@
 {
   "name": "Header",
   "settings": [
+    {
+      "type": "header",
+      "content": "Menus"
+    },
+    {
+      "type": "link_list",
+      "id": "desktop_menu",
+      "label": "Desktop menu",
+      "default": "main-menu",
+      "info": "Also used as the fallback for mobile if no mobile menu is chosen below."
+    },
+    {
+      "type": "link_list",
+      "id": "mobile_menu",
+      "label": "Mobile menu",
+      "default": "main-menu",
+      "info": "Leave this the same as the desktop menu unless you want a different set of links on mobile."
+    },
     {
       "type": "image_picker",
       "id": "mega_card_image",
