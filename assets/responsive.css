@@ -1293,6 +1293,10 @@
   .small-img-parallex {
     display: none;
   }
+  .sticky-wrapper,
+  .spacer-template--21714819580060__spacer_LNTQEE{
+    display: none;
+  }
 }
 
 @media(max-width: 480px){
