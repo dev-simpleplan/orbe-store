@@ -70,6 +70,10 @@
      max-width: 300px;
   }
 
+  #sit-section-{{ section.id }} .sit-copy p.sit-italic {
+    font-style: italic;
+  }
+
   #sit-section-{{ section.id }} .sit-copy h2 {
     font-size: clamp(1.2rem, 2vw, 1.8rem);
     font-weight: 400;
@@ -190,6 +194,10 @@
       max-width: 34ch;
     }
 
+    #sit-section-{{ section.id }} .sit-mobile-panel p.sit-italic {
+      font-style: italic;
+    }
+
     #sit-section-{{ section.id }} .sit-mobile-panel h2 {
       font-size: clamp(28px, 5.6vw, 46px);
       line-height: 1;
@@ -273,6 +281,9 @@
                 {% if block.settings.top_text != blank %}
                   <p>{{ block.settings.top_text }}</p>
                 {% endif %}
+                {% if block.settings.top_italic_text != blank %}
+                  <p class="sit-italic">{{ block.settings.top_italic_text }}</p>
+                {% endif %}
               </div>
               <div class="sit-copy-group sit-copy-group--bottom">
                 {% if block.settings.bottom_heading != blank %}
@@ -280,6 +291,9 @@
                 {% endif %}
                 {% if block.settings.bottom_text != blank %}
                   <p>{{ block.settings.bottom_text }}</p>
+                {% endif %}
+                {% if block.settings.bottom_italic_text != blank %}
+                  <p class="sit-italic">{{ block.settings.bottom_italic_text }}</p>
                 {% endif %}
               </div>
             </div>
@@ -323,6 +337,9 @@
               {% if block.settings.top_text != blank %}
                 <p>{{ block.settings.top_text }}</p>
               {% endif %}
+              {% if block.settings.top_italic_text != blank %}
+                <p class="sit-italic">{{ block.settings.top_italic_text }}</p>
+              {% endif %}
             </div>
             <div class="sit-copy-group sit-copy-group--bottom">
               {% if block.settings.bottom_heading != blank %}
@@ -330,6 +347,9 @@
               {% endif %}
               {% if block.settings.bottom_text != blank %}
                 <p>{{ block.settings.bottom_text }}</p>
+              {% endif %}
+              {% if block.settings.bottom_italic_text != blank %}
+                <p class="sit-italic">{{ block.settings.bottom_italic_text }}</p>
               {% endif %}
             </div>
           </div>
@@ -498,6 +518,12 @@
           "default": "Guiding you toward choices that honour your strength, respect your natural rhythm, and support the person you are continually becoming."
         },
         {
+          "type": "textarea",
+          "id": "top_italic_text",
+          "label": "Italic text",
+          "info": "Optional. Rendered in italics, shown after the Text above."
+        },
+        {
           "type": "header",
           "content": "Bottom"
         },
@@ -510,6 +536,12 @@
           "type": "textarea",
           "id": "bottom_text",
           "label": "Text"
+        },
+        {
+          "type": "textarea",
+          "id": "bottom_italic_text",
+          "label": "Italic text",
+          "info": "Optional. Rendered in italics, shown after the Text above."
         }
       ]
     }
