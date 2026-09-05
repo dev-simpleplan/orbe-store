@@ -823,9 +823,9 @@
   .at-single-content-block {
     gap: 30px;
   }
-  .at-single-content-block .right .primary-btn {
+  /* .at-single-content-block .right .primary-btn {
     display: none;
-  }
+  } */
   .at-single-image-block {
     height: 200px;
   }
@@ -1263,7 +1263,7 @@
   }
     .essential-ingredient-in .left .box-img {
       width: 100%;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 3 / 2;
   }
   .ready-formula-in {
     flex-direction: column;
