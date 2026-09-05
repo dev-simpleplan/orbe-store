@@ -1293,8 +1293,7 @@
   .small-img-parallex {
     display: none;
   }
-  .sticky-wrapper,
-  .spacer-template--21714819580060__spacer_LNTQEE{
+  .sticky-wrapper {
     display: none;
   }
 }

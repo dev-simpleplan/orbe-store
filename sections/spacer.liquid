@@ -2,7 +2,7 @@
 {% assign spacer_height_tab = spacer_height | times: 0.6666 | round %}
 {% assign spacer_height_mobile = spacer_height | times: 0.4444 | round %}
 
-<div class="spacer-{{ section.id }}"></div>
+<div class="spacer-{{ section.id }}{% if section.settings.custom_class != blank %} {{ section.settings.custom_class }}{% endif %}"></div>
 
 {%- style -%}
   .spacer-{{ section.id }} {
@@ -32,6 +32,12 @@
       "min": 50,
       "max": 180,
       "step": 10
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Adds this class to just this spacer, so you can target it with custom CSS."
     }
   ],
   "presets": [
