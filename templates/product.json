@@ -727,6 +727,14 @@
         "subheading": "You're not imagining it. These everyday shifts are your body's way of asking for support."
       }
     },
+    "spacer_NHBfLd": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120,
+        "custom_class": ""
+      }
+    },
     "ready_formula_h7deTm": {
       "type": "ready-formula",
       "name": "Ready Formula",
@@ -736,14 +744,6 @@
         "button_text": "Start today",
         "button_link": "shopify://products/n01",
         "image": "shopify://shop_images/6e36aff0698a9e04660972ddf7a27cfbafced7bd_1.png"
-      }
-    },
-    "spacer_NHBfLd": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120,
-        "custom_class": ""
       }
     },
     "best-bio": {
@@ -779,7 +779,6 @@
     },
     "spacer_adLpCm": {
       "type": "spacer",
-      "disabled": true,
       "name": "Spacer",
       "settings": {
         "spacer_height": 120,
@@ -986,6 +985,14 @@
         "judge_me_reviews_review_widget_rNkNnd"
       ],
       "settings": {}
+    },
+    "spacer_BPChPd": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -1005,13 +1012,14 @@
     "spacer_6tMeNb",
     "what-your-body",
     "body_signals_7GzjnK",
-    "ready_formula_h7deTm",
     "spacer_NHBfLd",
+    "ready_formula_h7deTm",
     "best-bio",
     "spacer_adLpCm",
     "batch-verified",
     "spacer_MQJmqW",
     "new_faq_section_n49mMB",
-    "17853942627ba94437"
+    "17853942627ba94437",
+    "spacer_BPChPd"
   ]
 }
