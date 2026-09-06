@@ -88,12 +88,29 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 80
+        "spacer_height": 80,
+        "custom_class": ""
       }
     },
     "testimonial-sec": {
       "type": "testimonial-sec",
       "blocks": {
+        "video_AcW8tR": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
+            "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
+          }
+        },
+        "text_block_h8pRDJ": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/5c846ee5649e7f9f3375b48aba4eae710d177b67.png",
+            "author_name": "Priyanshi",
+            "rating": 5,
+            "review": "I didn't start taking Orbé expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed."
+          }
+        },
         "video_4BYdtw": {
           "type": "video",
           "settings": {
@@ -124,22 +141,6 @@
             "author_name": "Mahima",
             "rating": 5,
             "review": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down."
-          }
-        },
-        "video_AcW8tR": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
-            "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
-          }
-        },
-        "text_block_h8pRDJ": {
-          "type": "text_block",
-          "settings": {
-            "author_image": "shopify://shop_images/5c846ee5649e7f9f3375b48aba4eae710d177b67.png",
-            "author_name": "Priyanshi",
-            "rating": 5,
-            "review": "I didn't start taking Orbé expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed."
           }
         },
         "video_ChzBex": {
@@ -198,12 +199,12 @@
         }
       },
       "block_order": [
+        "video_AcW8tR",
+        "text_block_h8pRDJ",
         "video_4BYdtw",
         "text_block_inCXmp",
         "video_8TWHQi",
         "text_block_JB3HA9",
-        "video_AcW8tR",
-        "text_block_h8pRDJ",
         "video_ChzBex",
         "text_block_7Wzj3Y",
         "video_kG74WW",
@@ -219,7 +220,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 80
+        "spacer_height": 80,
+        "custom_class": ""
       }
     },
     "certified-by": {
@@ -293,7 +295,8 @@
       "disabled": true,
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "care-behind-c": {
@@ -316,7 +319,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "guided_by_w3PegE": {
@@ -353,7 +357,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "essential-ingredient": {
@@ -521,7 +526,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 70
+        "spacer_height": 70,
+        "custom_class": ""
       }
     },
     "gently-unfold": {
@@ -577,7 +583,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "what-your-body": {
@@ -735,7 +742,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "best-bio": {
@@ -774,7 +782,8 @@
       "disabled": true,
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "batch-verified": {
@@ -845,7 +854,8 @@
       "disabled": true,
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "new_faq_section_n49mMB": {
