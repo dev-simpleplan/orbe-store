@@ -498,17 +498,23 @@
             });
         }
 
-        // Video card controls: play/pause + mute/unmute, no autoplay.
+        // Video card controls: play/pause + mute/unmute. First video autoplays,
+        // muted; every other video starts paused until picked.
         var allTestimonialVideos = [];
-        scroller.querySelectorAll('[data-ts-video-wrap]').forEach(function (wrap) {
+        scroller.querySelectorAll('[data-ts-video-wrap]').forEach(function (wrap, index) {
             var video = wrap.querySelector('video');
             var playBtn = wrap.querySelector('[data-ts-video-play]');
             var muteBtn = wrap.querySelector('[data-ts-video-mute]');
             if (!video) return;
 
             video.muted = true;
-            video.pause();
             allTestimonialVideos.push(video);
+
+            if (index === 0) {
+                video.play();
+            } else {
+                video.pause();
+            }
 
             function syncPlayIcon() {
                 if (!playBtn) return;
