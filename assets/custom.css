@@ -3537,6 +3537,22 @@ body.ingredient-drawer-open {
   flex-direction: column;
   gap: 5px;
 }
+.what-your-body .e-richtext {
+  margin-top: 15px;
+}
+.what-your-body .e-richtext p {
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 0em;
+  line-height: 130%;
+  font-weight: 400;
+  font-family: var(--aspekta);
+  max-width: none;
+  margin: 0 0 12px;
+}
+.what-your-body .e-richtext p:last-child {
+  margin-bottom: 0;
+}
 .what-your-body h2 {
   color: #fff;
   max-width: 18ch;
@@ -3727,6 +3743,20 @@ body.what-your-body-card-open {
   line-height: 130%;
   font-weight: 400;
   text-transform: capitalize;
+}
+.what-your-body-card .e-richtext {
+  margin-top: 24px;
+}
+.what-your-body-card .e-richtext p {
+  color: #151515;
+  font-family: var(--aspekta);
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+.what-your-body-card .e-richtext p:last-child {
+  margin-bottom: 0;
 }
 .what-your-mobile-in .top {
   display: flex;

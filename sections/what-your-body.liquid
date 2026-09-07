@@ -29,6 +29,9 @@
               {% endfor %}
             </ul>
             {% endif %}
+            {% if block.settings.rich_text != blank %}
+            <div class="e-richtext">{{ block.settings.rich_text }}</div>
+            {% endif %}
           </div>
           {% endif %}
           {% endfor %}
@@ -59,6 +62,9 @@
               {% endif %}
               {% endfor %}
             </ul>
+            {% endif %}
+            {% if block.settings.rich_text != blank %}
+            <div class="e-richtext">{{ block.settings.rich_text }}</div>
             {% endif %}
           </div>
           {% endif %}
@@ -130,6 +136,9 @@
       {% endif %}
       {% endfor %}
     </ul>
+    {% endif %}
+    {% if block.settings.rich_text != blank %}
+    <div class="e-richtext">{{ block.settings.rich_text }}</div>
     {% endif %}
   </aside>
   {% endfor %}
@@ -273,6 +282,12 @@
 "type": "textarea",
 "id": "items",
 "label": "Items"
+},
+{
+"type": "richtext",
+"id": "rich_text",
+"label": "Rich text",
+"info": "Optional. Shown below the bullet list, with its own paragraph spacing."
 }
 ]
 }
