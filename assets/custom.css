@@ -3680,7 +3680,7 @@ body.what-your-body-card-open {
 }
 .what-your-body-card {
   position: fixed;
-  top: 32%;
+  top: 0%;
   right: 0;
   z-index: 999;
   width: min(100vw, 100%);
@@ -3690,6 +3690,10 @@ body.what-your-body-card-open {
   padding: 38px 26px 34px;
   transform: translateX(100%);
   transition: transform 0.42s cubic-bezier(0.77, 0, 0.18, 1);
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  overflow-y: auto;
 }
 .what-your-body-mobile.body-card-active .what-your-body-card-backdrop {
   opacity: 1;
@@ -3730,7 +3734,7 @@ body.what-your-body-card-open {
   font-size: 28px;
   line-height: 120%;
   font-weight: 400;
-  margin: 0 34px 140px 0;
+  margin: 0 34px 30px 0;
 }
 .what-your-body-card ul {
   margin: 0;
