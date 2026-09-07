@@ -46,7 +46,9 @@
       "type": "at-single",
       "settings": {
         "heading": "2 years of formulation work...",
+        "media_type": "video",
         "image": "shopify://shop_images/75fb95c0f3566b49fd9392e2eca78bc40f4bf456_1.jpg",
+        "video": "shopify://files/videos/ASMR-unboxing-v4_621ce37f-b475-4383-996d-b2fbeef5bab8.mp4",
         "logo": "shopify://shop_images/Group_2085663252.svg",
         "left_text": "for one daily capsule - to support your inner steadiness, your energy, your clarity, your becoming.",
         "right_text": "",
