@@ -595,7 +595,8 @@
           "settings": {
             "column": "left",
             "heading": "Energy & Fatigue",
-            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Iron carries oxygen to your cells. B12 turns what you eat into usable energy. Both run low in Indian women more often than not: 57% of women aged 15 to 49 are anaemic, and B12 deficiency sits above 70% across the population.</p><p><br/><strong>In N°01:</strong> </p><p>Ferrochel® iron 20.88 mg · <br/>Methylcobalamin B12 2.2 mcg · <br/>Quatrefolic® folate 220 mcg</p>"
           }
         },
         "body_left_2": {
@@ -603,7 +604,8 @@
           "settings": {
             "column": "left",
             "heading": "Mood & Clarity",
-            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present"
+            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present",
+            "rich_text": ""
           }
         },
         "body_left_3": {
@@ -611,7 +613,8 @@
           "settings": {
             "column": "left",
             "heading": "Cycles & Hormones",
-            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period"
+            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period",
+            "rich_text": ""
           }
         },
         "body_right_1": {
@@ -619,7 +622,8 @@
           "settings": {
             "column": "right",
             "heading": "Sleep & Rest",
-            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed"
+            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed",
+            "rich_text": ""
           }
         },
         "body_right_2": {
@@ -627,7 +631,8 @@
           "settings": {
             "column": "right",
             "heading": "Body & Foundations",
-            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness"
+            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness",
+            "rich_text": ""
           }
         },
         "body_right_3": {
@@ -635,7 +640,8 @@
           "settings": {
             "column": "right",
             "heading": "Mental Load & Overwhelm",
-            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent"
+            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent",
+            "rich_text": ""
           }
         }
       },
