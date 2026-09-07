@@ -614,7 +614,7 @@
             "column": "left",
             "heading": "Cycles & Hormones",
             "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>B12 and folate run the methylation cycle, which your brain depends on for neurotransmitters. DHA makes up a large share of your brain's structural fat. Vitamin D affects mood too, and 70 to 90% of Indians are insufficient in it. Vegetarian diets have almost no preformed DHA.</p><p><br/><strong>In N°01:</strong> <br/>Vegan DHA · <br/>Methylcobalamin B12 2.2 mcg · <br/>Quatrefolic® folate 220 mcg · <br/>Vitashine™ D3 600 IU</p>"
           }
         },
         "body_right_1": {
@@ -623,7 +623,7 @@
             "column": "right",
             "heading": "Sleep & Rest",
             "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>Zinc holds your skin barrier together and does the repair work after illness or injury. Vitamin D3 and K2 work as a pair for bone: D3 raises how much calcium you absorb, K2 puts it into bone rather than leaving it in circulation. Indian vegetarian diets are low in K2, and phytates in wheat and rice block zinc absorption.<br/><br/><strong>In N°01:</strong> <br/>Zinc citrate 7.128 mg · <br/>Vitashine™ D3 600 IU · <br/>MenaQ7® K2 55 mcg · <br/>Boron 1 mg · <br/>Vitamin E 10 mg</p>"
           }
         },
         "body_right_2": {
@@ -632,7 +632,7 @@
             "column": "right",
             "heading": "Body & Foundations",
             "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>You lose iron every cycle, which is part of why anaemia is so common in women. Magnesium eases the muscle tension and mood shifts before a period. Zinc and boron both influence how your body makes and clears hormones.</p><p><br/><strong>In N°01:</strong> <br/>Ferrochel® iron 20.88 mg · <br/>Magnesium bisglycinate 55.5 mg · <br/>Zinc citrate 7.128 mg · <br/>Boron 1 mg</p>"
           }
         },
         "body_right_3": {
@@ -641,7 +641,7 @@
             "column": "right",
             "heading": "Mental Load & Overwhelm",
             "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>Chronic stress burns through magnesium, and low magnesium makes you less able to handle stress. Caffeine speeds that up. B12 and DHA support the nervous system underneath it.</p><p><br/><strong>In N°01:</strong> <br/>Magnesium bisglycinate 55.5 mg · <br/>Methylcobalamin B12 2.2 mcg · <br/>Vegan DHA</p>"
           }
         }
       },
