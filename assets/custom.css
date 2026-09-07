@@ -1211,6 +1211,9 @@ header.header--transparent
   z-index: 1;
   filter: grayscale(1);
 }
+.at-single-bg video {
+  object-position: 100% 35%;
+}
 .at-single-strike {
   position: absolute;
   top: calc(50% + 10px);
