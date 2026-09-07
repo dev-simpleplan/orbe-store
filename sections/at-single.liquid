@@ -9,8 +9,16 @@
            
             <div class="at-single-image-block">
                 <div class="at-single-bg">
-                    {% if section.settings.image != blank %}
-                        <img src="{{ section.settings.image | image_url }}" alt="" class="img">
+                    {% if section.settings.media_type == 'video' %}
+                        {% if section.settings.video != blank %}
+                            {{ section.settings.video | video_tag: class: 'img', autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1200x' }}
+                        {% elsif section.settings.image != blank %}
+                            <img src="{{ section.settings.image | image_url }}" alt="" class="img">
+                        {% endif %}
+                    {% else %}
+                        {% if section.settings.image != blank %}
+                            <img src="{{ section.settings.image | image_url }}" alt="" class="img">
+                        {% endif %}
                     {% endif %}
                 </div>
                 <span class="at-single-strike" aria-hidden="true"></span>
@@ -70,9 +78,26 @@
       "label": "Heading"
     },
     {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Video" }
+      ],
+      "default": "image"
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image",
+      "info": "Used when Media type is Image, or as a fallback if Video is empty."
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Used when Media type is Video."
     },
     {
       "type": "image_picker",
