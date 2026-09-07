@@ -116,7 +116,7 @@
 
   <div class="what-your-body-card-backdrop" data-body-card-close></div>
   {% for block in mobile_blocks limit: 6 %}
-  <aside class="what-your-body-card" id="what-your-body-card-{{ section.id }}-{{ block.id }}" data-body-card="{{ block.id }}" aria-hidden="true">
+  <aside class="what-your-body-card" id="what-your-body-card-{{ section.id }}-{{ block.id }}" data-body-card="{{ block.id }}" aria-hidden="true" data-lenis-prevent>
     <button type="button" class="what-your-body-card-close" aria-label="Close" data-body-card-close>
       <span></span>
       <span></span>
