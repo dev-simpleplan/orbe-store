@@ -3402,8 +3402,8 @@ body.ingredient-drawer-open {
 .ingredient-drawer-section p {
   color: #5d5d5d;
   font-family: var(--aspekta);
-  font-size: 18px;
-  line-height: 150%;
+  font-size: 16px;
+  line-height: 140%;
   font-weight: 400;
   margin-bottom: 9px;
 }
@@ -3422,6 +3422,7 @@ body.ingredient-drawer-open {
 }
 .ingredient-drawer-section h2 {
   margin-bottom: 12px;
+  font-size: clamp(20px, 3vw, 28px);
 }
 .ingredient-drawer-nutrition h2 {
   font-size: clamp(28px, 3vw, 42px);
