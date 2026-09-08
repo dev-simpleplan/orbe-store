@@ -1,5 +1,6 @@
 {% comment %} Body Signals Section {% endcomment %}
 
+<div class="wyb-root" data-body-signals-root-{{ section.id }}>
 <section class="body-signals" id="body-signals-{{ section.id }}">
   <div class="body-signals-bg">
     {% for block in section.blocks %}
@@ -51,12 +52,47 @@
                 {% endfor %}
               </ul>
             {% endif %}
+            <a
+              href="#body-signals-card-{{ section.id }}-{{ block.id }}"
+              class="e-learn-more"
+              data-body-card-open="{{ block.id }}"
+              aria-controls="body-signals-card-{{ section.id }}-{{ block.id }}">Learn More</a>
           </div>
         {% endfor %}
       </div>
     </div>
   </div>
 </section>
+
+<div class="what-your-body-card-backdrop" data-body-card-close></div>
+{% for block in section.blocks %}
+  <aside class="what-your-body-card desktop-cards" id="body-signals-card-{{ section.id }}-{{ block.id }}" data-body-card="{{ block.id }}" aria-hidden="true" data-lenis-prevent>
+    <button type="button" class="what-your-body-card-close" aria-label="Close" data-body-card-close>
+      <span></span>
+      <span></span>
+    </button>
+
+    {% assign panel_heading = block.settings.heading | default: block.settings.label %}
+    {% if panel_heading != blank %}
+    <h3>{{ panel_heading }}</h3>
+    {% endif %}
+
+    {% if block.settings.items != blank %}
+    <ul>
+      {% assign card_items = block.settings.items | newline_to_br | split: '<br />' %}
+      {% for item in card_items %}
+        {% assign clean_item = item | strip %}
+        {% if clean_item != blank %}<li>{{ clean_item }}</li>{% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if block.settings.rich_text != blank %}
+    <div class="e-richtext">{{ block.settings.rich_text }}</div>
+    {% endif %}
+  </aside>
+{% endfor %}
+</div>
 
 <script>
   (function () {
@@ -98,6 +134,56 @@
     } else {
       initBodySignals();
     }
+  })();
+
+  (function () {
+    var root = document.querySelector('[data-body-signals-root-{{ section.id }}]');
+    if (!root) return;
+
+    var openButtons = root.querySelectorAll('[data-body-card-open]');
+    var closeButtons = root.querySelectorAll('[data-body-card-close]');
+    var cards = root.querySelectorAll('[data-body-card]');
+
+    function closeCards() {
+      root.classList.remove('body-card-active');
+      cards.forEach(function (card) {
+        card.setAttribute('aria-hidden', 'true');
+      });
+      document.documentElement.classList.remove('what-your-body-card-open');
+      document.body.classList.remove('what-your-body-card-open');
+      if (window.lenis) window.lenis.start();
+    }
+
+    function openCard(cardId) {
+      var card = root.querySelector('[data-body-card="' + cardId + '"]');
+      if (!card) return;
+
+      cards.forEach(function (item) {
+        item.setAttribute('aria-hidden', item === card ? 'false' : 'true');
+      });
+
+      root.classList.add('body-card-active');
+      document.documentElement.classList.add('what-your-body-card-open');
+      document.body.classList.add('what-your-body-card-open');
+      if (window.lenis) window.lenis.stop();
+    }
+
+    openButtons.forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        openCard(button.getAttribute('data-body-card-open'));
+      });
+    });
+
+    closeButtons.forEach(function (button) {
+      button.addEventListener('click', closeCards);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && root.classList.contains('body-card-active')) {
+        closeCards();
+      }
+    });
   })();
 </script>
 
@@ -145,6 +231,12 @@
           "type": "textarea",
           "id": "items",
           "label": "Bullet items (one per line)"
+        },
+        {
+          "type": "richtext",
+          "id": "rich_text",
+          "label": "Popup rich text",
+          "info": "Optional. Shown inside the 'Learn More' popup, below the bullet list."
         }
       ]
     }

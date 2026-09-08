@@ -1,79 +1,5 @@
-<section class="what-your-body" data-what-your-body-desktop-{{ section.id }}>
-  <div class="container">
-    <div class="what-your-body-in">
-      <div class="top text-animation">
-        {% if section.settings.heading != blank %}
-        <h2>{{ section.settings.heading }}</h2>
-        {% endif %}
-        {% if section.settings.text != blank %}
-        <p>{{ section.settings.text }}</p>
-        {% endif %}
-      </div>
-
-      <div class="bottom-wrap text-animation">
-        <div class="left">
-          {% for block in section.blocks %}
-          {% if block.type == 'list_block' and block.settings.column == 'left' %}
-          <div class="list-block" {{ block.shopify_attributes }}>
-            {% if block.settings.heading != blank %}
-            <p class="e-head">{{ block.settings.heading }}</p>
-            {% endif %}
-            {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
-            {% if block.settings.items != blank %}
-            <ul>
-              {% for item in items %}
-              {% assign item_text = item | strip %}
-              {% if item_text != blank %}
-              <li>{{ item_text }}</li>
-              {% endif %}
-              {% endfor %}
-            </ul>
-            {% endif %}
-            {% if block.settings.rich_text != blank %}
-            <div class="e-richtext">{{ block.settings.rich_text }}</div>
-            {% endif %}
-          </div>
-          {% endif %}
-          {% endfor %}
-        </div>
-
-        <div class="center"{% if section.settings.center_background_image != blank %} style="--body-center-bg: url('{{ section.settings.center_background_image | image_url: width: 900 }}');"{% endif %}>
-          {% if section.settings.pill_image != blank %}
-          <div class="pill-img">
-            {{ section.settings.pill_image | image_url: width: 420 | image_tag: alt: '', class: 'icon' }}
-          </div>
-          {% endif %}
-        </div>
-
-        <div class="right">
-          {% for block in section.blocks %}
-          {% if block.type == 'list_block' and block.settings.column == 'right' %}
-          <div class="list-block" {{ block.shopify_attributes }}>
-            {% if block.settings.heading != blank %}
-            <p class="e-head">{{ block.settings.heading }}</p>
-            {% endif %}
-            {% assign items = block.settings.items | newline_to_br | split: '<br />' %}
-            {% if block.settings.items != blank %}
-            <ul>
-              {% for item in items %}
-              {% assign item_text = item | strip %}
-              {% if item_text != blank %}
-              <li>{{ item_text }}</li>
-              {% endif %}
-              {% endfor %}
-            </ul>
-            {% endif %}
-            {% if block.settings.rich_text != blank %}
-            <div class="e-richtext">{{ block.settings.rich_text }}</div>
-            {% endif %}
-          </div>
-          {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% assign mobile_blocks = section.blocks | where: 'type', 'list_block' %}
+<div class="wyb-root" data-what-your-body-root-{{ section.id }}>
 <section class="what-your-body-mobile{% if section.settings.background_image == blank %} no-mobile-bg{% endif %}" data-what-your-body-mobile-{{ section.id }}{% if section.settings.background_image != blank %} style="background-image: url('{{ section.settings.background_image | image_url: width: 900 }}');"{% endif %}>
   <div class="container">
     <div class="what-your-mobile-in">
@@ -87,7 +13,6 @@
       </div>
 
       <div class="what-your-mobile-orbit" aria-label="Body signals">
-        {% assign mobile_blocks = section.blocks | where: 'type', 'list_block' %}
         {% for pair_index in (0..2) %}
         {% assign pair_offset = pair_index | times: 2 %}
         {% assign circle_number = pair_index | plus: 1 %}
@@ -113,40 +38,41 @@
       </div>
     </div>
   </div>
-
-  <div class="what-your-body-card-backdrop" data-body-card-close></div>
-  {% for block in mobile_blocks limit: 6 %}
-  <aside class="what-your-body-card" id="what-your-body-card-{{ section.id }}-{{ block.id }}" data-body-card="{{ block.id }}" aria-hidden="true" data-lenis-prevent>
-    <button type="button" class="what-your-body-card-close" aria-label="Close" data-body-card-close>
-      <span></span>
-      <span></span>
-    </button>
-
-    {% if block.settings.heading != blank %}
-    <h3>{{ block.settings.heading }}</h3>
-    {% endif %}
-
-    {% assign mobile_items = block.settings.items | newline_to_br | split: '<br />' %}
-    {% if block.settings.items != blank %}
-    <ul>
-      {% for item in mobile_items %}
-      {% assign item_text = item | strip %}
-      {% if item_text != blank %}
-      <li>{{ item_text }}</li>
-      {% endif %}
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% if block.settings.rich_text != blank %}
-    <div class="e-richtext">{{ block.settings.rich_text }}</div>
-    {% endif %}
-  </aside>
-  {% endfor %}
 </section>
+
+<div class="what-your-body-card-backdrop" data-body-card-close></div>
+{% for block in mobile_blocks limit: 6 %}
+<aside class="what-your-body-card" id="what-your-body-card-{{ section.id }}-{{ block.id }}" data-body-card="{{ block.id }}" aria-hidden="true" data-lenis-prevent>
+  <button type="button" class="what-your-body-card-close" aria-label="Close" data-body-card-close>
+    <span></span>
+    <span></span>
+  </button>
+
+  {% if block.settings.heading != blank %}
+  <h3>{{ block.settings.heading }}</h3>
+  {% endif %}
+
+  {% assign mobile_items = block.settings.items | newline_to_br | split: '<br />' %}
+  {% if block.settings.items != blank %}
+  <ul>
+    {% for item in mobile_items %}
+    {% assign item_text = item | strip %}
+    {% if item_text != blank %}
+    <li>{{ item_text }}</li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if block.settings.rich_text != blank %}
+  <div class="e-richtext">{{ block.settings.rich_text }}</div>
+  {% endif %}
+</aside>
+{% endfor %}
+</div>
 
 <script>
   (function () {
-    var section = document.querySelector('[data-what-your-body-mobile-{{ section.id }}]');
+    var section = document.querySelector('[data-what-your-body-root-{{ section.id }}]');
     if (!section) return;
 
     var openButtons = section.querySelectorAll('[data-body-card-open]');
@@ -194,33 +120,6 @@
       }
     });
   })();
-
-  (function () {
-    var section = document.querySelector('[data-what-your-body-desktop-{{ section.id }}]');
-    var desktopQuery = window.matchMedia('(min-width: 768px)');
-    if (!section || !desktopQuery.matches) return;
-
-    function showGlassCircle() {
-      section.classList.add('glass-circle-active');
-    }
-
-    if (!('IntersectionObserver' in window)) {
-      showGlassCircle();
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        showGlassCircle();
-        observer.disconnect();
-      });
-    }, {
-      threshold: 0.35
-    });
-
-    observer.observe(section);
-  })();
 </script>
 
 {% schema %}
@@ -236,16 +135,6 @@
 "type": "textarea",
 "id": "text",
 "label": "Text"
-},
-{
-"type": "image_picker",
-"id": "pill_image",
-"label": "Pill image"
-},
-{
-"type": "image_picker",
-"id": "center_background_image",
-"label": "Center background image"
 },
 {
 "type": "image_picker",
