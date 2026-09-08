@@ -3440,7 +3440,7 @@ body.ingredient-drawer-open {
 .essential-ingredient .accordion-item:last-child {
   border-bottom: none;
 }
-.ingredient-drawer-section ul {
+.ingredient-drawer-section ul { 
     margin-bottom: 20px;
     padding-left: 20px;
     display: flex;
