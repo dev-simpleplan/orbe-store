@@ -3465,7 +3465,7 @@ body.ingredient-drawer-open {
     margin-bottom: 20px;
     margin-top: 30px;
 }
-.ingredient-drawer-content h4::first-of-type {
+.ingredient-drawer-content h4:first-of-type {
   margin-top:0;
 }
 
