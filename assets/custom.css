@@ -3468,6 +3468,9 @@ body.ingredient-drawer-open {
   .essential-ingredient .accordion-content p {
     font-size: 16px;
   }
+  .essential-ingredient .accordion-content p em {
+    font-size: 14px;
+  }
   /* .essential-ingredient-in .left .box-img {
     width: 250px;
   } */
@@ -3540,6 +3543,9 @@ body.ingredient-drawer-open {
   }
   .essential-ingredient .accordion-content p {
     font-size: 14px;
+  }
+  .essential-ingredient .accordion-content p em {
+    font-size: 12px;
   }
   .essential-ingredient .capsule-img {
     display: none;
