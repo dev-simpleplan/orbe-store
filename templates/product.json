@@ -679,7 +679,7 @@
             "image": "shopify://shop_images/image2.jpg",
             "heading": "Sleep & Rest",
             "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Magnesium calms the nervous system and helps regulate cortisol, the hormone that should drop at night. Coffee, stress and processed food all deplete it. Around 40 to 50% of urban Indian women take in less than the RDA.<br/></p><p><strong>In N°01:</strong> <br/>Magnesium bisglycinate 55.5 mg</p>"
           }
         },
         "tab_KVhcnm": {
@@ -689,7 +689,7 @@
             "image": "shopify://shop_images/image3.jpg",
             "heading": "Mood & Clarity",
             "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens</strong></p><p>B12 and folate run the methylation cycle, which your brain depends on for neurotransmitters. DHA makes up a large share of your brain's structural fat. Vitamin D affects mood too, and 70 to 90% of Indians are insufficient in it. Vegetarian diets have almost no preformed DHA.</p><p><br/><strong>In N°01:</strong> </p><p>Vegan DHA · Methylcobalamin B12 2.2 mcg · Quatrefolic® folate 220 mcg · Vitashine™ D3 600 IU</p>"
           }
         },
         "tab_KCPkC8": {
@@ -699,7 +699,7 @@
             "image": "shopify://shop_images/image4.jpg",
             "heading": "Body & Foundations",
             "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Zinc holds your skin barrier together and does the repair work after illness or injury. Vitamin D3 and K2 work as a pair for bone: D3 raises how much calcium you absorb, K2 puts it into bone rather than leaving it in circulation. Indian vegetarian diets are low in K2, and phytates in wheat and rice block zinc absorption.</p><p><br/><strong>In N°01:</strong> </p><p>Zinc citrate 7.128 mg · Vitashine™ D3 600 IU · MenaQ7® K2 55 mcg · Boron 1 mg · Vitamin E 10 mg</p>"
           }
         },
         "tab_Tz3G3E": {
@@ -709,7 +709,7 @@
             "image": "shopify://shop_images/image5.jpg",
             "heading": "Cycle & Hormones",
             "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens</strong></p><p>You lose iron every cycle, which is part of why anaemia is so common in women. Magnesium eases the muscle tension and mood shifts before a period. Zinc and boron both influence how your body makes and clears hormones.<br/></p><p><strong>In N°01:</strong> </p><p>Ferrochel® iron 20.88 mg · Magnesium bisglycinate 55.5 mg · Zinc citrate 7.128 mg · Boron 1 mg</p>"
           }
         },
         "tab_JPeipi": {
@@ -719,7 +719,7 @@
             "image": "shopify://shop_images/image6.jpg",
             "heading": "Mental Load & Overwhelm",
             "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent",
-            "rich_text": ""
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Chronic stress burns through magnesium, and low magnesium makes you less able to handle stress. Caffeine speeds that up. B12 and DHA support the nervous system underneath it.<br/></p><p><strong>In N°01:</strong> </p><p>Magnesium bisglycinate 55.5 mg · Methylcobalamin B12 2.2 mcg · Vegan DHA</p>"
           }
         }
       },
