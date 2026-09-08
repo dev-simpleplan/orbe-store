@@ -118,6 +118,7 @@
     },
     "spacer_LNTQEE": {
       "type": "spacer",
+      "disabled": true,
       "custom_css": [
         "@media (max-width: 767px) {}"
       ],
@@ -165,6 +166,7 @@
         "text_item_3",
         "text_item_4"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "video": "shopify://files/videos/ASMR-unboxing-v5.mp4",
