@@ -86,14 +86,14 @@
           "type": "accordion_item",
           "settings": {
             "title": "Inner Capsule Phase",
-            "content": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg\nVitamin B12 (as Methylcobalamin)\nIron (as Ferrochel® Ferrous Bisglycinate)\nZinc (as Zinc Citrate)\nMagnesium (as Magnesium Bisglycinate)"
+            "content": "<p>Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg</p><p>Vitamin B12 (as Methylcobalamin)</p><p>Iron (as Ferrochel® Ferrous Bisglycinate)</p><p>Zinc (as Zinc Citrate)</p><p>Magnesium (as Magnesium Bisglycinate)</p>"
           }
         },
         "accordion_outer_capsule": {
           "type": "accordion_item",
           "settings": {
             "title": "Outer Capsule Phase",
-            "content": "Veg DHA (as Algal Oil 45% — Omega-3 Vegan DHA Fatty Acids from Schizochytrium sp.)\nVitamin D (as Cholecalciferol) [from Lichen (Whole Plant), Vitashine™ 1,000,000 IU/g Lichen]\nVitamin E (as Alpha Tocopherol from Mixed Tocopherols) [from Brassica napus (Seed)]\nVitamin K2 (as MenaQ7® Menaquinone-7)"
+            "content": "<p>Veg DHA (as Algal Oil 45% — Omega-3 Vegan DHA Fatty Acids from Schizochytrium sp.)</p><p>Vitamin D (as Cholecalciferol) [from Lichen (Whole Plant), Vitashine™ 1,000,000 IU/g Lichen]</p><p>Vitamin E (as Alpha Tocopherol from Mixed Tocopherols) [from Brassica napus (Seed)]</p><p>Vitamin K2 (as MenaQ7® Menaquinone-7)</p>"
           }
         }
       },

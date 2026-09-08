@@ -3246,6 +3246,9 @@ header.header--transparent
   color: var(--gray);
   font-size: 18px;
 }
+.essential-ingredient .accordion-content p em {
+  color: #95714F;
+}
 .essential-ingredient .accordion-icon {
   height: 24px;
   width: 24px;

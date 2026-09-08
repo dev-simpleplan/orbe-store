@@ -57,13 +57,7 @@
                             </div>
                             <div class="accordion-content">
                                 <div class="accordioncontent-in">
-                                    {% assign content_lines = block.settings.content | newline_to_br | split: '<br />' %}
-                                        {% for line in content_lines %}
-                                            {% assign clean_line = line | strip %}
-                                            {% if clean_line != blank %}
-                                            <p>{{ clean_line }}</p>
-                                        {% endif %}
-                                    {% endfor %}
+                                    {{ block.settings.content }}
                                 </div>
                             </div>
                         </div>
@@ -422,7 +416,7 @@
 "label": "Title"
 },
 {
-"type": "textarea",
+"type": "richtext",
 "id": "content",
 "label": "Content"
 },
