@@ -378,11 +378,11 @@
             "text": "<p>The capsule has two phases.<br/><br/>The outer capsule holds an oil: algal DHA plus the fat-soluble vitamins D3, E and K2. It dissolves in the stomach and the oil carries those vitamins into the duodenum, where bile helps you absorb them.<br/><br/>The inner capsule is a sealed powder capsule sitting inside that oil. It holds the minerals and the water-soluble vitamins. Keeping them physically apart until you swallow stops the iron from oxidising the DHA on the shelf.<br/><br/>Serving size is 2 capsules, once a day, with your main meal.</p>"
           }
         },
-        "drawer_section_WY7Gph": {
-          "type": "drawer_section",
+        "accordion_section_mTpgWR": {
+          "type": "accordion_section",
           "settings": {
             "heading": "Outer capsule phase",
-            "text": "<p>Vegan Omega-3 DHA</p><p><strong>Form:  </strong>Algal oil from Schizochytrium sp.</p><p><strong>Dose:</strong> 405 mg DHA per serving</p><p><strong>What it supports:</strong> Brain and eye function, cardiovascular health, skin, and the body's inflammatory balance.</p><p><strong>Why this form:</strong> DHA usually comes from fish. Fish get it from algae. We source it directly from the algae, which skips the fish entirely. No fishy aftertaste, no reflux, no marine contaminant risk, and it works for vegetarians and vegans.</p><p><strong>The gap in India:</strong> Vegetarian diets are close to zero in preformed DHA. The body can convert ALA from flax and walnuts into DHA, but the conversion rate in women is low and unreliable.</p>"
+            "text": "<h4>Vegan Omega-3 DHA</h4><p><strong>Form:  </strong>Algal oil from Schizochytrium sp.</p><p><strong>Dose:</strong> 405 mg DHA per serving</p><p><strong>What it supports:</strong> Brain and eye function, cardiovascular health, skin, and the body's inflammatory balance.</p><p><strong>Why this form:</strong> DHA usually comes from fish. Fish get it from algae. We source it directly from the algae, which skips the fish entirely. No fishy aftertaste, no reflux, no marine contaminant risk, and it works for vegetarians and vegans.</p><p><strong>The gap in India:</strong> Vegetarian diets are close to zero in preformed DHA. The body can convert ALA from flax and walnuts into DHA, but the conversion rate in women is low and unreliable.</p>"
           }
         },
         "drawer_section_xwprKH": {
@@ -489,7 +489,7 @@
       "block_order": [
         "drawer_section_cTbwWP",
         "drawer_section_pF9tLM",
-        "drawer_section_WY7Gph",
+        "accordion_section_mTpgWR",
         "drawer_section_xwprKH",
         "drawer_section_RnHDxg",
         "drawer_section_Gx8XFM",
