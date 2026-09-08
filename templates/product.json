@@ -473,7 +473,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Inner Capsule Phase",
-            "content": "<p>Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate) - <br/><em>Active folate; red blood cell formation, cell renewal, reproductive health</em></p><p>Vitamin B12 (as Methylcobalamin) - <br/><em>Energy metabolism, mental clarity, works with folate and iron</em></p><p>Iron (as Ferrochel® Ferrous Bisglycinate) -<br/><em>Haemoglobin and oxygen transport; helps reduce tiredness; gentle on the stomach</em></p><p>Zinc (as Zinc Citrate) - <em>Immunity, skin health, hormone regulation</em></p><p>Magnesium (as Magnesium Bisglycinate) -<br/><em>Sleep quality, stress resilience, monthly comfort</em></p><p>Boron (as Boron Proteonate) - <br/><em>Bone metabolism; helps the body use calcium and magnesium</em></p>",
+            "content": "<p>Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate)<br/><em>Active folate; red blood cell formation, cell renewal, reproductive health</em></p><p>Vitamin B12 (as Methylcobalamin)<br/><em>Energy metabolism, mental clarity, works with folate and iron</em></p><p>Iron (as Ferrochel® Ferrous Bisglycinate)<br/><em>Haemoglobin and oxygen transport; helps reduce tiredness; gentle on the stomach</em></p><p>Zinc (as Zinc Citrate)<em>Immunity, skin health, hormone regulation</em></p><p>Magnesium (as Magnesium Bisglycinate)<br/><em>Sleep quality, stress resilience, monthly comfort</em></p><p>Boron (as Boron Proteonate)<br/><em>Bone metabolism; helps the body use calcium and magnesium</em></p>",
             "image": "shopify://shop_images/627a8008896753d283edbdb79e3ad123b2978ab9.png"
           }
         },
@@ -481,7 +481,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Outer Capsule Phase",
-            "content": "<p>Vegan Omega-3 DHA (as Docosahexaenoic Acid; derived from Algae) - <br/><em>Brain, eye and heart function; cellular health</em></p><p>Vitashine® Vitamin D3 (as Cholecalciferol) -<br/><em>Calcium absorption, bone strength, immunity, mood</em></p><p>Vitamin D3 (as Vitashine™, lichen-sourced) -<br/><em>Antioxidant protection; shields DHA from oxidation; skin health</em></p><p>Vitamin K2 (as MenaQ7® MK-7) - <br/><em>Directs calcium to bone; works alongside vitamin D</em></p>",
+            "content": "<p>Vegan Omega-3 DHA (as Docosahexaenoic Acid; derived from Algae)<br/><em>Brain, eye and heart function; cellular health</em></p><p>Vitashine® Vitamin D3 (as Cholecalciferol)<br/><em>Calcium absorption, bone strength, immunity, mood</em></p><p>Vitamin D3 (as Vitashine™, lichen-sourced)<br/><em>Antioxidant protection; shields DHA from oxidation; skin health</em></p><p>Vitamin K2 (as MenaQ7® MK-7)<br/><em>Directs calcium to bone; works alongside vitamin D</em></p>",
             "image": "shopify://shop_images/61336f8624df961fe7afbb50e7ccad8c9a81bfa8.png"
           }
         }
