@@ -1214,6 +1214,38 @@ header.header--transparent
 .at-single-bg video {
   object-position: 100% 35%;
 }
+.at-single-mute {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 4;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  filter: none;
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease;
+}
+.at-single-mute:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+.at-single-mute .at-icon-unmuted {
+  display: none;
+}
+.at-single-mute.is-unmuted .at-icon-muted {
+  display: none;
+}
+.at-single-mute.is-unmuted .at-icon-unmuted {
+  display: block;
+}
 .at-single-strike {
   position: absolute;
   top: calc(50% + 10px);
@@ -1226,6 +1258,7 @@ header.header--transparent
   transform-origin: left center;
   transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
   pointer-events: none;
+  display: none;
 }
 .at-single-image-block.is-struck .at-single-strike {
   transform: translateY(-50%) scaleX(1);
@@ -1236,6 +1269,7 @@ header.header--transparent
   z-index: 3;
   display: flex;
   justify-content: center;
+  display: none;
 }
 .at-single h2 {
   max-width: 22ch;
