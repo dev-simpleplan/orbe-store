@@ -3440,6 +3440,20 @@ body.ingredient-drawer-open {
 .essential-ingredient .accordion-item:last-child {
   border-bottom: none;
 }
+.ingredient-drawer-section ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.ingredient-drawer-section ul li {
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 400;
+}
 @media screen and (max-width: 991px) {
   .ingredient-drawer-content p,
   .ingredient-drawer-section p {
