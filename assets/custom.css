@@ -4030,6 +4030,9 @@ body.what-your-body-card-open {
     background 0.3s ease,
     color 0.3s ease;
 }
+.new-faq-accordion .new-faq-item:last-child {
+  border-bottom: none;
+}
 .new-faq-item.active {
   background: #151515;
   color: #fff;

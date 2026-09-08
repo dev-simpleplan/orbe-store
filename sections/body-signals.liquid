@@ -56,7 +56,7 @@
               href="#body-signals-card-{{ section.id }}-{{ block.id }}"
               class="e-learn-more"
               data-body-card-open="{{ block.id }}"
-              aria-controls="body-signals-card-{{ section.id }}-{{ block.id }}">Learn More</a>
+              aria-controls="body-signals-card-{{ section.id }}-{{ block.id }}">Why This Happens?</a>
           </div>
         {% endfor %}
       </div>
@@ -75,16 +75,6 @@
     {% assign panel_heading = block.settings.heading | default: block.settings.label %}
     {% if panel_heading != blank %}
     <h3>{{ panel_heading }}</h3>
-    {% endif %}
-
-    {% if block.settings.items != blank %}
-    <ul>
-      {% assign card_items = block.settings.items | newline_to_br | split: '<br />' %}
-      {% for item in card_items %}
-        {% assign clean_item = item | strip %}
-        {% if clean_item != blank %}<li>{{ clean_item }}</li>{% endif %}
-      {% endfor %}
-    </ul>
     {% endif %}
 
     {% if block.settings.rich_text != blank %}
