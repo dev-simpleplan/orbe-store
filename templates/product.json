@@ -367,7 +367,7 @@
         "drawer_section_cTbwWP": {
           "type": "drawer_section",
           "settings": {
-            "heading": "About the ingredients",
+            "heading": "",
             "text": "Ten nutrients - every form is chosen on absorption data, and not on cost.\n\nBelow is what's in ORBÉ N°01, why each ingredient is there, and why we picked the specific form we did. Where the choice cost us more, we've said so."
           }
         },
@@ -510,7 +510,7 @@
         "description": "Each ingredient is selected for its purpose, its purity, and its ability to genuinely support your everyday rhythm: nothing extra, nothing distracting.",
         "link_text": "View All about the ingredient",
         "drawer_eyebrow": "",
-        "drawer_heading": "",
+        "drawer_heading": "About the Ingredients",
         "inactive_heading": "",
         "inactive_text": "",
         "fill_weight_heading": "",
