@@ -733,14 +733,6 @@
         "subheading": "You're not imagining it. These everyday shifts are your body's way of asking for support."
       }
     },
-    "spacer_NHBfLd": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120,
-        "custom_class": ""
-      }
-    },
     "ready_formula_h7deTm": {
       "type": "ready-formula",
       "name": "Ready Formula",
@@ -1019,7 +1011,6 @@
     "spacer_6tMeNb",
     "what-your-body",
     "body_signals_7GzjnK",
-    "spacer_NHBfLd",
     "ready_formula_h7deTm",
     "best-bio",
     "spacer_adLpCm",
