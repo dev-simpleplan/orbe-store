@@ -85,26 +85,6 @@
                 <h2>{{ section.settings.drawer_heading }}</h2>
                 {% endif %}
             </div>
-            {% comment %} <div class="ingredient-drawer-accordion">
-                {% for block in section.blocks %}
-                <div class="ingredient-drawer-item">
-                    <button type="button" class="ingredient-drawer-title">
-                        <span>{{ block.settings.title }}</span>
-                        <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
-                    </button>
-                    <div class="ingredient-drawer-content">
-                        {% assign drawer_lines = block.settings.content | newline_to_br | split: '<br />' %}
-                        {% for line in drawer_lines %}
-                        {% assign clean_line = line | strip %}
-                        {% if clean_line != blank %}
-                        <p>{{ clean_line }}</p>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div> {% endcomment %}
-
             {% if section.settings.inactive_heading != blank or section.settings.inactive_text != blank %}
             <div class="ingredient-drawer-section">
                 {% if section.settings.inactive_heading != blank %}
@@ -152,13 +132,17 @@
                     {% if block.settings.heading != blank %}
                     <h2>{{ block.settings.heading }}</h2>
                     {% endif %}
-                    {% assign block_lines = block.settings.text | newline_to_br | split: '<br />' %}
-                    {% for line in block_lines %}
-                    {% assign clean_line = line | strip %}
-                    {% if clean_line != blank %}
-                    <p>{{ clean_line }}</p>
-                    {% endif %}
-                    {% endfor %}
+                    {{ block.settings.text }}
+                </div>
+                {% elsif block.type == 'accordion_section' %}
+                <div class="ingredient-drawer-item" {{ block.shopify_attributes }}>
+                    <button type="button" class="ingredient-drawer-title">
+                        <span>{{ block.settings.heading }}</span>
+                        <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
+                    </button>
+                    <div class="ingredient-drawer-content">
+                        {{ block.settings.text }}
+                    </div>
                 </div>
                 {% endif %}
             {% endfor %}
@@ -188,10 +172,9 @@
             var section = document.getElementById('essential-ingredient-{{ section.id }}');
             if (!section || section.dataset.accordionReady === 'true') return;
 
-            var titles = Array.prototype.slice.call(section.querySelectorAll('.accordion-title'));
-            if (!titles.length) return;
-
             section.dataset.accordionReady = 'true';
+
+            var titles = Array.prototype.slice.call(section.querySelectorAll('.accordion-title'));
 
             function closeItem(title) {
                 var panel = title.nextElementSibling;
@@ -219,23 +202,25 @@
                 }
             }
 
-            titles.forEach(function (title) {
-                title.addEventListener('click', function () {
-                    var isActive = title.classList.contains('active');
+            if (titles.length) {
+                titles.forEach(function (title) {
+                    title.addEventListener('click', function () {
+                        var isActive = title.classList.contains('active');
 
-                    titles.forEach(function (item) {
-                        if (item !== title) closeItem(item);
+                        titles.forEach(function (item) {
+                            if (item !== title) closeItem(item);
+                        });
+
+                        if (isActive) {
+                            closeItem(title);
+                        } else {
+                            openItem(title);
+                        }
                     });
-
-                    if (isActive) {
-                        closeItem(title);
-                    } else {
-                        openItem(title);
-                    }
                 });
-            });
 
-            openItem(titles[0]);
+                openItem(titles[0]);
+            }
 
             var openButton = section.querySelector('.open-ingredients');
             var drawer = section.querySelector('.ingredient-drawer');
@@ -441,6 +426,24 @@
 "type": "richtext",
 "id": "text",
 "label": "Text"
+}
+]
+},
+{
+"type": "accordion_section",
+"name": "Drawer Accordion Item",
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"info": "Shown as the clickable accordion row."
+},
+{
+"type": "richtext",
+"id": "text",
+"label": "Text",
+"info": "Revealed when this accordion row is expanded."
 }
 ]
 }
