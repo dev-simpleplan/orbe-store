@@ -5937,10 +5937,19 @@ body.template-404 .footer {
 
 /* Price */
 .pdp-price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   font-family: var(--tobias);
   font-size: 34px;
   color: var(--black);
   line-height: 1;
+}
+.pdp-price-compare {
+  font-family: var(--aspekta);
+  font-size: 18px;
+  color: #9a9a9a;
+  text-decoration: line-through;
 }
 .pdp-supply {
   font-family: var(--aspekta);

@@ -88,6 +88,9 @@
 
           <div class="pdp-price">
             <span class="pdp-price-current" data-price>{{ current_variant.price | money }}</span>
+            {% if current_variant.compare_at_price > current_variant.price %}
+              <span class="pdp-price-compare" data-compare-price>{{ current_variant.compare_at_price | money }}</span>
+            {% endif %}
           </div>
 
           {% if section.settings.supply_text != blank %}
