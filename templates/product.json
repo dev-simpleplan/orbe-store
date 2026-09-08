@@ -656,8 +656,6 @@
       "settings": {
         "heading": "What Your Body’s Been Trying to Tell You",
         "text": "You’re not imagining it. These everyday shifts are your body’s way of asking for support.",
-        "pill_image": "shopify://shop_images/Untitled_13_1.png",
-        "center_background_image": "shopify://shop_images/Vector_5_1.svg",
         "background_image": "shopify://shop_images/1d55de5de569b792405280de8a506e1328316733_1.png"
       }
     },
@@ -670,7 +668,8 @@
             "label": "Energy & Fatigue",
             "image": "shopify://shop_images/image1.jpg",
             "heading": "Energy & Fatigue",
-            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings"
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Iron carries oxygen to your cells. B12 turns what you eat into usable energy. Both run low in Indian women more often than not: 57% of women aged 15 to 49 are anaemic, and B12 deficiency sits above 70% across the population.</p><p><br/><strong>In N°01:</strong> </p><p>Ferrochel® iron 20.88 mg · Methylcobalamin B12 2.2 mcg · Quatrefolic® folate 220 mcg</p>"
           }
         },
         "tab_qnXgpN": {
@@ -679,7 +678,8 @@
             "label": "Sleep & Rest",
             "image": "shopify://shop_images/image2.jpg",
             "heading": "Sleep & Rest",
-            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed"
+            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed",
+            "rich_text": ""
           }
         },
         "tab_KVhcnm": {
@@ -688,7 +688,8 @@
             "label": "Mood & Clarity",
             "image": "shopify://shop_images/image3.jpg",
             "heading": "Mood & Clarity",
-            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present"
+            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present",
+            "rich_text": ""
           }
         },
         "tab_KCPkC8": {
@@ -697,7 +698,8 @@
             "label": "Body & Foundations",
             "image": "shopify://shop_images/image4.jpg",
             "heading": "Body & Foundations",
-            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness"
+            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness",
+            "rich_text": ""
           }
         },
         "tab_Tz3G3E": {
@@ -706,7 +708,8 @@
             "label": "Cycle & Hormones",
             "image": "shopify://shop_images/image5.jpg",
             "heading": "Cycle & Hormones",
-            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period"
+            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period",
+            "rich_text": ""
           }
         },
         "tab_JPeipi": {
@@ -715,7 +718,8 @@
             "label": "Mental Load & Overwhelm",
             "image": "shopify://shop_images/image6.jpg",
             "heading": "Mental Load & Overwhelm",
-            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent"
+            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent",
+            "rich_text": ""
           }
         }
       },
