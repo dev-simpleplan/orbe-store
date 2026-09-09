@@ -5944,7 +5944,8 @@ body.template-404 .footer {
   line-height: 130%;
   color: var(--gray);
   max-width: 50ch;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
+  margin-bottom: 30px;
 }
 
 /* Price */
