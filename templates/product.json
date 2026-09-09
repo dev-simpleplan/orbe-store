@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468701_bcbdcb62-a609-4d14-ad21-b9a273a3dddd.png",
-            "week": "Week 1–2 — a little more clarity, a little more energy",
+            "week": "Week 1–2 : a little more clarity, a little more energy",
             "text": "Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality.\nIf B12 was low, some women notice energy and focus first."
           }
         },
@@ -572,7 +572,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468700.png",
-            "week": "Week 3–6 — your rhythm begins to soften",
+            "week": "Week 3–6 : your rhythm begins to soften",
             "text": "Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise."
           }
         },
@@ -580,7 +580,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468699.png",
-            "week": "Month 2–3 — your foundation strengthens",
+            "week": "Month 2–3 : your foundation strengthens",
             "text": "Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady.\nSkin and mood changes are commonly reported in this window."
           }
         },
@@ -588,7 +588,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3468698.png",
-            "week": "Month 3+ — a steadier version of yourself",
+            "week": "Month 3+ : a steadier version of yourself",
             "text": "Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience."
           }
         }
@@ -601,7 +601,7 @@
       ],
       "settings": {
         "heading": "The Journey, Gently Unfolding",
-        "subheading": "Results depend on where you're starting from. Example - someone already replete in iron won't feel what someone deficient will.",
+        "subheading": "Results depend on where you're starting from. For example, someone already replete in iron won't feel what someone deficient will.",
         "cta_text": "",
         "cta_link": "#"
       }
