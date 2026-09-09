@@ -5930,7 +5930,7 @@ body.template-404 .footer {
 /* Title */
 .pdp-title {
   font-family: var(--tobias);
-  font-size: clamp(48px, 7vw, 78px);
+  font-size: clamp(48px, 7vw, 70px);
   line-height: 0.95;
   font-weight: 400;
   color: var(--black);
@@ -5969,7 +5969,8 @@ body.template-404 .footer {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--black);
-  margin: 10px 0 26px;
+  /* margin: 10px 0 26px; */
+  margin: 10px 0 40px;
 }
 
 /* Purchase options */
