@@ -6469,10 +6469,10 @@ body.template-404 .footer {
 }
 .body-signals-panel .e-learn-more {
   display: inline-block;
-  margin-top: 4px;
+  margin-top: 14px;
   color: #fff;
   font-family: var(--aspekta);
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: 2px;
   text-transform: uppercase;
