@@ -5894,6 +5894,9 @@ body.template-404 .footer {
 .pdp-info-inner {
   max-width: 480px;
 }
+.pdp-info-inner .pdp-options {
+  display: none;
+}
 
 /* Rating */
 .pdp-rating {
