@@ -6396,7 +6396,8 @@ body.template-404 .footer {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 60px;
-  align-items: end;
+  /* align-items: end; */
+  align-items: start;
 }
 .body-signals-tabs {
   display: flex;
