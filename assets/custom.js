@@ -162,7 +162,7 @@ $(window).on('load', function () {
     guidedByOwl.owlCarousel({
         loop: false,
         items: 2,
-        margin: 130,
+        margin: 80,
         dots: false,
         nav: false,
         responsive: {
@@ -171,7 +171,7 @@ $(window).on('load', function () {
             // stage. items:1 is Owl's reliable single-item-per-view mode.
             0: { margin: 10, items: 1 },
             600: { margin: 20 },
-             991: {  margin: 130 }
+             991: {  margin: 80 }
         }
     });
 

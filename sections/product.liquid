@@ -238,7 +238,16 @@
                     <div class="pdp-acc-content">
                       {%- if mf_image != blank -%}
                         <div class="pdp-acc-image">
-                          {{ mf_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                          <button
+                            type="button"
+                            class="pdp-acc-image-zoom-btn"
+                            data-pdp-zoom-standalone-trigger
+                            data-full-src="{{ mf_image | image_url: width: 2400 }}"
+                            data-alt="{{ block.settings.title | escape }}"
+                            aria-label="Zoom image"
+                          >
+                            {{ mf_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                          </button>
                         </div>
                       {%- endif -%}
                       {%- if mf_value != blank -%}{{ mf_value | metafield_tag }}{%- else -%}{{ block.settings.content }}{%- endif -%}
@@ -337,14 +346,16 @@
 
     // Click-to-zoom gallery lightbox
     var zoomTriggers = Array.prototype.slice.call(root.querySelectorAll('[data-pdp-zoom-trigger]'));
+    var standaloneTriggers = Array.prototype.slice.call(root.querySelectorAll('[data-pdp-zoom-standalone-trigger]'));
     var lightbox = root.querySelector('[data-pdp-zoom-lightbox]');
 
-    if (zoomTriggers.length && lightbox) {
+    if ((zoomTriggers.length || standaloneTriggers.length) && lightbox) {
       var zoomImg = lightbox.querySelector('[data-pdp-zoom-img]');
       var prevBtn = lightbox.querySelector('[data-pdp-zoom-prev]');
       var nextBtn = lightbox.querySelector('[data-pdp-zoom-next]');
       var currentIndex = 0;
       var lastFocusedTrigger = null;
+      var isStandalone = false;
 
       function showImage(index) {
         currentIndex = (index + zoomTriggers.length) % zoomTriggers.length;
@@ -353,9 +364,27 @@
         zoomImg.alt = trigger.getAttribute('data-alt') || '';
       }
 
+      function setNavVisible(visible) {
+        if (prevBtn) prevBtn.hidden = !visible;
+        if (nextBtn) nextBtn.hidden = !visible;
+      }
+
       function openLightbox(index, trigger) {
         lastFocusedTrigger = trigger;
+        isStandalone = false;
+        setNavVisible(zoomTriggers.length > 1);
         showImage(index);
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+      }
+
+      function openStandaloneLightbox(trigger) {
+        lastFocusedTrigger = trigger;
+        isStandalone = true;
+        setNavVisible(false);
+        zoomImg.src = trigger.getAttribute('data-full-src');
+        zoomImg.alt = trigger.getAttribute('data-alt') || '';
         lightbox.hidden = false;
         document.body.style.overflow = 'hidden';
         if (window.lenis) window.lenis.stop();
@@ -375,6 +404,12 @@
         });
       });
 
+      standaloneTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          openStandaloneLightbox(trigger);
+        });
+      });
+
       root.querySelectorAll('[data-pdp-zoom-close]').forEach(function (btn) {
         btn.addEventListener('click', closeLightbox);
       });
@@ -383,12 +418,14 @@
 
       if (prevBtn) {
         prevBtn.addEventListener('click', function () {
+          if (isStandalone) return;
           showImage(currentIndex - 1);
         });
       }
 
       if (nextBtn) {
         nextBtn.addEventListener('click', function () {
+          if (isStandalone) return;
           showImage(currentIndex + 1);
         });
       }
@@ -396,6 +433,7 @@
       document.addEventListener('keydown', function (event) {
         if (lightbox.hidden) return;
         if (event.key === 'Escape') closeLightbox();
+        if (isStandalone) return;
         if (event.key === 'ArrowLeft') showImage(currentIndex - 1);
         if (event.key === 'ArrowRight') showImage(currentIndex + 1);
       });

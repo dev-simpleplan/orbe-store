@@ -56,6 +56,12 @@
                                 </span>
                             </div>
                             <div class="accordion-content">
+                                {% assign phase_image = block.settings.image | default: section.settings.box_image %}
+                                {% if phase_image != blank %}
+                                <div class="accordion-content-img">
+                                    {{ phase_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
+                                </div>
+                                {% endif %}
                                 <div class="accordioncontent-in">
                                     {{ block.settings.content }}
                                 </div>
@@ -65,6 +71,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="top-right top-right-mobile">
+            {% if section.settings.link_text != blank %}
+            <a href="#essential-ingredient-drawer-{{ section.id }}" class="open-ingredients">{{
+                section.settings.link_text }}</a>
+            {% endif %}
         </div>
     </div>
     <div class="ingredient-drawer-backdrop" data-ingredient-drawer-close></div>
@@ -222,7 +234,7 @@
                 openItem(titles[0]);
             }
 
-            var openButton = section.querySelector('.open-ingredients');
+            var openButtons = section.querySelectorAll('.open-ingredients');
             var drawer = section.querySelector('.ingredient-drawer');
             var drawerCloseButtons = section.querySelectorAll('[data-ingredient-drawer-close]');
             var drawerTitles = Array.prototype.slice.call(section.querySelectorAll('.ingredient-drawer-title'));
@@ -258,12 +270,12 @@
                 if (window.lenis) window.lenis.start();
             }
 
-            if (openButton) {
-                openButton.addEventListener('click', function (event) {
+            openButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
                     event.preventDefault();
                     openDrawer();
                 });
-            }
+            });
 
             drawerCloseButtons.forEach(function (button) {
                 button.addEventListener('click', closeDrawer);
