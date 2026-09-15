@@ -26,7 +26,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 100
+        "spacer_height": 100,
+        "custom_class": ""
       }
     },
     "slide-in-img": {
@@ -41,7 +42,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "what-we-choose": {
@@ -96,7 +98,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "heart-behind": {
@@ -115,7 +118,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "letter-from-founder": {
@@ -133,7 +137,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "people-of-orbe": {
@@ -195,7 +200,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "guided-by": {
@@ -231,7 +237,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "batch-verified": {
@@ -303,7 +310,7 @@
         "certificate_EiQhdF": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/c70552307b2ca6e7a16daa09f020767b678b019d.png",
+            "image": "shopify://shop_images/HACCP_Logo_-1_de53d0ac-3752-46bf-b995-c6a07d00ab12.svg",
             "alt": "Certification logo"
           }
         },
@@ -317,42 +324,42 @@
         "certificate_8LBn9k": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/073fbe87f14eccd8889c85c998a1cb00ee62ec20.png",
+            "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
             "alt": "Certification logo"
           }
         },
         "certificate_bC6LFf": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/40538656897b1b060106c315841c017a668e6d0d.png",
+            "image": "shopify://shop_images/surface1_a78f7377-a381-40c0-86fb-b73925a111e0.svg",
             "alt": "Certification logo"
           }
         },
         "certificate_R8PtL6": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/45dfe35695e2ece93affd92df0e7ab931125f27d.png",
+            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
             "alt": "Certification logo"
           }
         },
         "certificate_6DgXgi": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/01650e751b85b6dcdcc369b9c0b83de1b176f161.png",
+            "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
             "alt": "Certification logo"
           }
         },
         "certificate_Tx96NA": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/ba8ce2db94c33848ad519c53dad7d42a11f0c78e.png",
+            "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
             "alt": "Certification logo"
           }
         },
         "certificate_gNCtmx": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/f08c27ba88bd0a33289b25134d228b87432edca1.png",
+            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
             "alt": "Certification logo"
           }
         }
@@ -434,7 +441,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "blowing_pills_Ghy3zU": {
@@ -453,7 +461,8 @@
       "disabled": true,
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "blogs_feature_dxjadX": {
@@ -472,7 +481,8 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "community_heading_CXdBMN": {
