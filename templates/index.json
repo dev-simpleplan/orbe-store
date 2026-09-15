@@ -283,17 +283,17 @@
             "alt": "Certification logo"
           }
         },
-        "certificate_R8PtL6": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
-            "alt": "Certification logo"
-          }
-        },
         "certificate_gNCtmx": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_R8PtL6": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
             "alt": "Certification logo"
           }
         },
@@ -311,8 +311,8 @@
         "certificate_bC6LFf",
         "certificate_EiQhdF",
         "certificate_PHdyEJ",
-        "certificate_R8PtL6",
         "certificate_gNCtmx",
+        "certificate_R8PtL6",
         "certificate_8LBn9k"
       ],
       "custom_css": [],

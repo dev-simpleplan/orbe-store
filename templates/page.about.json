@@ -307,6 +307,27 @@
     "certified-by": {
       "type": "certified-by",
       "blocks": {
+        "certificate_Tx96NA": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_6DgXgi": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_bC6LFf": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/surface1_a78f7377-a381-40c0-86fb-b73925a111e0.svg",
+            "alt": "Certification logo"
+          }
+        },
         "certificate_EiQhdF": {
           "type": "certificate",
           "settings": {
@@ -321,17 +342,10 @@
             "alt": "Certification logo"
           }
         },
-        "certificate_8LBn9k": {
+        "certificate_gNCtmx": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
-            "alt": "Certification logo"
-          }
-        },
-        "certificate_bC6LFf": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/surface1_a78f7377-a381-40c0-86fb-b73925a111e0.svg",
+            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
             "alt": "Certification logo"
           }
         },
@@ -342,37 +356,23 @@
             "alt": "Certification logo"
           }
         },
-        "certificate_6DgXgi": {
+        "certificate_8LBn9k": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
-            "alt": "Certification logo"
-          }
-        },
-        "certificate_Tx96NA": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
-            "alt": "Certification logo"
-          }
-        },
-        "certificate_gNCtmx": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
+            "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
             "alt": "Certification logo"
           }
         }
       },
       "block_order": [
+        "certificate_Tx96NA",
+        "certificate_6DgXgi",
+        "certificate_bC6LFf",
         "certificate_EiQhdF",
         "certificate_bNTdtG",
-        "certificate_8LBn9k",
-        "certificate_bC6LFf",
+        "certificate_gNCtmx",
         "certificate_R8PtL6",
-        "certificate_6DgXgi",
-        "certificate_Tx96NA",
-        "certificate_gNCtmx"
+        "certificate_8LBn9k"
       ],
       "settings": {
         "heading": "Certified by"
