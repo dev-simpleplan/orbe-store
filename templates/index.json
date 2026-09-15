@@ -278,9 +278,8 @@
         },
         "certificate_R8PtL6": {
           "type": "certificate",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/45dfe35695e2ece93affd92df0e7ab931125f27d.png",
+            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
             "alt": "Certification logo"
           }
         },
@@ -301,7 +300,7 @@
         "certificate_gNCtmx": {
           "type": "certificate",
           "settings": {
-            "image": "shopify://shop_images/IEC.png",
+            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
             "alt": "Certification logo"
           }
         }
