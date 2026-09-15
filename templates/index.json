@@ -248,6 +248,20 @@
     "certified-by": {
       "type": "certified-by",
       "blocks": {
+        "certificate_Tx96NA": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/FDA_Logo-1.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_6DgXgi": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/GMP_Certified-1.svg",
+            "alt": "Certification logo"
+          }
+        },
         "certificate_bC6LFf": {
           "type": "certificate",
           "settings": {
@@ -269,31 +283,10 @@
             "alt": "Certification logo"
           }
         },
-        "certificate_8LBn9k": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/halal-seeklogo-2-1.svg",
-            "alt": "Certification logo"
-          }
-        },
         "certificate_R8PtL6": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
-            "alt": "Certification logo"
-          }
-        },
-        "certificate_6DgXgi": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/GMP_Certified-1.svg",
-            "alt": "Certification logo"
-          }
-        },
-        "certificate_Tx96NA": {
-          "type": "certificate",
-          "settings": {
-            "image": "shopify://shop_images/FDA_Logo-1.svg",
             "alt": "Certification logo"
           }
         },
@@ -303,18 +296,26 @@
             "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
             "alt": "Certification logo"
           }
+        },
+        "certificate_8LBn9k": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/halal-seeklogo-2-1.svg",
+            "alt": "Certification logo"
+          }
         }
       },
       "block_order": [
+        "certificate_Tx96NA",
+        "certificate_6DgXgi",
         "certificate_bC6LFf",
         "certificate_EiQhdF",
         "certificate_PHdyEJ",
-        "certificate_8LBn9k",
         "certificate_R8PtL6",
-        "certificate_6DgXgi",
-        "certificate_Tx96NA",
-        "certificate_gNCtmx"
+        "certificate_gNCtmx",
+        "certificate_8LBn9k"
       ],
+      "custom_css": [],
       "settings": {
         "heading": "Certified by"
       }
