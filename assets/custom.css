@@ -871,7 +871,9 @@ header.header--transparent .center svg path {
   font-size: 18px;
   font-weight: 300;
   max-width: 34ch;
-  white-space: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: auto;
 }
 .header.desktop ul:not(.dropdown) > li {
   transition: 0.4s ease all;
