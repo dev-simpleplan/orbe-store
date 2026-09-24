@@ -214,7 +214,7 @@ body.mobile-menu-open {
 }
 .mobile-menu-in {
   height: 100%;
-  padding: 50px 20px 80px 20px;
+  padding: 50px 20px 100px 20px;
   position: relative;
 }
 .mobile-menu-in > ul > li a,
@@ -3479,6 +3479,10 @@ body.ingredient-drawer-open {
     font-size: 16px;
     line-height: 140%;
     font-weight: 400;
+}
+.ingredient-drawer-section ul li a {
+  text-decoration: underline;
+  color: #000;
 }
 .ingredient-drawer-content h4 {
       font-size: 22px;
