@@ -1302,6 +1302,9 @@
   .ready-formula-in .left .content-block h2 {
     max-width: 19ch;
   }
+  .bvi-text p {
+    text-align: left;
+  }
 }
 
 @media(max-width: 480px){

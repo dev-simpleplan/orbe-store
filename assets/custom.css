@@ -4176,7 +4176,7 @@ body.what-your-body-card-open {
   height: 80px;
 }
 .cbs-item img {
-  max-height: 80px;
+  max-height: 100%;
   height: auto;
   width: auto;
   filter: grayscale(1);
