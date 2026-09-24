@@ -12,6 +12,7 @@
     "main": {
       "type": "home-banner",
       "settings": {
+        "video": "shopify://files/videos/604b7e3add1647179b72bc88154397e9.mp4",
         "heading": "The Beauty That \nSimplicity Creates",
         "text": "Wellness made simple, for women who have enough to think about.",
         "button_text": "Start Your Journey",
