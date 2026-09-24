@@ -419,8 +419,8 @@
     font-size: 28px;
   }
   .small-img-parallex {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
   }
   .at-single-content-block {
     gap: 80px;
@@ -1304,6 +1304,9 @@
   }
   .bvi-text p {
     text-align: left;
+  }
+  .at-single-content-block p {
+    font-size: 14px;
   }
 }
 
