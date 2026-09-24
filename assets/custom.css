@@ -873,7 +873,7 @@ header.header--transparent .center svg path {
   max-width: 34ch;
   margin-left: auto;
   margin-right: auto;
-  white-space: auto;
+  white-space: initial;
 }
 .header.desktop ul:not(.dropdown) > li {
   transition: 0.4s ease all;
