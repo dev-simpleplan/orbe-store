@@ -29,7 +29,7 @@
                         <div class="box-img-item{% if forloop.first %} is-active{% endif %}" data-box-image="{{ forloop.index0 }}">
                             <picture>
                                 {% if phase_image_tablet != blank %}
-                                <source media="(min-width: 768px) and (max-width: 991px)" srcset="{{ phase_image_tablet | image_url: width: 900 }}">
+                                <source media="(min-width: 768px) and (max-width: 1200px)" srcset="{{ phase_image_tablet | image_url: width: 900 }}">
                                 {% endif %}
                                 {{ phase_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
                             </picture>
