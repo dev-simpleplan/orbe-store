@@ -34,7 +34,7 @@
 <script>
     (function () {
         function readyCertifiedBySlider(root, attempts) {
-            attempts = attempts || 30;
+            attempts = attempts || 40; // Slightly increased for slower mobile connections
 
             if (!window.jQuery || !jQuery.fn.bxSlider) {
                 if (attempts > 0) setTimeout(function () { readyCertifiedBySlider(root, attempts - 1); }, 100);
@@ -45,22 +45,31 @@
                 var $slider = jQuery(this);
                 if ($slider.data('certifiedByReady')) return;
 
+                // Ensure all images inside this specific slider are loaded before measuring
                 $slider.data('certifiedByReady', true).bxSlider({
                     minSlides: 4,
                     maxSlides: 4,
                     slideWidth: 180,
                     slideMargin: 80,
                     ticker: true,
-                    speed: 22000
+                    speed: 22000,
+                    useCSS: false // Often smoother for continuous tickers
                 });
             });
         }
 
-        readyCertifiedBySlider(document);
-        window.addEventListener('load', function () { readyCertifiedBySlider(document); });
+        // Run if document is already loaded, otherwise wait for window load
+        if (document.readyState === 'complete') {
+            readyCertifiedBySlider(document);
+        } else {
+            window.addEventListener('load', function () { readyCertifiedBySlider(document); });
+        }
+
+        // Shopify theme editor support
         document.addEventListener('shopify:section:load', function (event) { readyCertifiedBySlider(event.target); });
     })();
 </script>
+
 
 {% schema %}
 {

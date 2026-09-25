@@ -138,11 +138,15 @@
 
               <p class="cart-summary__note">{{ section.settings.tax_note }}</p>
 
+              {% comment %}
               <label for="CartNote" class="cart-summary__label">{{ section.settings.note_label }}</label>
               <textarea id="CartNote" name="note" rows="4" placeholder="{{ section.settings.note_placeholder }}">{{ cart.note | escape }}</textarea>
+              {% endcomment %}
 
               <div class="cart-summary__actions">
+                {% comment %}
                 <button type="submit" name="update" class="cart-summary__update">{{ section.settings.update_button_text }}</button>
+                {% endcomment %}
                 <button type="submit" name="checkout" class="primary-btn cart-summary__checkout">{{ section.settings.checkout_button_text }}</button>
               </div>
             </div>

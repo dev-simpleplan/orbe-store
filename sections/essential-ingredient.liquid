@@ -24,9 +24,15 @@
                     {% assign box_blocks = section.blocks | where: 'type', 'accordion_item' %}
                     {% for block in box_blocks %}
                         {% assign phase_image = block.settings.image | default: section.settings.box_image %}
+                        {% assign phase_image_tablet = block.settings.image_tablet | default: section.settings.box_image_tablet %}
                         {% if phase_image != blank %}
                         <div class="box-img-item{% if forloop.first %} is-active{% endif %}" data-box-image="{{ forloop.index0 }}">
-                            {{ phase_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
+                            <picture>
+                                {% if phase_image_tablet != blank %}
+                                <source media="(min-width: 768px) and (max-width: 991px)" srcset="{{ phase_image_tablet | image_url: width: 900 }}">
+                                {% endif %}
+                                {{ phase_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
+                            </picture>
                         </div>
                         {% endif %}
                     {% else %}
@@ -398,6 +404,12 @@
 },
 {
 "type": "image_picker",
+"id": "box_image_tablet",
+"label": "Box Image (tablet)",
+"info": "Optional tablet version of the Box Image, used when an accordion row has no tablet image of its own."
+},
+{
+"type": "image_picker",
 "id": "capsule_image",
 "label": "Capsule Image"
 }
@@ -422,6 +434,12 @@
 "id": "image",
 "label": "Image",
 "info": "Shown on the left when this accordion row is open. Falls back to the Box Image above if left blank."
+},
+{
+"type": "image_picker",
+"id": "image_tablet",
+"label": "Tablet image",
+"info": "Optional. Used on tablet widths (768px to 991px) so the image isn't cropped. Desktop and mobile keep using the Image above."
 }
 ]
 },

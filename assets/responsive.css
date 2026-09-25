@@ -1308,6 +1308,9 @@
   .at-single-content-block p {
     font-size: 14px;
   }
+  .essential-ingredient .accordion-content {
+    max-width: 100%;
+  }
 }
 
 @media(max-width: 480px){

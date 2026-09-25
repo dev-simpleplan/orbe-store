@@ -3218,6 +3218,11 @@ header.header--transparent
   inset: 0;
   pointer-events: none;
 }
+.essential-ingredient-in .left .box-img picture {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
 .essential-ingredient-in .left .box-img img {
 	width: 100%;
 	height: 100%;
