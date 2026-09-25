@@ -298,15 +298,6 @@
         "heading": "Certified by"
       }
     },
-    "spacer_7L6pHN": {
-      "type": "spacer",
-      "disabled": true,
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120,
-        "custom_class": ""
-      }
-    },
     "care-behind-c": {
       "type": "care-behind-capsule",
       "settings": {
@@ -608,6 +599,7 @@
         "card_3",
         "card_4"
       ],
+      "disabled": true,
       "settings": {
         "heading": "The Journey, Gently Unfolding",
         "subheading": "Results depend on where you're starting from. For example, someone already replete in iron won't feel what someone deficient will.",
@@ -615,11 +607,71 @@
         "cta_link": "#"
       }
     },
+    "scroll_timeline_WXVVBK": {
+      "type": "scroll-timeline",
+      "blocks": {
+        "item_K3DtKk": {
+          "type": "item",
+          "settings": {
+            "label": "Week 1–2",
+            "heading": "A little more clarity, a little more energy",
+            "content": "<p>Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality. If B12 was low, some women notice energy and focus first.</p>",
+            "image": "shopify://shop_images/Rectangle_3468701_bcbdcb62-a609-4d14-ad21-b9a273a3dddd.png"
+          }
+        },
+        "item_w4BWyT": {
+          "type": "item",
+          "settings": {
+            "label": "Week 3–6",
+            "heading": "Your rhythm begins to soften",
+            "content": "<p>Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise.</p>",
+            "image": "shopify://shop_images/Rectangle_3468700.png"
+          }
+        },
+        "item_6kQRhh": {
+          "type": "item",
+          "settings": {
+            "label": "Week 8-12",
+            "heading": "Your foundation strengthens",
+            "content": "<p>Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady. Skin and mood changes are commonly reported in this window.</p>",
+            "image": "shopify://shop_images/Rectangle_3468699.png"
+          }
+        },
+        "item_j4gU6c": {
+          "type": "item",
+          "settings": {
+            "label": "Week 12+",
+            "heading": "A steadier version of yourself",
+            "content": "<p>Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience.</p>",
+            "image": "shopify://shop_images/Rectangle_3468698.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_K3DtKk",
+        "item_w4BWyT",
+        "item_6kQRhh",
+        "item_j4gU6c"
+      ],
+      "name": "Scroll Timeline",
+      "settings": {
+        "heading": "The journey, gently unfolding",
+        "subheading": "Results depend on where you're starting from. <br> For example, someone already replete in iron won't feel what someone deficient will.",
+        "sticky_media": true,
+        "sticky_top": 120,
+        "active_color": "#151515",
+        "inactive_color": "#b5b5b5",
+        "pill_active_bg": "#151515",
+        "pill_active_text": "#ffffff",
+        "line_color": "#151515",
+        "track_color": "#d4d4d4"
+      }
+    },
     "spacer_6tMeNb": {
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120,
+        "spacer_height": 100,
         "custom_class": ""
       }
     },
@@ -1048,7 +1100,6 @@
     "testimonial-sec",
     "spacer_rFGqAQ",
     "certified-by",
-    "spacer_7L6pHN",
     "care-behind-c",
     "spacer_iVnf8F",
     "guided_by_w3PegE",
@@ -1056,6 +1107,7 @@
     "essential-ingredient",
     "spacer_RAkTAh",
     "gently-unfold",
+    "scroll_timeline_WXVVBK",
     "spacer_6tMeNb",
     "what-your-body",
     "body_signals_7GzjnK",
