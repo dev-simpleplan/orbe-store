@@ -1,0 +1,475 @@
+{%- assign st_id = 'scroll-timeline-' | append: section.id -%}
+
+{%- style -%}
+  #{{ st_id }} {
+    --st-active: {{ section.settings.active_color }};
+    --st-inactive: {{ section.settings.inactive_color }};
+    --st-pill-bg: {{ section.settings.pill_active_bg }};
+    --st-pill-text: {{ section.settings.pill_active_text }};
+    --st-line: {{ section.settings.line_color }};
+    --st-track: {{ section.settings.track_color }};
+    --st-sticky-top: {{ section.settings.sticky_top }}px;
+    padding: 80px 0;
+  }
+
+  #{{ st_id }} .st-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 70px;
+  }
+
+  #{{ st_id }} .st-head p {
+    margin-top: 12px;
+    color: #5d5d5d;
+  }
+
+  #{{ st_id }} .st-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 60px;
+    align-items: start;
+  }
+
+  #{{ st_id }} .st-list {
+    position: relative;
+    padding-left: 36px;
+  }
+
+  #{{ st_id }} .st-track {
+    position: absolute;
+    left: 4px;
+    width: 1px;
+    background: var(--st-track);
+  }
+
+  #{{ st_id }} .st-track-fill {
+    display: block;
+    width: 100%;
+    height: 0;
+    background: var(--st-line);
+  }
+
+  #{{ st_id }} .st-item {
+    position: relative;
+    padding-bottom: 30px;
+    color: var(--st-inactive);
+    transition: color 0.4s ease;
+  }
+
+  #{{ st_id }} .st-item:last-child {
+    padding-bottom: 0;
+  }
+
+  #{{ st_id }} .st-item.is-active {
+    color: var(--st-active);
+  }
+
+  #{{ st_id }} .st-dot {
+    position: absolute;
+    left: -36px;
+    top: 14px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--st-track);
+    transition: background 0.4s ease;
+  }
+
+  #{{ st_id }} .st-item.is-active .st-dot {
+    background: var(--st-line);
+  }
+
+  #{{ st_id }} .st-item-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  #{{ st_id }} .st-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--st-track);
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+
+  #{{ st_id }} .st-item.is-active .st-pill {
+    background: var(--st-pill-bg);
+    color: var(--st-pill-text);
+  }
+
+  #{{ st_id }} .st-item-title {
+    margin: 0;
+    font-family: var(--tobias);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0em;
+    color: var(--grey);
+    transition: .2s ease all;
+  }
+  #{{ st_id }} .st-item.is-active .st-item-title {
+    color: var(--black);
+  }
+
+  #{{ st_id }} .st-item-content,
+  #{{ st_id }} .st-item-content p,
+  #{{ st_id }} .st-item-content li {
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 16px;
+    line-height: 150%;
+    max-width: 48ch;
+    opacity: 0.6;
+    transition: .2s ease all;
+  }
+
+  #{{ st_id }} .st-item.is-active .st-item-content,
+  #{{ st_id }} .st-item.is-active .st-item-content p,
+  #{{ st_id }} .st-item.is-active .st-item-content li  {
+    opacity: 1;
+  }
+
+  #{{ st_id }} .st-item-content p {
+    margin: 0 0 8px;
+  }
+
+  #{{ st_id }} .st-item-content ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style: disc;
+  }
+
+  #{{ st_id }} .st-item-content li {
+    margin-bottom: 4px;
+  }
+
+  #{{ st_id }} .st-media {
+    align-self: start;
+  }
+
+  #{{ st_id }} .st-layout.is-sticky-media .st-media {
+    position: sticky;
+    top: var(--st-sticky-top);
+  }
+
+  #{{ st_id }} .st-media-inner {
+    position: relative;
+    aspect-ratio: 5 / 4;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #f2f2f2;
+  }
+
+  #{{ st_id }} .st-media-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  #{{ st_id }} .st-media-item.is-current {
+    opacity: 1;
+  }
+
+  #{{ st_id }} .st-media-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ st_id }} .st-item-media-mobile {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    #{{ st_id }} {
+      padding: 50px 0;
+    }
+
+    #{{ st_id }} .st-head {
+      margin-bottom: 40px;
+    }
+
+    #{{ st_id }} .st-layout {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ st_id }} .st-media {
+      display: none;
+    }
+
+    #{{ st_id }} .st-item-media-mobile {
+      display: block;
+      margin-top: 20px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    #{{ st_id }} .st-item-media-mobile img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    #{{ st_id }} .st-item {
+      padding-bottom: 40px;
+    }
+    #{{ st_id }} .st-item-head {
+      margin-bottom: 8px;
+    }
+    #{{ st_id }} .st-item-content,
+    #{{ st_id }} .st-item-content p,
+    #{{ st_id }} .st-item-content li {
+      font-size: 15px;
+    }
+    #{{ st_id }} .st-item-title {
+      font-size: 20px;
+    }
+
+  }
+{%- endstyle -%}
+
+<section class="scroll-timeline" id="{{ st_id }}" data-scroll-timeline>
+  <div class="container">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="st-head">
+        {% if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif %}
+        {% if section.settings.subheading != blank %}<p>{{ section.settings.subheading }}</p>{% endif %}
+      </div>
+    {% endif %}
+
+    <div class="st-layout{% if section.settings.sticky_media %} is-sticky-media{% endif %}">
+      <div class="st-list" data-st-list>
+        <div class="st-track" aria-hidden="true" data-st-track><span class="st-track-fill" data-st-fill></span></div>
+
+        {% for block in section.blocks %}
+          <article class="st-item{% if forloop.first %} is-active{% endif %}" data-st-item {{ block.shopify_attributes }}>
+            <span class="st-dot" aria-hidden="true" data-st-dot></span>
+            <div class="st-item-head">
+              {% if block.settings.label != blank %}<span class="st-pill">{{ block.settings.label }}</span>{% endif %}
+              {% if block.settings.heading != blank %}<h3 class="st-item-title">{{ block.settings.heading }}</h3>{% endif %}
+            </div>
+            {% if block.settings.content != blank %}
+              <div class="st-item-content">{{ block.settings.content }}</div>
+            {% endif %}
+            {% if block.settings.image != blank %}
+              <div class="st-item-media-mobile">
+                {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="st-media">
+        <div class="st-media-inner">
+          {% for block in section.blocks %}
+            <div class="st-media-item{% if forloop.first %} is-current{% endif %}" data-st-media>
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ st_id }}');
+    if (!root || root.dataset.stReady === 'true') return;
+    root.dataset.stReady = 'true';
+
+    var list = root.querySelector('[data-st-list]');
+    var track = root.querySelector('[data-st-track]');
+    var fill = root.querySelector('[data-st-fill]');
+    var items = Array.prototype.slice.call(root.querySelectorAll('[data-st-item]'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('[data-st-dot]'));
+    var media = Array.prototype.slice.call(root.querySelectorAll('[data-st-media]'));
+    if (!list || !track || !fill || !items.length) return;
+
+    var ticking = false;
+
+    function centerY(el) {
+      var rect = el.getBoundingClientRect();
+      return rect.top + rect.height / 2;
+    }
+
+    function layoutTrack() {
+      var listTop = list.getBoundingClientRect().top;
+      var first = centerY(dots[0]) - listTop;
+      var last = centerY(dots[dots.length - 1]) - listTop;
+      track.style.top = first + 'px';
+      track.style.height = Math.max(last - first, 0) + 'px';
+    }
+
+    function update() {
+      ticking = false;
+      var refY = window.innerHeight * 0.5;
+      var firstY = centerY(dots[0]);
+      var lastY = centerY(dots[dots.length - 1]);
+      var current = 0;
+
+      items.forEach(function (item, index) {
+        var reached = index === 0 || centerY(dots[index]) <= refY;
+        item.classList.toggle('is-active', reached);
+        if (reached) current = index;
+      });
+
+      var fillHeight = Math.min(Math.max(refY - firstY, 0), Math.max(lastY - firstY, 0));
+      fill.style.height = fillHeight + 'px';
+
+      media.forEach(function (item, index) {
+        item.classList.toggle('is-current', index === current);
+      });
+    }
+
+    function requestUpdate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    function refresh() {
+      layoutTrack();
+      update();
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', refresh);
+    window.addEventListener('load', refresh);
+    refresh();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Scroll Timeline",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The journey, gently unfolding"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_media",
+      "label": "Keep media in view while scrolling",
+      "default": true,
+      "info": "The image on the right stays in view while the list on the left scrolls. Turn off for a plain two-column layout."
+    },
+    {
+      "type": "range",
+      "id": "sticky_top",
+      "label": "Media distance from top",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "active_color",
+      "label": "Active text color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "inactive_color",
+      "label": "Inactive text color",
+      "default": "#b5b5b5"
+    },
+    {
+      "type": "color",
+      "id": "pill_active_bg",
+      "label": "Active label background",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "pill_active_text",
+      "label": "Active label text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Active line and dot color",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "track_color",
+      "label": "Inactive line, dot and label color",
+      "default": "#d4d4d4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "info": "Small pill shown before the heading, e.g. 7 Days."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "info": "Use a bulleted list or paragraphs."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Shown on the right while this item is the current one."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scroll Timeline",
+      "blocks": [
+        { "type": "item", "settings": { "label": "Week 1", "heading": "First changes" } },
+        { "type": "item", "settings": { "label": "Month 1", "heading": "Steadier days" } },
+        { "type": "item", "settings": { "label": "Month 3", "heading": "Lasting foundation" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
