@@ -1889,6 +1889,11 @@ header.header--transparent
     height: 100vh;
     overflow: hidden;
     z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .st-mobile-bg {
@@ -1915,8 +1920,8 @@ header.header--transparent
     display: flex;
     flex-direction: column;
     gap: 60px;
-    margin-top: -100vh;
-    padding: 58vh 24px 50px;
+    /* margin-top: -100vh; */
+    padding: 50px 24px 50px;
     box-sizing: border-box;
   }
 
@@ -6427,7 +6432,7 @@ body.template-404 .footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: -webkit-fill-available;
+  height: auto;
   gap: 80px;
 }
 .body-signals-head {

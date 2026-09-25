@@ -562,6 +562,23 @@
     min-height: 360px;
     max-height: 360px;
   }
+  .why-orbe {
+    height: auto;
+  }
+  /* .why-orbe-sticky::before {
+    content: none;
+  } */
+  .why-orbe .blur-overlay {
+    display: none;
+  }
+  .why-orbe-sticky {
+    height: auto;
+    padding: 60px 0;
+    position: relative;
+  }
+  .why-orbe-in .bottom .counter-grid h3 {
+    font-size: clamp(62px, 9vw, 148px);
+  }
 }
 @media screen and (max-width: 767px) {
   .footer {
