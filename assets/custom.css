@@ -6340,7 +6340,7 @@ body.template-404 .footer {
   max-width: 85ch!important;
 }
 .shopify-policy__title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .shopify-policy__body h1,
 .shopify-policy__body h2,
@@ -6350,9 +6350,29 @@ body.template-404 .footer {
   margin-top: 30px;
   margin-bottom: 20px;
 }
+.shopify-policy__body h2 {
+  font-size: 32px;
+}
+.shopify-policy__body h3 {
+  font-size: 28px;
+}
+.shopify-policy__body h4 {
+  font-size: 24px;
+}
 .shopify-policy__body p {
   margin-bottom: 16px;
-  line-height: 140%;
+  line-height: 160%;
+}
+.shopify-policy__body p a {
+  text-decoration: underline;
+  transition: .3s ease all;
+}
+.shopify-policy__body p a:hover {
+  color: #000;
+}
+.shopify-policy__body p strong {
+  display: inline-block;
+  margin-bottom: 8px;
 }
 .shopify-policy__body ul,
 .shopify-policy__body ol {
