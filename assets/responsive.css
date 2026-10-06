@@ -1328,6 +1328,9 @@
   .essential-ingredient .accordion-content {
     max-width: 100%;
   }
+  .pdp {
+      padding: 70px 0 0;
+  }
 }
 
 @media(max-width: 480px){
