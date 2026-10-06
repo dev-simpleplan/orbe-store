@@ -1275,8 +1275,14 @@
     align-items: stretch;
   }
   .pdp-gallery-item {
-    /* aspect-ratio: 4/2.5; */
+    aspect-ratio: 4/2.5;
     width: 100%;
+  }
+  .pdp-title {
+    font-size: clamp(35px,7vw,70px);
+  }
+  .pdp-price {
+    font-size: 29px;
   }
     .essential-ingredient-in .left .box-img {
       width: 100%;
