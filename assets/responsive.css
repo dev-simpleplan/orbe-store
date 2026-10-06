@@ -1269,7 +1269,7 @@
   .pdp-gallery {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 83%;
+    grid-auto-columns: 88%;
     overflow-x: scroll;
     grid-template-columns: auto;
     align-items: stretch;
