@@ -3117,20 +3117,21 @@ header.header--transparent
   color: #fff;
 }
 .care-behind-c .text-block h3 {
-  color: #fff;
+  color: #000;
   font-size: clamp(20px, 2.8vw, 32px);
   line-height: 150%;
   font-weight: 400;
 }
 .care-behind-c .text-block p {
-  color: #fff;
+  color: #000;
   font-size: 16px;
   line-height: 130%;
   letter-spacing: 0em;
   font-weight: 400;
 }
 .care-behind-c-in {
-  background: rgba(217, 217, 217, 0.1);
+  /* background: rgba(217, 217, 217, 0.1); */
+  background: #FFFFFF;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
@@ -3234,7 +3235,7 @@ header.header--transparent
 	object-fit: cover;
 }
 .essential-ingredient-in .right {
-  background-color: #f5f5f5;
+  background-color: #E5E5E5;
   padding: 38px 40px;
 }
 .essential-ingredient-in .right .capsule-img {
@@ -3275,8 +3276,23 @@ header.header--transparent
   padding-bottom: 4px;
   padding-top: 10px;
 }
+.essential-ingredient .accordion-content .accordion-extra-text {
+  margin-top: 20px;
+}
+.essential-ingredient .accordion-content .accordion-extra-text-footnote {
+  font-size: 14px;
+}
+.essential-ingredient .accordion-table-img {
+  margin-top: 20px;
+  width: 100%;
+}
+.essential-ingredient .accordion-table-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .essential-ingredient .accordion-content p {
-  padding-top: 10px;
+  padding-top: 0;
   color: var(--gray);
   font-size: 18px;
 }
@@ -3334,10 +3350,12 @@ body.ingredient-drawer-open {
   transition: transform 0.45s cubic-bezier(0.77, 0, 0.18, 1);
   box-shadow: -18px 0 38px rgba(0, 0, 0, 0.16);
 }
+.pdp.ingredient-drawer-active .ingredient-drawer-backdrop,
 .essential-ingredient.ingredient-drawer-active .ingredient-drawer-backdrop {
   opacity: 1;
   visibility: visible;
 }
+.pdp.ingredient-drawer-active .ingredient-drawer,
 .essential-ingredient.ingredient-drawer-active .ingredient-drawer {
   transform: translateX(0);
 }
@@ -3575,11 +3593,31 @@ body.ingredient-drawer-open {
   .essential-ingredient-in .left {
     display: none;
   }
+  /* .essential-ingredient .accordion-item {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  } */
+  .essential-ingredient .accordion-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  /* .essential-ingredient .accordion-title.active + .accordion-content {
+    margin-top: 25px;
+  } */
+  .essential-ingredient .accordion-content > * {
+    flex-shrink: 0;
+  }
   .accordion-content-img {
     display: block;
-    margin-top: 20px;
+    margin-top: 25px;
     border-radius: 8px;
     overflow: hidden;
+  }
+  .essential-ingredient .accordion-content .accordion-extra-text,
+  .essential-ingredient .accordion-table-img {
+    margin-top: 0;
   }
   .accordion-content-img img {
     width: 100%;
@@ -4208,6 +4246,116 @@ body.what-your-body-card-open {
   width: 180px;
   margin-right: 80px;
 }
+/* Certified By: logo popup */
+.cbs-item--popup {
+  cursor: pointer;
+}
+html.cb-modal-open {
+  overflow: hidden;
+}
+.cb-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cb-modal[hidden] {
+  display: none;
+}
+.cb-modal.is-open {
+  opacity: 1;
+}
+.cb-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.cb-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 56px 34px 44px;
+  background: #fff;
+  text-align: center;
+  transform: translateY(16px);
+  transition: transform 0.3s ease;
+}
+.cb-modal.is-open .cb-modal-card {
+  transform: none;
+}
+.cb-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--black);
+  color: #fff;
+  cursor: pointer;
+}
+.cb-modal-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.cb-modal-logo img {
+  display: block;
+  width: auto;
+  max-width: 70%;
+  max-height: 160px;
+  height: auto;
+}
+.cb-modal-title {
+  font-family: var(--tobias);
+  font-size: clamp(26px, 3vw, 32px);
+  line-height: 110%;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 14px;
+}
+.cb-modal-info {
+  font-family: var(--aspekta);
+  font-size: 15px;
+  line-height: 130%;
+  color: #5d5d5d;
+}
+.cb-modal-info p + p {
+  margin-top: 14px;
+}
+.cb-modal-why {
+  margin-top: 40px;
+}
+.cb-modal-why-heading {
+  font-family: var(--aspekta);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--black);
+  margin-bottom: 18px;
+}
+@media (max-width: 767px) {
+  .cb-modal-card {
+    padding: 52px 24px 36px;
+  }
+  .cb-modal-info {
+    font-size: 14px;
+  }
+}
+
 /* Certified By */
 body.template-page-thankyou .footer {
   margin-top: 0;
@@ -5817,6 +5965,10 @@ body.template-404 .footer {
   aspect-ratio: 1/1;
 }
 
+.pdp-gallery-dots {
+  display: none;
+}
+
 .pdp-gallery-img {
   width: 100%;
   height: 100%;
@@ -5964,33 +6116,160 @@ body.template-404 .footer {
   display: none;
 }
 
+/* Variant 1: show the price breakdown card (options are hidden on the default product page) */
+.pdp--v1 .pdp-info-inner .pdp-options {
+  display: flex;
+  margin-bottom: 50px;
+}
+.pdp--v1 .pdp-option:not(.pdp-option--breakdown) {
+  display: none;
+}
+
+/* Nutrition drawer: no shadow while closed (it leaked in from the right edge) */
+.pdp .ingredient-drawer {
+  box-shadow: none;
+  transition:
+    transform 0.45s cubic-bezier(0.77, 0, 0.18, 1),
+    box-shadow 0.45s ease;
+}
+.pdp.ingredient-drawer-active .ingredient-drawer {
+  box-shadow: -18px 0 38px rgba(0, 0, 0, 0.16);
+}
+
+/* Nutrition drawer: accordion items have a top border only */
+.pdp .ingredient-drawer-item {
+  margin-top: 34px;
+  border-top: 1px solid #c2c2c2;
+  border-bottom: 0;
+}
+.pdp .ingredient-drawer-item + .ingredient-drawer-item {
+  margin-top: 0;
+}
+
+/* Nutrition drawer button (sits under the gallery) */
+.pdp-nutrition-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  min-width: 220px;
+  min-height: 44px;
+  margin: 20px auto 0;
+  padding: 0 24px;
+  border: 1px solid var(--black);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--black);
+  font-family: var(--aspekta);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.pdp-nutrition-btn:hover {
+  background: var(--black);
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .pdp-nutrition-btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    margin: 20px 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+}
+
+/* Checklist */
+.pdp-checklist {
+  list-style: none;
+  margin: 0 0 50px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pdp-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--aspekta);
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.3;
+}
+.pdp-checklist-icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  color: var(--black);
+  display: flex;
+}
+.pdp-checklist-icon svg,
+.pdp-checklist-icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .pdp-checklist-item {
+    font-size: 14px;
+  }
+  .pdp-checklist-icon {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
 /* Rating */
 .pdp-rating {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
-  margin-bottom: 10px;
+  gap: 14px;
+  margin-bottom: 24px;
 }
 .pdp-stars {
   display: inline-flex;
-  gap: 0px;
-  margin-left: -3px;
+  gap: 2px;
 }
 .pdp-star {
   fill: #d8d8d8;
-  width: 23px;
-  height: 23px;
+  width: 14.72px;
+  height: auto;
+  display: block;
+}
+.pdp-star-img {
+  display: block;
+  width: 14.72px;
+  height: auto;
 }
 .pdp-star.is-filled {
   fill: var(--black);
 }
 .pdp-reviews {
   font-family: var(--aspekta);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--black);
+}
+@media (max-width: 767px) {
+  .pdp--v1 .pdp-rating {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .pdp--v1 .pdp-reviews {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+  }
 }
 
 /* Title */
@@ -6000,7 +6279,7 @@ body.template-404 .footer {
   line-height: 0.95;
   font-weight: 400;
   color: var(--black);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 /* Description */
@@ -6012,32 +6291,39 @@ body.template-404 .footer {
   max-width: 50ch;
   /* margin-bottom: 60px; */
   margin-bottom: 30px;
+  font-weight:550;
 }
 
 /* Price */
 .pdp-price {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  align-items: center;
+  gap: 18px;
   font-family: var(--tobias);
-  font-size: 34px;
+  font-size: 42px;
   color: var(--black);
-  line-height: 1;
+  line-height: 99%;
+  font-weight: 400;
+  letter-spacing: -6%;
 }
 .pdp-price-compare {
   font-family: var(--aspekta);
   font-size: 18px;
   color: #9a9a9a;
   text-decoration: line-through;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 136%;
 }
 .pdp-supply {
   font-family: var(--aspekta);
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-size: 15px;
   text-transform: uppercase;
   color: var(--black);
   /* margin: 10px 0 26px; */
   margin: 10px 0 40px;
+  line-height: 150%;
+  letter-spacing: 2.88px;
 }
 
 /* Purchase options */
@@ -6060,7 +6346,7 @@ body.template-404 .footer {
 	transition: border-color 0.25s ease, background 0.25s ease;
 }
 .pdp-option.is-active {
-	border-color: var(--black);
+	border-color: #000000;
 }
 .pdp-option input[type="radio"] {
 	position: absolute;
@@ -6082,7 +6368,7 @@ body.template-404 .footer {
 .pdp-option.is-active .pdp-option-radio::after {
 	content: "";
 	position: absolute;
-	inset: 4px;
+	inset: 2px;
 	border-radius: 50%;
 	background: var(--black);
 }
@@ -6108,6 +6394,166 @@ body.template-404 .footer {
   justify-self: end;
   white-space: nowrap;
 }
+/* Price breakdown card */
+.pdp-options-label {
+  font-family: var(--aspekta);
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 19px;
+  line-height: 150%;
+  font-weight: 400;
+  letter-spacing: 2.88px;
+}
+.pdp-option--breakdown {
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+.pdp-option-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.pdp-option-details {
+  font-family: var(--aspekta);
+  font-size: 10px;
+  color: var(--black);
+  line-height: 150%;
+}
+.pdp-option-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  text-align: right;
+}
+.pdp-option--breakdown .pdp-option-price {
+  font-family: var(--tobias);
+  font-size: 18px;
+  line-height: 99%;
+  font-weight: 450;
+  letter-spacing: -6%;
+}
+.pdp-option-supply {
+  font-family: var(--aspekta);
+  font-size: 13px;
+  color: var(--gray);
+  white-space: nowrap;
+}
+.pdp-option-perday {
+  font-family: var(--aspekta);
+  font-size: 11px;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+/* Price breakdown card: 2-row grid
+   row 1: title | price / supply      row 2: details | per day */
+.pdp--v1 .pdp-option--breakdown {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: clamp(10px, 2vw, 16px);
+  row-gap: 8px;
+  align-items: start;
+}
+.pdp--v1 .pdp-option--breakdown .pdp-option-main,
+.pdp--v1 .pdp-option--breakdown .pdp-option-side {
+  display: contents;
+}
+.pdp--v1 .pdp-option--breakdown .pdp-option-radio {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+.pdp--v1 .pdp-option--breakdown .pdp-option-label {
+  grid-column: 2;
+  grid-row: 1;
+}
+.pdp--v1 .pdp-option--breakdown .pdp-option-priceline {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  text-align: right;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.pdp--v1 .pdp-option--breakdown .pdp-option-details {
+  grid-column: 2;
+  grid-row: 2;
+}
+.pdp--v1 .pdp-option--breakdown .pdp-option-perday {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: end;
+  text-align: right;
+}
+
+/* Price breakdown card: responsive */
+.pdp--v1 .pdp-option--breakdown {
+  padding: 17px 21px;
+}
+.pdp--v1 .pdp-option--breakdown .pdp-option-label {
+  font-size: 12px;
+    letter-spacing: 2.88px;
+    line-height: 115%;
+}
+.pdp--v1 .pdp-option-supply {
+  white-space: normal;
+  font-weight: 500;
+  font-size: 10.93px;
+  line-height: 136%;
+  text-transform: capitalize;
+}
+@media (max-width: 767px) {
+  .pdp--v1 .pdp-option--breakdown {
+    padding: 15px;
+  }
+  .pdp--v1 .pdp-options-label {
+    font-size: 13px;
+    letter-spacing: 2.4px;
+    margin-bottom: 12px;
+  }
+  .pdp--v1 .pdp-option--breakdown .pdp-option-price {
+    font-size: 22px;
+  }
+  .pdp--v1 .pdp-option-supply {
+    font-size: 12px;
+  }
+  .pdp--v1 .pdp-option-details,
+  .pdp--v1 .pdp-option-perday {
+    font-size: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .pdp--v1 .pdp-option--breakdown {
+    grid-template-columns: auto 1fr;
+    row-gap: 8px;
+  }
+  .pdp--v1 .pdp-option--breakdown .pdp-option-radio {
+    grid-row: 1;
+    align-self: center;
+  }
+  .pdp--v1 .pdp-option--breakdown .pdp-option-label,
+  .pdp--v1 .pdp-option--breakdown .pdp-option-details,
+  .pdp--v1 .pdp-option--breakdown .pdp-option-priceline,
+  .pdp--v1 .pdp-option--breakdown .pdp-option-perday {
+    grid-column: 2;
+    justify-self: start;
+    text-align: left;
+  }
+  .pdp--v1 .pdp-option--breakdown .pdp-option-label { grid-row: 1; }
+  .pdp--v1 .pdp-option--breakdown .pdp-option-details { grid-row: 2; }
+  .pdp--v1 .pdp-option--breakdown .pdp-option-priceline { grid-row: 3; margin-top: 6px; }
+  .pdp--v1 .pdp-option--breakdown .pdp-option-perday { grid-row: 4; }
+  .pdp--v1 .pdp-option-priceline {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+}
 .pdp-option-sub {
   grid-column: 2 / -1;
   font-family: var(--aspekta);
@@ -6123,11 +6569,13 @@ body.template-404 .footer {
 }
 .pdp-targets-label {
   font-family: var(--aspekta);
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-size: 15px;
   text-transform: uppercase;
   color: var(--black);
   margin-bottom: 14px;
+  line-height: 150%;
+  font-weight: 400;
+  letter-spacing: 2.88px;
 }
 .pdp-targets-list {
   display: flex;
@@ -6192,6 +6640,7 @@ body.template-404 .footer {
   border: none;
   font-size: 14px;
   padding: 14px 30px;
+  font-weight: 500;
 }
 .pdp-add-btn[disabled] {
   opacity: 0.5;
