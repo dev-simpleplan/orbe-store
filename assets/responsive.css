@@ -1266,17 +1266,81 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
+  .pdp-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pdp-gallery-wrap {
+    min-width: 0;
+    width: 100%;
+  }
   .pdp-gallery {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 88%;
+    grid-auto-columns: 100%;
+    max-width: 100%;
+    touch-action: pan-x pan-y;
+    gap: 0;
     overflow-x: scroll;
-    grid-template-columns: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    grid-template-columns: none;
     align-items: stretch;
   }
-  .pdp-gallery-item {
-    aspect-ratio: 4/2.5;
+  .pdp-gallery::-webkit-scrollbar {
+    display: none;
+  }
+  .pdp-gallery .pdp-gallery-item,
+  .pdp-gallery .pdp-gallery-item:first-child {
+    grid-column: auto;
+    aspect-ratio: 3/2;
     width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  /* Variant 1: slides match the 430 x 650 infographic artboards, so nothing is cropped */
+  .pdp--v1 .pdp-gallery .pdp-gallery-item,
+  .pdp--v1 .pdp-gallery .pdp-gallery-item:first-child {
+    aspect-ratio: 430 / 650;
+  }
+  .pdp--v1 .pdp-gallery-img {
+    object-fit: contain;
+  }
+  .pdp-gallery {
+    cursor: grab;
+  }
+  .pdp-gallery.is-dragging {
+    cursor: grabbing;
+  }
+  .pdp-gallery.is-dragging,
+  .pdp-gallery.is-settling {
+    scroll-snap-type: none;
+  }
+  .pdp-gallery .pdp-gallery-zoom-btn {
+    cursor: inherit;
+  }
+  .pdp-gallery .pdp-gallery-img {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+  }
+  .pdp-gallery-dots {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: 12px;
+  }
+  .pdp-gallery-dot {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: #b5b5b5;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .pdp-gallery-dot.is-active {
+    background: #000;
   }
   .pdp-title {
     font-size: clamp(35px,7vw,70px);

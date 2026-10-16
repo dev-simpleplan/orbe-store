@@ -1,0 +1,1124 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-variant-1",
+      "blocks": {
+        "acc_why": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Why Orbé",
+            "metafield_key": "custom.why_orbe",
+            "content": "<p>Essential nourishment for energy, mood, hormonal balance, and long-term wellbeing.</p>",
+            "image_metafield_key": ""
+          }
+        },
+        "acc_ingredients": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Ingredients",
+            "metafield_key": "custom.ingredients",
+            "content": "<p>Clean, considered, essential. Each ingredient selected for purpose and purity.</p>",
+            "image_metafield_key": "",
+            "image": "shopify://shop_images/orbe-ingredients.jpg"
+          }
+        },
+        "acc_nutrition": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Nutrition Profile",
+            "metafield_key": "custom.nutrition_profile",
+            "content": "",
+            "image_metafield_key": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_29_2026_07_48_24_PM.png"
+          }
+        },
+        "acc_how": {
+          "type": "collapsible",
+          "settings": {
+            "title": "How To Use",
+            "metafield_key": "custom.how_to_use",
+            "content": "<p>Two capsules with water after a meal. Use consistently for best results. Benefits build gradually over time.</p>",
+            "image_metafield_key": ""
+          }
+        },
+        "collapsible_EUBVPY": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Product Details",
+            "metafield_key": "custom.product_details",
+            "content": "<p>Add your content here.</p>",
+            "image_metafield_key": ""
+          }
+        }
+      },
+      "block_order": [
+        "acc_why",
+        "acc_ingredients",
+        "acc_nutrition",
+        "acc_how",
+        "collapsible_EUBVPY"
+      ],
+      "settings": {
+        "show_rating": false,
+        "rating_value": 4,
+        "reviews_text": "200+ Reviews",
+        "supply_text": "30 Days: 60 Capsules",
+        "onetime_label": "One Time Purchase",
+        "subscription_sub": "Subscribe for a simpler routine delivered effortlessly every month.",
+        "targets_label": "Supports:",
+        "target_prefix": "",
+        "add_button_text": "Buy Now",
+        "sold_out_text": "Sold Out",
+        "show_checkout_badges": true,
+        "checkout_label": "Guaranteed Safe Checkout With",
+        "razorpay_badge": "shopify://shop_images/Gemini_Generated_Image_xaqq8exaqq8exaqq.png",
+        "perks": "ENERGY THAT DOESN'T DIP AT 3PM\nEASIER SLEEP, STEADIER MOOD\nBONE, SKIN AND IMMUNE SUPPORT"
+      }
+    },
+    "spacer_aADnDt": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 80,
+        "custom_class": ""
+      }
+    },
+    "testimonial-sec": {
+      "type": "testimonial-sec",
+      "blocks": {
+        "video_AcW8tR": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
+            "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
+          }
+        },
+        "text_block_h8pRDJ": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/5c846ee5649e7f9f3375b48aba4eae710d177b67.png",
+            "author_name": "Priyanshi",
+            "rating": 5,
+            "review": "I didn't start taking Orbé expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed."
+          }
+        },
+        "video_8TWHQi": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Testimonial 3.mp4",
+            "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
+          }
+        },
+        "text_block_JB3HA9": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/a9603290a96516e0196bdb17904f2cf4dd8bd56a.png",
+            "author_name": "Mahima",
+            "rating": 5,
+            "review": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down."
+          }
+        },
+        "video_4BYdtw": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Testimonial 1 Vertical.mp4",
+            "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
+          }
+        },
+        "text_block_inCXmp": {
+          "type": "text_block",
+          "settings": {
+            "author_image": "shopify://shop_images/b8eef1266f870e6229405da462092df88b3228c6.jpg",
+            "author_name": "Neha",
+            "rating": 5,
+            "review": "I've tried so many supplements over the years, but Orbé is the first one that made me feel confident about what I am taking. The transparency, the quality of the ingredients, and the thought behind the product really stood out to me."
+          }
+        },
+        "video_ChzBex": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/Testimonial 1 Vertical.mp4",
+            "poster": "shopify://shop_images/646ad002c0343fa12f74ac99dbf20f9f0d2951f3.png"
+          }
+        },
+        "text_block_7Wzj3Y": {
+          "type": "text_block",
+          "disabled": true,
+          "settings": {
+            "author_image": "shopify://shop_images/b8eef1266f870e6229405da462092df88b3228c6.jpg",
+            "author_name": "Neha",
+            "rating": 5,
+            "review": "I've tried so many supplements over the years, but Orbé is the first one that made me feel confident about what I am taking. The transparency, the quality of the ingredients, and the thought behind the product really stood out to me."
+          }
+        },
+        "video_kG74WW": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/Testimonial 3.mp4",
+            "poster": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png"
+          }
+        },
+        "text_block_U6cNxK": {
+          "type": "text_block",
+          "disabled": true,
+          "settings": {
+            "author_image": "shopify://shop_images/a9603290a96516e0196bdb17904f2cf4dd8bd56a.png",
+            "author_name": "Mahima",
+            "rating": 5,
+            "review": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down."
+          }
+        },
+        "video_gBABwp": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/Testimonial 2 Vertical.mp4",
+            "poster": "shopify://shop_images/910c0e207b9ac3a33d4de1ce6551c90d41e0129b.png"
+          }
+        },
+        "text_block_PB4UXb": {
+          "type": "text_block",
+          "disabled": true,
+          "settings": {
+            "author_image": "shopify://shop_images/5c846ee5649e7f9f3375b48aba4eae710d177b67.png",
+            "author_name": "Priyanshi",
+            "rating": 5,
+            "review": "I didn't start taking Orbé expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed."
+          }
+        }
+      },
+      "block_order": [
+        "video_AcW8tR",
+        "text_block_h8pRDJ",
+        "video_8TWHQi",
+        "text_block_JB3HA9",
+        "video_4BYdtw",
+        "text_block_inCXmp",
+        "video_ChzBex",
+        "text_block_7Wzj3Y",
+        "video_kG74WW",
+        "text_block_U6cNxK",
+        "video_gBABwp",
+        "text_block_PB4UXb"
+      ],
+      "settings": {
+        "heading": "Made For Her. Loved By Her."
+      }
+    },
+    "spacer_rFGqAQ": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 80,
+        "custom_class": ""
+      }
+    },
+    "certified-by": {
+      "type": "certified-by",
+      "blocks": {
+        "certificate_Tx96NA": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_6DgXgi": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_bC6LFf": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/surface1_a78f7377-a381-40c0-86fb-b73925a111e0.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_EiQhdF": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/HACCP_Logo_-1_de53d0ac-3752-46bf-b995-c6a07d00ab12.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_3kzTPw": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/ISO_9001-2015-1_1.svg",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_gNCtmx": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_R8PtL6": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
+            "alt": "Certification logo"
+          }
+        },
+        "certificate_8LBn9k": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
+            "alt": "Certification logo"
+          }
+        }
+      },
+      "block_order": [
+        "certificate_Tx96NA",
+        "certificate_6DgXgi",
+        "certificate_bC6LFf",
+        "certificate_EiQhdF",
+        "certificate_3kzTPw",
+        "certificate_gNCtmx",
+        "certificate_R8PtL6",
+        "certificate_8LBn9k"
+      ],
+      "settings": {
+        "heading": "Certified by"
+      }
+    },
+    "care-behind-c": {
+      "type": "care-behind-capsule",
+      "settings": {
+        "background_image": "shopify://shop_images/image_7.png",
+        "heading": "The Care Behind the Capsule.",
+        "capsule_image": "shopify://shop_images/Change_Background_Color_Sep_3_2026_2_Background_Removed_2e32667c-31e4-4707-8ea5-b32dc66195be.png",
+        "title_1": "1. Clinically Designed",
+        "text_1": "Research-backed nutrients and advanced pill-in-pill technology work together to support better absorption and efficacy.",
+        "title_2": "2. Certified & Tested",
+        "text_2": "Manufactured in GMP and FDA compliant facilities, with every batch tested for purity, potency, stability, and consistency.",
+        "title_3": "3. Clean & Transparent",
+        "text_3": "No fillers or unnecessary additives. Carefully sourced, branded ingredients you can identify and trust.",
+        "title_4": "4. A New Standard in India",
+        "text_4": "Five-Point NABL accredited testing ensures the formula meets the highest standards of safety and transparency."
+      }
+    },
+    "spacer_iVnf8F": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120,
+        "custom_class": ""
+      }
+    },
+    "guided_by_w3PegE": {
+      "type": "guided-by",
+      "blocks": {
+        "expert_cxAGfX": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468579_1.jpg",
+            "name": "Dr. Maitri",
+            "designation": "Consultant Dermatologist, Leprology & Cosmetology"
+          }
+        },
+        "expert_jEieNM": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468581_1.jpg",
+            "name": "Dr. Mansi",
+            "designation": "Consultant Obstetrician & Gynaecologist, Laparoscopic Surgeon, and Fertility Expert"
+          }
+        }
+      },
+      "block_order": [
+        "expert_cxAGfX",
+        "expert_jEieNM"
+      ],
+      "name": "Guided By",
+      "settings": {
+        "heading": "Guided By Expertise",
+        "description": "Guided by those who bring wisdom, depth, and evidence to our pursuit of clarity."
+      }
+    },
+    "spacer_PDTr8t": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120,
+        "custom_class": ""
+      }
+    },
+    "essential-ingredient": {
+      "type": "essential-ingredient",
+      "blocks": {
+        "drawer_section_cTbwWP": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "",
+            "text": "<p>Ten nutrients - every form is chosen on absorption data, and not on cost.<br/><br/>Below is what's in ORBÉ N°01, why each ingredient is there, and why we picked the specific form we did. Where the choice cost us more, we've said so.</p>"
+          }
+        },
+        "drawer_section_pF9tLM": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "How to read this page",
+            "text": "<p>The capsule has two phases.<br/><br/>The <strong>outer capsule</strong> holds an oil: algal DHA plus the fat-soluble vitamins D3, E and K2. It dissolves in the stomach and the oil carries those vitamins into the duodenum, where bile helps you absorb them.<br/><br/>The <strong>inner capsule</strong> is a sealed powder capsule sitting inside that oil. It holds the minerals and the water-soluble vitamins. Keeping them physically apart until you swallow stops the iron from oxidising the DHA on the shelf.<br/><br/>Serving size is 2 capsules, once a day, with your main meal.</p>"
+          }
+        },
+        "accordion_section_mTpgWR": {
+          "type": "accordion_section",
+          "settings": {
+            "heading": "Outer Capsule Phase",
+            "text": "<h4>Vegan Omega-3 DHA</h4><p><strong>Form: &nbsp;</strong>Algal Oil from Schizochytrium sp.</p><p><strong>Dose:</strong> 405 mg DHA per serving</p><p><strong>What it supports:</strong> Brain and eye function, cardiovascular health, skin, and the body's inflammatory balance.</p><p><strong>Why this form:</strong> DHA usually comes from fish. Fish get it from algae. We source it directly from the algae, which skips the fish entirely. No fishy aftertaste, no reflux, no marine contaminant risk, and it works for vegetarians and vegans.</p><p><strong>The gap in India:</strong> Vegetarian diets are close to zero in preformed DHA. The body can convert ALA from flax and walnuts into DHA, but the conversion rate in women is low and unreliable.</p><h4>Vitamin D3</h4><p><strong>Form:</strong> Vitashine™ Cholecalciferol, from lichen&nbsp;</p><p><strong>Dose:</strong> 600 IU per serving</p><p><strong>What it supports:</strong> Calcium absorption, bone strength, immune function, and mood.</p><p><strong>Why this form:</strong> Almost all vitamin D3 on the market comes from lanolin, which is sheep's wool grease. Vitashine™ is grown from lichen, so it's genuinely vegan and still D3 rather than the weaker D2 that most vegan products use.</p><p><strong>The gap in India:</strong> Vitamin D insufficiency runs between 70 and 90 percent across Indian studies, despite the sunlight. Indoor work, covered clothing, sunscreen and darker skin all reduce how much your skin makes.</p><h4>Vitamin E</h4><p><strong>Form:</strong> D-Alpha Tocopherol from mixed tocopherols (Brassica Napus)&nbsp;</p><p><strong>Dose:</strong> 10 mg per serving</p><p><strong>What it supports:</strong> Cell membrane protection and skin health. It also protects the DHA in this capsule from oxidising, both on the shelf and inside you.</p><p><strong>Why this form:</strong> Natural D-alpha tocopherol is roughly twice as bioavailable as the synthetic DL-alpha form, and sourcing it from a mixed tocopherol base gives broader antioxidant coverage than isolated alpha alone.</p><p><strong>The gap in India:</strong> Intake is suboptimal in an estimated 40 to 50 percent of adults. Air pollution and repeatedly heated cooking oils both raise how much your body needs.</p><h4>Vitamin K2</h4><p><strong>Form:</strong> MenaQ7® Menaquinone-7 (MK-7)</p><p><strong>Dose:</strong> 55 mcg per serving</p><p><strong>What it supports:</strong> Bone mineralisation and cardiovascular health. K2 activates the proteins that put calcium into your bones and keep it out of your arteries.</p><p><strong>Why this form:</strong> MK-7 stays in the blood for days, where the shorter MK-4 form clears in hours. That means a small daily dose works. MenaQ7® is the most studied MK-7 on the market.</p><p><strong>The gap in India:</strong> K2 comes mainly from fermented foods and animal products. Indian vegetarian diets have very little. Taking vitamin D without K2 raises calcium absorption without directing where that calcium goes.</p>"
+          }
+        },
+        "drawer_section_xwprKH": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Vitamin D3",
+            "text": "<p><strong>Form:</strong> Vitashine™ cholecalciferol, from lichen Dose: 600 IU per serving</p><p><strong>What it supports:</strong> Calcium absorption, bone strength, immune function, and mood.</p><p><strong>Why this form:</strong> Almost all vitamin D3 on the market comes from lanolin, which is sheep's wool grease. Vitashine™ is grown from lichen, so it's genuinely vegan and still D3 rather than the weaker D2 that most vegan products use.</p><p><strong>The gap in India:</strong> Vitamin D insufficiency runs between 70 and 90 percent across Indian studies, despite the sunlight. Indoor work, covered clothing, sunscreen and darker skin all reduce how much your skin makes.</p>"
+          }
+        },
+        "drawer_section_RnHDxg": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Vitamin E",
+            "text": "<p><strong>Form:</strong> D-Alpha Tocopherol from mixed tocopherols (Brassica Napus) Dose: 10 mg per serving</p><p><strong>What it supports:</strong> Cell membrane protection and skin health. It also protects the DHA in this capsule from oxidising, both on the shelf and inside you.</p><p><strong>Why this form:</strong> Natural D-alpha tocopherol is roughly twice as bioavailable as the synthetic DL-alpha form, and sourcing it from a mixed tocopherol base gives broader antioxidant coverage than isolated alpha alone.</p><p><strong>The gap in India:</strong> Intake is suboptimal in an estimated 40 to 50 percent of adults. Air pollution and repeatedly heated cooking oils both raise how much your body needs.</p>"
+          }
+        },
+        "drawer_section_Gx8XFM": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Vitamin K2",
+            "text": "<p><strong>Form:</strong> MenaQ7® menaquinone-7 (MK-7)</p><p><strong>Dose:</strong> 55 mcg per serving</p><p><strong>What it supports:</strong> Bone mineralisation and cardiovascular health. K2 activates the proteins that put calcium into your bones and keep it out of your arteries.</p><p><strong>Why this form:</strong> MK-7 stays in the blood for days, where the shorter MK-4 form clears in hours. That means a small daily dose works. MenaQ7® is the most studied MK-7 on the market.</p><p><strong>The gap in India:</strong> K2 comes mainly from fermented foods and animal products. Indian vegetarian diets have very little. Taking vitamin D without K2 raises calcium absorption without directing where that calcium goes.</p>"
+          }
+        },
+        "accordion_section_tAjXPR": {
+          "type": "accordion_section",
+          "settings": {
+            "heading": "Inner Capsule Phase",
+            "text": "<h4>Iron</h4><p><strong>Form:</strong> Ferrochel® Ferrous Bisglycinate Chelate&nbsp;</p><p><strong>Dose:</strong> 20.88 mg per serving</p><p><strong>What it supports:</strong> Haemoglobin production and oxygen transport. Adequate iron helps reduce tiredness and supports stamina through the menstrual cycle.</p><p><strong>Why this form:</strong> Ferrous sulfate is cheap and works, and it also causes the nausea and constipation that make women stop taking iron. Ferrochel® binds the iron to glycine, which cuts free iron in the gut. Less irritation, and the chelate gets past the phytates in wheat and rice that block ordinary iron. It costs us several times more than sulfate. Iron you actually keep taking is worth more than iron you abandon in week two.</p><p><strong>The gap in India:</strong> NFHS-5 (2019 to 2021) found 57 percent of women aged 15 to 49 anaemic. Tea and coffee with meals make it worse by blocking absorption.</p><p>If you suspect anaemia, get a ferritin and haemoglobin test. A daily supplement supports normal iron status. It isn't a treatment for diagnosed deficiency, which needs a doctor and higher supervised doses.</p><h4>Folate</h4><p><strong>Form:</strong> Quatrefolic® (6S)-5-Methyltetrahydrofolate, Glucosamine Salt</p><p><strong>Dose:</strong> 220 mcg per serving</p><p><strong>What it supports:</strong> Red blood cell formation, DNA synthesis, cell renewal, and the methylation cycle that also governs mood and hormone metabolism.</p><p><strong>Why this form:</strong> Folic acid is synthetic and your body has to convert it through the MTHFR enzyme before it can be used. A large share of South Asians carry MTHFR variants that slow that conversion down. Quatrefolic® is already in the active 5-MTHF form, so the conversion step doesn't apply.</p><p><strong>The gap in India:</strong> A study of Indian women of reproductive age found 78.3 percent with insufficient red blood cell folate. Low green leafy vegetable intake is the main driver.</p><h4>Vitamin B12</h4><p><strong>Form:</strong> Methylcobalamin&nbsp;</p><p><strong>Dose:</strong> 2.2 mcg per serving.</p><p><strong>What it supports:</strong> Energy metabolism, nerve function, and mental clarity. B12 works with folate in the methylation cycle and improves how well your body uses iron.</p><p><strong>Why this form:</strong> Methylcobalamin is the coenzyme form your cells use directly. Cyanocobalamin, the cheaper standard, has to be converted and releases a cyanide molecule in the process, which is harmless at these doses but pointless when the active form is available.</p><p><strong>The gap in India:</strong> Studies put B12 deficiency across the Indian population above 70 percent, with one urban study finding 52.2 percent of women deficient. B12 comes almost entirely from animal foods. The symptoms, fatigue, low mood, brain fog, get written off as stress.</p><h4>Magnesium</h4><p><strong>Form:</strong> Magnesium Bisglycinate&nbsp;</p><p><strong>Dose:</strong> 55 mg per serving.</p><p><strong>What it supports:</strong> Sleep quality, muscle relaxation, stress response, and monthly comfort. It also helps your body convert vitamin D into its usable form.</p><p><strong>Why this form:</strong> Magnesium oxide is the cheapest magnesium and most of it doesn't get absorbed. What stays in the gut draws in water, which is why oxide is sold as a laxative. Bisglycinate is chelated to glycine, absorbs well, and doesn't have that effect.</p><p><strong>The gap in India:</strong> Dietary assessments show 40 to 50 percent of urban Indian women taking in less magnesium than the RDA. Processed food, low nut and seed intake, high caffeine and chronic stress all deplete it.</p><h4>Zinc</h4><p><strong>Form:</strong> Zinc Citrate&nbsp;</p><p><strong>Dose:</strong> 7.128 mg per serving.</p><p><strong>What it supports:</strong> Immune function, skin barrier health, wound healing, and hormone regulation. Zinc is a cofactor in more than 300 enzymes.</p><p><strong>Why this form:</strong> Absorption studies put zinc citrate well ahead of zinc oxide, and it's gentler on an empty stomach.</p><p><strong>The gap in India:</strong> Around 24.7 percent of non-pregnant urban Indian women show low serum zinc, with marginal intake estimated across 25 to 52 percent. Phytates in cereal-heavy diets block zinc the same way they block iron.</p><h4>Boron</h4><p><strong>Form:</strong> Boron Proteonate&nbsp;</p><p><strong>Dose:</strong> 1 mg per serving.</p><p><strong>What it supports:</strong> Bone metabolism and hormone balance. Boron improves how the body holds on to calcium and magnesium, and influences oestrogen levels.</p><p><strong>Why this form:</strong> Proteonate is an amino acid chelate, absorbed better than sodium borate.</p><p><strong>The gap in India:</strong> India has no formal RDA for boron. Typical intake is roughly 1 mg a day and comes from fresh fruit, vegetables and nuts, so urban diets low in fresh produce fall short.</p>"
+          }
+        },
+        "drawer_section_NXf89A": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Inner capsule phase",
+            "text": ""
+          }
+        },
+        "drawer_section_n4RndL": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Iron",
+            "text": "<p><strong>Form:</strong> Ferrochel® ferrous bisglycinate chelate Dose: 20.88 mg per serving</p><p><strong>What it supports:</strong> Haemoglobin production and oxygen transport. Adequate iron helps reduce tiredness and supports stamina through the menstrual cycle.</p><p><strong>Why this form:</strong> Ferrous sulfate is cheap and works, and it also causes the nausea and constipation that make women stop taking iron. Ferrochel® binds the iron to glycine, which cuts free iron in the gut. Less irritation, and the chelate gets past the phytates in wheat and rice that block ordinary iron. It costs us several times more than sulfate. Iron you actually keep taking is worth more than iron you abandon in week two.</p><p><strong>The gap in India:</strong> NFHS-5 (2019 to 2021) found 57 percent of women aged 15 to 49 anaemic. Tea and coffee with meals make it worse by blocking absorption.</p><p>If you suspect anaemia, get a ferritin and haemoglobin test. A daily supplement supports normal iron status. It isn't a treatment for diagnosed deficiency, which needs a doctor and higher supervised doses.</p>"
+          }
+        },
+        "drawer_section_kL4xWk": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Folate",
+            "text": "<p><strong>Form:</strong> Quatrefolic® (6S)-5-methyltetrahydrofolate, glucosamine salt</p><p><strong>Dose:</strong> 220 mcg per serving</p><p><strong>What it supports:</strong> Red blood cell formation, DNA synthesis, cell renewal, and the methylation cycle that also governs mood and hormone metabolism.</p><p><strong>Why this form:</strong> Folic acid is synthetic and your body has to convert it through the MTHFR enzyme before it can be used. A large share of South Asians carry MTHFR variants that slow that conversion down. Quatrefolic® is already in the active 5-MTHF form, so the conversion step doesn't apply.</p><p><strong>The gap in India:</strong> A study of Indian women of reproductive age found 78.3 percent with insufficient red blood cell folate. Low green leafy vegetable intake is the main driver.</p>"
+          }
+        },
+        "drawer_section_7iL3Qg": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Vitamin B12",
+            "text": "<p><strong>Form:</strong> Methylcobalamin Dose: 2.2 mcg per serving.</p><p><strong>What it supports:</strong> Energy metabolism, nerve function, and mental clarity. B12 works with folate in the methylation cycle and improves how well your body uses iron.</p><p><strong>Why this form:</strong> Methylcobalamin is the coenzyme form your cells use directly. Cyanocobalamin, the cheaper standard, has to be converted and releases a cyanide molecule in the process, which is harmless at these doses but pointless when the active form is available.</p><p><strong>The gap in India:</strong> Studies put B12 deficiency across the Indian population above 70 percent, with one urban study finding 52.2 percent of women deficient. B12 comes almost entirely from animal foods. The symptoms, fatigue, low mood, brain fog, get written off as stress.</p>"
+          }
+        },
+        "drawer_section_KaUwry": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Magnesium",
+            "text": "<p><strong>Form:</strong> Magnesium bisglycinate Dose: 55.5 mg per serving.</p><p><strong>What it supports:</strong> Sleep quality, muscle relaxation, stress response, and monthly comfort. It also helps your body convert vitamin D into its usable form.</p><p><strong>Why this form:</strong> Magnesium oxide is the cheapest magnesium and most of it doesn't get absorbed. What stays in the gut draws in water, which is why oxide is sold as a laxative. Bisglycinate is chelated to glycine, absorbs well, and doesn't have that effect.</p><p><strong>The gap in India:</strong> Dietary assessments show 40 to 50 percent of urban Indian women taking in less magnesium than the RDA. Processed food, low nut and seed intake, high caffeine and chronic stress all deplete it.</p>"
+          }
+        },
+        "drawer_section_KXnL6n": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Zinc",
+            "text": "<p><strong>Form:</strong> Zinc citrate Dose: 7.128 mg per serving.</p><p><strong>What it supports:</strong> Immune function, skin barrier health, wound healing, and hormone regulation. Zinc is a cofactor in more than 300 enzymes.</p><p><strong>Why this form:</strong> Absorption studies put zinc citrate well ahead of zinc oxide, and it's gentler on an empty stomach.</p><p><strong>The gap in India:</strong> Around 24.7 percent of non-pregnant urban Indian women show low serum zinc, with marginal intake estimated across 25 to 52 percent. Phytates in cereal-heavy diets block zinc the same way they block iron.</p>"
+          }
+        },
+        "drawer_section_znjWTR": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "Boron",
+            "text": "<p><strong>Form:</strong> Boron proteonate Dose: 1 mg per serving.</p><p><strong>What it supports:</strong> Bone metabolism and hormone balance. Boron improves how the body holds on to calcium and magnesium, and influences oestrogen levels.</p><p><strong>Why this form:</strong> Proteonate is an amino acid chelate, absorbed better than sodium borate.</p><p><strong>The gap in India:</strong> India has no formal RDA for boron. Typical intake is roughly 1 mg a day and comes from fresh fruit, vegetables and nuts, so urban diets low in fresh produce fall short.</p>"
+          }
+        },
+        "accordion_section_gJDqXb": {
+          "type": "accordion_section",
+          "settings": {
+            "heading": "How They Work Together",
+            "text": "<p>Individual nutrients aren't the whole story here. Four pairings do specific work:</p><p><strong>Folate + B12</strong>. Both run the methylation cycle. Taking folate without B12 can mask a B12 deficiency. Together they support red blood cell production, which is also what makes iron useful.</p><p><strong>Vitamin D3 + K2 + Boron + Magnesium</strong>. D3 raises how much calcium you absorb. K2 activates the proteins that route it into bone. Boron and magnesium support the same process. Taking D3 alone raises calcium in circulation without directing it.</p><p><strong>DHA + Vitamin E</strong>. DHA is a polyunsaturated fat and oxidises easily. Vitamin E sits in the same oil phase and protects it.</p><p><strong>Zinc + Magnesium</strong>. Both are cofactors for hormone-related enzymes and both support skin and immune function.</p>"
+          }
+        },
+        "drawer_section_cLVGNz": {
+          "type": "drawer_section",
+          "disabled": true,
+          "settings": {
+            "heading": "How they work together",
+            "text": "<p>Individual nutrients aren't the whole story here. Four pairings do specific work:<br/>Folate + B12. Both run the methylation cycle. Taking folate without B12 can mask a B12 deficiency. Together they support red blood cell production, which is also what makes iron useful.<br/><br/>Vitamin D3 + K2 + Boron + Magnesium. D3 raises how much calcium you absorb. K2 activates the proteins that route it into bone. Boron and magnesium support the same process. Taking D3 alone raises calcium in circulation without directing it.<br/>DHA + Vitamin E. DHA is a polyunsaturated fat and oxidises easily. Vitamin E sits in the same oil phase and protects it.<br/><br/>Zinc + Magnesium. Both are cofactors for hormone-related enzymes and both support skin and immune function.</p>"
+          }
+        },
+        "drawer_section_HkrJrc": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "Purity",
+            "text": "<p>Every batch of ORBÉ N°01 goes through a 5-point third-party screen at an NABL-accredited lab. Batch 6061VGV1 cleared all five.</p><ul><li><a href=\"https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Complete_Heavy_Metal_Test_-_Batch_6061VGV1.pdf?v=1788022244\" target=\"_blank\" title=\"Heavy metals report\">Heavy metals report (PDF)</a></li><li><a href=\"https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Pesticide_Test_-_Batch_6061VGV1.pdf?v=1788022244\" target=\"_blank\" title=\"Pesticide residue report\">Pesticide residue report (PDF)</a></li><li><a href=\"https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Microbial_Test_-_Batch_6061VGV1.pdf?v=1788022244\" target=\"_blank\" title=\"Microbial report\">Microbial report (PDF)</a></li><li><a href=\"https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Aflatoxin_Test_-_Batch_6061VGV1.pdf?v=1788022244\" target=\"_blank\" title=\"Aflatoxin report\">Aflatoxin report (PDF)</a></li><li><a href=\"https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Melamine_Test_-_Batch_6061VGV1.pdf?v=1788022244\" target=\"_blank\" title=\"Melamine report \">Melamine report (PDF)</a></li><li>Manufactured under FSSAI licence in a GMP-certified, FDA-approved, FSSC 22000 facility.</li></ul><p></p><p>Full Label</p><ul><li><a href=\"https://cdn.shopify.com/s/files/1/0739/8014/9916/files/2._Product_Formulation__Photos.pdf?v=1790256849\" target=\"_blank\" title=\"Complete formulation and nutritional profile (PDF)\">Complete formulation and nutritional profile (PDF)</a></li><li><a href=\"https://cdn.shopify.com/s/files/1/0739/8014/9916/files/4._Evidence_Dossier.pdf?v=1790256848\" target=\"_blank\" title=\"Ingredient evidence and references (PDF)\">Ingredient evidence and references (PDF)</a></li><li>Other ingredients: HPMC capsule shells (size 00 outer, size 3 inner), microcrystalline cellulose, colloidal silicon dioxide, magnesium stearate.<br/><br/>Not for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease, and is not a substitute for a varied and balanced diet.</li></ul>"
+          }
+        },
+        "accordion_inner_capsule": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Inner Capsule Phase",
+            "content": "<p>Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate)<br/><em>Active folate; red blood cell formation, cell renewal, reproductive health</em></p><p>Vitamin B12 (as Methylcobalamin)<br/><em>Energy metabolism, mental clarity, works with folate and iron</em></p><p>Iron (as Ferrochel® Ferrous Bisglycinate)<br/><em>Haemoglobin and oxygen transport; helps reduce tiredness; gentle on the stomach</em></p><p>Zinc (as Zinc Citrate)<em>Immunity, skin health, hormone regulation</em></p><p>Magnesium (as Magnesium Bisglycinate)<br/><em>Sleep quality, stress resilience, monthly comfort</em></p><p>Boron (as Boron Proteonate)<br/><em>Bone metabolism; helps the body use calcium and magnesium</em></p>",
+            "image": "shopify://shop_images/627a8008896753d283edbdb79e3ad123b2978ab9.png",
+            "image_tablet": "shopify://shop_images/ChatGPT_Image_Sep_25_2026_12_32_45_PM.png"
+          }
+        },
+        "accordion_outer_capsule": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Outer Capsule Phase",
+            "content": "<p>Vegan Omega-3 DHA (as Docosahexaenoic Acid; derived from Algae)<br/><em>Brain, eye, and heart function; cellular health</em></p><p>Vitashine® Vitamin D3 (as Cholecalciferol)<br/><em>Calcium absorption, bone strength, immunity, mood</em></p><p>Vitamin D3 (as Vitashine™, lichen-sourced)<br/><em>Antioxidant protection; shields DHA from oxidation; skin health</em></p><p>Vitamin K2 (as MenaQ7® MK-7)<br/><em>Directs calcium to bone; works alongside vitamin D</em></p>",
+            "image": "shopify://shop_images/61336f8624df961fe7afbb50e7ccad8c9a81bfa8.png"
+          }
+        }
+      },
+      "block_order": [
+        "drawer_section_cTbwWP",
+        "drawer_section_pF9tLM",
+        "accordion_section_mTpgWR",
+        "drawer_section_xwprKH",
+        "drawer_section_RnHDxg",
+        "drawer_section_Gx8XFM",
+        "accordion_section_tAjXPR",
+        "drawer_section_NXf89A",
+        "drawer_section_n4RndL",
+        "drawer_section_kL4xWk",
+        "drawer_section_7iL3Qg",
+        "drawer_section_KaUwry",
+        "drawer_section_KXnL6n",
+        "drawer_section_znjWTR",
+        "accordion_section_gJDqXb",
+        "drawer_section_cLVGNz",
+        "drawer_section_HkrJrc",
+        "accordion_inner_capsule",
+        "accordion_outer_capsule"
+      ],
+      "settings": {
+        "heading": "Clean, Considered, Essential",
+        "description": "Each ingredient is selected for its purpose, its purity, and its ability to genuinely support your everyday rhythm: nothing extra, nothing distracting.",
+        "link_text": "View All about the ingredient",
+        "drawer_eyebrow": "",
+        "drawer_heading": "About the Ingredients",
+        "inactive_heading": "",
+        "inactive_text": "",
+        "fill_weight_heading": "",
+        "fill_weight_text": "",
+        "appearance_heading": "",
+        "appearance_text": "",
+        "nutrition_heading": "",
+        "nutrition_text": "",
+        "box_image": "shopify://shop_images/ChatGPT_Image_Sep_25_2026_12_32_45_PM.png"
+      }
+    },
+    "spacer_RAkTAh": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 70,
+        "custom_class": ""
+      }
+    },
+    "gently-unfold": {
+      "type": "gently-unfolding",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468701_bcbdcb62-a609-4d14-ad21-b9a273a3dddd.png",
+            "week": "Week 1–2 : a little more clarity, a little more energy",
+            "text": "Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality.\nIf B12 was low, some women notice energy and focus first."
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468700.png",
+            "week": "Week 3–6 : your rhythm begins to soften",
+            "text": "Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise."
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468699.png",
+            "week": "Week 8-12 : your foundation strengthens",
+            "text": "Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady.\nSkin and mood changes are commonly reported in this window."
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468698.png",
+            "week": "Week 12+ : a steadier version of yourself",
+            "text": "Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience."
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "The Journey, Gently Unfolding",
+        "subheading": "Results depend on where you're starting from. For example, someone already replete in iron won't feel what someone deficient will.",
+        "cta_text": "",
+        "cta_link": "#"
+      }
+    },
+    "scroll_timeline_WXVVBK": {
+      "type": "scroll-timeline",
+      "blocks": {
+        "item_K3DtKk": {
+          "type": "item",
+          "settings": {
+            "label": "Week 1–2",
+            "heading": "A little more clarity, a little more energy",
+            "content": "<p>Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality. If B12 was low, some women notice energy and focus first.</p>",
+            "image": "shopify://shop_images/Rectangle_3468701_bcbdcb62-a609-4d14-ad21-b9a273a3dddd.png"
+          }
+        },
+        "item_w4BWyT": {
+          "type": "item",
+          "settings": {
+            "label": "Week 3–6",
+            "heading": "Your rhythm begins to soften",
+            "content": "<p>Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise.</p>",
+            "image": "shopify://shop_images/Rectangle_3468700.png"
+          }
+        },
+        "item_6kQRhh": {
+          "type": "item",
+          "settings": {
+            "label": "Week 8-12",
+            "heading": "Your foundation strengthens",
+            "content": "<p>Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady. Skin and mood changes are commonly reported in this window.</p>",
+            "image": "shopify://shop_images/Rectangle_3468699.png"
+          }
+        },
+        "item_j4gU6c": {
+          "type": "item",
+          "settings": {
+            "label": "Week 12+",
+            "heading": "A steadier version of yourself",
+            "content": "<p>Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience.</p>",
+            "image": "shopify://shop_images/Rectangle_3468698.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_K3DtKk",
+        "item_w4BWyT",
+        "item_6kQRhh",
+        "item_j4gU6c"
+      ],
+      "name": "Scroll Timeline",
+      "settings": {
+        "heading": "The journey, gently unfolding",
+        "subheading": "Results depend on where you're starting from. <br> For example, someone already replete in iron won't feel what someone deficient will.",
+        "sticky_media": true,
+        "sticky_top": 120,
+        "active_color": "#151515",
+        "inactive_color": "#b5b5b5",
+        "pill_active_bg": "#151515",
+        "pill_active_text": "#ffffff",
+        "line_color": "#151515",
+        "track_color": "#d4d4d4"
+      }
+    },
+    "spacer_6tMeNb": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100,
+        "custom_class": ""
+      }
+    },
+    "what-your-body": {
+      "type": "what-your-body",
+      "blocks": {
+        "body_left_1": {
+          "type": "list_block",
+          "settings": {
+            "column": "left",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Iron carries oxygen to your cells. B12 turns what you eat into usable energy. Both run low in Indian women more often than not: 57% of women aged 15 to 49 are anaemic, and B12 deficiency sits above 70% across the population.</p><p><br/><strong>In N°01:</strong> </p><p>Ferrochel® iron 20.88 mg · <br/>Methylcobalamin B12 2.2 mcg · <br/>Quatrefolic® folate 220 mcg</p>"
+          }
+        },
+        "body_left_2": {
+          "type": "list_block",
+          "settings": {
+            "column": "left",
+            "heading": "Mood & Clarity",
+            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present",
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>Magnesium calms the nervous system and helps regulate cortisol, the hormone that should drop at night. Coffee, stress and processed food all deplete it. Around 40 to 50% of urban Indian women take in less than the RDA.</p><p><br/><strong>In N°01:</strong> <br/>Magnesium bisglycinate 55.5 mg</p>"
+          }
+        },
+        "body_left_3": {
+          "type": "list_block",
+          "settings": {
+            "column": "left",
+            "heading": "Cycles & Hormones",
+            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period",
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>B12 and folate run the methylation cycle, which your brain depends on for neurotransmitters. DHA makes up a large share of your brain's structural fat. Vitamin D affects mood too, and 70 to 90% of Indians are insufficient in it. Vegetarian diets have almost no preformed DHA.</p><p><br/><strong>In N°01:</strong> <br/>Vegan DHA · <br/>Methylcobalamin B12 2.2 mcg · <br/>Quatrefolic® folate 220 mcg · <br/>Vitashine™ D3 600 IU</p>"
+          }
+        },
+        "body_right_1": {
+          "type": "list_block",
+          "settings": {
+            "column": "right",
+            "heading": "Sleep & Rest",
+            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed",
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>Zinc holds your skin barrier together and does the repair work after illness or injury. Vitamin D3 and K2 work as a pair for bone: D3 raises how much calcium you absorb, K2 puts it into bone rather than leaving it in circulation. Indian vegetarian diets are low in K2, and phytates in wheat and rice block zinc absorption.<br/><br/><strong>In N°01:</strong> <br/>Zinc citrate 7.128 mg · <br/>Vitashine™ D3 600 IU · <br/>MenaQ7® K2 55 mcg · <br/>Boron 1 mg · <br/>Vitamin E 10 mg</p>"
+          }
+        },
+        "body_right_2": {
+          "type": "list_block",
+          "settings": {
+            "column": "right",
+            "heading": "Body & Foundations",
+            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness",
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>You lose iron every cycle, which is part of why anaemia is so common in women. Magnesium eases the muscle tension and mood shifts before a period. Zinc and boron both influence how your body makes and clears hormones.</p><p><br/><strong>In N°01:</strong> <br/>Ferrochel® iron 20.88 mg · <br/>Magnesium bisglycinate 55.5 mg · <br/>Zinc citrate 7.128 mg · <br/>Boron 1 mg</p>"
+          }
+        },
+        "body_right_3": {
+          "type": "list_block",
+          "settings": {
+            "column": "right",
+            "heading": "Mental Load & Overwhelm",
+            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent",
+            "rich_text": "<p><strong>Why this happens<br/></strong><br/>Chronic stress burns through magnesium, and low magnesium makes you less able to handle stress. Caffeine speeds that up. B12 and DHA support the nervous system underneath it.</p><p><br/><strong>In N°01:</strong> <br/>Magnesium bisglycinate 55.5 mg · <br/>Methylcobalamin B12 2.2 mcg · <br/>Vegan DHA</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_left_1",
+        "body_left_2",
+        "body_left_3",
+        "body_right_1",
+        "body_right_2",
+        "body_right_3"
+      ],
+      "settings": {
+        "heading": "What Your Body’s Been Trying to Tell You",
+        "text": "You’re not imagining it. These everyday shifts are your body’s way of asking for support.",
+        "background_image": "shopify://shop_images/1d55de5de569b792405280de8a506e1328316733_1.png"
+      }
+    },
+    "body_signals_7GzjnK": {
+      "type": "body-signals",
+      "blocks": {
+        "tab_eXQme4": {
+          "type": "tab",
+          "settings": {
+            "label": "Energy & Fatigue",
+            "image": "shopify://shop_images/image1.jpg",
+            "heading": "Energy & Fatigue",
+            "items": "low energy\nafternoon crashes\ntired for no clear reason\nfeeling drained too easily\nslow starts to your mornings",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Iron carries oxygen to your cells. B12 turns what you eat into usable energy. Both run low in Indian women more often than not: 57% of women aged 15 to 49 are anaemic, and B12 deficiency sits above 70% across the population.</p><p><br/><strong>In N°01:</strong> </p><p>Ferrochel® Iron 20.88 mg · Methylcobalamin B12 2.2 mcg · Quatrefolic® Folate 220 mcg</p>"
+          }
+        },
+        "tab_qnXgpN": {
+          "type": "tab",
+          "settings": {
+            "label": "Sleep & Rest",
+            "image": "shopify://shop_images/image2.jpg",
+            "heading": "Sleep & Rest",
+            "items": "trouble winding down\nrestless nights\nshallow sleep\nwaking up unrefreshed",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Magnesium calms the nervous system and helps regulate cortisol, the hormone that should drop at night. Coffee, stress and processed food all deplete it. Around 40 to 50% of urban Indian women take in less than the RDA.<br/></p><p><strong>In N°01:</strong> <br/>Magnesium Bisglycinate 55.5 mg</p>"
+          }
+        },
+        "tab_KVhcnm": {
+          "type": "tab",
+          "settings": {
+            "label": "Mood & Clarity",
+            "image": "shopify://shop_images/image3.jpg",
+            "heading": "Mood & Clarity",
+            "items": "foggy focus\nemotional ups and downs\nfeeling unlike yourself\nirritability creeping in\ndifficulty staying present",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>B12 and folate run the methylation cycle, which your brain depends on for neurotransmitters. DHA makes up a large share of your brain's structural fat. Vitamin D affects mood too, and 70 to 90% of Indians are insufficient in it. Vegetarian diets have almost no preformed DHA.</p><p><br/><strong>In N°01:</strong> </p><p>Vegan DHA · Methylcobalamin B12 2.2 mcg · Quatrefolic® Folate 220 mcg · Vitashine™ D3 600 IU</p>"
+          }
+        },
+        "tab_KCPkC8": {
+          "type": "tab",
+          "settings": {
+            "label": "Body & Foundations",
+            "image": "shopify://shop_images/image4.jpg",
+            "heading": "Body & Foundations",
+            "items": "brittle nails\nhair feeling weaker\nmuscle heaviness\nlow immunity\nbone aches or stiffness",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Zinc holds your skin barrier together and does the repair work after illness or injury. Vitamin D3 and K2 work as a pair for bone: D3 raises how much calcium you absorb, K2 puts it into bone rather than leaving it in circulation. Indian vegetarian diets are low in K2, and phytates in wheat and rice block zinc absorption.</p><p><br/><strong>In N°01:</strong> </p><p>Zinc Citrate 7.128 mg · Vitashine™ D3 600 IU · MenaQ7® K2 55 mcg · Boron 1 mg · Vitamin E 10 mg</p>"
+          }
+        },
+        "tab_Tz3G3E": {
+          "type": "tab",
+          "settings": {
+            "label": "Cycle & Hormones",
+            "image": "shopify://shop_images/image5.jpg",
+            "heading": "Cycle & Hormones",
+            "items": "PMS discomfort\nirregular rhythm\nbloating and heaviness\nmood shifts before your period",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>You lose iron every cycle, which is part of why anaemia is so common in women. Magnesium eases the muscle tension and mood shifts before a period. Zinc and boron both influence how your body makes and clears hormones.<br/></p><p><strong>In N°01:</strong> </p><p>Ferrochel® Iron 20.88 mg · Magnesium Bisglycinate 55.5 mg · Zinc Citrate 7.128 mg · Boron 1 mg</p>"
+          }
+        },
+        "tab_JPeipi": {
+          "type": "tab",
+          "settings": {
+            "label": "Mental Load & Overwhelm",
+            "image": "shopify://shop_images/image6.jpg",
+            "heading": "Mental Load & Overwhelm",
+            "items": "decision fatigue\nfeeling overstretched\ntoo much noise, not enough clarity\ndifficulty staying consistent",
+            "rich_text": "<p><strong>Why this happens</strong></p><p>Chronic stress burns through magnesium, and low magnesium makes you less able to handle stress. Caffeine speeds that up. B12 and DHA support the nervous system underneath it.<br/></p><p><strong>In N°01:</strong> </p><p>Magnesium Bisglycinate 55.5 mg · Methylcobalamin B12 2.2 mcg · Vegan DHA</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_eXQme4",
+        "tab_qnXgpN",
+        "tab_KVhcnm",
+        "tab_KCPkC8",
+        "tab_Tz3G3E",
+        "tab_JPeipi"
+      ],
+      "name": "Body Signals",
+      "settings": {
+        "heading": "What Your Body's Been Trying To Tell You",
+        "subheading": "You're not imagining it. These everyday shifts are your body's way of asking for support."
+      }
+    },
+    "spacer_dcU6TK": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
+    },
+    "ready_formula_h7deTm": {
+      "type": "ready-formula",
+      "name": "Ready Formula",
+      "settings": {
+        "heading": "Your Body Has Been Asking For This",
+        "text": "A daily foundation of thoughtfully selected nutrients to support how you feel, every day.",
+        "button_text": "Start today",
+        "button_link": "shopify://products/n01",
+        "image": "shopify://shop_images/6e36aff0698a9e04660972ddf7a27cfbafced7bd_1.png"
+      }
+    },
+    "best-bio": {
+      "type": "best-bio-available",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
+            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
+            "author_name": "Mark Jack",
+            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "text": "Lorem ipsum dolor sit amet consectetur. Tempor arcu urna ac quis nec adipiscing fusce amet eget. Diam etiam arcu amet et turpis scelerisque eros. Erat enim mattis purus justo amet praesent. Dignissim sed nec ultrices urna etiam.",
+            "author_image": "shopify://shop_images/ae00c29e45116a5117e73e113b446abbf9b7f72c_1.png",
+            "author_name": "Mark Jack",
+            "image": "shopify://shop_images/14dd0692f0e13c88a0710e615e916b831d5307b4.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "“Best bio-available supplement”"
+      }
+    },
+    "spacer_adLpCm": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120,
+        "custom_class": ""
+      }
+    },
+    "batch-verified": {
+      "type": "batch-verified",
+      "blocks": {
+        "verification_dkWhHz": {
+          "type": "verification",
+          "settings": {
+            "title": "Heavy Metals",
+            "description": "Mercury, lead, arsenic, and cadmium, screened against FSSAI limits.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Complete_Heavy_Metal_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_wAJekU": {
+          "type": "verification",
+          "settings": {
+            "title": "Pesticides",
+            "description": "216 compounds tested. Every one below detection limit.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Pesticide_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_AkAMRN": {
+          "type": "verification",
+          "settings": {
+            "title": "Microbial Safety",
+            "description": "Screened for salmonella, E. coli, staph, yeast, and mould. All absent or under limit.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Microbial_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_JJUan6": {
+          "type": "verification",
+          "settings": {
+            "title": "Aflatoxins",
+            "description": "The four aflatoxins (B1, B2, G1, G2) that contaminate poorly stored botanicals. All under 0.5 µg/kg.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Aflatoxin_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_3brtdd": {
+          "type": "verification",
+          "settings": {
+            "title": "Melamine",
+            "description": "The adulterant behind past supplement scandals. Screened and cleared at under 0.5 mg/kg, well below the 2.5 limit.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Melamine_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        }
+      },
+      "block_order": [
+        "verification_dkWhHz",
+        "verification_wAJekU",
+        "verification_AkAMRN",
+        "verification_JJUan6",
+        "verification_3brtdd"
+      ],
+      "settings": {
+        "heading": "A First for India. A Standard for You.",
+        "subheading": "Most brands test to meet the minimum. We run a five-point screen on every batch through a NABL accredited lab, then publish the results. Nothing to take on faith.",
+        "image": "shopify://shop_images/Rectangle_3468672.png",
+        "testedby": "Tested by Equinox Labs, NABL accredited. Reports are batch-specific and dated, so you can match what you're holding to the paperwork."
+      }
+    },
+    "spacer_MQJmqW": {
+      "type": "spacer",
+      "disabled": true,
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120,
+        "custom_class": ""
+      }
+    },
+    "new_faq_section_n49mMB": {
+      "type": "new-faq-section",
+      "blocks": {
+        "faq_item_AJhLn9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I take Orbé?",
+            "answer": "Two capsules a day: a simple ritual that fits naturally into your morning or evening."
+          }
+        },
+        "faq_item_znLyB9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When will I start noticing changes?",
+            "answer": "Most women feel subtle shifts in clarity and energy within 1–2 weeks, with deeper benefits unfolding over 6–12 weeks."
+          }
+        },
+        "faq_item_TaBneX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take Orbé every day?",
+            "answer": "Yes. It’s designed to be gentle, balanced, and safe for daily use. Consistency is where the transformation happens."
+          }
+        },
+        "faq_item_cN46Ja": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can anyone take an overall wellness supplement?",
+            "answer": "Most adults can. If you're pregnant, breastfeeding, or managing a medical condition, check in with a professional first."
+          }
+        },
+        "faq_item_DwHmci": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a prescription?",
+            "answer": "No. Orbé is a daily wellness supplement, not a medication. It can be taken without a prescription."
+          }
+        },
+        "faq_item_7ACbPH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it upset my stomach?",
+            "answer": "Unlikely. We use gentle, chelated minerals like Ferrochel® iron and magnesium bisglycinate that are easy on digestion."
+          }
+        },
+        "faq_item_iPNtek": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes Orbé different from other supplements?",
+            "answer": "A pill-in-pill design that protects potency, clinically validated nutrients, and clean, intentional formulation."
+          }
+        },
+        "faq_item_eG4BrW": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe to take long-term?",
+            "answer": "Yes. Orbé is crafted with clean ingredients and balanced dosing for daily foundational support."
+          }
+        },
+        "faq_item_Dyij7B": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take Orbé with other supplements?",
+            "answer": "In most cases, yes, but it’s helpful to avoid doubling nutrients. If you’re unsure, a quick professional check-in is wise."
+          }
+        },
+        "faq_item_UNE9pY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Orbé vegan?",
+            "answer": "Yes. The capsule is fully plant-based, and all nutrient sources are vegan-friendly."
+          }
+        },
+        "faq_item_FxdBEQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I forget a dose?",
+            "answer": "No stress. Just take your next dose as usual. Consistency matters more than perfection."
+          }
+        },
+        "faq_item_TdXgaQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does Orbé have side effects?",
+            "answer": "Our forms are chosen precisely because they’re gentle and well-tolerated. Side effects are rare."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_AJhLn9",
+        "faq_item_znLyB9",
+        "faq_item_TaBneX",
+        "faq_item_cN46Ja",
+        "faq_item_DwHmci",
+        "faq_item_7ACbPH",
+        "faq_item_iPNtek",
+        "faq_item_eG4BrW",
+        "faq_item_Dyij7B",
+        "faq_item_UNE9pY",
+        "faq_item_FxdBEQ",
+        "faq_item_TdXgaQ"
+      ],
+      "name": "New FAQ Section",
+      "settings": {
+        "image": "shopify://shop_images/06964c946e7a37b7af06c0134fdfeaf963659270.png",
+        "heading": "FAQs",
+        "cta_text": "View All FAQs",
+        "cta_link": "shopify://pages/faqs"
+      }
+    },
+    "17853942627ba94437": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_rNkNnd": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_rNkNnd"
+      ],
+      "settings": {}
+    },
+    "spacer_BPChPd": {
+      "type": "spacer",
+      "disabled": true,
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 180,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "spacer_aADnDt",
+    "testimonial-sec",
+    "spacer_rFGqAQ",
+    "certified-by",
+    "care-behind-c",
+    "spacer_iVnf8F",
+    "guided_by_w3PegE",
+    "spacer_PDTr8t",
+    "essential-ingredient",
+    "spacer_RAkTAh",
+    "gently-unfold",
+    "scroll_timeline_WXVVBK",
+    "spacer_6tMeNb",
+    "what-your-body",
+    "body_signals_7GzjnK",
+    "spacer_dcU6TK",
+    "ready_formula_h7deTm",
+    "best-bio",
+    "spacer_adLpCm",
+    "batch-verified",
+    "spacer_MQJmqW",
+    "new_faq_section_n49mMB",
+    "17853942627ba94437",
+    "spacer_BPChPd"
+  ]
+}

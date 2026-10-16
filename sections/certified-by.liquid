@@ -14,8 +14,13 @@
                         assign block_alt = block.settings.alt | default: section.settings.heading | escape
                     %}
 
+                    {% assign has_popup = false %}
+                    {% if block.settings.title != blank or block.settings.info != blank or block.settings.why_text != blank %}
+                        {% assign has_popup = true %}
+                    {% endif %}
+
                     {% if block_image != blank %}
-                        <div class="cbs-item" {{ block.shopify_attributes }}>
+                        <div class="cbs-item{% if has_popup %} cbs-item--popup{% endif %}" {% if has_popup %}data-cb-target="cb-modal-{{ block.id }}" role="button" tabindex="0" aria-haspopup="dialog" aria-label="{{ block.settings.title | default: block_alt | escape }}"{% endif %} {{ block.shopify_attributes }}>
                             <img
                                 src="{{ block_image | image_url: width: 340 }}"
                                 alt="{{ block_alt }}"
@@ -29,6 +34,39 @@
             </div>
         {% endif %}
     </div>
+
+    {% for block in section.blocks %}
+        {% assign popup_image = block.settings.popup_image | default: block.settings.image %}
+        {% if block.settings.title != blank or block.settings.info != blank or block.settings.why_text != blank %}
+            <div class="cb-modal" id="cb-modal-{{ block.id }}" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+                <div class="cb-modal-backdrop" data-cb-close></div>
+                <div class="cb-modal-card" data-lenis-prevent>
+                    <button type="button" class="cb-modal-close" aria-label="Close" data-cb-close>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </button>
+                    {% if popup_image != blank %}
+                        <div class="cb-modal-logo">
+                            {{ popup_image | image_url: width: 600 | image_tag: alt: block.settings.alt, loading: 'lazy' }}
+                        </div>
+                    {% endif %}
+                    {% if block.settings.title != blank %}
+                        <h3 class="cb-modal-title">{{ block.settings.title }}</h3>
+                    {% endif %}
+                    {% if block.settings.info != blank %}
+                        <div class="cb-modal-info">{{ block.settings.info }}</div>
+                    {% endif %}
+                    {% if block.settings.why_text != blank %}
+                        <div class="cb-modal-why">
+                            {% if block.settings.why_heading != blank %}
+                                <p class="cb-modal-why-heading">{{ block.settings.why_heading }}</p>
+                            {% endif %}
+                            <div class="cb-modal-info">{{ block.settings.why_text }}</div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 </section>
 
 <script>
@@ -52,11 +90,65 @@
                     slideWidth: 180,
                     slideMargin: 80,
                     ticker: true,
+                    tickerHover: true,
                     speed: 22000,
                     useCSS: false // Often smoother for continuous tickers
                 });
             });
         }
+
+        // Logo popup (delegated: bxSlider ticker clones the slides, so bind on the section)
+        function initCertifiedByPopups() {
+            document.querySelectorAll('.certified-by').forEach(function (section) {
+                if (section.dataset.cbPopupsReady === 'true') return;
+                section.dataset.cbPopupsReady = 'true';
+
+                var openModal = null;
+                var opener = null;
+
+                function open(id, trigger) {
+                    var modal = document.getElementById(id);
+                    if (!modal) return;
+                    opener = trigger;
+                    openModal = modal;
+                    modal.hidden = false;
+                    modal.setAttribute('aria-hidden', 'false');
+                    requestAnimationFrame(function () { modal.classList.add('is-open'); });
+                    document.documentElement.classList.add('cb-modal-open');
+                    if (window.lenis) window.lenis.stop();
+                }
+
+                function close() {
+                    if (!openModal) return;
+                    var modal = openModal;
+                    openModal = null;
+                    modal.classList.remove('is-open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.documentElement.classList.remove('cb-modal-open');
+                    if (window.lenis) window.lenis.start();
+                    setTimeout(function () { if (!modal.classList.contains('is-open')) modal.hidden = true; }, 300);
+                    if (opener && document.contains(opener)) opener.focus();
+                }
+
+                section.addEventListener('click', function (e) {
+                    var item = e.target.closest('[data-cb-target]');
+                    if (item) { open(item.getAttribute('data-cb-target'), item); return; }
+                    if (e.target.closest('[data-cb-close]')) close();
+                });
+                section.addEventListener('keydown', function (e) {
+                    var item = e.target.closest && e.target.closest('[data-cb-target]');
+                    if (item && (e.key === 'Enter' || e.key === ' ')) {
+                        e.preventDefault();
+                        open(item.getAttribute('data-cb-target'), item);
+                    }
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') close();
+                });
+            });
+        }
+        initCertifiedByPopups();
+        document.addEventListener('shopify:section:load', initCertifiedByPopups);
 
         // Run if document is already loaded, otherwise wait for window load
         if (document.readyState === 'complete') {
@@ -97,6 +189,38 @@
           "id": "alt",
           "label": "Alt text",
           "default": "Certification logo"
+        },
+        {
+          "type": "header",
+          "content": "Popup (opens when the logo is clicked)"
+        },
+        {
+          "type": "image_picker",
+          "id": "popup_image",
+          "label": "Popup logo",
+          "info": "Optional. Uses the Image above if left blank."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Leave the title, info and why-it-matters text empty to make this logo non-clickable."
+        },
+        {
+          "type": "richtext",
+          "id": "info",
+          "label": "Info"
+        },
+        {
+          "type": "text",
+          "id": "why_heading",
+          "label": "Why it matters heading",
+          "default": "Why it matters"
+        },
+        {
+          "type": "richtext",
+          "id": "why_text",
+          "label": "Why it matters text"
         }
       ]
     }
@@ -105,10 +229,18 @@
     {
       "name": "Certified by",
       "blocks": [
-        { "type": "certificate" },
-        { "type": "certificate" },
-        { "type": "certificate" },
-        { "type": "certificate" }
+        {
+          "type": "certificate"
+        },
+        {
+          "type": "certificate"
+        },
+        {
+          "type": "certificate"
+        },
+        {
+          "type": "certificate"
+        }
       ]
     }
   ]

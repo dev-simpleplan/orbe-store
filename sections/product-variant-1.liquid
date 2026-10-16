@@ -1,0 +1,1090 @@
+{% comment %}
+  Product page — sticky image gallery + purchase panel.
+{% endcomment %}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign has_selling_plans = false -%}
+{%- if product.selling_plan_groups.size > 0 -%}
+  {%- assign has_selling_plans = true -%}
+{%- endif -%}
+
+<section class="pdp pdp--v1" id="pdp-{{ section.id }}" data-pdp>
+  <div class="container">
+    <div class="pdp-grid">
+
+      <!-- ============ GALLERY ============ -->
+      <div class="pdp-gallery-wrap">
+      <div class="pdp-gallery" data-pdp-gallery>
+        {% for image in product.images %}
+          <div class="pdp-gallery-item">
+            {%- assign img_alt = image.alt | default: product.title | escape -%}
+            <button
+              type="button"
+              class="pdp-gallery-zoom-btn"
+              data-pdp-zoom-trigger
+              data-full-src="{{ image | image_url: width: 2400 }}"
+              data-alt="{{ img_alt }}"
+              aria-label="Zoom image"
+            >
+              {{ image | image_url: width: 1200 | image_tag: alt: img_alt, class: 'pdp-gallery-img', loading: 'lazy' }}
+            </button>
+          </div>
+        {% else %}
+          <div class="pdp-gallery-item pdp-gallery-item--placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'pdp-gallery-img' }}
+          </div>
+        {% endfor %}
+      </div>
+      {% if product.images.size > 1 %}
+        <div class="pdp-gallery-dots" data-pdp-gallery-dots>
+          {% for image in product.images %}
+            <button type="button" class="pdp-gallery-dot{% if forloop.first %} is-active{% endif %}" data-pdp-gallery-dot aria-label="Go to image {{ forloop.index }}"></button>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% assign nutrition_block = section.blocks | where: 'type', 'nutrition_drawer' | first %}
+      {% if nutrition_block and nutrition_block.settings.button_text != blank %}
+        <button type="button" class="pdp-nutrition-btn" data-nutrition-open aria-haspopup="dialog" {{ nutrition_block.shopify_attributes }}>
+          {{ nutrition_block.settings.button_text }}
+        </button>
+      {% endif %}
+      </div>
+
+      <!-- ============ ZOOM LIGHTBOX ============ -->
+      <div class="pdp-zoom-lightbox" data-pdp-zoom-lightbox hidden>
+        <div class="pdp-zoom-backdrop" data-pdp-zoom-close></div>
+        <div class="pdp-zoom-stage">
+          <button type="button" class="pdp-zoom-close" data-pdp-zoom-close aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L19 19M19 1L1 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </button>
+          {% if product.images.size > 1 %}
+            <button type="button" class="pdp-zoom-nav pdp-zoom-prev" data-pdp-zoom-prev aria-label="Previous image">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 16L6.5 10L12.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button type="button" class="pdp-zoom-nav pdp-zoom-next" data-pdp-zoom-next aria-label="Next image">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 4L13.5 10L7.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          {% endif %}
+          <img class="pdp-zoom-img" data-pdp-zoom-img src="" alt="">
+        </div>
+      </div>
+
+      <!-- ============ INFO ============ -->
+      <div class="pdp-info">
+        <div class="pdp-info-inner">
+
+          {% assign rating_blocks = section.blocks | where: 'type', 'rating' %}
+          {% for block in rating_blocks limit: 1 %}
+            <div class="pdp-rating" {{ block.shopify_attributes }}>
+              <span class="pdp-stars" aria-label="{{ block.settings.rating_value }} out of 5 stars">
+                {% assign filled = block.settings.rating_value %}
+                {% for i in (1..filled) %}
+                  {% if block.settings.star_image != blank %}
+                  {{ block.settings.star_image | image_url: width: 100 | image_tag: alt: '', class: 'pdp-star-img', loading: 'eager' }}
+                  {% else %}
+                  <svg viewBox="2 2 20 19.1" width="15" height="14" class="pdp-star is-filled" aria-hidden="true">
+                    <path d="M12 2l2.9 6.26 6.1.53-4.6 4.02 1.36 6.19L12 15.9l-5.76 3.1 1.36-6.19-4.6-4.02 6.1-.53z"/>
+                  </svg>
+                  {% endif %}
+                {% endfor %}
+              </span>
+              {% if block.settings.reviews_text != blank %}
+                <span class="pdp-reviews">{{ block.settings.reviews_text }}</span>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <h1 class="pdp-title">{{ product.title }}</h1>
+
+          {% if product.description != blank %}
+            <div class="pdp-desc">{{ product.description }}</div>
+          {% endif %}
+
+          {% assign checklist_blocks = section.blocks | where: 'type', 'checklist' %}
+          {% for block in checklist_blocks limit: 1 %}
+            {% if block.settings.items != blank %}
+              <ul class="pdp-checklist" {{ block.shopify_attributes }}>
+                {% assign checklist_items = block.settings.items | newline_to_br | split: '<br />' %}
+                {% for item in checklist_items %}
+                  {% assign item_text = item | strip %}
+                  {% if item_text != blank %}
+                    <li class="pdp-checklist-item">
+                      <span class="pdp-checklist-icon" aria-hidden="true">
+                        {% if block.settings.check_icon != blank %}
+                          {{ block.settings.check_icon | image_url: width: 80 | image_tag: alt: '', class: 'pdp-checklist-icon-img' }}
+                        {% else %}
+                          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="12" fill="currentColor"/>
+                            <path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        {% endif %}
+                      </span>
+                      <span class="pdp-checklist-text">{{ item_text }}</span>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endfor %}
+
+          <div class="pdp-price">
+            <span class="pdp-price-current" data-price>{{ current_variant.price | money }}</span>
+            {% if current_variant.compare_at_price > current_variant.price %}
+              <span class="pdp-price-compare" data-compare-price>{{ current_variant.compare_at_price | money }}</span>
+            {% endif %}
+          </div>
+
+          {% if section.settings.supply_text != blank %}
+            <p class="pdp-supply">{{ section.settings.supply_text }}</p>
+          {% endif %}
+
+          {% form 'product', product, id: 'pdp-form', class: 'pdp-form', novalidate: 'novalidate' %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+
+            <!-- Purchase options -->
+            {% assign breakdown_block = section.blocks | where: 'type', 'price_breakdown' | first %}
+            {% if breakdown_block and breakdown_block.settings.heading != blank %}
+              <p class="pdp-options-label" {{ breakdown_block.shopify_attributes }}>{{ breakdown_block.settings.heading }}</p>
+            {% endif %}
+            <div class="pdp-options" data-options>
+              {% if breakdown_block %}
+                {% assign caps_per_day = product.metafields.custom.capsules_per_day.value | default: 0 %}
+                {% assign caps_per_pack = product.metafields.custom.capsules_per_pack.value | default: 0 %}
+                {% assign supply_days = breakdown_block.settings.supply_days | default: 30 %}
+                {% if caps_per_day > 0 and caps_per_pack > 0 %}
+                  {% assign supply_days = caps_per_pack | times: 1.0 | divided_by: caps_per_day | round %}
+                {% endif %}
+                {% if supply_days < 1 %}{% assign supply_days = 30 %}{% endif %}
+                {% assign per_day_price = current_variant.price | divided_by: supply_days %}
+                <label class="pdp-option pdp-option--breakdown is-active" data-option>
+                  <input type="radio" name="selling_plan" value="" checked data-plan-price="{{ current_variant.price }}">
+                  <span class="pdp-option-radio" aria-hidden="true"></span>
+                  <span class="pdp-option-main">
+                    <span class="pdp-option-label">{{ breakdown_block.settings.title | default: section.settings.onetime_label }}</span>
+                    {% if caps_per_day > 0 and caps_per_pack > 0 %}
+                      <span class="pdp-option-details">{{ caps_per_day }} {% if caps_per_day == 1 %}capsule{% else %}capsules{% endif %} daily · {{ caps_per_pack }} capsules per pack</span>
+                    {% elsif breakdown_block.settings.details != blank %}
+                      <span class="pdp-option-details">{{ breakdown_block.settings.details }}</span>
+                    {% endif %}
+                  </span>
+                  <span class="pdp-option-side">
+                    <span class="pdp-option-priceline">
+                      <span class="pdp-option-price">{{ current_variant.price | money_without_trailing_zeros }}</span>
+                      <span class="pdp-option-supply">/ {{ supply_days }}-Day Supply</span>
+                    </span>
+                    {% if breakdown_block.settings.show_per_day %}
+                      <span class="pdp-option-perday">{{ per_day_price | money }} per day</span>
+                    {% endif %}
+                  </span>
+                </label>
+              {% else %}
+              <label class="pdp-option is-active" data-option>
+                <input type="radio" name="selling_plan" value="" checked data-plan-price="{{ current_variant.price }}">
+                <span class="pdp-option-radio" aria-hidden="true"></span>
+                <span class="pdp-option-label">{{ section.settings.onetime_label }}</span>
+                <span class="pdp-option-price">{{ current_variant.price | money }}</span>
+              </label>
+              {% endif %}
+
+              {% if has_selling_plans %}
+                {% for group in product.selling_plan_groups %}
+                  {% for plan in group.selling_plans %}
+                    {%- assign allocation = false -%}
+                    {%- for a in current_variant.selling_plan_allocations -%}
+                      {%- if a.selling_plan.id == plan.id -%}
+                        {%- assign allocation = a -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    {%- if allocation -%}
+                      <label class="pdp-option" data-option>
+                        <input type="radio" name="selling_plan" value="{{ plan.id }}" data-plan-price="{{ allocation.price }}">
+                        <span class="pdp-option-radio" aria-hidden="true"></span>
+                        <span class="pdp-option-label">{{ group.name | default: plan.name }}</span>
+                        {%- assign saving = current_variant.price | minus: allocation.price -%}
+                        {%- if saving > 0 -%}
+                          {%- assign pct = saving | times: 100.0 | divided_by: current_variant.price | round -%}
+                          <span class="pdp-option-save">Save {{ pct }}%</span>
+                        {%- endif -%}
+                        <span class="pdp-option-price">{{ allocation.price | money }}</span>
+                        {% if group.name != blank %}
+                          <span class="pdp-option-sub">{{ section.settings.subscription_sub }}</span>
+                        {% endif %}
+                      </label>
+                    {%- endif -%}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <!-- Targets (from product tags) -->
+            {%- assign prefix = section.settings.target_prefix -%}
+            {%- assign target_tags = '' -%}
+            {%- for tag in product.tags -%}
+              {%- if prefix != blank -%}
+                {%- if tag contains prefix -%}
+                  {%- assign clean = tag | remove_first: prefix | strip -%}
+                  {%- assign target_tags = target_tags | append: clean | append: '|' -%}
+                {%- endif -%}
+              {%- else -%}
+                {%- assign target_tags = target_tags | append: tag | append: '|' -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign target_list = target_tags | split: '|' -%}
+            {% if target_list.size > 0 %}
+              <div class="pdp-targets">
+                <p class="pdp-targets-label">{{ section.settings.targets_label }}</p>
+                <div class="pdp-targets-list">
+                  {% for tag in target_list %}
+                    <span class="pdp-target">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+
+            <!-- Quantity + Add to cart -->
+            <div class="pdp-buy">
+              <div class="pdp-qty" data-qty>
+                <button type="button" class="pdp-qty-btn" data-qty-minus aria-label="Decrease quantity">&minus;</button>
+                <input type="text" inputmode="numeric" name="quantity" value="1" class="pdp-qty-input" data-qty-input aria-label="Quantity">
+                <button type="button" class="pdp-qty-btn" data-qty-plus aria-label="Increase quantity">+</button>
+              </div>
+              <button type="submit" class="pdp-add-btn primary-btn" {% unless current_variant.available %}disabled{% endunless %}>
+                {% if current_variant.available %}{{ section.settings.add_button_text }}{% else %}{{ section.settings.sold_out_text }}{% endif %}
+              </button>
+            </div>
+          {% endform %}
+
+          <!-- Trust: safe checkout -->
+          {% if section.settings.show_checkout_badges %}
+            <div class="pdp-checkout">
+              <p class="pdp-checkout-label">{{ section.settings.checkout_label }}</p>
+              <div class="pdp-checkout-icons">
+                {% for type in shop.enabled_payment_types %}
+                  {{ type | payment_type_svg_tag: class: 'pdp-pay-icon' }}
+                {% endfor %}
+                {% if section.settings.razorpay_badge != blank %}
+                  <img
+                    src="{{ section.settings.razorpay_badge | image_url: width: 1000 }}"
+                    alt="Razorpay"
+                    class="pdp-pay-icon"
+                    width="80" height="24" loading="lazy">
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Perks -->
+          {% if section.settings.perks != blank %}
+            <ul class="pdp-perks">
+              {% assign perks = section.settings.perks | newline_to_br | split: '<br />' %}
+              {% for perk in perks %}
+                {% assign p = perk | strip %}
+                {% if p != blank %}<li>{{ p }}</li>{% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <!-- Accordions -->
+          {% assign acc_blocks = section.blocks | where: 'type', 'collapsible' %}
+          {% if acc_blocks.size > 0 %}
+            <div class="pdp-accordion" data-accordion>
+              {% for block in acc_blocks %}
+                {%- assign mf_value = blank -%}
+                {%- assign mf_key = block.settings.metafield_key | strip -%}
+                {%- if mf_key contains '.' -%}
+                  {%- assign mf_parts = mf_key | split: '.' -%}
+                  {%- assign mf_value = product.metafields[mf_parts[0]][mf_parts[1]] -%}
+                {%- endif -%}
+
+                {%- assign mf_image = blank -%}
+                {%- assign mf_image_key = block.settings.image_metafield_key | strip -%}
+                {%- if mf_image_key contains '.' -%}
+                  {%- assign mf_image_parts = mf_image_key | split: '.' -%}
+                  {%- assign mf_image = product.metafields[mf_image_parts[0]][mf_image_parts[1]].value -%}
+                {%- endif -%}
+                {%- unless mf_image != blank -%}
+                  {%- assign mf_image = block.settings.image -%}
+                {%- endunless -%}
+
+                <div class="pdp-acc-item" {{ block.shopify_attributes }}>
+                  <button type="button" class="pdp-acc-head" aria-expanded="false">
+                    <span>{{ block.settings.title }}</span>
+                    <span class="pdp-acc-icon" aria-hidden="true"></span>
+                  </button>
+                  <div class="pdp-acc-body">
+                    <div class="pdp-acc-content">
+                      {%- if mf_image != blank -%}
+                        <div class="pdp-acc-image">
+                          <button
+                            type="button"
+                            class="pdp-acc-image-zoom-btn"
+                            data-pdp-zoom-standalone-trigger
+                            data-full-src="{{ mf_image | image_url: width: 2400 }}"
+                            data-alt="{{ block.settings.title | escape }}"
+                            aria-label="Zoom image"
+                          >
+                            {{ mf_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                          </button>
+                        </div>
+                      {%- endif -%}
+                      {%- if mf_value != blank -%}{{ mf_value | metafield_tag }}{%- else -%}{{ block.settings.content }}{%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% if nutrition_block %}
+  <div class="ingredient-drawer-backdrop" data-nutrition-close></div>
+  <aside class="ingredient-drawer" id="nutrition-drawer-{{ section.id }}" role="dialog" aria-modal="true" aria-hidden="true" data-nutrition-drawer>
+    <div class="ingredient-drawer-scroll" data-lenis-prevent>
+      <div class="ingredient-drawer-head">
+        <button type="button" class="ingredient-drawer-close" aria-label="Close" data-nutrition-close>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      {% if nutrition_block.settings.drawer_heading != blank %}
+        <div class="ingredient-top-title">
+          <h2>{{ nutrition_block.settings.drawer_heading }}</h2>
+        </div>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'drawer_section' %}
+            <div class="ingredient-drawer-section" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}<h2>{{ block.settings.heading }}</h2>{% endif %}
+              {{ block.settings.text }}
+              {% if block.settings.image != blank %}
+                {% assign drawer_img_alt = block.settings.image.alt | escape %}
+                <div class="ingredient-drawer-table-img">
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: alt: drawer_img_alt, class: 'img', loading: 'lazy', widths: '600, 900, 1200', sizes: '(min-width: 768px) 530px, 92vw' }}
+                </div>
+              {% endif %}
+            </div>
+          {% when 'drawer_accordion' %}
+            <div class="ingredient-drawer-item" {{ block.shopify_attributes }}>
+              <button type="button" class="ingredient-drawer-title">
+                <span>{{ block.settings.heading }}</span>
+                <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
+              </button>
+              <div class="ingredient-drawer-content">
+                {{ block.settings.text }}
+                {% if block.settings.image != blank %}
+                {% assign drawer_img_alt = block.settings.image.alt | escape %}
+                <div class="ingredient-drawer-table-img">
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: alt: drawer_img_alt, class: 'img', loading: 'lazy', widths: '600, 900, 1200', sizes: '(min-width: 768px) 530px, 92vw' }}
+                </div>
+              {% endif %}
+              </div>
+            </div>
+          {% when 'drawer_image' %}
+            <div class="ingredient-drawer-section ingredient-drawer-nutrition" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}<h2>{{ block.settings.heading }}</h2>{% endif %}
+              {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+              {% if block.settings.image != blank %}
+                {% assign drawer_alt = block.settings.image.alt | escape %}
+                <div class="ingredient-drawer-table-img">
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: alt: drawer_alt, class: 'img', loading: 'lazy', widths: '600, 900, 1200', sizes: '(min-width: 768px) 530px, 92vw' }}
+                </div>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </aside>
+  {% endif %}
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('pdp-{{ section.id }}');
+    if (!root) return;
+
+    // Quantity stepper
+    var qtyInput = root.querySelector('[data-qty-input]');
+    root.querySelectorAll('[data-qty-minus]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+        qtyInput.value = v;
+      });
+    });
+    root.querySelectorAll('[data-qty-plus]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = Math.max(1, (parseInt(qtyInput.value, 10) || 1) + 1);
+        qtyInput.value = v;
+      });
+    });
+    qtyInput && qtyInput.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
+    // Purchase option selection + price swap
+    var priceEl = root.querySelector('[data-price]');
+    var options = root.querySelectorAll('[data-option]');
+    var qtyWrap = root.querySelector('[data-qty]');
+
+    function setQtyLocked(locked) {
+      if (!qtyWrap || !qtyInput) return;
+      qtyWrap.classList.toggle('is-locked', locked);
+      qtyInput.disabled = locked;
+      root.querySelectorAll('[data-qty-minus], [data-qty-plus]').forEach(function (b) {
+        b.disabled = locked;
+      });
+      if (locked) qtyInput.value = 1;
+    }
+
+    options.forEach(function (opt) {
+      var input = opt.querySelector('input[type="radio"]');
+      input && input.addEventListener('change', function () {
+        options.forEach(function (o) { o.classList.remove('is-active'); });
+        opt.classList.add('is-active');
+        var priceStr = opt.querySelector('.pdp-option-price');
+        if (priceEl && priceStr) priceEl.textContent = priceStr.textContent;
+        setQtyLocked(input.value !== '');
+      });
+    });
+
+    var checkedOption = root.querySelector('[data-option] input[type="radio"]:checked');
+    setQtyLocked(!!checkedOption && checkedOption.value !== '');
+
+    // Accordion
+    var accItems = root.querySelectorAll('.pdp-acc-item');
+    accItems.forEach(function (item) {
+      var head = item.querySelector('.pdp-acc-head');
+      var body = item.querySelector('.pdp-acc-body');
+      head.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+        if (isOpen) {
+          item.classList.remove('is-open');
+          head.setAttribute('aria-expanded', 'false');
+          body.style.maxHeight = null;
+        } else {
+          item.classList.add('is-open');
+          head.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = body.scrollHeight + 'px';
+          var img = body.querySelector('.pdp-acc-image img');
+          if (img && !img.complete) {
+            img.addEventListener('load', function () {
+              if (item.classList.contains('is-open')) {
+                body.style.maxHeight = body.scrollHeight + 'px';
+              }
+            }, { once: true });
+          }
+        }
+      });
+    });
+
+    // Nutrition drawer (slides in from the right)
+    var nutritionDrawer = root.querySelector('[data-nutrition-drawer]');
+    if (nutritionDrawer) {
+      var nutritionOpeners = root.querySelectorAll('[data-nutrition-open]');
+      var nutritionClosers = root.querySelectorAll('[data-nutrition-close]');
+      var nutritionTitles = Array.prototype.slice.call(nutritionDrawer.querySelectorAll('.ingredient-drawer-title'));
+      var nutritionOpener = null;
+
+      function setNutritionItem(title, open) {
+        var panel = title.nextElementSibling;
+        title.classList.toggle('active', open);
+        if (panel) panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
+      }
+
+      function openNutritionDrawer(trigger) {
+        nutritionOpener = trigger || null;
+        nutritionDrawer.setAttribute('aria-hidden', 'false');
+        root.classList.add('ingredient-drawer-active');
+        document.documentElement.classList.add('ingredient-drawer-open');
+        document.body.classList.add('ingredient-drawer-open');
+        if (nutritionTitles.length) setNutritionItem(nutritionTitles[0], true);
+        if (window.lenis) window.lenis.stop();
+      }
+
+      function closeNutritionDrawer() {
+        if (!root.classList.contains('ingredient-drawer-active')) return;
+        nutritionDrawer.setAttribute('aria-hidden', 'true');
+        root.classList.remove('ingredient-drawer-active');
+        document.documentElement.classList.remove('ingredient-drawer-open');
+        document.body.classList.remove('ingredient-drawer-open');
+        if (window.lenis) window.lenis.start();
+        if (nutritionOpener) nutritionOpener.focus();
+      }
+
+      nutritionOpeners.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openNutritionDrawer(btn);
+        });
+      });
+      nutritionClosers.forEach(function (btn) {
+        btn.addEventListener('click', closeNutritionDrawer);
+      });
+      nutritionTitles.forEach(function (title) {
+        title.addEventListener('click', function () {
+          var wasOpen = title.classList.contains('active');
+          nutritionTitles.forEach(function (t) { setNutritionItem(t, false); });
+          if (!wasOpen) setNutritionItem(title, true);
+        });
+      });
+      nutritionDrawer.querySelectorAll('.ingredient-drawer-content img').forEach(function (img) {
+        img.addEventListener('load', function () {
+          nutritionTitles.forEach(function (t) { if (t.classList.contains('active')) setNutritionItem(t, true); });
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeNutritionDrawer();
+      });
+      window.addEventListener('resize', function () {
+        nutritionTitles.forEach(function (t) { if (t.classList.contains('active')) setNutritionItem(t, true); });
+      });
+    }
+
+    // Gallery slider dots (mobile / tablet swipe slider)
+    var gallery = root.querySelector('[data-pdp-gallery]');
+    var galleryDots = Array.prototype.slice.call(root.querySelectorAll('[data-pdp-gallery-dot]'));
+    if (gallery && galleryDots.length) {
+      var galleryItems = gallery.querySelectorAll('.pdp-gallery-item');
+      var settleTimer = null;
+
+      function goToSlide(index) {
+        index = Math.max(0, Math.min(galleryItems.length - 1, index));
+        // Keep snapping off while the programmatic scroll runs so it can't fight the animation
+        gallery.classList.add('is-settling');
+        gallery.scrollTo({ left: index * gallery.clientWidth, behavior: 'smooth' });
+        setActiveDot(index);
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(function () {
+          gallery.classList.remove('is-settling');
+        }, 450);
+      }
+
+      function setActiveDot(index) {
+        galleryDots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === index);
+        });
+      }
+
+      var dotTicking = false;
+      gallery.addEventListener('scroll', function () {
+        if (dotTicking) return;
+        dotTicking = true;
+        window.requestAnimationFrame(function () {
+          dotTicking = false;
+          var width = gallery.clientWidth;
+          if (!width) return;
+          var index = Math.round(gallery.scrollLeft / width);
+          setActiveDot(Math.max(0, Math.min(galleryDots.length - 1, index)));
+        });
+      }, { passive: true });
+
+      galleryDots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          goToSlide(i);
+        });
+      });
+    }
+
+    // Mobile (<= 767px): gallery is a slider, no zoom. Add mouse-drag so it also slides with a mouse.
+    var mobileMq = window.matchMedia('(max-width: 767px)');
+    if (gallery) {
+      gallery.addEventListener('click', function (e) {
+        if (mobileMq.matches || gallery.dataset.dragged === 'true') {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true);
+
+      var dragStartX = 0;
+      var dragStartScroll = 0;
+      var dragStartIndex = 0;
+      var isDragging = false;
+
+      gallery.addEventListener('pointerdown', function (e) {
+        if (!mobileMq.matches || e.pointerType !== 'mouse' || e.button !== 0) return;
+        isDragging = true;
+        gallery.dataset.dragged = 'false';
+        dragStartX = e.clientX;
+        dragStartScroll = gallery.scrollLeft;
+        dragStartIndex = Math.round(gallery.scrollLeft / (gallery.clientWidth || 1));
+        gallery.classList.add('is-dragging');
+      });
+
+      window.addEventListener('pointermove', function (e) {
+        if (!isDragging) return;
+        var dx = e.clientX - dragStartX;
+        if (Math.abs(dx) > 5) gallery.dataset.dragged = 'true';
+        gallery.scrollLeft = dragStartScroll - dx;
+      });
+
+      function endDrag(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        var dx = e && e.clientX !== undefined ? e.clientX - dragStartX : 0;
+        var threshold = Math.min(80, gallery.clientWidth * 0.15);
+        var target = dragStartIndex;
+        if (dx <= -threshold) target = dragStartIndex + 1;
+        else if (dx >= threshold) target = dragStartIndex - 1;
+        gallery.classList.remove('is-dragging');
+        if (typeof goToSlide === 'function') goToSlide(target);
+        setTimeout(function () { gallery.dataset.dragged = 'false'; }, 0);
+      }
+      window.addEventListener('pointerup', endDrag);
+      window.addEventListener('pointercancel', endDrag);
+    }
+
+    // Click-to-zoom gallery lightbox
+    var zoomTriggers = Array.prototype.slice.call(root.querySelectorAll('[data-pdp-zoom-trigger]'));
+    var standaloneTriggers = Array.prototype.slice.call(root.querySelectorAll('[data-pdp-zoom-standalone-trigger]'));
+    var lightbox = root.querySelector('[data-pdp-zoom-lightbox]');
+
+    if ((zoomTriggers.length || standaloneTriggers.length) && lightbox) {
+      var zoomImg = lightbox.querySelector('[data-pdp-zoom-img]');
+      var prevBtn = lightbox.querySelector('[data-pdp-zoom-prev]');
+      var nextBtn = lightbox.querySelector('[data-pdp-zoom-next]');
+      var currentIndex = 0;
+      var lastFocusedTrigger = null;
+      var isStandalone = false;
+
+      function showImage(index) {
+        currentIndex = (index + zoomTriggers.length) % zoomTriggers.length;
+        var trigger = zoomTriggers[currentIndex];
+        zoomImg.src = trigger.getAttribute('data-full-src');
+        zoomImg.alt = trigger.getAttribute('data-alt') || '';
+      }
+
+      function setNavVisible(visible) {
+        if (prevBtn) prevBtn.hidden = !visible;
+        if (nextBtn) nextBtn.hidden = !visible;
+      }
+
+      function openLightbox(index, trigger) {
+        lastFocusedTrigger = trigger;
+        isStandalone = false;
+        setNavVisible(zoomTriggers.length > 1);
+        showImage(index);
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+      }
+
+      function openStandaloneLightbox(trigger) {
+        lastFocusedTrigger = trigger;
+        isStandalone = true;
+        setNavVisible(false);
+        zoomImg.src = trigger.getAttribute('data-full-src');
+        zoomImg.alt = trigger.getAttribute('data-alt') || '';
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+      }
+
+      function closeLightbox() {
+        lightbox.hidden = true;
+        zoomImg.src = '';
+        document.body.style.overflow = '';
+        if (window.lenis) window.lenis.start();
+        if (lastFocusedTrigger) lastFocusedTrigger.focus();
+      }
+
+      zoomTriggers.forEach(function (trigger, index) {
+        trigger.addEventListener('click', function () {
+          openLightbox(index, trigger);
+        });
+      });
+
+      standaloneTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          openStandaloneLightbox(trigger);
+        });
+      });
+
+      root.querySelectorAll('[data-pdp-zoom-close]').forEach(function (btn) {
+        btn.addEventListener('click', closeLightbox);
+      });
+
+      zoomImg.addEventListener('click', closeLightbox);
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          if (isStandalone) return;
+          showImage(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          if (isStandalone) return;
+          showImage(currentIndex + 1);
+        });
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (lightbox.hidden) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (isStandalone) return;
+        if (event.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (event.key === 'ArrowRight') showImage(currentIndex + 1);
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product (Variant 1)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "header",
+      "content": "Purchase options"
+    },
+    {
+      "type": "text",
+      "id": "supply_text",
+      "label": "Supply line",
+      "default": "30 Days: 60 N Capsules"
+    },
+    {
+      "type": "text",
+      "id": "onetime_label",
+      "label": "One-time label",
+      "default": "One Time Purchase"
+    },
+    {
+      "type": "text",
+      "id": "subscription_sub",
+      "label": "Subscription subtitle",
+      "default": "Subscribe for a simpler routine delivered effortlessly every month."
+    },
+    {
+      "type": "header",
+      "content": "Targets"
+    },
+    {
+      "type": "text",
+      "id": "targets_label",
+      "label": "Targets label",
+      "default": "Targets:"
+    },
+    {
+      "type": "text",
+      "id": "target_prefix",
+      "label": "Tag prefix (optional)",
+      "info": "Leave blank to show all product tags. Set e.g. 'target:' to only show tags like 'target:Sleep' (prefix is hidden on the page)."
+    },
+    {
+      "type": "header",
+      "content": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "add_button_text",
+      "label": "Button text",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_text",
+      "label": "Sold out text",
+      "default": "Sold out"
+    },
+    {
+      "type": "header",
+      "content": "Trust"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkout_badges",
+      "label": "Show safe checkout badges",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "checkout_label",
+      "label": "Checkout label",
+      "default": "Guaranteed Safe Checkout With"
+    },
+    {
+      "type": "image_picker",
+      "id": "razorpay_badge",
+      "label": "Razorpay / alternate payment badge",
+      "info": "Shown alongside (or instead of) the built-in card icons, since Shopify doesn't provide an icon for Razorpay."
+    },
+    {
+      "type": "textarea",
+      "id": "perks",
+      "label": "Perks (one per line)",
+      "default": "Free shipping on all orders\nSecure checkout\nExclusive D2C savings"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rating",
+      "name": "Rating & reviews",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating_value",
+          "label": "Stars filled",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 4
+        },
+        {
+          "type": "image_picker",
+          "id": "star_image",
+          "label": "Custom star icon",
+          "info": "Optional. Repeated once per filled star. Leave blank to use the default black star."
+        },
+        {
+          "type": "text",
+          "id": "reviews_text",
+          "label": "Reviews text",
+          "default": "200+ Reviews"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "name": "Checklist",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Items",
+          "info": "One item per line.",
+          "default": "Supports everyday energy and mental clarity\nHelps maintain hormonal balance\nSupports mood and overall wellbeing\nPill-in-pill design keeps key nutrients separate"
+        },
+        {
+          "type": "image_picker",
+          "id": "check_icon",
+          "label": "Custom check icon",
+          "info": "Optional. Leave blank to use the default black circle with a white check."
+        }
+      ]
+    },
+    {
+      "type": "price_breakdown",
+      "name": "Price breakdown",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Price breakdown:"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "info": "Leave blank to use the \"One time purchase label\" from the section settings."
+        },
+        {
+          "type": "text",
+          "id": "details",
+          "label": "Details",
+          "default": "2 capsules daily · 60 capsules per pack",
+          "info": "Used only when the product's \"Capsules per day\" and \"Capsules per pack\" metafields are empty."
+        },
+        {
+          "type": "number",
+          "id": "supply_days",
+          "label": "Supply days",
+          "default": 30,
+          "info": "Used only when the product metafields are empty. Otherwise supply days = capsules per pack ÷ capsules per day."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_per_day",
+          "label": "Show per-day price",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "name": "Accordion row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Why Orbe"
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield key",
+          "info": "e.g. custom.why_orbe — pulls this row's content from the product metafield so it can differ per product. Falls back to the content below if empty or unset."
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Fallback content",
+          "default": "<p>Add your content here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "image_metafield_key",
+          "label": "Image metafield key",
+          "info": "e.g. custom.why_orbe_image — pulls this row's image from a product file/image metafield so it can differ per product. Falls back to the image below if empty or unset."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Fallback image",
+          "info": "Optional — shown above the text. You can add an image, text, or both."
+        }
+      ]
+    },
+    {
+      "type": "nutrition_drawer",
+      "name": "Nutrition drawer",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "View Nutrition Table"
+        },
+        {
+          "type": "text",
+          "id": "drawer_heading",
+          "label": "Drawer heading",
+          "default": "Orbé N°01 · The Formulation"
+        },
+        {
+          "type": "paragraph",
+          "content": "Add the panel content with the blocks below: Drawer Section, Drawer Accordion Item and Drawer Image. They appear in the panel in the same order as in the block list."
+        }
+      ]
+    },
+    {
+      "type": "drawer_section",
+      "name": "Drawer Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Optional. Shown below the text."
+        }
+      ]
+    },
+    {
+      "type": "drawer_accordion",
+      "name": "Drawer Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Shown as the clickable accordion row."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "info": "Revealed when this row is expanded."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Optional. Shown below the text."
+        }
+      ]
+    },
+    {
+      "type": "drawer_image",
+      "name": "Drawer Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Nutritional Profile (Theoretical)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "e.g. the nutrition table."
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "Product",
+      "blocks": [
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "Why Orbe"
+          }
+        },
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "Ingredients"
+          }
+        },
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "Nutrition Profile"
+          }
+        },
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "How To Use"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

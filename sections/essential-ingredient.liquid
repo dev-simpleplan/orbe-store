@@ -52,9 +52,17 @@
                 </div>
                 <div class="accordion-wrap essential-ingredient">
                     <div class="accordion">
-                        {% assign accordion_blocks = section.blocks | where: 'type', 'accordion_item' %}
-                        {% for block in accordion_blocks %}
-                        <div class="accordion-item" data-accordion-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+                        {% assign item_open = false %}
+                        {% assign item_index = 0 %}
+                        {% for block in section.blocks %}
+                        {% case block.type %}
+                        {% when 'accordion_item' %}
+                        {% if item_open %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% assign item_open = true %}
+                        <div class="accordion-item" data-accordion-index="{{ item_index }}" {{ block.shopify_attributes }}>
                             <div class="accordion-title">
                                 {{ block.settings.title }}
                                 <span class="accordion-icon">
@@ -68,12 +76,35 @@
                                     {{ phase_image | image_url: width: 900 | image_tag: alt: '', class: 'icon' }}
                                 </div>
                                 {% endif %}
+                                {% if block.settings.content != blank %}
                                 <div class="accordioncontent-in">
                                     {{ block.settings.content }}
                                 </div>
+                                {% endif %}
+                        {% assign item_index = item_index | plus: 1 %}
+                        {% when 'accordion_text' %}
+                                {% if item_open and block.settings.text != blank %}
+                                <p class="accordion-extra-text{% if block.settings.style == 'footnote' %} accordion-extra-text-footnote{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+                                {% endif %}
+                        {% when 'accordion_image' %}
+                                {% assign extra_image = block.settings.image | default: block.settings.image_desktop %}
+                                {% if item_open and extra_image != blank %}
+                                {% assign extra_alt = extra_image.alt | escape %}
+                                <div class="accordion-table-img" {{ block.shopify_attributes }}>
+                                    <picture>
+                                        {% if block.settings.image_desktop != blank %}
+                                        <source media="(min-width: 768px)" srcset="{{ block.settings.image_desktop | image_url: width: 900 }} 900w, {{ block.settings.image_desktop | image_url: width: 1400 }} 1400w" sizes="45vw">
+                                        {% endif %}
+                                        {{ extra_image | image_url: width: 1200 | image_tag: alt: extra_alt, class: 'img', widths: '600, 900, 1200', sizes: '100vw' }}
+                                    </picture>
+                                </div>
+                                {% endif %}
+                        {% endcase %}
+                        {% endfor %}
+                        {% if item_open %}
                             </div>
                         </div>
-                        {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -239,6 +270,13 @@
 
                 openItem(titles[0]);
             }
+
+            section.querySelectorAll('.accordion-table-img img').forEach(function (img) {
+                img.addEventListener('load', function () {
+                    var activeTitle = section.querySelector('.accordion-title.active');
+                    if (activeTitle) openItem(activeTitle);
+                });
+            });
 
             var openButtons = section.querySelectorAll('.open-ingredients');
             var drawer = section.querySelector('.ingredient-drawer');
@@ -440,6 +478,46 @@
 "id": "image_tablet",
 "label": "Tablet image",
 "info": "Optional. Used on tablet widths (768px to 991px) so the image isn't cropped. Desktop and mobile keep using the Image above."
+}
+]
+},
+{
+"type": "accordion_text",
+"name": "Accordion Text",
+"settings": [
+{
+"type": "textarea",
+"id": "text",
+"label": "Text",
+"info": "Shown inside the accordion item above it, in the order of the blocks. Place it before or after an Accordion Image."
+},
+{
+"type": "select",
+"id": "style",
+"label": "Style",
+"options": [
+{ "value": "normal", "label": "Normal" },
+{ "value": "footnote", "label": "Footnote (small)" }
+],
+"default": "normal"
+}
+]
+},
+{
+"type": "accordion_image",
+"name": "Accordion Image",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Mobile image",
+"info": "Shown inside the accordion item above it, e.g. the comparison table. Add it after an Accordion Item block. Also used on desktop if no Desktop image is set."
+},
+{
+"type": "image_picker",
+"id": "image_desktop",
+"label": "Desktop image",
+"info": "Optional. Used on screens 768px and wider. Falls back to the Mobile image if left blank."
 }
 ]
 },
