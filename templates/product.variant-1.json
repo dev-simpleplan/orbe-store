@@ -67,10 +67,8 @@
         "acc_how",
         "collapsible_EUBVPY"
       ],
+      "disabled": true,
       "settings": {
-        "show_rating": false,
-        "rating_value": 4,
-        "reviews_text": "200+ Reviews",
         "supply_text": "30 Days: 60 Capsules",
         "onetime_label": "One Time Purchase",
         "subscription_sub": "Subscribe for a simpler routine delivered effortlessly every month.",
@@ -82,6 +80,125 @@
         "checkout_label": "Guaranteed Safe Checkout With",
         "razorpay_badge": "shopify://shop_images/Gemini_Generated_Image_xaqq8exaqq8exaqq.png",
         "perks": "ENERGY THAT DOESN'T DIP AT 3PM\nEASIER SLEEP, STEADIER MOOD\nBONE, SKIN AND IMMUNE SUPPORT"
+      }
+    },
+    "product_variant_1_AkHpn3": {
+      "type": "product-variant-1",
+      "blocks": {
+        "drawer_section_36pzad": {
+          "type": "drawer_section",
+          "settings": {
+            "heading": "10 nutrients. Thoughtfully chosen forms",
+            "text": "<p>Every ingredient has a purpose. Each form is selected with absorption, stability and tolerability in mind.</p><p>Vitamin B12 (as Methylcobalamin)</p><p>Iron (as Ferrochel® Ferrous Bisglycinate)</p><p>Zinc (as Zinc Citrate)</p><p>Magnesium (as Magnesium Bisglycinate)</p>"
+          }
+        },
+        "drawer_accordion_qDPeYG": {
+          "type": "drawer_accordion",
+          "settings": {
+            "heading": "Outer Capsule Phase",
+            "text": "<h4>Inactive Ingredients</h4><p>Size ‘00’ HPMC CT/CT Capsule</p><p>Size ‘3’ HPMC CT/CT Capsule</p><p>Colloidal Silicon Dioxide</p><p>MCC ph. 102</p><p>Magnesium Stearate</p><p></p><h4>Fill Weight</h4><p>Fill Weight Range 630.00 mg- 650.00 mg</p><p>Weight of Capsules Range 762.00 mg- 782.00 mg</p><p></p><h4>Product Apperance</h4><p>A hard double locked Size ‘00’ capsule having transparent cap and body containing size ‘3’ clear transparent capsule suspended in slight yellow liquid and sealed with transparent band.</p><p></p><h4>Nutritional Profile (Theoretical)</h4><p>(Approximate Values Per Serving) | Serving Size: 2 Capsules</p>"
+          }
+        },
+        "drawer_image_YpGCHz": {
+          "type": "drawer_image",
+          "settings": {
+            "heading": "Nutritional Profile (Theoretical)",
+            "text": "",
+            "image": "shopify://shop_images/Frame_2072749572_2.svg"
+          }
+        },
+        "nutrition_drawer_Dhi6GE": {
+          "type": "nutrition_drawer",
+          "settings": {
+            "button_text": "View Nutrition Table",
+            "drawer_heading": "Orbé N°01 · The Formulation"
+          }
+        },
+        "price_breakdown_KadRXY": {
+          "type": "price_breakdown",
+          "settings": {
+            "heading": "Price breakdown:",
+            "title": "N°01 · YOUR DAILY FOUNDATION",
+            "details": "2 capsules daily · 60 capsules per pack",
+            "supply_days": 30,
+            "show_per_day": true
+          }
+        },
+        "checklist_pYbiLA": {
+          "type": "checklist",
+          "settings": {
+            "items": "Supports everyday energy and mental clarity\nHelps maintain hormonal balance\nSupports mood and overall wellbeing\nPill-in-pill design keeps key nutrients separate"
+          }
+        },
+        "rating_KFrwfV": {
+          "type": "rating",
+          "settings": {
+            "rating_value": 4,
+            "reviews_text": "200+ Reviews"
+          }
+        },
+        "collapsible_XktFwN": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Why Orbe",
+            "metafield_key": "",
+            "content": "<p>Add your content here.</p>",
+            "image_metafield_key": ""
+          }
+        },
+        "collapsible_hfV7CF": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Ingredients",
+            "metafield_key": "",
+            "content": "<p>Add your content here.</p>",
+            "image_metafield_key": ""
+          }
+        },
+        "collapsible_QQnDNb": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Nutrition Profile",
+            "metafield_key": "",
+            "content": "<p>Add your content here.</p>",
+            "image_metafield_key": ""
+          }
+        },
+        "collapsible_biHwMy": {
+          "type": "collapsible",
+          "settings": {
+            "title": "How To Use",
+            "metafield_key": "",
+            "content": "<p>Add your content here.</p>",
+            "image_metafield_key": ""
+          }
+        }
+      },
+      "block_order": [
+        "drawer_section_36pzad",
+        "drawer_accordion_qDPeYG",
+        "drawer_image_YpGCHz",
+        "nutrition_drawer_Dhi6GE",
+        "price_breakdown_KadRXY",
+        "checklist_pYbiLA",
+        "rating_KFrwfV",
+        "collapsible_XktFwN",
+        "collapsible_hfV7CF",
+        "collapsible_QQnDNb",
+        "collapsible_biHwMy"
+      ],
+      "name": "Product",
+      "settings": {
+        "supply_text": "30 Days: 60 N Capsules",
+        "onetime_label": "One Time Purchase",
+        "subscription_sub": "Subscribe for a simpler routine delivered effortlessly every month.",
+        "targets_label": "Targets:",
+        "target_prefix": "",
+        "add_button_text": "Add to cart",
+        "sold_out_text": "Sold out",
+        "show_checkout_badges": true,
+        "checkout_label": "Guaranteed Safe Checkout With",
+        "perks": "Free shipping on all orders\nSecure checkout\nExclusive D2C savings"
       }
     },
     "spacer_aADnDt": {
@@ -231,56 +348,89 @@
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
           }
         },
         "certificate_6DgXgi": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
           }
         },
         "certificate_bC6LFf": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/surface1_a78f7377-a381-40c0-86fb-b73925a111e0.svg",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "popup_image": "shopify://shop_images/a025c98b018a9a12abe7ba901fe50b8167f7fa22.png",
+            "title": "FSSAI registered facility",
+            "info": "<p>FSSAI is India’s food-safety authority. Its standards help regulate food and health-related products made, sold, or distributed in India.</p><p>This mark reflects the relevant FSSAI licence or registration connected to the manufacturing or operating facility.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>It means the relevant facility operates within India’s food-safety framework and can be identified through official documentation.</p>"
           }
         },
         "certificate_EiQhdF": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/HACCP_Logo_-1_de53d0ac-3752-46bf-b995-c6a07d00ab12.svg",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
           }
         },
         "certificate_3kzTPw": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/ISO_9001-2015-1_1.svg",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
           }
         },
         "certificate_gNCtmx": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
           }
         },
         "certificate_R8PtL6": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
           }
         },
         "certificate_8LBn9k": {
           "type": "certificate",
           "settings": {
             "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
-            "alt": "Certification logo"
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
           }
         }
       },
@@ -1083,19 +1233,11 @@
         "judge_me_reviews_review_widget_rNkNnd"
       ],
       "settings": {}
-    },
-    "spacer_BPChPd": {
-      "type": "spacer",
-      "disabled": true,
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 180,
-        "custom_class": ""
-      }
     }
   },
   "order": [
     "main",
+    "product_variant_1_AkHpn3",
     "spacer_aADnDt",
     "testimonial-sec",
     "spacer_rFGqAQ",
@@ -1118,7 +1260,6 @@
     "batch-verified",
     "spacer_MQJmqW",
     "new_faq_section_n49mMB",
-    "17853942627ba94437",
-    "spacer_BPChPd"
+    "17853942627ba94437"
   ]
 }
