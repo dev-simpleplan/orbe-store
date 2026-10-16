@@ -349,10 +349,10 @@
           "settings": {
             "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
             "alt": "Certification logo",
-            "title": "",
-            "info": "",
+            "title": "FDA standards",
+            "info": "<p>The FDA is the United States agency responsible for protecting public health through standards for food, medicines, and other regulated products.<br/><br/>This mark reflects the relevant FDA registration, facility, or compliance documentation associated with the manufacturing site. It should not be read as FDA approval of Orbé N°01 unless the product itself has been specifically approved.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>It adds another layer of accountability to the way products are made, documented, and handled.</p>"
           }
         },
         "certificate_6DgXgi": {
@@ -360,10 +360,10 @@
           "settings": {
             "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
             "alt": "Certification logo",
-            "title": "",
-            "info": "",
+            "title": "Good Manufacturing Practice",
+            "info": "<p>GMP is a system for making sure products are consistently produced and controlled to the right quality standards.<br/><br/>It covers the details that matter behind the scenes: clean facilities, trained teams, controlled processes, proper documentation, and checks at every stage.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>Quality should not depend on chance. GMP helps make every batch more consistent, traceable, and carefully made.</p>"
           }
         },
         "certificate_bC6LFf": {
@@ -383,10 +383,10 @@
           "settings": {
             "image": "shopify://shop_images/HACCP_Logo_-1_de53d0ac-3752-46bf-b995-c6a07d00ab12.svg",
             "alt": "Certification logo",
-            "title": "",
-            "info": "",
+            "title": "Hazard Analysis and Critical Control Points",
+            "info": "<p>HACCP is a preventive food-safety system. Instead of waiting for a problem to appear, it identifies where risks could occur and puts controls in place before they do.</p><p>The system covers potential biological, chemical, and physical hazards across the production process.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>Safety is stronger when it is built into the process from the start.</p>"
           }
         },
         "certificate_3kzTPw": {
@@ -394,10 +394,10 @@
           "settings": {
             "image": "shopify://shop_images/ISO_9001-2015-1_1.svg",
             "alt": "Certification logo",
-            "title": "",
-            "info": "",
+            "title": "ISO 9001:2015",
+            "info": "<p>ISO 9001:2015 is an international quality-management standard.</p><p>It focuses on consistent processes, clear responsibilities, documentation, corrective action, and continuous improvement.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>It helps turn quality from a promise into a repeatable way of working.</p>"
           }
         },
         "certificate_gNCtmx": {
@@ -405,10 +405,10 @@
           "settings": {
             "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
             "alt": "Certification logo",
-            "title": "",
-            "info": "",
+            "title": "Export Inspection Council of India",
+            "info": "<p>The Export Inspection Council is the official export-certification body under India’s Ministry of Commerce and Industry.</p><p>The mark indicates the relevant inspection or certification recognition connected to the facility, product, or export process shown in the supporting document.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>It reflects documented inspection within India’s export-quality framework.</p>"
           }
         },
         "certificate_R8PtL6": {
@@ -416,10 +416,10 @@
           "settings": {
             "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
             "alt": "Certification logo",
-            "title": "",
-            "info": "",
+            "title": "FSSC 22000",
+            "info": "<p>FSSC 22000 is a globally recognised food-safety management certification scheme.</p><p>It brings together food-safety management, prerequisite programmes, hazard controls, and continual improvement across the supply chain.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>It creates a structured system for keeping food and supplement production safe, controlled, and traceable.</p>"
           }
         },
         "certificate_8LBn9k": {
@@ -427,10 +427,10 @@
           "settings": {
             "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
             "alt": "Certification logo",
-            "title": "",
-            "info": "",
+            "title": "Halal-certified processes",
+            "info": "<p>Halal certification confirms that the relevant ingredients, handling, processing, and production practices meet the requirements of the certifying body.</p><p>It also supports transparency for people who want to make choices aligned with their beliefs.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>The way a product is made matters as much as what is written on the label.</p>"
           }
         }
       },
