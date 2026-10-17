@@ -4314,6 +4314,7 @@ html.cb-modal-open {
 }
 .cb-modal-logo img {
   display: block;
+  filter: grayscale(1);
   width: auto;
   max-width: 70%;
   max-height: 160px;
