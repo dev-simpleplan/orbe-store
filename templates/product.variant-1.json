@@ -198,6 +198,7 @@
         "sold_out_text": "Sold out",
         "show_checkout_badges": true,
         "checkout_label": "Guaranteed Safe Checkout With",
+        "razorpay_badge": "shopify://shop_images/Frame_427322265.png",
         "perks": "Free shipping on all orders\nSecure checkout\nExclusive D2C savings"
       }
     },
