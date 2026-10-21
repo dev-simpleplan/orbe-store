@@ -347,8 +347,10 @@
     </div>
   </div>
   {% if nutrition_block %}
+  {% assign nd_new = true %}
+  {% if nutrition_block.settings.style == 'classic' %}{% assign nd_new = false %}{% endif %}
   <div class="ingredient-drawer-backdrop" data-nutrition-close></div>
-  <aside class="ingredient-drawer" id="nutrition-drawer-{{ section.id }}" role="dialog" aria-modal="true" aria-hidden="true" data-nutrition-drawer>
+  <aside class="ingredient-drawer{% if nd_new %} nd2{% endif %}" id="nutrition-drawer-{{ section.id }}" role="dialog" aria-modal="true" aria-hidden="true" data-nutrition-drawer data-nd-style="{% if nd_new %}new{% else %}classic{% endif %}">
     <div class="ingredient-drawer-scroll" data-lenis-prevent>
       <div class="ingredient-drawer-head">
         <button type="button" class="ingredient-drawer-close" aria-label="Close" data-nutrition-close>
@@ -356,6 +358,80 @@
           <span></span>
         </button>
       </div>
+      {% if nd_new %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'nd2_heading' %}
+            <div class="nd2-block nd2-heading" {{ block.shopify_attributes }}>
+              {% if block.settings.label != blank %}<p class="nd2-label">{{ block.settings.label }}</p>{% endif %}
+              {% if block.settings.heading != blank %}<h2 class="nd2-title">{{ block.settings.heading }}</h2>{% endif %}
+              {% if block.settings.text != blank %}<div class="nd2-text">{{ block.settings.text }}</div>{% endif %}
+              {% if block.settings.highlight != blank %}
+                <div class="nd2-highlight">
+                  {% assign hl_lines = block.settings.highlight | newline_to_br | split: '<br />' %}
+                  {% for line in hl_lines %}
+                    {% assign hl = line | strip %}
+                    {% if hl != blank %}<p>{{ hl }}</p>{% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% when 'nd2_list' %}
+            <div class="nd2-block nd2-list" {{ block.shopify_attributes }}>
+              {% if block.settings.top_text != blank %}<p class="nd2-label">{{ block.settings.top_text }}</p>{% endif %}
+              <ul class="nd2-rows">
+                {% assign list_lines = block.settings.items | newline_to_br | split: '<br />' %}
+                {% for line in list_lines %}
+                  {% assign row = line | strip %}
+                  {% if row != blank %}
+                    {% assign cols = row | split: '|' %}
+                    <li class="nd2-row">
+                      <div class="nd2-row-main">
+                        <span class="nd2-row-name">{{ cols[0] | strip }}</span>
+                        {% if cols[1] != blank %}<span class="nd2-row-sub">{{ cols[1] | strip }}</span>{% endif %}
+                      </div>
+                      {% if cols[2] != blank %}<span class="nd2-row-tag">{{ cols[2] | strip }}</span>{% endif %}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+              {% if block.settings.bottom_text != blank %}<p class="nd2-note">{{ block.settings.bottom_text }}</p>{% endif %}
+            </div>
+          {% when 'nd2_accordion' %}
+            <div class="nd2-block nd2-acc" {{ block.shopify_attributes }}>
+              {% if block.settings.top_text != blank %}<p class="nd2-label">{{ block.settings.top_text }}</p>{% endif %}
+              <div class="nd2-acc-list">
+                {% for n in (1..6) %}
+                  {% assign t_key = 'title_' | append: n %}
+                  {% assign c_key = 'content_' | append: n %}
+                  {% assign acc_title = block.settings[t_key] %}
+                  {% if acc_title != blank %}
+                    <div class="nd2-acc-item">
+                      <button type="button" class="ingredient-drawer-title nd2-acc-title" aria-expanded="false">
+                        <span>{{ acc_title }}</span>
+                        <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
+                      </button>
+                      <div class="ingredient-drawer-content nd2-acc-content">
+                        {{ block.settings[c_key] }}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              {% if block.settings.bottom_label != blank or block.settings.bottom_text != blank %}
+                <div class="nd2-acc-foot">
+                  {% if block.settings.bottom_label != blank %}<p class="nd2-label">{{ block.settings.bottom_label }}</p>{% endif %}
+                  {% assign foot_lines = block.settings.bottom_text | newline_to_br | split: '<br />' %}
+                  {% for line in foot_lines %}
+                    {% assign ft = line | strip %}
+                    {% if ft != blank %}<p class="nd2-foot-line{% unless forloop.first %} nd2-foot-line--small{% endunless %}">{{ ft }}</p>{% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+      {% else %}
       {% if nutrition_block.settings.drawer_heading != blank %}
         <div class="ingredient-top-title">
           <h2>{{ nutrition_block.settings.drawer_heading }}</h2>
@@ -404,6 +480,7 @@
             </div>
         {% endcase %}
       {% endfor %}
+      {% endif %}
     </div>
   </aside>
   {% endif %}
@@ -499,6 +576,7 @@
       function setNutritionItem(title, open) {
         var panel = title.nextElementSibling;
         title.classList.toggle('active', open);
+        title.setAttribute('aria-expanded', open ? 'true' : 'false');
         if (panel) panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
       }
 
@@ -508,7 +586,7 @@
         root.classList.add('ingredient-drawer-active');
         document.documentElement.classList.add('ingredient-drawer-open');
         document.body.classList.add('ingredient-drawer-open');
-        if (nutritionTitles.length) setNutritionItem(nutritionTitles[0], true);
+        if (nutritionTitles.length && nutritionDrawer.getAttribute('data-nd-style') === 'classic') setNutritionItem(nutritionTitles[0], true);
         if (window.lenis) window.lenis.stop();
       }
 
@@ -968,6 +1046,23 @@
           "default": "View Nutrition Table"
         },
         {
+          "type": "select",
+          "id": "style",
+          "label": "Panel design",
+          "options": [
+            {
+              "value": "new",
+              "label": "New design"
+            },
+            {
+              "value": "classic",
+              "label": "Classic (old design)"
+            }
+          ],
+          "default": "new",
+          "info": "New design uses the \"Drawer: Heading / List / Accordion\" blocks. Classic uses Drawer Section, Drawer Accordion Item and Drawer Image. The other set is hidden, not deleted."
+        },
+        {
           "type": "text",
           "id": "drawer_heading",
           "label": "Drawer heading",
@@ -1045,6 +1140,139 @@
           "id": "image",
           "label": "Image",
           "info": "e.g. the nutrition table."
+        }
+      ]
+    },
+    {
+      "type": "nd2_heading",
+      "name": "Drawer: Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (above heading)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Paragraph"
+        },
+        {
+          "type": "textarea",
+          "id": "highlight",
+          "label": "Highlighted lines",
+          "info": "Optional, shown in dark text under the paragraph. One line per row."
+        }
+      ]
+    },
+    {
+      "type": "nd2_list",
+      "name": "Drawer: List",
+      "settings": [
+        {
+          "type": "text",
+          "id": "top_text",
+          "label": "Top text",
+          "default": "Active nutrients"
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Items",
+          "info": "One item per line: Name | Form | Right-side tag. Example: Vitamin B12 | Methylcobalamin | Energy support"
+        },
+        {
+          "type": "text",
+          "id": "bottom_text",
+          "label": "Bottom text"
+        }
+      ]
+    },
+    {
+      "type": "nd2_accordion",
+      "name": "Drawer: Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "top_text",
+          "label": "Top text"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "Item 1 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_1",
+          "label": "Item 1 content"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Item 2 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_2",
+          "label": "Item 2 content"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "Item 3 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_3",
+          "label": "Item 3 content"
+        },
+        {
+          "type": "text",
+          "id": "title_4",
+          "label": "Item 4 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_4",
+          "label": "Item 4 content"
+        },
+        {
+          "type": "text",
+          "id": "title_5",
+          "label": "Item 5 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_5",
+          "label": "Item 5 content"
+        },
+        {
+          "type": "text",
+          "id": "title_6",
+          "label": "Item 6 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_6",
+          "label": "Item 6 content"
+        },
+        {
+          "type": "text",
+          "id": "bottom_label",
+          "label": "Bottom label",
+          "default": "Nutritional profile"
+        },
+        {
+          "type": "textarea",
+          "id": "bottom_text",
+          "label": "Bottom text",
+          "info": "One line per row. The first line is larger, following lines are small."
         }
       ]
     }
