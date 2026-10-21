@@ -197,7 +197,7 @@
           "type": "collapsible",
           "settings": {
             "title": "Ingredients",
-            "metafield_key": "",
+            "metafield_key": "custom.ingredients",
             "content": "<p>Add your content here.</p>",
             "image_metafield_key": ""
           }
