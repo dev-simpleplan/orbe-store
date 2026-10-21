@@ -411,7 +411,15 @@
                         <span>{{ acc_title }}</span>
                         <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
                       </button>
+                      {% assign i_key = 'image_' | append: n %}
+                      {% assign acc_image = block.settings[i_key] %}
                       <div class="ingredient-drawer-content nd2-acc-content">
+                        {% if acc_image != blank %}
+                          {% assign acc_alt = acc_title | escape %}
+                          <div class="nd2-acc-image">
+                            {{ acc_image | image_url: width: 1000 | image_tag: alt: acc_alt, loading: 'lazy', widths: '500, 800, 1000', sizes: '(min-width: 768px) 530px, 92vw' }}
+                          </div>
+                        {% endif %}
                         {{ block.settings[c_key] }}
                       </div>
                     </div>
@@ -1213,6 +1221,12 @@
           "label": "Item 1 content"
         },
         {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Item 1 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
           "type": "text",
           "id": "title_2",
           "label": "Item 2 title"
@@ -1221,6 +1235,12 @@
           "type": "richtext",
           "id": "content_2",
           "label": "Item 2 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Item 2 image",
+          "info": "Optional. Shown above the text."
         },
         {
           "type": "text",
@@ -1233,6 +1253,12 @@
           "label": "Item 3 content"
         },
         {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Item 3 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
           "type": "text",
           "id": "title_4",
           "label": "Item 4 title"
@@ -1241,6 +1267,12 @@
           "type": "richtext",
           "id": "content_4",
           "label": "Item 4 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Item 4 image",
+          "info": "Optional. Shown above the text."
         },
         {
           "type": "text",
@@ -1253,6 +1285,12 @@
           "label": "Item 5 content"
         },
         {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Item 5 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
           "type": "text",
           "id": "title_6",
           "label": "Item 6 title"
@@ -1261,6 +1299,12 @@
           "type": "richtext",
           "id": "content_6",
           "label": "Item 6 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Item 6 image",
+          "info": "Optional. Shown above the text."
         },
         {
           "type": "text",

@@ -6268,12 +6268,49 @@ body.template-404 .footer {
   stroke: var(--black);
   stroke-width: 1.2;
 }
+/* content: same look as the accordion rows on the product page (.pdp-acc-content) */
+.nd2 .nd2-acc-content {
+  font-family: var(--aspekta);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--gray);
+}
+.nd2 .nd2-acc-content > :last-child {
+  margin-bottom: 24px;
+}
 .nd2 .nd2-acc-content p {
-  padding-bottom: 14px;
-  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #5d5d5d;
 }
 .nd2 .nd2-acc-content p:last-child {
-  padding-bottom: 22px;
+  padding-bottom: 0;
+}
+.nd2 .nd2-acc-content ul {
+  margin: 0;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.nd2 .nd2-acc-content li {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #5d5d5d;
+}
+.nd2-acc-image {
+  margin: 4px 0 16px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.nd2-acc-image img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .nd2-acc-foot {
   margin-top: 28px;
