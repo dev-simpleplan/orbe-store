@@ -3553,7 +3553,8 @@ body.ingredient-drawer-open {
 }
 @media screen and (max-width: 767px) {
   .ingredient-drawer {
-    width: min(92vw, 100%);
+    /* width: min(92vw, 100%); */
+    width: 100%;
   }
   .ingredient-drawer-scroll {
     padding: 24px 22px 42px;
