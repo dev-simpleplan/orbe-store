@@ -188,7 +188,7 @@
           "type": "collapsible",
           "settings": {
             "title": "Why Orbe",
-            "metafield_key": "",
+            "metafield_key": "custom.why_orbe",
             "content": "<p>Add your content here.</p>",
             "image_metafield_key": ""
           }
