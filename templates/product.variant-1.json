@@ -189,7 +189,7 @@
           "settings": {
             "title": "Why Orbe",
             "metafield_key": "custom.why_orbe",
-            "content": "<p>Add your content here.</p>",
+            "content": "",
             "image_metafield_key": ""
           }
         },
@@ -198,7 +198,7 @@
           "settings": {
             "title": "Ingredients",
             "metafield_key": "custom.ingredients",
-            "content": "<p>Add your content here.</p>",
+            "content": "",
             "image_metafield_key": "",
             "image": "shopify://shop_images/orbe-ingredients.jpg"
           }
@@ -208,7 +208,7 @@
           "settings": {
             "title": "Nutrition Profile",
             "metafield_key": "custom.nutrition_profile",
-            "content": "<p>Add your content here.</p>",
+            "content": "",
             "image_metafield_key": "",
             "image": "shopify://shop_images/ChatGPT_Image_Jul_29_2026_07_48_24_PM.png"
           }
@@ -218,7 +218,7 @@
           "settings": {
             "title": "How To Use",
             "metafield_key": "custom.how_to_use",
-            "content": "<p>Add your content here.</p>",
+            "content": "",
             "image_metafield_key": ""
           }
         }
