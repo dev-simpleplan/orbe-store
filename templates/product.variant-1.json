@@ -206,7 +206,7 @@
           "type": "collapsible",
           "settings": {
             "title": "Nutrition Profile",
-            "metafield_key": "",
+            "metafield_key": "custom.nutrition_profile",
             "content": "<p>Add your content here.</p>",
             "image_metafield_key": ""
           }
@@ -215,7 +215,7 @@
           "type": "collapsible",
           "settings": {
             "title": "How To Use",
-            "metafield_key": "",
+            "metafield_key": "custom.how_to_use",
             "content": "<p>Add your content here.</p>",
             "image_metafield_key": ""
           }
