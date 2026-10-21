@@ -209,7 +209,8 @@
             "title": "Nutrition Profile",
             "metafield_key": "custom.nutrition_profile",
             "content": "<p>Add your content here.</p>",
-            "image_metafield_key": ""
+            "image_metafield_key": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jul_29_2026_07_48_24_PM.png"
           }
         },
         "collapsible_biHwMy": {
