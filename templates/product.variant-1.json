@@ -199,7 +199,8 @@
             "title": "Ingredients",
             "metafield_key": "custom.ingredients",
             "content": "<p>Add your content here.</p>",
-            "image_metafield_key": ""
+            "image_metafield_key": "",
+            "image": "shopify://shop_images/orbe-ingredients.jpg"
           }
         },
         "collapsible_QQnDNb": {
