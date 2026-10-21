@@ -85,6 +85,52 @@
     "product_variant_1_AkHpn3": {
       "type": "product-variant-1",
       "blocks": {
+        "nd2_heading_hWwh6t": {
+          "type": "nd2_heading",
+          "settings": {
+            "label": "ORBÉ N°01 · THE FORMULATION",
+            "heading": "10 nutrients. Thoughtfully chosen forms.",
+            "text": "<p>Every ingredient has a purpose. Each form is selected with absorption, tolerance, and everyday usability in mind.</p>",
+            "highlight": ""
+          }
+        },
+        "nd2_list_TJB4Ht": {
+          "type": "nd2_list",
+          "settings": {
+            "top_text": "Active nutrients",
+            "items": "Vitamin B12 | Methylcobalamin | Energy support\nIron | Ferrochel® Ferrous Bisglycinate | Energy support\nZinc | Zinc Citrate | Immunity · skin · hair\nMagnesium | Magnesium Bisglycinate | Balance · sleep",
+            "bottom_text": "Exact amounts for all 10 nutrients are shown in the full profile below."
+          }
+        },
+        "nd2_heading_ecKVyg": {
+          "type": "nd2_heading",
+          "settings": {
+            "label": "PURITY SCREENING",
+            "heading": "Made with transparency.",
+            "text": "<p>Every batch is screened for:</p>",
+            "highlight": "Heavy metals · Pesticides · Microbial safety\nAflatoxins · Melamine"
+          }
+        },
+        "nd2_accordion_cihRiD": {
+          "type": "nd2_accordion",
+          "settings": {
+            "top_text": "",
+            "title_1": "Why these forms",
+            "content_1": "<p>Why these forms</p>",
+            "title_2": "Why these forms",
+            "content_2": "<p>Why these forms</p>",
+            "title_3": "Capsule and product details",
+            "content_3": "<p>Capsule and product details</p>",
+            "title_4": "How to use",
+            "content_4": "<p>How to use</p>",
+            "title_5": "",
+            "content_5": "",
+            "title_6": "",
+            "content_6": "",
+            "bottom_label": "Nutritional profile",
+            "bottom_text": "Approximate values per serving · Serving size: 2 capsules\nFull nutrition table opens inside the product details section."
+          }
+        },
         "drawer_section_36pzad": {
           "type": "drawer_section",
           "settings": {
@@ -111,6 +157,7 @@
           "type": "nutrition_drawer",
           "settings": {
             "button_text": "View Nutrition Table",
+            "style": "new",
             "drawer_heading": "Orbé N°01 · The Formulation"
           }
         },
@@ -175,6 +222,10 @@
         }
       },
       "block_order": [
+        "nd2_heading_hWwh6t",
+        "nd2_list_TJB4Ht",
+        "nd2_heading_ecKVyg",
+        "nd2_accordion_cihRiD",
         "drawer_section_36pzad",
         "drawer_accordion_qDPeYG",
         "drawer_image_YpGCHz",
