@@ -1302,9 +1302,9 @@
   .pdp--v1 .pdp-gallery .pdp-gallery-item:first-child {
     aspect-ratio: 430 / 650;
   }
-  .pdp--v1 .pdp-gallery-img {
+  /* .pdp--v1 .pdp-gallery-img {
     object-fit: contain;
-  }
+  } */
   .pdp-gallery {
     cursor: grab;
   }
