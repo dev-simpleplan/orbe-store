@@ -987,24 +987,6 @@
         "custom_class": ""
       }
     },
-    "17853942627ba94437": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_rNkNnd": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "real_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_rNkNnd"
-      ],
-      "settings": {}
-    },
     "new_faq_section_n49mMB": {
       "type": "new-faq-section",
       "blocks": {
@@ -1114,15 +1096,6 @@
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
       }
-    },
-    "spacer_BPChPd": {
-      "type": "spacer",
-      "disabled": true,
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 180,
-        "custom_class": ""
-      }
     }
   },
   "order": [
@@ -1148,8 +1121,6 @@
     "spacer_adLpCm",
     "batch-verified",
     "spacer_MQJmqW",
-    "17853942627ba94437",
-    "new_faq_section_n49mMB",
-    "spacer_BPChPd"
+    "new_faq_section_n49mMB"
   ]
 }
