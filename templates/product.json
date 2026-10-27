@@ -978,19 +978,10 @@
         "testedby": "Tested by Equinox Labs, NABL accredited. Reports are batch-specific and dated, so you can match what you're holding to the paperwork."
       }
     },
-    "spacer_MQJmqW": {
-      "type": "spacer",
-      "disabled": true,
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 120,
-        "custom_class": ""
-      }
-    },
-    "17853942627ba94437": {
+    "1793088979bf03a5a8": {
       "type": "apps",
       "blocks": {
-        "judge_me_reviews_review_widget_rNkNnd": {
+        "judge_me_reviews_review_widget_c3NrhR": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "real_data",
@@ -1001,9 +992,18 @@
         }
       },
       "block_order": [
-        "judge_me_reviews_review_widget_rNkNnd"
+        "judge_me_reviews_review_widget_c3NrhR"
       ],
       "settings": {}
+    },
+    "spacer_MQJmqW": {
+      "type": "spacer",
+      "disabled": true,
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120,
+        "custom_class": ""
+      }
     },
     "new_faq_section_n49mMB": {
       "type": "new-faq-section",
@@ -1114,15 +1114,6 @@
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
       }
-    },
-    "spacer_BPChPd": {
-      "type": "spacer",
-      "disabled": true,
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 180,
-        "custom_class": ""
-      }
     }
   },
   "order": [
@@ -1147,9 +1138,8 @@
     "best-bio",
     "spacer_adLpCm",
     "batch-verified",
+    "1793088979bf03a5a8",
     "spacer_MQJmqW",
-    "17853942627ba94437",
-    "new_faq_section_n49mMB",
-    "spacer_BPChPd"
+    "new_faq_section_n49mMB"
   ]
 }
