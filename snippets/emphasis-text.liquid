@@ -1,0 +1,10 @@
+{%- comment -%}
+  Prints text with italic parts (and keeps line breaks typed in a textarea). Wrap the words in asterisks anywhere in the sentence:
+  "Meet our *experts*"  or  "*Standards* You Can Check"
+  Usage: {% render 'emphasis-text', text: section.settings.heading %}
+{%- endcomment -%}
+{%- assign emphasis_parts = text | escape | newline_to_br | split: '*' -%}
+{%- for part in emphasis_parts -%}
+  {%- assign emphasis_odd = forloop.index0 | modulo: 2 -%}
+  {%- if emphasis_odd == 1 -%}<em>{{ part }}</em>{%- else -%}{{ part }}{%- endif -%}
+{%- endfor -%}

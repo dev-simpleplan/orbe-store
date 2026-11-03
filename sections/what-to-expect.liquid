@@ -1,0 +1,226 @@
+{%- assign wte_product = section.settings.product | default: product -%}
+{%- assign wte_variant = wte_product.selected_or_first_available_variant -%}
+
+<section class="wte" id="wte-{{ section.id }}" data-wte>
+  <div class="container">
+    <div class="wte-in">
+
+      <div class="wte-left">
+        {% if section.settings.heading != blank %}
+          <div class="wte-heading">{{ section.settings.heading }}</div>
+        {% endif %}
+        <div class="wte-meta">
+          {% if section.settings.subheading != blank %}
+            <p class="wte-sub">{{ section.settings.subheading }}</p>
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <p class="wte-desc">{{ section.settings.description }}</p>
+          {% endif %}
+          {% if section.settings.evidence_text != blank %}
+            <a href="{{ section.settings.evidence_link | default: '#' }}" class="wte-evidence"{% if section.settings.evidence_opens_panel %} data-nutrition-open aria-haspopup="dialog"{% endif %}>{{ section.settings.evidence_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="wte-center">
+        {% if section.settings.image != blank %}
+          {% assign wte_alt = section.settings.heading | strip_html | escape %}
+          {{ section.settings.image | image_url: width: 1000 | image_tag: alt: wte_alt, loading: 'lazy', widths: '400, 600, 800, 1000', sizes: '(min-width: 992px) 30vw, 55vw' }}
+        {% endif %}
+      </div>
+
+      <ol class="wte-items">
+        {% for block in section.blocks %}
+          <li class="wte-item" {{ block.shopify_attributes }}>
+            <span class="wte-arrow" aria-hidden="true">
+              <svg viewBox="0 0 58 8" preserveAspectRatio="none" fill="none"><path d="M0 4h57M53.5 0.8L57 4l-3.5 3.2" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+            </span>
+            <div class="wte-item-text">
+              {% if block.settings.title != blank %}
+                {%- assign wte_parts = block.settings.title | split: '·' -%}
+                {%- if wte_parts.size > 1 -%}
+                  {%- assign wte_lead = wte_parts[0] | strip -%}
+                  {%- assign wte_rest = block.settings.title | remove_first: wte_parts[0] | remove_first: '·' | strip -%}
+                  <h3 class="wte-item-title"><span class="wte-lead">{{ wte_lead }}</span> · <span class="wte-rest">{{ wte_rest }}</span></h3>
+                {%- else -%}
+                  <h3 class="wte-item-title">{{ block.settings.title }}</h3>
+                {%- endif -%}
+              {% endif %}
+              {% if block.settings.text != blank %}<p class="wte-item-desc">{{ block.settings.text }}</p>{% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+
+      <div class="wte-cta">
+        {% if wte_product != blank and wte_variant != blank %}
+          {% form 'product', wte_product, class: 'wte-form', novalidate: 'novalidate' %}
+            <input type="hidden" name="id" value="{{ wte_variant.id }}">
+            <button type="submit" class="primary-btn wte-buy" {% unless wte_variant.available %}disabled{% endunless %}>
+              {{ section.settings.cta_text }}{% if section.settings.show_price %} · {{ wte_variant.price | money_without_trailing_zeros }}{% endif %}
+            </button>
+            <div class="wte-qty" data-wte-qty>
+              <button type="button" class="wte-qty-btn" data-wte-minus aria-label="Decrease quantity">&minus;</button>
+              <input type="text" inputmode="numeric" name="quantity" value="1" class="wte-qty-input" data-wte-input aria-label="Quantity">
+              <button type="button" class="wte-qty-btn" data-wte-plus aria-label="Increase quantity">+</button>
+            </div>
+          {% endform %}
+        {% else %}
+          <a href="{{ routes.collections_url }}" class="primary-btn wte-buy">{{ section.settings.cta_text }}</a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function initWte(root) {
+      if (!root || root.dataset.wteReady === 'true') return;
+      root.dataset.wteReady = 'true';
+      var input = root.querySelector('[data-wte-input]');
+      if (!input) return;
+      var set = function (v) { input.value = Math.max(1, v); };
+      var minus = root.querySelector('[data-wte-minus]');
+      var plus = root.querySelector('[data-wte-plus]');
+      if (minus) minus.addEventListener('click', function () { set((parseInt(input.value, 10) || 1) - 1); });
+      if (plus) plus.addEventListener('click', function () { set((parseInt(input.value, 10) || 1) + 1); });
+      input.addEventListener('input', function () { this.value = this.value.replace(/[^0-9]/g, ''); });
+      input.addEventListener('blur', function () { set(parseInt(this.value, 10) || 1); });
+    }
+    function initAll() { document.querySelectorAll('[data-wte]').forEach(initWte); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initAll);
+    else initAll();
+    document.addEventListener('shopify:section:load', initAll);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "What to expect",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left side"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Use italics for the highlighted word.",
+      "default": "<p>What to expect <em>from</em> Orbé</p>"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub heading",
+      "default": "Based on ingredient research"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "These timelines come from research on each nutrient, not a trial of N°01. Results depend on your starting levels. Low iron means bigger shifts."
+    },
+    {
+      "type": "text",
+      "id": "evidence_text",
+      "label": "Outline button text",
+      "default": "See the evidence"
+    },
+    {
+      "type": "url",
+      "id": "evidence_link",
+      "label": "Outline button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "evidence_opens_panel",
+      "label": "Open the nutrition table panel",
+      "default": true,
+      "info": "On the product page, the button opens the nutrition table panel instead of following the link."
+    },
+    {
+      "type": "header",
+      "content": "Centre"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bottles image",
+      "info": "The stacked bottles. A transparent PNG works best."
+    },
+    {
+      "type": "header",
+      "content": "Buy button"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Leave empty to use the product of the page this section is on."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Start your 90 days"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show the price in the button",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Timeline item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Bottle 1 · Days 1–30"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What to expect",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Bottle 1 · Days 1–30",
+            "text": "The 3pm dip eases as B12 and folate help turn food into usable energy. Afternoons start to feel lighter."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Bottle 2 · Days 31–60",
+            "text": "Nights get deeper as magnesium calms your nervous system. Iron restores what each cycle takes. Sleep and PMS soften."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Bottle 3 · Days 61–90",
+            "text": "Your body feels steady as D3, K2 and boron support bone. Energy, cycles and mood settle into a steadier pattern."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

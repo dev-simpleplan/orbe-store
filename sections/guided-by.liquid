@@ -3,7 +3,7 @@
     <div class="container-left">
         <div class="guided-by-in">
             <div class="top text-animation">
-                <h2>{{ section.settings.heading }}</h2>
+                <h2>{% render 'emphasis-text', text: section.settings.heading %}</h2>
                 <p>{{ section.settings.description }}</p>
             </div>
             <div class="bottom">
@@ -63,7 +63,8 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading"
+      "label": "Heading",
+      "info": "Wrap words in *asterisks* to make them italic, anywhere in the sentence."
     },
     {
       "type": "textarea",
