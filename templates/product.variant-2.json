@@ -232,10 +232,9 @@
     },
     "spacer_aADnDt": {
       "type": "spacer",
-      "disabled": true,
       "name": "Spacer",
       "settings": {
-        "spacer_height": 80,
+        "spacer_height": 50,
         "custom_class": ""
       }
     },
