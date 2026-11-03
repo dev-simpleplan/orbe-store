@@ -1,0 +1,2044 @@
+/* ============================================================
+   Product page – variant 2
+   Loaded only by sections/product-variant-2.liquid.
+   New components use the .pdp2- prefix; shared .pdp-* pieces
+   (title, price, buy row, accordion…) are restyled under .pdp--v2
+   so nothing here touches the default product page.
+============================================================ */
+
+/* ---------- Layout ---------- */
+.pdp--v2 .pdp2-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+.pdp2-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* top banner image + bottom row of 4 images (desktop only) */
+.pdp2-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pdp2-quad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.pdp2-quad-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f2f1ee;
+}
+.pdp2-zoom-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.pdp2-quad-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pdp2-main-item--placeholder {
+  cursor: default;
+}
+.pdp2-info {
+  min-width: 0;
+}
+.pdp2-info-inner {
+  max-width: 465px;
+}
+.pdp--v2 .pdp-options {
+  display: none;
+}
+
+/* ---------- Galleries ---------- */
+.pdp2-gallery {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+.pdp2-gallery--side {
+  grid-template-columns: 92px minmax(0, 1fr);
+  grid-template-areas: "thumbs main";
+  align-items: start;
+}
+.pdp2-gallery--side .pdp2-main {
+  grid-area: main;
+}
+.pdp2-gallery--side .pdp2-thumbs-wrap {
+  grid-area: thumbs;
+  align-self: stretch;
+}
+.pdp2-gallery--below {
+  grid-template-columns: minmax(0, 1fr);
+}
+.pdp2-main {
+  position: relative;
+  aspect-ratio: var(--g-ratio, 1 / 1);
+  background: #f2f1ee;
+  overflow: hidden;
+}
+.pdp2-main-item {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.pdp2-main-item.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.pdp2-main-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* thumbnails */
+.pdp2-thumbs-wrap {
+  position: relative;
+  min-width: 0;
+}
+.pdp2-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+.pdp2-thumbs::-webkit-scrollbar {
+  display: none;
+}
+.pdp2-thumb {
+  flex: 0 0 auto;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  background: #f2f1ee;
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  opacity: 0.75;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+.pdp2-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pdp2-thumb:hover {
+  opacity: 1;
+}
+.pdp2-thumb.is-active {
+  opacity: 1;
+  border-color: var(--black);
+}
+
+/* thumbs on the side: vertical strip as tall as the big image */
+.pdp2-gallery--side .pdp2-thumbs {
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.pdp2-gallery--side .pdp2-thumb {
+  width: 100%;
+}
+
+/* thumbs below: a row, 4 visible */
+.pdp2-gallery--below .pdp2-thumb {
+  flex-basis: calc((100% - 24px) / 4);
+}
+
+/* scroll arrows */
+.pdp2-thumb-arrow {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--black);
+  color: #fff;
+  cursor: pointer;
+}
+.pdp2-thumb-arrow[hidden] {
+  display: none;
+}
+/* light arrows (video thumbnails): white circle, dark icon */
+.pdp2-thumb-arrow--light {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  color: #111;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+.pdp2-thumb-arrow--light.pdp2-thumb-arrow--prev {
+  transform: translateY(-50%) rotate(180deg);
+}
+/* video thumbs: big arrow while there are more items that way; JS hides it when there are none */
+.pdp2-thumb-arrow--light {
+  width: 36px;
+  height: 36px;
+}
+.pdp2-thumb-arrow--light svg {
+  width: 17px;
+  height: 17px;
+}
+.pdp2-thumb-arrow--light.pdp2-thumb-arrow--next {
+  right: 8px;
+}
+.pdp2-thumb-arrow--light.pdp2-thumb-arrow--prev {
+  left: 8px;
+}
+/* horizontal strips (default): arrows at the sides */
+.pdp2-thumb-arrow--next {
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+}
+.pdp2-thumb-arrow--prev {
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%) rotate(180deg);
+}
+/* vertical strip (side gallery, desktop): arrows top / bottom */
+.pdp2-gallery--side .pdp2-thumb-arrow--next {
+  top: auto;
+  right: auto;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+}
+.pdp2-gallery--side .pdp2-thumb-arrow--prev {
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+}
+
+/* nutrition button under the galleries (base look comes from custom.css) */
+.pdp2-left .pdp-nutrition-btn {
+  margin-top: 20px;
+}
+
+/* ---------- Info: rating, title, description ---------- */
+.pdp--v2 .pdp-rating {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.pdp--v2 .pdp-reviews {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+.pdp--v2 .pdp-title {
+  font-family: var(--aspekta);
+  font-size: clamp(40px, 4.6vw, 62px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.pdp--v2 .pdp-desc p {
+  font-family: var(--aspekta);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 140%;
+  color: #4a4a4a;
+  max-width: 46ch;
+  margin-bottom: 18px;
+}
+.pdp--v2 .pdp-desc em,
+.pdp--v2 .pdp-desc i {
+  font-family: var(--tobias);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.08em;
+  color: var(--black);
+}
+.pdp--v2 .pdp-desc strong,
+.pdp--v2 .pdp-desc b {
+  font-weight: 600;
+  color: var(--black);
+}
+
+/* ---------- Intro text (under the title) ---------- */
+.pdp2-intro {
+  max-width: 42ch;
+  margin-bottom: 26px;
+  font-family: var(--aspekta);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: #5a5a5a;
+}
+.pdp2-intro em {
+  font-family: var(--tobias);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 0;
+  color: var(--black);
+}
+
+/* ---------- Bullets ---------- */
+.pdp2-bullets {
+  margin-bottom: 24px;
+  font-family: var(--aspekta);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: #5a5a5a;
+}
+.pdp2-bullets p {
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+.pdp2-bullets ul {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pdp2-bullets li {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+.pdp2-bullets li::marker {
+  color: var(--black);
+  font-size: 1em;
+}
+.pdp2-bullets strong {
+  font-weight: 600;
+  color: var(--black);
+}
+
+/* ---------- Pill button ---------- */
+.pdp2-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 26px;
+  margin-bottom: 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #e3e3e3;
+  color: #111;
+  font-family: var(--tobias);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ---------- Daily price card ---------- */
+.pdp2-daily {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 13px 7.5px 16.5px;
+  margin-bottom: 49.2px;
+  background: #ebebeb;
+  border: 1px solid #E2E2E2;
+  border-radius: 6px;
+}
+.pdp2-daily-eyebrow {
+  margin-bottom: 7px;
+  font-family: var(--aspekta);
+  font-style: italic;
+  font-synthesis: style !important;
+  font-weight: 600;
+  font-size: 10.8px;
+  line-height: 1.2;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+.pdp2-daily-price {
+  margin-bottom: 7px;
+  font-family: var(--aspekta);
+  font-size: 32.4px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #404040;
+}
+.pdp2-daily-sub {
+  font-family: var(--aspekta);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.105em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+.pdp2-daily-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex: 0 0 auto;
+  padding: 3px 8.2px;
+  border: 0;
+  border-radius: 3px;
+  background: #000;
+  color: #fff;
+  font-family: var(--aspekta);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ---------- Price row ---------- */
+.pdp--v2 .pdp-price {
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 31.8px;
+  padding-left: 5px;
+  font-family: var(--aspekta);
+  font-size: clamp(32px, 3vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  color: var(--black);
+}
+.pdp--v2 .pdp-price-compare {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.pdp2-badge {
+  display: inline-block;
+  margin-left: 2.5px;
+  padding: 3.5px 5.5px;
+  background: #e10022;
+  color: #fff;
+  font-family: var(--aspekta);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 12px;
+}
+
+/* ---------- Targets, per-day line, buy row ---------- */
+.pdp--v2 .pdp-targets {
+  margin-bottom: 47px;
+  padding-left: 5px;
+}
+.pdp2-perday-line {
+  margin-bottom: 7.5px;
+  font-family: var(--aspekta);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 2.88px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.pdp--v2 .pdp-buy {
+  margin-bottom: 14.6px;
+}
+.pdp--v2 .pdp-qty-btn {
+  height: 42.4px;
+}
+.pdp--v2 .pdp-target {
+  padding: 7px 30px;
+}
+.pdp--v2 .pdp-add-btn.primary-btn {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ---------- Trust banner ---------- */
+.pdp2-trust {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 13.8px 17.7px;
+  margin-bottom: 33.6px;
+  background: var(--trust-bg, #fffbae);
+  border-radius: 6px;
+}
+.pdp2-trust-avatars {
+  display: flex;
+  flex: 0 0 auto;
+}
+.pdp2-trust-avatars img {
+  display: block;
+  width: 49px;
+  height: 49px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.28);
+}
+.pdp2-trust-avatars img + img {
+  margin-left: -11px;
+}
+.pdp2-trust-text,
+.pdp2-trust-text p {
+  font-family: var(--aspekta);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+.pdp2-trust-text p + p {
+  margin-top: 2.5px;
+}
+.pdp2-trust-text em {
+  font-style: italic;
+  font-synthesis: style !important;
+  font-weight: 500;
+}
+.pdp2-trust-text strong {
+  font-weight: 700;
+}
+
+/* ---------- Checkout / payment icons ---------- */
+.pdp--v2 .pdp-checkout {
+  margin-bottom: 45px;
+}
+.pdp--v2 .pdp-checkout-label {
+  margin-bottom: 15.5px;
+}
+.pdp2-pay-img {
+  display: block;
+  width: 252px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ---------- Accordion rows ---------- */
+.pdp--v2 .pdp-acc-head {
+  font-family: var(--aspekta);
+  font-size: 15px;
+  padding: 20px 4px;
+}
+
+/* ---------- Video testimonials ---------- */
+.pdp2-videos {
+  margin-top: 56px;
+}
+.pdp2-videos-heading,
+.pdp2-videos-heading p {
+  font-family: var(--aspekta);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  margin-bottom: 18px;
+}
+.pdp2-videos-heading em {
+  font-family: var(--tobias);
+  font-style: italic;
+}
+.pdp2v-stage {
+  position: relative;
+  aspect-ratio: var(--v-ratio, 9 / 16);
+  background: #000;
+  overflow: hidden;
+}
+.pdp2v-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.pdp2v-item.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.pdp2v-item video,
+.pdp2v-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pdp2v-controls {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+.pdp2v-play,
+.pdp2v-mute {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease;
+}
+.pdp2v-play:hover,
+.pdp2v-mute:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+.pdp2v-play .pdp2v-icon-pause,
+.pdp2v-mute .pdp2v-icon-unmuted {
+  display: none;
+}
+.pdp2v-play.is-playing .pdp2v-icon-play,
+.pdp2v-mute.is-unmuted .pdp2v-icon-muted {
+  display: none;
+}
+.pdp2v-play.is-playing .pdp2v-icon-pause,
+.pdp2v-mute.is-unmuted .pdp2v-icon-unmuted {
+  display: block;
+}
+.pdp2v-thumbs-wrap {
+  position: relative;
+  margin-top: 8px;
+}
+.pdp2v-thumbs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.pdp2v-thumbs::-webkit-scrollbar {
+  display: none;
+}
+.pdp2v-thumb {
+  flex: 0 0 calc((100% - 24px) / 5);
+  padding: 0;
+  border: 1px solid transparent;
+  background: #eee;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+.pdp2v-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pdp2v-thumb.is-active {
+  opacity: 1;
+  border-color: var(--black);
+}
+
+/* ============================================================
+   Tablet / mobile
+============================================================ */
+@media (max-width: 991px) {
+  .pdp2-hide-tablet {
+    display: none;
+  }
+  .pdp--v2 .pdp2-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+  .pdp2-info-inner {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .pdp2-left {
+    gap: 20px;
+  }
+
+  /* thumbnails move below the big image, as a row */
+  .pdp2-gallery--side {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "main" "thumbs";
+  }
+  .pdp2-gallery--side .pdp2-thumbs-wrap {
+    align-self: auto;
+  }
+  .pdp2-gallery--side .pdp2-thumbs {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .pdp2-gallery--side .pdp2-thumb,
+  .pdp2-gallery--below .pdp2-thumb {
+    width: auto;
+    flex-basis: calc((100% - 32px) / 5);
+  }
+  .pdp2-gallery--side .pdp2-thumb-arrow--next,
+  .pdp2-gallery--side .pdp2-thumb-arrow--prev {
+    top: 50%;
+    bottom: auto;
+  }
+  .pdp2-gallery--side .pdp2-thumb-arrow--next {
+    right: 6px;
+    left: auto;
+    transform: translateY(-50%);
+  }
+  .pdp2-gallery--side .pdp2-thumb-arrow--prev {
+    left: 6px;
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .pdp2-left .pdp-nutrition-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .pdp--v2 .pdp-title {
+    font-size: 44px;
+  }
+  .pdp--v2 .pdp-price {
+    font-size: 34px;
+  }
+  .pdp2-daily-price {
+    font-size: 28px;
+  }
+  .pdp2-videos {
+    margin-top: 44px;
+  }
+}
+
+/* ============================================================
+   Other sections on the variant 2 page.
+   Scoped with the template's body class so the same sections
+   look unchanged on every other page.
+============================================================ */
+
+/* Guided by: "Meet our experts" on yellow */
+.template-product-variant-2 .guided-by {
+  padding: 96px 0 40px;
+  background: #fffdb8;
+}
+.template-product-variant-2 .guided-by-in .top h2 {
+  font-weight: 500;
+}
+.template-product-variant-2 .guided-by-in .top h2 em {
+  font-family: var(--tobias);
+  font-style: italic;
+  /* italic strokes look lighter than the upright ones, so it goes one step heavier */
+  font-weight: 400;
+}
+.template-product-variant-2 .guided-by-in .top p {
+  max-width: 40ch;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #3a3a3a;
+}
+@media (max-width: 767px) {
+  .template-product-variant-2 .guided-by {
+    padding: 56px 0 24px;
+  }
+}
+
+/* Ready formula: "Your 2-capsule ritual." (black left, photo right) */
+.template-product-variant-2 .ready-formula-in .left .content-block h2 {
+  max-width: none;
+  font-family: var(--aspekta);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.template-product-variant-2 .ready-formula-in .left .content-block p {
+  max-width: 36ch;
+  padding-top: 12px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.template-product-variant-2 .ready-formula-in .left .content-block .primary-btn {
+  margin-top: 22px;
+  padding: 8px 22px;
+  font-size: 11.5px;
+  font-weight: 400;
+}
+@media (min-width: 992px) {
+  .template-product-variant-2 .ready-formula-in {
+    height: 524px;
+  }
+  .template-product-variant-2 .ready-formula-in .right {
+    height: 100%;
+  }
+  .template-product-variant-2 .ready-formula-in .right img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 767px) {
+  .template-product-variant-2 .ready-formula-in .left .content-block h2 {
+    font-size: 28px;
+  }
+  .template-product-variant-2 .ready-formula-in .left .content-block p {
+    font-size: 10px;
+    max-width: none;
+  }
+}
+
+/* Footer: no space above it on the variant 2 page */
+.template-product-variant-2 .footer {
+  margin-top: 0;
+}
+
+/* Standards that speak: bold sans heading with an italic first word, plus a "Read the reports" button */
+.template-product-variant-2 .standard-that-speaks .heading h2 {
+  max-width: none;
+  font-family: var(--aspekta);
+  font-size: clamp(30px, 3vw, 40px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: none;
+}
+.template-product-variant-2 .standard-that-speaks .heading h2 em {
+  font-style: italic;
+  font-synthesis: style !important;
+  font-weight: 600;
+}
+.template-product-variant-2 .standard-that-speaks .heading p {
+  color: #4a4a4a;
+}
+.template-product-variant-2 .standard-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.template-product-variant-2 .standard-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  height: 48px;
+  padding: 0 32px;
+  border-radius: 999px;
+  background: #e0e0e0;
+  color: #111;
+  font-family: var(--aspekta);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+.template-product-variant-2 .standard-btn:hover {
+  background: #d2d2d2;
+}
+@media (max-width: 767px) {
+  .template-product-variant-2 .standard-btn {
+    min-width: 0;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* Ready formula: tablet + mobile = photo on top, black block with centred text below */
+.template-product-variant-2 .ready-formula-in .rf-m {
+  display: none;
+}
+@media (max-width: 991px) {
+  .template-product-variant-2 .ready-formula-in .rf-has-m .rf-d {
+    display: none;
+  }
+  .template-product-variant-2 .ready-formula-in .rf-has-m .rf-m {
+    display: inline;
+  }
+  .template-product-variant-2 .ready-formula-in {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+  .template-product-variant-2 .ready-formula-in .left {
+    position: relative;
+    height: auto;
+    justify-content: center;
+  }
+  .template-product-variant-2 .ready-formula-in .left .rfleft-in {
+    max-width: 100%;
+  }
+  .template-product-variant-2 .ready-formula-in .left .content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 0 64px;
+    text-align: center;
+  }
+  .template-product-variant-2 .ready-formula-in .left .content-block h2 {
+    font-size: clamp(26px, 4.4vw, 34px);
+  }
+  .template-product-variant-2 .ready-formula-in .left .content-block p {
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+  .template-product-variant-2 .ready-formula-in .right {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    aspect-ratio: 3 / 2;
+  }
+  .template-product-variant-2 .ready-formula-in .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 767px) {
+  .template-product-variant-2 .ready-formula-in .left .content-block {
+    padding: 44px 0 52px;
+  }
+  .template-product-variant-2 .ready-formula-in .left .content-block h2 {
+    font-size: 26px;
+  }
+  .template-product-variant-2 .ready-formula-in .right {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* FAQ section: sans fonts, and the photo stays on tablet/mobile with the heading on top of it */
+.template-product-variant-2 .new-faq-heading h2 {
+  font-family: var(--aspekta);
+  font-size: clamp(56px, 6vw, 88px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.template-product-variant-2 .new-faq-question {
+  padding: 18px 26px;
+  font-family: var(--aspekta);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+.template-product-variant-2 .new-faq-item.active .new-faq-question {
+  padding-bottom: 8px;
+}
+.template-product-variant-2 .new-faq-answer-inner {
+  padding: 0 80px 24px 26px;
+}
+.template-product-variant-2 .new-faq-answer p {
+  max-width: 52ch;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.template-product-variant-2 .new-faq-cta {
+  padding: 40px 32px 0;
+}
+@media (max-width: 991px) {
+  .template-product-variant-2 .new-faq-sec-img {
+    display: block;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 7 / 5;
+  }
+  .template-product-variant-2 .new-faq-heading {
+    position: relative;
+    z-index: 2;
+    justify-content: center;
+    min-height: 0;
+    margin: calc(-1 * clamp(44px, 12vw, 72px)) 0 0;
+    padding: 0 20px;
+  }
+  .template-product-variant-2 .new-faq-heading h2 {
+    font-size: clamp(44px, 12vw, 72px);
+  }
+}
+@media (max-width: 767px) {
+  .template-product-variant-2 .new-faq-question {
+    padding: 15px 20px;
+    font-size: 15px;
+  }
+  .template-product-variant-2 .new-faq-item.active .new-faq-question {
+    padding-top: 15px;
+    padding-bottom: 6px;
+  }
+  .template-product-variant-2 .new-faq-answer-inner {
+    padding: 0 48px 20px 20px;
+  }
+  .template-product-variant-2 .new-faq-answer p {
+    font-size: 12px;
+    max-width: none;
+  }
+  .template-product-variant-2 .new-faq-cta {
+    padding: 28px 20px 0;
+    margin: 0;
+  }
+}
+
+/* ============================================================
+   Product info on mobile (767px and below)
+   order: pill, price, daily card, supports, price line, qty + button.
+   Desktop-only / mobile-only wording is switched with .pdp2-d / .pdp2-m
+============================================================ */
+.pdp2-m {
+  display: none;
+}
+@media (max-width: 767px) {
+  .pdp2-d {
+    display: none;
+  }
+  .pdp2-m {
+    display: inline;
+  }
+
+  /* the price comes before the daily card on mobile */
+  .pdp2-info-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  .pdp2-info-inner > .pdp-price {
+    order: 1;
+  }
+  .pdp2-info-inner > .pdp2-daily {
+    order: 2;
+  }
+  .pdp2-info-inner > .pdp-form {
+    order: 3;
+  }
+  .pdp2-info-inner > .pdp2-trust,
+  .pdp2-info-inner > .pdp-checkout,
+  .pdp2-info-inner > .pdp-accordion,
+  .pdp2-info-inner > .pdp2-videos {
+    order: 4;
+  }
+
+  .pdp2-pill {
+    align-self: flex-start;
+    padding: 6px 18px;
+    margin-bottom: 25px;
+    font-size: 10px;
+  }
+
+  .pdp--v2 .pdp-price {
+    gap: 16px;
+    margin-bottom: 22px;
+    padding-left: 0;
+    font-size: 28px;
+  }
+  .pdp--v2 .pdp-price-compare {
+    font-size: 9px;
+  }
+  .pdp2-badge {
+    margin-left: -8px;
+    padding: 2px 4px;
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  .pdp2-daily {
+    padding: 11px 10px 7px 14px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+  }
+  .pdp2-daily-eyebrow {
+    margin-bottom: 5px;
+    font-size: 8.2px;
+  }
+  .pdp2-daily-price {
+    margin-bottom: 4px;
+    font-size: 19.5px;
+  }
+  .pdp2-daily-sub {
+    font-size: 9.9px;
+  }
+  .pdp2-daily-learn {
+    padding: 2px 6px;
+    font-size: 9.3px;
+  }
+
+  .pdp--v2 .pdp-targets {
+    margin-bottom: 38px;
+    padding-left: 0;
+  }
+  .pdp--v2 .pdp-targets-label {
+    margin-bottom: 8px;
+    font-size: 12.5px;
+    letter-spacing: 2.2px;
+  }
+  .pdp--v2 .pdp-targets-list {
+    gap: 8px;
+  }
+  .pdp--v2 .pdp-target {
+    padding: 6px 24px;
+    font-size: 12px;
+  }
+  .pdp2-perday-line {
+    margin-bottom: 12px;
+    font-size: 12px;
+    letter-spacing: 2.3px;
+  }
+  .pdp--v2 .pdp-qty-btn {
+    height: 39.5px;
+  }
+  .pdp--v2 .pdp-add-btn.primary-btn {
+    font-size: 15px;
+  }
+}
+
+/* ------------------------------------------------------------
+   PARKED (not active): Guided by, mobile "two cards side by side" design.
+   Mobile uses the normal slider for now. If the team wants this design
+   back, remove the comment markers around the rules below.
+   It shows the 2 expert cards in a 2-column grid (Owl slider switched off with
+   !important), the second card lifted 14px, heading 40px, name 15px and the
+   tiny uppercase designation. Screenshot reference: "Meet our experts" mobile.
+------------------------------------------------------------
+
+@media (max-width: 767px) {
+  .template-product-variant-2 .guided-by {
+    padding: 56px 0 50px;
+  }
+  .template-product-variant-2 .guided-by .container-left {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .template-product-variant-2 .guided-by-in .top {
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .template-product-variant-2 .guided-by-in .top h2 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .template-product-variant-2 .guided-by-in .top p {
+    max-width: 30ch;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #2b2b2b;
+  }
+
+  -- Owl would show one card at a time: lay the stage out as a 2-column grid instead --
+  .template-product-variant-2 .guided-by-in .guided-by-nav {
+    display: none;
+  }
+  .template-product-variant-2 .guided-by-slider {
+    padding-top: 22px;
+    padding-bottom: 0;
+  }
+  .template-product-variant-2 .guided-by-slider .owl-stage {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 12px;
+    width: 100% !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .template-product-variant-2 .guided-by-slider .owl-item {
+    width: auto !important;
+    margin: 0 !important;
+    height: auto;
+  }
+  .template-product-variant-2 .guided-by-slider .owl-item:nth-child(even),
+  .template-product-variant-2 .guided-by-slider .owl-item.active:nth-child(even) {
+    transform: translateY(-14px);
+  }
+  .template-product-variant-2 .guided-by-slider .owl-item.cloned {
+    display: none;
+  }
+
+  .template-product-variant-2 .guided-by-card .text-content {
+    left: 12px;
+    bottom: 20px;
+    right: 8px;
+  }
+  .template-product-variant-2 .guided-by-card .text-content h3 {
+    font-size: 15px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .template-product-variant-2 .guided-by-card .text-content p {
+    margin-top: 4px;
+    font-size: 6px;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+  }
+}
+
+------------------------------------------------------------ */
+
+/* ============================================================
+   CSS of the sections made for variant 2
+   These used to be separate files; they now live here so all of
+   variant 2 is in one stylesheet. They rely on this file being
+   loaded, which the product-variant-2 section does.
+============================================================ */
+
+/* ---------- Cards slider (sections/cards-slider.liquid) ---------- */
+/* ============================================================
+   Cards slider (sections/cards-slider.liquid)
+   Desktop: arrows in the left column, cards slide to the right edge.
+   Mobile: one card at a time, "Buy now" + arrows underneath.
+============================================================ */
+.cards-slider {
+  overflow: hidden;
+}
+.cs-in {
+  --cs-gap: clamp(24px, 2.8vw, 40px);
+  display: grid;
+  padding-right: clamp(20px, 4vw, 72px);
+  grid-template-columns: clamp(200px, 27.2vw, 392px) minmax(0, 1fr);
+  grid-template-areas: "nav viewport";
+  align-items: start;
+}
+
+/* ---------- Arrows ---------- */
+.cs-nav {
+  grid-area: nav;
+  justify-self: end;
+  display: flex;
+  gap: 4px;
+  margin-top: 295px;
+  padding-right: clamp(40px, 8.6vw, 124px);
+}
+.cs-arrow {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+.cs-arrow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cs-arrow.is-disabled {
+  color: #8a8a8a;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ---------- Track + cards ---------- */
+.cs-viewport {
+  grid-area: viewport;
+  min-width: 0;
+}
+.cs-track {
+  display: flex;
+  gap: var(--cs-gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.cs-track::-webkit-scrollbar {
+  display: none;
+}
+.cs-card {
+  /* exactly 3 cards fill the width; the arrows slide the next one in */
+  flex: 0 0 calc((100% - 2 * var(--cs-gap)) / 3);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.cs-label {
+  margin-bottom: 16px;
+  font-family: var(--aspekta);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.cs-image {
+  aspect-ratio: 183 / 194;
+  overflow: hidden;
+  background: #efefef;
+}
+.cs-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cs-title {
+  margin-top: 20px;
+  font-family: var(--tobias);
+  font-style: italic;
+  font-size: clamp(20px, 1.6vw, 28px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+.cs-text-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 8px;
+}
+.cs-text {
+  flex: 1 1 auto;
+  font-family: var(--aspekta);
+  font-size: clamp(14px, 1.05vw, 17px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+  color: #4a4a4a;
+}
+.cs-more {
+  display: none;
+}
+.cs-bottom {
+  display: none;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 991px) {
+  .cs-nav {
+    margin-top: 255px;
+  }
+  .cs-card {
+    flex-basis: calc((100% - var(--cs-gap)) / 2);
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  .cs-in {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "viewport viewport"
+      "buy nav";
+    row-gap: 22px;
+    column-gap: 12px;
+    padding: 0 20px;
+  }
+  .cs-in {
+    --cs-gap: 20px;
+    padding-right: 20px;
+  }
+  .cs-card {
+    flex-basis: 100%;
+  }
+  .cs-label {
+    margin-bottom: 14px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+  }
+  .cs-image{
+    aspect-ratio: 2 / 1.2;
+  }
+  .cs-in--wide .cs-image {
+    aspect-ratio: 490 / 212;
+  }
+  .cs-title {
+    margin-top: 18px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .cs-text {
+    font-size: 12px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  .cs-text.is-open {
+    -webkit-line-clamp: unset;
+    display: block;
+  }
+  .cs-more {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: 6px 14px;
+    border: 0;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 10px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .cs-nav {
+    grid-area: nav;
+    margin-top: 0;
+    padding-right: 0;
+    gap: 6px;
+    align-self: center;
+  }
+  .cs-arrow {
+    width: 35px;
+    height: 35px;
+  }
+  .cs-bottom {
+    display: block;
+    grid-area: buy;
+  }
+  .cs-buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    padding: 0 24px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
+/* ---------- Rotating circle V2 (sections/rotating-circle-v2.liquid) ---------- */
+/* ============================================================
+   Rotating circle (variant 2): sections/rotating-circle-v2.liquid
+   Scroll-pinned orbit. Visible on mobile too: the ring sits half
+   off the right edge and the labels follow the dots on the left.
+============================================================ */
+.rc2 {
+  position: relative;
+  /* one screen of pinned scrolling, plus 70vh for each card that takes its turn */
+  height: calc(100vh + var(--rc2-steps, 4) * 70vh);
+}
+.rc2-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  overflow: hidden;
+}
+
+/* ---------- Heading ---------- */
+.rc2-head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rc2-heading {
+  font-family: var(--tobias);
+  font-size: clamp(26px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 99%;
+  letter-spacing: -0.05em;
+  color: var(--black);
+}
+.rc2-heading em {
+  font-style: italic;
+}
+.rc2-desc {
+  max-width: 40ch;
+  font-family: var(--aspekta);
+  font-size: 15px;
+  line-height: 1.3;
+  color: #4a4a4a;
+}
+
+/* ---------- Scene ---------- */
+.rc2-scene {
+  position: relative;
+  flex: 0 0 auto;
+  align-self: center;
+  width: min(440px, 80vw);
+  height: min(440px, 80vw);
+  margin-top: 50px;
+}
+.rc2-ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #cdcdcd;
+  border-radius: 50%;
+}
+.rc2-accent {
+  position: absolute;
+  top: 50%;
+  width: 90px;
+  height: 90px;
+  border: 1px solid #cdcdcd;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.rc2-accent--left {
+  left: -45px;
+}
+.rc2-accent--right {
+  right: -45px;
+}
+.rc2-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #b98846 -10.88%, #fffab6 100%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+.rc2-label {
+  position: absolute;
+  z-index: 3;
+  width: max-content;
+  max-width: 190px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f0f0f0;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.rc2-label-title {
+  display: block;
+  margin-bottom: 3px;
+  font-family: var(--tobias);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--black);
+}
+.rc2-label-sub {
+  display: block;
+  font-family: var(--aspekta);
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--black);
+}
+
+/* centre image / video (can be bigger than the ring, like the drops in the design) */
+.rc2-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 112%;
+  height: 112%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.rc2-blob-inner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.rc2-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+.rc2-slide.is-active {
+  opacity: 1;
+}
+.rc2-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.rc2-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  /* the pinned box is only as tall as its content; JS sets --rc2-h (its height) and --rc2-top */
+  .rc2 {
+    height: calc(var(--rc2-h, 640px) + var(--rc2-steps, 4) * 60vh);
+  }
+  .rc2-sticky {
+    height: auto;
+    top: var(--rc2-top, 76px);
+    justify-content: flex-start;
+    gap: 22px;
+  }
+  .rc2-desc {
+    font-size: 14px;
+  }
+
+  /* the ring is centred on the right edge of the screen (half visible) */
+  .rc2-scene {
+    align-self: stretch;
+    width: 100%;
+    height: 400px;
+    margin-top: 0;
+  }
+  .rc2-ring {
+    inset: auto;
+    top: 78px;
+    right: -135px;
+    width: 270px;
+    height: 270px;
+  }
+  .rc2-accent {
+    width: 48px;
+    height: 48px;
+  }
+  .rc2-accent--left {
+    left: -24px;
+  }
+  .rc2-accent--right {
+    right: -24px;
+  }
+  .rc2-dot {
+    width: 13px;
+    height: 13px;
+  }
+  .rc2-label {
+    max-width: 210px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #e8e8e8;
+  }
+  .rc2-label-title {
+    font-size: 16px;
+  }
+  .rc2-label-sub {
+    font-size: 10px;
+  }
+  .rc2-blob {
+    top: 213px;
+    left: auto;
+    right: 0;
+    width: 220px;
+    height: 220px;
+    transform: translate(50%, -50%);
+  }
+}
+
+/* ---------- What to expect (sections/what-to-expect.liquid) ---------- */
+/* ============================================================
+   What to expect (sections/what-to-expect.liquid)
+   Desktop: text left, stacked bottles centre, timeline + buy right.
+   Mobile: heading on top, timeline left / bottles right, buy row below.
+============================================================ */
+.wte {
+  background: #fffdb8;
+  padding: 90px 0;
+}
+.wte-in {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.8fr) minmax(0, 1.3fr);
+  grid-template-areas:
+    "left center items"
+    "left center cta";
+  grid-template-rows: 1fr auto;
+  column-gap: 40px;
+  row-gap: 30px;
+  align-items: stretch;
+}
+
+/* ---------- Left ---------- */
+.wte-left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 60px;
+}
+.wte-heading,
+.wte-heading p {
+  font-family: var(--aspekta);
+  font-size: clamp(34px, 3.6vw, 52px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #0d0d0d;
+  max-width: 6.6em;
+}
+/* bold and italic are set in the theme editor (richtext) */
+.wte-heading strong,
+.wte-heading b {
+  font-weight: 600;
+}
+.wte-heading em,
+.wte-heading i {
+  font-style: italic;
+  font-synthesis: style !important;
+  font-weight: inherit;
+}
+.wte-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 300px;
+}
+.wte-sub {
+  font-family: var(--aspekta);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0d0d0d;
+}
+.wte-desc {
+  font-family: var(--aspekta);
+  font-size: 12px;
+  line-height: 1.35;
+  color: #2b2b2b;
+}
+.wte-evidence {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 8px;
+  padding: 7px 16px;
+  border: 1px solid #0d0d0d;
+  border-radius: 999px;
+  font-family: var(--aspekta);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  text-decoration: none;
+}
+
+/* ---------- Centre ---------- */
+.wte-center {
+  grid-area: center;
+  align-self: center;
+}
+.wte-center {
+  display: flex;
+  justify-content: center;
+}
+.wte-center img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(620px, 72vh);
+  object-fit: contain;
+}
+
+/* ---------- Timeline ---------- */
+.wte {
+  --wte-arrow: clamp(48px, 5.8vw, 84px);
+  --wte-arrow-gap: clamp(20px, 2.7vw, 39px);
+}
+.wte-items {
+  grid-area: items;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 24px;
+}
+.wte-item {
+  display: grid;
+  grid-template-columns: var(--wte-arrow) minmax(0, 1fr);
+  column-gap: var(--wte-arrow-gap);
+  align-items: start;
+}
+.wte-item-text {
+  display: contents;
+}
+.wte-item-title {
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 8px;
+  font-family: var(--aspekta);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #0d0d0d;
+}
+.wte-item-desc {
+  grid-column: 2;
+  grid-row: 2;
+  max-width: 38ch;
+  font-family: var(--aspekta);
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: #1c1c1c;
+}
+/* the arrow lines up with the first line of the description */
+.wte-arrow {
+  grid-column: 1;
+  grid-row: 2;
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  color: #0d0d0d;
+}
+.wte-arrow svg {
+  display: block;
+  width: 100%;
+  height: 8px;
+  overflow: visible;
+}
+
+/* ---------- Buy row (lines up with the text column) ---------- */
+.wte-cta {
+  grid-area: cta;
+  padding-left: calc(var(--wte-arrow) + var(--wte-arrow-gap));
+}
+.wte-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.wte-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: clamp(190px, 15.8vw, 227px);
+  height: 41px;
+  padding: 0 20px;
+  border: 0;
+  font-family: var(--aspekta);
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.wte-qty {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 93px;
+  height: 41px;
+  border: 1px solid #0d0d0d;
+  border-radius: 999px;
+}
+.wte-qty-btn {
+  flex: 1 1 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  color: #0d0d0d;
+  cursor: pointer;
+}
+.wte-qty-input {
+  flex: 0 0 26px;
+  width: 26px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: center;
+  font-family: var(--aspekta);
+  font-size: 12px;
+  color: #0d0d0d;
+}
+.wte-qty-input:focus {
+  outline: none;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 991px) {
+  .wte {
+    padding: 70px 0;
+    --wte-arrow: 48px;
+    --wte-arrow-gap: 18px;
+  }
+  /* text + bottles side by side on top, timeline and buy row underneath */
+  .wte-in {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "left center"
+      "items items"
+      "cta cta";
+    grid-template-rows: auto auto auto;
+    column-gap: 24px;
+    row-gap: 36px;
+  }
+  .wte-center img {
+    max-height: 460px;
+  }
+  .wte-items {
+    gap: 32px;
+  }
+  .wte-item-title {
+    font-size: 18px;
+  }
+  .wte-item-desc {
+    max-width: 52ch;
+    font-size: 13px;
+  }
+  .wte-cta {
+    padding-left: 0;
+  }
+  .wte-form {
+    flex-wrap: wrap;
+  }
+  .wte-buy {
+    width: auto;
+    padding: 0 22px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  .wte {
+    padding: 50px 0 40px;
+  }
+  .wte-in {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    grid-template-areas:
+      "left left"
+      "items center"
+      "cta cta";
+    grid-template-rows: auto 1fr auto;
+    column-gap: 10px;
+    row-gap: 24px;
+  }
+  .wte-left {
+    gap: 24px;
+  }
+  .wte-heading,
+  .wte-heading p {
+    font-size: 30px;
+    max-width: none;
+  }
+  .wte-meta {
+    max-width: none;
+    gap: 10px;
+  }
+  .wte-sub {
+    font-size: 15px;
+  }
+  .wte-desc {
+    font-size: 13px;
+  }
+  .wte-evidence {
+    margin-top: 6px;
+    padding: 6px 16px;
+    font-size: 10px;
+  }
+  .wte-center {
+    align-self: center;
+    justify-content: flex-end;
+    margin-right: -12px;
+  }
+  .wte-center img {
+    max-height: 380px;
+  }
+  .wte-items {
+    justify-content: space-around;
+    gap: 28px;
+  }
+  .wte-item {
+    display: block;
+  }
+  .wte-arrow {
+    display: none;
+  }
+  .wte-item-text {
+    display: block;
+  }
+  /* mobile: the part before the dot is italic, the rest upright, both weight 500 */
+  .wte-item-title {
+    font-family: var(--aspekta);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .wte-item-title .wte-lead {
+    font-style: italic;
+    font-synthesis: style !important;
+  }
+  .wte-item-desc {
+    font-size: 12px;
+    max-width: none;
+  }
+  .wte-cta {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  /* button and quantity always sit side by side */
+  .wte-form {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .wte-buy {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: 44px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  .wte-qty {
+    flex: 0 0 auto;
+    width: 96px;
+    height: 44px;
+  }
+  .wte-qty-btn {
+    font-size: 18px;
+  }
+  .wte-qty-input {
+    font-size: 14px;
+  }
+}

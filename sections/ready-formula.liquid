@@ -6,13 +6,21 @@
               <div class="rfleft-in">
                 <div class="content-block text-animation">
                   {% if section.settings.heading != blank %}
-                    <h2>{{ section.settings.heading }}</h2>
+                    {% if section.settings.heading_mobile != blank %}
+                      <h2 class="rf-has-m"><span class="rf-d">{{ section.settings.heading }}</span><span class="rf-m">{{ section.settings.heading_mobile }}</span></h2>
+                    {% else %}
+                      <h2>{{ section.settings.heading }}</h2>
+                    {% endif %}
                   {% endif %}
                   {% if section.settings.text != blank %}
                   <p>{{ section.settings.text }}</p>
                   {% endif %}
                   {% if section.settings.button_text != blank %}
-                  <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
+                    {% if section.settings.button_text_mobile != blank %}
+                      <a href="{{ section.settings.button_link }}" class="primary-btn rf-has-m"><span class="rf-d">{{ section.settings.button_text }}</span><span class="rf-m">{{ section.settings.button_text_mobile }}</span></a>
+                    {% else %}
+                      <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
+                    {% endif %}
                   {% endif %}
                 </div>
               </div>
@@ -37,6 +45,12 @@
       "label": "Heading"
     },
     {
+      "type": "text",
+      "id": "heading_mobile",
+      "label": "Heading (tablet & mobile)",
+      "info": "Optional. If filled, tablet and mobile show this instead of the heading above."
+    },
+    {
       "type": "textarea",
       "id": "text",
       "label": "Text"
@@ -45,6 +59,12 @@
       "type": "text",
       "id": "button_text",
       "label": "Button Text"
+    },
+    {
+      "type": "text",
+      "id": "button_text_mobile",
+      "label": "Button text (tablet & mobile)",
+      "info": "Optional. If filled, tablet and mobile show this instead of the button text above."
     },
     {
       "type": "url",

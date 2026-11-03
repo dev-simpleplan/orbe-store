@@ -1,0 +1,243 @@
+{%- assign buy_url = section.settings.buy_link | default: product.url | default: routes.collections_url -%}
+
+<section class="cards-slider" id="cards-slider-{{ section.id }}" data-cards-slider>
+  <div class="cs-in cs-in--{{ section.settings.mobile_image }}">
+
+    <div class="cs-nav" data-cs-nav>
+      <button type="button" class="cs-arrow cs-arrow--prev" data-cs-prev aria-label="Previous">
+        <svg width="40" height="40" viewBox="0 0 43 43" fill="none" aria-hidden="true">
+          <circle cx="21.3472" cy="21.3472" r="21.3472" transform="matrix(-1 0 0 1 42.6943 0)" fill="currentColor" />
+          <path d="M30.0313 20.8421L17.665 20.8421L22.9648 15.5423L22.2985 14.7852L15.7368 21.3469L22.2985 27.9086L22.9648 27.1515L17.665 21.8516L30.0313 21.8516L30.0313 20.8421Z" fill="white" />
+        </svg>
+      </button>
+      <button type="button" class="cs-arrow cs-arrow--next" data-cs-next aria-label="Next">
+        <svg width="40" height="40" viewBox="0 0 43 43" fill="none" aria-hidden="true">
+          <circle cx="21.3472" cy="21.3472" r="21.3472" fill="currentColor" />
+          <path d="M12.663 20.8421L25.0294 20.8421L19.7295 15.5423L20.3958 14.7852L26.9575 21.3469L20.3958 27.9086L19.7295 27.1515L25.0294 21.8516L12.663 21.8516L12.663 20.8421Z" fill="white" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="cs-viewport">
+      <div class="cs-track" data-cs-track>
+        {% for block in section.blocks %}
+          <article class="cs-card" {{ block.shopify_attributes }}>
+            {% if block.settings.label != blank %}
+              <p class="cs-label">{{ block.settings.label }}</p>
+            {% endif %}
+            {% if block.settings.image != blank %}
+              <div class="cs-image">
+                {{ block.settings.image | image_url: width: 900 | image_tag: alt: block.settings.title, loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 768px) 280px, 100vw' }}
+              </div>
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h3 class="cs-title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <div class="cs-text-row">
+                <p class="cs-text" data-cs-text>{{ block.settings.text }}</p>
+                {% if section.settings.read_more_text != blank %}
+                  <button type="button" class="cs-more" data-cs-more data-more="{{ section.settings.read_more_text | escape }}" data-less="{{ section.settings.read_less_text | escape }}" aria-expanded="false">{{ section.settings.read_more_text }}</button>
+                {% endif %}
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="cs-bottom">
+      {% if section.settings.buy_text != blank %}
+        <a href="{{ buy_url }}" class="primary-btn cs-buy">{{ section.settings.buy_text }}</a>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    function initCardsSlider(root) {
+      if (!root || root.dataset.csReady === 'true') return;
+      root.dataset.csReady = 'true';
+
+      var track = root.querySelector('[data-cs-track]');
+      var cards = Array.prototype.slice.call(root.querySelectorAll('.cs-card'));
+      var prevBtns = Array.prototype.slice.call(root.querySelectorAll('[data-cs-prev]'));
+      var nextBtns = Array.prototype.slice.call(root.querySelectorAll('[data-cs-next]'));
+      if (!track || !cards.length) return;
+
+      function step() {
+        var a = cards[0].getBoundingClientRect();
+        var b = cards[1] ? cards[1].getBoundingClientRect() : null;
+        return b ? b.left - a.left : a.width;
+      }
+
+      function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        var atStart = track.scrollLeft <= 2;
+        var atEnd = track.scrollLeft >= max - 2;
+        prevBtns.forEach(function (b) { b.classList.toggle('is-disabled', atStart); b.disabled = atStart; });
+        nextBtns.forEach(function (b) { b.classList.toggle('is-disabled', atEnd); b.disabled = atEnd; });
+      }
+
+      prevBtns.forEach(function (b) {
+        b.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      });
+      nextBtns.forEach(function (b) {
+        b.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+      });
+      // desktop/tablet: keep the arrows level with the bottom of the card images, whatever the card size
+      var nav = root.querySelector('[data-cs-nav]');
+      var firstImage = root.querySelector('.cs-image');
+      var navMq = window.matchMedia('(max-width: 767px)');
+      function alignNav() {
+        if (!nav || !firstImage) return;
+        if (navMq.matches) { nav.style.marginTop = ''; return; }
+        var top = track.getBoundingClientRect().top;
+        var imgBottom = firstImage.getBoundingClientRect().bottom;
+        nav.style.marginTop = Math.max(0, imgBottom - top - 34) + 'px';
+      }
+      alignNav();
+      window.addEventListener('load', alignNav);
+      window.addEventListener('resize', alignNav);
+      firstImage && firstImage.querySelectorAll('img').forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', alignNav, { once: true });
+      });
+
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      track.querySelectorAll('img').forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', update, { once: true });
+      });
+      update();
+
+      // "Read more" (mobile): expands the clamped description
+      root.querySelectorAll('[data-cs-more]').forEach(function (btn) {
+        var text = btn.parentNode.querySelector('[data-cs-text]');
+        btn.addEventListener('click', function () {
+          var open = text.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          btn.textContent = open ? (btn.getAttribute('data-less') || btn.getAttribute('data-more')) : btn.getAttribute('data-more');
+        });
+      });
+    }
+
+    function initAll() {
+      document.querySelectorAll('[data-cards-slider]').forEach(initCardsSlider);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initAll);
+    else initAll();
+    document.addEventListener('shopify:section:load', initAll);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Cards slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image",
+      "label": "Card image shape",
+      "options": [
+        { "value": "tall", "label": "Tall (same as desktop)" },
+        { "value": "wide", "label": "Wide" }
+      ],
+      "default": "tall"
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read more text",
+      "default": "Read More",
+      "info": "Black pill beside the description on mobile. Leave empty to hide it."
+    },
+    {
+      "type": "text",
+      "id": "read_less_text",
+      "label": "Read less text",
+      "default": "Read Less"
+    },
+    {
+      "type": "text",
+      "id": "buy_text",
+      "label": "Buy button text",
+      "default": "Buy now",
+      "info": "Gold button shown beside the arrows on mobile. Leave empty to hide it."
+    },
+    {
+      "type": "url",
+      "id": "buy_link",
+      "label": "Buy button link",
+      "info": "Leave empty to link to the current product (or all products)."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "The gaps"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Branded Active Ingredients"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Each nutrient comes in a form chosen on absorption data. Four are branded, clinically studied ingredients, named on the label so you can check them."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cards slider",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "label": "The gaps",
+            "title": "Branded Active Ingredients",
+            "text": "Each nutrient comes in a form chosen on absorption data. Four are branded, clinically studied ingredients, named on the label so you can check them."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "The capsule",
+            "title": "Made For Indian Women",
+            "text": "Ten nutrients chosen for the gaps most common in Indian women. Vegetarian meals, indoor days and tea with food all leave a mark."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "The form",
+            "title": "Pill-In-Pill Design",
+            "text": "The outer capsule holds DHA with vitamins D3, E and K2. A sealed inner capsule holds the minerals. The split stops iron from oxidising the DHA."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

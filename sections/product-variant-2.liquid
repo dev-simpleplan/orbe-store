@@ -1,0 +1,1784 @@
+{% comment %}
+  Product page (variant 2): stacked galleries (thumbnails + big image) on the left,
+  purchase panel on the right. Styles live in assets/product-variant-2.css.
+{% endcomment %}
+
+{{ 'product-variant-2.css' | asset_url | stylesheet_tag }}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign has_selling_plans = false -%}
+{%- if product.selling_plan_groups.size > 0 -%}
+  {%- assign has_selling_plans = true -%}
+{%- endif -%}
+
+{%- assign nutrition_block = section.blocks | where: 'type', 'nutrition_drawer' | first -%}
+{%- assign daily_block = section.blocks | where: 'type', 'daily_price' | first -%}
+
+{%- comment -%} Per-day maths: capsules per pack / capsules per day = supply days {%- endcomment -%}
+{%- assign caps_per_day = product.metafields.custom.capsules_per_day.value | default: 0 -%}
+{%- assign caps_per_pack = product.metafields.custom.capsules_per_pack.value | default: 0 -%}
+{%- if daily_block -%}
+  {%- if caps_per_day < 1 -%}{%- assign caps_per_day = daily_block.settings.fallback_caps_per_day -%}{%- endif -%}
+  {%- if caps_per_pack < 1 -%}{%- assign caps_per_pack = daily_block.settings.fallback_caps_per_pack -%}{%- endif -%}
+{%- endif -%}
+{%- assign show_per_day = false -%}
+{%- if caps_per_day > 0 and caps_per_pack > 0 -%}
+  {%- assign show_per_day = true -%}
+  {%- assign supply_days = caps_per_pack | times: 1.0 | divided_by: caps_per_day | round -%}
+  {%- if supply_days < 1 -%}{%- assign supply_days = 1 -%}{%- endif -%}
+  {%- assign per_day_cents = current_variant.price | times: 1.0 | divided_by: supply_days | divided_by: 100 | round | times: 100 -%}
+  {%- assign per_day_money = per_day_cents | money_without_trailing_zeros -%}
+{%- endif -%}
+
+{%- assign discount_pct = 0 -%}
+{%- assign discount_amount = 0 -%}
+{%- if current_variant.compare_at_price > current_variant.price -%}
+  {%- assign discount_amount = current_variant.compare_at_price | minus: current_variant.price -%}
+  {%- assign discount_pct = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round -%}
+{%- endif -%}
+
+<section class="pdp pdp--v2" id="pdp-{{ section.id }}" data-pdp>
+  <div class="container">
+    <div class="pdp2-layout">
+
+      <!-- ============ GALLERIES (blocks) ============ -->
+      <div class="pdp2-left">
+        {% for block in section.blocks %}
+
+          {% comment %} 1) Top banner image (desktop only) {% endcomment %}
+          {% if block.type == 'image_top' and block.settings.image != blank %}
+            {% assign top_alt = block.settings.image.alt | default: product.title | escape %}
+            <div class="pdp2-banner pdp2-hide-tablet" {{ block.shopify_attributes }}>
+              <button type="button" class="pdp2-zoom-btn" data-pdp2-zoom data-zoom-group="top-{{ block.id }}" data-full-src="{{ block.settings.image | image_url: width: 2400 }}" data-alt="{{ top_alt }}" aria-label="Zoom image">
+                {{ block.settings.image | image_url: width: 1400 | image_tag: alt: top_alt, loading: 'eager', widths: '600, 900, 1400', sizes: '(min-width: 992px) 45vw, 100vw' }}
+              </button>
+            </div>
+
+          {% comment %} 2) Product gallery: the product's own media, thumbnails + big image {% endcomment %}
+          {% elsif block.type == 'product_gallery' %}
+            {% assign g_ratio = block.settings.ratio | default: '1 / 1' %}
+            <div class="pdp2-gallery pdp2-gallery--side" data-pdp2-gallery style="--g-ratio: {{ g_ratio }};" {{ block.shopify_attributes }}>
+              <div class="pdp2-main">
+                {% for image in product.images %}
+                  {% assign g_alt = image.alt | default: product.title | escape %}
+                  <button
+                    type="button"
+                    class="pdp2-main-item{% if forloop.first %} is-active{% endif %}"
+                    data-pdp2-main
+                    data-full-src="{{ image | image_url: width: 2400 }}"
+                    data-alt="{{ g_alt }}"
+                    aria-label="Zoom image"
+                  >
+                    {{ image | image_url: width: 1400 | image_tag: alt: g_alt, class: 'pdp2-main-img', loading: 'lazy', widths: '600, 900, 1400', sizes: '(min-width: 992px) 45vw, 100vw' }}
+                  </button>
+                {% else %}
+                  <div class="pdp2-main-item is-active pdp2-main-item--placeholder">
+                    {{ 'product-1' | placeholder_svg_tag: 'pdp2-main-img' }}
+                  </div>
+                {% endfor %}
+              </div>
+
+              {% if product.images.size > 1 %}
+                <div class="pdp2-thumbs-wrap">
+                  <div class="pdp2-thumbs" data-pdp2-thumbs>
+                    {% for image in product.images %}
+                      <button type="button" class="pdp2-thumb{% if forloop.first %} is-active{% endif %}" data-pdp2-thumb="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}">
+                        {{ image | image_url: width: 240 | image_tag: alt: '', loading: 'lazy' }}
+                      </button>
+                    {% endfor %}
+                  </div>
+                  <button type="button" class="pdp2-thumb-arrow pdp2-thumb-arrow--prev" data-pdp2-prev aria-label="Previous images" hidden>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                  <button type="button" class="pdp2-thumb-arrow pdp2-thumb-arrow--next" data-pdp2-next aria-label="Next images" hidden>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                </div>
+              {% endif %}
+            </div>
+
+          {% comment %} 3) Bottom row of 4 images (desktop only) {% endcomment %}
+          {% elsif block.type == 'images_bottom' %}
+            <div class="pdp2-quad pdp2-hide-tablet" {{ block.shopify_attributes }}>
+              {% for n in (1..4) %}
+                {% assign q_key = 'image_' | append: n %}
+                {% assign q_img = block.settings[q_key] %}
+                {% if q_img != blank %}
+                  <div class="pdp2-quad-item">
+                    {% assign q_alt = q_img.alt | default: product.title | escape %}
+                    <button type="button" class="pdp2-zoom-btn" data-pdp2-zoom data-zoom-group="quad-{{ block.id }}" data-full-src="{{ q_img | image_url: width: 2400 }}" data-alt="{{ q_alt }}" aria-label="Zoom image">
+                      {{ q_img | image_url: width: 600 | image_tag: alt: q_alt, loading: 'lazy', widths: '300, 450, 600', sizes: '(min-width: 992px) 12vw, 25vw' }}
+                    </button>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% if nutrition_block and nutrition_block.settings.button_text != blank %}
+          <button type="button" class="pdp-nutrition-btn" data-nutrition-open aria-haspopup="dialog" {{ nutrition_block.shopify_attributes }}>
+            {{ nutrition_block.settings.button_text }}
+          </button>
+        {% endif %}
+      </div>
+
+      <!-- ============ INFO ============ -->
+      <div class="pdp2-info">
+        <div class="pdp2-info-inner">
+
+          {% assign rating_blocks = section.blocks | where: 'type', 'rating' %}
+          {% for block in rating_blocks limit: 1 %}
+            <div class="pdp-rating" {{ block.shopify_attributes }}>
+              <span class="pdp-stars" aria-label="{{ block.settings.rating_value }} out of 5 stars">
+                {% assign filled = block.settings.rating_value %}
+                {% for i in (1..filled) %}
+                  {% if block.settings.star_image != blank %}
+                    {{ block.settings.star_image | image_url: width: 100 | image_tag: alt: '', class: 'pdp-star-img', loading: 'eager' }}
+                  {% else %}
+                    <svg viewBox="2 2 20 19.1" width="15" height="14" class="pdp-star is-filled" aria-hidden="true">
+                      <path d="M12 2l2.9 6.26 6.1.53-4.6 4.02 1.36 6.19L12 15.9l-5.76 3.1 1.36-6.19-4.6-4.02 6.1-.53z"/>
+                    </svg>
+                  {% endif %}
+                {% endfor %}
+              </span>
+              {% if block.settings.reviews_text != blank %}
+                <span class="pdp-reviews">{{ block.settings.reviews_text }}</span>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <h1 class="pdp-title">{{ product.title }}</h1>
+
+          {% assign intro_block = section.blocks | where: 'type', 'intro_text' | first %}
+          {% if intro_block and intro_block.settings.text != blank %}
+            <p class="pdp2-intro" {{ intro_block.shopify_attributes }}>{% render 'emphasis-text', text: intro_block.settings.text %}</p>
+          {% elsif product.description != blank %}
+            <div class="pdp-desc">{{ product.description }}</div>
+          {% endif %}
+
+          {% for block in section.blocks %}
+            {% if block.type == 'bullets' and block.settings.text != blank %}
+              <div class="pdp2-bullets" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+            {% endif %}
+          {% endfor %}
+
+          {% for block in section.blocks %}
+            {% if block.type == 'pill_button' and block.settings.text != blank %}
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link }}" class="pdp2-pill" {{ block.shopify_attributes }}>{{ block.settings.text }}</a>
+              {% else %}
+                <button type="button" class="pdp2-pill"{% if nutrition_block %} data-nutrition-open aria-haspopup="dialog"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.text }}</button>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if daily_block %}
+            <div class="pdp2-daily" {{ daily_block.shopify_attributes }}>
+              <div class="pdp2-daily-main">
+                {% if daily_block.settings.eyebrow != blank %}
+                  <p class="pdp2-daily-eyebrow">{{ daily_block.settings.eyebrow }}</p>
+                {% endif %}
+                {% if show_per_day %}
+                  <p class="pdp2-daily-price">{{ per_day_money }} a day</p>
+                  <p class="pdp2-daily-sub">{{ caps_per_pack }} capsules | {{ caps_per_day }} a day</p>
+                {% endif %}
+              </div>
+              {% if daily_block.settings.learn_text != blank %}
+                <button type="button" class="pdp2-daily-learn" data-pdp2-learn aria-expanded="false">
+                  {{ daily_block.settings.learn_text }}
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          <div class="pdp-price">
+            <span class="pdp-price-current" data-price>{{ current_variant.price | money }}</span>
+            {% if current_variant.compare_at_price > current_variant.price %}
+              <span class="pdp-price-compare" data-compare-price>{{ current_variant.compare_at_price | money }}</span>
+              {% if section.settings.show_discount_badge and discount_pct > 0 %}
+                <span class="pdp2-badge"><span class="pdp2-d">{{ discount_pct }}% OFF</span><span class="pdp2-m">{{ discount_amount | money_without_trailing_zeros }} OFF</span></span>
+              {% endif %}
+            {% endif %}
+          </div>
+
+          {% form 'product', product, id: 'pdp-form', class: 'pdp-form', novalidate: 'novalidate' %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+
+            <!-- Purchase options (kept for selling plans; hidden by CSS like the default page) -->
+            <div class="pdp-options" data-options>
+              <label class="pdp-option is-active" data-option>
+                <input type="radio" name="selling_plan" value="" checked data-plan-price="{{ current_variant.price }}">
+                <span class="pdp-option-radio" aria-hidden="true"></span>
+                <span class="pdp-option-label">{{ section.settings.onetime_label }}</span>
+                <span class="pdp-option-price">{{ current_variant.price | money }}</span>
+              </label>
+
+              {% if has_selling_plans %}
+                {% for group in product.selling_plan_groups %}
+                  {% for plan in group.selling_plans %}
+                    {%- assign allocation = false -%}
+                    {%- for a in current_variant.selling_plan_allocations -%}
+                      {%- if a.selling_plan.id == plan.id -%}
+                        {%- assign allocation = a -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    {%- if allocation -%}
+                      <label class="pdp-option" data-option>
+                        <input type="radio" name="selling_plan" value="{{ plan.id }}" data-plan-price="{{ allocation.price }}">
+                        <span class="pdp-option-radio" aria-hidden="true"></span>
+                        <span class="pdp-option-label">{{ group.name | default: plan.name }}</span>
+                        {%- assign saving = current_variant.price | minus: allocation.price -%}
+                        {%- if saving > 0 -%}
+                          {%- assign pct = saving | times: 100.0 | divided_by: current_variant.price | round -%}
+                          <span class="pdp-option-save">Save {{ pct }}%</span>
+                        {%- endif -%}
+                        <span class="pdp-option-price">{{ allocation.price | money }}</span>
+                        {% if group.name != blank %}
+                          <span class="pdp-option-sub">{{ section.settings.subscription_sub }}</span>
+                        {% endif %}
+                      </label>
+                    {%- endif -%}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <!-- Targets (from product tags) -->
+            {%- assign prefix = section.settings.target_prefix -%}
+            {%- assign target_tags = '' -%}
+            {%- for tag in product.tags -%}
+              {%- if prefix != blank -%}
+                {%- if tag contains prefix -%}
+                  {%- assign clean = tag | remove_first: prefix | strip -%}
+                  {%- assign target_tags = target_tags | append: clean | append: '|' -%}
+                {%- endif -%}
+              {%- else -%}
+                {%- assign target_tags = target_tags | append: tag | append: '|' -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign target_list = target_tags | split: '|' -%}
+            {% if target_list.size > 0 %}
+              <div class="pdp-targets">
+                <p class="pdp-targets-label">{{ section.settings.targets_label }}</p>
+                <div class="pdp-targets-list">
+                  {% for tag in target_list %}
+                    <span class="pdp-target">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if show_per_day %}
+              <p class="pdp2-perday-line"><span class="pdp2-d">{{ per_day_money }} a day · {{ caps_per_pack }} capsules, {{ supply_days }} days</span><span class="pdp2-m">{{ daily_block.settings.effective_label | default: 'Effective price: under' }} {{ per_day_money }} a day</span></p>
+            {% endif %}
+
+            <!-- Quantity + Add to cart -->
+            <div class="pdp-buy">
+              <div class="pdp-qty" data-qty>
+                <button type="button" class="pdp-qty-btn" data-qty-minus aria-label="Decrease quantity">&minus;</button>
+                <input type="text" inputmode="numeric" name="quantity" value="1" class="pdp-qty-input" data-qty-input aria-label="Quantity">
+                <button type="button" class="pdp-qty-btn" data-qty-plus aria-label="Increase quantity">+</button>
+              </div>
+              <button type="submit" class="pdp-add-btn primary-btn" {% unless current_variant.available %}disabled{% endunless %}>
+                {% if current_variant.available %}
+                  {{ section.settings.add_button_text }}{% if show_per_day and section.settings.button_show_per_day %}<span class="pdp2-d"> · {{ per_day_money }}/day</span>{% endif %}
+                {% else %}
+                  {{ section.settings.sold_out_text }}
+                {% endif %}
+              </button>
+            </div>
+          {% endform %}
+
+          <!-- Trust banner (block) -->
+          {% for block in section.blocks %}
+            {% if block.type == 'trust_banner' %}
+              <div class="pdp2-trust" style="--trust-bg: {{ block.settings.bg_color }};" {{ block.shopify_attributes }}>
+                {% if block.settings.image_1 != blank or block.settings.image_2 != blank %}
+                  <div class="pdp2-trust-avatars">
+                    {% if block.settings.image_1 != blank %}
+                      {{ block.settings.image_1 | image_url: width: 120 | image_tag: alt: '', loading: 'lazy' }}
+                    {% endif %}
+                    {% if block.settings.image_2 != blank %}
+                      {{ block.settings.image_2 | image_url: width: 120 | image_tag: alt: '', loading: 'lazy' }}
+                    {% endif %}
+                  </div>
+                {% endif %}
+                <div class="pdp2-trust-text">{{ block.settings.text }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+          <!-- Trust: safe checkout -->
+          {% if section.settings.show_checkout_badges %}
+            <div class="pdp-checkout">
+              <p class="pdp-checkout-label">{{ section.settings.checkout_label }}</p>
+              <div class="pdp-checkout-icons">
+                {% if section.settings.razorpay_badge != blank %}
+                  {{ section.settings.razorpay_badge | image_url: width: 1000 | image_tag: alt: 'Accepted payment methods', class: 'pdp2-pay-img', loading: 'lazy' }}
+                {% else %}
+                  {% for type in shop.enabled_payment_types %}
+                    {{ type | payment_type_svg_tag: class: 'pdp-pay-icon' }}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Accordions -->
+          {% assign acc_blocks = section.blocks | where: 'type', 'collapsible' %}
+          {% if acc_blocks.size > 0 %}
+            <div class="pdp-accordion" data-accordion>
+              {% for block in acc_blocks %}
+                {%- assign mf_value = blank -%}
+                {%- assign mf_key = block.settings.metafield_key | strip -%}
+                {%- if mf_key contains '.' -%}
+                  {%- assign mf_parts = mf_key | split: '.' -%}
+                  {%- assign mf_value = product.metafields[mf_parts[0]][mf_parts[1]] -%}
+                {%- endif -%}
+
+                {%- assign mf_image = blank -%}
+                {%- assign mf_image_key = block.settings.image_metafield_key | strip -%}
+                {%- if mf_image_key contains '.' -%}
+                  {%- assign mf_image_parts = mf_image_key | split: '.' -%}
+                  {%- assign mf_image = product.metafields[mf_image_parts[0]][mf_image_parts[1]].value -%}
+                {%- endif -%}
+                {%- unless mf_image != blank -%}
+                  {%- assign mf_image = block.settings.image -%}
+                {%- endunless -%}
+
+                <div class="pdp-acc-item" {{ block.shopify_attributes }}>
+                  <button type="button" class="pdp-acc-head" aria-expanded="false">
+                    <span>{{ block.settings.title }}</span>
+                    <span class="pdp-acc-icon" aria-hidden="true"></span>
+                  </button>
+                  <div class="pdp-acc-body">
+                    <div class="pdp-acc-content">
+                      {%- if mf_image != blank -%}
+                        <div class="pdp-acc-image">
+                          <button
+                            type="button"
+                            class="pdp-acc-image-zoom-btn"
+                            data-pdp-zoom-standalone-trigger
+                            data-full-src="{{ mf_image | image_url: width: 2400 }}"
+                            data-alt="{{ block.settings.title | escape }}"
+                            aria-label="Zoom image"
+                          >
+                            {{ mf_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                          </button>
+                        </div>
+                      {%- endif -%}
+                      {%- if mf_value != blank -%}{{ mf_value | metafield_tag }}{%- else -%}{{ block.settings.content }}{%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <!-- Video testimonials (block) -->
+          {% for block in section.blocks %}
+            {% if block.type == 'video_testimonials' %}
+              {% assign v_count = 0 %}
+              <div class="pdp2-videos" data-pdp2-videos style="--v-ratio: {{ block.settings.ratio | default: '9 / 16' }};" {{ block.shopify_attributes }}>
+                {% if block.settings.heading != blank %}
+                  <div class="pdp2-videos-heading">{{ block.settings.heading }}</div>
+                {% endif %}
+                <div class="pdp2v-stage">
+                  {% for n in (1..6) %}
+                    {% assign v_key = 'video_' | append: n %}
+                    {% assign vid = block.settings[v_key] %}
+                    {% if vid != blank %}
+                      <div class="pdp2v-item{% if v_count == 0 %} is-active{% endif %}" data-pdp2v-item>
+                        {{ vid | video_tag: autoplay: false, loop: true, muted: true, controls: false, playsinline: true, image_size: '800x' }}
+                        <div class="pdp2v-controls">
+                          <button type="button" class="pdp2v-play" data-pdp2v-play aria-label="Play video">
+                            <svg class="pdp2v-icon-play" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l10-5.5z"/></svg>
+                            <svg class="pdp2v-icon-pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z"/></svg>
+                          </button>
+                          <button type="button" class="pdp2v-mute" data-pdp2v-mute aria-label="Unmute video">
+                            <svg class="pdp2v-icon-muted" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6.2h2.1l3.4-2.7v9.2L5.1 9.8H3V6.2z" fill="currentColor"/><path d="m10.8 6 3.1 3.6M13.9 6l-3.1 3.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            <svg class="pdp2v-icon-unmuted" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6.2h2.1l3.4-2.7v9.2L5.1 9.8H3V6.2z" fill="currentColor"/><path d="M10.6 5.3a4 4 0 0 1 0 5.4" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M12.5 3.4a7 7 0 0 1 0 9.2" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                      {% assign v_count = v_count | plus: 1 %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                {% if v_count > 1 %}
+                  <div class="pdp2v-thumbs-wrap">
+                    <div class="pdp2v-thumbs" data-pdp2v-thumbs>
+                      {% assign vt_idx = 0 %}
+                      {% for n in (1..6) %}
+                        {% assign v_key = 'video_' | append: n %}
+                        {% assign vt_key = 'thumb_' | append: n %}
+                        {% assign vid = block.settings[v_key] %}
+                        {% if vid != blank %}
+                          {% assign vt_img = block.settings[vt_key] | default: vid.preview_image %}
+                          <button type="button" class="pdp2v-thumb{% if vt_idx == 0 %} is-active{% endif %}" data-pdp2v-thumb="{{ vt_idx }}" aria-label="Play video {{ vt_idx | plus: 1 }}">
+                            {% if vt_img != blank %}{{ vt_img | image_url: width: 240 | image_tag: alt: '', loading: 'lazy' }}{% endif %}
+                          </button>
+                          {% assign vt_idx = vt_idx | plus: 1 %}
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                    <button type="button" class="pdp2-thumb-arrow pdp2-thumb-arrow--prev pdp2-thumb-arrow--light" data-pdp2v-prev aria-label="Previous videos" hidden>
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button type="button" class="pdp2-thumb-arrow pdp2-thumb-arrow--next pdp2-thumb-arrow--light" data-pdp2v-next aria-label="Next videos" hidden>
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ ZOOM LIGHTBOX ============ -->
+  <div class="pdp-zoom-lightbox" data-pdp-zoom-lightbox hidden>
+    <div class="pdp-zoom-backdrop" data-pdp-zoom-close></div>
+    <div class="pdp-zoom-stage">
+      <button type="button" class="pdp-zoom-close" data-pdp-zoom-close aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L19 19M19 1L1 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+      <button type="button" class="pdp-zoom-nav pdp-zoom-prev" data-pdp-zoom-prev aria-label="Previous image">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.5 16L6.5 10L12.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button type="button" class="pdp-zoom-nav pdp-zoom-next" data-pdp-zoom-next aria-label="Next image">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 4L13.5 10L7.5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <img class="pdp-zoom-img" data-pdp-zoom-img src="" alt="">
+    </div>
+  </div>
+
+  {% if nutrition_block %}
+  {% assign nd_new = true %}
+  {% if nutrition_block.settings.style == 'classic' %}{% assign nd_new = false %}{% endif %}
+  <div class="ingredient-drawer-backdrop" data-nutrition-close></div>
+  <aside class="ingredient-drawer{% if nd_new %} nd2{% endif %}" id="nutrition-drawer-{{ section.id }}" role="dialog" aria-modal="true" aria-hidden="true" data-nutrition-drawer data-nd-style="{% if nd_new %}new{% else %}classic{% endif %}">
+    <div class="ingredient-drawer-scroll" data-lenis-prevent>
+      <div class="ingredient-drawer-head">
+        <button type="button" class="ingredient-drawer-close" aria-label="Close" data-nutrition-close>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      {% if nd_new %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'nd2_heading' %}
+            <div class="nd2-block nd2-heading" {{ block.shopify_attributes }}>
+              {% if block.settings.label != blank %}<p class="nd2-label">{{ block.settings.label }}</p>{% endif %}
+              {% if block.settings.heading != blank %}<h2 class="nd2-title">{{ block.settings.heading }}</h2>{% endif %}
+              {% if block.settings.text != blank %}<div class="nd2-text">{{ block.settings.text }}</div>{% endif %}
+              {% if block.settings.highlight != blank %}
+                <div class="nd2-highlight">
+                  {% assign hl_lines = block.settings.highlight | newline_to_br | split: '<br />' %}
+                  {% for line in hl_lines %}
+                    {% assign hl = line | strip %}
+                    {% if hl != blank %}<p>{{ hl }}</p>{% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% when 'nd2_list' %}
+            <div class="nd2-block nd2-list" {{ block.shopify_attributes }}>
+              {% if block.settings.top_text != blank %}<p class="nd2-label">{{ block.settings.top_text }}</p>{% endif %}
+              <ul class="nd2-rows">
+                {% assign list_lines = block.settings.items | newline_to_br | split: '<br />' %}
+                {% for line in list_lines %}
+                  {% assign row = line | strip %}
+                  {% if row != blank %}
+                    {% assign cols = row | split: '|' %}
+                    <li class="nd2-row">
+                      <div class="nd2-row-main">
+                        <span class="nd2-row-name">{{ cols[0] | strip }}</span>
+                        {% if cols[1] != blank %}<span class="nd2-row-sub">{{ cols[1] | strip }}</span>{% endif %}
+                      </div>
+                      {% if cols[2] != blank %}<span class="nd2-row-tag">{{ cols[2] | strip }}</span>{% endif %}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+              {% if block.settings.bottom_text != blank %}<p class="nd2-note">{{ block.settings.bottom_text }}</p>{% endif %}
+            </div>
+          {% when 'nd2_accordion' %}
+            <div class="nd2-block nd2-acc" {{ block.shopify_attributes }}>
+              {% if block.settings.top_text != blank %}<p class="nd2-label">{{ block.settings.top_text }}</p>{% endif %}
+              <div class="nd2-acc-list">
+                {% for n in (1..6) %}
+                  {% assign t_key = 'title_' | append: n %}
+                  {% assign c_key = 'content_' | append: n %}
+                  {% assign acc_title = block.settings[t_key] %}
+                  {% if acc_title != blank %}
+                    <div class="nd2-acc-item">
+                      <button type="button" class="ingredient-drawer-title nd2-acc-title" aria-expanded="false">
+                        <span>{{ acc_title }}</span>
+                        <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
+                      </button>
+                      {% assign i_key = 'image_' | append: n %}
+                      {% assign acc_image = block.settings[i_key] %}
+                      <div class="ingredient-drawer-content nd2-acc-content">
+                        {% if acc_image != blank %}
+                          {% assign acc_alt = acc_title | escape %}
+                          <div class="nd2-acc-image">
+                            {{ acc_image | image_url: width: 1000 | image_tag: alt: acc_alt, loading: 'lazy', widths: '500, 800, 1000', sizes: '(min-width: 768px) 530px, 92vw' }}
+                          </div>
+                        {% endif %}
+                        {{ block.settings[c_key] }}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              {% if block.settings.bottom_label != blank or block.settings.bottom_text != blank %}
+                <div class="nd2-acc-foot">
+                  {% if block.settings.bottom_label != blank %}<p class="nd2-label">{{ block.settings.bottom_label }}</p>{% endif %}
+                  {% assign foot_lines = block.settings.bottom_text | newline_to_br | split: '<br />' %}
+                  {% for line in foot_lines %}
+                    {% assign ft = line | strip %}
+                    {% if ft != blank %}<p class="nd2-foot-line{% unless forloop.first %} nd2-foot-line--small{% endunless %}">{{ ft }}</p>{% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+      {% else %}
+      {% if nutrition_block.settings.drawer_heading != blank %}
+        <div class="ingredient-top-title">
+          <h2>{{ nutrition_block.settings.drawer_heading }}</h2>
+        </div>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'drawer_section' %}
+            <div class="ingredient-drawer-section" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}<h2>{{ block.settings.heading }}</h2>{% endif %}
+              {{ block.settings.text }}
+              {% if block.settings.image != blank %}
+                {% assign drawer_img_alt = block.settings.image.alt | escape %}
+                <div class="ingredient-drawer-table-img">
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: alt: drawer_img_alt, class: 'img', loading: 'lazy', widths: '600, 900, 1200', sizes: '(min-width: 768px) 530px, 92vw' }}
+                </div>
+              {% endif %}
+            </div>
+          {% when 'drawer_accordion' %}
+            <div class="ingredient-drawer-item" {{ block.shopify_attributes }}>
+              <button type="button" class="ingredient-drawer-title">
+                <span>{{ block.settings.heading }}</span>
+                <span class="ingredient-drawer-icon">{% render 'plus-accord-icon' %}</span>
+              </button>
+              <div class="ingredient-drawer-content">
+                {{ block.settings.text }}
+                {% if block.settings.image != blank %}
+                {% assign drawer_img_alt = block.settings.image.alt | escape %}
+                <div class="ingredient-drawer-table-img">
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: alt: drawer_img_alt, class: 'img', loading: 'lazy', widths: '600, 900, 1200', sizes: '(min-width: 768px) 530px, 92vw' }}
+                </div>
+              {% endif %}
+              </div>
+            </div>
+          {% when 'drawer_image' %}
+            <div class="ingredient-drawer-section ingredient-drawer-nutrition" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}<h2>{{ block.settings.heading }}</h2>{% endif %}
+              {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+              {% if block.settings.image != blank %}
+                {% assign drawer_alt = block.settings.image.alt | escape %}
+                <div class="ingredient-drawer-table-img">
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: alt: drawer_alt, class: 'img', loading: 'lazy', widths: '600, 900, 1200', sizes: '(min-width: 768px) 530px, 92vw' }}
+                </div>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+      {% endif %}
+    </div>
+  </aside>
+  {% endif %}
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('pdp-{{ section.id }}');
+    if (!root) return;
+
+    // Quantity stepper
+    var qtyInput = root.querySelector('[data-qty-input]');
+    root.querySelectorAll('[data-qty-minus]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+        qtyInput.value = v;
+      });
+    });
+    root.querySelectorAll('[data-qty-plus]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = Math.max(1, (parseInt(qtyInput.value, 10) || 1) + 1);
+        qtyInput.value = v;
+      });
+    });
+    qtyInput && qtyInput.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
+    // Purchase option selection + price swap
+    var priceEl = root.querySelector('[data-price]');
+    var options = root.querySelectorAll('[data-option]');
+    var qtyWrap = root.querySelector('[data-qty]');
+
+    function setQtyLocked(locked) {
+      if (!qtyWrap || !qtyInput) return;
+      qtyWrap.classList.toggle('is-locked', locked);
+      qtyInput.disabled = locked;
+      root.querySelectorAll('[data-qty-minus], [data-qty-plus]').forEach(function (b) {
+        b.disabled = locked;
+      });
+      if (locked) qtyInput.value = 1;
+    }
+
+    options.forEach(function (opt) {
+      var input = opt.querySelector('input[type="radio"]');
+      input && input.addEventListener('change', function () {
+        options.forEach(function (o) { o.classList.remove('is-active'); });
+        opt.classList.add('is-active');
+        var priceStr = opt.querySelector('.pdp-option-price');
+        if (priceEl && priceStr) priceEl.textContent = priceStr.textContent;
+        setQtyLocked(input.value !== '');
+      });
+    });
+
+    var checkedOption = root.querySelector('[data-option] input[type="radio"]:checked');
+    setQtyLocked(!!checkedOption && checkedOption.value !== '');
+
+    // Accordion
+    var accItems = root.querySelectorAll('.pdp-acc-item');
+    accItems.forEach(function (item) {
+      var head = item.querySelector('.pdp-acc-head');
+      var body = item.querySelector('.pdp-acc-body');
+      head.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+        if (isOpen) {
+          item.classList.remove('is-open');
+          head.setAttribute('aria-expanded', 'false');
+          body.style.maxHeight = null;
+        } else {
+          item.classList.add('is-open');
+          head.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = body.scrollHeight + 'px';
+          var img = body.querySelector('.pdp-acc-image img');
+          if (img && !img.complete) {
+            img.addEventListener('load', function () {
+              if (item.classList.contains('is-open')) {
+                body.style.maxHeight = body.scrollHeight + 'px';
+              }
+            }, { once: true });
+          }
+        }
+      });
+    });
+
+    // Nutrition drawer (slides in from the right)
+    var nutritionDrawer = root.querySelector('[data-nutrition-drawer]');
+    if (nutritionDrawer) {
+
+      var nutritionClosers = root.querySelectorAll('[data-nutrition-close]');
+      var nutritionTitles = Array.prototype.slice.call(nutritionDrawer.querySelectorAll('.ingredient-drawer-title'));
+      var nutritionOpener = null;
+
+      function setNutritionItem(title, open) {
+        var panel = title.nextElementSibling;
+        title.classList.toggle('active', open);
+        title.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (panel) panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
+      }
+
+      function openNutritionDrawer(trigger) {
+        nutritionOpener = trigger || null;
+        nutritionDrawer.setAttribute('aria-hidden', 'false');
+        root.classList.add('ingredient-drawer-active');
+        document.documentElement.classList.add('ingredient-drawer-open');
+        document.body.classList.add('ingredient-drawer-open');
+        if (nutritionTitles.length && nutritionDrawer.getAttribute('data-nd-style') === 'classic') setNutritionItem(nutritionTitles[0], true);
+        if (window.lenis) window.lenis.stop();
+      }
+
+      function closeNutritionDrawer() {
+        if (!root.classList.contains('ingredient-drawer-active')) return;
+        nutritionDrawer.setAttribute('aria-hidden', 'true');
+        root.classList.remove('ingredient-drawer-active');
+        document.documentElement.classList.remove('ingredient-drawer-open');
+        document.body.classList.remove('ingredient-drawer-open');
+        if (window.lenis) window.lenis.start();
+        if (nutritionOpener) nutritionOpener.focus();
+      }
+
+      // any button on the page (also in other sections, e.g. "What to expect") can open this panel;
+      // delegated, so buttons in sections that load after this script work too
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest && e.target.closest('[data-nutrition-open]');
+        if (!btn) return;
+        e.preventDefault();
+        openNutritionDrawer(btn);
+      });
+      nutritionClosers.forEach(function (btn) {
+        btn.addEventListener('click', closeNutritionDrawer);
+      });
+      nutritionTitles.forEach(function (title) {
+        title.addEventListener('click', function () {
+          var wasOpen = title.classList.contains('active');
+          nutritionTitles.forEach(function (t) { setNutritionItem(t, false); });
+          if (!wasOpen) setNutritionItem(title, true);
+        });
+      });
+      nutritionDrawer.querySelectorAll('.ingredient-drawer-content img').forEach(function (img) {
+        img.addEventListener('load', function () {
+          nutritionTitles.forEach(function (t) { if (t.classList.contains('active')) setNutritionItem(t, true); });
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeNutritionDrawer();
+      });
+      window.addEventListener('resize', function () {
+        nutritionTitles.forEach(function (t) { if (t.classList.contains('active')) setNutritionItem(t, true); });
+      });
+    }
+
+    var mobileMq = window.matchMedia('(max-width: 767px)');
+
+    // ---------- Zoom lightbox (shared by galleries and accordion images) ----------
+    var lightbox = root.querySelector('[data-pdp-zoom-lightbox]');
+    var zoomList = [];
+    var zoomIndex = 0;
+    var zoomOpener = null;
+    var openZoom = function () {};
+
+    if (lightbox) {
+      var zoomImg = lightbox.querySelector('[data-pdp-zoom-img]');
+      var zoomPrev = lightbox.querySelector('[data-pdp-zoom-prev]');
+      var zoomNext = lightbox.querySelector('[data-pdp-zoom-next]');
+
+      var showZoom = function (index) {
+        zoomIndex = (index + zoomList.length) % zoomList.length;
+        zoomImg.src = zoomList[zoomIndex].src;
+        zoomImg.alt = zoomList[zoomIndex].alt || '';
+      };
+
+      openZoom = function (list, index, trigger) {
+        zoomList = list;
+        zoomOpener = trigger || null;
+        if (zoomPrev) zoomPrev.hidden = list.length < 2;
+        if (zoomNext) zoomNext.hidden = list.length < 2;
+        showZoom(index);
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) window.lenis.stop();
+      };
+
+      var closeZoom = function () {
+        lightbox.hidden = true;
+        zoomImg.src = '';
+        document.body.style.overflow = '';
+        if (window.lenis) window.lenis.start();
+        if (zoomOpener) zoomOpener.focus();
+      };
+
+      lightbox.querySelectorAll('[data-pdp-zoom-close]').forEach(function (btn) {
+        btn.addEventListener('click', closeZoom);
+      });
+      zoomImg.addEventListener('click', closeZoom);
+      if (zoomPrev) zoomPrev.addEventListener('click', function () { showZoom(zoomIndex - 1); });
+      if (zoomNext) zoomNext.addEventListener('click', function () { showZoom(zoomIndex + 1); });
+      document.addEventListener('keydown', function (e) {
+        if (lightbox.hidden) return;
+        if (e.key === 'Escape') closeZoom();
+        if (zoomList.length < 2) return;
+        if (e.key === 'ArrowLeft') showZoom(zoomIndex - 1);
+        if (e.key === 'ArrowRight') showZoom(zoomIndex + 1);
+      });
+
+      root.querySelectorAll('[data-pdp-zoom-standalone-trigger]').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          openZoom([{ src: trigger.getAttribute('data-full-src'), alt: trigger.getAttribute('data-alt') }], 0, trigger);
+        });
+      });
+    }
+
+    // ---------- Thumbnail strip helper (arrows + scroll) ----------
+    // vertical(): true when the strip scrolls top/bottom, false when left/right
+    function setupStrip(strip, prevBtn, nextBtn, vertical) {
+      if (!strip) return function () {};
+
+      function metrics() {
+        var v = vertical();
+        return {
+          v: v,
+          max: v ? strip.scrollHeight - strip.clientHeight : strip.scrollWidth - strip.clientWidth,
+          pos: v ? strip.scrollTop : strip.scrollLeft,
+          size: v ? strip.clientHeight : strip.clientWidth
+        };
+      }
+
+      function update() {
+        var m = metrics();
+        var scrollable = m.max > 2;
+        var canNext = scrollable && m.pos < m.max - 2;
+        var canPrev = scrollable && m.pos > 2;
+        if (nextBtn) nextBtn.hidden = !canNext;
+        if (prevBtn) prevBtn.hidden = !canPrev;
+      }
+
+      function scrollStep(dir) {
+        var m = metrics();
+        var opts = { behavior: 'smooth' };
+        opts[m.v ? 'top' : 'left'] = dir * m.size * 0.8;
+        strip.scrollBy(opts);
+      }
+
+      if (nextBtn) nextBtn.addEventListener('click', function () { scrollStep(1); });
+      if (prevBtn) prevBtn.addEventListener('click', function () { scrollStep(-1); });
+      strip.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      strip.querySelectorAll('img').forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', update, { once: true });
+      });
+      update();
+
+      // scroll a thumbnail into view inside the strip (without moving the page)
+      return function reveal(el) {
+        if (!el) return;
+        var m = metrics();
+        var start = m.v ? el.offsetTop : el.offsetLeft;
+        var len = m.v ? el.offsetHeight : el.offsetWidth;
+        if (start < m.pos) {
+          var a = {}; a[m.v ? 'top' : 'left'] = start - 4; a.behavior = 'smooth'; strip.scrollTo(a);
+        } else if (start + len > m.pos + m.size) {
+          var b = {}; b[m.v ? 'top' : 'left'] = start + len - m.size + 4; b.behavior = 'smooth'; strip.scrollTo(b);
+        }
+      };
+    }
+
+    // ---------- Product galleries (thumbnails switch the big image) ----------
+    root.querySelectorAll('[data-pdp2-gallery]').forEach(function (gallery) {
+      var mains = Array.prototype.slice.call(gallery.querySelectorAll('[data-pdp2-main]'));
+      var thumbs = Array.prototype.slice.call(gallery.querySelectorAll('[data-pdp2-thumb]'));
+      var strip = gallery.querySelector('[data-pdp2-thumbs]');
+      var isSide = gallery.classList.contains('pdp2-gallery--side');
+
+      var reveal = setupStrip(
+        strip,
+        gallery.querySelector('[data-pdp2-prev]'),
+        gallery.querySelector('[data-pdp2-next]'),
+        function () { return isSide && !mobileMq.matches; }
+      );
+
+      function setActive(index) {
+        mains.forEach(function (m, i) { m.classList.toggle('is-active', i === index); });
+        thumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === index); });
+        reveal(thumbs[index]);
+      }
+
+      thumbs.forEach(function (t) {
+        t.addEventListener('click', function () { setActive(parseInt(t.getAttribute('data-pdp2-thumb'), 10) || 0); });
+      });
+
+      var list = mains.map(function (m) {
+        return { src: m.getAttribute('data-full-src'), alt: m.getAttribute('data-alt') };
+      });
+      mains.forEach(function (m, i) {
+        m.addEventListener('click', function () {
+          openZoom(list, i, m);
+        });
+      });
+    });
+
+    // ---------- Top banner + bottom images: click to zoom (each block is its own group) ----------
+    var zoomGroups = {};
+    root.querySelectorAll('[data-pdp2-zoom]').forEach(function (btn) {
+      var g = btn.getAttribute('data-zoom-group') || 'default';
+      (zoomGroups[g] = zoomGroups[g] || []).push(btn);
+    });
+    Object.keys(zoomGroups).forEach(function (g) {
+      var btns = zoomGroups[g];
+      var list = btns.map(function (b) {
+        return { src: b.getAttribute('data-full-src'), alt: b.getAttribute('data-alt') };
+      });
+      btns.forEach(function (b, i) {
+        b.addEventListener('click', function () { openZoom(list, i, b); });
+      });
+    });
+
+    // ---------- Video testimonials ----------
+    root.querySelectorAll('[data-pdp2-videos]').forEach(function (box) {
+      var items = Array.prototype.slice.call(box.querySelectorAll('[data-pdp2v-item]'));
+      var thumbs = Array.prototype.slice.call(box.querySelectorAll('[data-pdp2v-thumb]'));
+      var videos = items.map(function (it) { return it.querySelector('video'); });
+      var reveal = setupStrip(
+        box.querySelector('[data-pdp2v-thumbs]'),
+        box.querySelector('[data-pdp2v-prev]'),
+        box.querySelector('[data-pdp2v-next]'),
+        function () { return false; }
+      );
+
+      function syncIcons(i) {
+        var v = videos[i];
+        if (!v) return;
+        var play = items[i].querySelector('[data-pdp2v-play]');
+        var mute = items[i].querySelector('[data-pdp2v-mute]');
+        if (play) {
+          var playing = !v.paused && !v.ended;
+          play.classList.toggle('is-playing', playing);
+          play.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+        }
+        if (mute) {
+          mute.classList.toggle('is-unmuted', !v.muted);
+          mute.setAttribute('aria-label', v.muted ? 'Unmute video' : 'Mute video');
+        }
+      }
+
+      function select(index) {
+        items.forEach(function (it, i) {
+          it.classList.toggle('is-active', i === index);
+          if (i !== index && videos[i]) videos[i].pause();
+        });
+        thumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === index); });
+        reveal(thumbs[index]);
+        if (videos[index]) {
+          videos[index].muted = true;
+          var p = videos[index].play();
+          if (p && p.catch) p.catch(function () {});
+        }
+      }
+
+      items.forEach(function (it, i) {
+        var v = videos[i];
+        if (!v) return;
+        v.muted = true;
+        var play = it.querySelector('[data-pdp2v-play]');
+        var mute = it.querySelector('[data-pdp2v-mute]');
+        if (play) play.addEventListener('click', function () { if (v.paused || v.ended) v.play(); else v.pause(); });
+        if (mute) mute.addEventListener('click', function () { v.muted = !v.muted; syncIcons(i); });
+        ['play', 'pause', 'ended', 'volumechange'].forEach(function (ev) {
+          v.addEventListener(ev, function () { syncIcons(i); });
+        });
+      });
+
+      thumbs.forEach(function (t) {
+        t.addEventListener('click', function () { select(parseInt(t.getAttribute('data-pdp2v-thumb'), 10) || 0); });
+      });
+
+      // first video autoplays (muted) once it is on screen
+      if (videos[0] && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var active = box.querySelector('[data-pdp2v-item].is-active video');
+            if (!active) return;
+            if (entry.isIntersecting) { var pr = active.play(); if (pr && pr.catch) pr.catch(function () {}); }
+            else active.pause();
+          });
+        }, { threshold: 0.35 });
+        io.observe(box);
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product (Variant 2)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "header",
+      "content": "Purchase options"
+    },
+    {
+      "type": "text",
+      "id": "onetime_label",
+      "label": "One-time label",
+      "default": "One Time Purchase"
+    },
+    {
+      "type": "text",
+      "id": "subscription_sub",
+      "label": "Subscription subtitle",
+      "default": "Subscribe for a simpler routine delivered effortlessly every month."
+    },
+    {
+      "type": "header",
+      "content": "Price"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_discount_badge",
+      "label": "Show discount badge",
+      "default": true,
+      "info": "Red \"13% OFF\" badge, worked out from the compare-at price."
+    },
+    {
+      "type": "header",
+      "content": "Targets"
+    },
+    {
+      "type": "text",
+      "id": "targets_label",
+      "label": "Targets label",
+      "default": "Targets:"
+    },
+    {
+      "type": "text",
+      "id": "target_prefix",
+      "label": "Tag prefix (optional)",
+      "info": "Leave blank to show all product tags. Set e.g. 'target:' to only show tags like 'target:Sleep' (prefix is hidden on the page)."
+    },
+    {
+      "type": "header",
+      "content": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "add_button_text",
+      "label": "Button text",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_text",
+      "label": "Sold out text",
+      "default": "Sold out"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_show_per_day",
+      "label": "Show per-day price in button",
+      "default": true,
+      "info": "e.g. \"Add to cart · Rs. 117/day\". Needs capsules per day / per pack."
+    },
+    {
+      "type": "header",
+      "content": "Trust"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkout_badges",
+      "label": "Show safe checkout badges",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "checkout_label",
+      "label": "Checkout label",
+      "default": "Guaranteed Safe Checkout With"
+    },
+    {
+      "type": "image_picker",
+      "id": "razorpay_badge",
+      "label": "Payment icons image",
+      "info": "Upload the row of payment icons as one image. If empty, the store's enabled payment icons are shown."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_top",
+      "name": "Top image (desktop)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "paragraph",
+          "content": "Single banner image above the product gallery. Hidden on tablet and mobile."
+        }
+      ]
+    },
+    {
+      "type": "product_gallery",
+      "name": "Product gallery",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "ratio",
+          "label": "Big image ratio",
+          "options": [
+            {
+              "value": "1 / 1",
+              "label": "Square (1:1)"
+            },
+            {
+              "value": "4 / 5",
+              "label": "Portrait (4:5)"
+            },
+            {
+              "value": "3 / 4",
+              "label": "Portrait (3:4)"
+            },
+            {
+              "value": "5 / 4",
+              "label": "Landscape (5:4)"
+            },
+            {
+              "value": "4 / 3",
+              "label": "Landscape (4:3)"
+            },
+            {
+              "value": "16 / 9",
+              "label": "Wide (16:9)"
+            }
+          ],
+          "default": "1 / 1"
+        },
+        {
+          "type": "paragraph",
+          "content": "Uses the product's own images (Products > Media). Thumbnails on the left, scroll when there are many; on mobile they move below the big image."
+        }
+      ]
+    },
+    {
+      "type": "images_bottom",
+      "name": "Bottom images (desktop)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "paragraph",
+          "content": "Row of 4 square images below the gallery. Hidden on tablet and mobile."
+        }
+      ]
+    },
+    {
+      "type": "intro_text",
+      "name": "Intro text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "info": "Shown under the product title instead of the product description. Wrap words in *asterisks* to make them bold italic, anywhere in the sentence.",
+          "default": "A daily supplement crafted for *Indian women's* nourishment featuring an innovative *pill-in-pill design.*"
+        }
+      ]
+    },
+    {
+      "type": "bullets",
+      "name": "Benefit bullets",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "info": "Use a bulleted list. Bold the lead words, e.g. STEADIER ENERGY.",
+          "default": "<ul><li><strong>STEADIER ENERGY</strong> through the afternoon</li><li><strong>CALMER CYCLES</strong> and easier PMS days</li><li><strong>DEEPER SLEEP</strong> and a steadier mood</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "pill_button",
+      "name": "Pill button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "See what's inside"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional. Leave blank to open the nutrition table panel (needs the Nutrition drawer block)."
+        }
+      ]
+    },
+    {
+      "type": "daily_price",
+      "name": "Daily price card",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Small line",
+          "default": "Good health comes at a little price."
+        },
+        {
+          "type": "text",
+          "id": "learn_text",
+          "label": "Learn button text",
+          "default": "Learn",
+          "info": "Shown for now without an action."
+        },
+        {
+          "type": "text",
+          "id": "effective_label",
+          "label": "Mobile price line",
+          "default": "Effective price: under",
+          "info": "Mobile only: shown as \"Effective price: under Rs. 117 a day\" above the quantity and button."
+        },
+        {
+          "type": "paragraph",
+          "content": "The \"Rs. 117 a day\" amount is worked out from the price and the product metafields custom.capsules_per_day / custom.capsules_per_pack. The two numbers below are only used when those metafields are empty."
+        },
+        {
+          "type": "number",
+          "id": "fallback_caps_per_day",
+          "label": "Fallback capsules per day",
+          "default": 2
+        },
+        {
+          "type": "number",
+          "id": "fallback_caps_per_pack",
+          "label": "Fallback capsules per pack",
+          "default": 60
+        }
+      ]
+    },
+    {
+      "type": "trust_banner",
+      "name": "Trust banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Round photo 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Round photo 2"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>FORMULATED WITH A <em>GYNAECOLOGIST &amp; DERMATOLOGIST.</em></p><p><strong>5 LAB REPORTS PUBLISHED.</strong></p>"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background",
+          "default": "#FFFBAE"
+        }
+      ]
+    },
+    {
+      "type": "video_testimonials",
+      "name": "Video testimonials",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>Hear it from <em>her</em></p>"
+        },
+        {
+          "type": "select",
+          "id": "ratio",
+          "label": "Video ratio",
+          "options": [
+            {
+              "value": "9 / 16",
+              "label": "Tall (9:16)"
+            },
+            {
+              "value": "4 / 5",
+              "label": "Portrait (4:5)"
+            },
+            {
+              "value": "1 / 1",
+              "label": "Square (1:1)"
+            }
+          ],
+          "default": "9 / 16"
+        },
+        {
+          "type": "video",
+          "id": "video_1",
+          "label": "Video 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumb_1",
+          "label": "Thumbnail 1",
+          "info": "Optional. Uses the video's preview image if left blank."
+        },
+        {
+          "type": "video",
+          "id": "video_2",
+          "label": "Video 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumb_2",
+          "label": "Thumbnail 2",
+          "info": "Optional. Uses the video's preview image if left blank."
+        },
+        {
+          "type": "video",
+          "id": "video_3",
+          "label": "Video 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumb_3",
+          "label": "Thumbnail 3",
+          "info": "Optional. Uses the video's preview image if left blank."
+        },
+        {
+          "type": "video",
+          "id": "video_4",
+          "label": "Video 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumb_4",
+          "label": "Thumbnail 4",
+          "info": "Optional. Uses the video's preview image if left blank."
+        },
+        {
+          "type": "video",
+          "id": "video_5",
+          "label": "Video 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumb_5",
+          "label": "Thumbnail 5",
+          "info": "Optional. Uses the video's preview image if left blank."
+        },
+        {
+          "type": "video",
+          "id": "video_6",
+          "label": "Video 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumb_6",
+          "label": "Thumbnail 6",
+          "info": "Optional. Uses the video's preview image if left blank."
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "Rating & reviews",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating_value",
+          "label": "Stars filled",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 4
+        },
+        {
+          "type": "image_picker",
+          "id": "star_image",
+          "label": "Custom star icon",
+          "info": "Optional. Repeated once per filled star. Leave blank to use the default black star."
+        },
+        {
+          "type": "text",
+          "id": "reviews_text",
+          "label": "Reviews text",
+          "default": "200+ Reviews"
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "name": "Accordion row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Why Orbe"
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield key",
+          "info": "e.g. custom.why_orbe — pulls this row's content from the product metafield so it can differ per product. Falls back to the content below if empty or unset."
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Fallback content",
+          "default": "<p>Add your content here.</p>"
+        },
+        {
+          "type": "text",
+          "id": "image_metafield_key",
+          "label": "Image metafield key",
+          "info": "e.g. custom.why_orbe_image — pulls this row's image from a product file/image metafield so it can differ per product. Falls back to the image below if empty or unset."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Fallback image",
+          "info": "Optional — shown above the text. You can add an image, text, or both."
+        }
+      ]
+    },
+    {
+      "type": "nutrition_drawer",
+      "name": "Nutrition drawer",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "View Nutrition Table"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Panel design",
+          "options": [
+            {
+              "value": "new",
+              "label": "New design"
+            },
+            {
+              "value": "classic",
+              "label": "Classic (old design)"
+            }
+          ],
+          "default": "new",
+          "info": "New design uses the \"Drawer: Heading / List / Accordion\" blocks. Classic uses Drawer Section, Drawer Accordion Item and Drawer Image. The other set is hidden, not deleted."
+        },
+        {
+          "type": "text",
+          "id": "drawer_heading",
+          "label": "Drawer heading",
+          "default": "Orbé N°01 · The Formulation"
+        },
+        {
+          "type": "paragraph",
+          "content": "Add the panel content with the blocks below: Drawer Section, Drawer Accordion Item and Drawer Image. They appear in the panel in the same order as in the block list."
+        }
+      ]
+    },
+    {
+      "type": "drawer_section",
+      "name": "Drawer Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Optional. Shown below the text."
+        }
+      ]
+    },
+    {
+      "type": "drawer_accordion",
+      "name": "Drawer Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Shown as the clickable accordion row."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "info": "Revealed when this row is expanded."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Optional. Shown below the text."
+        }
+      ]
+    },
+    {
+      "type": "drawer_image",
+      "name": "Drawer Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Nutritional Profile (Theoretical)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "e.g. the nutrition table."
+        }
+      ]
+    },
+    {
+      "type": "nd2_heading",
+      "name": "Drawer: Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (above heading)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Paragraph"
+        },
+        {
+          "type": "textarea",
+          "id": "highlight",
+          "label": "Highlighted lines",
+          "info": "Optional, shown in dark text under the paragraph. One line per row."
+        }
+      ]
+    },
+    {
+      "type": "nd2_list",
+      "name": "Drawer: List",
+      "settings": [
+        {
+          "type": "text",
+          "id": "top_text",
+          "label": "Top text",
+          "default": "Active nutrients"
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Items",
+          "info": "One item per line: Name | Form | Right-side tag. Example: Vitamin B12 | Methylcobalamin | Energy support"
+        },
+        {
+          "type": "text",
+          "id": "bottom_text",
+          "label": "Bottom text"
+        }
+      ]
+    },
+    {
+      "type": "nd2_accordion",
+      "name": "Drawer: Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "top_text",
+          "label": "Top text"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "Item 1 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_1",
+          "label": "Item 1 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Item 1 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Item 2 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_2",
+          "label": "Item 2 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Item 2 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "Item 3 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_3",
+          "label": "Item 3 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Item 3 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
+          "type": "text",
+          "id": "title_4",
+          "label": "Item 4 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_4",
+          "label": "Item 4 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Item 4 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
+          "type": "text",
+          "id": "title_5",
+          "label": "Item 5 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_5",
+          "label": "Item 5 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Item 5 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
+          "type": "text",
+          "id": "title_6",
+          "label": "Item 6 title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_6",
+          "label": "Item 6 content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Item 6 image",
+          "info": "Optional. Shown above the text."
+        },
+        {
+          "type": "text",
+          "id": "bottom_label",
+          "label": "Bottom label",
+          "default": "Nutritional profile"
+        },
+        {
+          "type": "textarea",
+          "id": "bottom_text",
+          "label": "Bottom text",
+          "info": "One line per row. The first line is larger, following lines are small."
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "Product (Variant 2)",
+      "blocks": [
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "Why Orbe"
+          }
+        },
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "Ingredients"
+          }
+        },
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "Nutrition Profile"
+          }
+        },
+        {
+          "type": "collapsible",
+          "settings": {
+            "title": "How To Use"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
