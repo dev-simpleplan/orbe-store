@@ -1,8 +1,14 @@
 <section class="new-faq-section" data-new-faq-section-{{ section.id }}>
   <div class="new-faq-left">
-    {% if section.settings.image != blank %}
+    {%- assign faq_image = section.settings.image | default: section.settings.image_mobile -%}
+    {% if faq_image != blank %}
       <div class="new-faq-sec-img">
-        {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.image.alt, class: 'img' }}
+        <picture>
+          {%- if section.settings.image_mobile != blank and section.settings.image != blank -%}
+            <source media="(max-width: 991px)" srcset="{{ section.settings.image_mobile | image_url: width: 1000 }}">
+          {%- endif -%}
+          {{ faq_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: faq_image.alt, class: 'img' }}
+        </picture>
       </div>
     {% endif %}
   </div>
@@ -101,7 +107,13 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image (desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image (mobile)",
+      "info": "Optional. Used on tablet and mobile (991px and below). If empty, the desktop image is used."
     },
     {
       "type": "text",
