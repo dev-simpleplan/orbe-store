@@ -226,7 +226,7 @@
         "nd2_accordion_cihRiD"
       ],
       "settings": {
-        "title": "",
+        "title": "ORBÉ N°01",
         "onetime_label": "One Time Purchase",
         "subscription_sub": "Subscribe for a simpler routine delivered effortlessly every month.",
         "show_discount_badge": true,
@@ -601,20 +601,20 @@
         "custom_class": ""
       }
     },
-    "spacer_k3WhTc": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 100,
-        "custom_class": ""
-      }
-    },
     "product_reviews_9PAcHH": {
       "type": "product-reviews",
       "name": "Product Reviews",
       "settings": {
         "heading": "Customer's Reviews",
         "text": ""
+      }
+    },
+    "spacer_k3WhTc": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100,
+        "custom_class": ""
       }
     },
     "new_faq_section_n49mMB": {
