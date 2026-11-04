@@ -63,7 +63,7 @@
           "type": "daily_price",
           "settings": {
             "eyebrow": "Good health comes at a little price.",
-            "learn_text": "Learn",
+            "learn_text": "",
             "effective_label": "Effective price: under",
             "fallback_caps_per_day": 2,
             "fallback_caps_per_pack": 60
@@ -571,7 +571,7 @@
       ],
       "name": "What to expect",
       "settings": {
-        "heading": "<p>What to expect <em>from</em> Orbé</p>",
+        "heading": "<p><strong>What to expect</strong> <em>from</em> Orbé</p>",
         "subheading": "Based on ingredient research",
         "description": "These timelines come from research on each nutrient, not a trial of N°01. Results depend on your starting levels. Low iron means bigger shifts.",
         "evidence_text": "See the evidence",
@@ -738,7 +738,7 @@
         "button_text": "Start today",
         "button_text_mobile": "Start ORBÉ N°01 today",
         "button_link": "shopify://products/n01",
-        "image": "shopify://shop_images/6e36aff0698a9e04660972ddf7a27cfbafced7bd_1.png"
+        "image": "shopify://shop_images/image_47.png"
       }
     }
   },
