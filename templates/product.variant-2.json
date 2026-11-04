@@ -21,7 +21,16 @@
         "product_gallery_a1": {
           "type": "product_gallery",
           "settings": {
-            "ratio": "1 / 1"
+            "ratio": "1 / 1",
+            "image_1": "shopify://shop_images/Main_gallery.png",
+            "image_2": "shopify://shop_images/INFOGRAPHIC_2.png",
+            "image_3": "shopify://shop_images/INFOGRAPHIC_3.png",
+            "image_4": "shopify://shop_images/INFOGRAPHIC_3_1.png",
+            "image_5": "shopify://shop_images/INFOGRAPHIC_4_1.png",
+            "image_6": "shopify://shop_images/INFOGRAPHIC_5.png",
+            "image_7": "shopify://shop_images/INFOGRAPHIC_6.png",
+            "image_8": "shopify://shop_images/INFOGRAPHIC_7.png",
+            "image_9": "shopify://shop_images/INFOGRAPHIC_8.png"
           }
         },
         "images_bottom_a1": {
@@ -217,6 +226,7 @@
         "nd2_accordion_cihRiD"
       ],
       "settings": {
+        "title": "",
         "onetime_label": "One Time Purchase",
         "subscription_sub": "Subscribe for a simpler routine delivered effortlessly every month.",
         "show_discount_badge": true,
@@ -531,11 +541,11 @@
         "button_opens_popup": true
       }
     },
-    "spacer_RAkTAh": {
+    "spacer_q37itr": {
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 70,
+        "spacer_height": 80,
         "custom_class": ""
       }
     },
@@ -587,8 +597,24 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 50,
+        "spacer_height": 100,
         "custom_class": ""
+      }
+    },
+    "spacer_k3WhTc": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100,
+        "custom_class": ""
+      }
+    },
+    "product_reviews_9PAcHH": {
+      "type": "product-reviews",
+      "name": "Product Reviews",
+      "settings": {
+        "heading": "Customer's Reviews",
+        "text": ""
       }
     },
     "new_faq_section_n49mMB": {
@@ -738,6 +764,7 @@
         "button_text": "Start today",
         "button_text_mobile": "Start ORBÉ N°01 today",
         "button_link": "",
+        "scroll_top_if_empty": false,
         "image": "shopify://shop_images/image_47.png"
       }
     }
@@ -752,9 +779,11 @@
     "guided_by_w3PegE",
     "spacer_PDTr8t",
     "standard_that_speaks_iTzeNg",
-    "spacer_RAkTAh",
+    "spacer_q37itr",
     "what_to_expect_jUHCwq",
     "spacer_dcU6TK",
+    "product_reviews_9PAcHH",
+    "spacer_k3WhTc",
     "new_faq_section_n49mMB",
     "spacer_MQJmqW",
     "17853942627ba94437",
