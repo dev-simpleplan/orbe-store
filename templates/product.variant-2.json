@@ -722,6 +722,7 @@
       "name": "New FAQ Section",
       "settings": {
         "image": "shopify://shop_images/06964c946e7a37b7af06c0134fdfeaf963659270_png.png",
+        "image_mobile": "shopify://shop_images/ba3ebe6a6e6f8ea4837d29c5b3f358039a49c0eb.png",
         "heading": "FAQs",
         "cta_text": "View All FAQs",
         "cta_link": "shopify://pages/faqs"
