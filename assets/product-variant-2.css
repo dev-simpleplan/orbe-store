@@ -354,6 +354,12 @@
   font-weight: 600;
   color: var(--black);
 }
+@media (max-width: 767px) {
+  .pdp2-intro,
+  .pdp2-bullets {
+    font-size: 12px;
+  }
+}
 
 /* ---------- Pill button ---------- */
 .pdp2-pill {
@@ -1059,7 +1065,7 @@
 
   .pdp2-pill {
     align-self: flex-start;
-    padding: 6px 18px;
+    padding: 10px 18px;
     margin-bottom: 25px;
     font-size: 10px;
   }

@@ -57,34 +57,75 @@
           {% comment %} 2) Product gallery: the product's own media, thumbnails + big image {% endcomment %}
           {% elsif block.type == 'product_gallery' %}
             {% assign g_ratio = block.settings.ratio | default: '1 / 1' %}
+            {% comment %} Manual uploads win; with none selected the product's own media is used {% endcomment %}
+            {% assign g_manual = false %}
+            {% for n in (1..10) %}
+              {% assign g_key = 'image_' | append: n %}
+              {% if block.settings[g_key] != blank %}{% assign g_manual = true %}{% endif %}
+            {% endfor %}
+            {% if g_manual %}{% assign g_total = 10 %}{% else %}{% assign g_total = product.images.size %}{% endif %}
+            {% assign g_count = 0 %}
+            {% for n in (1..g_total) %}
+              {% if g_manual %}
+                {% assign g_key = 'image_' | append: n %}
+                {% assign g_img = block.settings[g_key] %}
+              {% else %}
+                {% assign g_idx = n | minus: 1 %}
+                {% assign g_img = product.images[g_idx] %}
+              {% endif %}
+              {% if g_img != blank %}{% assign g_count = g_count | plus: 1 %}{% endif %}
+            {% endfor %}
             <div class="pdp2-gallery pdp2-gallery--side" data-pdp2-gallery style="--g-ratio: {{ g_ratio }};" {{ block.shopify_attributes }}>
               <div class="pdp2-main">
-                {% for image in product.images %}
-                  {% assign g_alt = image.alt | default: product.title | escape %}
-                  <button
-                    type="button"
-                    class="pdp2-main-item{% if forloop.first %} is-active{% endif %}"
-                    data-pdp2-main
-                    data-full-src="{{ image | image_url: width: 2400 }}"
-                    data-alt="{{ g_alt }}"
-                    aria-label="Zoom image"
-                  >
-                    {{ image | image_url: width: 1400 | image_tag: alt: g_alt, class: 'pdp2-main-img', loading: 'lazy', widths: '600, 900, 1400', sizes: '(min-width: 992px) 45vw, 100vw' }}
-                  </button>
-                {% else %}
+                {% assign g_i = 0 %}
+                {% for n in (1..g_total) %}
+                  {% if g_manual %}
+                    {% assign g_key = 'image_' | append: n %}
+                    {% assign g_img = block.settings[g_key] %}
+                  {% else %}
+                    {% assign g_idx = n | minus: 1 %}
+                    {% assign g_img = product.images[g_idx] %}
+                  {% endif %}
+                  {% if g_img != blank %}
+                    {% assign g_alt = g_img.alt | default: product.title | escape %}
+                    <button
+                      type="button"
+                      class="pdp2-main-item{% if g_i == 0 %} is-active{% endif %}"
+                      data-pdp2-main
+                      data-full-src="{{ g_img | image_url: width: 2400 }}"
+                      data-alt="{{ g_alt }}"
+                      aria-label="Zoom image"
+                    >
+                      {{ g_img | image_url: width: 1400 | image_tag: alt: g_alt, class: 'pdp2-main-img', loading: 'lazy', widths: '600, 900, 1400', sizes: '(min-width: 992px) 45vw, 100vw' }}
+                    </button>
+                    {% assign g_i = g_i | plus: 1 %}
+                  {% endif %}
+                {% endfor %}
+                {% if g_count == 0 %}
                   <div class="pdp2-main-item is-active pdp2-main-item--placeholder">
                     {{ 'product-1' | placeholder_svg_tag: 'pdp2-main-img' }}
                   </div>
-                {% endfor %}
+                {% endif %}
               </div>
 
-              {% if product.images.size > 1 %}
+              {% if g_count > 1 %}
                 <div class="pdp2-thumbs-wrap">
                   <div class="pdp2-thumbs" data-pdp2-thumbs>
-                    {% for image in product.images %}
-                      <button type="button" class="pdp2-thumb{% if forloop.first %} is-active{% endif %}" data-pdp2-thumb="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}">
-                        {{ image | image_url: width: 240 | image_tag: alt: '', loading: 'lazy' }}
-                      </button>
+                    {% assign g_i = 0 %}
+                    {% for n in (1..g_total) %}
+                      {% if g_manual %}
+                        {% assign g_key = 'image_' | append: n %}
+                        {% assign g_img = block.settings[g_key] %}
+                      {% else %}
+                        {% assign g_idx = n | minus: 1 %}
+                        {% assign g_img = product.images[g_idx] %}
+                      {% endif %}
+                      {% if g_img != blank %}
+                        <button type="button" class="pdp2-thumb{% if g_i == 0 %} is-active{% endif %}" data-pdp2-thumb="{{ g_i }}" aria-label="Show image {{ g_i | plus: 1 }}">
+                          {{ g_img | image_url: width: 240 | image_tag: alt: '', loading: 'lazy' }}
+                        </button>
+                        {% assign g_i = g_i | plus: 1 %}
+                      {% endif %}
                     {% endfor %}
                   </div>
                   <button type="button" class="pdp2-thumb-arrow pdp2-thumb-arrow--prev" data-pdp2-prev aria-label="Previous images" hidden>
@@ -148,7 +189,7 @@
             </div>
           {% endfor %}
 
-          <h1 class="pdp-title">{{ product.title }}</h1>
+          <h1 class="pdp-title">{{ section.settings.title | default: product.title }}</h1>
 
           {% assign intro_block = section.blocks | where: 'type', 'intro_text' | first %}
           {% if intro_block and intro_block.settings.text != blank %}
@@ -1002,6 +1043,12 @@
   "name": "Product (Variant 2)",
   "settings": [
     {
+      "type": "text",
+      "id": "title",
+      "label": "Product title",
+      "info": "Leave blank to show the product's own name."
+    },
+    {
       "type": "header",
       "content": "Rating"
     },
@@ -1149,8 +1196,58 @@
           "default": "1 / 1"
         },
         {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Image 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Image 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_7",
+          "label": "Image 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_8",
+          "label": "Image 8"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_9",
+          "label": "Image 9"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_10",
+          "label": "Image 10"
+        },
+        {
           "type": "paragraph",
-          "content": "Uses the product's own images (Products > Media). Thumbnails on the left, scroll when there are many; on mobile they move below the big image."
+          "content": "Leave all images empty to use the product's own images (Products > Media). If you upload any image here, only these uploaded images are shown. Thumbnails on the left; on mobile they move below the big image."
         }
       ]
     },
