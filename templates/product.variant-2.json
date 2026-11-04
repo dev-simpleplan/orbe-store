@@ -439,7 +439,8 @@
         "heading": "*Standards* you can check",
         "description": "Six standards behind every bottle of N°01.",
         "button_text": "",
-        "button_link": ""
+        "button_link": "",
+        "button_opens_popup": true
       }
     },
     "spacer_RAkTAh": {

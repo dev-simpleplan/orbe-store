@@ -2042,3 +2042,60 @@
     font-size: 14px;
   }
 }
+
+/* Certificate popup as a slider (opened by the "Read the reports" button in Standards That Speak).
+   The arrows are added by the script in certified-by.liquid, only in slider mode. */
+.template-product-variant-2 .cb-modal-nav {
+  display: none;
+}
+.template-product-variant-2 .cb-modal.is-slider .cb-modal-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.template-product-variant-2 .cb-modal-nav--prev {
+  left: calc(50% - 240px - 64px);
+}
+.template-product-variant-2 .cb-modal-nav--next {
+  right: calc(50% - 240px - 64px);
+}
+.template-product-variant-2 .cb-modal-nav--prev svg {
+  transform: rotate(180deg);
+}
+@media (max-width: 640px) {
+  .template-product-variant-2 .cb-modal.is-slider .cb-modal-nav {
+    width: 36px;
+    height: 36px;
+  }
+  .template-product-variant-2 .cb-modal-nav--prev {
+    left: 6px;
+  }
+  .template-product-variant-2 .cb-modal-nav--next {
+    right: 6px;
+  }
+}
+
+/* Certificate popup: every logo in the same fixed size (px), a bit smaller than before */
+.template-product-variant-2 .cb-modal-logo {
+  margin-bottom: 28px;
+}
+.template-product-variant-2 .cb-modal-logo img {
+  width: 120px;
+  height: 120px;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
