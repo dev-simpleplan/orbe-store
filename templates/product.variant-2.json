@@ -649,8 +649,9 @@
         "text": "Take 2 capsules with your main meal. Take them at the same time every day for consistent support.",
         "button_text": "Start today",
         "button_text_mobile": "Start ORBÉ N°01 today",
-        "button_link": "shopify://products/n01",
-        "image": "shopify://shop_images/6e36aff0698a9e04660972ddf7a27cfbafced7bd_1.png"
+        "button_link": "",
+        "image": "shopify://shop_images/6e36aff0698a9e04660972ddf7a27cfbafced7bd_1.png",
+        "scroll_top_if_empty": true
       }
     }
   },
