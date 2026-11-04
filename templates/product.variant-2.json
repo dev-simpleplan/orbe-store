@@ -63,7 +63,7 @@
           "type": "daily_price",
           "settings": {
             "eyebrow": "Good health comes at a little price.",
-            "learn_text": "Learn",
+            "learn_text": "",
             "effective_label": "Effective price: under",
             "fallback_caps_per_day": 2,
             "fallback_caps_per_pack": 60
@@ -384,6 +384,86 @@
     "standard_that_speaks_iTzeNg": {
       "type": "standard-that-speaks",
       "blocks": {
+        "certificate_wi7Ek9": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
+            "title": "FDA standards",
+            "info": "<p>The FDA is the United States agency responsible for protecting public health through standards for food, medicines, and other regulated products.<br/><br/>This mark reflects the relevant FDA registration, facility, or compliance documentation associated with the manufacturing site. It should not be read as FDA approval of Orbé N°01 unless the product itself has been specifically approved.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>It adds another layer of accountability to the way products are made, documented, and handled.</p>"
+          }
+        },
+        "certificate_bfKXa9": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
+            "title": "Good Manufacturing Practice",
+            "info": "<p>GMP is a system for making sure products are consistently produced and controlled to the right quality standards.<br/><br/>It covers the details that matter behind the scenes: clean facilities, trained teams, controlled processes, proper documentation, and checks at every stage.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>Quality should not depend on chance. GMP helps make every batch more consistent, traceable, and carefully made.</p>"
+          }
+        },
+        "certificate_JeYhWK": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/surface1_a78f7377-a381-40c0-86fb-b73925a111e0.svg",
+            "title": "FSSAI registered facility",
+            "info": "<p>FSSAI is India’s food-safety authority. Its standards help regulate food and health-related products made, sold, or distributed in India.</p><p>This mark reflects the relevant FSSAI licence or registration connected to the manufacturing or operating facility.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>It means the relevant facility operates within India’s food-safety framework and can be identified through official documentation.</p>"
+          }
+        },
+        "certificate_NFGHeH": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/HACCP_Logo_-1_de53d0ac-3752-46bf-b995-c6a07d00ab12.svg",
+            "title": "Hazard Analysis and Critical Control Points",
+            "info": "<p>HACCP is a preventive food-safety system. Instead of waiting for a problem to appear, it identifies where risks could occur and puts controls in place before they do.</p><p>The system covers potential biological, chemical, and physical hazards across the production process.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>Safety is stronger when it is built into the process from the start.</p>"
+          }
+        },
+        "certificate_pFKYNz": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/ISO_9001-2015-1_1.svg",
+            "title": "ISO 9001:2015",
+            "info": "<p>ISO 9001:2015 is an international quality-management standard.</p><p>It focuses on consistent processes, clear responsibilities, documentation, corrective action, and continuous improvement.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>It helps turn quality from a promise into a repeatable way of working.</p>"
+          }
+        },
+        "certificate_x8gyGH": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
+            "title": "Export Inspection Council of India",
+            "info": "<p>The Export Inspection Council is the official export-certification body under India’s Ministry of Commerce and Industry.</p><p>The mark indicates the relevant inspection or certification recognition connected to the facility, product, or export process shown in the supporting document.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>It reflects documented inspection within India’s export-quality framework.</p>"
+          }
+        },
+        "certificate_tyYhad": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
+            "title": "FSSC 22000",
+            "info": "<p>FSSC 22000 is a globally recognised food-safety management certification scheme.</p><p>It brings together food-safety management, prerequisite programmes, hazard controls, and continual improvement across the supply chain.</p>",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_X7wq3q": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
+            "title": "Halal-certified processes",
+            "info": "<p>Halal certification confirms that the relevant ingredients, handling, processing, and production practices meet the requirements of the certifying body.</p><p>It also supports transparency for people who want to make choices aligned with their beliefs.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>The way a product is made matters as much as what is written on the label.</p>"
+          }
+        },
         "standard_RtXxph": {
           "type": "standard",
           "settings": {
@@ -428,6 +508,14 @@
         }
       },
       "block_order": [
+        "certificate_wi7Ek9",
+        "certificate_bfKXa9",
+        "certificate_JeYhWK",
+        "certificate_NFGHeH",
+        "certificate_pFKYNz",
+        "certificate_x8gyGH",
+        "certificate_tyYhad",
+        "certificate_X7wq3q",
         "standard_RtXxph",
         "standard_DxdQmw",
         "standard_NBdp7m",
@@ -438,7 +526,7 @@
       "settings": {
         "heading": "*Standards* you can check",
         "description": "Six standards behind every bottle of N°01.",
-        "button_text": "",
+        "button_text": "Read the reports",
         "button_link": "",
         "button_opens_popup": true
       }
@@ -483,7 +571,7 @@
       ],
       "name": "What to expect",
       "settings": {
-        "heading": "<p>What to expect <em>from</em> Orbé</p>",
+        "heading": "<p><strong>What to expect</strong> <em>from</em> Orbé</p>",
         "subheading": "Based on ingredient research",
         "description": "These timelines come from research on each nutrient, not a trial of N°01. Results depend on your starting levels. Low iron means bigger shifts.",
         "evidence_text": "See the evidence",
@@ -649,9 +737,8 @@
         "text": "Take 2 capsules with your main meal. Take them at the same time every day for consistent support.",
         "button_text": "Start today",
         "button_text_mobile": "Start ORBÉ N°01 today",
-        "button_link": "",
-        "image": "shopify://shop_images/6e36aff0698a9e04660972ddf7a27cfbafced7bd_1.png",
-        "scroll_top_if_empty": true
+        "button_link": "shopify://products/n01",
+        "image": "shopify://shop_images/image_47.png"
       }
     }
   },
