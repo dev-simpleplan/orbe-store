@@ -1,3 +1,7 @@
+{%- assign rf_scroll_top = false -%}
+{%- if section.settings.scroll_top_if_empty and section.settings.button_link == blank -%}
+  {%- assign rf_scroll_top = true -%}
+{%- endif -%}
 <section class="ready-formula">
     
     <div class="ready-formula-in">
@@ -17,9 +21,9 @@
                   {% endif %}
                   {% if section.settings.button_text != blank %}
                     {% if section.settings.button_text_mobile != blank %}
-                      <a href="{{ section.settings.button_link }}" class="primary-btn rf-has-m"><span class="rf-d">{{ section.settings.button_text }}</span><span class="rf-m">{{ section.settings.button_text_mobile }}</span></a>
+                      <a href="{{ section.settings.button_link }}" class="primary-btn rf-has-m"{% if rf_scroll_top %} data-scroll-top{% endif %}><span class="rf-d">{{ section.settings.button_text }}</span><span class="rf-m">{{ section.settings.button_text_mobile }}</span></a>
                     {% else %}
-                      <a href="{{ section.settings.button_link }}" class="primary-btn">{{ section.settings.button_text }}</a>
+                      <a href="{{ section.settings.button_link }}" class="primary-btn"{% if rf_scroll_top %} data-scroll-top{% endif %}>{{ section.settings.button_text }}</a>
                     {% endif %}
                   {% endif %}
                 </div>
@@ -34,6 +38,23 @@
     </div>
     
 </section>
+
+{% if rf_scroll_top %}
+<script>
+  (function () {
+    if (window.__rfScrollTopBound) return;
+    window.__rfScrollTopBound = true;
+    // no link set: the button takes the visitor back to the top of the page
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('[data-scroll-top]');
+      if (!btn) return;
+      e.preventDefault();
+      if (window.lenis && typeof window.lenis.scrollTo === 'function') window.lenis.scrollTo(0);
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+{% endif %}
 
 {% schema %}
 {
@@ -70,6 +91,13 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "scroll_top_if_empty",
+      "label": "Scroll to top when the link is empty",
+      "default": false,
+      "info": "If the Button Link is empty, the button scrolls the page back to the top instead of reloading it."
     },
     {
       "type": "image_picker",
