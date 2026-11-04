@@ -447,8 +447,9 @@
         "certificate_tyYhad": {
           "type": "certificate",
           "settings": {
-            "title": "",
-            "info": "",
+            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
+            "title": "FSSC 22000",
+            "info": "<p>FSSC 22000 is a globally recognised food-safety management certification scheme.</p><p>It brings together food-safety management, prerequisite programmes, hazard controls, and continual improvement across the supply chain.</p>",
             "why_heading": "Why it matters",
             "why_text": ""
           }
@@ -456,10 +457,11 @@
         "certificate_X7wq3q": {
           "type": "certificate",
           "settings": {
-            "title": "",
-            "info": "",
+            "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
+            "title": "Halal-certified processes",
+            "info": "<p>Halal certification confirms that the relevant ingredients, handling, processing, and production practices meet the requirements of the certifying body.</p><p>It also supports transparency for people who want to make choices aligned with their beliefs.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>The way a product is made matters as much as what is written on the label.</p>"
           }
         },
         "standard_RtXxph": {
