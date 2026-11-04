@@ -417,10 +417,11 @@
         "certificate_NFGHeH": {
           "type": "certificate",
           "settings": {
-            "title": "",
-            "info": "",
+            "image": "shopify://shop_images/HACCP_Logo_-1_de53d0ac-3752-46bf-b995-c6a07d00ab12.svg",
+            "title": "Hazard Analysis and Critical Control Points",
+            "info": "<p>HACCP is a preventive food-safety system. Instead of waiting for a problem to appear, it identifies where risks could occur and puts controls in place before they do.</p><p>The system covers potential biological, chemical, and physical hazards across the production process.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>Safety is stronger when it is built into the process from the start.</p>"
           }
         },
         "certificate_pFKYNz": {
