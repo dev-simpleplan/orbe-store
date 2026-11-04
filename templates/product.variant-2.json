@@ -384,6 +384,79 @@
     "standard_that_speaks_iTzeNg": {
       "type": "standard-that-speaks",
       "blocks": {
+        "certificate_wi7Ek9": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
+            "title": "FDA standards",
+            "info": "<p>The FDA is the United States agency responsible for protecting public health through standards for food, medicines, and other regulated products.<br/><br/>This mark reflects the relevant FDA registration, facility, or compliance documentation associated with the manufacturing site. It should not be read as FDA approval of Orbé N°01 unless the product itself has been specifically approved.</p>",
+            "why_heading": "Why it matters",
+            "why_text": "<p>It adds another layer of accountability to the way products are made, documented, and handled.</p>"
+          }
+        },
+        "certificate_bfKXa9": {
+          "type": "certificate",
+          "settings": {
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_JeYhWK": {
+          "type": "certificate",
+          "settings": {
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_NFGHeH": {
+          "type": "certificate",
+          "settings": {
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_pFKYNz": {
+          "type": "certificate",
+          "settings": {
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_x8gyGH": {
+          "type": "certificate",
+          "settings": {
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_tyYhad": {
+          "type": "certificate",
+          "settings": {
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_X7wq3q": {
+          "type": "certificate",
+          "settings": {
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
         "standard_RtXxph": {
           "type": "standard",
           "settings": {
@@ -428,6 +501,14 @@
         }
       },
       "block_order": [
+        "certificate_wi7Ek9",
+        "certificate_bfKXa9",
+        "certificate_JeYhWK",
+        "certificate_NFGHeH",
+        "certificate_pFKYNz",
+        "certificate_x8gyGH",
+        "certificate_tyYhad",
+        "certificate_X7wq3q",
         "standard_RtXxph",
         "standard_DxdQmw",
         "standard_NBdp7m",
@@ -438,7 +519,7 @@
       "settings": {
         "heading": "*Standards* you can check",
         "description": "Six standards behind every bottle of N°01.",
-        "button_text": "",
+        "button_text": "Read the reports",
         "button_link": "",
         "button_opens_popup": true
       }
