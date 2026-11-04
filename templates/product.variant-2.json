@@ -427,19 +427,21 @@
         "certificate_pFKYNz": {
           "type": "certificate",
           "settings": {
-            "title": "",
-            "info": "",
+            "image": "shopify://shop_images/ISO_9001-2015-1_1.svg",
+            "title": "ISO 9001:2015",
+            "info": "<p>ISO 9001:2015 is an international quality-management standard.</p><p>It focuses on consistent processes, clear responsibilities, documentation, corrective action, and continuous improvement.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>It helps turn quality from a promise into a repeatable way of working.</p>"
           }
         },
         "certificate_x8gyGH": {
           "type": "certificate",
           "settings": {
-            "title": "",
-            "info": "",
+            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
+            "title": "Export Inspection Council of India",
+            "info": "<p>The Export Inspection Council is the official export-certification body under India’s Ministry of Commerce and Industry.</p><p>The mark indicates the relevant inspection or certification recognition connected to the facility, product, or export process shown in the supporting document.</p>",
             "why_heading": "Why it matters",
-            "why_text": ""
+            "why_text": "<p>It reflects documented inspection within India’s export-quality framework.</p>"
           }
         },
         "certificate_tyYhad": {
