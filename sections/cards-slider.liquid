@@ -121,6 +121,20 @@
           btn.textContent = open ? (btn.getAttribute('data-less') || btn.getAttribute('data-more')) : btn.getAttribute('data-more');
         });
       });
+
+      // only cards whose text is really cut off get the Read more / Read less label
+      function checkClamp() {
+        root.querySelectorAll('[data-cs-more]').forEach(function (btn) {
+          var text = btn.parentNode.querySelector('[data-cs-text]');
+          if (!text || text.classList.contains('is-open')) return; // keep "Read less" while it is open
+          var cut = text.scrollHeight > text.clientHeight + 1;
+          btn.classList.toggle('is-hidden', !cut);
+        });
+      }
+      checkClamp();
+      window.addEventListener('load', checkClamp);
+      window.addEventListener('resize', checkClamp);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(checkClamp);
     }
 
     function initAll() {

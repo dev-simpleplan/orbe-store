@@ -445,7 +445,7 @@
   font-family: var(--aspekta);
   font-size: clamp(32px, 3vw, 42px);
   font-weight: 400;
-  letter-spacing: -0.07em;
+  letter-spacing: -2%;
   line-height: 1;
   color: var(--black);
 }
@@ -457,15 +457,14 @@
 }
 .pdp2-badge {
   display: inline-block;
-  margin-left: 2.5px;
-  padding: 3.5px 5.5px;
-  background: #e10022;
+  padding: 0 5px;
+  background: #D70202;
   color: #fff;
   font-family: var(--aspekta);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 12px;
+  line-height: 19.43px;
 }
 
 /* ---------- Targets, per-day line, buy row ---------- */
@@ -991,8 +990,9 @@
     z-index: 2;
     justify-content: center;
     min-height: 0;
-    margin: calc(-1 * clamp(44px, 12vw, 72px)) 0 0;
-    padding: 0 20px;
+    /* pulled up over the photo by its own height + the space left under it */
+    margin: calc(-1 * (clamp(44px, 12vw, 72px) + 24px)) 0 0;
+    padding: 0 20px 24px;
   }
   .template-product-variant-2 .new-faq-heading h2 {
     font-size: clamp(44px, 12vw, 72px);
@@ -1071,13 +1071,13 @@
     font-size: 28px;
   }
   .pdp--v2 .pdp-price-compare {
-    font-size: 9px;
+    font-size: 12px;
   }
   .pdp2-badge {
-    margin-left: -8px;
+    /* margin-left: -8px; */
     padding: 2px 4px;
-    font-size: 8px;
-    line-height: 10px;
+    font-size: 12px;
+    line-height: 19.43px;
   }
 
   .pdp2-daily {
@@ -1317,14 +1317,14 @@
   object-fit: cover;
 }
 .cs-title {
-  margin-top: 20px;
-  font-family: var(--tobias);
-  font-style: italic;
-  font-size: clamp(20px, 1.6vw, 28px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--black);
+    margin-top: 20px;
+    font-family: var(--tobias);
+    font-style: italic;
+    font-size: clamp(20px, 1.6vw, 24px);
+    font-weight: 500;
+    line-height: 99%;
+    letter-spacing: -2%;
+    color: var(--black);
 }
 .cs-text-row {
   display: flex;
@@ -1398,6 +1398,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    max-width: 40ch;
     overflow: hidden;
   }
   .cs-text.is-open {
@@ -1417,6 +1418,10 @@
     font-size: 10px;
     font-weight: 400;
     cursor: pointer;
+  }
+  /* cards whose text fits in the space get no Read more label */
+  .cs-more.is-hidden {
+    display: none;
   }
   .cs-nav {
     grid-area: nav;
@@ -2098,4 +2103,9 @@
   max-width: none;
   max-height: none;
   object-fit: contain;
+}
+
+/* FAQ photo stays in colour on variant 2 (the default section turns it black & white) */
+.template-product-variant-2 .new-faq-sec-img {
+  filter: none;
 }
