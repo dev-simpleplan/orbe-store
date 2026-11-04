@@ -1,4 +1,6 @@
-<section class="standard-that-speaks">
+{%- assign sts_standards = section.blocks | where: 'type', 'standard' -%}
+{%- assign sts_certs = section.blocks | where: 'type', 'certificate' -%}
+<section class="standard-that-speaks" data-sts>
     <div class="container">
         <div class="heading text-animation">
             {% if section.settings.heading != blank %}
@@ -10,7 +12,7 @@
         </div>
         <div class="standard-that-speaks-in">
             <div class="center-ring">
-                {% for block in section.blocks limit: 6 %}
+                {% for block in sts_standards limit: 6 %}
                     <div class="standard-ring-item standard-ring-item-{{ forloop.index }}" {{ block.shopify_attributes }}>
                         <div class="standard-ring-item-inner">
                             {% if block.settings.image != blank %}
@@ -26,16 +28,137 @@
         </div>
         {% if section.settings.button_text != blank %}
             <div class="standard-cta">
-                <a href="{{ section.settings.button_link | default: '#' }}" class="standard-btn">{{ section.settings.button_text }}</a>
+                <a href="{{ section.settings.button_link | default: '#' }}" class="standard-btn"{% if section.settings.button_opens_popup %} data-sts-open aria-haspopup="dialog"{% endif %}>{{ section.settings.button_text }}</a>
             </div>
         {% endif %}
     </div>
+
+    {% comment %} Certificate popup (opened by the button; arrows / arrow keys move through the certificates) {% endcomment %}
+    {% for block in sts_certs %}
+        <div class="cb-modal" id="sts-modal-{{ block.id }}" role="dialog" aria-modal="true" aria-hidden="true" hidden data-sts-modal {{ block.shopify_attributes }}>
+            <div class="cb-modal-backdrop" data-cb-close></div>
+            <div class="cb-modal-card" data-lenis-prevent>
+                <button type="button" class="cb-modal-close" aria-label="Close" data-cb-close>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                {% if block.settings.image != blank %}
+                    <div class="cb-modal-logo">
+                        {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.title, loading: 'lazy' }}
+                    </div>
+                {% endif %}
+                {% if block.settings.title != blank %}
+                    <h3 class="cb-modal-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.info != blank %}
+                    <div class="cb-modal-info">{{ block.settings.info }}</div>
+                {% endif %}
+                {% if block.settings.why_text != blank %}
+                    <div class="cb-modal-why">
+                        {% if block.settings.why_heading != blank %}
+                            <p class="cb-modal-why-heading">{{ block.settings.why_heading }}</p>
+                        {% endif %}
+                        <div class="cb-modal-info">{{ block.settings.why_text }}</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
 </section>
+
+<script>
+    (function () {
+        var section = document.currentScript.previousElementSibling;
+        if (!section || section.dataset.stsReady === 'true') return;
+        section.dataset.stsReady = 'true';
+
+        var modals = Array.prototype.slice.call(section.querySelectorAll('[data-sts-modal]'));
+        var openBtn = section.querySelector('[data-sts-open]');
+        if (!modals.length || !openBtn) return;
+
+        var current = -1;
+        var opener = null;
+        var arrowSvg = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+        modals.forEach(function (modal) {
+            ['prev', 'next'].forEach(function (dir) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'cb-modal-nav cb-modal-nav--' + dir;
+                b.setAttribute('data-sts-' + dir, '');
+                b.setAttribute('aria-label', dir === 'prev' ? 'Previous certificate' : 'Next certificate');
+                b.innerHTML = arrowSvg;
+                modal.appendChild(b);
+            });
+        });
+
+        function show(modal) {
+            modal.hidden = false;
+            modal.setAttribute('aria-hidden', 'false');
+            modal.classList.add('is-slider');
+            // only fade it in if it is still the one on show (fast double clicks on the arrows)
+            requestAnimationFrame(function () { if (modals[current] === modal) modal.classList.add('is-open'); });
+        }
+
+        function hide(modal) {
+            // never hide (aria-hidden) something that still holds the focus
+            if (modal.contains(document.activeElement)) document.activeElement.blur();
+            modal.classList.remove('is-open', 'is-slider');
+            modal.setAttribute('aria-hidden', 'true');
+            setTimeout(function () { if (!modal.classList.contains('is-open')) modal.hidden = true; }, 300);
+        }
+
+        function openSlider(trigger) {
+            opener = trigger;
+            current = 0;
+            show(modals[0]);
+            document.documentElement.classList.add('cb-modal-open');
+            if (window.lenis) window.lenis.stop();
+        }
+
+        function close() {
+            if (current < 0) return;
+            hide(modals[current]);
+            current = -1;
+            document.documentElement.classList.remove('cb-modal-open');
+            if (window.lenis) window.lenis.start();
+            if (opener && document.contains(opener)) opener.focus();
+        }
+
+        function go(step) {
+            if (current < 0) return;
+            var next = (current + step + modals.length) % modals.length;
+            if (next === current) return;
+            var old = modals[current];
+            current = next;
+            show(modals[current]);
+            // keep the keyboard focus on the same arrow, now inside the certificate that is on show
+            var arrow = modals[current].querySelector(step > 0 ? '[data-sts-next]' : '[data-sts-prev]');
+            if (arrow) arrow.focus({ preventScroll: true });
+            hide(old);
+        }
+
+        openBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openSlider(openBtn);
+        });
+        section.addEventListener('click', function (e) {
+            if (e.target.closest('[data-cb-close]')) { close(); return; }
+            if (e.target.closest('[data-sts-prev]')) go(-1);
+            else if (e.target.closest('[data-sts-next]')) go(1);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (current < 0) return;
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowLeft') go(-1);
+            if (e.key === 'ArrowRight') go(1);
+        });
+    })();
+</script>
 
 {% schema %}
 {
   "name": "Standards That Speaks",
-  "max_blocks": 6,
+  "max_blocks": 18,
   "settings": [
     {
       "type": "text",
@@ -63,6 +186,13 @@
       "id": "button_link",
       "label": "Button link",
       "info": "The certifications page."
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_popup",
+      "label": "Open the certificates popup",
+      "default": false,
+      "info": "Opens a popup with the Certificate blocks of this section (arrows / arrow keys move through them) instead of following the link."
     }
   ],
   "blocks": [
@@ -80,6 +210,43 @@
           "type": "textarea",
           "id": "title",
           "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "certificate",
+      "name": "Certificate (popup)",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shown in the popup of the button below the circles, one after another. Not shown in the circles."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "info",
+          "label": "Info"
+        },
+        {
+          "type": "text",
+          "id": "why_heading",
+          "label": "Why it matters heading",
+          "default": "Why it matters"
+        },
+        {
+          "type": "richtext",
+          "id": "why_text",
+          "label": "Why it matters text"
         }
       ]
     }
