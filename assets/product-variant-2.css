@@ -752,6 +752,7 @@
   .pdp2-left .pdp-nutrition-btn {
     width: 100%;
     min-width: 0;
+    display: none;
   }
 
   .pdp--v2 .pdp-title {
@@ -2045,6 +2046,8 @@
     height: 44px;
     padding: 0 12px;
     font-size: 12px;
+    background-color: #1a1a1a;
+    color: #fff;
   }
   .wte-qty {
     flex: 0 0 auto;
