@@ -1291,7 +1291,7 @@
   }
   .pdp-gallery .pdp-gallery-item,
   .pdp-gallery .pdp-gallery-item:first-child {
-    grid-column: auto!important;
+    grid-column: auto;
     aspect-ratio: 3/2!important;
     width: 100%;
     scroll-snap-align: start;
