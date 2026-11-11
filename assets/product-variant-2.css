@@ -88,7 +88,7 @@
 }
 .pdp2-main {
   position: relative;
-  aspect-ratio: var(--g-ratio, 1 / 1);
+  aspect-ratio: 2/2.5;
   background: #f2f1ee;
   overflow: hidden;
 }
