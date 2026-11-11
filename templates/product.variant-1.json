@@ -564,6 +564,14 @@
         "custom_class": ""
       }
     },
+    "product_reviews_n9xCPe": {
+      "type": "product-reviews",
+      "name": "Product Reviews",
+      "settings": {
+        "heading": "Customer Reviews",
+        "text": ""
+      }
+    },
     "essential-ingredient": {
       "type": "essential-ingredient",
       "blocks": {
@@ -809,56 +817,6 @@
         "custom_class": ""
       }
     },
-    "gently-unfold": {
-      "type": "gently-unfolding",
-      "blocks": {
-        "card_1": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468701_bcbdcb62-a609-4d14-ad21-b9a273a3dddd.png",
-            "week": "Week 1–2 : a little more clarity, a little more energy",
-            "text": "Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality.\nIf B12 was low, some women notice energy and focus first."
-          }
-        },
-        "card_2": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468700.png",
-            "week": "Week 3–6 : your rhythm begins to soften",
-            "text": "Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise."
-          }
-        },
-        "card_3": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468699.png",
-            "week": "Week 8-12 : your foundation strengthens",
-            "text": "Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady.\nSkin and mood changes are commonly reported in this window."
-          }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_3468698.png",
-            "week": "Week 12+ : a steadier version of yourself",
-            "text": "Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience."
-          }
-        }
-      },
-      "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "The Journey, Gently Unfolding",
-        "subheading": "Results depend on where you're starting from. For example, someone already replete in iron won't feel what someone deficient will.",
-        "cta_text": "",
-        "cta_link": "#"
-      }
-    },
     "scroll_timeline_WXVVBK": {
       "type": "scroll-timeline",
       "blocks": {
@@ -1090,9 +1048,12 @@
       "name": "Ready Formula",
       "settings": {
         "heading": "Your Body Has Been Asking For This",
+        "heading_mobile": "",
         "text": "A daily foundation of thoughtfully selected nutrients to support how you feel, every day.",
         "button_text": "Start today",
+        "button_text_mobile": "",
         "button_link": "shopify://products/n01",
+        "scroll_top_if_empty": false,
         "image": "shopify://shop_images/6e36aff0698a9e04660972ddf7a27cfbafced7bd_1.png"
       }
     },
@@ -1322,7 +1283,6 @@
       "blocks": {
         "judge_me_reviews_review_widget_rNkNnd": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
           "settings": {
             "review_data": "sample_data",
             "max_width": 1200,
@@ -1348,9 +1308,9 @@
     "spacer_iVnf8F",
     "guided_by_w3PegE",
     "spacer_PDTr8t",
+    "product_reviews_n9xCPe",
     "essential-ingredient",
     "spacer_RAkTAh",
-    "gently-unfold",
     "scroll_timeline_WXVVBK",
     "spacer_6tMeNb",
     "what-your-body",
