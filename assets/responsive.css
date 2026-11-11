@@ -1292,7 +1292,7 @@
   .pdp-gallery .pdp-gallery-item,
   .pdp-gallery .pdp-gallery-item:first-child {
     grid-column: auto;
-    aspect-ratio: 3/2!important;
+    aspect-ratio: 3/2;
     width: 100%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -1300,6 +1300,7 @@
   /* Variant 1: slides match the 430 x 650 infographic artboards, so nothing is cropped */
   .pdp--v1 .pdp-gallery .pdp-gallery-item,
   .pdp--v1 .pdp-gallery .pdp-gallery-item:first-child {
+    grid-column: auto;
     aspect-ratio: 430 / 650;
   }
   /* .pdp--v1 .pdp-gallery-img {
