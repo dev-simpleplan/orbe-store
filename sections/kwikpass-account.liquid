@@ -1,21 +1,13 @@
-<div class="page-width" style="padding: 40px 20px;">
-  {% for block in section.blocks %}
-    {% case block.type %}
-      {% when '@app' %}
-        {% render block %}
-    {% endcase %}
-  {% endfor %}
+<div class="page-width" style="padding: 40px 20px; min-height: 50vh;">
+  <div class="rte">
+    {{ page.content }}
+  </div>
 </div>
 
 {% schema %}
 {
   "name": "KwikPass Account",
   "settings": [],
-  "blocks": [
-    {
-      "type": "@app"
-    }
-  ],
   "presets": [
     {
       "name": "KwikPass Account"
@@ -23,3 +15,4 @@
   ]
 }
 {% endschema %}
+
