@@ -11,6 +11,7 @@
   "sections": {
     "privacy-policy": {
       "type": "privacy-policy",
+      "disabled": true,
       "settings": {
         "heading": "Privacy Policy",
         "last_modified": "Last modified : February 2025",
