@@ -1,12 +1,137 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "advertorial-banner": {
       "type": "advertorial-banner",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Orbé Journal · Everyday Nutrition",
+        "heading": "Why Do So Many Women Still Feel Tired, Even When They’re Doing",
+        "italic_text": "Women",
+        "accent_text": "Everything Right?",
+        "accent_color": "#a8863f",
+        "text": "You sleep. You eat well. You drink the water. Yet 3pm still hits hard. Here’s what may be missing, and a simpler way to cover it.",
+        "meta": "Orbé Editorial Team · 5 min read",
+        "button_text": "Read the story",
+        "image": "shopify://shop_images/Container_1.jpg"
+      }
+    },
+    "spacer_zgDWyU": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
     },
     "advertorial-story": {
       "type": "advertorial-story",
-      "settings": {}
+      "settings": {
+        "eyebrow": "The 3pm moment",
+        "heading": "It’s 3pm. Your Second Coffee’s Going Cold.",
+        "body": "<p>Your inbox is full. You slept seven hours and ate a proper lunch.&nbsp;<br/>You still feel like you're running on low battery.<br/><br/><br/>Then the night flips it.&nbsp;<br/>You're tired all day, but your mind won't switch off at bedtime.<br/><br/>Most women write this off as \"just a busy phase.\"&nbsp;<br/>The phase never ends. It becomes normal.<br/><br/><br/></p>",
+        "quote": "You’re not imagining it. These everyday shifts are your body’s way of asking for support.",
+        "accent_color": "#a8863f",
+        "image": "shopify://shop_images/Image_Woman_sitting_at_a_desk_in_a_quiet_moment.jpg",
+        "image_position": "right"
+      }
+    },
+    "spacer_hf3pi7": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
+    },
+    "advertorial-signals": {
+      "type": "advertorial-signals",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-11-16_at_5.57.30_PM.png",
+            "title": "Afternoon energy dips",
+            "text": "The day feels heavier after lunch.",
+            "quote": "They show up quietly. One at a time.\nEasy to blame on work, age or the weather."
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468716_1.jpg",
+            "title": "Restless, light sleep",
+            "text": "Tired all day. Still awake at night.",
+            "quote": ""
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468717.jpg",
+            "title": "Frequent mood swings",
+            "text": "Small things can feel harder to carry.",
+            "quote": ""
+          }
+        },
+        "slide-4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468718.jpg",
+            "title": "Dull hair, skin and nails",
+            "text": "Changes that can be easy to dismiss.",
+            "quote": ""
+          }
+        },
+        "slide-5": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468719.jpg",
+            "title": "Harder days around your cycle",
+            "text": "A monthly rhythm that feels less predictable.",
+            "quote": ""
+          }
+        },
+        "slide-6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468720.jpg",
+            "title": "A mental load that never lifts",
+            "text": "Your mind keeps going long after the day ends.",
+            "quote": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3",
+        "slide-4",
+        "slide-5",
+        "slide-6"
+      ],
+      "settings": {
+        "eyebrow": "The problem",
+        "heading": "The Signals Most Women Learn To Ignore",
+        "sticky_top": 90,
+        "background_color": "#ffffff",
+        "accent_color": "#a8863f"
+      }
+    },
+    "spacer_wbBWWz": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
     },
     "advertorial-stats": {
       "type": "advertorial-stats",
@@ -38,7 +163,23 @@
         "stat-2",
         "stat-3"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Why it happens",
+        "heading": "Common Nutritional Gaps Run Deep In Indian Women",
+        "text": "A good diet covers most of your nutritional needs, but a few key nutrients can still fall short. These gaps are more common than you might think.",
+        "background_color": "#eee6df",
+        "accent_color": "#a8863f",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "spacer_CYcGGU": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
     },
     "advertorial-nutrients": {
       "type": "advertorial-nutrients",
@@ -78,7 +219,23 @@
         "nutrient-3",
         "nutrient-4"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "How the gaps show up in your day",
+        "heading": "Small Nutrients. Everyday Roles.",
+        "text": "Some nutritional gaps can affect how you feel and function. Here are four nutrients worth understanding.",
+        "quote": "Chronic stress burns through magnesium.\nLow magnesium makes stress harder to handle.\nThe loop feeds itself.",
+        "accent_color": "#a8863f",
+        "image": "shopify://shop_images/Container_3_1.jpg",
+        "caption": "Don’t wait for deficiencies to show up in your blood reports. Give your body the support it needs today."
+      }
+    },
+    "spacer_WfWJ4z": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
     },
     "advertorial-fixes": {
       "type": "advertorial-fixes",
@@ -118,11 +275,31 @@
         "fix-3",
         "fix-4"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "What most of us try",
+        "heading": "Common fixes that fall short.",
+        "text": "When the tiredness won’t lift, most women reach for one of these.",
+        "image": "shopify://shop_images/Container_4.jpg",
+        "background_color": "#f3f0eb",
+        "accent_color": "#a8863f",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     },
     "advertorial-cta": {
       "type": "advertorial-cta",
-      "settings": {}
+      "settings": {
+        "heading": "Want a simpler way to bring the essentials together?",
+        "text": "Meet the daily foundation behind ORBÉ N°01.",
+        "image": "shopify://shop_images/Ellipse_7629.png",
+        "button_text": "See Orbé N°01",
+        "button_link": "",
+        "background_color": "#181716",
+        "heading_color": "#ffffff",
+        "text_color": "#cfcbc6",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     },
     "advertorial-foundation": {
       "type": "advertorial-foundation",
@@ -154,7 +331,16 @@
         "step-2",
         "step-3"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "A simpler approach",
+        "heading": "Build a daily foundation.",
+        "text": "Lasting wellbeing comes from three things working together.\nConsistency matters more than perfection.\nThat’s the idea behind ORBÉ N°01.",
+        "image": "shopify://shop_images/Container_5_1.jpg",
+        "background_color": "#fbfaf8",
+        "accent_color": "#a8863f",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     },
     "advertorial-product": {
       "type": "advertorial-product",
@@ -162,6 +348,7 @@
         "feature-1": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/Group.svg",
             "title": "Clean",
             "text": "No fillers, no artificial additives."
           }
@@ -169,6 +356,7 @@
         "feature-2": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/Group_1.svg",
             "title": "Bioavailable forms",
             "text": "Selected nutrient forms for your daily routine."
           }
@@ -176,6 +364,7 @@
         "feature-3": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/Vector_8.svg",
             "title": "Gentle",
             "text": "Includes chelated mineral forms."
           }
@@ -183,6 +372,7 @@
         "feature-4": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/Group_2.svg",
             "title": "Vegan sources",
             "text": "Plant-based sources for selected nutrients."
           }
@@ -194,128 +384,21 @@
         "feature-3",
         "feature-4"
       ],
-      "settings": {}
-    },
-    "advertorial-how-it-works": {
-      "type": "advertorial-how-it-works",
-      "blocks": {
-        "point-1": {
-          "type": "point",
-          "settings": {
-            "title": "Outer Oil",
-            "text": "Essential fatty acids, vitamins & bone-supporting nutrients"
-          }
-        },
-        "point-2": {
-          "type": "point",
-          "settings": {
-            "title": "Inner Powder",
-            "text": "Essential minerals and B vitamins for everyday wellbeing"
-          }
-        }
-      },
-      "block_order": [
-        "point-1",
-        "point-2"
-      ],
-      "settings": {}
-    },
-    "advertorial-climate": {
-      "type": "advertorial-climate",
-      "settings": {}
-    },
-    "advertorial-compare": {
-      "type": "advertorial-compare",
-      "blocks": {
-        "row-1": {
-          "type": "row",
-          "settings": {
-            "feature": "Gentle on digestion"
-          }
-        },
-        "row-2": {
-          "type": "row",
-          "settings": {
-            "feature": "Selected active forms"
-          }
-        },
-        "row-3": {
-          "type": "row",
-          "settings": {
-            "feature": "Plant-based sources"
-          }
-        },
-        "row-4": {
-          "type": "row",
-          "settings": {
-            "feature": "One daily formula"
-          }
-        }
-      },
-      "block_order": [
-        "row-1",
-        "row-2",
-        "row-3",
-        "row-4"
-      ],
-      "settings": {}
-    },
-    "advertorial-signals": {
-      "type": "advertorial-signals",
-      "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-            "title": "Afternoon energy dips",
-            "text": "The day feels heavier after lunch.",
-            "quote": "They show up quietly. One at a time.\nEasy to blame on work, age or the weather."
-          }
-        },
-        "slide-2": {
-          "type": "slide",
-          "settings": {
-            "title": "Restless, light sleep",
-            "text": "Tired all day. Still awake at night."
-          }
-        },
-        "slide-3": {
-          "type": "slide",
-          "settings": {
-            "title": "Frequent mood swings",
-            "text": "Small things can feel harder to carry."
-          }
-        },
-        "slide-4": {
-          "type": "slide",
-          "settings": {
-            "title": "Dull hair, skin and nails",
-            "text": "Changes that can be easy to dismiss."
-          }
-        },
-        "slide-5": {
-          "type": "slide",
-          "settings": {
-            "title": "Harder days around your cycle",
-            "text": "A monthly rhythm that feels less predictable."
-          }
-        },
-        "slide-6": {
-          "type": "slide",
-          "settings": {
-            "title": "A mental load that never lifts",
-            "text": "Your mind keeps going long after the day ends."
-          }
-        }
-      },
-      "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3",
-        "slide-4",
-        "slide-5",
-        "slide-6"
-      ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Meet ORBÉ N°01",
+        "heading": "Your Daily Foundation, In Two Capsules",
+        "text": "ORBÉ N°01 is a multivitamin and multimineral with DHA, made for women. It brings essential nourishment into one daily routine.",
+        "quote": "Two capsules a day. One bottle. No shelf of guesswork.",
+        "button_text": "Shop Orbé N°01",
+        "button_link": "",
+        "image": "shopify://shop_images/Container_6_1.jpg",
+        "image_position": "left",
+        "background_color": "#ffffff",
+        "accent_color": "#a8863f",
+        "icon_background": "#f4ebdc",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     },
     "advertorial-ingredients": {
       "type": "advertorial-ingredients",
@@ -323,6 +406,7 @@
         "phase-1": {
           "type": "phase",
           "settings": {
+            "image": "shopify://shop_images/Image_Golden_oil_capsule.jpg",
             "label": "Phase 01",
             "title": "Outer Oil",
             "text": "Algal DHA and fat-soluble vitamins.",
@@ -334,6 +418,7 @@
         "phase-2": {
           "type": "phase",
           "settings": {
+            "image": "shopify://shop_images/Image_Powder-filled_capsules.jpg",
             "label": "Phase 02",
             "title": "Inner Powder",
             "text": "Minerals and B vitamins.",
@@ -435,36 +520,42 @@
         "benefit-1": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/image_505_f4729c6a-95dd-4cf9-8f76-c7b26af9dfd4.png",
             "title": "Sustained Energy\n& Mental Clarity"
           }
         },
         "benefit-2": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/image_506.png",
             "title": "Hormonal Balance\n& Cycle Support"
           }
         },
         "benefit-3": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/image_507.png",
             "title": "Strong Bones &\nCardiovascular Health"
           }
         },
         "benefit-4": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/image_508.png",
             "title": "Calm Mood &\nBetter Sleep"
           }
         },
         "benefit-5": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/image_509.png",
             "title": "Glowing Skin &\nCellular Health"
           }
         },
         "benefit-6": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/image_510.png",
             "title": "Reduced Fatigue &\nBrain Fog"
           }
         }
@@ -489,11 +580,138 @@
         "benefit-5",
         "benefit-6"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "What’s inside",
+        "heading": "Every ingredient has a job.",
+        "text": "A daily dose of two capsules. Two distinct phases, each with a clear purpose.",
+        "button_text": "View key benefits",
+        "popup_eyebrow": "Orbé N°01\nEveryday wellbeing",
+        "popup_heading": "Key Benefits",
+        "popup_text": "Great health doesn’t happen overnight, but it does happen daily.",
+        "popup_footer": "Everyday Nutrition · Orbé N°01",
+        "popup_background": "#0a0a0a",
+        "content_width": 900,
+        "background_color": "#fbfaf8",
+        "card_color": "#f3eee8",
+        "accent_color": "#a8863f",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "advertorial-how-it-works": {
+      "type": "advertorial-how-it-works",
+      "blocks": {
+        "point-1": {
+          "type": "point",
+          "settings": {
+            "title": "Outer Oil",
+            "text": "Essential fatty acids, vitamins & bone-supporting nutrients"
+          }
+        },
+        "point-2": {
+          "type": "point",
+          "settings": {
+            "title": "Inner Powder",
+            "text": "Essential minerals and B vitamins for everyday wellbeing"
+          }
+        }
+      },
+      "block_order": [
+        "point-1",
+        "point-2"
+      ],
+      "settings": {
+        "eyebrow": "How it works",
+        "heading": "A pill-in-pill built to protect every nutrient.",
+        "text": "Some nutrients are best kept separate. ORBÉ’s two-phase capsule design keeps oil-based and powder-based ingredients apart until you swallow.",
+        "image": "shopify://shop_images/Container_7.jpg",
+        "image_position": "right",
+        "background_color": "#181716",
+        "heading_color": "#ffffff",
+        "text_color": "#d6d2cc",
+        "accent_color": "#c8a968",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "advertorial-climate": {
+      "type": "advertorial-climate",
+      "settings": {
+        "eyebrow": "Built for India",
+        "heading": "Made with the Indian climate in mind.",
+        "text": "Protected actives designed to stay stable through heat and humidity.",
+        "image": "shopify://shop_images/Container_8_1.jpg",
+        "image_position": "left",
+        "background_color": "#ebe2d8",
+        "accent_color": "#a8863f",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "advertorial-compare": {
+      "type": "advertorial-compare",
+      "blocks": {
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "feature": "Gentle on digestion"
+          }
+        },
+        "row-2": {
+          "type": "row",
+          "settings": {
+            "feature": "Selected active forms"
+          }
+        },
+        "row-3": {
+          "type": "row",
+          "settings": {
+            "feature": "Plant-based sources"
+          }
+        },
+        "row-4": {
+          "type": "row",
+          "settings": {
+            "feature": "One daily formula"
+          }
+        }
+      },
+      "block_order": [
+        "row-1",
+        "row-2",
+        "row-3",
+        "row-4"
+      ],
+      "settings": {
+        "eyebrow": "What makes ORBÉ different?",
+        "heading": "A more considered formula.",
+        "text": "The details that make a daily routine easier to keep.",
+        "highlight_title": "Orbé N°01",
+        "other_title": "Commonly Used Forms",
+        "background_color": "#fbfaf8",
+        "table_color": "#f8f4ec",
+        "highlight_color": "#dadada",
+        "accent_color": "#a8863f",
+        "line_color": "#d9be91",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     },
     "advertorial-testimonial": {
       "type": "advertorial-testimonial",
-      "settings": {}
+      "settings": {
+        "eyebrow": "In their words",
+        "heading": "What women noticed.",
+        "quote": "I didn’t start taking ORBÉ expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day.",
+        "author": "Mahima.",
+        "image_position": "left",
+        "image_placeholder_color": "#5c594e",
+        "background_color": "#1b1a18",
+        "accent_color": "#c8a968",
+        "mark_color": "#6b6b6b",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "advertorial-buy": {
       "type": "advertorial-buy",
@@ -533,7 +751,27 @@
         "point-3",
         "point-4"
       ],
-      "settings": {}
+      "settings": {
+        "product": "",
+        "eyebrow": "Your daily foundation",
+        "title": "",
+        "text": "Daily nutrients to support your energy, mood, hormonal balance and overall wellbeing.",
+        "show_per_day": true,
+        "days": 30,
+        "capsules_text": "60 capsules",
+        "supports_label": "Supports",
+        "supports": "Bones, Cycles, Energy, Immunity, Mood, Sleep",
+        "button_text": "Buy now",
+        "show_per_day_in_button": true,
+        "sold_out_text": "Sold out",
+        "after_add": "cart",
+        "payment_label": "Guaranteed safe checkout with",
+        "content_width": 820,
+        "background_color": "#ffffff",
+        "accent_color": "#a8863f",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "advertorial-faq": {
       "type": "advertorial-faq",
@@ -541,31 +779,36 @@
         "question-1": {
           "type": "question",
           "settings": {
-            "question": "Why ORBÉ N°01?"
+            "question": "Why ORBÉ N°01?",
+            "answer": ""
           }
         },
         "question-2": {
           "type": "question",
           "settings": {
-            "question": "What’s inside the formula?"
+            "question": "What’s inside the formula?",
+            "answer": ""
           }
         },
         "question-3": {
           "type": "question",
           "settings": {
-            "question": "Nutrition profile"
+            "question": "Nutrition profile",
+            "answer": ""
           }
         },
         "question-4": {
           "type": "question",
           "settings": {
-            "question": "How to use"
+            "question": "How to use",
+            "answer": ""
           }
         },
         "question-5": {
           "type": "question",
           "settings": {
-            "question": "Product details & safety"
+            "question": "Product details & safety",
+            "answer": ""
           }
         }
       },
@@ -576,27 +819,53 @@
         "question-4",
         "question-5"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Before you Start",
+        "single_open": true,
+        "image_position": "left",
+        "content_width": 1000,
+        "background_color": "#ffffff",
+        "accent_color": "#a8863f",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "advertorial-final-cta": {
       "type": "advertorial-final-cta",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Two capsules. One routine.",
+        "heading": "Give your body the foundation it’s been asking for.",
+        "text": "Start with 30 days. Notice the small shifts.\nBuild a steadier you, week by week.",
+        "button_text": "Buy Orbé N°01 · ₹3,499",
+        "button_link": "",
+        "image_position": "right",
+        "background_color": "#f0e7dc",
+        "accent_color": "#a8863f",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "advertorial-banner",
+    "spacer_zgDWyU",
     "advertorial-story",
+    "spacer_hf3pi7",
+    "advertorial-signals",
+    "spacer_wbBWWz",
     "advertorial-stats",
+    "spacer_CYcGGU",
     "advertorial-nutrients",
+    "spacer_WfWJ4z",
     "advertorial-fixes",
     "advertorial-cta",
     "advertorial-foundation",
     "advertorial-product",
+    "advertorial-ingredients",
     "advertorial-how-it-works",
     "advertorial-climate",
     "advertorial-compare",
-    "advertorial-signals",
-    "advertorial-ingredients",
     "advertorial-testimonial",
     "advertorial-buy",
     "advertorial-faq",
