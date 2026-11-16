@@ -157,6 +157,18 @@
     #{{ afd_id }} .afd-step:first-child {
       border-top: 0;
     }
+    #{{ afd_id }} .afd-title {
+      max-width: inherit;
+    }
+    #{{ afd_id }} .afd-left {
+      gap: 30px;
+    }
+    .afd-top .afd-media {
+      display: none;
+    }
+    .hide-md .afd-media {
+      margin-top: 30px;
+    }
   }
 {%- endstyle -%}
 
@@ -201,6 +213,16 @@
         {% endfor %}
       </div>
     {% endif %}
+
+    <div class="hide-md">
+      <div class="afd-media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: section.settings.image.alt | default: section.settings.heading }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
   </div>
 </section>
 

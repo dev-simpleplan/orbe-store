@@ -1402,6 +1402,21 @@
   .pdp {
       padding: 70px 0 0;
   }
+  .as-grid {
+    gap: 15px!important;
+  }
+  .ab-grid,
+  .as-grid {
+    display: flex!important;
+    flex-direction: column-reverse;
+  }
+  .as-grid .as-content {
+    order: 3;
+  }
+  .as-grid .as-media {
+    order: 2!important;
+    margin-top: -20px;
+  }
 }
 
 @media(max-width: 480px){

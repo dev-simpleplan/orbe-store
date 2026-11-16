@@ -79,6 +79,9 @@
     object-fit: cover;
     display: block;
   }
+  .hide-md {
+    display: none;
+  }
 
   @media (max-width: 991px) {
     #{{ as_id }} .as-grid {
@@ -107,8 +110,18 @@
     }
 
     #{{ as_id }} .as-quote {
-      margin-top: 36px;
-      padding-left: 20px;
+      margin-top: 0px;
+      padding-left: 0px;
+      text-align: center;
+        border: none;
+        font-size: 18px;
+        max-width: 22ch;
+    }
+     .hide-md {
+      display: block;
+    }
+    .as-content .as-quote {
+      display: none;
     }
   }
 {%- endstyle -%}
@@ -141,6 +154,11 @@
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
       </div>
+      <div class="hide-md">
+          {% if section.settings.quote != blank %}
+          <blockquote class="as-quote">{{ section.settings.quote }}</blockquote>
+        {% endif %}
+        </div>
     </div>
   </div>
 </section>

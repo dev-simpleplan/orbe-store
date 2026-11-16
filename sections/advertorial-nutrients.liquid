@@ -171,6 +171,26 @@
       width: 80%;
       padding: 14px 18px;
     }
+    #{{ an_id }} .an-items {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    #{{ an_id }} .an-item {
+      grid-template-columns: 30px minmax(0, 1fr);
+    }
+    #{{ an_id }} .an-quote {
+      text-align: center;
+      padding: 0;
+      border: none;
+    }
+    #{{ an_id }} .an-media {
+      aspect-ratio: 2/1;
+    }
+    #{{ an_id }} .an-caption {
+      aspect-ratio: 2/1;
+      display: flex;
+        align-items: center;
+    }
   }
 {%- endstyle -%}
 

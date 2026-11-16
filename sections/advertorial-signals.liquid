@@ -142,37 +142,65 @@
     }
   }
 
+  #{{ asg_id }} .asg-mobile-text,
+  #{{ asg_id }} .asg-mobile-grid {
+    display: none;
+  }
+
   @media (max-width: 767px) {
     #{{ asg_id }} .asg-eyebrow {
-      font-size: 12px;
-      margin-bottom: 16px;
+      font-size: 14px;
+      margin-bottom: 12px;
     }
 
     #{{ asg_id }} .asg-head {
-      padding-bottom: 24px;
+      padding-bottom: 28px;
     }
 
-    #{{ asg_id }} .asg-stage {
-      grid-template-columns: 1fr;
-      grid-template-rows: minmax(0, 1fr) auto;
-      gap: 24px;
+    #{{ asg_id }} .asg-title {
+      font-size: clamp(30px, 8.5vw, 40px);
     }
 
-    #{{ asg_id }} .asg-copy {
-      min-height: 200px;
+    #{{ asg_id }} .asg-mobile-text {
+      display: block;
+      margin: 18px 0 0;
+      color: #6b6b6b;
+      font-family: var(--aspekta);
+      font-size: 16px;
+      line-height: 1.4;
     }
 
-    #{{ asg_id }} .asg-slide {
-      top: 0;
-      transform: translateY(18px);
+    #{{ asg_id }} .asg-track {
+      display: none;
     }
 
-    #{{ asg_id }} .asg-slide.is-current {
-      transform: translateY(0);
+    #{{ asg_id }} .asg-mobile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 14px;
     }
 
-    #{{ asg_id }} .asg-quote {
-      margin-top: 22px;
+    #{{ asg_id }} .asg-mobile-media {
+      aspect-ratio: 1.65 / 1;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #111;
+    }
+
+    #{{ asg_id }} .asg-mobile-media img,
+    #{{ asg_id }} .asg-mobile-media svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #{{ asg_id }} .asg-mobile-title {
+      margin: 8px 0 0;
+      color: #151515;
+      font-family: var(--aspekta);
+      font-size: 14px;
+      line-height: 1.25;
     }
   }
 {%- endstyle -%}
@@ -186,6 +214,9 @@
         {% endif %}
         {% if section.settings.heading != blank %}
           <h2 class="asg-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.mobile_text != blank %}
+          <p class="asg-mobile-text">{{ section.settings.mobile_text | newline_to_br }}</p>
         {% endif %}
       </div>
     {% endif %}
@@ -220,6 +251,21 @@
             {% endfor %}
           </div>
         </div>
+      </div>
+
+      <div class="asg-mobile-grid">
+        {% for block in section.blocks %}
+          <div class="asg-mobile-item">
+            <div class="asg-mobile-media">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', alt: block.settings.title }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <p class="asg-mobile-title">{{ block.settings.title }}</p>
+          </div>
+        {% endfor %}
       </div>
     {% endif %}
   </div>
@@ -283,6 +329,13 @@
       "id": "heading",
       "label": "Heading",
       "default": "The Signals Most Women Learn To Ignore"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_text",
+      "label": "Mobile paragraph",
+      "info": "Shown under the heading on mobile only, where the slides become a grid.",
+      "default": "They show up quietly. One at a time.\nEasy to blame on work, age or the weather."
     },
     {
       "type": "header",

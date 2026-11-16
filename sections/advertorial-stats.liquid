@@ -103,16 +103,28 @@
 
     #{{ ast_id }} .ast-stats {
       flex-direction: column;
-      gap: 24px;
+      gap: 18px;
     }
 
     #{{ ast_id }} .ast-stat {
-      padding: 4px 0 4px 20px;
+      padding: 12px 20px;
+      background-color: #252525;
+      display: grid;
+        align-items: center;
+        gap: 40px;
+        grid-template-columns: 2fr 3fr;
+    }
+    #{{ ast_id }} .ast-number {
+      margin-bottom: 0;
+      color: #fff;
+      font-size: clamp(26px, 3.2vw, 46px);
     }
 
     #{{ ast_id }} .ast-label {
       max-width: none;
+      color: #fff;
     }
+
   }
 {%- endstyle -%}
 
