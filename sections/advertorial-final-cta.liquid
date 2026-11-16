@@ -1,6 +1,9 @@
 {%- assign afc_id = 'advertorial-final-cta-' | append: section.id -%}
 
 {%- style -%}
+.advertorial-final-cta {
+  margin-bottom: -240px;
+}
   #{{ afc_id }} {
     --afc-accent: {{ section.settings.accent_color }};
     padding-top: {{ section.settings.padding_top }}px;
@@ -96,9 +99,15 @@
     #{{ afc_id }} .afc-grid {
       gap: 40px;
     }
+    .advertorial-final-cta {
+      margin-bottom: -160px;
+    }
   }
 
   @media (max-width: 767px) {
+    .advertorial-final-cta {
+      margin-bottom: -106px;
+    }
     #{{ afc_id }} .afc-grid {
       grid-template-columns: 1fr;
       gap: 0;
