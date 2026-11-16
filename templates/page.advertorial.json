@@ -845,6 +845,50 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "advertorial-timeline": {
+      "type": "advertorial-timeline",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "label": "Week 1–2",
+            "heading": "A little more clarity, a little more energy",
+            "content": "<p>Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality. If B12 was low, some women notice energy and focus first.</p>"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "label": "Week 3–6",
+            "heading": "Your rhythm begins to soften",
+            "content": "<p>Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise.</p>"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "label": "Week 8–12",
+            "heading": "Your foundation strengthens",
+            "content": "<p>Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady. Skin and mood changes are commonly reported in this window.</p>"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "label": "Week 12+",
+            "heading": "A steadier version of yourself",
+            "content": "<p>Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -853,6 +897,7 @@
     "advertorial-story",
     "spacer_hf3pi7",
     "advertorial-signals",
+    "advertorial-timeline",
     "spacer_wbBWWz",
     "advertorial-stats",
     "spacer_CYcGGU",
