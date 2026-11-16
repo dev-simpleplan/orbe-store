@@ -12,8 +12,8 @@
     "main": {
       "type": "cart",
       "settings": {
-        "eyebrow": "Shopping Cart",
-        "title": "Cart",
+        "eyebrow": "",
+        "title": "Shopping Cart",
         "item_singular": "item",
         "item_plural": "items",
         "item_count_suffix": "in your cart",
@@ -26,7 +26,7 @@
         "update_button_text": "Update",
         "checkout_button_text": "Checkout",
         "empty_title": "Your cart is empty",
-        "empty_text": "Explore Orbe and add your essentials when you are ready.",
+        "empty_text": "Explore Orbé and add your essentials when you are ready.",
         "empty_button_text": "Continue shopping",
         "empty_button_link": "shopify://products/n01"
       }
