@@ -1,0 +1,219 @@
+{%- assign ac_id = 'advertorial-cta-' | append: section.id -%}
+
+{%- style -%}
+  #{{ ac_id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #{{ ac_id }} .ac-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  #{{ ac_id }} .ac-content {
+    max-width: 640px;
+  }
+
+  #{{ ac_id }} .ac-title {
+    margin: 0 0 14px;
+    color: {{ section.settings.heading_color }};
+    font-family: var(--tobias);
+    font-size: clamp(30px, 3.4vw, 48px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  #{{ ac_id }} .ac-text {
+    margin: 0;
+    color: {{ section.settings.text_color }};
+    font-family: var(--aspekta);
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  #{{ ac_id }} .ac-product {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 165px;
+  }
+
+  #{{ ac_id }} .ac-circle {
+    width: 114px;
+    height: 114px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--golden);
+  }
+
+  #{{ ac_id }} .ac-circle img,
+  #{{ ac_id }} .ac-circle svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ ac_id }} .ac-button {
+    display: block;
+    width: 100%;
+    padding: 9px 12px;
+    background: var(--golden);
+    color: #1a1a1a;
+    font-family: var(--tobias);
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  #{{ ac_id }} .ac-button:hover {
+    opacity: 0.85;
+  }
+
+  @media (max-width: 767px) {
+    #{{ ac_id }} .ac-grid {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    #{{ ac_id }} .ac-text {
+      font-size: 16px;
+    }
+
+    #{{ ac_id }} .ac-product {
+      align-items: flex-start;
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-cta" id="{{ ac_id }}">
+  <div class="container">
+    <div class="ac-grid">
+      <div class="ac-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="ac-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <p class="ac-text">{{ section.settings.text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="ac-product">
+        {% if section.settings.image != blank %}
+          <div class="ac-circle">
+            {{ section.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: section.settings.button_text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a class="ac-button" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advertorial CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Want a simpler way to bring the essentials together?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "Meet the daily foundation behind ORBÉ N°01."
+    },
+    {
+      "type": "header",
+      "content": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product image",
+      "info": "Shown in a circle on the right. A capsule on a plain background works best."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "See Orbé N°01"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#181716"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Paragraph color",
+      "default": "#CFCBC6"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the colored background, above the content."
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the colored background, below the content."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial CTA"
+    }
+  ]
+}
+{% endschema %}

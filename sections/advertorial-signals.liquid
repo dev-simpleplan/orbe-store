@@ -1,0 +1,401 @@
+{%- assign asg_id = 'advertorial-signals-' | append: section.id -%}
+{%- assign asg_count = section.blocks.size | at_least: 1 -%}
+
+{%- style -%}
+  #{{ asg_id }} {
+    --asg-accent: {{ section.settings.accent_color }};
+    --asg-count: {{ asg_count }};
+    --asg-top: {{ section.settings.sticky_top }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #{{ asg_id }} .asg-head {
+    padding-bottom: 36px;
+  }
+
+  #{{ asg_id }} .asg-eyebrow {
+    margin: 0 0 22px;
+    color: var(--asg-accent);
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #{{ asg_id }} .asg-title {
+    margin: 0;
+    max-width: 12em;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(34px, 3.8vw, 56px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ asg_id }} .asg-track {
+    position: relative;
+    height: calc(var(--asg-count) * 90vh);
+  }
+
+  #{{ asg_id }} .asg-stage {
+    position: sticky;
+    top: var(--asg-top);
+    height: calc(100vh - var(--asg-top) - 40px);
+    max-height: 720px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 60px;
+    align-items: stretch;
+  }
+
+  #{{ asg_id }} .asg-media {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+  }
+
+  #{{ asg_id }} .asg-media-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  #{{ asg_id }} .asg-media-item.is-current {
+    opacity: 1;
+  }
+
+  #{{ asg_id }} .asg-media-item img,
+  #{{ asg_id }} .asg-media-item svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ asg_id }} .asg-copy {
+    position: relative;
+  }
+
+  #{{ asg_id }} .asg-slide {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    opacity: 0;
+    transform: translateY(calc(-50% + 18px));
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  #{{ asg_id }} .asg-slide.is-current {
+    opacity: 1;
+    transform: translateY(-50%);
+    pointer-events: auto;
+  }
+
+  #{{ asg_id }} .asg-number {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--asg-accent);
+    font-family: var(--tobias);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  #{{ asg_id }} .asg-slide-title {
+    margin: 0 0 14px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  #{{ asg_id }} .asg-slide-text {
+    margin: 0;
+    color: #151515;
+    font-family: var(--aspekta);
+    font-size: 16px;
+    line-height: 140%;
+  }
+
+  #{{ asg_id }} .asg-quote {
+    margin: 40px 0 0;
+    padding: 4px 0 4px 18px;
+    border-left: 1px solid var(--asg-accent);
+    color: var(--asg-accent);
+    font-family: var(--tobias);
+    font-size: clamp(18px, 1.7vw, 24px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 991px) {
+    #{{ asg_id }} .asg-stage {
+      gap: 36px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #{{ asg_id }} .asg-eyebrow {
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    #{{ asg_id }} .asg-head {
+      padding-bottom: 24px;
+    }
+
+    #{{ asg_id }} .asg-stage {
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 24px;
+    }
+
+    #{{ asg_id }} .asg-copy {
+      min-height: 200px;
+    }
+
+    #{{ asg_id }} .asg-slide {
+      top: 0;
+      transform: translateY(18px);
+    }
+
+    #{{ asg_id }} .asg-slide.is-current {
+      transform: translateY(0);
+    }
+
+    #{{ asg_id }} .asg-quote {
+      margin-top: 22px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-signals" id="{{ asg_id }}" data-asg>
+  <div class="container">
+    {% if section.settings.eyebrow != blank or section.settings.heading != blank %}
+      <div class="asg-head">
+        {% if section.settings.eyebrow != blank %}
+          <p class="asg-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="asg-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="asg-track" data-asg-track>
+        <div class="asg-stage">
+          <div class="asg-media">
+            {% for block in section.blocks %}
+              <div class="asg-media-item{% if forloop.first %} is-current{% endif %}" data-asg-media>
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="asg-copy">
+            {% for block in section.blocks %}
+              <div class="asg-slide{% if forloop.first %} is-current{% endif %}" data-asg-slide {{ block.shopify_attributes }}>
+                <span class="asg-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+                <h3 class="asg-slide-title">{{ block.settings.title }}</h3>
+                {% if block.settings.text != blank %}
+                  <p class="asg-slide-text">{{ block.settings.text }}</p>
+                {% endif %}
+                {% if block.settings.quote != blank %}
+                  <blockquote class="asg-quote">{{ block.settings.quote | newline_to_br }}</blockquote>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ asg_id }}');
+    if (!root || root.dataset.asgReady === 'true') return;
+    root.dataset.asgReady = 'true';
+
+    var track = root.querySelector('[data-asg-track]');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('[data-asg-slide]'));
+    var media = Array.prototype.slice.call(root.querySelectorAll('[data-asg-media]'));
+    if (!track || !slides.length) return;
+
+    var current = 0;
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var rect = track.getBoundingClientRect();
+      var range = rect.height - window.innerHeight;
+      var progress = range > 0 ? Math.min(Math.max(-rect.top / range, 0), 1) : 0;
+      var index = Math.min(slides.length - 1, Math.floor(progress * slides.length));
+      if (index === current) return;
+      current = index;
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle('is-current', i === index);
+      });
+      media.forEach(function (item, i) {
+        item.classList.toggle('is-current', i === index);
+      });
+    }
+
+    function requestUpdate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    window.addEventListener('load', requestUpdate);
+    update();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Advertorial Signals",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The problem"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Signals Most Women Learn To Ignore"
+    },
+    {
+      "type": "header",
+      "content": "Scroll behaviour"
+    },
+    {
+      "type": "range",
+      "id": "sticky_top",
+      "label": "Distance from top while pinned",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 90,
+      "info": "Increase this if the site header covers the pinned image."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#A8863F"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Afternoon energy dips"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "info": "Optional. Gold italic quote with a line on its left. Each new line is shown on its own line."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Advertorial Signals",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Afternoon energy dips",
+            "text": "The day feels heavier after lunch.",
+            "quote": "They show up quietly. One at a time.\nEasy to blame on work, age or the weather."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Restless, light sleep",
+            "text": "Tired all day. Still awake at night."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Frequent mood swings",
+            "text": "Small things can feel harder to carry."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Dull hair, skin and nails",
+            "text": "Changes that can be easy to dismiss."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Harder days around your cycle",
+            "text": "A monthly rhythm that feels less predictable."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "A mental load that never lifts",
+            "text": "Your mind keeps going long after the day ends."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,377 @@
+{%- assign acp_id = 'advertorial-compare-' | append: section.id -%}
+
+{%- style -%}
+  #{{ acp_id }} {
+    --acp-accent: {{ section.settings.accent_color }};
+    --acp-line: {{ section.settings.line_color }};
+    --acp-head: 78px;
+    --acp-tail: 70px;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #{{ acp_id }} .acp-eyebrow {
+    margin: 0 0 22px;
+    color: var(--acp-accent);
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #{{ acp_id }} .acp-title {
+    margin: 0 0 26px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(34px, 3.8vw, 56px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ acp_id }} .acp-text {
+    margin: 0;
+    max-width: 32em;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  #{{ acp_id }} .acp-table {
+    position: relative;
+    width: 90%;
+    margin: 70px auto 0;
+    padding-top: var(--acp-head);
+    padding-bottom: var(--acp-tail);
+  }
+
+  #{{ acp_id }} .acp-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--acp-head);
+    bottom: var(--acp-tail);
+    border: 1px solid var(--acp-line);
+    border-radius: 22px;
+    background: {{ section.settings.table_color }};
+  }
+
+  #{{ acp_id }} .acp-highlight {
+    position: absolute;
+    left: 40%;
+    width: 28%;
+    top: 0;
+    bottom: 0;
+    border: 1px solid var(--acp-accent);
+    border-radius: 28px;
+    background: {{ section.settings.highlight_color }};
+  }
+
+  #{{ acp_id }} .acp-head,
+  #{{ acp_id }} .acp-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% 28% 32%;
+    align-items: center;
+    text-align: center;
+  }
+
+  #{{ acp_id }} .acp-head {
+    height: var(--acp-head);
+    margin-top: calc(var(--acp-head) * -1);
+  }
+
+  #{{ acp_id }} .acp-head-label {
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+  }
+
+  #{{ acp_id }} .acp-head-label.is-highlight {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  #{{ acp_id }} .acp-row {
+    min-height: 98px;
+    border-top: 1px solid var(--acp-line);
+  }
+
+  #{{ acp_id }} .acp-row:first-of-type {
+    border-top: 0;
+  }
+
+  #{{ acp_id }} .acp-feature {
+    padding: 0 20px;
+    color: #151515;
+    font-family: var(--aspekta);
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  #{{ acp_id }} .acp-cell {
+    display: flex;
+    justify-content: center;
+  }
+
+  #{{ acp_id }} .acp-cell svg {
+    display: block;
+  }
+
+  #{{ acp_id }} .acp-check {
+    width: 26px;
+    height: 26px;
+    color: var(--acp-accent);
+  }
+
+  #{{ acp_id }} .acp-cross {
+    width: 12px;
+    height: 12px;
+    color: #8a7d6e;
+  }
+
+  @media (max-width: 991px) {
+    #{{ acp_id }} .acp-feature {
+      font-size: 18px;
+    }
+
+    #{{ acp_id }} .acp-head-label {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #{{ acp_id }} {
+      --acp-head: 64px;
+      --acp-tail: 40px;
+    }
+
+    #{{ acp_id }} .acp-eyebrow {
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    #{{ acp_id }} .acp-text {
+      font-size: 16px;
+    }
+
+    #{{ acp_id }} .acp-table {
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    #{{ acp_id }} .acp-head,
+    #{{ acp_id }} .acp-row {
+      grid-template-columns: 40% 30% 30%;
+    }
+
+    #{{ acp_id }} .acp-highlight {
+      left: 40%;
+      width: 30%;
+      border-radius: 20px;
+    }
+
+    #{{ acp_id }} .acp-box {
+      border-radius: 16px;
+    }
+
+    #{{ acp_id }} .acp-row {
+      min-height: 72px;
+    }
+
+    #{{ acp_id }} .acp-feature {
+      padding: 0 10px;
+      font-size: 14px;
+    }
+
+    #{{ acp_id }} .acp-head-label {
+      padding: 0 4px;
+      font-size: 12px;
+    }
+
+    #{{ acp_id }} .acp-check {
+      width: 20px;
+      height: 20px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-compare" id="{{ acp_id }}">
+  <div class="container">
+    {% if section.settings.eyebrow != blank %}
+      <p class="acp-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="acp-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <p class="acp-text">{{ section.settings.text }}</p>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="acp-table">
+        <div class="acp-box" aria-hidden="true"></div>
+        <div class="acp-highlight" aria-hidden="true"></div>
+
+        <div class="acp-head">
+          <span></span>
+          <span class="acp-head-label is-highlight">{{ section.settings.highlight_title }}</span>
+          <span class="acp-head-label">{{ section.settings.other_title }}</span>
+        </div>
+
+        {% for block in section.blocks %}
+          <div class="acp-row" {{ block.shopify_attributes }}>
+            <span class="acp-feature">{{ block.settings.feature }}</span>
+            <span class="acp-cell" aria-label="Included">
+              <svg class="acp-check" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+                <path d="M4 14.5 9.5 21 22 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="acp-cell" aria-label="Not included">
+              <svg class="acp-cross" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="m1.5 1.5 9 9M10.5 1.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advertorial Compare",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What makes ORBÉ different?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A more considered formula."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "The details that make a daily routine easier to keep."
+    },
+    {
+      "type": "header",
+      "content": "Table columns"
+    },
+    {
+      "type": "text",
+      "id": "highlight_title",
+      "label": "Highlighted column title",
+      "default": "Orbé N°01",
+      "info": "The tall highlighted column. Every row shows a tick here."
+    },
+    {
+      "type": "text",
+      "id": "other_title",
+      "label": "Other column title",
+      "default": "Commonly Used Forms",
+      "info": "Every row shows a cross here."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FBFAF8"
+    },
+    {
+      "type": "color",
+      "id": "table_color",
+      "label": "Table background",
+      "default": "#F8F4EC"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlighted column color",
+      "default": "#DADADA"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#A8863F"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Table line color",
+      "default": "#D9BE91"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the background, above the content."
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the background, below the content."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature",
+          "default": "Gentle on digestion"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Advertorial Compare",
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Gentle on digestion" } },
+        { "type": "row", "settings": { "feature": "Selected active forms" } },
+        { "type": "row", "settings": { "feature": "Plant-based sources" } },
+        { "type": "row", "settings": { "feature": "One daily formula" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

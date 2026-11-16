@@ -1,0 +1,316 @@
+{%- assign ab_id = 'advertorial-banner-' | append: section.id -%}
+
+{%- liquid
+  assign heading_html = section.settings.heading | escape
+  if section.settings.italic_text != blank
+    assign italic_escaped = section.settings.italic_text | escape
+    assign italic_html = '<em>' | append: italic_escaped | append: '</em>'
+    assign heading_html = heading_html | replace_first: italic_escaped, italic_html
+  endif
+-%}
+
+{%- style -%}
+.advertorial-banner {
+  padding: 100px 0;
+}
+  #{{ ab_id }} {
+    --ab-accent: {{ section.settings.accent_color }};
+    background: #fff;
+  }
+
+  #{{ ab_id }} .ab-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 80px;
+    align-items: center;
+  }
+
+  #{{ ab_id }} .ab-eyebrow {
+    margin: 0 0 22px;
+    color: var(--ab-accent);
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #{{ ab_id }} .ab-title {
+    margin: 0 0 30px;
+    max-width: 11em;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(38px, 4.4vw, 64px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ ab_id }} .ab-title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  #{{ ab_id }} .ab-title-accent {
+    display: block;
+    color: var(--ab-accent);
+  }
+
+  #{{ ab_id }} .ab-text {
+    margin: 0 0 28px;
+    max-width: 30em;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 18px;
+    line-height: 155%;
+  }
+
+  #{{ ab_id }} .ab-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 22px;
+    color: #151515;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  #{{ ab_id }} .ab-meta-icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 12px;
+  }
+
+  #{{ ab_id }} .ab-meta-icon svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #{{ ab_id }} .ab-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border: 1px solid var(--ab-accent);
+    background: transparent;
+    color: #151515;
+    font-family: var(--aspekta);
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  #{{ ab_id }} .ab-button:hover {
+    background: var(--ab-accent);
+    color: #fff;
+  }
+
+  #{{ ab_id }} .ab-button svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+  }
+
+  #{{ ab_id }} .ab-media {
+    aspect-ratio: 1 / 0.97;
+    overflow: hidden;
+    background: #111;
+  }
+
+  #{{ ab_id }} .ab-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 991px) {
+    #{{ ab_id }} .ab-grid {
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #{{ ab_id }} .ab-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ ab_id }} .ab-media {
+      order: -1;
+    }
+
+    #{{ ab_id }} .ab-eyebrow {
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    #{{ ab_id }} .ab-title {
+      margin-bottom: 20px;
+    }
+
+    #{{ ab_id }} .ab-text {
+      font-size: 16px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-banner" id="{{ ab_id }}">
+  <div class="container">
+    <div class="ab-grid">
+      <div class="ab-content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="ab-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank or section.settings.accent_text != blank %}
+          <h1 class="ab-title">
+            {{ heading_html }}
+            {% if section.settings.accent_text != blank %}
+              <span class="ab-title-accent">{{ section.settings.accent_text }}</span>
+            {% endif %}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <p class="ab-text">{{ section.settings.text }}</p>
+        {% endif %}
+
+        {% if section.settings.meta != blank %}
+          <p class="ab-meta">
+            <span class="ab-meta-icon" aria-hidden="true">{% render 'orbe-logo-o' %}</span>
+            <span>{{ section.settings.meta }}</span>
+          </p>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <button type="button" class="ab-button" data-ab-scroll>
+            <span>{{ section.settings.button_text }}</span>
+            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M7 1v11M2.5 8 7 12.5 11.5 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        {% endif %}
+      </div>
+
+      <div class="ab-media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: section.settings.image.alt | default: section.settings.heading }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ ab_id }}');
+    if (!root) return;
+
+    var button = root.querySelector('[data-ab-scroll]');
+    if (!button) return;
+
+    button.addEventListener('click', function () {
+      var wrapper = root.closest('.shopify-section') || root;
+      var next = wrapper.nextElementSibling;
+      if (!next) return;
+
+      if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+        window.lenis.scrollTo(next, { offset: -80 });
+        return;
+      }
+
+      var header = document.querySelector('header');
+      var offset = header ? header.offsetHeight : 0;
+      var top = next.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Advertorial Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Orbé Journal · Everyday Nutrition"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Do So Many Women Still Feel Tired, Even When They’re Doing"
+    },
+    {
+      "type": "text",
+      "id": "italic_text",
+      "label": "Italic word(s)",
+      "default": "Women",
+      "info": "Must match words in the heading exactly. Shown in italics."
+    },
+    {
+      "type": "text",
+      "id": "accent_text",
+      "label": "Highlighted ending",
+      "default": "Everything Right?",
+      "info": "Shown on its own line in the accent color."
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#A8863F"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "You sleep. You eat well. You drink the water. Yet 3pm still hits hard. Here’s what may be missing, and a simpler way to cover it."
+    },
+    {
+      "type": "text",
+      "id": "meta",
+      "label": "Author and read time",
+      "default": "Orbé Editorial Team · 5 min read"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Read the story",
+      "info": "Scrolls the page down to the next section."
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial Banner"
+    }
+  ]
+}
+{% endschema %}

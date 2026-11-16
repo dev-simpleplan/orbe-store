@@ -1,0 +1,272 @@
+{%- assign afc_id = 'advertorial-final-cta-' | append: section.id -%}
+
+{%- style -%}
+  #{{ afc_id }} {
+    --afc-accent: {{ section.settings.accent_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #{{ afc_id }} .afc-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 80px;
+    align-items: stretch;
+  }
+
+  #{{ afc_id }} .afc-grid.is-image-left .afc-media {
+    order: -1;
+  }
+
+  #{{ afc_id }} .afc-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  #{{ afc_id }} .afc-eyebrow {
+    margin: 0 0 14px;
+    color: var(--afc-accent);
+    font-family: var(--aspekta);
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #{{ afc_id }} .afc-title {
+    margin: 0 0 40px;
+    max-width: 9em;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(36px, 4vw, 60px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ afc_id }} .afc-text {
+    margin: 0 0 30px;
+    max-width: 24em;
+    color: #6b665f;
+    font-family: var(--tobias);
+    font-size: clamp(20px, 1.9vw, 28px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  #{{ afc_id }} .afc-button {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 20px 38px;
+    border-radius: 50px;
+    background: #151515;
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  #{{ afc_id }} .afc-button:hover {
+    opacity: 0.8;
+  }
+
+  #{{ afc_id }} .afc-media {
+    min-height: 460px;
+    overflow: hidden;
+    background: #d9cfc6;
+  }
+
+  #{{ afc_id }} .afc-media img,
+  #{{ afc_id }} .afc-media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 991px) {
+    #{{ afc_id }} .afc-grid {
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #{{ afc_id }} .afc-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    #{{ afc_id }} .afc-grid .afc-media,
+    #{{ afc_id }} .afc-grid.is-image-left .afc-media {
+      order: -1;
+      min-height: 0;
+      aspect-ratio: 1 / 1.1;
+    }
+
+    #{{ afc_id }} .afc-content {
+      padding: 30px 0;
+    }
+
+    #{{ afc_id }} .afc-eyebrow {
+      font-size: 12px;
+    }
+
+    #{{ afc_id }} .afc-title {
+      margin-bottom: 24px;
+    }
+
+    #{{ afc_id }} .afc-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-final-cta" id="{{ afc_id }}">
+  <div class="container">
+    <div class="afc-grid{% if section.settings.image_position == 'left' %} is-image-left{% endif %}">
+      <div class="afc-content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="afc-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="afc-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <p class="afc-text">{{ section.settings.text | newline_to_br }}</p>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a class="afc-button" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_text }}</a>
+        {% endif %}
+      </div>
+
+      <div class="afc-media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advertorial Final CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Two capsules. One routine."
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Give your body the foundation it’s been asking for."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "info": "Each new line is shown on its own line.",
+      "default": "Start with 30 days. Notice the small shifts.\nBuild a steadier you, week by week."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Buy Orbé N°01 · ₹3,499"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Fills the full height of the section."
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F0E7DC"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#A8863F"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the colored background, above the content."
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the colored background, below the content."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial Final CTA"
+    }
+  ]
+}
+{% endschema %}

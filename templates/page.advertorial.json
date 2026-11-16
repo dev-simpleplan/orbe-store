@@ -1,0 +1,605 @@
+{
+  "sections": {
+    "advertorial-banner": {
+      "type": "advertorial-banner",
+      "settings": {}
+    },
+    "advertorial-story": {
+      "type": "advertorial-story",
+      "settings": {}
+    },
+    "advertorial-stats": {
+      "type": "advertorial-stats",
+      "blocks": {
+        "stat-1": {
+          "type": "stat",
+          "settings": {
+            "number": "57%",
+            "label": "of Indian women aged 15–49 are anaemic."
+          }
+        },
+        "stat-2": {
+          "type": "stat",
+          "settings": {
+            "number": "70%+",
+            "label": "B12 deficiency reported across the Indian population."
+          }
+        },
+        "stat-3": {
+          "type": "stat",
+          "settings": {
+            "number": "70–90%",
+            "label": "of Indians are insufficient in Vitamin D."
+          }
+        }
+      },
+      "block_order": [
+        "stat-1",
+        "stat-2",
+        "stat-3"
+      ],
+      "settings": {}
+    },
+    "advertorial-nutrients": {
+      "type": "advertorial-nutrients",
+      "blocks": {
+        "nutrient-1": {
+          "type": "nutrient",
+          "settings": {
+            "title": "Iron",
+            "text": "Menstrual blood loss can contribute to iron deficiency."
+          }
+        },
+        "nutrient-2": {
+          "type": "nutrient",
+          "settings": {
+            "title": "Vitamin B12",
+            "text": "Supports normal energy metabolism and red blood cell formation."
+          }
+        },
+        "nutrient-3": {
+          "type": "nutrient",
+          "settings": {
+            "title": "Magnesium",
+            "text": "Supports normal muscle and nervous system function."
+          }
+        },
+        "nutrient-4": {
+          "type": "nutrient",
+          "settings": {
+            "title": "Vitamin D",
+            "text": "Supports calcium absorption, bone health and normal immune function."
+          }
+        }
+      },
+      "block_order": [
+        "nutrient-1",
+        "nutrient-2",
+        "nutrient-3",
+        "nutrient-4"
+      ],
+      "settings": {}
+    },
+    "advertorial-fixes": {
+      "type": "advertorial-fixes",
+      "blocks": {
+        "fix-1": {
+          "type": "fix",
+          "settings": {
+            "title": "One more coffee",
+            "text": "It feels like a lift. But coffee and tea can reduce iron absorption when consumed alongside iron-rich meals."
+          }
+        },
+        "fix-2": {
+          "type": "fix",
+          "settings": {
+            "title": "A shelf of random bottles",
+            "text": "Stacking supplements can make consistency harder and doubling up easier."
+          }
+        },
+        "fix-3": {
+          "type": "fix",
+          "settings": {
+            "title": "Pills you stop taking",
+            "text": "When a supplement feels rough on the stomach, you quietly skip it."
+          }
+        },
+        "fix-4": {
+          "type": "fix",
+          "settings": {
+            "title": "Waiting for the weekend",
+            "text": "Rest can help, but it may not address an underlying nutritional deficiency."
+          }
+        }
+      },
+      "block_order": [
+        "fix-1",
+        "fix-2",
+        "fix-3",
+        "fix-4"
+      ],
+      "settings": {}
+    },
+    "advertorial-cta": {
+      "type": "advertorial-cta",
+      "settings": {}
+    },
+    "advertorial-foundation": {
+      "type": "advertorial-foundation",
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "The right nutrients",
+            "text": "The ones Indian women most often run low on."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Forms your body can use",
+            "text": "Selected nutrient forms, chosen with purpose."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "title": "A routine you’ll keep",
+            "text": "Simple enough to take every single day."
+          }
+        }
+      },
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "settings": {}
+    },
+    "advertorial-product": {
+      "type": "advertorial-product",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "Clean",
+            "text": "No fillers, no artificial additives."
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "Bioavailable forms",
+            "text": "Selected nutrient forms for your daily routine."
+          }
+        },
+        "feature-3": {
+          "type": "feature",
+          "settings": {
+            "title": "Gentle",
+            "text": "Includes chelated mineral forms."
+          }
+        },
+        "feature-4": {
+          "type": "feature",
+          "settings": {
+            "title": "Vegan sources",
+            "text": "Plant-based sources for selected nutrients."
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2",
+        "feature-3",
+        "feature-4"
+      ],
+      "settings": {}
+    },
+    "advertorial-how-it-works": {
+      "type": "advertorial-how-it-works",
+      "blocks": {
+        "point-1": {
+          "type": "point",
+          "settings": {
+            "title": "Outer Oil",
+            "text": "Essential fatty acids, vitamins & bone-supporting nutrients"
+          }
+        },
+        "point-2": {
+          "type": "point",
+          "settings": {
+            "title": "Inner Powder",
+            "text": "Essential minerals and B vitamins for everyday wellbeing"
+          }
+        }
+      },
+      "block_order": [
+        "point-1",
+        "point-2"
+      ],
+      "settings": {}
+    },
+    "advertorial-climate": {
+      "type": "advertorial-climate",
+      "settings": {}
+    },
+    "advertorial-compare": {
+      "type": "advertorial-compare",
+      "blocks": {
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "feature": "Gentle on digestion"
+          }
+        },
+        "row-2": {
+          "type": "row",
+          "settings": {
+            "feature": "Selected active forms"
+          }
+        },
+        "row-3": {
+          "type": "row",
+          "settings": {
+            "feature": "Plant-based sources"
+          }
+        },
+        "row-4": {
+          "type": "row",
+          "settings": {
+            "feature": "One daily formula"
+          }
+        }
+      },
+      "block_order": [
+        "row-1",
+        "row-2",
+        "row-3",
+        "row-4"
+      ],
+      "settings": {}
+    },
+    "advertorial-signals": {
+      "type": "advertorial-signals",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "title": "Afternoon energy dips",
+            "text": "The day feels heavier after lunch.",
+            "quote": "They show up quietly. One at a time.\nEasy to blame on work, age or the weather."
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "title": "Restless, light sleep",
+            "text": "Tired all day. Still awake at night."
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "title": "Frequent mood swings",
+            "text": "Small things can feel harder to carry."
+          }
+        },
+        "slide-4": {
+          "type": "slide",
+          "settings": {
+            "title": "Dull hair, skin and nails",
+            "text": "Changes that can be easy to dismiss."
+          }
+        },
+        "slide-5": {
+          "type": "slide",
+          "settings": {
+            "title": "Harder days around your cycle",
+            "text": "A monthly rhythm that feels less predictable."
+          }
+        },
+        "slide-6": {
+          "type": "slide",
+          "settings": {
+            "title": "A mental load that never lifts",
+            "text": "Your mind keeps going long after the day ends."
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3",
+        "slide-4",
+        "slide-5",
+        "slide-6"
+      ],
+      "settings": {}
+    },
+    "advertorial-ingredients": {
+      "type": "advertorial-ingredients",
+      "blocks": {
+        "phase-1": {
+          "type": "phase",
+          "settings": {
+            "label": "Phase 01",
+            "title": "Outer Oil",
+            "text": "Algal DHA and fat-soluble vitamins.",
+            "summary": "DHA · Vitamin D3 · Vitamin E · Vitamin K2",
+            "list_eyebrow": "01 · Outer Oil",
+            "list_title": "Ingredients & amounts"
+          }
+        },
+        "phase-2": {
+          "type": "phase",
+          "settings": {
+            "label": "Phase 02",
+            "title": "Inner Powder",
+            "text": "Minerals and B vitamins.",
+            "summary": "Folate · Vitamin B12 · Iron · Zinc · Magnesium · Boron",
+            "list_eyebrow": "02 · Inner Powder",
+            "list_title": "Ingredients & amounts"
+          }
+        },
+        "ingredient-1": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "1",
+            "name": "DHA",
+            "detail": "Algal omega-3",
+            "amount": "405 mg"
+          }
+        },
+        "ingredient-2": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "1",
+            "name": "Vitamin D3",
+            "detail": "Vitashine®",
+            "amount": "600 IU"
+          }
+        },
+        "ingredient-3": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "1",
+            "name": "Vitamin E",
+            "detail": "D-alpha tocopherol",
+            "amount": "10 mg"
+          }
+        },
+        "ingredient-4": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "1",
+            "name": "Vitamin K2",
+            "detail": "MenaQ7® MK-7",
+            "amount": "55mcg"
+          }
+        },
+        "ingredient-5": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "2",
+            "name": "Folate",
+            "detail": "Quatrefolic®",
+            "amount": "100 mcg"
+          }
+        },
+        "ingredient-6": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "2",
+            "name": "Vitamin B12",
+            "detail": "Methylcobalamin",
+            "amount": "100 mcg"
+          }
+        },
+        "ingredient-7": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "2",
+            "name": "Iron",
+            "detail": "Ferrochel® bisglycinate",
+            "amount": "15 mg"
+          }
+        },
+        "ingredient-8": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "2",
+            "name": "Zinc",
+            "detail": "Zinc citrate",
+            "amount": "10 mg"
+          }
+        },
+        "ingredient-9": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "2",
+            "name": "Magnesium",
+            "detail": "Magnesium bisglycinate",
+            "amount": "72 mg"
+          }
+        },
+        "ingredient-10": {
+          "type": "ingredient",
+          "settings": {
+            "phase": "2",
+            "name": "Boron",
+            "detail": "Boron proteonate",
+            "amount": "2.20 mg"
+          }
+        },
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Sustained Energy\n& Mental Clarity"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Hormonal Balance\n& Cycle Support"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Strong Bones &\nCardiovascular Health"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "title": "Calm Mood &\nBetter Sleep"
+          }
+        },
+        "benefit-5": {
+          "type": "benefit",
+          "settings": {
+            "title": "Glowing Skin &\nCellular Health"
+          }
+        },
+        "benefit-6": {
+          "type": "benefit",
+          "settings": {
+            "title": "Reduced Fatigue &\nBrain Fog"
+          }
+        }
+      },
+      "block_order": [
+        "phase-1",
+        "phase-2",
+        "ingredient-1",
+        "ingredient-2",
+        "ingredient-3",
+        "ingredient-4",
+        "ingredient-5",
+        "ingredient-6",
+        "ingredient-7",
+        "ingredient-8",
+        "ingredient-9",
+        "ingredient-10",
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4",
+        "benefit-5",
+        "benefit-6"
+      ],
+      "settings": {}
+    },
+    "advertorial-testimonial": {
+      "type": "advertorial-testimonial",
+      "settings": {}
+    },
+    "advertorial-buy": {
+      "type": "advertorial-buy",
+      "blocks": {
+        "point-1": {
+          "type": "point",
+          "settings": {
+            "title": "Steadier Energy",
+            "text": "Everyday nutritional support"
+          }
+        },
+        "point-2": {
+          "type": "point",
+          "settings": {
+            "title": "Cycle Support",
+            "text": "Calmer cycles, easier PMS"
+          }
+        },
+        "point-3": {
+          "type": "point",
+          "settings": {
+            "title": "Sleep & Mood",
+            "text": "Supports your overall routine"
+          }
+        },
+        "point-4": {
+          "type": "point",
+          "settings": {
+            "title": "Two-phase Design",
+            "text": "Unique two phase design for maximum absorption"
+          }
+        }
+      },
+      "block_order": [
+        "point-1",
+        "point-2",
+        "point-3",
+        "point-4"
+      ],
+      "settings": {}
+    },
+    "advertorial-faq": {
+      "type": "advertorial-faq",
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "question": "Why ORBÉ N°01?"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "question": "What’s inside the formula?"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "question": "Nutrition profile"
+          }
+        },
+        "question-4": {
+          "type": "question",
+          "settings": {
+            "question": "How to use"
+          }
+        },
+        "question-5": {
+          "type": "question",
+          "settings": {
+            "question": "Product details & safety"
+          }
+        }
+      },
+      "block_order": [
+        "question-1",
+        "question-2",
+        "question-3",
+        "question-4",
+        "question-5"
+      ],
+      "settings": {}
+    },
+    "advertorial-final-cta": {
+      "type": "advertorial-final-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "advertorial-banner",
+    "advertorial-story",
+    "advertorial-stats",
+    "advertorial-nutrients",
+    "advertorial-fixes",
+    "advertorial-cta",
+    "advertorial-foundation",
+    "advertorial-product",
+    "advertorial-how-it-works",
+    "advertorial-climate",
+    "advertorial-compare",
+    "advertorial-signals",
+    "advertorial-ingredients",
+    "advertorial-testimonial",
+    "advertorial-buy",
+    "advertorial-faq",
+    "advertorial-final-cta"
+  ]
+}

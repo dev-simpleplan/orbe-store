@@ -1,0 +1,649 @@
+{%- assign ab_id = 'advertorial-buy-' | append: section.id -%}
+{%- assign buy_product = section.settings.product -%}
+{%- if buy_product != blank -%}
+  {%- assign buy_variant = buy_product.selected_or_first_available_variant -%}
+  {%- assign buy_days = section.settings.days | at_least: 1 -%}
+  {%- assign per_day = buy_variant.price | divided_by: buy_days -%}
+{%- endif -%}
+
+{%- style -%}
+  #{{ ab_id }} {
+    --ab-accent: {{ section.settings.accent_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #{{ ab_id }} .abuy-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 36px;
+    align-items: start;
+    max-width: {{ section.settings.content_width }}px;
+    margin: 0 auto;
+  }
+
+  #{{ ab_id }} .abuy-media {
+    aspect-ratio: 1 / 0.98;
+    overflow: hidden;
+    background: #eee;
+  }
+
+  #{{ ab_id }} .abuy-media img,
+  #{{ ab_id }} .abuy-media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ ab_id }} .abuy-eyebrow {
+    margin: 0 0 12px;
+    color: var(--ab-accent);
+    font-family: var(--aspekta);
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #{{ ab_id }} .abuy-title {
+    margin: 0 0 14px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(34px, 3.4vw, 48px);
+    font-weight: 500;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  #{{ ab_id }} .abuy-text {
+    margin: 0;
+    max-width: 24em;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  #{{ ab_id }} .abuy-points {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 24px;
+    margin-top: 30px;
+  }
+
+  #{{ ab_id }} .abuy-point-title {
+    margin: 0 0 4px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  #{{ ab_id }} .abuy-point-text {
+    margin: 0;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 11px;
+    line-height: 140%;
+  }
+
+  #{{ ab_id }} .abuy-price-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-top: 36px;
+  }
+
+  #{{ ab_id }} .abuy-price {
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(34px, 3.2vw, 46px);
+    line-height: 1;
+  }
+
+  #{{ ab_id }} .abuy-compare {
+    color: #8a857d;
+    font-family: var(--aspekta);
+    font-size: 17px;
+    text-decoration: line-through;
+  }
+
+  #{{ ab_id }} .abuy-badge {
+    padding: 4px 8px;
+    background: var(--ab-accent);
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 9px;
+    line-height: 1;
+    text-transform: uppercase;
+    align-self: center;
+  }
+
+  #{{ ab_id }} .abuy-meta {
+    margin: 8px 0 0;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  #{{ ab_id }} .abuy-supports {
+    margin-top: 22px;
+  }
+
+  #{{ ab_id }} .abuy-supports-label {
+    margin: 0 0 8px;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #{{ ab_id }} .abuy-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #{{ ab_id }} .abuy-tags li {
+    padding: 5px 16px;
+    border-radius: 50px;
+    background: #e1dcd5;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 9px;
+    line-height: 1.2;
+  }
+
+  #{{ ab_id }} .abuy-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  #{{ ab_id }} .abuy-qty {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 105px;
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid #d6d2cc;
+    border-radius: 50px;
+    background: #fff;
+  }
+
+  #{{ ab_id }} .abuy-qty button {
+    padding: 0 2px;
+    border: 0;
+    background: none;
+    color: #151515;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  #{{ ab_id }} .abuy-qty input {
+    width: 30px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #151515;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    text-align: center;
+    -moz-appearance: textfield;
+  }
+
+  #{{ ab_id }} .abuy-qty input::-webkit-outer-spin-button,
+  #{{ ab_id }} .abuy-qty input::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+
+  #{{ ab_id }} .abuy-button {
+    flex: 1 1 auto;
+    height: 44px;
+    border: 0;
+    border-radius: 50px;
+    background: #111;
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  #{{ ab_id }} .abuy-button:hover {
+    opacity: 0.85;
+  }
+
+  #{{ ab_id }} .abuy-button[disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  #{{ ab_id }} .abuy-pay {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  #{{ ab_id }} .abuy-pay-label {
+    margin: 0 0 14px;
+    color: #8a857d;
+    font-family: var(--aspekta);
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #{{ ab_id }} .abuy-pay img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+
+  #{{ ab_id }} .abuy-pay-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  #{{ ab_id }} .abuy-pay-icons svg {
+    height: 24px;
+    width: auto;
+  }
+
+  #{{ ab_id }} .abuy-empty {
+    padding: 40px;
+    border: 1px dashed #c9c4bc;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    text-align: center;
+  }
+
+  @media (max-width: 991px) {
+    #{{ ab_id }} .abuy-grid {
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #{{ ab_id }} .abuy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ ab_id }} .abuy-text {
+      font-size: 15px;
+    }
+
+    #{{ ab_id }} .abuy-point-text {
+      font-size: 12px;
+    }
+
+    #{{ ab_id }} .abuy-tags li {
+      font-size: 11px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-buy" id="{{ ab_id }}">
+  <div class="container">
+    {% if buy_product == blank %}
+      <p class="abuy-empty">Choose a product in this section’s settings to show it here.</p>
+    {% else %}
+      <div class="abuy-grid">
+        <div class="abuy-media">
+          {%- assign buy_image = section.settings.image | default: buy_product.featured_image -%}
+          {% if buy_image != blank %}
+            {{ buy_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: buy_product.title }}
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+
+        <div class="abuy-content">
+          {% if section.settings.eyebrow != blank %}
+            <p class="abuy-eyebrow">{{ section.settings.eyebrow }}</p>
+          {% endif %}
+
+          <h2 class="abuy-title">{{ section.settings.title | default: buy_product.title }}</h2>
+
+          {% if section.settings.text != blank %}
+            <p class="abuy-text">{{ section.settings.text }}</p>
+          {% endif %}
+
+          {% if section.blocks.size > 0 %}
+            <div class="abuy-points">
+              {% for block in section.blocks %}
+                <div {{ block.shopify_attributes }}>
+                  <h3 class="abuy-point-title">{{ block.settings.title }}</h3>
+                  {% if block.settings.text != blank %}
+                    <p class="abuy-point-text">{{ block.settings.text }}</p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="abuy-price-row">
+            <span class="abuy-price">{{ buy_variant.price | money }}</span>
+            {% if buy_variant.compare_at_price > buy_variant.price %}
+              {%- assign saved = buy_variant.compare_at_price | minus: buy_variant.price -%}
+              {%- assign off_percent = saved | times: 100.0 | divided_by: buy_variant.compare_at_price | round -%}
+              <span class="abuy-compare">{{ buy_variant.compare_at_price | money }}</span>
+              <span class="abuy-badge">{{ off_percent }}% off</span>
+            {% endif %}
+          </div>
+
+          {% if section.settings.show_per_day %}
+            <p class="abuy-meta">
+              {{ per_day | money_without_trailing_zeros }} a day
+              {%- if section.settings.capsules_text != blank %} · {{ section.settings.capsules_text }}{% endif %}
+              · {{ buy_days }} days
+            </p>
+          {% endif %}
+
+          {% if section.settings.supports != blank %}
+            {%- assign support_list = section.settings.supports | split: ',' -%}
+            <div class="abuy-supports">
+              <p class="abuy-supports-label">{{ section.settings.supports_label }}</p>
+              <ul class="abuy-tags">
+                {% for tag in support_list %}
+                  {%- assign clean_tag = tag | strip -%}
+                  {% if clean_tag != blank %}<li>{{ clean_tag }}</li>{% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% form 'product', buy_product, class: 'abuy-form', novalidate: 'novalidate' %}
+            <input type="hidden" name="id" value="{{ buy_variant.id }}">
+            {% if section.settings.after_add == 'checkout' %}
+              <input type="hidden" name="return_to" value="/checkout">
+            {% else %}
+              <input type="hidden" name="return_to" value="/cart">
+            {% endif %}
+
+            <div class="abuy-qty" data-abuy-qty>
+              <button type="button" data-abuy-minus aria-label="Decrease quantity">−</button>
+              <input type="number" name="quantity" value="1" min="1" inputmode="numeric" aria-label="Quantity">
+              <button type="button" data-abuy-plus aria-label="Increase quantity">+</button>
+            </div>
+
+            <button type="submit" class="abuy-button" {% unless buy_variant.available %}disabled{% endunless %}>
+              {%- if buy_variant.available -%}
+                {{ section.settings.button_text }}
+                {%- if section.settings.show_per_day_in_button %} · {{ per_day | money_without_trailing_zeros }}/day{% endif -%}
+              {%- else -%}
+                {{ section.settings.sold_out_text }}
+              {%- endif -%}
+            </button>
+          {% endform %}
+
+          {% if section.settings.payment_label != blank or section.settings.payment_image != blank %}
+            <div class="abuy-pay">
+              {% if section.settings.payment_label != blank %}
+                <p class="abuy-pay-label">{{ section.settings.payment_label }}</p>
+              {% endif %}
+              {% if section.settings.payment_image != blank %}
+                {{ section.settings.payment_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.payment_label }}
+              {% else %}
+                <div class="abuy-pay-icons">
+                  {% for type in shop.enabled_payment_types %}
+                    {{ type | payment_type_svg_tag: class: 'abuy-pay-icon' }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ ab_id }}');
+    if (!root) return;
+
+    var qty = root.querySelector('[data-abuy-qty]');
+    if (!qty) return;
+
+    var input = qty.querySelector('input');
+    qty.querySelector('[data-abuy-minus]').addEventListener('click', function () {
+      input.value = Math.max(1, (parseInt(input.value, 10) || 1) - 1);
+    });
+    qty.querySelector('[data-abuy-plus]').addEventListener('click', function () {
+      input.value = (parseInt(input.value, 10) || 1) + 1;
+    });
+    input.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    input.addEventListener('blur', function () {
+      if (!parseInt(this.value, 10)) this.value = 1;
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Advertorial Buy Box",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "The product that gets added to the cart. Price and compare-at price come from its first available variant."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Optional. Uses the product’s main image if left empty."
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Your daily foundation"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "info": "Uses the product title if left empty."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "Daily nutrients to support your energy, mood, hormonal balance and overall wellbeing."
+    },
+    {
+      "type": "header",
+      "content": "Price details"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_per_day",
+      "label": "Show price per day line",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "days",
+      "label": "Days in one pack",
+      "default": 30,
+      "info": "Price per day = price ÷ this number."
+    },
+    {
+      "type": "text",
+      "id": "capsules_text",
+      "label": "Pack size text",
+      "default": "60 capsules"
+    },
+    {
+      "type": "text",
+      "id": "supports_label",
+      "label": "Supports label",
+      "default": "Supports"
+    },
+    {
+      "type": "text",
+      "id": "supports",
+      "label": "Supports tags",
+      "info": "Separate with commas.",
+      "default": "Bones, Cycles, Energy, Immunity, Mood, Sleep"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Buy now"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_per_day_in_button",
+      "label": "Show price per day in the button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sold_out_text",
+      "label": "Sold out text",
+      "default": "Sold out"
+    },
+    {
+      "type": "select",
+      "id": "after_add",
+      "label": "After adding to cart",
+      "options": [
+        { "value": "cart", "label": "Go to cart page" },
+        { "value": "checkout", "label": "Go straight to checkout" }
+      ],
+      "default": "cart"
+    },
+    {
+      "type": "header",
+      "content": "Payment icons"
+    },
+    {
+      "type": "text",
+      "id": "payment_label",
+      "label": "Label",
+      "default": "Guaranteed safe checkout with"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image",
+      "label": "Payment icons image",
+      "info": "Optional. If empty, the payment icons Shopify provides are shown instead."
+    },
+    {
+      "type": "header",
+      "content": "Layout and colors"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 700,
+      "max": 1320,
+      "step": 20,
+      "unit": "px",
+      "default": 820
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#A8863F"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the background, above the content."
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the background, below the content."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Steadier Energy"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Advertorial Buy Box",
+      "blocks": [
+        { "type": "point", "settings": { "title": "Steadier Energy", "text": "Everyday nutritional support" } },
+        { "type": "point", "settings": { "title": "Cycle Support", "text": "Calmer cycles, easier PMS" } },
+        { "type": "point", "settings": { "title": "Sleep & Mood", "text": "Supports your overall routine" } },
+        { "type": "point", "settings": { "title": "Two-phase Design", "text": "Unique two phase design for maximum absorption" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

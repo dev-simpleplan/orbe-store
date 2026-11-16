@@ -1,0 +1,335 @@
+{%- assign an_id = 'advertorial-nutrients-' | append: section.id -%}
+
+{%- style -%}
+  #{{ an_id }} {
+    --an-accent: {{ section.settings.accent_color }};
+    background: #fff;
+  }
+
+  #{{ an_id }} .an-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 60px;
+    align-items: center;
+  }
+
+  #{{ an_id }} .an-eyebrow {
+    margin: 0 0 22px;
+    color: var(--an-accent);
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #{{ an_id }} .an-title {
+    margin: 0 0 22px;
+    max-width: 11em;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(34px, 3.6vw, 52px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ an_id }} .an-text {
+    margin: 0;
+    max-width: 26em;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  #{{ an_id }} .an-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 70px 40px;
+    margin-top: 70px;
+  }
+
+  #{{ an_id }} .an-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 14px;
+    align-items: baseline;
+  }
+
+  #{{ an_id }} .an-item-number {
+    color: var(--an-accent);
+    font-family: var(--tobias);
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  #{{ an_id }} .an-item-title {
+    margin: 0;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  #{{ an_id }} .an-item-text {
+    grid-column: 2;
+    margin: 6px 0 0;
+    max-width: 18em;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 12px;
+    line-height: 150%;
+  }
+
+  #{{ an_id }} .an-quote {
+    margin: 50px 0 0;
+    padding: 0 0 0 14px;
+    border-left: 1px solid var(--an-accent);
+    color: var(--an-accent);
+    font-family: var(--tobias);
+    font-size: clamp(18px, 1.6vw, 22px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+
+  #{{ an_id }} .an-media {
+    position: relative;
+    aspect-ratio: 0.86 / 1;
+    overflow: hidden;
+    background: #111;
+  }
+
+  #{{ an_id }} .an-media > img,
+  #{{ an_id }} .an-media > svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ an_id }} .an-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 11%;
+    width: min(70%, 350px);
+    transform: translateX(-50%);
+    padding: 18px 24px;
+    background: rgba(40, 40, 40, 0.78);
+    color: #fff;
+    font-family: var(--tobias);
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-style: italic;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  @media (max-width: 991px) {
+    #{{ an_id }} .an-grid {
+      gap: 40px;
+    }
+
+    #{{ an_id }} .an-items {
+      margin-top: 40px;
+      gap: 40px 24px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #{{ an_id }} .an-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ an_id }} .an-eyebrow {
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    #{{ an_id }} .an-text {
+      font-size: 16px;
+    }
+
+    #{{ an_id }} .an-item-number,
+    #{{ an_id }} .an-item-title {
+      font-size: 22px;
+    }
+
+    #{{ an_id }} .an-item-text {
+      font-size: 13px;
+    }
+
+    #{{ an_id }} .an-quote {
+      margin-top: 36px;
+    }
+
+    #{{ an_id }} .an-caption {
+      bottom: 6%;
+      width: 80%;
+      padding: 14px 18px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-nutrients" id="{{ an_id }}">
+  <div class="container">
+    <div class="an-grid">
+      <div class="an-content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="an-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="an-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <p class="an-text">{{ section.settings.text }}</p>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="an-items">
+            {% for block in section.blocks %}
+              <div class="an-item" {{ block.shopify_attributes }}>
+                <span class="an-item-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+                <h3 class="an-item-title">{{ block.settings.title }}</h3>
+                {% if block.settings.text != blank %}
+                  <p class="an-item-text">{{ block.settings.text }}</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.quote != blank %}
+          <blockquote class="an-quote">{{ section.settings.quote | newline_to_br }}</blockquote>
+        {% endif %}
+      </div>
+
+      <div class="an-media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: section.settings.image.alt | default: section.settings.heading }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+
+        {% if section.settings.caption != blank %}
+          <p class="an-caption">{{ section.settings.caption }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advertorial Nutrients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "How the gaps show up in your day"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Small Nutrients. Everyday Roles."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "Some nutritional gaps can affect how you feel and function. Here are four nutrients worth understanding."
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote",
+      "info": "Each new line is shown on its own line.",
+      "default": "Chronic stress burns through magnesium.\nLow magnesium makes stress harder to handle.\nThe loop feeds itself."
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#A8863F"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "label": "Image caption",
+      "info": "Shown in a dark box over the bottom of the image.",
+      "default": "Don’t wait for deficiencies to show up in your blood reports. Give your body the support it needs today."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nutrient",
+      "name": "Nutrient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Iron"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Advertorial Nutrients",
+      "blocks": [
+        {
+          "type": "nutrient",
+          "settings": {
+            "title": "Iron",
+            "text": "Menstrual blood loss can contribute to iron deficiency."
+          }
+        },
+        {
+          "type": "nutrient",
+          "settings": {
+            "title": "Vitamin B12",
+            "text": "Supports normal energy metabolism and red blood cell formation."
+          }
+        },
+        {
+          "type": "nutrient",
+          "settings": {
+            "title": "Magnesium",
+            "text": "Supports normal muscle and nervous system function."
+          }
+        },
+        {
+          "type": "nutrient",
+          "settings": {
+            "title": "Vitamin D",
+            "text": "Supports calcium absorption, bone health and normal immune function."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

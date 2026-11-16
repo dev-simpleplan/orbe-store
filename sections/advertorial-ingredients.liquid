@@ -1,0 +1,860 @@
+{%- assign ai_id = 'advertorial-ingredients-' | append: section.id -%}
+{%- assign phase_blocks = section.blocks | where: 'type', 'phase' -%}
+{%- assign ingredient_blocks = section.blocks | where: 'type', 'ingredient' -%}
+{%- assign benefit_blocks = section.blocks | where: 'type', 'benefit' -%}
+
+{%- style -%}
+  #{{ ai_id }} {
+    --ai-accent: {{ section.settings.accent_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #{{ ai_id }} .ai-inner {
+    max-width: {{ section.settings.content_width }}px;
+    margin: 0 auto;
+  }
+
+  #{{ ai_id }} .ai-head {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  #{{ ai_id }} .ai-eyebrow {
+    margin: 0 0 12px;
+    color: var(--ai-accent);
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 150%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #{{ ai_id }} .ai-title {
+    margin: 0 0 14px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(34px, 3.8vw, 56px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ ai_id }} .ai-text {
+    margin: 0 auto;
+    max-width: 40em;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 140%;
+  }
+
+  #{{ ai_id }} .ai-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  #{{ ai_id }} .ai-card {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+    padding: 34px 28px;
+    background: {{ section.settings.card_color }};
+  }
+
+  #{{ ai_id }} .ai-card-media {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f1f0f3;
+  }
+
+  #{{ ai_id }} .ai-card-media img,
+  #{{ ai_id }} .ai-card-media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ ai_id }} .ai-card-phase {
+    margin: 0 0 6px;
+    color: var(--ai-accent);
+    font-family: var(--aspekta);
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #{{ ai_id }} .ai-card-title {
+    margin: 0 0 12px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  #{{ ai_id }} .ai-card-text {
+    margin: 0 0 14px;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 140%;
+  }
+
+  #{{ ai_id }} .ai-card-list {
+    margin: 0;
+    color: #6e6a64;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  #{{ ai_id }} .ai-button-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 44px 0 40px;
+  }
+
+  #{{ ai_id }} .ai-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 4px;
+    border: 0;
+    background: none;
+    color: var(--ai-accent);
+    font-family: var(--aspekta);
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  #{{ ai_id }} .ai-button:hover {
+    opacity: 0.7;
+  }
+
+  #{{ ai_id }} .ai-button svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  #{{ ai_id }} .ai-lists {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  #{{ ai_id }} .ai-list {
+    padding-top: 18px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  #{{ ai_id }} .ai-list-eyebrow {
+    margin: 0 0 2px;
+    color: var(--ai-accent);
+    font-family: var(--aspekta);
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #{{ ai_id }} .ai-list-title {
+    margin: 0 0 18px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  #{{ ai_id }} .ai-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  #{{ ai_id }} .ai-row-name {
+    margin: 0;
+    color: #151515;
+    font-family: var(--aspekta);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  #{{ ai_id }} .ai-row-sub {
+    margin: 4px 0 0;
+    color: #8a857d;
+    font-family: var(--aspekta);
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  #{{ ai_id }} .ai-row-amount {
+    flex: 0 0 auto;
+    margin: 4px 0 0;
+    color: #151515;
+    font-family: var(--aspekta);
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Popup */
+  #{{ ai_id }}-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow-y: auto;
+    background: {{ section.settings.popup_background }};
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  #{{ ai_id }}-popup.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #{{ ai_id }}-popup .aip-close {
+    position: fixed;
+    top: 28px;
+    right: 36px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #{{ ai_id }}-popup .aip-close::before,
+  #{{ ai_id }}-popup .aip-close::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 26px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  #{{ ai_id }}-popup .aip-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  #{{ ai_id }}-popup .aip-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  #{{ ai_id }}-popup .aip-inner {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(24px, 9vh, 90px);
+    padding: 60px 0 32px;
+  }
+
+  #{{ ai_id }}-popup .aip-wrap {
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  #{{ ai_id }}-popup .aip-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 2.2fr);
+    gap: 40px;
+    align-items: center;
+  }
+
+  #{{ ai_id }}-popup .aip-eyebrow {
+    margin: 0 0 22px;
+    color: var(--ai-accent);
+    font-family: var(--aspekta);
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  #{{ ai_id }}-popup .aip-title {
+    margin: 0 0 14px;
+    color: #fff;
+    font-family: var(--tobias);
+    font-size: clamp(34px, 3.4vw, 50px);
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  #{{ ai_id }}-popup .aip-text {
+    margin: 0;
+    max-width: 14em;
+    color: #d9d6d1;
+    font-family: var(--aspekta);
+    font-size: 17px;
+    line-height: 135%;
+  }
+
+  #{{ ai_id }}-popup .aip-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 7vh, 56px) 20px;
+  }
+
+  #{{ ai_id }}-popup .aip-benefit {
+    text-align: center;
+  }
+
+  #{{ ai_id }}-popup .aip-benefit-media {
+    width: min(100%, 19vh, 200px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto clamp(8px, 1.6vh, 16px);
+    overflow: hidden;
+  }
+
+  #{{ ai_id }}-popup .aip-benefit-media img,
+  #{{ ai_id }}-popup .aip-benefit-media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ ai_id }}-popup .aip-benefit-title {
+    margin: 0 auto;
+    max-width: 11em;
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #{{ ai_id }}-popup .aip-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  #{{ ai_id }}-popup .aip-foot-text {
+    margin: 0;
+    color: #8d8a85;
+    font-family: var(--aspekta);
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #{{ ai_id }}-popup .aip-foot-logo {
+    width: 60px;
+    opacity: 0.55;
+  }
+
+  #{{ ai_id }}-popup .aip-foot-logo svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 991px) {
+    #{{ ai_id }} .ai-card {
+      grid-template-columns: 120px minmax(0, 1fr);
+      padding: 24px 20px;
+    }
+
+    #{{ ai_id }}-popup .aip-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+  }
+
+  @media (max-width: 767px) {
+    #{{ ai_id }} .ai-eyebrow {
+      font-size: 12px;
+    }
+
+    #{{ ai_id }} .ai-cards,
+    #{{ ai_id }} .ai-lists {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ ai_id }} .ai-card {
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    #{{ ai_id }} .ai-card-title {
+      font-size: 22px;
+    }
+
+    #{{ ai_id }} .ai-row-name {
+      font-size: 19px;
+    }
+
+    #{{ ai_id }}-popup .aip-close {
+      top: 16px;
+      right: 16px;
+    }
+
+    #{{ ai_id }}-popup .aip-inner {
+      gap: 40px;
+      padding: 80px 0 40px;
+      justify-content: flex-start;
+    }
+
+    #{{ ai_id }}-popup .aip-benefits {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px 14px;
+    }
+
+    #{{ ai_id }}-popup .aip-wrap {
+      padding: 0 20px;
+    }
+
+    #{{ ai_id }}-popup .aip-benefit-media {
+      width: min(100%, 140px);
+    }
+  }
+{%- endstyle -%}
+
+<section class="advertorial-ingredients" id="{{ ai_id }}" data-ai>
+  <div class="container">
+   <div class="ai-inner">
+    <div class="ai-head">
+      {% if section.settings.eyebrow != blank %}
+        <p class="ai-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="ai-title">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <p class="ai-text">{{ section.settings.text }}</p>
+      {% endif %}
+    </div>
+
+    {% if phase_blocks.size > 0 %}
+      <div class="ai-cards">
+        {% for block in phase_blocks %}
+          <div class="ai-card" {{ block.shopify_attributes }}>
+            <div class="ai-card-media">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 500 | image_tag: loading: 'lazy', alt: block.settings.title }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <div>
+              {% if block.settings.label != blank %}
+                <p class="ai-card-phase">{{ block.settings.label }}</p>
+              {% endif %}
+              <h3 class="ai-card-title">{{ block.settings.title }}</h3>
+              {% if block.settings.text != blank %}
+                <p class="ai-card-text">{{ block.settings.text }}</p>
+              {% endif %}
+              {% if block.settings.summary != blank %}
+                <p class="ai-card-list">{{ block.settings.summary }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.button_text != blank and benefit_blocks.size > 0 %}
+      <div class="ai-button-wrap">
+        <button type="button" class="ai-button" data-ai-open aria-haspopup="dialog" aria-controls="{{ ai_id }}-popup">
+          <span>{{ section.settings.button_text }}</span>
+          <svg viewBox="0 0 11 11" fill="none" aria-hidden="true">
+            <path d="M2 9 9 2M3.5 2H9v5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+
+    {% if phase_blocks.size > 0 %}
+      <div class="ai-lists">
+        {% for phase in phase_blocks %}
+          {%- assign phase_number = forloop.index | append: '' -%}
+          <div class="ai-list">
+            {% if phase.settings.list_eyebrow != blank %}
+              <p class="ai-list-eyebrow">{{ phase.settings.list_eyebrow }}</p>
+            {% endif %}
+            {% if phase.settings.list_title != blank %}
+              <h3 class="ai-list-title">{{ phase.settings.list_title }}</h3>
+            {% endif %}
+
+            {% for item in ingredient_blocks %}
+              {% if item.settings.phase == phase_number %}
+                <div class="ai-row" {{ item.shopify_attributes }}>
+                  <div>
+                    <p class="ai-row-name">{{ item.settings.name }}</p>
+                    {% if item.settings.detail != blank %}
+                      <p class="ai-row-sub">{{ item.settings.detail }}</p>
+                    {% endif %}
+                  </div>
+                  {% if item.settings.amount != blank %}
+                    <p class="ai-row-amount">{{ item.settings.amount }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+   </div>
+  </div>
+</section>
+
+{% if benefit_blocks.size > 0 %}
+  <div id="{{ ai_id }}-popup" class="ai-popup" role="dialog" aria-modal="true" aria-label="{{ section.settings.popup_heading | escape }}" aria-hidden="true" data-lenis-prevent>
+    <button type="button" class="aip-close" aria-label="Close" data-ai-close></button>
+
+    <div class="aip-inner">
+      <div class="aip-wrap">
+        <div class="aip-grid">
+          <div class="aip-copy">
+            {% if section.settings.popup_eyebrow != blank %}
+              <p class="aip-eyebrow">{{ section.settings.popup_eyebrow | newline_to_br }}</p>
+            {% endif %}
+            {% if section.settings.popup_heading != blank %}
+              <h2 class="aip-title">{{ section.settings.popup_heading }}</h2>
+            {% endif %}
+            {% if section.settings.popup_text != blank %}
+              <p class="aip-text">{{ section.settings.popup_text }}</p>
+            {% endif %}
+          </div>
+
+          <div class="aip-benefits">
+            {% for block in benefit_blocks %}
+              <div class="aip-benefit" {{ block.shopify_attributes }}>
+                <div class="aip-benefit-media">
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 500 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+                <p class="aip-benefit-title">{{ block.settings.title | newline_to_br }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="aip-wrap">
+        <div class="aip-foot">
+          <p class="aip-foot-text">{{ section.settings.popup_footer }}</p>
+          <span class="aip-foot-logo" aria-hidden="true">{% render 'orbe-home-logo' %}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ ai_id }}');
+    var popup = document.getElementById('{{ ai_id }}-popup');
+    if (!root || !popup || root.dataset.aiReady === 'true') return;
+    root.dataset.aiReady = 'true';
+
+    var openButton = root.querySelector('[data-ai-open]');
+    var closeButtons = popup.querySelectorAll('[data-ai-close]');
+    var lastFocus = null;
+
+    function openPopup() {
+      lastFocus = document.activeElement;
+      popup.classList.add('is-open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.documentElement.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
+      var close = popup.querySelector('[data-ai-close]');
+      if (close) close.focus();
+    }
+
+    function closePopup() {
+      popup.classList.remove('is-open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.documentElement.style.overflow = '';
+      if (window.lenis) window.lenis.start();
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    if (openButton) openButton.addEventListener('click', openPopup);
+    closeButtons.forEach(function (button) {
+      button.addEventListener('click', closePopup);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Advertorial Ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What’s inside"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Every ingredient has a job."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "A daily dose of two capsules. Two distinct phases, each with a clear purpose."
+    },
+    {
+      "type": "header",
+      "content": "Key benefits popup"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "View key benefits",
+      "info": "Opens the full-screen popup. Only shown if you add at least one Benefit block."
+    },
+    {
+      "type": "textarea",
+      "id": "popup_eyebrow",
+      "label": "Popup eyebrow",
+      "default": "Orbé N°01\nEveryday wellbeing"
+    },
+    {
+      "type": "text",
+      "id": "popup_heading",
+      "label": "Popup heading",
+      "default": "Key Benefits"
+    },
+    {
+      "type": "textarea",
+      "id": "popup_text",
+      "label": "Popup paragraph",
+      "default": "Great health doesn’t happen overnight, but it does happen daily."
+    },
+    {
+      "type": "text",
+      "id": "popup_footer",
+      "label": "Popup footer text",
+      "default": "Everyday Nutrition · Orbé N°01"
+    },
+    {
+      "type": "color",
+      "id": "popup_background",
+      "label": "Popup background",
+      "default": "#0A0A0A"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 700,
+      "max": 1320,
+      "step": 20,
+      "unit": "px",
+      "default": 900,
+      "info": "Maximum width of the header, cards and lists. The popup is not affected."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FBFAF8"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Phase card color",
+      "default": "#F3EEE8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#A8863F"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the background, above the content."
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "info": "Space inside the background, below the content."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "phase",
+      "name": "Phase",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Card"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Phase 01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Outer Oil"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "summary",
+          "label": "Ingredient summary",
+          "info": "Small line at the bottom of the card, e.g. DHA · Vitamin D3."
+        },
+        {
+          "type": "header",
+          "content": "Ingredient list"
+        },
+        {
+          "type": "text",
+          "id": "list_eyebrow",
+          "label": "List eyebrow",
+          "default": "01 · Outer Oil"
+        },
+        {
+          "type": "text",
+          "id": "list_title",
+          "label": "List title",
+          "default": "Ingredients & amounts"
+        }
+      ]
+    },
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "select",
+          "id": "phase",
+          "label": "Belongs to",
+          "options": [
+            { "value": "1", "label": "First Phase block" },
+            { "value": "2", "label": "Second Phase block" }
+          ],
+          "default": "1",
+          "info": "Which list the ingredient appears in. Order follows the blocks."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "DHA"
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "label": "Detail",
+          "info": "Small line under the name, e.g. Algal omega-3."
+        },
+        {
+          "type": "text",
+          "id": "amount",
+          "label": "Amount",
+          "default": "405 mg"
+        }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Benefit (popup)",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "info": "Each new line is shown on its own line.",
+          "default": "Sustained Energy\n& Mental Clarity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial Ingredients"
+    }
+  ]
+}
+{% endschema %}
