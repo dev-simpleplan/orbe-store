@@ -697,6 +697,85 @@
         "padding_bottom": 100
       }
     },
+    "spacer_TfAA6G": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
+    },
+    "advertorial-timeline": {
+      "type": "advertorial-timeline",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "label": "Week 1–2",
+            "heading": "A little more clarity, a little more energy",
+            "content": "<p>Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality. If B12 was low, some women notice energy and focus first.</p>",
+            "image": "shopify://shop_images/Rectangle_3468701_bcbdcb62-a609-4d14-ad21-b9a273a3dddd.png"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "label": "Week 3–6",
+            "heading": "Your rhythm begins to soften",
+            "content": "<p>Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise.</p>",
+            "image": "shopify://shop_images/Rectangle_3468700.png"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "label": "Week 8–12",
+            "heading": "Your foundation strengthens",
+            "content": "<p>Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady. Skin and mood changes are commonly reported in this window.</p>",
+            "image": "shopify://shop_images/Rectangle_3468699.png"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "label": "Week 12+",
+            "heading": "A steadier version of yourself",
+            "content": "<p>Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience.</p>",
+            "image": "shopify://shop_images/Rectangle_3468698.png"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "settings": {
+        "eyebrow": "Why it happens",
+        "heading": "Small Shifts That Build Over Time",
+        "subheading": "A daily routine takes consistency. Individual experiences and timelines vary.",
+        "sticky_media": true,
+        "sticky_top": 120,
+        "active_color": "#151515",
+        "inactive_color": "#b5b5b5",
+        "accent_color": "#A9823D",
+        "pill_inactive_bg": "#e6e6e6",
+        "pill_inactive_text": "#a3a3a3",
+        "pill_active_bg": "#151515",
+        "pill_active_text": "#ffffff",
+        "line_color": "#151515",
+        "track_color": "#d4d4d4"
+      }
+    },
+    "spacer_kNVcYW": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 50,
+        "custom_class": ""
+      }
+    },
     "advertorial-testimonial": {
       "type": "advertorial-testimonial",
       "settings": {
@@ -704,13 +783,14 @@
         "heading": "What women noticed.",
         "quote": "I didn’t start taking ORBÉ expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day.",
         "author": "Mahima.",
+        "image": "shopify://shop_images/Rectangle_3468566.jpg",
         "image_position": "left",
         "image_placeholder_color": "#5c594e",
         "background_color": "#1b1a18",
         "accent_color": "#c8a968",
         "mark_color": "#6b6b6b",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "advertorial-buy": {
@@ -752,7 +832,8 @@
         "point-4"
       ],
       "settings": {
-        "product": "",
+        "product": "n01",
+        "image": "shopify://shop_images/Container_9.jpg",
         "eyebrow": "Your daily foundation",
         "title": "",
         "text": "Daily nutrients to support your energy, mood, hormonal balance and overall wellbeing.",
@@ -766,11 +847,12 @@
         "sold_out_text": "Sold out",
         "after_add": "cart",
         "payment_label": "Guaranteed safe checkout with",
-        "content_width": 820,
+        "payment_image": "shopify://shop_images/Image_Payment_methods.png",
+        "content_width": 900,
         "background_color": "#ffffff",
         "accent_color": "#a8863f",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "advertorial-faq": {
@@ -779,36 +861,36 @@
         "question-1": {
           "type": "question",
           "settings": {
-            "question": "Why ORBÉ N°01?",
-            "answer": ""
+            "question": "How do I take Orbé?",
+            "answer": "<p>Two capsules a day: a simple ritual that fits naturally into your morning or evening.</p>"
           }
         },
         "question-2": {
           "type": "question",
           "settings": {
-            "question": "What’s inside the formula?",
-            "answer": ""
+            "question": "When will I start noticing changes?",
+            "answer": "<p>Most women feel subtle shifts in clarity and energy within 1–2 weeks, with deeper benefits unfolding over 6–12 weeks.</p>"
           }
         },
         "question-3": {
           "type": "question",
           "settings": {
-            "question": "Nutrition profile",
-            "answer": ""
+            "question": "What makes Orbé different from other supplements?",
+            "answer": "<p>A pill-in-pill design that protects potency, clinically validated nutrients, and clean, intentional formulation.</p>"
           }
         },
         "question-4": {
           "type": "question",
           "settings": {
             "question": "How to use",
-            "answer": ""
+            "answer": "<p>Two capsules a day: a simple ritual that fits naturally into your morning or evening.</p>"
           }
         },
         "question-5": {
           "type": "question",
           "settings": {
             "question": "Product details & safety",
-            "answer": ""
+            "answer": "<p>Yes. Orbé is crafted with clean ingredients and balanced dosing for daily foundational support.</p>"
           }
         }
       },
@@ -823,12 +905,13 @@
         "eyebrow": "Questions",
         "heading": "Before you Start",
         "single_open": true,
+        "image": "shopify://shop_images/06964c946e7a37b7af06c0134fdfeaf963659270_png.jpg",
         "image_position": "left",
         "content_width": 1000,
         "background_color": "#ffffff",
         "accent_color": "#a8863f",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "advertorial-final-cta": {
@@ -845,50 +928,6 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "advertorial-timeline": {
-      "type": "advertorial-timeline",
-      "blocks": {
-        "item-1": {
-          "type": "item",
-          "settings": {
-            "label": "Week 1–2",
-            "heading": "A little more clarity, a little more energy",
-            "content": "<p>Your body begins absorbing key nutrients. Vitamin D and B12 start supporting mood, focus, and everyday vitality. If B12 was low, some women notice energy and focus first.</p>"
-          }
-        },
-        "item-2": {
-          "type": "item",
-          "settings": {
-            "label": "Week 3–6",
-            "heading": "Your rhythm begins to soften",
-            "content": "<p>Sleep feels deeper, PMS feels calmer, and cycles feel more balanced as iron and magnesium levels stabilise.</p>"
-          }
-        },
-        "item-3": {
-          "type": "item",
-          "settings": {
-            "label": "Week 8–12",
-            "heading": "Your foundation strengthens",
-            "content": "<p>Bone-supporting nutrients like D3 and K2 begin working at a structural level, while hormonal patterns feel more steady. Skin and mood changes are commonly reported in this window.</p>"
-          }
-        },
-        "item-4": {
-          "type": "item",
-          "settings": {
-            "label": "Week 12+",
-            "heading": "A steadier version of yourself",
-            "content": "<p>Consistency brings deeper benefits across energy, cycles, mood, sleep, and long-term resilience.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item-1",
-        "item-2",
-        "item-3",
-        "item-4"
-      ],
-      "settings": {}
     }
   },
   "order": [
@@ -897,7 +936,6 @@
     "advertorial-story",
     "spacer_hf3pi7",
     "advertorial-signals",
-    "advertorial-timeline",
     "spacer_wbBWWz",
     "advertorial-stats",
     "spacer_CYcGGU",
@@ -911,6 +949,9 @@
     "advertorial-how-it-works",
     "advertorial-climate",
     "advertorial-compare",
+    "spacer_TfAA6G",
+    "advertorial-timeline",
+    "spacer_kNVcYW",
     "advertorial-testimonial",
     "advertorial-buy",
     "advertorial-faq",
