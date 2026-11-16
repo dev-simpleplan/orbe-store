@@ -299,6 +299,7 @@
   }
 {%- endstyle -%}
 
+<span id="buy" style="display:block;position:relative;top:-90px;height:0;visibility:hidden" aria-hidden="true"></span>
 <section class="advertorial-buy" id="{{ ab_id }}">
   <div class="container">
     {% if buy_product == blank %}
@@ -419,6 +420,22 @@
   (function () {
     var root = document.getElementById('{{ ab_id }}');
     if (!root) return;
+
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('a[href]');
+      if (!link) return;
+      var url;
+      try { url = new URL(link.href, window.location.href); } catch (e) { return; }
+      if (url.hash !== '#buy' || url.pathname !== window.location.pathname) return;
+      var anchor = document.getElementById('buy');
+      if (!anchor) return;
+      event.preventDefault();
+      if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+        window.lenis.scrollTo(anchor);
+      } else {
+        anchor.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
 
     var qty = root.querySelector('[data-abuy-qty]');
     if (!qty) return;
