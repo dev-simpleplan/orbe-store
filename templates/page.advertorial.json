@@ -781,9 +781,6 @@
       "settings": {
         "eyebrow": "In their words",
         "heading": "What women noticed.",
-        "quote": "I didn’t start taking ORBÉ expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day.",
-        "author": "Mahima.",
-        "image": "shopify://shop_images/Rectangle_3468566.jpg",
         "image_position": "left",
         "image_placeholder_color": "#5c594e",
         "background_color": "#1b1a18",
@@ -791,7 +788,60 @@
         "mark_color": "#6b6b6b",
         "padding_top": 100,
         "padding_bottom": 100
-      }
+      },
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468566.jpg",
+            "quote": "I didn’t start taking ORBÉ expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day.",
+            "author": "Mahima."
+          }
+        },
+        "check-1": {
+          "type": "check",
+          "settings": {
+            "title": "Heavy Metals",
+            "text": "Tested for mercury, lead, arsenic and cadmium against FSSAI limits."
+          }
+        },
+        "check-2": {
+          "type": "check",
+          "settings": {
+            "title": "Pesticides",
+            "text": "216 pesticide compounds tested. All below detection limits."
+          }
+        },
+        "check-3": {
+          "type": "check",
+          "settings": {
+            "title": "Microbial Safety",
+            "text": "Tested for Salmonella, E. coli, Staph, yeast and mould."
+          }
+        },
+        "check-4": {
+          "type": "check",
+          "settings": {
+            "title": "Aflatoxins",
+            "text": "Four common aflatoxins tested. All below 0.5 µg/kg."
+          }
+        },
+        "check-5": {
+          "type": "check",
+          "settings": {
+            "title": "Melamine",
+            "text": "Tested for adulteration. Levels well below regulatory limits."
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "check-1",
+        "check-2",
+        "check-3",
+        "check-4",
+        "check-5"
+      ]
     },
     "advertorial-buy": {
       "type": "advertorial-buy",
@@ -911,23 +961,19 @@
         "background_color": "#ffffff",
         "accent_color": "#a8863f",
         "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
-    "advertorial-final-cta": {
-      "type": "advertorial-final-cta",
-      "settings": {
-        "eyebrow": "Two capsules. One routine.",
-        "heading": "Give your body the foundation it’s been asking for.",
-        "text": "Start with 30 days. Notice the small shifts.\nBuild a steadier you, week by week.",
-        "button_text": "Buy Orbé N°01 · ₹3,499",
-        "button_link": "#buy",
-        "image": "shopify://shop_images/Container_10_1.jpg",
-        "image_position": "right",
-        "background_color": "#f0e7dc",
-        "accent_color": "#a8863f",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 100,
+        "cta_eyebrow": "Two capsules. One routine.",
+        "cta_heading": "Give your body the foundation it’s been asking for.",
+        "cta_text": "Start with 30 days. Notice the small shifts.\nBuild a steadier you, week by week.",
+        "cta_button_text": "Buy Orbé N°01 · ₹3,499",
+        "cta_button_link": "#buy",
+        "cta_image": "shopify://shop_images/Container_10_1.jpg",
+        "cta_image_position": "right",
+        "cta_background_color": "#f0e7dc",
+        "cta_accent_color": "#a8863f",
+        "cta_padding_top": 0,
+        "cta_padding_bottom": 0,
+        "show_cta": true
       }
     }
   },
@@ -955,7 +1001,6 @@
     "spacer_kNVcYW",
     "advertorial-testimonial",
     "advertorial-buy",
-    "advertorial-faq",
-    "advertorial-final-cta"
+    "advertorial-faq"
   ]
 }

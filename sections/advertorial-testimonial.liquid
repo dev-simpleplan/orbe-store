@@ -1,4 +1,6 @@
 {%- assign at_id = 'advertorial-testimonial-' | append: section.id -%}
+{%- assign slides = section.blocks | where: 'type', 'slide' -%}
+{%- assign checks = section.blocks | where: 'type', 'check' -%}
 
 {%- style -%}
   #{{ at_id }} {
@@ -150,15 +152,222 @@
       font-size: 16px;
     }
   }
+
+  #{{ at_id }} .at-media {
+    position: relative;
+    width: 100%;
+  }
+
+  #{{ at_id }} .at-media-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  #{{ at_id }} .at-media-item.is-current {
+    opacity: 1;
+  }
+
+  #{{ at_id }} .at-quotes {
+    display: grid;
+  }
+
+  #{{ at_id }} .at-slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+  }
+
+  #{{ at_id }} .at-slide.is-current {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #{{ at_id }} .at-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 34px;
+  }
+
+  #{{ at_id }} .at-arrows {
+    display: flex;
+    gap: 10px;
+  }
+
+  #{{ at_id }} .at-arrow {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+
+  #{{ at_id }} .at-arrow:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+  }
+
+  #{{ at_id }} .at-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  #{{ at_id }} .at-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #{{ at_id }} .at-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  #{{ at_id }} .at-dot.is-current {
+    background: var(--at-accent);
+    transform: scale(1.25);
+  }
+
+  #{{ at_id }}-purity {
+    display: none;
+    background: {{ section.settings.purity_background }};
+  }
+
+  @media (max-width: 767px) {
+    #{{ at_id }}-purity {
+      display: block;
+    }
+
+    #{{ at_id }}-purity .ap-wrap {
+      position: relative;
+      min-height: 150vw;
+      padding-top: 40px;
+    }
+
+    #{{ at_id }}-purity .ap-title {
+      margin: 0 0 8px;
+      color: #151515;
+      font-family: var(--tobias);
+      font-size: clamp(30px, 8.6vw, 40px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    #{{ at_id }}-purity .ap-sub {
+      margin: 0 0 28px;
+      color: #6b6b6b;
+      font-family: var(--aspekta);
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    #{{ at_id }}-purity .ap-badge {
+      position: absolute;
+      top: 150px;
+      right: 2%;
+      z-index: 1;
+      width: 27%;
+    }
+
+    #{{ at_id }}-purity .ap-badge img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #{{ at_id }}-purity .ap-list {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 62%;
+    }
+
+    #{{ at_id }}-purity .ap-item-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    #{{ at_id }}-purity .ap-icon {
+      flex: 0 0 auto;
+      width: 40px;
+      height: 40px;
+    }
+
+    #{{ at_id }}-purity .ap-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    #{{ at_id }}-purity .ap-item-title {
+      margin: 0;
+      color: #151515;
+      font-family: var(--tobias);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    #{{ at_id }}-purity .ap-item-text {
+      margin: 0;
+      color: #6b6b6b;
+      font-family: var(--aspekta);
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    #{{ at_id }}-purity .ap-product {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 60%;
+    }
+
+    #{{ at_id }}-purity .ap-product img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
 {%- endstyle -%}
 
-<section class="advertorial-testimonial" id="{{ at_id }}">
+<section class="advertorial-testimonial" id="{{ at_id }}" data-at data-autoplay="{{ section.settings.autoplay }}">
   <div class="container">
     <div class="at-grid{% if section.settings.image_position == 'right' %} is-image-right{% endif %}">
       <div class="at-media">
-        {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.author }}
-        {% endif %}
+        {% for block in slides %}
+          <div class="at-media-item{% if forloop.first %} is-current{% endif %}" data-at-media>
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: block.settings.author }}
+            {% endif %}
+          </div>
+        {% endfor %}
       </div>
 
       <div class="at-content">
@@ -170,24 +379,152 @@
           <h2 class="at-title">{{ section.settings.heading }}</h2>
         {% endif %}
 
-        {% if section.settings.quote != blank %}
+        {% if slides.size > 0 %}
           <div class="at-quote-wrap">
             <span class="at-mark at-mark-open" aria-hidden="true">
               <svg viewBox="0 0 52 40" fill="currentColor"><path d="M0 40V22.5C0 9.3 7.2 1.6 20.5 0l1.6 6.2C14.6 8 11.4 12 11.2 17.6h8.9V40H0Zm29.8 0V22.5C29.8 9.3 37 1.6 50.3 0l1.7 6.2c-7.5 1.8-10.7 5.8-10.9 11.4H50V40H29.8Z"/></svg>
             </span>
-            <p class="at-quote">“{{ section.settings.quote }}”</p>
-            {% if section.settings.author != blank %}
-              <p class="at-author">{{ section.settings.author }}</p>
-            {% endif %}
+
+            <div class="at-quotes">
+              {% for block in slides %}
+                <div class="at-slide{% if forloop.first %} is-current{% endif %}" data-at-slide {{ block.shopify_attributes }}>
+                  <p class="at-quote">“{{ block.settings.quote }}”</p>
+                  {% if block.settings.author != blank %}
+                    <p class="at-author">{{ block.settings.author }}</p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+
             <span class="at-mark at-mark-close" aria-hidden="true">
               <svg viewBox="0 0 52 40" fill="currentColor" style="transform: rotate(180deg)"><path d="M0 40V22.5C0 9.3 7.2 1.6 20.5 0l1.6 6.2C14.6 8 11.4 12 11.2 17.6h8.9V40H0Zm29.8 0V22.5C29.8 9.3 37 1.6 50.3 0l1.7 6.2c-7.5 1.8-10.7 5.8-10.9 11.4H50V40H29.8Z"/></svg>
             </span>
           </div>
+
+          {% if slides.size > 1 %}
+            <div class="at-nav">
+              <div class="at-arrows">
+                <button type="button" class="at-arrow" data-at-prev aria-label="Previous testimonial">
+                  <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2 4 7l5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button type="button" class="at-arrow" data-at-next aria-label="Next testimonial">
+                  <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="m5 2 5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="at-dots">
+                {% for block in slides %}
+                  <button type="button" class="at-dot{% if forloop.first %} is-current{% endif %}" data-at-dot="{{ forloop.index0 }}" aria-label="Show testimonial {{ forloop.index }}"></button>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
         {% endif %}
       </div>
     </div>
   </div>
 </section>
+
+{% if checks.size > 0 or section.settings.purity_heading != blank %}
+<section class="advertorial-purity" id="{{ at_id }}-purity">
+  <div class="container">
+    <div class="ap-wrap">
+      {% if section.settings.purity_heading != blank %}
+        <h2 class="ap-title">{{ section.settings.purity_heading }}</h2>
+      {% endif %}
+      {% if section.settings.purity_text != blank %}
+        <p class="ap-sub">{{ section.settings.purity_text }}</p>
+      {% endif %}
+
+      {% if section.settings.purity_badge != blank %}
+        <div class="ap-badge">
+          {{ section.settings.purity_badge | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}
+        </div>
+      {% endif %}
+
+      <div class="ap-list">
+        {% for block in checks %}
+          <div class="ap-item" {{ block.shopify_attributes }}>
+            <div class="ap-item-head">
+              {% if block.settings.icon != blank %}
+                <span class="ap-icon">{{ block.settings.icon | image_url: width: 140 | image_tag: loading: 'lazy', alt: '' }}</span>
+              {% endif %}
+              <h3 class="ap-item-title">{{ block.settings.title }}</h3>
+            </div>
+            {% if block.settings.text != blank %}
+              <p class="ap-item-text">{{ block.settings.text }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if section.settings.purity_image != blank %}
+        <div class="ap-product">
+          {{ section.settings.purity_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: '' }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ at_id }}');
+    if (!root || root.dataset.atReady === 'true') return;
+    root.dataset.atReady = 'true';
+
+    var slides = Array.prototype.slice.call(root.querySelectorAll('[data-at-slide]'));
+    var media = Array.prototype.slice.call(root.querySelectorAll('[data-at-media]'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('[data-at-dot]'));
+    if (slides.length < 2) return;
+
+    var current = 0;
+    var timer = null;
+    var seconds = parseInt(root.dataset.autoplay, 10) || 0;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (el, i) { el.classList.toggle('is-current', i === current); });
+      media.forEach(function (el, i) { el.classList.toggle('is-current', i === current); });
+      dots.forEach(function (el, i) { el.classList.toggle('is-current', i === current); });
+    }
+
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    function start() {
+      stop();
+      if (seconds > 0) timer = setInterval(function () { show(current + 1); }, seconds * 1000);
+    }
+
+    function go(index) {
+      show(index);
+      start();
+    }
+
+    var prev = root.querySelector('[data-at-prev]');
+    var next = root.querySelector('[data-at-next]');
+    if (prev) prev.addEventListener('click', function () { go(current - 1); });
+    if (next) next.addEventListener('click', function () { go(current + 1); });
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () { go(parseInt(dot.dataset.atDot, 10)); });
+    });
+
+    var startX = null;
+    root.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var diff = e.changedTouches[0].clientX - startX;
+      startX = null;
+      if (Math.abs(diff) > 50) go(diff < 0 ? current + 1 : current - 1);
+    }, { passive: true });
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    start();
+  })();
+</script>
 
 {% schema %}
 {
@@ -206,34 +543,22 @@
       "default": "What women noticed."
     },
     {
-      "type": "textarea",
-      "id": "quote",
-      "label": "Quote",
-      "info": "Quotation marks are added automatically.",
-      "default": "I didn’t start taking ORBÉ expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day."
-    },
-    {
-      "type": "text",
-      "id": "author",
-      "label": "Author",
-      "default": "Mahima."
-    },
-    {
       "type": "header",
-      "content": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
+      "content": "Image layout"
     },
     {
       "type": "select",
       "id": "image_position",
       "label": "Image position",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "right", "label": "Right" }
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
       ],
       "default": "left"
     },
@@ -243,6 +568,21 @@
       "label": "Image placeholder color",
       "default": "#5C594E",
       "info": "Shown as a plain block until an image is uploaded."
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "range",
+      "id": "autoplay",
+      "label": "Auto-rotate (seconds)",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "s",
+      "default": 0,
+      "info": "0 turns auto-rotation off. It pauses while the mouse is over the section."
     },
     {
       "type": "header",
@@ -291,11 +631,109 @@
       "unit": "px",
       "default": 0,
       "info": "Space inside the colored background, below the content."
+    },
+    {
+      "type": "header",
+      "content": "Purity screen (mobile only)"
+    },
+    {
+      "type": "paragraph",
+      "content": "This block only appears on phones, under the testimonials. It is hidden on tablet and desktop. Add its checks as “Purity check” blocks."
+    },
+    {
+      "type": "text",
+      "id": "purity_heading",
+      "label": "Heading",
+      "default": "India’s First 5-Point Purity Screen"
+    },
+    {
+      "type": "text",
+      "id": "purity_text",
+      "label": "Subheading",
+      "default": "Five key contaminant checks. Complete transparency."
+    },
+    {
+      "type": "image_picker",
+      "id": "purity_badge",
+      "label": "Award badge",
+      "info": "Shown at the top right."
+    },
+    {
+      "type": "image_picker",
+      "id": "purity_image",
+      "label": "Product image",
+      "info": "Shown at the bottom right, behind the text."
+    },
+    {
+      "type": "color",
+      "id": "purity_background",
+      "label": "Background color",
+      "default": "#F4F2EE"
     }
   ],
   "presets": [
     {
-      "name": "Advertorial Testimonial"
+      "name": "Advertorial Testimonial",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "info": "Quotation marks are added automatically.",
+          "default": "I didn’t start taking ORBÉ expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Mahima."
+        }
+      ]
+    },
+    {
+      "type": "check",
+      "name": "Purity check",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Heavy Metals"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
     }
   ]
 }
