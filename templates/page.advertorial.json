@@ -807,6 +807,7 @@
         "check-1": {
           "type": "check",
           "settings": {
+            "icon": "shopify://shop_images/Mask_group_13.png",
             "title": "Heavy Metals",
             "text": "Tested for mercury, lead, arsenic and cadmium against FSSAI limits."
           }
@@ -814,6 +815,7 @@
         "check-2": {
           "type": "check",
           "settings": {
+            "icon": "shopify://shop_images/Mask_group_12.png",
             "title": "Pesticides",
             "text": "216 pesticide compounds tested. All below detection limits."
           }
@@ -821,6 +823,7 @@
         "check-3": {
           "type": "check",
           "settings": {
+            "icon": "shopify://shop_images/Mask_group_11.png",
             "title": "Microbial Safety",
             "text": "Tested for Salmonella, E. coli, Staph, yeast and mould."
           }
@@ -828,6 +831,7 @@
         "check-4": {
           "type": "check",
           "settings": {
+            "icon": "shopify://shop_images/Mask_group_10.png",
             "title": "Aflatoxins",
             "text": "Four common aflatoxins tested. All below 0.5 µg/kg."
           }
@@ -835,6 +839,7 @@
         "check-5": {
           "type": "check",
           "settings": {
+            "icon": "shopify://shop_images/Mask_group_9.png",
             "title": "Melamine",
             "text": "Tested for adulteration. Levels well below regulatory limits."
           }
