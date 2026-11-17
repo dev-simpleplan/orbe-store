@@ -2,8 +2,6 @@
 {%- assign buy_product = section.settings.product -%}
 {%- if buy_product != blank -%}
   {%- assign buy_variant = buy_product.selected_or_first_available_variant -%}
-  {%- assign buy_days = section.settings.days | at_least: 1 -%}
-  {%- assign per_day = buy_variant.price | divided_by: buy_days -%}
 {%- endif -%}
 
 {%- style -%}
@@ -349,12 +347,8 @@
             {% endif %}
           </div>
 
-          {% if section.settings.show_per_day %}
-            <p class="abuy-meta">
-              {{ per_day | money_without_trailing_zeros }} a day
-              {%- if section.settings.capsules_text != blank %} · {{ section.settings.capsules_text }}{% endif %}
-              · {{ buy_days }} days
-            </p>
+          {% if section.settings.price_note != blank %}
+            <p class="abuy-meta">{{ section.settings.price_note }}</p>
           {% endif %}
 
           {% if section.settings.supports != blank %}
@@ -387,7 +381,6 @@
             <button type="submit" class="abuy-button" {% unless buy_variant.available %}disabled{% endunless %}>
               {%- if buy_variant.available -%}
                 {{ section.settings.button_text }}
-                {%- if section.settings.show_per_day_in_button %} · {{ per_day | money_without_trailing_zeros }}/day{% endif -%}
               {%- else -%}
                 {{ section.settings.sold_out_text }}
               {%- endif -%}
@@ -499,23 +492,11 @@
       "content": "Price details"
     },
     {
-      "type": "checkbox",
-      "id": "show_per_day",
-      "label": "Show price per day line",
-      "default": true
-    },
-    {
-      "type": "number",
-      "id": "days",
-      "label": "Days in one pack",
-      "default": 30,
-      "info": "Price per day = price ÷ this number."
-    },
-    {
       "type": "text",
-      "id": "capsules_text",
-      "label": "Pack size text",
-      "default": "60 capsules"
+      "id": "price_note",
+      "label": "Line under the price",
+      "info": "Free text, e.g. ₹117 a day · 60 capsules · 30 days. Leave empty to hide it.",
+      "default": "₹117 a day · 60 capsules · 30 days"
     },
     {
       "type": "text",
@@ -538,13 +519,8 @@
       "type": "text",
       "id": "button_text",
       "label": "Button text",
-      "default": "Buy now"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_per_day_in_button",
-      "label": "Show price per day in the button",
-      "default": true
+      "default": "Buy now · ₹117/day",
+      "info": "Shown exactly as typed."
     },
     {
       "type": "text",
@@ -557,8 +533,14 @@
       "id": "after_add",
       "label": "After adding to cart",
       "options": [
-        { "value": "cart", "label": "Go to cart page" },
-        { "value": "checkout", "label": "Go straight to checkout" }
+        {
+          "value": "cart",
+          "label": "Go to cart page"
+        },
+        {
+          "value": "checkout",
+          "label": "Go straight to checkout"
+        }
       ],
       "default": "cart"
     },
@@ -655,10 +637,34 @@
     {
       "name": "Advertorial Buy Box",
       "blocks": [
-        { "type": "point", "settings": { "title": "Steadier Energy", "text": "Everyday nutritional support" } },
-        { "type": "point", "settings": { "title": "Cycle Support", "text": "Calmer cycles, easier PMS" } },
-        { "type": "point", "settings": { "title": "Sleep & Mood", "text": "Supports your overall routine" } },
-        { "type": "point", "settings": { "title": "Two-phase Design", "text": "Unique two phase design for maximum absorption" } }
+        {
+          "type": "point",
+          "settings": {
+            "title": "Steadier Energy",
+            "text": "Everyday nutritional support"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "title": "Cycle Support",
+            "text": "Calmer cycles, easier PMS"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "title": "Sleep & Mood",
+            "text": "Supports your overall routine"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "title": "Two-phase Design",
+            "text": "Unique two phase design for maximum absorption"
+          }
+        }
       ]
     }
   ]

@@ -223,15 +223,7 @@
       </div>
     {% endif %}
 
-    <div class="hide-md">
-      <div class="afd-media">
-        {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: section.settings.image.alt | default: section.settings.heading }}
-        {% else %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-        {% endif %}
-      </div>
-    </div>
+    
   </div>
 </section>
 

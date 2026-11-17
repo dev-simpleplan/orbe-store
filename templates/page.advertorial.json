@@ -950,13 +950,9 @@
         "eyebrow": "Your daily foundation",
         "title": "",
         "text": "Daily nutrients to support your energy, mood, hormonal balance and overall wellbeing.",
-        "show_per_day": true,
-        "days": 30,
-        "capsules_text": "60 capsules",
         "supports_label": "Supports",
         "supports": "Bones, Cycles, Energy, Immunity, Mood, Sleep",
-        "button_text": "Buy now",
-        "show_per_day_in_button": true,
+        "button_text": "Buy now · ₹117/day",
         "sold_out_text": "Sold out",
         "after_add": "cart",
         "payment_label": "Guaranteed safe checkout with",
@@ -965,7 +961,8 @@
         "background_color": "#ffffff",
         "accent_color": "#a8863f",
         "padding_top": 100,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "price_note": "₹117 a day · 60 capsules · 30 days"
       }
     },
     "advertorial-faq": {
@@ -1036,7 +1033,8 @@
         "cta_background_color": "#f0e7dc",
         "cta_accent_color": "#a8863f",
         "cta_padding_top": 0,
-        "cta_padding_bottom": 0
+        "cta_padding_bottom": 0,
+        "cta_disclaimer": "Disclaimer: This is an advertorial by ORBÉ. Not for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease, and is not a substitute for a varied and balanced diet. If you’re pregnant, nursing, or on medication, check with your doctor first. Individual experiences vary."
       }
     }
   },

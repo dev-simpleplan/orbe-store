@@ -325,6 +325,29 @@
       padding-top: 0px!important;
     }
   }
+
+  #{{ afc_id }} .afc-disclaimer {
+    padding: 22px 0;
+    background: {{ section.settings.cta_disclaimer_background }};
+  }
+
+  #{{ afc_id }} .afc-disclaimer p {
+    margin: 0;
+    color: #7a7268;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 767px) {
+    #{{ afc_id }} .afc-disclaimer {
+      padding: 18px 0;
+    }
+
+    #{{ afc_id }} .afc-disclaimer p {
+      font-size: 12px;
+    }
+  }
 {%- endstyle -%}
 
 <section class="advertorial-faq" id="{{ af_id }}" data-afq data-single="{{ section.settings.single_open }}">
@@ -400,6 +423,14 @@
       </div>
     </div>
   </div>
+
+  {% if section.settings.cta_disclaimer != blank %}
+    <div class="afc-disclaimer">
+      <div class="container">
+        <p>{{ section.settings.cta_disclaimer }}</p>
+      </div>
+    </div>
+  {% endif %}
 </section>
 {% endif %}
 
@@ -646,6 +677,23 @@
       "unit": "px",
       "default": 0,
       "info": "Space inside the colored background, below the content."
+    },
+    {
+      "type": "header",
+      "content": "CTA · Disclaimer"
+    },
+    {
+      "type": "textarea",
+      "id": "cta_disclaimer",
+      "label": "Disclaimer text",
+      "info": "Shown in a band at the very bottom of the call to action. Leave empty to hide it.",
+      "default": "Disclaimer: This is an advertorial by ORBÉ. Not for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease, and is not a substitute for a varied and balanced diet. If you’re pregnant, nursing, or on medication, check with your doctor first. Individual experiences vary."
+    },
+    {
+      "type": "color",
+      "id": "cta_disclaimer_background",
+      "label": "Disclaimer background",
+      "default": "#E6DED5"
     }
   ],
   "blocks": [
