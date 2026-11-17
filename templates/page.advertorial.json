@@ -120,6 +120,7 @@
       "settings": {
         "eyebrow": "The problem",
         "heading": "The Signals Most Women Learn To Ignore",
+        "mobile_text": "They show up quietly. One at a time.\nEasy to blame on work, age or the weather.",
         "sticky_top": 90,
         "background_color": "#ffffff",
         "accent_color": "#a8863f"
@@ -778,24 +779,29 @@
     },
     "advertorial-testimonial": {
       "type": "advertorial-testimonial",
-      "settings": {
-        "eyebrow": "In their words",
-        "heading": "What women noticed.",
-        "image_position": "left",
-        "image_placeholder_color": "#5c594e",
-        "background_color": "#1b1a18",
-        "accent_color": "#c8a968",
-        "mark_color": "#6b6b6b",
-        "padding_top": 100,
-        "padding_bottom": 100
-      },
       "blocks": {
+        "slide_efrEyq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/a16bc8c7a2dd5aec97f1493f992fd0cad7520500_1.png",
+            "quote": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down.",
+            "author": "Neha."
+          }
+        },
         "slide-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3468566.jpg",
-            "quote": "I didn’t start taking ORBÉ expecting a huge change. I just wanted to feel a little more energetic and awake throughout the day.",
+            "image": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png",
+            "quote": "I didn't start taking Orbé expecting a huge change. \nI just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed.",
             "author": "Mahima."
+          }
+        },
+        "slide_QPKaPA": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2072749083.png",
+            "quote": "I've tried so many supplements over the years, but Orbé is the first one that made me feel confident about what I am taking. The transparency, the quality of the ingredients, and the thought behind the product really stood out to me.",
+            "author": "Priyanshi."
           }
         },
         "check-1": {
@@ -835,13 +841,32 @@
         }
       },
       "block_order": [
+        "slide_efrEyq",
         "slide-1",
+        "slide_QPKaPA",
         "check-1",
         "check-2",
         "check-3",
         "check-4",
         "check-5"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "In their words",
+        "heading": "What women noticed.",
+        "image_position": "left",
+        "image_placeholder_color": "#5c594e",
+        "autoplay": 0,
+        "background_color": "#1b1a18",
+        "accent_color": "#c8a968",
+        "mark_color": "#6b6b6b",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "purity_heading": "India’s First 5-Point Purity Screen",
+        "purity_text": "Five key contaminant checks. Complete transparency.",
+        "purity_badge": "shopify://shop_images/image_528.png",
+        "purity_image": "shopify://shop_images/image_433.png",
+        "purity_background": "#f4f2ee"
+      }
     },
     "advertorial-buy": {
       "type": "advertorial-buy",
@@ -962,6 +987,7 @@
         "accent_color": "#a8863f",
         "padding_top": 100,
         "padding_bottom": 100,
+        "show_cta": true,
         "cta_eyebrow": "Two capsules. One routine.",
         "cta_heading": "Give your body the foundation it’s been asking for.",
         "cta_text": "Start with 30 days. Notice the small shifts.\nBuild a steadier you, week by week.",
@@ -972,8 +998,7 @@
         "cta_background_color": "#f0e7dc",
         "cta_accent_color": "#a8863f",
         "cta_padding_top": 0,
-        "cta_padding_bottom": 0,
-        "show_cta": true
+        "cta_padding_bottom": 0
       }
     }
   },
