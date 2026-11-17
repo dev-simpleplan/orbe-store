@@ -897,6 +897,9 @@
         "expert_9y76cd",
         "expert_iUdNyY"
       ],
+      "custom_css": [
+        ".guided-by {padding-top: 60px;}"
+      ],
       "name": "Guided By",
       "settings": {
         "heading": "Guided by Expertise",
