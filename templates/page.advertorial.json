@@ -873,6 +873,36 @@
         "purity_background": "#f4f2ee"
       }
     },
+    "guided_by_efQiPG": {
+      "type": "guided-by",
+      "blocks": {
+        "expert_9y76cd": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468579_1.jpg",
+            "name": "Dr. Maitri",
+            "designation": "Consultant Dermatologist, Leprology & Cosmetology"
+          }
+        },
+        "expert_iUdNyY": {
+          "type": "expert",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468581_1.jpg",
+            "name": "Dr. Mansi",
+            "designation": "Consultant Obstetrician & Gynaecologist, Laparoscopic Surgeon, and Fertility Expert"
+          }
+        }
+      },
+      "block_order": [
+        "expert_9y76cd",
+        "expert_iUdNyY"
+      ],
+      "name": "Guided By",
+      "settings": {
+        "heading": "Guided by Expertise",
+        "description": "Two specialists guide every formula we make"
+      }
+    },
     "advertorial-buy": {
       "type": "advertorial-buy",
       "blocks": {
@@ -1030,6 +1060,7 @@
     "advertorial-timeline",
     "spacer_kNVcYW",
     "advertorial-testimonial",
+    "guided_by_efQiPG",
     "advertorial-buy",
     "advertorial-faq"
   ]
