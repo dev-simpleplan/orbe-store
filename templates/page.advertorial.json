@@ -780,26 +780,26 @@
     "advertorial-testimonial": {
       "type": "advertorial-testimonial",
       "blocks": {
-        "slide_efrEyq": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/a16bc8c7a2dd5aec97f1493f992fd0cad7520500_1.png",
-            "quote": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down.",
-            "author": "Neha."
-          }
-        },
         "slide-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/e5fccc2b98a578c773ba7432fb14ee893254c9dc.png",
+            "image": "shopify://shop_images/Mahima_Portrait.png",
             "quote": "I didn't start taking Orbé expecting a huge change. \nI just wanted to feel a little more energetic and awake throughout the day. A few weeks in and I realised I wasn't crashing by mid-afternoon anymore. I am waking up feeling a lot more refreshed.",
             "author": "Mahima."
+          }
+        },
+        "slide_efrEyq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Neha_Portrait.png",
+            "quote": "I started taking Orbé to support my overall health, but what I noticed most was how much more consistent I felt. My energy was steadier, my sleep improved, and I wasn't constantly feeling run down.",
+            "author": "Sakshi."
           }
         },
         "slide_QPKaPA": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Frame_2072749083.png",
+            "image": "shopify://shop_images/Container_1.jpg",
             "quote": "I've tried so many supplements over the years, but Orbé is the first one that made me feel confident about what I am taking. The transparency, the quality of the ingredients, and the thought behind the product really stood out to me.",
             "author": "Priyanshi."
           }
@@ -846,8 +846,8 @@
         }
       },
       "block_order": [
-        "slide_efrEyq",
         "slide-1",
+        "slide_efrEyq",
         "slide_QPKaPA",
         "check-1",
         "check-2",
@@ -950,6 +950,7 @@
         "eyebrow": "Your daily foundation",
         "title": "",
         "text": "Daily nutrients to support your energy, mood, hormonal balance and overall wellbeing.",
+        "price_note": "₹117 a day · 60 capsules · 30 days",
         "supports_label": "Supports",
         "supports": "Bones, Cycles, Energy, Immunity, Mood, Sleep",
         "button_text": "Buy now · ₹117/day",
@@ -961,8 +962,7 @@
         "background_color": "#ffffff",
         "accent_color": "#a8863f",
         "padding_top": 100,
-        "padding_bottom": 100,
-        "price_note": "₹117 a day · 60 capsules · 30 days"
+        "padding_bottom": 100
       }
     },
     "advertorial-faq": {
@@ -1034,7 +1034,8 @@
         "cta_accent_color": "#a8863f",
         "cta_padding_top": 0,
         "cta_padding_bottom": 0,
-        "cta_disclaimer": "Disclaimer: This is an advertorial by ORBÉ. Not for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease, and is not a substitute for a varied and balanced diet. If you’re pregnant, nursing, or on medication, check with your doctor first. Individual experiences vary."
+        "cta_disclaimer": "Disclaimer: This is an advertorial by ORBÉ. Not for medicinal use. This product is not intended to diagnose, treat, cure or prevent any disease, and is not a substitute for a varied and balanced diet. If you’re pregnant, nursing, or on medication, check with your doctor first. Individual experiences vary.",
+        "cta_disclaimer_background": "#e6ded5"
       }
     }
   },
