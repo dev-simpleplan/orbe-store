@@ -20,6 +20,14 @@
         "min_height": 100
       }
     },
+    "spacer_xEcpmf": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100,
+        "custom_class": ""
+      }
+    },
     "blog-list": {
       "type": "blog-list",
       "settings": {
@@ -33,7 +41,7 @@
         "sort_label": "Sort by",
         "per_page": 25,
         "background_color": "#ffffff",
-        "padding_top": 60,
+        "padding_top": 0,
         "padding_bottom": 0
       }
     },
@@ -41,7 +49,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 120,
+        "spacer_height": 100,
         "custom_class": ""
       }
     },
@@ -62,6 +70,7 @@
   },
   "order": [
     "blog-featured",
+    "spacer_xEcpmf",
     "blog-list",
     "spacer_gXdWqD",
     "blog-newsletter"
