@@ -25,11 +25,27 @@
         "instagram_url": ""
       }
     },
+    "spacer_fRjAGf": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100,
+        "custom_class": ""
+      }
+    },
     "related": {
       "type": "article-related",
       "settings": {
         "heading": "Other Similar Topics",
         "count": 3
+      }
+    },
+    "spacer_MqNceB": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100,
+        "custom_class": ""
       }
     },
     "blog_newsletter_QK8rj4": {
@@ -51,7 +67,9 @@
   "order": [
     "header",
     "main",
+    "spacer_fRjAGf",
     "related",
+    "spacer_MqNceB",
     "blog_newsletter_QK8rj4"
   ]
 }
