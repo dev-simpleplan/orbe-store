@@ -12,7 +12,7 @@
     "blog-featured": {
       "type": "blog-featured",
       "settings": {
-        "article": "articles/where-can-i-get-some",
+        "article": "news/where-can-i-get-some",
         "heading": "Featured Blog",
         "text": "Guiding you toward choices that honour your strength, your rhythm, your becoming.",
         "button_text": "Read Now",
