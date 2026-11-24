@@ -9,12 +9,22 @@
  */
 {
   "sections": {
+    "header": {
+      "type": "article-header",
+      "settings": {}
+    },
     "main": {
       "type": "article",
+      "settings": {}
+    },
+    "related": {
+      "type": "article-related",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "header",
+    "main",
+    "related"
   ]
 }

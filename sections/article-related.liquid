@@ -1,0 +1,79 @@
+{%- assign ar_max = section.settings.count -%}
+{%- assign ar_picked = ',' -%}
+{%- assign ar_n = 0 -%}
+
+{%- comment -%} Pass 1: articles sharing a tag with the current one {%- endcomment -%}
+{%- for a in article.blog.articles limit: 50 -%}
+  {%- if a.id != article.id and ar_n < ar_max -%}
+    {%- assign shared = false -%}
+    {%- for t in a.tags -%}
+      {%- if article.tags contains t -%}{%- assign shared = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if shared -%}
+      {%- assign ar_picked = ar_picked | append: a.id | append: ',' -%}
+      {%- assign ar_n = ar_n | plus: 1 -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%} Pass 2: fill with the latest others {%- endcomment -%}
+{%- for a in article.blog.articles limit: 50 -%}
+  {%- assign ar_key = ',' | append: a.id | append: ',' -%}
+  {%- unless ar_picked contains ar_key -%}
+    {%- if a.id != article.id and ar_n < ar_max -%}
+      {%- assign ar_picked = ar_picked | append: a.id | append: ',' -%}
+      {%- assign ar_n = ar_n | plus: 1 -%}
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+
+{%- if ar_n > 0 -%}
+<section class="article-related">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h2 class="article-related__title">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="article-related__grid">
+      {%- assign ar_pos = 0 -%}
+      {%- for a in article.blog.articles limit: 50 -%}
+        {%- assign ar_key = ',' | append: a.id | append: ',' -%}
+        {%- if ar_picked contains ar_key and ar_pos < ar_max -%}
+          {%- assign ar_pos = ar_pos | plus: 1 -%}
+          <a class="article-related__card article-related__card--{{ ar_pos }}" href="{{ a.url }}">
+            <div class="article-related__media">
+              {% if a.image %}
+                {{ a.image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: a.image.alt | default: a.title }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <h3 class="article-related__card-title">{{ a.title }}</h3>
+            <p class="article-related__card-text">{{ a.excerpt_or_content | strip_html | truncate: 120 }}</p>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Related Articles",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Other Similar Topics" },
+    {
+      "type": "range",
+      "id": "count",
+      "label": "Number of articles",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "info": "Articles with matching tags are shown first, then the latest ones. Cards repeat the 3-column pattern."
+    }
+  ],
+  "presets": [{ "name": "Related Articles" }]
+}
+{% endschema %}

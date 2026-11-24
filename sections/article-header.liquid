@@ -1,0 +1,42 @@
+{%- assign ah_words = article.content | strip_html | split: ' ' | size -%}
+{%- assign ah_mins = ah_words | divided_by: 200.0 | ceil -%}
+{%- if ah_mins < 1 -%}{%- assign ah_mins = 1 -%}{%- endif -%}
+
+<section class="article-header">
+  <div class="container">
+    <div class="article-header__inner">
+      <div class="article-header__media">
+        {% if article.image %}
+          {{ article.image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', alt: article.image.alt | default: article.title }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="article-header__row">
+        <h1 class="article-header__title">{{ article.title }}</h1>
+
+        {% if section.settings.show_share %}
+          {% render 'article-share', share_label: section.settings.share_label, instagram_url: section.settings.instagram_url %}
+        {% endif %}
+      </div>
+
+      <p class="article-header__meta">
+        {{- article.published_at | date: '%d %B %Y' -}}
+        {%- if article.author != blank %} | {{ article.author }}{% endif %} | {{ ah_mins }} Min. Reads
+      </p>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Article Header",
+  "settings": [
+    { "type": "checkbox", "id": "show_share", "label": "Show share icons", "default": true },
+    { "type": "text", "id": "share_label", "label": "Share label", "default": "Share" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram link", "info": "Instagram has no share link, so this opens your profile. Leave empty to hide the icon." }
+  ]
+}
+{% endschema %}

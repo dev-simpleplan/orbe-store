@@ -9,12 +9,22 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "blog",
+    "blog-featured": {
+      "type": "blog-featured",
+      "settings": {}
+    },
+    "blog-list": {
+      "type": "blog-list",
+      "settings": {}
+    },
+    "blog-newsletter": {
+      "type": "blog-newsletter",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "blog-featured",
+    "blog-list",
+    "blog-newsletter"
   ]
 }

@@ -1,0 +1,197 @@
+{%- assign bf_id = 'blog-featured-' | append: section.id -%}
+{%- assign bf_article = section.settings.article -%}
+{%- assign bf_image = section.settings.image | default: bf_article.image -%}
+
+{%- style -%}
+  #{{ bf_id }} {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: {{ section.settings.min_height }}vh;
+    min-height: {{ section.settings.min_height }}svh;
+    overflow: hidden;
+    background: #111;
+    color: #fff;
+  }
+
+  #{{ bf_id }} .bf-media,
+  #{{ bf_id }} .bf-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  #{{ bf_id }} .bf-media img,
+  #{{ bf_id }} .bf-media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ bf_id }} .bf-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, {{ section.settings.overlay | divided_by: 100.0 }}) 0%,
+      rgba(0, 0, 0, 0) 55%
+    );
+    pointer-events: none;
+  }
+
+  #{{ bf_id }} .bf-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-bottom: 60px;
+  }
+
+  #{{ bf_id }} .bf-title {
+    margin: 0 0 14px;
+    color: #fff;
+    font-family: var(--tobias);
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ bf_id }} .bf-text {
+    margin: 0 0 26px;
+    max-width: 44em;
+    color: #fff;
+    font-family: var(--aspekta);
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 767px) {
+    #{{ bf_id }} .bf-content {
+      padding-bottom: 40px;
+    }
+
+    #{{ bf_id }} .bf-title {
+      font-size: clamp(40px, 12vw, 56px);
+    }
+
+    #{{ bf_id }} .bf-text {
+      font-size: 15px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="blog-featured" id="{{ bf_id }}" data-blog-featured>
+  <div class="bf-media">
+    {% if bf_image != blank %}
+      {{ bf_image | image_url: width: 2200 | image_tag: loading: 'eager', fetchpriority: 'high', alt: bf_article.title | default: section.settings.heading }}
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+  <div class="bf-overlay"></div>
+
+  <div class="container">
+    <div class="bf-content">
+      {% if section.settings.heading != blank %}
+        <h1 class="bf-title">{{ section.settings.heading }}</h1>
+      {% endif %}
+
+      {%- assign bf_text = section.settings.text | default: bf_article.excerpt_or_content | strip_html | truncate: 160 -%}
+      {% if bf_text != blank %}
+        <p class="bf-text">{{ bf_text }}</p>
+      {% endif %}
+
+      {% if section.settings.button_text != blank and bf_article != blank %}
+        <a class="primary-btn" href="{{ bf_article.url }}">{{ section.settings.button_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var section = document.getElementById('{{ bf_id }}');
+    var header = document.querySelector('header');
+    if (!section || !header) return;
+
+    function updateHeader() {
+      if (window.scrollY - section.offsetTop <= 40) {
+        header.classList.add('header--transparent');
+        header.classList.remove('header--hidden');
+      } else {
+        header.classList.remove('header--transparent');
+      }
+    }
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Blog Featured",
+  "settings": [
+    {
+      "type": "article",
+      "id": "article",
+      "label": "Featured article",
+      "info": "Pick the blog post to feature. The button links to it and its image is used unless you upload one below."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Blog"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "info": "Leave empty to use a short version of the article's excerpt.",
+      "default": "Guiding you toward choices that honour your strength, your rhythm, your becoming."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Read Now"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Optional. Uses the article's image if left empty."
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "Dark overlay at the bottom",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 50,
+      "info": "Helps the text stay readable over bright images."
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100,
+      "info": "Percentage of the screen height."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Featured"
+    }
+  ]
+}
+{% endschema %}

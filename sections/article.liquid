@@ -6,16 +6,21 @@
   https://shopify.dev/docs/storefronts/themes/architecture/templates/article
 {% endcomment %}
 
-{% if article.image %}
-  {{ article.image | image_url: width: 1000 | image_tag }}
-{% endif %}
+<div class="article-body">
+  <div class="container">
+    <div class="article-body__inner">
+      <div class="article-body__content rte">
+        {{ article.content }}
+      </div>
 
-<h1>{{ article.title }}</h1>
-
-{% assign date = article.published_at | time_tag: format: 'date' %}
-<p>{{ 'blog.article_metadata_html' | t: date: date, author: article.author }}</p>
-
-{{ article.content }}
+      {% if section.settings.show_share %}
+        <div class="article-body__share">
+          {% render 'article-share', share_label: section.settings.share_label, instagram_url: section.settings.instagram_url %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
 
 {% if blog.comments_enabled? %}
   <h2>{{ 'blog.article_comments' | t }}</h2>
@@ -63,6 +68,10 @@
 {% schema %}
 {
   "name": "t:general.article",
-  "settings": []
+  "settings": [
+    { "type": "checkbox", "id": "show_share", "label": "Show share icons at the bottom", "default": true },
+    { "type": "text", "id": "share_label", "label": "Share label", "default": "Share" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram link" }
+  ]
 }
 {% endschema %}

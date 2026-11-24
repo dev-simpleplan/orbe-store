@@ -1,0 +1,249 @@
+{%- assign bn_id = 'blog-newsletter-' | append: section.id -%}
+
+{%- style -%}
+  #{{ bn_id }} {
+    background: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  #{{ bn_id }} .bn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  #{{ bn_id }} .bn-content {
+    max-width: 480px;
+  }
+
+  #{{ bn_id }} .bn-title {
+    margin: 0 0 18px;
+    font-family: var(--tobias);
+    font-size: clamp(40px, 4.6vw, 68px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+  }
+
+  #{{ bn_id }} .bn-text {
+    margin: 0 0 32px;
+    max-width: 22em;
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 1.25;
+    color: #1a1a1a;
+  }
+
+  #{{ bn_id }} .bn-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 456px;
+    padding: 8px;
+    border-radius: 999px;
+    background: #ececec;
+  }
+
+  #{{ bn_id }} .bn-input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 18px;
+    border: 0;
+    background: transparent;
+    outline: none;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+  }
+
+  #{{ bn_id }} .bn-input::placeholder {
+    color: #1a1a1a;
+    opacity: 0.8;
+  }
+
+  #{{ bn_id }} .bn-submit {
+    flex-shrink: 0;
+    padding: 14px 22px;
+    border: 0;
+    border-radius: 999px;
+    background: #d4d4d4;
+    cursor: pointer;
+    font-family: var(--aspekta);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    transition: background 0.2s ease;
+  }
+
+  #{{ bn_id }} .bn-submit:hover {
+    background: #c4c4c4;
+  }
+
+  #{{ bn_id }} .bn-msg {
+    margin: 14px 0 0 8px;
+    font-family: var(--aspekta);
+    font-size: 14px;
+    color: #1a1a1a;
+  }
+
+  #{{ bn_id }} .bn-media {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #1b1b1b;
+  }
+
+  #{{ bn_id }} .bn-media img,
+  #{{ bn_id }} .bn-media svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 767px) {
+    #{{ bn_id }} .bn-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    #{{ bn_id }} .bn-media {
+      order: -1;
+    }
+
+    #{{ bn_id }} .bn-content {
+      max-width: none;
+    }
+
+    #{{ bn_id }} .bn-input,
+    #{{ bn_id }} .bn-submit {
+      font-size: 11px;
+    }
+
+    #{{ bn_id }} .bn-submit {
+      padding: 12px 16px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="blog-newsletter" id="{{ bn_id }}">
+  <div class="container">
+    <div class="bn-grid">
+      <div class="bn-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="bn-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <p class="bn-text">{{ section.settings.text }}</p>
+        {% endif %}
+
+        {%- form 'customer', id: 'BlogNewsletter', class: 'bn-form-wrap' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="bn-form">
+            <input
+              class="bn-input"
+              type="email"
+              name="contact[email]"
+              required
+              autocomplete="email"
+              placeholder="{{ section.settings.placeholder }}"
+              aria-label="{{ section.settings.placeholder }}"
+              value="{{ form.email }}"
+            >
+            <button class="bn-submit" type="submit">{{ section.settings.button_text }}</button>
+          </div>
+          {%- if form.posted_successfully? -%}
+            <p class="bn-msg">{{ section.settings.success_text }}</p>
+          {%- elsif form.errors -%}
+            <p class="bn-msg">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+
+      <div class="bn-media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sign Up For Our Free Weekly Newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "Lorem ipsum dolor sit amet consectetur. Lectus molestie nisi vitae leo et consectetur."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Enter email address"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "success_text",
+      "label": "Success message",
+      "default": "Thanks for subscribing!"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Newsletter"
+    }
+  ]
+}
+{% endschema %}

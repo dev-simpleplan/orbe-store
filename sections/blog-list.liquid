@@ -1,0 +1,563 @@
+{%- assign bl_id = 'blog-list-' | append: section.id -%}
+{%- assign per_page = section.settings.per_page | at_least: 3 -%}
+
+{%- comment -%} Category tabs: the tags typed in settings, or every tag used in this blog {%- endcomment -%}
+{%- if section.settings.categories != blank -%}
+  {%- assign tab_list = section.settings.categories | split: ',' -%}
+{%- else -%}
+  {%- assign tab_list = blog.all_tags -%}
+{%- endif -%}
+
+{%- style -%}
+  #{{ bl_id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #{{ bl_id }} .bl-head {
+    margin-bottom: 70px;
+  }
+
+  #{{ bl_id }} .bl-title {
+    margin: 0 0 10px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(40px, 4.6vw, 64px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ bl_id }} .bl-sub {
+    margin: 0;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  #{{ bl_id }} .bl-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  #{{ bl_id }} .bl-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 56px;
+  }
+
+  #{{ bl_id }} .bl-tab {
+    padding: 4px 0;
+    border: 0;
+    background: none;
+    color: #8c8c8c;
+    font-family: var(--aspekta);
+    font-size: 16px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.25s ease;
+  }
+
+  #{{ bl_id }} .bl-tab:hover,
+  #{{ bl_id }} .bl-tab.is-active {
+    color: #000;
+  }
+
+  #{{ bl_id }} .bl-sort {
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  #{{ bl_id }} .bl-sort-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 4px 0;
+    border: 0;
+    background: none;
+    color: #8c8c8c;
+    font-family: var(--aspekta);
+    font-size: 16px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  #{{ bl_id }} .bl-sort-btn svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.25s ease;
+  }
+
+  #{{ bl_id }} .bl-sort.is-open .bl-sort-btn svg {
+    transform: rotate(180deg);
+  }
+
+  #{{ bl_id }} .bl-sort-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    z-index: 5;
+    min-width: 200px;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  #{{ bl_id }} .bl-sort.is-open .bl-sort-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #{{ bl_id }} .bl-sort-option {
+    display: block;
+    width: 100%;
+    padding: 10px 18px;
+    border: 0;
+    background: none;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  #{{ bl_id }} .bl-sort-option:hover,
+  #{{ bl_id }} .bl-sort-option.is-active {
+    color: #000;
+  }
+
+  #{{ bl_id }} .bl-grid {
+    display: grid;
+    grid-template-columns: 613fr 433fr 530fr;
+    gap: 40px 14px;
+    align-items: start;
+  }
+
+  #{{ bl_id }} .bl-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #{{ bl_id }} .bl-card[hidden] {
+    display: none;
+  }
+
+  #{{ bl_id }} .bl-media {
+    overflow: hidden;
+    aspect-ratio: 1.07 / 1;
+    background: #e9e9e9;
+  }
+
+  #{{ bl_id }} .bl-card.pos-2 .bl-media {
+    aspect-ratio: 1.31 / 1;
+  }
+
+  #{{ bl_id }} .bl-card.pos-3 .bl-media {
+    aspect-ratio: 0.93 / 1;
+  }
+
+  #{{ bl_id }} .bl-media img,
+  #{{ bl_id }} .bl-media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  #{{ bl_id }} .bl-card:hover .bl-media img {
+    transform: scale(1.03);
+  }
+
+  #{{ bl_id }} .bl-card-title {
+    margin: 14px 0 8px;
+    color: #151515;
+    font-family: var(--tobias);
+    font-size: clamp(22px, 1.9vw, 28px);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  #{{ bl_id }} .bl-card-text {
+    margin: 0;
+    max-width: 30em;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  #{{ bl_id }} .bl-empty {
+    margin: 40px 0 0;
+    color: #5d5d5d;
+    font-family: var(--aspekta);
+    text-align: center;
+  }
+
+  #{{ bl_id }} .bl-pagination {
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  @media (max-width: 991px) {
+    #{{ bl_id }} .bl-tabs {
+      gap: 10px 30px;
+    }
+
+    #{{ bl_id }} .bl-tab,
+    #{{ bl_id }} .bl-sort-btn {
+      font-size: 14px;
+    }
+
+    #{{ bl_id }} .bl-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #{{ bl_id }} .bl-card .bl-media,
+    #{{ bl_id }} .bl-card.pos-2 .bl-media,
+    #{{ bl_id }} .bl-card.pos-3 .bl-media {
+      aspect-ratio: 1.1 / 1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #{{ bl_id }} .bl-head {
+      margin-bottom: 36px;
+    }
+
+    #{{ bl_id }} .bl-bar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    #{{ bl_id }} .bl-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 26px;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    #{{ bl_id }} .bl-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    #{{ bl_id }} .bl-tab {
+      flex: 0 0 auto;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+    }
+
+    #{{ bl_id }} .bl-sort {
+      align-self: flex-end;
+    }
+
+    #{{ bl_id }} .bl-sort-btn {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+    }
+
+    #{{ bl_id }} .bl-grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+
+    #{{ bl_id }} .bl-card .bl-media,
+    #{{ bl_id }} .bl-card.pos-2 .bl-media,
+    #{{ bl_id }} .bl-card.pos-3 .bl-media {
+      aspect-ratio: 1.2 / 1;
+    }
+
+    #{{ bl_id }} .bl-card-text {
+      font-size: 14px;
+    }
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by per_page -%}
+<section class="blog-list" id="{{ bl_id }}" data-bl>
+  <div class="container">
+    <div class="bl-head">
+      {% if section.settings.heading != blank %}
+        <h2 class="bl-title">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <p class="bl-sub">{{ section.settings.text }}</p>
+      {% endif %}
+    </div>
+
+    <div class="bl-bar">
+      <div class="bl-tabs" role="tablist">
+        {% if section.settings.show_all %}
+          <button type="button" class="bl-tab is-active" role="tab" aria-selected="true" data-bl-tab="all">{{ section.settings.all_label }}</button>
+        {% endif %}
+        {% for tag in tab_list %}
+          {%- assign tag_name = tag | strip -%}
+          {% if tag_name != blank %}
+            <button type="button" class="bl-tab{% unless section.settings.show_all %}{% if forloop.first %} is-active{% endif %}{% endunless %}" role="tab" aria-selected="false" data-bl-tab="{{ tag_name | handleize }}">{{ tag_name }}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if section.settings.show_sort %}
+        <div class="bl-sort" data-bl-sort>
+          <button type="button" class="bl-sort-btn" aria-haspopup="listbox" aria-expanded="false" data-bl-sort-btn>
+            <span data-bl-sort-label>{{ section.settings.sort_label }}</span>
+            <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m2 4.5 4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="bl-sort-menu" role="listbox">
+            <li><button type="button" class="bl-sort-option is-active" data-bl-sort-option="newest">Newest first</button></li>
+            <li><button type="button" class="bl-sort-option" data-bl-sort-option="oldest">Oldest first</button></li>
+            <li><button type="button" class="bl-sort-option" data-bl-sort-option="title">Title A–Z</button></li>
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="bl-grid" data-bl-grid>
+      {% for article in blog.articles %}
+        {%- capture article_tags -%}{% for tag in article.tags %}{{ tag | handleize }} {% endfor %}{%- endcapture -%}
+        <a class="bl-card" href="{{ article.url }}"
+          data-bl-card
+          data-tags="{{ article_tags | strip }}"
+          data-date="{{ article.published_at | date: '%s' }}"
+          data-title="{{ article.title | escape }}">
+          <div class="bl-media">
+            {% if article.image != blank %}
+              {{ article.image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: article.title }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+          <h3 class="bl-card-title">{{ article.title }}</h3>
+          <p class="bl-card-text">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+        </a>
+      {% endfor %}
+    </div>
+
+    <p class="bl-empty" data-bl-empty hidden>{{ section.settings.empty_text }}</p>
+
+    {%- if paginate.pages > 1 -%}
+      <div class="bl-pagination">{{ paginate | default_pagination }}</div>
+    {%- endif -%}
+  </div>
+</section>
+{%- endpaginate -%}
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ bl_id }}');
+    if (!root || root.dataset.blReady === 'true') return;
+    root.dataset.blReady = 'true';
+
+    var grid = root.querySelector('[data-bl-grid]');
+    var cards = Array.prototype.slice.call(root.querySelectorAll('[data-bl-card]'));
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[data-bl-tab]'));
+    var empty = root.querySelector('[data-bl-empty]');
+    var sortBox = root.querySelector('[data-bl-sort]');
+    var sortBtn = root.querySelector('[data-bl-sort-btn]');
+    var sortLabel = root.querySelector('[data-bl-sort-label]');
+    var sortOptions = Array.prototype.slice.call(root.querySelectorAll('[data-bl-sort-option]'));
+    var activeTab = tabs.length ? tabs.filter(function (t) { return t.classList.contains('is-active'); })[0] : null;
+    var state = { tag: activeTab ? activeTab.dataset.blTab : 'all', sort: 'newest' };
+
+    function sorted() {
+      var list = cards.slice();
+      if (state.sort === 'oldest') {
+        list.sort(function (a, b) { return a.dataset.date - b.dataset.date; });
+      } else if (state.sort === 'title') {
+        list.sort(function (a, b) { return a.dataset.title.localeCompare(b.dataset.title); });
+      } else {
+        list.sort(function (a, b) { return b.dataset.date - a.dataset.date; });
+      }
+      return list;
+    }
+
+    function render() {
+      var shown = 0;
+      sorted().forEach(function (card) {
+        grid.appendChild(card);
+        var tags = (card.dataset.tags || '').split(' ');
+        var match = state.tag === 'all' || tags.indexOf(state.tag) !== -1;
+        card.hidden = !match;
+        card.classList.remove('pos-1', 'pos-2', 'pos-3');
+        if (match) {
+          card.classList.add('pos-' + ((shown % 3) + 1));
+          shown += 1;
+        }
+      });
+      if (empty) empty.hidden = shown > 0;
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        state.tag = tab.dataset.blTab;
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        render();
+      });
+    });
+
+    if (sortBox && sortBtn) {
+      sortBtn.addEventListener('click', function (event) {
+        event.stopPropagation();
+        var open = !sortBox.classList.contains('is-open');
+        sortBox.classList.toggle('is-open', open);
+        sortBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      sortOptions.forEach(function (option) {
+        option.addEventListener('click', function () {
+          state.sort = option.dataset.blSortOption;
+          sortOptions.forEach(function (o) { o.classList.toggle('is-active', o === option); });
+          if (sortLabel) sortLabel.textContent = option.textContent;
+          sortBox.classList.remove('is-open');
+          sortBtn.setAttribute('aria-expanded', 'false');
+          render();
+        });
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!sortBox.contains(event.target)) {
+          sortBox.classList.remove('is-open');
+          sortBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    render();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Blog List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "All Blogs"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "Guiding you toward choices that honour your strength, your rhythm, your becoming."
+    },
+    {
+      "type": "header",
+      "content": "Category tabs"
+    },
+    {
+      "type": "paragraph",
+      "content": "Tabs filter the posts by their tags. Add a tag to a post in Shopify (Content → Blog posts → Tags) to put it in a category."
+    },
+    {
+      "type": "textarea",
+      "id": "categories",
+      "label": "Tabs to show",
+      "info": "Tag names separated by commas, in the order you want. Leave empty to show every tag used in this blog."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all",
+      "label": "Show an “All” tab first",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "“All” tab text",
+      "default": "All"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Text when a category has no posts",
+      "default": "No articles in this category yet."
+    },
+    {
+      "type": "header",
+      "content": "Sorting"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort",
+      "label": "Show the “Sort by” dropdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sort_label",
+      "label": "Dropdown text",
+      "default": "Sort by"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "Posts per page",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 25,
+      "info": "Tabs and sorting work on the posts loaded on the current page. Keep this high enough to load all your posts."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog List"
+    }
+  ]
+}
+{% endschema %}
