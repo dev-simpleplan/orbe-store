@@ -45,6 +45,7 @@
         "placeholder": "Enter email address",
         "button_text": "Subscribe",
         "success_text": "Thanks for subscribing!",
+        "image": "shopify://shop_images/Container_9.jpg",
         "background_color": "#ffffff",
         "padding_top": 0,
         "padding_bottom": 0
