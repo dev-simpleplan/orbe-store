@@ -11,15 +11,44 @@
   "sections": {
     "blog-featured": {
       "type": "blog-featured",
-      "settings": {}
+      "settings": {
+        "article": "articles/where-can-i-get-some",
+        "heading": "Featured Blog",
+        "text": "Guiding you toward choices that honour your strength, your rhythm, your becoming.",
+        "button_text": "Read Now",
+        "overlay": 50,
+        "min_height": 100
+      }
     },
     "blog-list": {
       "type": "blog-list",
-      "settings": {}
+      "settings": {
+        "heading": "All Blogs",
+        "text": "Guiding you toward choices that honour your strength, your rhythm, your becoming.",
+        "categories": "",
+        "show_all": true,
+        "all_label": "All",
+        "empty_text": "No articles in this category yet.",
+        "show_sort": true,
+        "sort_label": "Sort by",
+        "per_page": 25,
+        "background_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     },
     "blog-newsletter": {
       "type": "blog-newsletter",
-      "settings": {}
+      "settings": {
+        "heading": "Sign Up For Our Free Weekly Newsletter",
+        "text": "Lorem ipsum dolor sit amet consectetur. Lectus molestie nisi vitae leo et consectetur.",
+        "placeholder": "Enter email address",
+        "button_text": "Subscribe",
+        "success_text": "Thanks for subscribing!",
+        "background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [

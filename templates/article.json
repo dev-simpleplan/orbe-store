@@ -11,20 +11,47 @@
   "sections": {
     "header": {
       "type": "article-header",
-      "settings": {}
+      "settings": {
+        "show_share": true,
+        "share_label": "Share",
+        "instagram_url": ""
+      }
     },
     "main": {
       "type": "article",
-      "settings": {}
+      "settings": {
+        "show_share": true,
+        "share_label": "Share",
+        "instagram_url": ""
+      }
     },
     "related": {
       "type": "article-related",
-      "settings": {}
+      "settings": {
+        "heading": "Other Similar Topics",
+        "count": 3
+      }
+    },
+    "blog_newsletter_QK8rj4": {
+      "type": "blog-newsletter",
+      "name": "Blog Newsletter",
+      "settings": {
+        "heading": "Sign Up For Our Free Weekly Newsletter",
+        "text": "Lorem ipsum dolor sit amet consectetur. Lectus molestie nisi vitae leo et consectetur.",
+        "placeholder": "Enter email address",
+        "button_text": "Subscribe",
+        "success_text": "Thanks for subscribing!",
+        "image": "shopify://shop_images/Container_9.jpg",
+        "background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "header",
     "main",
-    "related"
+    "related",
+    "blog_newsletter_QK8rj4"
   ]
 }
