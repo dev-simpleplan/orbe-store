@@ -34,7 +34,15 @@
         "per_page": 25,
         "background_color": "#ffffff",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 0
+      }
+    },
+    "spacer_gXdWqD": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 120,
+        "custom_class": ""
       }
     },
     "blog-newsletter": {
@@ -55,6 +63,7 @@
   "order": [
     "blog-featured",
     "blog-list",
+    "spacer_gXdWqD",
     "blog-newsletter"
   ]
 }
