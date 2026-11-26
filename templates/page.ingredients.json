@@ -304,6 +304,193 @@
         "heading": "What Your Body's Been Trying To Tell You",
         "subheading": "You're not imagining it. These everyday shifts are your body's way of asking for support."
       }
+    },
+    "spacer_8cWzTK": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 70,
+        "custom_class": ""
+      }
+    },
+    "batch_verified_XNXjXP": {
+      "type": "batch-verified",
+      "blocks": {
+        "verification_3zVgHV": {
+          "type": "verification",
+          "settings": {
+            "title": "Heavy Metals",
+            "description": "Mercury, lead, arsenic, and cadmium, screened against FSSAI limits.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Complete_Heavy_Metal_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_Rmb9w9": {
+          "type": "verification",
+          "settings": {
+            "title": "Pesticides",
+            "description": "216 compounds tested. Every one below detection limit.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Pesticide_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_6ArJqX": {
+          "type": "verification",
+          "settings": {
+            "title": "Microbial Safety",
+            "description": "Screened for salmonella, E. coli, staph, yeast, and mould. All absent or under limit.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Microbial_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_CT7iaL": {
+          "type": "verification",
+          "settings": {
+            "title": "Aflatoxins",
+            "description": "The four aflatoxins (B1, B2, G1, G2) that contaminate poorly stored botanicals. All under 0.5 µg/kg.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Aflatoxin_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        },
+        "verification_myUhFN": {
+          "type": "verification",
+          "settings": {
+            "title": "Melamine",
+            "description": "The adulterant behind past supplement scandals. Screened and cleared at under 0.5 mg/kg, well below the 2.5 limit.",
+            "report_text": "View Report",
+            "report_link": "https://cdn.shopify.com/s/files/1/0739/8014/9916/files/ORBE_N01_-_Melamine_Test_-_Batch_6061VGV1.pdf?v=1783685324"
+          }
+        }
+      },
+      "block_order": [
+        "verification_3zVgHV",
+        "verification_Rmb9w9",
+        "verification_6ArJqX",
+        "verification_CT7iaL",
+        "verification_myUhFN"
+      ],
+      "name": "Batch Verified",
+      "settings": {
+        "heading": "A First for India. A Standard for You.",
+        "subheading": "Most brands test to meet the minimum. We run a five-point screen on every batch through a NABL accredited lab, then publish the results. Nothing to take on faith.",
+        "image": "shopify://shop_images/Rectangle_3468672.png",
+        "testedby": "Tested by Equinox Labs, NABL accredited. Reports are batch-specific and dated, so you can match what you're holding to the paperwork."
+      }
+    },
+    "spacer_zHi9X7": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 70,
+        "custom_class": ""
+      }
+    },
+    "certified_by_WiaexF": {
+      "type": "certified-by",
+      "blocks": {
+        "certificate_jkR7a3": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/FDA_Logo-1_f4366b69-1060-48cd-bb1a-00e1b3439a48.svg",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_jqNYwr": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/GMP_Certified-1_ccee364b-794e-44d3-9e01-2ff0531b7e7b.svg",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_WAJRn3": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/surface1_a78f7377-a381-40c0-86fb-b73925a111e0.svg",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_qgqrLr": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/HACCP_Logo_-1_de53d0ac-3752-46bf-b995-c6a07d00ab12.svg",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_DLrCrq": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/ISO_9001-2015-1_1.svg",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_GtxtNX": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/AnnualReport2021-22_Page_001-edited-1.png",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_Ty8WaF": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/intertek_FSSC_22000_V6_Logo-1.png",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        },
+        "certificate_BAwKLj": {
+          "type": "certificate",
+          "settings": {
+            "image": "shopify://shop_images/halal-seeklogo-2-1_de433d0a-1929-45a4-a5f6-6a58e15edee5.svg",
+            "alt": "Certification logo",
+            "title": "",
+            "info": "",
+            "why_heading": "Why it matters",
+            "why_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "certificate_jkR7a3",
+        "certificate_jqNYwr",
+        "certificate_WAJRn3",
+        "certificate_qgqrLr",
+        "certificate_DLrCrq",
+        "certificate_GtxtNX",
+        "certificate_Ty8WaF",
+        "certificate_BAwKLj"
+      ],
+      "name": "Certified by",
+      "settings": {
+        "heading": "Certified by"
+      }
     }
   },
   "order": [
@@ -316,6 +503,10 @@
     "spacer_Qx6dgE",
     "ingredients_science_y8Xx48",
     "spacer_9c4dgr",
-    "body_signals_Xk9rbt"
+    "body_signals_Xk9rbt",
+    "spacer_8cWzTK",
+    "batch_verified_XNXjXP",
+    "spacer_zHi9X7",
+    "certified_by_WiaexF"
   ]
 }
