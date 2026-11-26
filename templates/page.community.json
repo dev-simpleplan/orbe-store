@@ -40,25 +40,11 @@
         "insider_club_forum_icMBGd"
       ],
       "settings": {}
-    },
-    "17956782493d6bd1ff": {
-      "type": "apps",
-      "blocks": {
-        "insider_club_forum_gkaCNF": {
-          "type": "shopify://apps/insider-club/blocks/forum/01a1117a-f39a-7b81-8703-0b4bf5ea2a10",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "insider_club_forum_gkaCNF"
-      ],
-      "settings": {}
     }
   },
   "order": [
     "community-banner",
     "spacer_cFiQff",
-    "17956780874ad082e6",
-    "17956782493d6bd1ff"
+    "17956780874ad082e6"
   ]
 }
