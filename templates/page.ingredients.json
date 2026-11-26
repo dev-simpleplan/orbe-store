@@ -377,14 +377,6 @@
         "testedby": "Tested by Equinox Labs, NABL accredited. Reports are batch-specific and dated, so you can match what you're holding to the paperwork."
       }
     },
-    "spacer_zHi9X7": {
-      "type": "spacer",
-      "name": "Spacer",
-      "settings": {
-        "spacer_height": 70,
-        "custom_class": ""
-      }
-    },
     "certified_by_WiaexF": {
       "type": "certified-by",
       "blocks": {
@@ -616,7 +608,6 @@
     "body_signals_Xk9rbt",
     "spacer_8cWzTK",
     "batch_verified_XNXjXP",
-    "spacer_zHi9X7",
     "certified_by_WiaexF",
     "new_faq_section_gHejQR"
   ]
