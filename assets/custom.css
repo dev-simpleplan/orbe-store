@@ -7687,7 +7687,10 @@ header.ic-hero {
   margin-top: 20px;
 }
 @media(max-width: 767px){
+  header.ic-hero {
+    padding: 0 16px 20px 16px!important;
+  }
   .ic-layout {
-    padding: 34px 16px 0 16px!important;
+    padding: 60px 16px 0 16px!important;
   }
 }
