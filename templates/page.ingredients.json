@@ -112,7 +112,118 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 100,
+        "spacer_height": 70,
+        "custom_class": ""
+      }
+    },
+    "ingredients_intro_MKhcPW": {
+      "type": "ingredients-intro",
+      "name": "Ingredients Intro",
+      "settings": {
+        "heading": "Every Ingredient Plays A Role.",
+        "text": "Beyond key nutrients, our capsules include essential supporting ingredients that ensure stability, absorption, and quality. Nothing is added without reason — each component supports performance and safety.",
+        "button_text": "Learn About Our Ingredients",
+        "button_link": "",
+        "image": "shopify://shop_images/Rectangle_3468651.jpg"
+      }
+    },
+    "spacer_jJyqjB": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 70,
+        "custom_class": ""
+      }
+    },
+    "ingredients_concerns_H9fMTU": {
+      "type": "ingredients-concerns",
+      "blocks": {
+        "card_QGmb4D": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468643.jpg",
+            "title": "Muscle Pain & Body Aches",
+            "text": "May be linked to low magnesium or vitamin D levels, which support muscle function and recovery."
+          }
+        },
+        "card_HXLzJe": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468644.jpg",
+            "title": "Constant Fatigue",
+            "text": "Iron and B12 play a role in energy production and oxygen transport."
+          }
+        },
+        "card_KyWE3G": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3468645.jpg",
+            "title": "Restless Sleep",
+            "text": "Magnesium helps support relaxation and normal sleep cycles."
+          }
+        }
+      },
+      "block_order": [
+        "card_QGmb4D",
+        "card_HXLzJe",
+        "card_KyWE3G"
+      ],
+      "name": "Ingredients Concerns",
+      "settings": {
+        "heading": "Connecting Concerns To Nutrients",
+        "text": "Your body often communicates through everyday discomforts.\nUnderstanding what may support these functions helps you make informed choices."
+      }
+    },
+    "spacer_Qx6dgE": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 70,
+        "custom_class": ""
+      }
+    },
+    "ingredients_science_y8Xx48": {
+      "type": "ingredients-science",
+      "blocks": {
+        "stat_kwyQpj": {
+          "type": "stat",
+          "settings": {
+            "number": "89%",
+            "text": "Based on ingredient-level clinical research and nutritional evidence."
+          }
+        },
+        "stat_3RAm8q": {
+          "type": "stat",
+          "settings": {
+            "number": "93%",
+            "text": "Derived from validated studies on absorption, efficacy, and consistency."
+          }
+        },
+        "stat_339dTG": {
+          "type": "stat",
+          "settings": {
+            "number": "60%",
+            "text": "Reflects findings from peer-reviewed wellness and nutrition research."
+          }
+        }
+      },
+      "block_order": [
+        "stat_kwyQpj",
+        "stat_3RAm8q",
+        "stat_339dTG"
+      ],
+      "name": "Ingredients Science",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_3468626.jpg",
+        "heading": "Science You Can Understand",
+        "text": "At ORBÉ, every formulation begins with research — not trends.\nWe translate clinical insights into simple, supportive wellness designed for real life."
+      }
+    },
+    "spacer_9c4dgr": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 70,
         "custom_class": ""
       }
     }
@@ -120,6 +231,12 @@
   "order": [
     "spacer_YaekQG",
     "essential_ingredient_iaGxD4",
-    "spacer_nek8wC"
+    "spacer_nek8wC",
+    "ingredients_intro_MKhcPW",
+    "spacer_jJyqjB",
+    "ingredients_concerns_H9fMTU",
+    "spacer_Qx6dgE",
+    "ingredients_science_y8Xx48",
+    "spacer_9c4dgr"
   ]
 }
