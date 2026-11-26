@@ -1,0 +1,74 @@
+<section class="community-banner">
+  <div class="container">
+    <div class="community-banner__card">
+      <div class="community-banner__media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.heading }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+      <div class="community-banner__overlay" style="background: rgba(0, 0, 0, {{ section.settings.overlay | divided_by: 100.0 }});"></div>
+
+      <div class="community-banner__content">
+        {% if section.settings.heading != blank %}
+          <h1 class="community-banner__title">{{ section.settings.heading }}</h1>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <p class="community-banner__text">{{ section.settings.text }}</p>
+        {% endif %}
+        {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+          <a class="primary-btn community-banner__btn" href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Community Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "Dark overlay",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You’re Not Doing This Alone"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "Wellness isn’t a solo journey. This space connects women through shared experiences, honest conversations, and steady progress — at your own pace."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text (optional)"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    { "name": "Community Banner" }
+  ]
+}
+{% endschema %}

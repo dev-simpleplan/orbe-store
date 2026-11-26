@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "community-banner": {
+      "type": "community-banner",
+      "settings": {}
+    },
     "about-banner": {
       "type": "about-banner",
       "disabled": true,
@@ -20,7 +24,7 @@
         "top_right_img": "shopify://shop_images/Rectangle_3468565.jpg",
         "bottom_right_img": "shopify://shop_images/Rectangle_3468566.jpg",
         "heading": "Wellness,<br> Simplified.",
-        "description": "Orbé exists to make feeling good less complicated through clean science, intentional design, and rituals that support the woman you’re becoming."
+        "description": "Orb\u00e9 exists to make feeling good less complicated through clean science, intentional design, and rituals that support the woman you\u2019re becoming."
       }
     },
     "spacer_cFiQff": {
@@ -59,6 +63,7 @@
     }
   },
   "order": [
+    "community-banner",
     "about-banner",
     "spacer_cFiQff",
     "17956780874ad082e6",
