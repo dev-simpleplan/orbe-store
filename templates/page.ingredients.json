@@ -9,11 +9,11 @@
  */
 {
   "sections": {
-    "spacer_ing01": {
+    "spacer_YaekQG": {
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 100,
+        "spacer_height": 50,
         "custom_class": ""
       }
     },
@@ -110,7 +110,7 @@
     }
   },
   "order": [
-    "spacer_ing01",
+    "spacer_YaekQG",
     "essential_ingredient_iaGxD4"
   ]
 }
