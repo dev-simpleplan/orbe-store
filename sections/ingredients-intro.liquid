@@ -1,0 +1,64 @@
+<section class="ingredients-intro">
+  <div class="container">
+    <div class="ingredients-intro__grid">
+      <div class="ingredients-intro__content">
+        {% if section.settings.heading != blank %}
+          <h1 class="ingredients-intro__title">{{ section.settings.heading }}</h1>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <p class="ingredients-intro__text">{{ section.settings.text }}</p>
+        {% endif %}
+        {% if section.settings.button_text != blank %}
+          <a class="primary-btn ingredients-intro__btn" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_text }}</a>
+        {% endif %}
+      </div>
+
+      <div class="ingredients-intro__media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: section.settings.heading }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Intro",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Every Ingredient Plays A Role."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph",
+      "default": "Beyond key nutrients, our capsules include essential supporting ingredients that ensure stability, absorption, and quality. Nothing is added without reason — each component supports performance and safety."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Learn About Our Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    { "name": "Ingredients Intro" }
+  ]
+}
+{% endschema %}

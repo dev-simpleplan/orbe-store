@@ -7697,3 +7697,275 @@ header.ic-hero {
     padding: 10px 16px 0 16px!important;
   }
 }
+/* ===== Ingredients intro ===== */
+.ingredients-intro__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.ingredients-intro__title {
+  margin: 0 0 24px;
+  font-family: var(--tobias);
+  font-size: clamp(38px, 4.6vw, 66px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.ingredients-intro__text {
+  margin: 0;
+  max-width: 30em;
+  font-family: var(--aspekta);
+  font-size: 17px;
+  line-height: 1.3;
+  color: #555;
+}
+
+.ingredients-intro__btn {
+  margin-top: 48px;
+}
+
+.ingredients-intro__media {
+  aspect-ratio: 638 / 651;
+  overflow: hidden;
+  background: #555;
+}
+
+.ingredients-intro__media img,
+.ingredients-intro__media svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .ingredients-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ingredients-intro__media {
+    order: -1;
+  }
+
+  .ingredients-intro__text {
+    font-size: 15px;
+  }
+
+  .ingredients-intro__btn {
+    margin-top: 32px;
+  }
+}
+
+/* ===== Ingredients concerns ===== */
+.ingredients-concerns__head {
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+.ingredients-concerns__title {
+  margin: 0 0 12px;
+  font-family: var(--tobias);
+  font-size: clamp(36px, 4.6vw, 66px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.ingredients-concerns__text {
+  margin: 0;
+  font-family: var(--aspekta);
+  font-size: 16px;
+  line-height: 1.3;
+  white-space: pre-line;
+  color: #555;
+}
+
+.ingredients-concerns__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.ingredients-concerns__media {
+  aspect-ratio: 592 / 675;
+  overflow: hidden;
+  background: #222;
+}
+
+.ingredients-concerns__media img,
+.ingredients-concerns__media svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ingredients-concerns__card-title {
+  margin: 28px 0 10px;
+  font-family: var(--tobias);
+  font-size: clamp(24px, 2.2vw, 32px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.ingredients-concerns__card-text {
+  margin: 0;
+  max-width: 26em;
+  font-family: var(--aspekta);
+  font-size: 16px;
+  line-height: 1.25;
+  color: #555;
+}
+
+@media (max-width: 989px) {
+  .ingredients-concerns__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .ingredients-concerns__head {
+    margin-bottom: 32px;
+  }
+
+  .ingredients-concerns__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ingredients-concerns__text {
+    font-size: 14px;
+  }
+
+  .ingredients-concerns__card-title {
+    margin-top: 18px;
+  }
+
+  .ingredients-concerns__card-text {
+    font-size: 14px;
+  }
+}
+
+/* ===== Ingredients science ===== */
+.ingredients-science__top {
+  display: grid;
+  grid-template-columns: 55% 1fr;
+  gap: 4%;
+  align-items: start;
+}
+
+.ingredients-science__media {
+  aspect-ratio: 1010 / 729;
+  overflow: hidden;
+  background: #111;
+}
+
+.ingredients-science__media img,
+.ingredients-science__media svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ingredients-science__content {
+  padding-top: 7%;
+}
+
+.ingredients-science__title {
+  margin: 0 0 26px;
+  max-width: 7em;
+  font-family: var(--tobias);
+  font-size: clamp(36px, 4.4vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.ingredients-science__text {
+  margin: 0;
+  font-family: var(--aspekta);
+  font-size: 15px;
+  line-height: 1.3;
+  white-space: pre-line;
+  color: #555;
+}
+
+.ingredients-science__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 80px;
+}
+
+.ingredients-science__stat {
+  padding: 0 40px;
+  border-left: 1px solid #d8d8d8;
+}
+
+.ingredients-science__stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.ingredients-science__number {
+  display: block;
+  font-family: var(--tobias);
+  font-size: clamp(64px, 8vw, 128px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1a1a1a;
+}
+
+.ingredients-science__stat-text {
+  margin: 6px 0 0;
+  max-width: 22em;
+  font-family: var(--aspekta);
+  font-size: 16px;
+  line-height: 1.25;
+  color: #1a1a1a;
+}
+
+@media (max-width: 767px) {
+  .ingredients-science__top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ingredients-science__content {
+    padding-top: 0;
+  }
+
+  .ingredients-science__title {
+    max-width: none;
+  }
+
+  .ingredients-science__stats {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+
+  .ingredients-science__stat,
+  .ingredients-science__stat:first-child {
+    padding: 24px 0;
+    border-left: 0;
+    border-top: 1px solid #d8d8d8;
+  }
+
+  .ingredients-science__stat:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .ingredients-science__stat-text {
+    font-size: 14px;
+  }
+}
