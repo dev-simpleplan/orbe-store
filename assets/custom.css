@@ -7679,8 +7679,8 @@ body.template-404 .footer {
 }
 
 header.ic-hero {
-  position: sticky;
-  top: 80px;
+  position: static;
+  padding-top: 80px;
 }
 .ic-hero__cover {
   aspect-ratio: 3/1;
@@ -7688,9 +7688,9 @@ header.ic-hero {
 }
 @media(max-width: 767px){
   header.ic-hero {
-    padding: 0 16px 20px 16px!important;
+    padding: 70px 16px 20px 16px!important;
   }
   .ic-layout {
-    padding: 60px 16px 0 16px!important;
+    padding: 10px 16px 0 16px!important;
   }
 }
