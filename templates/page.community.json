@@ -11,20 +11,13 @@
   "sections": {
     "community-banner": {
       "type": "community-banner",
-      "settings": {}
-    },
-    "about-banner": {
-      "type": "about-banner",
-      "disabled": true,
       "settings": {
-        "hero_logo": "shopify://shop_images/Group_2085663252_4.svg",
-        "hero_image": "shopify://shop_images/Rectangle_3468561_1.jpg",
-        "left_img_1": "shopify://shop_images/Rectangle_3468561_1.jpg",
-        "left_img_2": "shopify://shop_images/cb528a057874ed1960709ef4ccbdb9d1d937fafd_1.png",
-        "top_right_img": "shopify://shop_images/Rectangle_3468565.jpg",
-        "bottom_right_img": "shopify://shop_images/Rectangle_3468566.jpg",
-        "heading": "Wellness,<br> Simplified.",
-        "description": "Orb\u00e9 exists to make feeling good less complicated through clean science, intentional design, and rituals that support the woman you\u2019re becoming."
+        "image": "shopify://shop_images/e59ebc9b59b834d0df02bf8f2dec799a981ff553.png",
+        "overlay": 50,
+        "heading": "You’re Not Doing This Alone",
+        "text": "Wellness isn’t a solo journey. This space connects women through shared experiences, honest conversations, and steady progress — at your own pace.",
+        "button_text": "",
+        "button_link": ""
       }
     },
     "spacer_cFiQff": {
@@ -64,7 +57,6 @@
   },
   "order": [
     "community-banner",
-    "about-banner",
     "spacer_cFiQff",
     "17956780874ad082e6",
     "17956782493d6bd1ff"
