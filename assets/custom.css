@@ -7680,7 +7680,7 @@ body.template-404 .footer {
 
 header.ic-hero {
   position: sticky;
-  top: 0;
+  top: 80px;
 }
 .ic-hero__cover {
   aspect-ratio: 3/1;
