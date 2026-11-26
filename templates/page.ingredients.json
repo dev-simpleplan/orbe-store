@@ -16,32 +16,9 @@
         "spacer_height": 100,
         "custom_class": ""
       }
-    },
-    "feature_ingredients_jPCxkq": {
-      "type": "feature-ingredients",
-      "blocks": {
-        "ingredient_D8EDhy": {
-          "type": "ingredient",
-          "settings": {
-            "image": "shopify://shop_images/POV_Beauty_Whip_It_whipped_hydrating_face_moisturizer_product_ingredients_and_benefits.png",
-            "title": "Ashwagandha",
-            "text": "Folate (as Quatrefolic® 6S-5-Methyltetrahydrofolate [Glucosamine Salt]) — 220.00 mcg",
-            "link_text": "Learn more",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "ingredient_D8EDhy"
-      ],
-      "name": "Feature Ingredients",
-      "settings": {
-        "heading": "Ingredients With Intention"
-      }
     }
   },
   "order": [
-    "spacer_ing01",
-    "feature_ingredients_jPCxkq"
+    "spacer_ing01"
   ]
 }
