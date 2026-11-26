@@ -11,6 +11,7 @@
   "sections": {
     "about-banner": {
       "type": "about-banner",
+      "disabled": true,
       "settings": {
         "hero_logo": "shopify://shop_images/Group_2085663252_4.svg",
         "hero_image": "shopify://shop_images/Rectangle_3468561_1.jpg",
@@ -42,11 +43,25 @@
         "insider_club_forum_icMBGd"
       ],
       "settings": {}
+    },
+    "17956782493d6bd1ff": {
+      "type": "apps",
+      "blocks": {
+        "insider_club_forum_gkaCNF": {
+          "type": "shopify://apps/insider-club/blocks/forum/01a1117a-f39a-7b81-8703-0b4bf5ea2a10",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "insider_club_forum_gkaCNF"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "about-banner",
     "spacer_cFiQff",
-    "17956780874ad082e6"
+    "17956780874ad082e6",
+    "17956782493d6bd1ff"
   ]
 }
