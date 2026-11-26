@@ -11,6 +11,7 @@
   "sections": {
     "community-banner": {
       "type": "community-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/e59ebc9b59b834d0df02bf8f2dec799a981ff553.png",
         "overlay": 50,
@@ -22,6 +23,7 @@
     },
     "spacer_cFiQff": {
       "type": "spacer",
+      "disabled": true,
       "name": "Spacer",
       "settings": {
         "spacer_height": 50,
