@@ -107,10 +107,19 @@
         "nutrition_text": "",
         "box_image": "shopify://shop_images/ChatGPT_Image_Sep_25_2026_12_32_45_PM.png"
       }
+    },
+    "spacer_nek8wC": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 100,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "spacer_YaekQG",
-    "essential_ingredient_iaGxD4"
+    "essential_ingredient_iaGxD4",
+    "spacer_nek8wC"
   ]
 }
