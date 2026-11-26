@@ -7684,7 +7684,7 @@ header.ic-hero {
 }
 .ic-hero__cover {
   aspect-ratio: 3/1;
-  margin-top: 0px;
+  margin-top: 0px; 
 }
 .ic-forum {
   padding-bottom: 0!important;
