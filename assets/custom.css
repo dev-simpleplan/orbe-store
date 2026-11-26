@@ -7686,6 +7686,9 @@ header.ic-hero {
   aspect-ratio: 3/1;
   margin-top: 20px;
 }
+.ic-forum {
+  padding-bottom: 0!important;
+}
 @media(max-width: 767px){
   header.ic-hero {
     padding: 70px 16px 20px 16px!important;
