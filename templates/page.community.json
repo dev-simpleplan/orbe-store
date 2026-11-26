@@ -23,6 +23,7 @@
     },
     "spacer_cFiQff": {
       "type": "spacer",
+      "disabled": true,
       "name": "Spacer",
       "settings": {
         "spacer_height": 180,
@@ -33,7 +34,7 @@
       "type": "spacer",
       "name": "Spacer",
       "settings": {
-        "spacer_height": 60,
+        "spacer_height": 50,
         "custom_class": ""
       }
     },
