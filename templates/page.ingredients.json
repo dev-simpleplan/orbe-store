@@ -491,6 +491,116 @@
       "settings": {
         "heading": "Certified by"
       }
+    },
+    "new_faq_section_gHejQR": {
+      "type": "new-faq-section",
+      "blocks": {
+        "faq_item_bmeAbi": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I take Orbé?",
+            "answer": "Two capsules a day: a simple ritual that fits naturally into your morning or evening."
+          }
+        },
+        "faq_item_XHF7pi": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When will I start noticing changes?",
+            "answer": "Most women feel subtle shifts in clarity and energy within 1–2 weeks, with deeper benefits unfolding over 6–12 weeks."
+          }
+        },
+        "faq_item_83jr43": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take Orbé every day?",
+            "answer": "Yes. It’s designed to be gentle, balanced, and safe for daily use. Consistency is where the transformation happens."
+          }
+        },
+        "faq_item_Nz3YCk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can anyone take an overall wellness supplement?",
+            "answer": "Most adults can. If you're pregnant, breastfeeding, or managing a medical condition, check in with a professional first."
+          }
+        },
+        "faq_item_iG9g3z": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a prescription?",
+            "answer": "No. Orbé is a daily wellness supplement, not a medication. It can be taken without a prescription."
+          }
+        },
+        "faq_item_RAW9K9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it upset my stomach?",
+            "answer": "Unlikely. We use gentle, chelated minerals like Ferrochel® iron and magnesium bisglycinate that are easy on digestion."
+          }
+        },
+        "faq_item_XhG3hE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes Orbé different from other supplements?",
+            "answer": "A pill-in-pill design that protects potency, clinically validated nutrients, and clean, intentional formulation."
+          }
+        },
+        "faq_item_YG8Ck6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe to take long-term?",
+            "answer": "Yes. Orbé is crafted with clean ingredients and balanced dosing for daily foundational support."
+          }
+        },
+        "faq_item_TMYPDY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take Orbé with other supplements?",
+            "answer": "In most cases, yes, but it’s helpful to avoid doubling nutrients. If you’re unsure, a quick professional check-in is wise."
+          }
+        },
+        "faq_item_ipCrRk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Orbé vegan?",
+            "answer": "Yes. The capsule is fully plant-based, and all nutrient sources are vegan-friendly."
+          }
+        },
+        "faq_item_cWQeq6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I forget a dose?",
+            "answer": "No stress. Just take your next dose as usual. Consistency matters more than perfection."
+          }
+        },
+        "faq_item_XwX7mw": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does Orbé have side effects?",
+            "answer": "Our forms are chosen precisely because they’re gentle and well-tolerated. Side effects are rare."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_bmeAbi",
+        "faq_item_XHF7pi",
+        "faq_item_83jr43",
+        "faq_item_Nz3YCk",
+        "faq_item_iG9g3z",
+        "faq_item_RAW9K9",
+        "faq_item_XhG3hE",
+        "faq_item_YG8Ck6",
+        "faq_item_TMYPDY",
+        "faq_item_ipCrRk",
+        "faq_item_cWQeq6",
+        "faq_item_XwX7mw"
+      ],
+      "name": "New FAQ Section",
+      "settings": {
+        "image": "shopify://shop_images/06964c946e7a37b7af06c0134fdfeaf963659270.png",
+        "heading": "FAQs",
+        "cta_text": "View All FAQs",
+        "cta_link": "shopify://pages/faqs"
+      }
     }
   },
   "order": [
@@ -507,6 +617,7 @@
     "spacer_8cWzTK",
     "batch_verified_XNXjXP",
     "spacer_zHi9X7",
-    "certified_by_WiaexF"
+    "certified_by_WiaexF",
+    "new_faq_section_gHejQR"
   ]
 }
