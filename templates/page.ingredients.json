@@ -520,6 +520,14 @@
         "show_navigation": true
       }
     },
+    "spacer_RBBD48": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 70,
+        "custom_class": ""
+      }
+    },
     "new_faq_section_gHejQR": {
       "type": "new-faq-section",
       "blocks": {
@@ -646,6 +654,7 @@
     "batch_verified_XNXjXP",
     "certified_by_WiaexF",
     "blogs_feature_8eYJhn",
+    "spacer_RBBD48",
     "new_faq_section_gHejQR"
   ]
 }
